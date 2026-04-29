@@ -28,6 +28,7 @@ ms.custom: Include file
 | Products | 100 | 100 | 200 | 500 | 2,000 |
 | Subscriptions | N/A | 10,000 | 15,000 | 25,000 | 75,000 |
 | Users | N/A | 20,000 | 20,000 | 50,000 | 75,000 |
+| User-assigned managed identities | 10 | 10 | 10 | 10 | 10 |
 | Workspaces per workspace gateway | N/A | N/A | N/A | N/A | 30 |
 | Self-hosted gateways | N/A | 5 | N/A | N/A | 100<sup>1</sup> |
 

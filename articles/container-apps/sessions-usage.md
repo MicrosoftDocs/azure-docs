@@ -4,8 +4,8 @@ description: Learn how to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 05/19/2025
+ms.topic: how-to
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -77,9 +77,144 @@ The session identifier is a string you define that is unique within the session 
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
+## Retrieve session information
+
+You can query your session pool to check session status, get expiration details, and list all active sessions. This capability is useful for monitoring session health, tracking resource usage, and implementing custom cleanup workflows.
+
+### Get a single session
+
+To retrieve details about a specific session, use the `getSession` endpoint:
+
+```text
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/getSession?identifier=<SESSION_ID>&api-version=2024-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+The `getSession` endpoint returns session metadata including the session identifier, current expiration time, and creation timestamp.
+
+#### SessionView response schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identifier` | string | Yes | The session identifier you provided |
+| `etag` | string | Yes | Opaque version identifier for the session. You can use this identifier for change detection. |
+| `expiresAt` | DateTime | Yes | UTC timestamp when the session will be terminated |
+| `createdAt` | DateTime | No | Session creation timestamp |
+| `lastAccessedAt` | DateTime | No | Timestamp of the last request to this session |
+
+#### Example request and response
+
+```bash
+curl -X POST "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/getSession?identifier=user-123&api-version=2024-02-02-preview" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+Success response (HTTP 200):
+
+```json
+{
+  "identifier": "user-123",
+  "etag": "a1b2c3d4",
+  "expiresAt": "2026-04-30T14:30:00Z",
+  "createdAt": "2026-04-30T13:30:00Z",
+  "lastAccessedAt": "2026-04-30T14:29:00Z"
+}
+```
+
+### List all sessions in a pool
+
+To retrieve a list of all sessions in your session pool, use the `listSessions` endpoint:
+
+```text
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/listSessions?skip=0&api-version=2024-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+#### Pagination
+
+The list endpoint supports skip-based pagination. By default, each page returns up to 300 sessions. Use the `skip` query parameter to navigate through results.
+
+| Parameter | Description |
+|-----------|-------------|
+| `skip` | Number of sessions to skip from the beginning (default: 0) |
+| `nextLink` | Full URL for the next page of results (included in response when more results exist) |
+
+#### ApiCollectionEnvelope response schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | SessionView[] | Array of session objects |
+| `count` | integer | Number of sessions in the current page |
+| `nextLink` | string | URL for the next page (null if no more results) |
+
+#### Example pagination loop
+
+```bash
+POOL_URL="https://my-pool.env-id.westus2.azurecontainerapps.io"
+next_url="$POOL_URL/.management/listSessions?skip=0&api-version=2024-02-02-preview"
+
+while [ -n "$next_url" ]; do
+  response=$(curl -s -X POST "$next_url" \
+    -H "Authorization: Bearer $TOKEN")
+
+  echo "$response" | jq '.value[] | {identifier, expiresAt}'
+
+  next_url=$(echo "$response" | jq -r '.nextLink // empty')
+done
+```
+
+Example response (HTTP 200):
+
+```json
+{
+  "value": [
+    {
+      "identifier": "user-123",
+      "etag": "a1b2c3d4",
+      "expiresAt": "2026-04-30T14:30:00Z"
+    },
+    {
+      "identifier": "user-456",
+      "etag": "e5f6a7b8",
+      "expiresAt": "2026-04-30T14:31:00Z"
+    }
+  ],
+  "count": 2,
+  "nextLink": "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/listSessions?skip=300"
+}
+```
+
+## Error responses
+
+When an error occurs, the API returns a structured error response with details to help you diagnose the issue.
+
+```json
+{
+  "error": {
+    "code": "ErrorCode",
+    "message": "Human-readable error description",
+    "details": "Optional additional context",
+    "target": "Field or parameter that caused the error",
+    "traceId": "Request trace ID for debugging"
+  }
+}
+```
+
+### Common error codes
+
+| Error Code | HTTP status | Description | Resolution |
+|------------|-------------|-------------|-----------|
+| `SessionWithIdentifierNotFound` | 400 | The session identifier doesn't exist in this session pool | Verify the session identifier is correct and the session hasn't expired |
+| `SessionRequestValidationFailed` | 400 | The request is missing required fields or has invalid parameters | Check the query parameters (identifier, skip, api-version) are properly formatted |
+| `SessionRequestNotSupported` | 400 | The request type isn't recognized by the API | Verify you're using a supported endpoint and method |
+| `InternalServerError` | 500 | An unexpected server-side error occurred | Retry the request; if the error persists, check the traceId in logs |
+
 ## Session lifecycle in practice
 
 As you continue to make calls to the same session, the session remains [allocated](sessions.md#key-concepts) in the pool. Once there are no requests to the session after the cooldown period has elapsed, the session is automatically destroyed.
+
+> [!NOTE]
+> In rare cases, when a session's background TTL-extension request fails (for example, if the container exits unexpectedly), the session is automatically removed from the pool. You'll see a "session not found" error on your next request to that session. This cleanup is automatic and requires no action on your part.
 
 ## Security
 

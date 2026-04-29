@@ -5,7 +5,7 @@ description: Get answers to frequently asked questions about the retirement of A
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 03/04/2026
 ms.author: mbender
 # Customer intent: "As an existing Application Gateway V1 customer, I want to understand the migration process to V2 and its timeline so that I can keep my services operational and avoid disruptions before the retirement of V1 on April 28, 2026."

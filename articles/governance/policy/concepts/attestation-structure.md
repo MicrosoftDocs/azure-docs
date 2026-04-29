@@ -2,7 +2,7 @@
 title: Details of the Azure Policy attestation structure
 description: Describes the components of the Azure Policy attestation JSON object.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Policy attestation structure

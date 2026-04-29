@@ -1,0 +1,5 @@
+items:
+  - name: Microsoft OpenTelemetry Distro Overview
+    href: overview.md
+  - name: Get started
+    href: getting-started.md

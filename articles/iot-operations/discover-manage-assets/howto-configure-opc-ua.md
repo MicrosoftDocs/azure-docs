@@ -32,7 +32,7 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 ## Prerequisites
 
-To configure devices and assets, you need an instance of Azure IoT Operations.
+To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -162,6 +162,10 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 ---
 
+### Configure a device to use an X.509 certificate
+
+[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+
 ### Other security options
 
 When you create the inbound endpoint, you can also select:
@@ -218,7 +222,7 @@ A dataset defines where the connector sends the data it collects from a collecti
 
     :::image type="content" source="media/howto-configure-opc-ua/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-configure-opc-ua/create-dataset.png":::
 
-    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
 
 1. Select **Create and next** to create the dataset.
 
@@ -240,6 +244,7 @@ Now you can define the data points associated with the dataset. To add OPC UA da
       - Data point name (Optional). This value is the friendly name that you want to use for the data point. If you don't specify a data point name, the node ID is used as the data point name.
       - Sampling interval (milliseconds). You can override the default value for this data point.
       - Queue size. You can override the default value for this data point.
+      - Key frame count. By default, key frames are disabled. Use this setting to enable key frames and specify how frequently the connector generates key frames. For more information, see [Understand key frames for OPC UA data points](overview-opc-ua-connector.md#understand-key-frames-for-opc-ua-data-points).
 
     :::image type="content" source="media/howto-configure-opc-ua/add-data-point.png" alt-text="Screenshot that shows adding data points in the operations experience." lightbox="media/howto-configure-opc-ua/add-data-point.png":::
 
@@ -251,7 +256,7 @@ Now you can define the data points associated with the dataset. To add OPC UA da
     | ns=3;s=FastUInt100 | Humidity |
 
     > [!NOTE]
-    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
 
 1. On the **data points** page, select **Next** to go to the **Add events** page.
 
@@ -316,8 +321,8 @@ When you create an asset by using the Azure CLI, you can define:
   - Software version
   - Serial number
   - Documentation URI
-- Default values for sampling interval, publishing interval, and queue size.
-- Datapoint specific values for sampling interval, publishing interval, and queue size.
+- Dataset values for sampling interval, publishing interval, key frame count, and queue size.
+- Data point specific values for sampling interval, publishing interval, and queue size.
 - Event specific values for sampling publishing interval, and queue size.
 - The observability mode for each data point and event
 
@@ -422,7 +427,7 @@ Now you can define the events associated with the event group. To add OPC UA eve
       - Topic. The MQTT topic that you want the event to be published to.
       - Sampling interval (milliseconds). You can override the default value for this data point.
       - Queue size. You can override the default value for this data point.
-      - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-using-browse-paths).
+      - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
       - Event filter. An optional configuration that defines the event filter for this event. For more information, see the [Event filters](#event-filters) section.
 
     :::image type="content" source="media/howto-configure-opc-ua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience." lightbox="media/howto-configure-opc-ua/add-event.png":::
@@ -434,7 +439,7 @@ Now you can define the events associated with the event group. To add OPC UA eve
 
 # [Azure CLI](#tab/cli)
 
-To add an event group and events to an existing asset, use the `az iot ops ns asset opcua event-group` and `az iot ops ns asset custom event` commands:
+To add an event group and events to an existing asset, use the `az iot ops ns asset opcua event-group` and `az iot ops ns asset opcua event` commands:
 
 ```azurecli
 # Add an event group to the thermostat asset
@@ -443,17 +448,17 @@ az iot ops ns asset opcua event-group add \
   --asset thermostat \
   --instance {your instance name} \
   -g {your resource group name} \
-  --name alerts
+  --name alerts \
+  --dest topic="azure-iot-operations/events/test-thermostat-cli" retain=Never qos=Qos1 ttl=3600
 
 # Add an event to the event group
-az iot ops ns asset custom event add \
+az iot ops ns asset opcua event add \
   --asset thermostat \
   --instance {your instance name} \
   -g {your resource group name} \
   --event-group alerts \
   --name serverObjectNotifier \
-  --data-source "ns=0;i=2253" \
-  --dest topic="azure-iot-operations/events/test-thermostat-cli" retain=Never qos=Qos1 ttl=3600
+  --data-source "ns=0;i=2253"
 
 # List the event groups for the asset
 az iot ops ns asset opcua event-group list \
@@ -468,7 +473,7 @@ When you add an event group by using the Azure CLI, you can configure:
 - Publishing interval and queue size
 - Event destinations (MQTT topic, QoS, retain, TTL)
 
-To add individual events to an event group, use the `az iot ops ns asset custom event add` command with the `--event-group` parameter.
+To add individual events to an event group, use the `az iot ops ns asset opcua event add` command with the `--event-group` parameter.
 
 To remove an event group, use the `az iot ops ns asset opcua event-group remove` command.
 
@@ -541,14 +546,13 @@ The following screenshot shows an example event filter:
 The following command updates an existing event definition to include an event filter by using the `config` parameter:
 
 ```azurecli
-az iot ops ns asset custom event add \
+az iot ops ns asset opcua event add \
   --asset thermostat \
   --instance {your instance name} \
   -g {your resource group name} \
   --event-group alerts \
   --name serverObjectNotifier \
   --data-source "ns=0;i=2253" \
-  --dest topic="azure-iot-operations/events/test-thermostat-cli" retain=Never qos=Qos1 ttl=3600 \
   --replace true \
   --config "{\"eventFilter\":{\"selectClauses\":[{\"browsePath\":\"EventId\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"myEventId\"},{\"browsePath\":\"EventType\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"EventType\"},{\"browsePath\":\"SourceName\",\"typeDefinitionId\":\"\",\"fieldId\":\"mySourceName\"},{\"browsePath\":\"Severity\",\"typeDefinitionId\":\"\",\"fieldId\":\"Severity\"}]}}"
 ```
@@ -873,6 +877,72 @@ az iot ops ns asset delete \
 To delete individual resources by using Bicep, see [Deployment stacks](/azure/azure-resource-manager/bicep/quickstart-create-deployment-stacks).
 
 ---
+
+
+## Configure a shared endpoint
+
+By default, each asset opens its own dedicated OPC UA session. You can configure a *shared* endpoint so that the connector uses a single session for all assets that reference the endpoint. To learn more about shared endpoints and when to use them, see [Shared endpoint mode](overview-opc-ua-connector.md#shared-endpoint-mode).
+
+To enable shared mode, set `"shared": true` in the `additionalConfiguration` JSON of a device inbound endpoint:
+
+```json
+{
+  "properties": {
+    "endpoints": {
+      "inbound": {
+        "my-opcua-endpoint": {
+          "address": "opc.tcp://my-plc.my-namespace:4840",
+          "endpointType": "Microsoft.OpcUa",
+          "authentication": {
+            "method": "Anonymous"
+          },
+          "additionalConfiguration": "{\"shared\": true}"
+        }
+      }
+    }
+  }
+}
+```
+
+If you omit the `shared` property from `additionalConfiguration`, the default value is `false` and each asset opens its own dedicated OPC UA session.
+
+The `shared` flag is also supported on legacy `AssetEndpointProfile` resources. However, for new deployments, use the device/asset (namespaced) resource model.
+
+Multiple assets can then reference the same shared endpoint:
+
+```yaml
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: asset-temperature
+  namespace: azure-iot-operations
+spec:
+  deviceRef:
+    deviceName: my-shared-plc
+    endpointName: my-opcua-endpoint
+  datasets:
+    - name: temperature-data
+      dataPoints:
+        - name: temperature
+          dataSource: "ns=2;i=1001"
+---
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: asset-pressure
+  namespace: azure-iot-operations
+spec:
+  deviceRef:
+    deviceName: my-shared-plc
+    endpointName: my-opcua-endpoint
+  datasets:
+    - name: pressure-data
+      dataPoints:
+        - name: pressure
+          dataSource: "ns=2;i=1002"
+```
+
+Both `asset-temperature` and `asset-pressure` reuse the single OPC UA session that the connector established for `my-opcua-endpoint`.
 
 ## Related content
 

@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure data flow endpoints for local storage
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 To send data to local storage in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites
@@ -126,7 +124,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -181,7 +181,7 @@ To write your data to the cloud, follow the instructions in [Cloud Ingest Edge V
 
 Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
-Finally, when you create the data flow, the [data destination](howto-create-dataflow.md#configure-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
+Finally, when you create the data flow, the [data destination](howto-configure-dataflow-destination.md#configure-the-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
 
 ## Next steps
 

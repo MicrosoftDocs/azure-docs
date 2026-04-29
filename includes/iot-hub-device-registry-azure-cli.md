@@ -13,7 +13,7 @@ ms.date: 01/27/2026
 Before you begin, make sure you have:
 
 - Azure CLI installed. Follow the steps to [install the Azure CLI](/cli/azure/install-azure-cli). 
-- Installed the **Azure IoT CLI extension with previews enabled** to access the ADR integration and certificate management functionalities for IoT Hub:
+- Install the **Azure IoT CLI extension with previews enabled** to access the ADR integration and certificate management functionalities for IoT Hub:
 
     1. Check for existing Azure CLI extension installations.
     
@@ -36,10 +36,10 @@ Before you begin, make sure you have:
         or download the .whl file from the GitHub releases page to install the extension manually.
 
         ```azurecli-interactive
-        az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/download/v0.30.0b1/azure_iot-0.30.0b1-py3-none-any.whl
+        az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.30.0b2
         ```
     
-    1. After the install, validate your azure-iot extension version is at least **0.30.0b1**.
+    1. After the install, validate your azure-iot extension version is at least **0.30.0b2**.
     
         ```azurecli-interactive
         az extension list
@@ -51,15 +51,15 @@ Use the Azure CLI commands to create an IoT Hub with ADR integration and certifi
 
 The setup process in this article includes the following steps:
 
-1. Create a resource group
-1. Configure the necessary app privileges
-1. Create a user-assigned managed identity
-1. Create an ADR namespace with system-assigned managed identity
-1. Create a credential (root CA) and policy (issuing CA) scoped to that namespace
-1. Create an IoT Hub (preview) with linked namespace and managed identity
-1. Create a DPS with linked IoT Hub and namespace
-1. Sync your credential and policies (CA certificates) to IoT Hub
-1. Create an enrollment group and link to your policy to enable certificate provisioning
+1. Create a resource group.
+1. Configure the necessary app privileges.
+1. Create a user-assigned managed identity.
+1. Create an ADR namespace with system-assigned managed identity.
+1. Create a credential (root CA) and policy (issuing CA) scoped to that namespace.
+1. Create an IoT Hub (preview) with linked namespace and managed identity.
+1. Create a DPS with linked IoT Hub and namespace.
+1. Sync your credential and policies (CA certificates) to IoT Hub.
+1. Create an enrollment group and link to your policy to enable certificate provisioning.
 
 > [!IMPORTANT]
 > During the preview period, IoT Hub with ADR integration and certificate management features enabled on top of IoT Hub are available **free of charge**. Device Provisioning Service (DPS) is billed separately and isn't included in the preview offer. For details on DPS pricing, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
@@ -115,13 +115,13 @@ To create a resource group, role, and permissions for your IoT solution, complet
 In this section, you create a new ADR namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate Management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
 
 > [!NOTE]
-> Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-credential-policy` and `--policy-name` flags.
+> Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-certificate-management` and `--policy-name` flags.
 
 1. Create a new ADR namespace. Your namespace `name` may only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, the name "msft-namespace" is valid.  
-The `--enable-credential-policy` command creates credential (root CA) and default policy (issuing CA) for this namespace. You can configure the name for this policy using the `--policy-name` command. By default, a policy can issue certificates with a validity of 30 days.
+The `--enable-certificate-management` command creates credential (root CA) and default policy (issuing CA) for this namespace. You can configure the name for this policy using the `--policy-name` command. By default, a policy can issue certificates with a validity of 30 days.
 
     ```azurecli-interactive
-    az iot adr ns create --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --location <REGION> --enable-credential-policy true --policy-name <POLICY_NAME>
+    az iot adr ns create --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP_NAME> --location <REGION> --enable-certificate-management true --policy-name <POLICY_NAME>
     ```
 
     > [!TIP]
@@ -150,13 +150,13 @@ The `--enable-credential-policy` command creates credential (root CA) and defaul
 
 In this section, you assign the [Azure Device Registry Contributor](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role to the managed identity and scope it to the namespace. This custom role allows for full access to IoT devices within the ADR namespace.
 
-1. Retrieve the principal ID of the User-Assigned Managed Identity. This ID is needed to assign roles to the identity.
+1. Retrieve the principal ID of the user-assigned managed identity. This ID is needed to assign roles to the identity.
 
     ```azurecli-interactive
     UAMI_PRINCIPAL_ID=$(az identity show --name <USER_IDENTITY> --resource-group <RESOURCE_GROUP> --query principalId -o tsv)
     ```
 
-1. Retrieve the Resource ID of the ADR Namespace. This ID is used as the scope for the role assignment.
+1. Retrieve the resource ID of the ADR Namespace. This ID is used as the scope for the role assignment.
 
     ```azurecli-interactive
     NAMESPACE_RESOURCE_ID=$(az iot adr ns show --name <NAMESPACE_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
@@ -197,19 +197,19 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     HUB_RESOURCE_ID=$(az iot hub show --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
     ```
 
-1. Assign the "Contributor" role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT Hub. This role allows broad access, including managing resources, but not assigning roles.
+1. Assign the Contributor role to the ADR identity. This grants the ADR namespace's managed identity Contributor access to the IoT Hub. This role allows broad access, including managing resources, but not assigning roles.
 
     ```azurecli-interactive
     az role assignment create --assignee $ADR_PRINCIPAL_ID --role "Contributor" --scope $HUB_RESOURCE_ID
     ```
 
-1. Assign the "IoT Hub Registry Contributor" role to the ADR identity. This grants more specific permissions to manage device identities in the IoT Hub. This is essential for ADR to register and manage devices in the hub.
+1. Assign the IoT Hub Registry Contributor role to the ADR identity. This grants more specific permissions to manage device identities in the IoT Hub. This is essential for ADR to register and manage devices in the hub.
 
     ```azurecli-interactive
     az role assignment create --assignee $ADR_PRINCIPAL_ID --role "IoT Hub Registry Contributor" --scope $HUB_RESOURCE_ID
     ```
 
-## Create a Device Provisioning Service instance with ADR integration
+## Create a DPS instance with ADR integration
 
 1. Create a new DPS instance linked to your ADR namespace created in the previous sections. Your DPS instance must be located in the same region as your ADR namespace.
 
@@ -223,7 +223,7 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     az iot dps show --name <DPS_NAME> --resource-group <RESOURCE_GROUP> --query identity --output json
     ```
 
-## Link your IoT Hub to the Device Provisioning Service instance
+## Link your IoT Hub to the DPS instance
 
 1. Link the IoT Hub to your DPS.
 

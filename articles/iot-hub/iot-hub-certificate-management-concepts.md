@@ -72,6 +72,6 @@ X.509 certificates are only used for authentication in IoT Hub, not authorizatio
 
 ## Related content
 
+- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
 - [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
-- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)

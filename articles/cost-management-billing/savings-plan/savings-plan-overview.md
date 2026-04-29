@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -76,7 +76,7 @@ Azure provides commitment recommendations based on your savings plan eligible on
 To learn more, visit [Savings plan recommendations](purchase-recommendations.md).
 
 ## How savings plan benefits are applied
-With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plan/#how-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
+With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plans/#How-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
 
 ## How to find products covered under a savings plan
 To learn about included products, visit [included products](download-savings-plan-price-sheet.md).
@@ -85,7 +85,7 @@ To learn about included products, visit [included products](download-savings-pla
 Savings plans are available to organizations with either Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) agreements. Enterprise Agreement customers must have an offer type of MS-AZR-0017P (EA) or MS-AZR-0148P (DevTest) to purchase savings plans.
 
 ## Who can buy a savings plan?
-To determine what roles are permitted to purchase savings plans, see [Permissions to buy an savings plan](permission-buy-savings-plan.md).
+To determine what roles are permitted to purchase savings plans, see [Permissions to buy a savings plan](permission-buy-savings-plan.md).
 
 ## Who can manage a savings plan by default?
 To determine which roles are permitted to manage a savings plan, see [Manage savings plan resources](manage-savings-plan.md).

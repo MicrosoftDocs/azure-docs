@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: azure-communication-services
 ms.custom: sfi-ropc-nochange
 ---

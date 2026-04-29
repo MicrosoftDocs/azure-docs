@@ -45,7 +45,7 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.8.2 is now available (Release Notes)
+          - text: CycleCloud 8.8.3 is now available (Release Notes)
             url: release-notes.md
           - text: CycleCloud Workspace for Slurm Release Notes
             url: release-notes/ccws/release-notes.md

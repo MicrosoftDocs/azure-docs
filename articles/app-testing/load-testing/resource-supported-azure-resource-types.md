@@ -5,8 +5,8 @@ description: 'Learn which Azure resource types are supported for server-side mon
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: reference
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 06/02/2023
 ---
 

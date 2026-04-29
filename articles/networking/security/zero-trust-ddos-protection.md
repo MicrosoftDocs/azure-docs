@@ -4,7 +4,7 @@ description: Review Zero Trust security recommendations for Azure DDoS Protectio
 author: duongau
 ms.author: duau
 ms.service: azure-ddos-protection
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/17/2026
 ms.custom: Network-Secure-Recommendation
 ---
@@ -17,11 +17,17 @@ For a summary of all Azure network security Zero Trust recommendations, see [Azu
 
 ## Recommendations
 
-| Recommendation | Risk level | User impact | Implementation cost |
-|---|---|---|---|
-| [!INCLUDE [DDoS Protection is enabled for all public IP addresses in VNets](includes/25533.md)] | High | Low | Low |
-| [!INCLUDE [Metrics are enabled for DDoS-protected public IPs](includes/26885.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled for DDoS-protected public IPs](includes/26886.md)] | Medium | Low | Low |
+### DDoS Protection is enabled for all public IP addresses in VNets
+
+[!INCLUDE [DDoS Protection is enabled for all public IP addresses in VNets](includes/25533.md)]
+
+### Metrics are enabled for DDoS-protected public IPs
+
+[!INCLUDE [Metrics are enabled for DDoS-protected public IPs](includes/26885.md)]
+
+### Diagnostic logging is enabled for DDoS-protected public IPs
+
+[!INCLUDE [Diagnostic logging is enabled for DDoS-protected public IPs](includes/26886.md)]
 
 ## Related content
 

@@ -485,7 +485,7 @@ See [Classic Microsoft Purview data governance limits](../../purview/how-to-mana
 
 ## Microsoft Sentinel limits
 
-See [Service limits for Microsoft Sentinel](../../sentinel/sentinel-service-limits.md) for Microsoft Sentinel limits.
+See [Service limits for Microsoft Sentinel](/azure/sentinel/sentinel-service-limits) for Microsoft Sentinel limits.
 
 ## Azure Service Bus limits
 
@@ -529,7 +529,7 @@ See the following documentation to learn more about encryption restrictions:
 - [Linux](/azure/virtual-machines/disk-encryption#restrictions)
 - [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines
 
-### Azure Managed Disks
+### Azure managed disks
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-managed.md)]
 

@@ -31,7 +31,7 @@ Before you begin, ensure that you have the following resources and configuration
 
 ### Prerequisites for creating a private connection
 
-- A [Private Link Service Direct Connect](https://docs.azure.cn/en-us/private-link/create-private-link-service-portal?tabs=dynamic-ip) configured and ready to use.
+- A [Private Link Service Direct Connect](../private-link/create-private-link-service-portal.md) configured and ready to use.
 - Familiarity with [Azure Private Link networking documentation](/azure/private-link/).
 
 ## Known limits

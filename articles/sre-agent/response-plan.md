@@ -1,153 +1,168 @@
 ---
-title: "Tutorial: Set Up an Incident Trigger for Azure SRE Agent"
-description: Create an incident trigger that routes specific incident types to a specialized subagent in the Subagent builder.
+title: "Tutorial: Create an incident response plan in Azure SRE Agent"
+description: Create a response plan that routes incidents to a custom agent and use the toggle to control when it's active.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 04/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: incident trigger, response plan, filter, subagent, automation, tutorial
-#customer intent: As an SRE, I want to set up an incident trigger so that matching incidents are automatically routed to the right subagent for investigation.
+ms.custom: incident trigger, response plan, filter, custom agent, automation, tutorial, toggle, enable, disable, agent canvas
+#customer intent: As an SRE, I want to create an incident response plan so that matching incidents are automatically routed to the right custom agent for investigation.
 ---
 
-# Tutorial: Set up an incident trigger for Azure SRE Agent
-In this tutorial, you create an incident trigger on the Subagent builder canvas that filters incidents by severity and service, and routes matching incidents to a specific subagent for automated investigation.
+# Create an incident response plan in Azure SRE Agent
 
-**Estimated time**: 5-10 minutes
+Incident response plans let you automatically route incoming incidents to the right custom agent based on filter criteria like severity, service, and incident type. Instead of manually triaging each alert, you define the conditions once and your agent handles matching incidents as they arrive.
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> - Create an incident trigger from the Subagent builder canvas
-> - Configure filter criteria (severity, service, type, title) to route incidents
-> - Preview matching historical incidents before committing
-> - Choose between Autonomous and Review autonomy levels for the response subagent
+In this tutorial, you create a response plan from the Agent Canvas, preview matching incidents, and use the enable/disable toggle to control when the plan is active.
 
 ## Prerequisites
 
 - An agent with an incident platform connected (PagerDuty, ServiceNow, or Azure Monitor)
-- At least one subagent configured
+- At least one custom agent configured
 - Contributor or Owner role on the agent resource
 
-> [!NOTE]
-> For more information about incident response plans and the problems they solve, see [Incident response plans](incident-response-plans.md).
+---
 
-## Open the Subagent builder
+## Step 1: Open the Agent Canvas
 
-In the SRE Agent portal, select your agent. In the left sidebar, go to **Builder** > **Subagent builder**.
+In the SRE Agent portal, select your agent. In the left sidebar, go to **Builder** → **Agent Canvas**.
 
 > [!WARNING]
-> When you first connect an incident platform, the portal might automatically create a default **quickstart** response plan. Before you create custom triggers, check **Builder** > **Incident response plans** and delete the quickstart plan if it exists. Overlapping plans can cause incidents to be routed incorrectly or processed twice.
+> When you first connect an incident platform, a default **quickstart** response plan might be created automatically. Before creating custom plans, switch to **Table view** and select the **Incident response plans** tab to check. Delete the quickstart plan if it exists. Overlapping plans can cause incidents to be routed incorrectly or processed twice.
 
-The canvas view loads, showing your subagent nodes, any existing trigger nodes, and connected tools.
+## Step 2: Create a new response plan
 
-:::image type="content" source="media/response-plan/incident-trigger-step-01-canvas.png" alt-text="Screenshot of the subagent builder canvas view showing subagent nodes and existing trigger nodes.":::
+In the Agent Canvas, select **Create** in the toolbar. Select **Trigger** > **Incident response plan**.
 
-## Add an incident trigger to a subagent
+The create dialog opens.
 
-Find the subagent you want to handle matching incidents and select the circular **+** button on the left side of the subagent node.
+Fill in the filter criteria. The fields you see depend on your incident platform:
 
-A menu appears with two groups. Under **Trigger**, select **Add incident trigger**.
+- **Incident response plan name**: Enter a descriptive name, such as `high-sev-api-trigger`.
 
-:::image type="content" source="media/response-plan/incident-trigger-step-02-menu.png" alt-text="Screenshot of the menu showing Trigger group with Add incident trigger and Add scheduled task options.":::
+For **Azure Monitor**:
 
-The **Create incident trigger** dialog opens.
+- **Severity**: Select one or more severity levels.
+- **Title contains** (optional): Add a keyword to narrow matches.
 
-> [!NOTE]
-> If no incident platform is connected, a warning message appears: "You need an incident platform to add an incident trigger." Select **Connect an incident platform** to set up an incident platform.
+For **PagerDuty / ServiceNow**:
 
-## Configure trigger details
+- **Impacted service**: Select the service this plan covers, or select **All**.
+- **Incident type**: Choose the incident classification, or select **All incident types**.
+- **Priority**: Select one or more priority levels, such as P1 and P2.
+- **Title contains** (optional): Add a keyword to narrow matches.
 
-The dialog shows a two-step wizard. In step 1 (**Incident trigger**), enter the filter criteria:
+Choose the response configuration:
 
-:::image type="content" source="media/response-plan/incident-trigger-step-03-dialog.png" alt-text="Screenshot of the Create incident trigger dialog showing trigger details form with fields for name, service, type, and priority.":::
+- **Response custom agent**: Select the custom agent that handles matched incidents.
 
-1. **Trigger name**: Enter a descriptive name, such as `high-sev-api-trigger`.
-1. **Impacted service**: Select the service this trigger covers from the dropdown.
-1. **Incident type**: Choose the incident classification.
-1. **Priority**: Select one or more severity levels. Select multiple options to combine them, such as P1 and P2.
-
-    :::image type="content" source="media/response-plan/incident-trigger-step-04-priority.png" alt-text="Screenshot of the priority multi-select dropdown showing P1 and P2 checked.":::
-
-1. **Title contains** (optional): Add a keyword to narrow matches further.
-
-Make sure you fill in all required fields: trigger name, impacted service, incident type, and at least one priority level. The **Next** button becomes enabled.
-
-## Choose the response subagent and autonomy level
-
-Scroll down to the **Subagent** section to configure the response behavior.
-
-:::image type="content" source="media/response-plan/incident-trigger-step-05-sub-agent.png" alt-text="Screenshot of the subagent section showing pre-selected response subagent and autonomy level radio buttons.":::
-
-Configure the following options:
-
-- **Response subagent**: The subagent you selected when you selected the **+** button. Change it if needed.
 - **Agent autonomy level**: Choose how your agent responds:
-  - **Autonomous (Default)**: Your agent independently performs mitigation or resource modifications.
+  - **Autonomous (Default)**: Your agent independently investigates and performs mitigation.
   - **Review**: Your agent proposes actions for your approval before executing.
 
+> [!NOTE]
+> When you select **Autonomous (Default)**, an ℹ️ icon appears next to the option.
+> 
+> Select it to review the **Autonomous mode acknowledgment** - a summary of what autonomous execution means, including agent boundaries, AI model limitations, and your responsibilities. See [Response plans -> Custom agent configuration](incident-response-plans.md#custom-agent-configuration) for details.
+
 > [!TIP]
-> Start with **Review** mode for new triggers so you can validate your agent's investigation behavior before granting full autonomy.
+> Start with **Review** mode for new plans if you want to validate your agent's investigation behavior before granting full autonomy. New plans default to Autonomous.
 
-Select **Next**.
+### Configure alert reinvestigation cooldown (Azure Monitor only)
 
-## Preview matching incidents
+If your incident platform is **Azure Monitor**, a **Reinvestigation cooldown** section appears below the autonomy level:
 
-The **Incidents preview** step shows a table of past incidents that match your filter criteria.
+- **Enable** (checkbox, default: on): When enabled, recurring fires of the same alert rule within the cooldown window merge into the existing investigation thread instead of starting a new one. Resolved threads within the window are reopened.
 
-:::image type="content" source="media/response-plan/incident-trigger-step-06-preview.png" alt-text="Screenshot of the incidents preview step showing matching past incidents table with priority, date, title, incident ID, and status columns.":::
+- **Cooldown time** (spinner, default: 3 hours, range: 1-24): How long after a thread is resolved or closed before a new fire creates a fresh investigation instead of reopening the existing thread.
 
-The table displays the following columns for each matching incident:
+Leave the defaults for most alert rules. Disable the cooldown only for critical alerts where every fire needs independent investigation.
 
-- **Priority**
-- **Date created**
-- **Title**
-- **Incident ID**
-- **Status**
+> [!WARNING]
+> Disabling the cooldown can significantly increase token consumption for noisy alert rules. A rule that fires every 5 minutes would create a new investigation each time.
 
-A time range filter (default: Last 90 days) adjusts the preview window.
+Fill in all required fields: plan name, impacted service, incident type, and at least one priority level. The **Next** button becomes enabled.
+
+## Step 3: Preview matching incidents
+
+Select **Next**. The incidents preview shows a table of past incidents that match your filter criteria.
+
+The table displays:
+
+- **Priority**, **Date created**, **Title**, **Incident ID**, and **Status** for each matching incident
+- A time range filter (default: Last 90 days) to adjust the preview window
 
 Review the results:
 
 - **Too many matches?** Go back and add a severity restriction or title keyword.
-- **No matches?** This condition is normal for new services. Your trigger still works for future incidents.
+- **No matches?** This result is normal for new services. Your plan still works for future incidents.
 - **Right number?** Your filter is well-tuned.
 
-Select **Create** to save the trigger.
+Select **Create incident response plan** to save the plan.
 
-## Verify the trigger on the canvas
+**Checkpoint:** The plan appears in the grid with Status **On** (green badge).
 
-After you create the trigger, the canvas refreshes. Your new trigger node appears with an edge connecting it to the subagent.
+## Step 4: Turn a plan off and on
 
-:::image type="content" source="media/response-plan/incident-trigger-step-07-created.png" alt-text="Screenshot of the subagent builder canvas showing new incident trigger node connected to the subagent with an edge.":::
+Select your plan by checking its checkbox in the grid.
 
-Confirm the following information:
+1. Select **Turn off** in the toolbar. A confirmation dialog appears.
+1. Select **Yes** to disable the plan.
 
-- The trigger node shows your trigger name and "Incident trigger" label.
-- An edge connects the trigger to your chosen subagent.
-- The trigger shows "On" status.
+The status badge changes to **Off**. The scanner stops matching incidents against this plan. Your filter configuration is preserved.
 
-## How a trigger processes incidents
+To re-enable the plan, follow these steps:
 
-When an incident that matches your filter criteria fires on your incident platform, the following sequence occurs:
+1. Select the plan again.
+1. Select **Turn on**. It takes effect immediately with no confirmation.
 
-1. Your agent detects the incoming incident.
-1. It evaluates the incident against all active triggers.
-1. The matching trigger routes the incident to the linked subagent.
-1. The subagent investigates with its configured tools and autonomy level.
-1. A new investigation thread appears in your agent's chat.
+The status badge returns to **On**.
+
+**Checkpoint:** The toggle works - you can switch a plan between On and Off without deleting it.
+
+## Step 5: Verify in the response plans grid
+
+You can see your plan right in the **Incident response plans** page grid with the status badge, custom agent, severity filter, and autonomy level columns.
+
+**Checkpoint:** Your plan appears in the grid with the correct status, custom agent, and severity.
 
 > [!TIP]
-> Use the **Title contains** filter to test safely. Set it to match a specific test incident title (for example, `[TEST] CPU spike`) and create a test incident with that title. This approach validates your agent's behavior without affecting production routing. Once verified, adjust or remove the title filter.
+> Use the **Title contains** filter to test safely. Set it to match a specific test incident title (for example, `"[TEST] CPU spike"`) and create a test incident with that title. This method validates your agent's behavior without affecting production routing. Once verified, adjust or remove the title filter.
 
-## Next step
+## Edit or delete a response plan
 
-> [!div class="nextstepaction"]
-> [Learn about response plans](./incident-response-plans.md)
+### Edit
+
+1. In the response plans grid, select the **plan ID link** to open the plan.
+1. The edit view opens with all current settings prepopulated.
+1. Modify the filter criteria, custom agent, or autonomy level.
+1. Select **Save** to apply your changes.
+
+### Delete
+
+1. Select the plan by using the checkbox in the grid.
+1. Select **Delete** in the toolbar.
+1. A confirmation dialog appears. Select **Yes** to confirm.
+
+Deleted plans stop routing incidents immediately. Active investigations that the plan started continue to completion.
+
+## What you learned
+
+- How to create response plans from the **Incident response plans** page.
+- How filter criteria (severity, service, type, title) route incidents to the right custom agent.
+- How to preview matching historical incidents before committing.
+- How to use the enable/disable toggle to pause and resume routing.
+- How to verify plans in the unified grid view in the Agent Canvas.
+- The difference between Autonomous and Review autonomy levels.
 
 ## Related content
 
-- [Subagents](sub-agents.md)
-- [Set up a Kusto connector](kusto-connector.md)
-- [Incident response plans](incident-response-plans.md)
+| Resource | What you learn |
+|----------|-------------------|
+| [Incident Response Plans](incident-response-plans.md) | Understand the full response plans capability |
+| [Connect a data source](kusto-connector.md) | Give your custom agent access to log data |
+| [Deep Investigation](deep-investigation.md) | Complex root cause analysis |
+| [Custom agents](sub-agents.md) | Specialized custom agents for different incident types |

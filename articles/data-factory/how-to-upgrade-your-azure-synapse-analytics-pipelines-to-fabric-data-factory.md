@@ -28,7 +28,6 @@ Before you start:
 
 - You have an **Azure Synapse Analytics workspace** that contains pipelines.
 - You have access to a **Microsoft Fabric tenant** and a **Fabric workspace**.
-- To preserve your folder structure, **create the same folders in your Fabric workspace first**, then migrate pipelines one folder at a time.
 
 ## Migrate Spark items to Fabric first
 
@@ -103,7 +102,7 @@ After you map linked services to Fabric connections, select **Confirm** to compl
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-synapse-analytics-pipelines-to-fabric/successful-migration-completion.png" alt-text="Screenshot showing successful migration." lightbox="media/how-to-assess-and-upgrade-your-azure-synapse-analytics-pipelines-to-fabric/successful-migration-completion.png":::
 
-After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source factory name.
+After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source Synapse workspace name.
 
 > [!NOTE]
 > Pipelines migrate safely with **triggers disabled by default**, so you stay in control of execution.

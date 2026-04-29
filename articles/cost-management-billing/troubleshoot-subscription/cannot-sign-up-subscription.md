@@ -4,8 +4,8 @@ description: Discusses that you receive an error message when signing up for an 
 ms.topic: troubleshooting
 ms.date: 12/29/2025
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.custom: sfi-ga-nochange

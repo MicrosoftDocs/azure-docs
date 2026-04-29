@@ -3,7 +3,7 @@ title: Azure IoT Edge limits and restrictions
 description: Understand the limits and restrictions when using Azure IoT Edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/11/2025
+ms.date: 04/22/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -17,15 +17,25 @@ This article explains the limits and restrictions when you use IoT Edge.
 
 ## Limits
 
-### Number of children in gateway hierarchy
+### Number of connected clients in gateway hierarchy
 
-Each IoT Edge parent device in a gateway hierarchy can have up to 100 connected child devices by default.
+Each IoT Edge parent device in a gateway hierarchy can have up to **100 connected clients** by default.
 
-Each IoT Edge device in a nested topology opens a separate logical connection to the parent EdgeHub (or IoT Hub) for each connected client (device or module), plus one connection for itself. Connections at each layer aren't aggregated, but added.
+> [!NOTE]
+> Connected clients include both devices and modules.
 
-For example, if there are two IoT Edge child devices in layer L4, and each has 100 clients, the parent IoT Edge device in layer L5 has 202 total incoming connections from L4.
+Each IoT Edge device in a nested topology opens a separate logical connection to the parent EdgeHub (or IoT Hub) for each connected client, plus one connection for itself. Connections at each layer aren't aggregated, but added.
 
-You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module. IoT Edge can have issues reporting its state in the twin reported properties if the number of clients exceeds a few hundred because of the IoT Hub twin size limit. Be careful when increasing the limit by changing this environment variable.
+For example, if there are two IoT Edge child devices in layer L4, and each child has:
+* 1 device connection for itself, and
+* 100 connected downstream clients (including devices and modules),
+
+then the parent IoT Edge device in layer L5 has **202 total incoming connections** from layer L4.
+
+You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
+> [!IMPORTANT]
+> Increasing the maximum number of connected clients can cause IoT Edge to have issues reporting its state in twin reported properties if the number of clients exceeds a few hundred, due to IoT Hub twin size limits.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
@@ -84,9 +94,9 @@ Not supported query syntax:
 
 ### Restart policies
 
-Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+The `on-unhealthy` restart policy value is accepted by the schema but the runtime doesn't currently derive unhealthy status from Docker health checks, so it has no practical effect. The `on-failure` restart policy restarts modules that exit with a non-zero exit code. Only `never`, `on-failure`, and `always` restart policies produce observable behavior.
 
-The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
+To automatically restart modules that become unhealthy, use the workaround noted in [this GitHub issue](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
 
 ### Troubleshooting logs
 

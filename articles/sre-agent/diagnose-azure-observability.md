@@ -1,9 +1,9 @@
 ---
 title: Diagnose with Azure Observability in Azure SRE Agent
 description: Learn how your agent queries Application Insights, Log Analytics, Azure Monitor metrics, Activity Logs, Resource Graph, and resource-specific diagnostics automatically without connectors.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 04/01/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -17,16 +17,16 @@ Your agent queries Application Insights, Log Analytics, Azure Monitor metrics, R
 > [!TIP]
 > Key benefits of Azure observability diagnostics:
 >
-> - Your agent queries App Insights, Log Analytics, Azure Monitor metrics, Resource Graph, Activity Logs, and resource-specific diagnostics — all in one investigation.
-> - No connectors are needed — everything works through managed identity and Azure RBAC.
+> - Your agent queries App Insights, Log Analytics, Azure Monitor metrics, Resource Graph, Activity Logs, and resource-specific diagnostics, all in one investigation.
+> - No connectors are needed. Everything works through managed identity and Azure RBAC.
 > - Your agent decides which sources to query based on the symptom, correlates evidence across them, and explains what it found.
-> - Deep diagnostics go beyond metrics — CPU profiling, memory analysis, connectivity checks, and deployment history.
+> - Deep diagnostics go beyond metrics including CPU profiling, memory analysis, connectivity checks, and deployment history.
 
 ## The problem: too many places to look
 
 Azure's observability stack is comprehensive. Application Insights captures traces and dependencies. Log Analytics stores custom logs and events. Azure Monitor tracks resource metrics. Resource Graph maps topology. Activity Logs record configuration changes. Each Azure service has its own diagnostics including Container Apps console logs, App Service deployment history, Function App health checks, and AKS pod status.
 
-That breadth is the problem. During an incident, you need data from several of these sources, but you have to remember which portal has which data, write KQL from scratch, manually copy operation IDs between tools, and correlate timestamps across tabs. The data exists everywhere. Knowing where to look and connecting what you find is what takes the most time.
+That breadth is the problem. During an incident, you need data from several of these sources, but you have to remember which portal has which data, write KQL from scratch, manually copy operation IDs between tools, and correlate timestamps across tabs. The data exists everywhere. Knowing where to look and connecting what you find takes the most time.
 
 ## How your agent investigates
 
@@ -36,31 +36,26 @@ The following diagram shows how your agent diagnoses Azure services by querying 
 
 Your agent has built-in access to Azure's full diagnostic surface. Grant permissions once, and your agent queries the right sources automatically based on the symptom:
 
-1. **Discovers resources** — Resource Graph finds topology, relationships, and connected resources across your subscriptions.
-1. **Queries logs** — Application Insights for request traces, exceptions, and dependencies; Log Analytics for custom workspace data.
-1. **Analyzes metrics** — Azure Monitor for CPU, memory, request rates, and availability with automatic time-series analysis.
-1. **Checks changes** — Activity Logs surface recent configuration changes and deployments that might correlate with the issue.
-1. **Runs deep diagnostics** — Built-in skills perform CPU profiling, memory analysis, latency assessment, connectivity checks, and resource-specific health analysis.
-1. **Executes Azure CLI commands** — Reads resource state, checks configurations, and inspects properties that APIs don't expose directly.
-1. **Correlates everything** — Evidence from all sources is connected automatically, with no copy-paste between portals.
+1. **Discovers resources**: Resource Graph finds topology, relationships, and connected resources across your subscriptions.
+1. **Queries logs**: Application Insights for request traces, exceptions, and dependencies; Log Analytics for custom workspace data.
+1. **Analyzes metrics**: Azure Monitor for CPU, memory, request rates, and availability with automatic time-series analysis.
+1. **Checks changes**: Activity Logs surface recent configuration changes and deployments that might correlate with the issue.
+1. **Runs deep diagnostics**: Built-in skills perform CPU profiling, memory analysis, latency assessment, connectivity checks, and resource-specific health analysis.
+1. **Executes Azure CLI commands**: Reads resource state, checks configurations, and inspects properties that APIs don't expose directly.
+1. **Correlates everything**: Evidence from all sources is connected automatically, with no copy-paste between portals.
 
 > [!NOTE]
 > Your agent selects the right tools for each resource type automatically. You don't configure which tools to use. Your agent decides based on the symptom and the resource involved.
 
-## What makes this different
+## What makes this approach different
 
 Azure's observability capabilities are excellent. The challenge is navigating them under pressure. Your agent eliminates the cognitive overhead of knowing where to look and how to connect what you find.
 
-**Single investigation instead of portal-hopping.** Your agent queries all sources in one investigation. You don't need to remember whether a specific metric lives in Azure Monitor, Application Insights, or a resource-specific blade.
+**Single investigation instead of portal-hopping.** Your agent queries all sources in one investigation. You don't need to remember whether a specific metric lives in Azure Monitor, Application Insights, or a resource-specific window.
 
 **Symptom-driven queries instead of writing KQL from scratch.** Your agent constructs queries based on the symptom. It knows which tables to query, which dimensions to split by, and how to interpret the results in context.
 
-**Automatic correlation instead of manual correlation.** Your agent follows the thread automatically by inspecting operation IDs, timestamps, resource relationships, deployment timelines across every source it queries.
-
-| Capability | What it contributes |
-|---|---|
-| [Memory and knowledge](memory.md) | Recalls what worked for similar issues; your docs explain application-specific telemetry |
-| [Run modes](run-modes.md) | Control whether your agent investigates only or also takes action |
+**Automatic correlation instead of manual correlation.** Your agent follows the thread automatically by inspecting operation IDs, timestamps, resource relationships, and deployment timelines across every source it queries.
 
 ## Before and after
 
@@ -95,7 +90,10 @@ Your agent discovers available metrics for any resource type, queries time-serie
 
 When your agent uses Azure Monitor as its incident platform, it also manages alerts directly by acknowledging and closing them during investigation.
 
-### Resource Graph and Activity Logs
+> [!NOTE]
+> Alert management requires the **Monitoring Contributor** role at subscription scope. Your agent receives this role automatically when created through the portal. If the role is missing, a banner appears with an **Assign Monitoring Contributor role** button that assigns the role directly.
+
+### Resource graph and activity logs
 
 Your agent uses Resource Graph and Activity Logs to discover resources and correlate changes with incidents.
 
@@ -109,10 +107,10 @@ Beyond metrics and logs, your agent has specialized capabilities that go deeper.
 
 | Category | What it does |
 |---|---|
-| **Deep diagnostics** | CPU profiling, memory analysis, latency assessment, threadpool starvation detection |
+| **Deep diagnostics** | CPU profiling, memory analysis, latency assessment, thread pool starvation detection |
 | **Connectivity checks** | TCP connectivity tests, DNS resolution, storage connectivity verification |
 | **Resource-specific diagnostics** | Container app revision management, App Service configuration checks, Function App deployment history, AKS kubectl commands, Redis diagnostics, PostgreSQL health, API Management analysis |
-| **Reliability assessment** | App Service health scoring: AlwaysOn, health checks, instance count, auto-heal configuration |
+| **Reliability assessment** | App Service health scoring: AlwaysOn, health checks, instance count, autoheal configuration |
 | **Azure CLI** | Read commands (`az ... show`, `az ... list`) for any Azure service, and write commands (`az ... update`, `az ... scale`) with approval |
 | **ARM operations** | Direct resource property inspection, app settings management, deployment slot operations |
 
@@ -155,32 +153,12 @@ The following example shows how your agent investigates an error in a container 
 
 ## Get started
 
-Azure observability is built in which means that no connectors are required. Grant your agent these permissions:
+Azure observability works automatically when you grant your agent Reader access to your subscription during initial setup.
 
-| Scope | Role | What it enables |
-|---|---|---|
-| Subscription | **Reader** | Resource discovery, Resource Graph, Activity Logs |
-| Subscription | **Monitoring Contributor** | Alert management: acknowledge and close Azure Monitor alerts |
-| Application Insights | **Monitoring Reader** | Traces, exceptions, dependencies via KQL |
-| Log Analytics workspace | **Log Analytics Reader** | KQL queries on workspace data |
-
-> [!NOTE]
-> If your agent uses Azure Monitor as its incident platform, the **Monitoring Contributor** role is required at the subscription level. Your agent receives this role automatically when created through the portal. This permission enables your agent to acknowledge and close alerts during investigation. Without it, your agent can still query metrics and resource health, but can't manage alert states.
-
-> [!TIP]
-> If your agent uses Azure Monitor as its incident platform and its managed identity is missing the **Monitoring Contributor** role, a warning banner appears in the chat interface. This role is required specifically for alert management which acknowledges and closes Azure Monitor alerts. Your agent can still read metrics, logs, and resource health without it.
->
-> The banner includes an **Assign Monitoring Contributor role** button that assigns the role directly. There's no need to navigate to the Azure portal. You can also dismiss the banner if you prefer to assign the role manually.
-
-## When to use external tools
-
-Azure observability covers most scenarios for applications running on Azure. You might need other tools when your data lives elsewhere.
-
-| Scenario | Solution |
-|---|---|
-| Custom metrics in Azure Data Explorer | [Set up Kusto tools](kusto-tools.md) |
-| Logs in Datadog, Splunk, or other platforms | [Configure external observability](diagnose-observability.md) |
-| Specialized monitoring (Prometheus, Grafana) | [Configure external observability](diagnose-observability.md) |
+| Resource | What you'll learn |
+|----------|-------------------|
+| [Create and set up](create-agent.md) | Grant permissions during initial agent setup |
+| [Manage permissions](permissions.md) | Add or change resource access after setup |
 
 ## Next step
 
@@ -189,7 +167,4 @@ Azure observability covers most scenarios for applications running on Azure. You
 
 ## Related content
 
-- [Tools](tools.md)
 - [Root cause analysis](root-cause-analysis.md)
-- [External observability](diagnose-observability.md)
-- [Kusto tools](kusto-tools.md)

@@ -44,7 +44,7 @@ Follow below steps to restore encrypted VMs:
 1. Select **Restore** to trigger the restore operation.
 
 When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
-When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+For legacy recovery points from VMs that used unmanaged disks, Azure Backup restores the disks as managed disks and uses the storage account only for restore metadata and temporary VHD files.
 
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](/azure/virtual-machines/windows/os-disk-swap).

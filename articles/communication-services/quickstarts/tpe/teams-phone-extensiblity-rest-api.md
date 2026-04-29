@@ -7,7 +7,7 @@ manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: identity
 ---

@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 03/02/2026
+ms.date: 04/09/2026
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -138,6 +138,192 @@ az bicep build-params --file params.bicepparam
 
 This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
 
+## console
+
+The `console` command is available in Bicep CLI v0.42.1 or later. It provides an interactive Read-Eval-Print Loop (REPL) environment for Bicep expressions. It allows you to experiment with Bicep functions and expressions in an interactive console session, especially useful when authoring or testing Bicep logic such as expressions, functions, and user-defined functions.. It supports the following features:
+
+* **Interactive Expression Evaluation**: Enter Bicep expressions and see their evaluated results immediately
+* **Variable Declarations**: Define variables using `var name = expression syntax and reuse them in subsequent expressions
+* **Multi-line Input**: Support for complex multi-line expressions with automatic structural completion detection
+* **Syntax Highlighting**: Real-time syntax highlighting for input and output
+
+The `console` command has these limitations:
+
+* No support for expressions requiring Azure context, e.g. `resourceGroup()`
+* No support for for-loop expressions, e.g. `[for i in range(0, x): i]`
+* No persistent state between console sessions
+* No completions support
+
+Use the following command to start a Bicep console session:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```powershell
+bicep console
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
+To exit the console, press `ESC` or use the `exit` command.
+
+### Examples
+
+#### Simple Expressions
+
+```bicep
+> 1 + 2
+3
+
+> 'Hello, ${'World!'}'
+'Hello, World!'
+
+> length(['a', 'b', 'c'])
+3
+```
+
+#### Variable Declarations
+
+```bicep
+> var myName = 'John'
+> var greeting = 'Hello, ${myName}!'
+> greeting
+'Hello, John!'
+```
+
+#### Multi-line Expressions
+
+The console automatically detects when expressions are structurally complete:
+
+```bicep
+> var config = {
+  name: 'myApp'
+  version: '1.0.0'
+  settings: {
+    debug: true
+    timeout: 30
+  }
+}
+> config.settings.debug
+true
+```
+
+#### Complex Expressions
+
+##### Lambdas
+
+```bicep
+> var users = [
+  { name: 'Alice', age: 30 }
+  { name: 'Bob', age: 25 }
+]
+> map(users, user => user.name)
+['Alice', 'Bob']
+
+> filter(users, user => user.age > 26)
+[
+  {
+    age: 30
+    name: 'Alice'
+  }
+]
+```
+
+##### User-defined types and functions
+
+```bicep
+> type PersonType = {
+  name: string
+  age: int
+}
+> func sayHi(person PersonType) string => 'Hello ${person.name}, you are ${person.age} years old!'
+> var alice = {
+  name: 'Alice'
+  age: 30
+}
+> [ sayHi(alice), sayHi({ name: 'Bob', age: 25 })]
+[
+  'Hello Alice, you are 30 years old!'
+  'Hello Bob, you are 25 years old!'
+]
+```
+
+#### Loading content from files
+
+Bicep console also supports the [`load*()` functions](./bicep-functions-files.md#file-functions-for-bicep). The directory from which the `bicep console` command is run is used as the _current directory_ when evaluating the `load*()` functions
+
+The following example shows how to use [`loadDirectoryFileInfo()`](./bicep-functions-files.md#loaddirectoryfileinfo) to load information about all Bicep files in a directory:
+
+```bicep
+> loadDirectoryFileInfo('./modules/', '*.bicep')
+[
+  {
+    relativePath: 'C:/Bicep/modules/appService.bicep'
+    baseName: 'appService.bicep'
+    extension: '.bicep'
+  }
+]
+```
+
+#### Piping and standard input/output redirection
+
+The console command supports evaluating expressions provided through piping or redirected standard input, enabling scenarios like:
+
+* Passing expression text via echo
+* Composing scripts that feed expressions into the console
+* Rapid testing of generated or transformed Bicep snippets
+
+**Powershell**:
+
+```powershell
+# piped input
+"parseCidr('10.144.0.0/20')" | bicep console
+```
+
+**Bash**:
+
+```bash
+# piped input
+echo "parseCidr('10.144.0.0/20')" | bicep console
+# stdin redirection from file content
+bicep console < test.txt
+```
+
+Multi-line input is also supported:
+
+```powershell
+"{
+> foo: 'bar'
+> }.foo" | bicep console
+```
+
+The output is `'bar'`.
+
+Output redirection is also supported:
+
+```bash
+"toObject([{name:'Evie', age:4},{name:'Casper', age:3}], x => x.name)" | bicep console > output.json
+more output.json
+```
+
+The output is :
+
+```json
+{
+  Evie: {
+    name: 'Evie'
+    age: 4
+  }
+  Casper: {
+    name: 'Casper'
+    age: 3
+  }
+}
+```
+
 ## decompile
 
 The `decompile` command converts a JSON ARM template to a Bicep file:
@@ -268,183 +454,7 @@ az bicep install --version v0.37.4
 
 ## jsonrpc
 
-The `jsonrpc` command runs the Bicep CLI with a JSON-RPC interface. By using this interface, you can interact programmatically with structured output. You also avoid cold-start delays when compiling multiple files. This setup supports building libraries to interact with Bicep files programmatically in non-.NET languages.
-
-The wire format for sending and receiving input and output is header-delimited. It uses the following structure, where `\r` and `\n` represent carriage return and line feed characters:
-
-```
-Content-Length: <length>\r\n\r\n<message>\r\n\r\n
-```
-
-* `<length>` is the length of the `<message>` string, including the trailing `\r\n\r\n`.
-* `<message>` is the raw JSON message.
-
-For example:
-
-```
-Content-Length: 72\r\n\r\n{"jsonrpc": "2.0", "id": 0, "method": "bicep/version", "params": {}}\r\n\r\n
-```
-
-The following methods are available through the JSON-RPC interface:
-
-* **bicep/format**
-
-  Formats a Bicep file.
-  
-  * The request:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "method": "bicep/format",
-      "params": {
-        "path": "/path/to/file.bicep"
-      }
-    }
-    ```
-  
-  * The response:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 1,
-      "result": {
-        "success": true,
-        "diagnostics": [],
-        "contents": "param foo string\n\nresource storage 'Microsoft.Storage/storageAccounts@2025-01-01' = {\n  name: 'mystorageaccount'\n  location: 'East US'\n}\n"
-      }
-    }
-    ```
-
-    On success, `"success": true` is returned, with contents holding the formatted Bicep source. On failure, `"success": false` with `diagnostics` describing the failure.
-
-* **bicep/version**
-
-  Returns the version of the Bicep CLI.
-  
-  * The request:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 0,
-      "method": "bicep/version",
-      "params": {}
-    }
-    ```
-
-  * The response:
-  
-    ```json
-    {
-      "jsonrpc": "2.0",
-      "id": 0,
-      "result": {
-        "version": "0.24.211"
-      }
-    }
-    ```
-
-For the available methods and request and response bodies, see [`ICliJsonRpcProtocol.cs`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli/Rpc/ICliJsonRpcProtocol.cs).
-For an example establishing a JSONRPC connection and interacting with Bicep files programmatically by using Node, see [`jsonrpc.test.ts`](https://github.com/Azure/bicep/blob/main/src/Bicep.Cli.E2eTests/src/local/jsonrpc.test.ts).
-
-### Usage for named pipe
-
-Use the following syntax to connect to an existing named pipe as a JSONRPC client:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli
-bicep jsonrpc --pipe <named_pipe>`
-```
-
-`<named_pipe>` is an existing named pipe to connect the JSONRPC client to.
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
----
-
-To connect to a named pipe on macOS or Linux:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli
-bicep jsonrpc --pipe /tmp/bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
----
-
-To connect to a named pipe on Windows:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli
-bicep jsonrpc --pipe \\.\pipe\\bicep-81375a8084b474fa2eaedda1702a7aa40e2eaa24b3.sock`
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
---- 
-
-For more examples, see [C#](https://github.com/Azure/bicep/blob/096c32f9d5c42bfb85dff550f72f3fe16f8142c7/src/Bicep.Cli.IntegrationTests/JsonRpcCommandTests.cs#L24-L50) and [node.js](https://github.com/anthony-c-martin/bicep-node/blob/4769e402f2d2c1da8d27df86cb3d62677e7a7456/src/utils/jsonrpc.ts#L117-L151).
-
-### Usage for TCP socket
-
-Use the following syntax to connect to an existing TCP socket as a JSONRPC client:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli
-bicep jsonrpc --socket <tcp_socket>
-```
-
-`<tcp_socket>` is the socket number to which the JSONRPC client connects.
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
---- 
-
-To connect to a TCP socket:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli  
-bicep jsonrpc --socket 12345
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
----
-
-### Usage for stdin and stdout
-
-To run the JSONRPC interface, use the following syntax. Use `stdin` and `stdout` for messages:
-
-# [Bicep CLI](#tab/bicep-cli)
-
-```bicep cli
-bicep jsonrpc --stdio
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
-
----
+The `jsonrpc` command launches the Bicep CLI with a JSON-RPC interface, enabling fast programmatic interaction with Bicep files. For detailed usage, wire format, available methods, and connection options, see [Bicep CLI jsonrpc command](bicep-cli-jsonrpc.md).
 
 ## lint
 

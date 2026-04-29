@@ -2,8 +2,8 @@
 title: 'Manually configure CI/CD for load tests'
 titleSuffix: Azure Load Testing
 description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.service: azure-load-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
@@ -296,6 +296,7 @@ Update your Azure Pipelines workflow to run a load test for your Azure load test
     ```
 
     Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
+    Set *`waitForCompletion: false`* if you want to proceed without waiting for the load test run to complete.
 
 1. Use the `publish` task to publish the test results as artifacts in your Azure Pipelines workflow run.
 
@@ -349,6 +350,7 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
     ```
 
     Optionally, you can pass parameters or secrets to the load test by using the `env` or `secrets` property.
+    Set *`waitForCompletion: false`* if you want to proceed without waiting for the load test run to complete.
 
 1. Use the `actions/upload-artifact` action to publish the test results as artifacts in your GitHub Actions workflow run.
 

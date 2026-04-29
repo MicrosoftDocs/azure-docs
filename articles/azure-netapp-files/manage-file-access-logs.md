@@ -99,6 +99,7 @@ Availability for file access log is limited to the following regions:
 - Japan West
 - Korea Central
 - Korea South
+- Malaysia West 
 - New Zealand North
 - North Europe
 - Norway East

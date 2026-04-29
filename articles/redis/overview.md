@@ -133,7 +133,7 @@ This table shows the max connections by tier and memory size in the Memory Optim
 | 120       | 150,000             | 200,000  | 200,000              |
 | 175       | 200,000             | 200,000  | 200,000              |
 | 235       | 200,000             | 200,000  | 200,000              |
-| 360 *     | 200,000             | 200,000  | 200,000              |
+| 350      | 200,000             | 200,000  | 200,000              |
 | 480 *     | 200,000             | 200,000  | 200,000              |
 | 720 *     | 200,000             | 200,000  | 200,000              |
 | 960 *     | 200,000             | 200,000  | -                    |
@@ -179,7 +179,10 @@ Azure Managed Redis is continually expanding into new regions. To check the avai
 
 ## Moving from Azure Cache for Redis
 
-For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
+For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see:
+
+- [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](migrate/migrate-basic-standard-premium-overview.md)
+- [Migrate Enterprise tier to Azure Managed Redis](migrate/migrate-redis-enterprise-overview.md)
 
 ## Related content
 

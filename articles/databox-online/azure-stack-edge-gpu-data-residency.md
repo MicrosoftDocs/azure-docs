@@ -2,12 +2,12 @@
 title: Data residency and resiliency for Azure Stack Edge Pro GPU/Pro R/Mini R 
 description: Describes data residency posture for Azure Stack Edge.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/01/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Data residency and resiliency for Azure Stack Edge 

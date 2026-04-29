@@ -30,13 +30,18 @@ This article assumes that you have an Azure subscription. If you don't have an A
 
 ## Region support
 
-Zonal placement is supported for SSD storage accounts with LRS redundancy in the following Azure regions. If the region you want to deploy in isn't supported, reach out to azfilezonal@microsoft.com.
+Zonal placement is supported for SSD storage accounts with LRS redundancy in the following Azure regions. If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azfilezonal@microsoft.com) for assistance.
 
 - Asia East
+- Austria East
+- Belgium Central
 - Canada Central
 - Central US
 - Chile Central
+- Denmark East
 - East US
+- East US 2
+- Europe West
 - Germany West Central
 - Indonesia Central
 - Israel Central
@@ -50,6 +55,9 @@ Zonal placement is supported for SSD storage accounts with LRS redundancy in the
 - South Africa North
 - South Central US
 - Spain Central
+- UK South
+- US Government East
+- US Government Southwest
 - West US 2
 - West US 3
 
@@ -130,7 +138,7 @@ New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-
 
 ## Pin an existing storage account to an Azure-selected zone
 
-You can also pin an existing SSD storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, the storage account won't be moved. If you need help aligning your existing storage account with your VM, reach out to azfilezonal@microsoft.com.
+You can also pin an existing SSD storage account to an Azure-selected availability zone by using the Azure portal or PowerShell. Once pinned, the storage account won't be moved. If you need help aligning your existing storage account with your VM, reach out to the [Azure Files team](mailto:azfilezonal@microsoft.com) for assistance.
 
 > [!IMPORTANT]
 > Existing storage accounts can only be pinned to availability zones that are automatically selected by Azure. You can't choose a specific zone number.

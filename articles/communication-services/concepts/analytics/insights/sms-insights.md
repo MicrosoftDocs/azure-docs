@@ -6,7 +6,7 @@ author:  mkhribech
 services: azure-communication-services
 ms.author: mkhribech
 ms.date: 03/16/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
 ---

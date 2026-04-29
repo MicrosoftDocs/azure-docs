@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # What is Azure Web Application Firewall on Azure Application Gateway?
 
+**Applies to:** :heavy_check_mark: Application Gateway
+
 An Azure Web Application Firewall deployment on Azure Application Gateway actively safeguards your web applications against common exploits and vulnerabilities. As web applications become more frequent targets for malicious attacks, these attacks often exploit well-known vulnerabilities such as SQL injection and cross-site scripting.
 
 Azure Web Application Firewall on Application Gateway is based on the [Core Rule Set (CRS)](application-gateway-crs-rulegroups-rules.md) from the Open Web Application Security Project (OWASP).
@@ -196,7 +198,7 @@ You create the firewalls directly from Defender for Cloud. These WAF instances a
 
 #### Microsoft Sentinel
 
-[Microsoft Sentinel](../../sentinel/overview.md?toc=/azure/web-application-firewall/toc.json) is a scalable, cloud-native solution that encompasses security information event management (SIEM) and security orchestration automated response (SOAR). Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+[Microsoft Sentinel](/azure/sentinel/overview?toc=/azure/web-application-firewall/toc.json) is a scalable, cloud-native solution that encompasses security information event management (SIEM) and security orchestration automated response (SOAR). Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 With the firewall events workbook built into Azure Web Application Firewall, you can get an overview of the security events on your WAF. The overview includes matched rules, blocked rules, and all other logged firewall activity.
 

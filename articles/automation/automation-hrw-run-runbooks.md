@@ -3,7 +3,7 @@ title: Run Azure Automation Runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/29/2025
+ms.date: 04/15/2026
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
@@ -16,19 +16,16 @@ author: RochakSingh-blr
 
 > [!IMPORTANT]
 > - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
-> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
-
-> [!NOTE]
-> Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).
+> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
 
 
-Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
+Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they're used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
 
 When you author a runbook to run on a Hybrid Runbook Worker, you should edit and test the runbook on the machine that hosts the worker. The host machine has all the PowerShell modules and network access required to manage the local resources. Once you test the runbook on the Hybrid Runbook Worker machine, you can then upload it to the Azure Automation environment, where it can be run on the worker.
 
 ## Plan for Azure services protected by firewall
 
-Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Plan runbook job behavior
 
@@ -82,21 +79,21 @@ After Python 3.10 installation is complete, create an environment variable with 
 
 To run Python 3.8 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_3_PATH* for Python 3.8 runbooks and ensure to add the location of executable Python as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
 
-If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you do not have to create the environment variable.
+If the *Python* executable file is at the default location *C:\WPy64-3800\python-3.8.0.amd64\python.exe*, then you don't have to create the environment variable.
 
 
 **Python 2.7**
 
 To run Python 2.7 runbooks on a Windows Hybrid Worker, install Python on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html). Create **environment variable** *PYTHON_2_PATH* for Python 2.7 runbooks and ensure to add the location of executable Python file as **Variable value**. Restart the Hybrid Runbook Worker after the environment variable is created successfully.
 
-If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you do not have to create the environment variable.
+If the *Python* executable file is at the default location *C:\Python27\python.exe*, then you don't have to create the environment variable.
 
 
 ### Linux Hybrid Worker
 
 > [!NOTE]
 >- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
->- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
+>- PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
 #### Extension-based Hybrid Workers
@@ -104,7 +101,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 > [!NOTE]
 > To create environment variable in Linux systems, follow these steps:
 > 1. Open /etc/environment.
-> 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it is to be assigned).
+> 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it's to be assigned).
 > 1. Restart the VM or logout from current user and login after saving the changes to /etc/environment to implement environment variable changes.
 
 **PowerShell 7.4**
@@ -293,7 +290,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and select **Save**.
-1. If the following permissions are not assigned for Custom users, jobs might get suspended.
+1. If the following permissions aren't assigned for Custom users, jobs might get suspended.
 
   | **Resource type** | **Folder permissions** |
   | --- | --- |
@@ -305,7 +302,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
 
 ## Start a runbook on a Hybrid Runbook Worker
 
-[Start a runbook in Azure Automation](start-runbooks.md) describes different methods for starting a runbook. Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook as usual.
+[Start a runbook in Azure Automation](start-runbooks.md) describes different methods for starting a runbook. Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook doesn't specify this option, Azure Automation runs the runbook as usual.
 
 When you start a runbook in the Azure portal, you're presented with the **Run on** option for which you can select **Azure** or **Hybrid Worker**. Select **Hybrid Worker**, to choose the Hybrid Runbook Worker group from a dropdown.
 
@@ -391,7 +388,7 @@ To be able to work with signed runbooks, a Linux Hybrid Runbook Worker must have
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
-You will perform the following steps to complete this configuration:
+You'll perform the following steps to complete this configuration:
 
 * Create a GPG keyring and keypair
 * Make the keyring available to the Hybrid Runbook Worker
@@ -416,7 +413,7 @@ To create the GPG keyring and keypair, use the Hybrid Runbook Worker:
     sudo su - nxautomation
     ```
 
-1. Once you are using **nxautomation**, generate the GPG keypair as root. GPG guides you through the steps. You must provide name, email address, expiration time, and passphrase. Then you wait until there is enough entropy on the machine for the key to be generated.
+1. Once you're using **nxautomation**, generate the GPG keypair as root. GPG guides you through the steps. You must provide name, email address, expiration time, and passphrase. Then you wait until there's enough entropy on the machine for the key to be generated.
 
     ```bash
     sudo gpg --generate-key
@@ -468,7 +465,8 @@ To help troubleshoot issues with your runbooks running on an extension-based hyb
 ## Next steps
 
 * For more information on Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
-* If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, see [PowerShell Docs](/powershell/scripting/overview).
 * Learn about [using Azure Policy to manage runbook execution](enforce-job-execution-hybrid-worker.md) with Hybrid Runbook Workers.
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
+* For troubleshooting issues related to running Azure Automation runbooks on extension‑based Hybrid Runbook Workers, see [Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation](troubleshoot/extension-based-hybrid-runbook-worker.md).
+* For troubleshooting issues related to running Azure Automation runbooks on agent‑based Hybrid Runbook Workers, see [Troubleshoot agent-based Hybrid Runbook Worker issues in Automation](troubleshoot/hybrid-runbook-worker.md).

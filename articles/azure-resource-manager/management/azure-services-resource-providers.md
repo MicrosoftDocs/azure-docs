@@ -117,7 +117,7 @@ The resource providers for database services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
+| Microsoft.Cache | [Azure Managed Reference](../../redis/index.yml), [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
@@ -291,7 +291,7 @@ The resource providers for security services are:
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](/azure/dedicated-hsm/) |
 | Microsoft.KeyVault | [Key Vault](/azure/key-vault/) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityInsights | [Microsoft Sentinel](../../sentinel/index.yml) |
+| Microsoft.SecurityInsights | [Microsoft Sentinel](/azure/sentinel/) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Extended Security Updates |
 

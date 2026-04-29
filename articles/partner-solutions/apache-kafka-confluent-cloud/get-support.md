@@ -1,7 +1,7 @@
 ---
 title: Get Support for Confluent Cloud
 description: Learn how to contact support for Confluent Cloud in the Azure portal.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2025
 ms.custom: sfi-image-nochange
 

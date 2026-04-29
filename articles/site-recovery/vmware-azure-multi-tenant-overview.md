@@ -5,7 +5,7 @@ description: Provides an overview of Azure Site Recovery support for VMware disa
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 04/06/2026
 ms.author: v-gajeronika
 
 # Customer intent: "As a cloud service provider, I want to implement multitenant disaster recovery for VMware VMs to Azure so that I can ensure tenant isolation and efficient resource management while providing reliable failover and failback support."
@@ -15,6 +15,8 @@ ms.author: v-gajeronika
 [Azure Site Recovery](site-recovery-overview.md) supports multitenant environments for tenant subscriptions. It also supports multitenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program.
 
 This article provides an overview of implementing and managing multitenant VMware to Azure replication.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Multitenant environments
 

@@ -25,7 +25,7 @@ Although you can use the Azure CLI to [import](import-api-management-apis.md) AP
 
 When you integrate an API Management instance as an API source, the following happens:
 
-1. All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory. MCP servers in API Management are included in the APIs added to the inventory.
+1. All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory. MCP servers and A2A agent APIs in API Management are included in the APIs added to the inventory.
 1. You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
 1. An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
 

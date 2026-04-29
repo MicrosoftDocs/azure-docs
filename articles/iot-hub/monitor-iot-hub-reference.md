@@ -434,7 +434,7 @@ The direct methods category tracks request-response interactions sent to individ
 
 ### Distributed tracing category (preview)
 
-The distributed tracing category tracks the correlation IDs for messages that carry the trace context header. To fully enable these logs, client-side code must be updated by following [Analyze and diagnose IoT applications end-to-end with IoT Hub distributed tracing (preview)](iot-hub-distributed-tracing.md).
+The distributed tracing category tracks the correlation IDs for messages that carry the trace context header.
 
 The `correlationId` conforms to the [W3C Trace Context](https://github.com/w3c/trace-context) proposal, where it contains a `trace-id` and a `span-id`.
 

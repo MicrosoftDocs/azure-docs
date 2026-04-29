@@ -69,6 +69,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
    | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
+   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
 
 1. Select **Next: Configuration**.
 
@@ -217,6 +218,7 @@ az iot ops get-versions
 
 ## Next steps
 
+- See these scripts in GitHub to automate a [production-ready deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 - If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
 - To upgrade your Azure IoT Operations deployment to a newer version, see [Upgrade Azure IoT Operations](./howto-upgrade.md).
 

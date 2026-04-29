@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 02/03/2026
+ms.date: 03/25/2026
 
 ms.author: cherylmc
 
@@ -41,7 +41,7 @@ The following diagram shows current SKUs and the new SKUs that they'll automatic
 
 ### How long will my existing gateway SKUs be supported?
 
-The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation on September 16, 2026. There will be no impact to existing SKUs that are supported by availability zones.
+The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation after September, 2026. There will be no impact to existing SKUs that are supported by availability zones.
 
 ### Will there be any pricing differences for my gateways after migration?
 

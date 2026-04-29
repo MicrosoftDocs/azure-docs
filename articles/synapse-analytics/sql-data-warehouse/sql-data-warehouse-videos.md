@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 07/18/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Azure Synapse Analytics - dedicated SQL pool  (formerly SQL DW) Videos

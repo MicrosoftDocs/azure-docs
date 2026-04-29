@@ -2,12 +2,12 @@
 title: Disconnected scenario for Azure Stack Edge
 description: Describes assumptions, available features when using Azure Stack Edge standalone with no connection to Azure services.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/24/2022
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to use Azure Stack Edge with no internet connection to meet my organization's security restrictions. 
 ---
 

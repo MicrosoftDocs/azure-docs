@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -43,7 +43,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.AVS](./permissions/compute.md#microsoftavs) |  | [Azure VMware Solution](/azure/azure-vmware/introduction) |
 > | [Microsoft.AzureFleet](./permissions/compute.md#microsoftazurefleet) |  | [Azure Compute Fleet](/azure/azure-compute-fleet/overview) |
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
-> | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 > | [Microsoft.ComputeLimit](./permissions/compute.md#microsoftcomputelimit) |  |  |
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
@@ -115,7 +114,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
-> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
+> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Managed Redis](/azure/redis/), [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
 > | [Microsoft.DBforMariaDB](./permissions/databases.md#microsoftdbformariadb) | Managed MariaDB database service for app developers. | [Azure Database for MariaDB](/azure/mariadb/) |
 > | [Microsoft.DBforMySQL](./permissions/databases.md#microsoftdbformysql) | Managed MySQL database service for app developers. | [Azure Database for MySQL](/azure/mysql/) |
 > | [Microsoft.DBforPostgreSQL](./permissions/databases.md#microsoftdbforpostgresql) | Managed PostgreSQL database service for app developers. | [Azure Database for PostgreSQL](/azure/postgresql/) |
@@ -135,11 +134,12 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DataFactory](./permissions/analytics.md#microsoftdatafactory) | Hybrid data integration at enterprise scale, made easy. | [Data Factory](/azure/data-factory/) |
 > | [Microsoft.DataLakeAnalytics](./permissions/analytics.md#microsoftdatalakeanalytics) | Distributed analytics service that makes big data easy. | [Data Lake Analytics](/azure/data-lake-analytics/) |
 > | [Microsoft.DataLakeStore](./permissions/analytics.md#microsoftdatalakestore) | Highly scalable and cost-effective data lake solution for big data analytics. | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) |
+> | [Microsoft.Fabric](./permissions/analytics.md#microsoftfabric) | Unified analytics platform for data engineering, data science, and business intelligence. | [Microsoft Fabric](/fabric/) |
 > | [Microsoft.HDInsight](./permissions/analytics.md#microsofthdinsight) | Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters. | [HDInsight](/azure/hdinsight/) |
 > | [Microsoft.Kusto](./permissions/analytics.md#microsoftkusto) | Service for storing and running interactive analytics over Big Data. | [Azure Data Explorer](/azure/data-explorer/) |
 > | [Microsoft.PowerBIDedicated](./permissions/analytics.md#microsoftpowerbidedicated) | Manage Power BI Premium dedicated capacities for exclusive use by an organization. | [Power BI Embedded](/azure/power-bi-embedded/) |
-> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) |  | [Microsoft Purview](/purview/) |
-> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) |  | [Azure Synapse Analytics](/azure/synapse-analytics/) |
+> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) | Unified data governance and compliance solution. | [Microsoft Purview](/purview/) |
+> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) | Limitless analytics service with enterprise data warehousing and big data analytics. | [Azure Synapse Analytics](/azure/synapse-analytics/) |
 
 <a name='microsoftsearch'></a>
 
@@ -161,6 +161,7 @@ Click the resource provider name in the following list to see the list of permis
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AzureSphere](./permissions/internet-of-things.md#microsoftazuresphere) |  | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) |
+> | [Microsoft.DeviceRegistry](./permissions/internet-of-things.md#microsoftdeviceregistry) |  |  |
 > | [Microsoft.Devices](./permissions/internet-of-things.md#microsoftdevices) | Ensure that your users are accessing your resources from devices that meet your standards for security and compliance. | [IoT Hub](/azure/iot-hub/)<br/>[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 > | [Microsoft.DeviceUpdate](./permissions/internet-of-things.md#microsoftdeviceupdate) |  | [Device Update for IoT Hub](/azure/iot-hub-device-update/) |
 > | [Microsoft.DigitalTwins](./permissions/internet-of-things.md#microsoftdigitaltwins) |  | [Azure Digital Twins](/azure/digital-twins/) |
@@ -182,7 +183,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |
-> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) |
+> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable-functions/durable-functions-overview) |
 > | [Microsoft.EventGrid](./permissions/integration.md#microsofteventgrid) | Get reliable event delivery at massive scale. | [Event Grid](/azure/event-grid/) |
 > | [Microsoft.EventHub](./permissions/integration.md#microsofteventhub) | Receive telemetry from millions of devices. | [Event Hubs](/azure/event-hubs/) |
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
@@ -272,7 +273,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Authorization](./permissions/management-and-governance.md#microsoftauthorization) |  | [Azure Policy](/azure/governance/policy/overview)<br/>[Azure RBAC](/azure/role-based-access-control/overview)<br/>[Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.Automation](./permissions/management-and-governance.md#microsoftautomation) | Simplify cloud management with process automation. | [Automation](/azure/automation/) |
 > | [Microsoft.Billing](./permissions/management-and-governance.md#microsoftbilling) | Manage your subscriptions and see usage and billing. | [Cost Management + Billing](/azure/cost-management-billing/) |
-> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) |
+> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) |
 > | [Microsoft.Blueprint](./permissions/management-and-governance.md#microsoftblueprint) | Enabling quick, repeatable creation of governed environments. | [Azure Blueprints](/azure/governance/blueprints/) |
 > | [Microsoft.Carbon](./permissions/management-and-governance.md#microsoftcarbon) |  | [Azure carbon optimization](/azure/carbon-optimization/overview) |
 > | [Microsoft.Consumption](./permissions/management-and-governance.md#microsoftconsumption) | Programmatic access to cost and usage data for your Azure resources. | [Cost Management](/azure/cost-management-billing/) |

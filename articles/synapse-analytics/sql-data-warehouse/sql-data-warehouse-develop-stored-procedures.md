@@ -7,7 +7,7 @@ ms.author: emtehran
 ms.date: 04/02/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 

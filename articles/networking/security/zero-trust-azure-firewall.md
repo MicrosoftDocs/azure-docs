@@ -4,7 +4,7 @@ description: Review Zero Trust security recommendations for Azure Firewall to he
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/17/2026
 ms.custom: Network-Secure-Recommendation
 ---
@@ -17,13 +17,25 @@ For a summary of all Azure network security Zero Trust recommendations, see [Azu
 
 ## Recommendations
 
-| Recommendation | Risk level | User impact | Implementation cost |
-|---|---|---|---|
-| [!INCLUDE [Outbound traffic from VNet-integrated workloads is routed through Azure Firewall](includes/25535.md)] | High | Low | Medium |
-| [!INCLUDE [Threat intelligence is enabled in deny mode on Azure Firewall](includes/25537.md)] | High | Low | Low |
-| [!INCLUDE [IDPS inspection is enabled in deny mode on Azure Firewall](includes/25539.md)] | High | Low | Low |
-| [!INCLUDE [Inspection of outbound TLS traffic is enabled on Azure Firewall](includes/25550.md)] | High | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Azure Firewall](includes/26887.md)] | High | Low | Low |
+### Outbound traffic from VNet-integrated workloads is routed through Azure Firewall
+
+[!INCLUDE [Outbound traffic from VNet-integrated workloads is routed through Azure Firewall](includes/25535.md)]
+
+### Threat intelligence is enabled in deny mode on Azure Firewall
+
+[!INCLUDE [Threat intelligence is enabled in deny mode on Azure Firewall](includes/25537.md)]
+
+### IDPS inspection is enabled in deny mode on Azure Firewall
+
+[!INCLUDE [IDPS inspection is enabled in deny mode on Azure Firewall](includes/25539.md)]
+
+### Inspection of outbound TLS traffic is enabled on Azure Firewall
+
+[!INCLUDE [Inspection of outbound TLS traffic is enabled on Azure Firewall](includes/25550.md)]
+
+### Diagnostic logging is enabled in Azure Firewall
+
+[!INCLUDE [Diagnostic logging is enabled in Azure Firewall](includes/26887.md)]
 
 ## Related content
 

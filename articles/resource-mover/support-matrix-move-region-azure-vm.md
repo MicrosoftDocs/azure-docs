@@ -19,7 +19,7 @@ This article summarizes support and prerequisites when you move virtual machines
 
 Resource Mover supports Azure VMs running these Windows operating systems.
 
-[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 **Operating system** | **Details**
 --- | ---

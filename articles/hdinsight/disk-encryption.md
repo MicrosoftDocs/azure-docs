@@ -3,7 +3,7 @@ title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2024
 ms.devlang: azurecli
 author: apurbasroy
@@ -22,7 +22,7 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 ## Introduction
 
-There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). 
+There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
 
 HDInsight supports multiple types of encryption in two different layers:
 

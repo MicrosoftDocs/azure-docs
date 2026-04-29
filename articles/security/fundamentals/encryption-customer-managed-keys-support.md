@@ -3,7 +3,7 @@ title: Services that support customer managed keys (CMKs) in Azure Key Vault and
 description: Services that support customer managed keys (CMKs) in Azure Key Vault and Azure Managed HSM
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 02/23/2026
+ms.date: 04/02/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -11,7 +11,9 @@ ms.topic: article
 
 # Services that support customer managed keys (CMKs) in Azure Key Vault and Azure Managed HSM
 
-The following services support server-side encryption with customer managed keys in [Azure Key Vault](/azure/key-vault/) and [Azure Managed HSM](/azure/key-vault/managed-hsm/). For implementation details, see the service-specific documentation or the service's [Microsoft Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
+Customer-managed keys (CMK) is a key management control model in which you own and manage the key encryption key (KEK) in your own [Azure Key Vault](/azure/key-vault/) or [Azure Managed HSM](/azure/key-vault/managed-hsm/) instance. Azure services use your KEK to wrap and unwrap their data encryption keys through envelope encryption. For HSM-protected keys, use Azure Key Vault Premium tier or Azure Managed HSM.
+
+The following services support server-side encryption with customer managed keys. For implementation details, see the service-specific documentation or the service's [Microsoft Cloud Security Benchmark: security baseline](/security/benchmark/azure/security-baselines-overview) (section DP-5).
 
 ## AI and machine learning
 
@@ -31,11 +33,9 @@ The following services support server-side encryption with customer managed keys
 | [Dataverse](/powerapps/maker/data-platform/) | Yes | Yes | [Customer-managed keys in Dataverse](/power-platform/admin/customer-managed-key) |
 | [Dynamics 365](/dynamics365/) | Yes | Yes | [Customer-managed keys for encryption](/dynamics365/fin-ops-core/dev-itpro/sysadmin/customer-managed-keys) |
 | [Azure AI Face](/azure/ai-services/computer-vision/overview-identity) | Yes | Yes | [Face service encryption of data at rest](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest) |
-| [Language Understanding](/azure/ai-services/luis/what-is-luis) | Yes | Yes | [Customer-managed keys with Azure Key Vault](/azure/ai-services/luis/encrypt-data-at-rest) |
 | [Personalizer](/azure/ai-services/personalizer/) | Yes | Yes | [Encryption of data at rest in Personalizer](/azure/ai-services/personalizer/encrypt-data-at-rest) |
 | [Power Platform](/power-platform/) | Yes | Yes | [Customer-managed keys in Power Platform](/power-platform/admin/customer-managed-key) |
 | [Custom question answering](/azure/ai-services/language-service/question-answering/overview) | Yes | | [Custom question answering encryption of data at rest](/azure/ai-services/language-service/question-answering/how-to/encrypt-data-at-rest) |
-| [QnA Maker](/azure/ai-services/qnamaker/) | Yes | Yes | [QnA Maker encryption of data at rest](/azure/ai-services/qnamaker/encrypt-data-at-rest) |
 | [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/) | Yes | Yes | [Speech service encryption of data at rest](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest) |
 | [Azure Translator in Foundry Tools Text](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/encrypt-data-at-rest) |
 
@@ -53,7 +53,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 | [Azure Stream Analytics](/azure/stream-analytics/) | Yes* | Yes | [Data protection in Azure Stream Analytics](/azure/stream-analytics/data-protection) |
 | [Azure Synapse Analytics](/azure/synapse-analytics/) | Yes (RSA 3072-bit) | Yes | [Configure encryption at rest with customer-managed keys](/azure/synapse-analytics/security/workspaces-encryption) |
-| [Microsoft Fabric](/fabric) | Yes | | [Customer-managed key (CMK) encryption and Microsoft Fabric](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
+| [Microsoft Fabric](/fabric) | Yes | Yes | [Customer-managed key (CMK) encryption and Microsoft Fabric](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
 | [Power BI Embedded](/power-bi) | Yes | | [Using your own key for Power BI encryption (Preview)](/power-bi/enterprise/service-encryption-byok) |
 
 ## Containers
@@ -89,9 +89,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure Cosmos DB](/azure/cosmos-db/) | Yes | Yes | [Configure customer-managed keys using Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk), [Configure customer-managed keys using Azure Key Vault Managed HSM](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
 | [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/) | Yes | | [Configure customer-managed keys for Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/how-to-data-encryption) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-customer-managed-key) |
-| [Azure Database for MySQL - Single Server](/azure/mysql/single-server/) | Yes | | [Azure Database for MySQL data encryption with a customer-managed key](/previous-versions/azure/mysql/single-server/concepts-data-encryption-mysql) |
 | [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
-| [Azure Database for PostgreSQL - Single Server](/azure/postgresql/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Single Server](/previous-versions/azure/postgresql/single-server/concepts-data-encryption-postgresql) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
 | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |

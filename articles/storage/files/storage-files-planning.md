@@ -196,6 +196,8 @@ For more information about encryption in transit, see [requiring secure transfer
 
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
+File shares using Microsoft.FileShares resource provider support MSFT key but does not support customer managed keys. 
+
 ## Data protection
 
 Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats. See [Azure Files data protection overview](files-data-protection-overview.md).

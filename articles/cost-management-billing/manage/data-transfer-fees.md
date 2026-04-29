@@ -5,7 +5,7 @@ author: nicholak-ms
 ms.reviewer: jlucey
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/25/2025
 ms.author: jlucey
 ---

@@ -1,98 +1,107 @@
 ---
-title: Use Windows DFS-N to support flexible SAPMNT share creation for SMB based file shares
-description: Using Windows DFS-N to overcome SAP-related SAPMNT naming limitations for Azure NetApp Files SMB or Azure Files Premium SMB
-services: virtual-machines-windows,virtual-network,storage
-author: stmuelle
-manager: juergent
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
+title: Use Windows DFS-N to support flexible SAPMNT share creation for SMB-based file shares
+description: Learn how to use Windows DFS-N to overcome SAP-related SAPMNT naming limitations for Azure NetApp Files SMB or Azure Files Premium SMB.
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.date: 11/12/2021
+ms.topic: how-to
+ms.date: 04/07/2026
 ms.author: stmuelle
+author: stmuelle
 # Customer intent: As a system administrator managing SAP deployments, I want to configure Windows DFS-N for flexible share creation, so that I can overcome SAPMNT naming limitations and enhance the management of SMB-based file shares in Azure.
 ---
 
-# Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share
+# Use Windows DFS-N to support flexible SAPMNT share creation for SMB-based file shares
 
-## Introduction
+Windows Distributed File System (DFS) is a set of Windows Server technologies that simplify how users access shared files across a network. Distributed File System Namespaces (DFS-N) is a Windows Server role service that groups shared folders on different servers into logically structured namespaces. When you deploy SAP systems on Azure by using Azure NetApp Files Server Message Block (SMB) shares, the SAP Software Provisioning Manager (SWPM) creates a `sapmnt` share name that can exist only once per NetApp account. This limitation prevents you from hosting multiple SAP systems on the same account without a workaround.
 
-SAP instances like ASCS/SCS based on WSFC require SAP files being installed on a shared drive. SAP supports either a Cluster Shared Disks or a File Share Cluster to host these files.
+With DFS-N, you can create virtual namespace folders that map to uniquely named shares on Azure NetApp Files. Each SAP system gets its own share while SWPM still resolves the expected `\\<domain>\sapmnt\<SID>` path. This approach also works for the SAP global transport directory.
 
-![Screenshot Cluster Share configuration](media/virtual-machines-shared-sap-high-availability-guide/swpm-01.png)SWPM selection screen for Cluster Share configuration option
+This article describes how to set up DFS-N namespaces and folder targets for SAP SAPMNT shares on Azure NetApp Files SMB volumes.
 
-For installations based on **Azure NetApp Files SMB**, the option File Share Cluster needs to be selected. In the follow-up screen, the File Share Host Name needs to be supplied.
+## Prerequisites
 
-![Screenshot Cluster Share Hostname selection](media/virtual-machines-shared-sap-high-availability-guide/swpm-02.png)SWPM selection screen for Cluster Share Host Name configuration
+- A Windows Server joined to an Active Directory (AD) domain with the **DFS Namespaces** role installed. To learn more, see [Add or remove roles and features in Windows Server](/windows-server/administration/server-manager/add-remove-roles-features).
+- An Azure NetApp Files account with SMB volumes configured for your SAP systems. For more information, see [High availability for SAP NetWeaver on Azure Virtual Machines on Windows with Azure NetApp Files (SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md).
+- SWPM for SAP system installation.
+- Familiarity with [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
-The Cluster Share Host Name is based on the chosen installation option. For Azure NetApp Files SMB, it is the used to join the NetApp account to the Active Directory of the installation. In SAP terms, this name is the so called **SAPGLOBALHOST**.
-SWPM internally adds **sapmnt** to the host name resulting in the **\\\SAPGLOBALHOST\sapmnt**  share. Unfortunately **sapmnt** can only be created once per either NetApp account. This is restrictive. DFS-N can be used to create virtual share names, that can be assigned to differently named shares. Rather than having to use **sapmnt** as the share name as mandated by SWPM, a unique name like **sapmnt-sid** can be used. The same is valid for the global transport directory. Since trans is the expected name of global transport directory, the **SAP DIR_TRANS** profile parameter in the **DEFAULT.PFL** profile needs to be adjusted.
+## Understand SAPMNT share limitations
 
-As an example the following shares can be created by using DFS-N:  
+SAP instances such as ASCS/SCS based on Windows Server Failover Clustering require SAP files to be installed on a shared drive. SAP supports either Cluster Shared Disks or a File Share Cluster to host these files.
 
-**\\\contoso.local\sapmnt\\D01** pointing to **\\\ANF-670f.contoso.corp\\d01-sapmnt**  
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/swpm-01.png" alt-text="Screenshot of the SWPM selection screen for Cluster Share configuration option.":::
 
-**\\\contoso.local\sapmnt\\erp-trans** pointing to **\\\ANF-670f.contoso.corp\\erp-trans**  
-with **DIR_TRANS = \\\contoso.local\sapmnt\erp-trans in the DEFAULT.PFL profile**.
+For installations based on Azure NetApp Files SMB, select the File Share Cluster option. On the next screen, enter the file share host name.
 
-## Microsoft DFS-N
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/swpm-02.png" alt-text="Screenshot of the SWPM selection screen for Cluster Share Host Name configuration.":::
 
-[DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) provides an introduction and the installation instructions for DFS-N
+The Cluster Share Host Name is based on the chosen installation option. For Azure NetApp Files SMB, it's used to join the NetApp account to the AD of the installation. In SAP terms, this name is the **SAPGLOBALHOST**. SWPM internally adds `sapmnt` to the host name, which results in the `\\SAPGLOBALHOST\sapmnt` share. Because `sapmnt` can only be created once per NetApp account, you can use DFS-N to create virtual share names that map to differently named shares. Rather than using `sapmnt` as the share name as mandated by SWPM, you can use a unique name such as `sapmnt-sid`. The same approach applies to the global transport directory. Because `trans` is the expected name of the global transport directory, you must adjust the **SAP DIR_TRANS** profile parameter in the **DEFAULT.PFL** profile.
 
-## Setting up Folder Targets for Azure NetApp Files SMB
+For example, you can create the following shares by using DFS-N:
 
- Folder Targets for Azure NetApp Files SMB are volumes technically created the same way as described in [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md) without using DFS-N. 
-![anf-volumes-overview](media/virtual-machines-shared-sap-high-availability-guide/anf-volumes.png)Portal screenshot with existing ANF volumes.
+- `\\contoso.local\sapmnt\D01` pointing to `\\ANF-670f.contoso.corp\d01-sapmnt`
+- `\\contoso.local\sapmnt\erp-trans` pointing to `\\ANF-670f.contoso.corp\erp-trans`, with `DIR_TRANS = \\contoso.local\sapmnt\erp-trans` in the **DEFAULT.PFL** profile.
 
-## Configuring DFS-N for SAPMNT
+## Set up folder targets for Azure NetApp Files SMB
 
-The following sequence shows the individual steps of initially configuring DFS-N. 
+Folder targets for Azure NetApp Files SMB are volumes that you create the same way as described in the prerequisites, without DFS-N.
 
-Start the **DFS Management console** from the **Windows Administrative Tools** in the Windows Server Start Menu.
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/anf-volumes.png" alt-text="Screenshot of the Azure portal showing existing Azure NetApp Files volumes.":::
 
-![Initial screen of DFS-N setup sequence](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-01.png)
+## Configure DFS-N for SAPMNT
 
-This screen shows the opening DFS screen.
+The following steps show how to initially configure DFS-N.
 
-![Definition of DFS Namespace server](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-07.png)In this screen an AD joined Windows Server with DFS installed has to be selected.
+1. In **Server Manager**, select **Tools**, then select **DFS Management**.
 
-![Definition of DFS Namespace share](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-08.png)In this screen the name of the second part of the Namespace root is defined. In this screen **sapmnt** has to be supplied, which is part of the SAP naming convention.
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-01.png" alt-text="Screenshot of the DFS Management console opening screen in the setup sequence.":::
 
-![Definition of DFS Namespace type](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-09.png)
+1. Select an AD-joined Windows Server with DFS installed.
 
-In this step, the Namespace type is defined. This input also determines the name of the first part of Namespace root. DFS supports domain-based or stand-alone namespaces. In a Windows-based installation, domain-based is the default. Therefore the setup of the namespace server needs to be domain-based. Based on this choice, the domain name will become the first part of the Namespace root. So here the AD/domain name is **contoso.corp**, the Namespace root is therefore **\\\contoso.corp\sapmnt**.
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-07.png" alt-text="Screenshot of the DFS Namespace server selection screen for an AD-joined Windows Server.":::
 
-Under the Namespace root, numerous Namespace folders can be created. Each of them points to a Folder Target. While the name of the Folder Target can be chosen freely, the name of the Namespace folder has to match a valid SAP SID. In combination, this will create a valid SWPM compliant UNC share. This mechanism is also be used to create the trans-directory in order to provide a SAP transport directory.
+1. Define the name of the second part of the Namespace root. Enter **sapmnt**, which is part of the SAP naming convention.
 
-![Completed DFS Setup with SAP folders](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-11.png)The screenshot shows an example for such a configuration.
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-08.png" alt-text="Screenshot of the DFS Namespace share name definition screen with sapmnt as the required value.":::
 
-## Adding additional DFS namespace servers to increase resiliency
+1. Define the Namespace type. This input also determines the name of the first part of the Namespace root. DFS supports domain-based or stand-alone namespaces. In a Windows-based installation, domain-based is the default, so the setup of the namespace server must be domain-based. Based on this choice, the domain name becomes the first part of the Namespace root. For example, if the AD domain name is `contoso.corp`, the Namespace root is `\\contoso.corp\sapmnt`.
 
-The domain-based Namespace server setup easily allows adding extra Namespace servers. Similar to having multiple domain controllers for redundancy in Active Directories where critical information is replicated between the domain controllers, adding extra Namespace servers does the same for DFS-N. This is allowed for domain controllers, locally for cluster nodes or stand-alone domain-joined servers. Before using any of them the DFS-N Role need to be installed.
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-09.png" alt-text="Screenshot of the DFS Namespace type selection screen for domain-based or stand-alone options.":::
 
-By **right-clicking** on the **Namespace root**, the **Add Namespace Server** dialog is opened.
+Under the Namespace root, you can create multiple Namespace folders. Each folder points to a Folder Target. While you can choose the name of the Folder Target freely, the name of the Namespace folder must match a valid SAP security ID (SID). This combination creates a valid SWPM-compliant Universal Naming Convention (UNC) share. You can also use this mechanism to create the `trans` directory to provide an SAP transport directory.
 
-![Add additional Namespace servers dialog](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-nss-07.png)
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-11.png" alt-text="Screenshot of the completed DFS setup showing configured SAP namespace folders.":::
 
-In this screen, the name of the Namespace server can be directly supplied. Alternatively the Browse button can be pushed to list already existing servers will be shown.
+## Add DFS namespace servers for increased resiliency
 
-![Existing Namespace servers overview](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-nss-08.png)Overview of existing Namespace servers.
+The domain-based Namespace server setup allows you to add extra Namespace servers. Similar to having multiple domain controllers for redundancy in AD where critical information is replicated between the domain controllers, adding extra Namespace servers provides the same redundancy for DFS-N. You can use domain controllers, cluster nodes, or stand-alone domain-joined servers. Before you use any of them, you must install the DFS-N role.
 
-## Adding folders to Azure NetApp Files SMB-based Namespace root
+To add a Namespace server, right-click the **Namespace root** and select **Add Namespace Server**.
 
-The following sequence shows how create folders in DFS-N and assign them to Folder Targets.
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-add-nss-07.png" alt-text="Screenshot of the Add Namespace Server dialog for adding additional DFS-N servers.":::
 
-In the DFS Management console, right-click on the Namespace root and select New Folder 
+In this dialog, enter the Namespace server name directly or select **Browse** to view existing servers.
 
-![DFS-N add folder dialog screen](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-05.png)
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-add-nss-08.png" alt-text="Screenshot of the existing DFS Namespace servers overview in the management console.":::
 
-This step opens the New Folder dialog. Supply either a valid SID like in this case **P01** or use **trans** if the intention is to create a transport directory.
+## Add folders to the Azure NetApp Files SMB-based namespace root
 
-In the portal, get the mount instructions for the volume you want to use as a folder target and copy the UNC name and paste as shown above.
+The following steps show how to create folders in DFS-N and assign them to Folder Targets.
 
-![ANF mount instructions from portal](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-04.png)
+1. In the DFS Management console, right-click the Namespace root and select **New Folder**.
 
-![Screenshot of folder setup for an SAP landscape](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-08.png)
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-05.png" alt-text="Screenshot of the DFS-N New Folder dialog for adding a folder to the namespace root.":::
 
-This screen shows as an example the folder setup for an SAP landscape.
+1. In the New Folder dialog, enter a valid SID (for example, **P01**) or enter **trans** to create a transport directory.
+
+1. In the Azure portal, get the mount instructions for the volume you want to use as a folder target. Copy the UNC name and paste it into the folder target path.
+
+   :::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-04.png" alt-text="Screenshot of the Azure portal showing Azure NetApp Files mount instructions with UNC path.":::
+
+The following screenshot shows an example of the folder setup for an SAP landscape.
+
+:::image type="content" source="media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-08.png" alt-text="Screenshot of the folder setup for an SAP landscape in the DFS Management console.":::
+
+## Related content
+
+- [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview)

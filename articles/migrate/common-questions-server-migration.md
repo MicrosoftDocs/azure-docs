@@ -132,7 +132,7 @@ If the test migration isn't cleaned up after testing, the test VM continues to r
 
 ### How do I know if my VM successfully migrated?
 
-After you migrate your VM/server successfully, you can view and manage the VM from the **Virtual Machines** pane. Connect to the migrated VM to validate.
+After you migrate your VM/server successfully, you can view and manage the VM by navigating to the Execute> Migrations page. Execution stage will be shown as **Completion** and status will be **Completed**. Connect to the migrated VM to validate.
 
 You can also review the **Job status** for the operation to check if the migration was successfully completed. If you see any errors, resolve them and then retry the migration operation.
 
@@ -172,7 +172,7 @@ As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes f
 | Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 15 SP1, SP2, SP3, SP4, SP5, SP6                    | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS               | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 24.04, 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS               | Y                                                                                                                                         | Y                              | Y                                                          |
 | RHEL 9.x, 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
 | CentOS Stream               | Y | Y                              | Y                                                          |
 | Oracle Linux 9, 8, 7.7-CI, 7.7, 6                             |  Y                                                                                                                                        | Y                              | Y                                                          |

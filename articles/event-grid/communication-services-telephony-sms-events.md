@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - SMS events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for SMS Events.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/29/2025
 author: VikramDhumal
 ms.author: vikramdh

@@ -137,6 +137,12 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
+- name: Create Reports
+  items:
+   - name: Overview reports
+     href: reports-overview.md
+   - name: Build a report
+     href: how-to-build-a-report.md
 - name: Plan migrations
   items:
   - name: Assessments
@@ -233,6 +239,8 @@ items:
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
+  - name: End-to-end portal experience for server migrations with Azure Migrate
+    href: end-to-end-portal-experience-server-migrations.md
   - name: Agentless migrations using portal
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal
@@ -378,8 +386,6 @@ items:
       href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: VMware migrations with migration agent
     href: how-to-plan-analyze-migration-with-agent.md
-  - name: End-to-end portal experience for server migrations with Azure Migrate
-    href: end-to-end-portal-experience-server-migrations.md
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project
@@ -398,8 +404,6 @@ items:
       href: troubleshoot-appliance-diagnostic.md
     - name: Troubleshoot network connectivity for private endpoint
       href: troubleshoot-network-connectivity.md
-  - name: Workload discovery
-    items:
   - name: Action Center
     href: centralized-issue-tracking.md
   - name: Server discovery
@@ -455,6 +459,8 @@ items:
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Azure Migration Hub
+    href: /azure/migration/
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework

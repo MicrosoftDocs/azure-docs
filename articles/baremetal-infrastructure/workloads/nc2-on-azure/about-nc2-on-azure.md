@@ -103,7 +103,9 @@ On-premises Nutanix environments require the Nutanix customer to support all the
 
 Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, virtual network, vWAN, etc.
 
-Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element, etc.) and their licenses.
+Nutanix covers the deployment of Nutanix software (Prism Central/Element, AHV, AOS,etc.) and their licenses.
+
+Customers are responsible for the lifecycle management of the Nutanix software after their deployment is successful.
 
 **Monitoring and remediation**
 

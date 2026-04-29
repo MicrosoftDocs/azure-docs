@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual 
+ms.topic: how-to
 
 # Customer intent: "As a data administrator, I want to configure lifecycle management policies for blob storage, so that I can automate the deletion of expired or tagged data to optimize storage use and manage data retention effectively."
 ---

@@ -4,7 +4,7 @@ description: This article provides a detailed explanation about how Azure applie
 author: pri-mittal
 ms.author: primittal
 ms.date: 03/19/2026
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: ahb
 ms.reviewer: primittal

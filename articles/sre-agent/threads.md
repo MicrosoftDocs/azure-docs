@@ -1,9 +1,9 @@
 ---
 title: Threads in Azure SRE Agent
 description: Learn how threads organize conversations with your agent, including thread sources, filtering, search, chat commands, and keyboard shortcuts.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -33,7 +33,7 @@ Your agent creates threads from several different sources.
 
 ## Thread organization
 
-Threads appear in the sidebar and are organized into two categories.
+The sidebar shows threads organized into two categories.
 
 | Section | Purpose |
 |---|---|
@@ -42,7 +42,7 @@ Threads appear in the sidebar and are organized into two categories.
 
 :::image type="content" source="media/threads/thread-sidebar-overview.png" alt-text="Screenshot of thread sidebar showing Favorites and Chats categories, with filter buttons and thread list.":::
 
-Each thread in the sidebar displays its title. Unread threads appear in **bold** text, making them easy to spot.
+Each thread in the sidebar displays its title. You can easily spot unread threads because they appear in **bold** text.
 
 ### Filter threads
 
@@ -52,6 +52,8 @@ Use the two filter buttons at the top of the thread list to find relevant conver
 |---|---|
 | **Unread** | Only threads you didn't read yet. |
 | **Mine** | Only threads you started (excludes scheduled tasks and agent-initiated threads). |
+
+The **Mine** filter is active by default. When you open the sidebar, you see your own threads first. Toggle it off to see all threads on the agent.
 
 When active, a filter button appears filled (blue). You can activate both filters at the same time so that only threads matching **both** conditions appear.
 
@@ -87,7 +89,7 @@ Right-click any thread in the sidebar, or select the **...** (More options) menu
 
 ### View thread details
 
-Select a thread to open it. The title bar shows the thread name, a **...** (More options) menu, and a **View trace** button when Application Insights is configured.
+Select a thread to open it. The title bar shows the thread name, a **...** (More options) menu, and a **View trace** button when you configure Application Insights.
 
 ### Search threads
 
@@ -95,7 +97,7 @@ Select **Search threads** in the sidebar to open the search dialog. Type any par
 
 :::image type="content" source="media/threads/thread-search-dialog.png" alt-text="Screenshot of search dialog showing thread results with title, thread ID, and last message preview.":::
 
-Search results display each thread's title, unique ID, and a preview of the last message. Your search text is highlighted wherever it matches, in the title, the ID, or both.
+Search results display each thread's title, unique ID, and a preview of the last message. The search text is highlighted wherever it matches, in the title, the ID, or both.
 
 The following table describes scenarios where searching by thread ID is helpful.
 
@@ -140,7 +142,7 @@ Type `/` or `#` in the chat input to access quick commands.
 
 | Command | Description | Learn more |
 |---|---|---|
-| `/agent` | Switch to a specific subagent. | [Subagents](sub-agents.md#how-subagents-work) |
+| `/agent` | Switch to a specific custom agent. | [Custom Agents](sub-agents.md#how-custom-agents-work) |
 | `/clear` | Start a fresh thread. | |
 | `/compact` | Summarize and compress conversation history. | |
 | `/incident` | List all incidents. | [Incident response](incident-response.md) |
@@ -170,12 +172,9 @@ When you test your agent configuration in the [test playground](agent-playground
 
 Test threads appear with a distinct label so you can tell them apart from real conversations.
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Ask your agent for help](./ask-agent.md)
-
 ## Related content
 
-- [Memory](memory.md)
-- [Incident response](incident-response.md)
+| Resource | Why it matters |
+|----------|----------------|
+| [Memory and knowledge](memory.md) | How your agent remembers information |
+| [Incident response](incident-response.md) | Threads created from incidents |

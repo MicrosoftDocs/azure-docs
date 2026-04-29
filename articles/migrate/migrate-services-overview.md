@@ -9,6 +9,10 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 03/20/2025
 ms.custom: mvc, engagement-fy25
+ms.collection:
+  - migration
+  - aws-to-azure
+  - onprem-to-azure
 # Customer intent: "As an IT manager, I want to utilize Azure Migrate to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
 ---
 

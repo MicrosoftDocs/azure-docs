@@ -18,6 +18,8 @@ items:
 - name: How to
   expanded: true
   items:
+  - name: Connect Foundry agents to MongoDB Atlas
+    href: connect-foundry-agents.md
   - name: Manage a resource
     href: manage.md
   - name: Troubleshoot a resource

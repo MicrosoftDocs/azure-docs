@@ -2,11 +2,11 @@
 title: 'Connect to a Windows VM using RDP'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to a Windows VM using RDP via the Azure portal, a specified IP address, or a native client.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/06/2026
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to establish a secure RDP connection to a Windows VM using a Bastion host, so that I can access my virtual machines without exposing them to the public internet."
 ---
@@ -87,7 +87,7 @@ Use the Azure portal to create a browser-based RDP connection to your Windows vi
 1. Select **Connect** to open the RDP connection to your virtual machine in a new browser tab.
 
 > [!NOTE]
-> For troubleshooting tips, see [Troubleshooting RDP connections](troubleshoot.md) and [Troubleshoot Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#troubleshoot-sign-in-problems)
+> For troubleshooting tips, see [Troubleshooting RDP connections](/troubleshoot/azure/bastion/troubleshoot-bastion) and [Troubleshoot Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#troubleshoot-sign-in-problems)
 
 
 # [IP address (portal)](#tab/ip-address)

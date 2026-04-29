@@ -3,7 +3,7 @@ title: Supported Regions for Azure SRE Agent
 description: Find Azure regions where Azure SRE Agent is available and learn how to check region availability for your subscription.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -50,7 +50,7 @@ Use the following recommendations when you choose a region for your agent.
 | Cross-region resources | Your agent can access resources in any region where you grant permissions. The agent region only determines where the agent compute runs. |
 
 > [!NOTE]
-> You deploy your agent to a single region in a single subscription, but it can manage resources across regions and across subscriptions. As long as the agent's managed identity has the appropriate permissions, it can query, diagnose, and take action on resources anywhere in your Azure environment, regardless of which region or subscription they belong to.
+>Your agent deploys to a single region in a single subscription. However, with appropriate permissions on its managed identity, the agent can manage resources across any region or subscription in your Azure environment.
 
 ## Frequently asked questions
 
@@ -64,6 +64,10 @@ Each agent is deployed to a single region. To operate in multiple regions, creat
 
 No. You set the region during agent creation and can't change it afterward. Create a new agent to use a different region.
 
+### Can I request a new region?
+
+Yes. [Submit a new region request](https://github.com/microsoft/sre-agent/issues/new?labels=region-request&title=New+region+request) with the region you need and your use case.
+
 ## Next step
 
 > [!div class="nextstepaction"]
@@ -74,3 +78,4 @@ No. You set the region during agent creation and can't change it afterward. Crea
 - [Create an agent](create-agent.md)
 - [Supported regions overview](supported-regions.md)
 - [Network requirements](network-requirements.md)
+- [Data privacy](data-privacy.md)

@@ -116,7 +116,7 @@ Next, connect Storage Explorer to your storage account.
 
 ## Set up Storage Explorer
 
-The following steps connect Storage Explorer to your storage account so to you can confirm that your workflow correctly saves attachments as blobs in your storage container.
+The following steps connect Storage Explorer to your storage account so that you can confirm that your workflow correctly saves attachments as blobs in your storage container.
 
 1. Launch Microsoft Azure Storage Explorer. Sign in with your Azure account.
 
@@ -273,7 +273,7 @@ After you confirm that your function works, create your logic app resource and w
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
    > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
-   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#availability-zone-support) and 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.
@@ -308,7 +308,7 @@ The following steps add a trigger that waits for incoming emails that have attac
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   Your workflow is now live but doesn't do anything other check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
+   Your workflow is now live but doesn't do anything other than check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
 
 ## Add a condition to check for attachments
 

@@ -3,7 +3,7 @@ title: "Tutorial: Create a Kusto Tool in Azure SRE Agent"
 description: Build a reusable Kusto query tool for your Azure SRE Agent using the portal UI to run deterministic KQL queries.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -11,36 +11,37 @@ ms.ai-usage: ai-assisted
 ---
 
 # Tutorial: Create a Kusto tool in Azure SRE Agent
-In this tutorial, you create a parameterized Kusto tool that runs exact KQL queries with deterministic, repeatable results. When users ask questions like "show me errors from the last 7 days," the agent substitutes the parameter and runs your exact query against your Azure Data Explorer database.
+
+In this tutorial, you create a parameterized Kusto tool that runs exact KQL queries with deterministic, repeatable results. When users ask questions like "show me errors from the last seven days," the agent substitutes the parameter and runs your exact query against your Azure Data Explorer database.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a Kusto tool in the subagent builder
+> - Create a Kusto tool in the Agent Canvas
 > - Define a parameterized KQL query
 > - Test the query in the portal
-> - Attach the tool to a subagent and verify it in the playground
+> - Attach the tool to a custom agent and verify it in the playground
 
 **Estimated time**: 15 minutes
 
 ## Prerequisites
 
-Before you begin, make sure you have the following:
+Before you begin, make sure you have the following prerequisites:
 
 - An Azure Data Explorer cluster with the **AllDatabasesViewer** role granted to the agent's managed identity. For more information, see [Kusto tools prerequisites](kusto-tools.md#azure-data-explorer-permissions).
 - A Kusto connector configured. For more information, see [Set up a Kusto connector](kusto-connector.md).
 - Access to Builder in the Azure SRE Agent portal.
 
-## Navigate to the subagent builder
+## Navigate to the Agent Canvas
 
-Open the subagent builder where you create and manage tools.
+Open the Agent Canvas where you create and manage tools.
 
 1. Open the [SRE Agent portal](https://sre.azure.com).
 1. Select your agent.
 1. Select **Builder** in the left navigation.
-1. Select **Subagent builder**.
+1. Select **Agent Canvas**.
 
-:::image type="content" source="media/create-kusto-tool/step-02-sub-agent-builder-view.png" alt-text="Screenshot of subagent builder showing canvas view with subagent cards." lightbox="media/create-kusto-tool/step-02-sub-agent-builder-view.png" :::
+:::image type="content" source="media/create-kusto-tool/step-02-sub-agent-builder-view.png" alt-text="Screenshot of Agent Canvas showing canvas view with custom agent cards." lightbox="media/create-kusto-tool/step-02-sub-agent-builder-view.png" :::
 
 ## Open the tool creation form
 
@@ -60,7 +61,7 @@ Complete the form with your tool configuration.
 | **Tool name** | `QueryAppLogs` | How the agent references this tool. |
 | **Description** | "Query AppLogs table for errors in the specified time range" | When the agent should use this tool. |
 | **Connector** | (select your Kusto connector) | The Azure Data Explorer connection to use. |
-| **Database** | (auto-populated from connector URL) | Your database name. |
+| **Database** | (autopopulated from connector URL) | Your database name. |
 | **Query** | See the following example. | Your KQL query with parameters. |
 
 Enter the following example query:
@@ -88,7 +89,7 @@ Define the parameter that your query uses.
    - **Type**: String
    - **Description**: "How far back to look (for example, 1h, 24h, 7d)"
 
-The parameter appears in the Parameters table below your query.
+The parameter appears in the **Parameters** table below your query.
 
 ## Test the query
 
@@ -100,7 +101,7 @@ Validate that the query runs successfully before saving.
 
 :::image type="content" source="media/create-kusto-tool/step-03-kusto-tool-test-passed.png" alt-text="Screenshot of tool test showing execution time and success status." lightbox="media/create-kusto-tool/step-03-kusto-tool-test-passed.png":::
 
-The test shows execution time and confirms the query runs. Even if the query returns zero rows, a green checkmark means the query syntax is valid.
+You see execution time and a green checkmark confirming the query runs. Even if the query returns zero rows, the checkmark means the query syntax is valid.
 
 ## Create the tool
 
@@ -108,27 +109,27 @@ Select **Create** to save your Kusto tool.
 
 :::image type="content" source="media/create-kusto-tool/step-04-kusto-tool-created.png" alt-text="Screenshot of tool successfully created confirmation." lightbox="media/create-kusto-tool/step-04-kusto-tool-created.png":::
 
-## Add the tool to a subagent
+## Add the tool to a custom agent
 
-Your tool is created but not yet attached to a subagent. Attach it so the agent can use it.
+You created your tool but didn't attach it to a custom agent. Attach the tool so the agent can use it.
 
-1. In the **Canvas view**, find your subagent.
-1. Select the **+** button on the right side of the subagent card.
+1. In **Canvas view**, find your custom agent.
+1. Select the **+** button on the right side of the custom agent card.
 1. Select **Add existing tools**.
 1. Check your Kusto tool from the list.
 1. Select **Add tools**.
 
-:::image type="content" source="media/create-kusto-tool/step-02-sub-agent-builder-canvas.png" alt-text="Screenshot of canvas view showing subagent card with the add button on the right side." lightbox="media/create-kusto-tool/step-02-sub-agent-builder-canvas.png":::
+:::image type="content" source="media/create-kusto-tool/step-02-sub-agent-builder-canvas.png" alt-text="Screenshot of canvas view showing custom agent card with the add button on the right side." lightbox="media/create-kusto-tool/step-02-sub-agent-builder-canvas.png":::
 
-The tool count on your subagent card increases after adding.
+The tool count on your custom agent card increases after adding.
 
 ## Verify the tool in the playground
 
 Test that the agent invokes your Kusto tool correctly.
 
 1. Select **Test Playground** in the left navigation.
-1. Select your subagent from the dropdown list.
-1. Ask: "Show me errors from the last 7 days"
+1. Select your custom agent from the dropdown list.
+1. Ask: "Show me errors from the last seven days"
 1. The agent invokes your tool with `timeRange = 7d`.
 
 :::image type="content" source="media/create-kusto-tool/kusto-playground-result.png" alt-text="Screenshot of test playground showing Kusto query results with error entries from AppLogs table." lightbox="media/create-kusto-tool/kusto-playground-result.png":::
@@ -154,9 +155,9 @@ The following table describes the available execution modes for Kusto tools.
 
 | Mode | Use when |
 |---|---|
-| `Query` | The query is defined inline in YAML (most common). |
-| `Function` | The query logic is stored as a function on the Azure Data Explorer cluster. |
-| `Script` | The query is in an external `.kql` file. |
+| `Query` | Define the query inline in YAML (most common). |
+| `Function` | Store the query logic as a function on the Azure Data Explorer cluster. |
+| `Script` | Place the query in an external `.kql` file. |
 
 ```yaml
 # Function mode example
@@ -203,6 +204,27 @@ spec:
       description: "How far back to look (e.g., 1h, 24h)"
 ```
 
+## Edit or delete a tool
+
+You can modify or remove tools after creation.
+
+### Edit
+
+1. On the **Agent Canvas**, select the tool node to open the info panel.
+1. Select the **edit** (pencil) icon in the panel header.
+1. The edit dialog opens with your current settings. Modify the query, parameters, or connector.
+1. Select **Save**.
+
+### Delete
+
+1. Select the tool node to open the info panel.
+1. Select the **&#8943;** (more actions) menu in the panel header.
+1. Select **Delete tool**.
+1. Confirm the deletion in the dialog.
+
+> [!NOTE]
+> When you delete a tool, you immediately remove it from any custom agents that use the tool.
+
 ## Next step
 
 > [!div class="nextstepaction"]
@@ -212,4 +234,4 @@ spec:
 
 - [Kusto tools](kusto-tools.md)
 - [Create a Python tool](create-python-tool.md)
-- [Subagents](sub-agents.md)
+- [Custom agents](sub-agents.md)

@@ -4,7 +4,7 @@ description: Learn about the history and difference between Azure Synapse (forme
 author: azaricstefan
 ms.author: stefanazaric
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: sql
 ms.date: 10/06/2024
 ---

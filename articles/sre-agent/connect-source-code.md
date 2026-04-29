@@ -1,196 +1,163 @@
 ---
-title: "Step 3: Connect Source Code to Azure SRE Agent"
-description: Connect your GitHub repository so your agent can perform root cause analysis and correlate production issues to specific code changes.
+title: Connect source code to Azure SRE Agent
+description: Connect a GitHub or Azure DevOps repository so your agent performs root cause analysis and correlates production issues to specific code changes.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 04/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: source code, github, root cause analysis, connectors, getting started
+ms.custom: source code, github, azure devops, root cause analysis, connectors, getting started
 #customer intent: As a site reliability engineer, I want to connect my source code repository so that my agent can correlate production issues to specific code changes during investigations.
 ---
 
-# Step 3: Connect source code to Azure SRE Agent
-**Estimated time**: 10 minutes
+# Step 3: Connect source code in Azure SRE Agent
 
-Connect your GitHub repository so your agent can perform root cause analysis, correlating production problems to specific code.
+Connect your GitHub or Azure DevOps repository. Your agent can now perform **root cause analysis** by correlating production problems to specific code.
 
 ## What you accomplish
 
-By the end of this step, your agent can:
+By the end of this step, your agent:
+- Analyzes source code during investigations
+- Provides **file:line references** for problems
+- Creates To-Do Plans that show investigation steps
+- Correlates production symptoms to code changes
 
-- Analyze source code during investigations
-- Provide specific file and line references for problems
-- Create To-Do Plans showing investigation steps
-- Correlate production symptoms to code changes
+---
 
 ## Prerequisites
 
 | Requirement | Details |
-|---|---|
-| **Agent created** | Complete [Step 1: Create an agent](create-agent.md) first. |
-| **GitHub PAT** | Personal Access Token with `repo` scope. |
+|-------------|---------|
+| **Agent created** | Complete [Step 1](overview.md) first |
+| **GitHub or Azure DevOps account** | Access to the repositories you want to connect |
 
-## Choose your approach
+---
 
-You can connect source code in three ways.
+## Choose your authentication method
 
-| Approach | Best for |
-|---|---|
-| **Option A: Resource mapping** | Single repo linked to a specific Azure resource |
-| **Option B: MCP + subagent** | Access to all your GitHub repos |
-| **Option C: ADO Documentation connector** | Azure Repos and wikis as knowledge sources |
+| Method | When to use |
+|--------|-------------|
+| **OAuth** | Sign in with your GitHub account. No token needed and the easiest setup. |
+| **PAT** | Provide a Personal Access Token with `repo` scope. Works for orgs with SSO restrictions. |
 
-> [!TIP]
-> Pick the approach that matches your setup. You can use multiple options together.
+## Connect your repository
 
-For **Option C**, see the [ADO Wiki knowledge](azure-devops-wiki-knowledge.md) capability page and the [Connect ADO Wiki tutorial](connect-devops-wiki.md).
+Connect a GitHub repository so your agent can index it as a knowledge source. The dialog shows a browsable list of your repositories. Select from the dropdown instead of typing URLs manually.
 
-## Option A: Resource mapping
+### Step 1: Open the Add Repository dialog
 
-Associate a repository with an Azure resource. When your agent investigates that resource, it automatically references the linked code.
+During onboarding, select the **Add repository** card in the Knowledge Base step.
 
-### Open resource mapping
+For an existing agent, go to **Builder** > **Knowledge base** and select the **Add repository** action card.
 
-1. Select **Monitor** in the left sidebar.
-1. Select **Resource mapping**.
-1. Find your resource in the list.
-1. Select the resource to open its detail view.
+### Step 2: Choose a platform
 
-### Add a repository
+1. Select **GitHub** or **Azure DevOps**.
 
-1. Select **Add repository**.
-1. Paste your GitHub repository URL (for example, `https://github.com/your-org/your-repo`).
-1. Sign in to GitHub if prompted.
-1. Select **Add**.
+1. Choose your sign-in method:
 
-You linked the repository to that Azure resource.
+    | Method | When to use |
+    |--------|-------------|
+    | **Auth** (OAuth) | Sign in with your GitHub or Azure DevOps account. No token needed. |
+    | **PAT** | Provide a Personal Access Token with `repo` scope |
 
-### Verify option A
+1. Complete authentication:
 
-Ask your agent about the linked resource:
+    - **OAuth:** Select **Sign in to GitHub** or **Sign in to Azure DevOps** and complete the authentication process.
+    - **PAT:** Enter your token in the **Provide PAT** field and select **Connect**.
 
-```text
-What could cause memory issues in the grocery-store-api container app?
-```
+    > [!NOTE]
+    > If the sign-in dialog doesn't appear, check that your browser isn't blocking popups from `sre.azure.com`.
 
-You should see the following results:
+1. Confirm the result: a **Connected** card appears showing your authenticated account.
 
-1. The agent creates a **To-Do Plan** for the investigation.
-1. The agent loads the `source_code_analysis` skill.
-1. The agent searches through your linked repository.
-1. The agent returns findings with specific file and line references.
+1. Select **Next**.
 
-This screenshot shows a plan the agent creates in preparation for code investigation.
+### Step 3: Select repositories
 
-:::image type="content" source="media/connect-source-code/to-do-plan-source-code-investigation.png" alt-text="Screenshot of the agent To-Do Plan for a code investigation.":::
+After authentication, the **Repository URL** field shows a dropdown of your repositories:
 
-This screenshot shows how the agent analyzes the source code and returns specific file references.
+- **GitHub repos** appear as `org/repo-name`, sorted alphabetically (up to 100 repos).
 
-:::image type="content" source="media/connect-source-code/root-cause-source-code-analysis-complete.png" alt-text="Screenshot of the agent analyzing source code and returning file references.":::
+- **Azure DevOps repos** appear after you select a project from the **Azure DevOps Project** dropdown, sorted alphabetically.
 
-## Option B: MCP + subagent
+Select a repository from the dropdown. The **Display name** autocompletes with the repository name. You can also type any valid repository URL directly into the field.
 
-Connect GitHub as an MCP server for full access to GitHub features. This approach requires creating a subagent to use the MCP tools.
-
-### Add the GitHub connector
-
-1. Select **Builder** in the left sidebar.
-1. Select **Connectors**.
-1. Select **Add connector**.
-
-    :::image type="content" source="media/connect-source-code/connectors-list.png" alt-text="Screenshot of the connectors list.":::
-
-1. Select **GitHub MCP server**.
-1. Configure the connection:
-
-    | Field | Value |
-    |---|---|
-    | **Name** | `my-github` (or a descriptive name) |
-    | **Connection type** | Streamable-HTTP (default) |
-    | **URL** | `https://api.githubcopilot.com/mcp/` |
-    | **Authentication method** | Bearer token |
-    | **Personal access token** | Your GitHub PAT with `repo` scope |
-
-1. Select **Next** > **Add connector**.
-1. Wait for the status to show **Connected**.
-
-:::image type="content" source="media/connect-source-code/grocery-app-repo-connected.png" alt-text="Screenshot of the GitHub connector showing a connected status.":::
-
-### Create a subagent
-
-MCP tools aren't available on the main agent. You need to create a subagent to use them.
-
-1. Select **Builder** > **Subagent builder**.
-1. Select **Create subagent**.
-1. Configure the subagent:
-
-    | Field | Value |
-    |---|---|
-    | **Name** | `github-analyst` |
-    | **Description** | Analyzes GitHub repositories for root cause analysis |
-    | **Instructions** | You analyze source code to find root causes of production issues. When given a repository and symptoms, search for relevant code and provide file:line references. |
-
-1. In the **Tools** section, select the GitHub MCP tools you need (for example, `search_code`, `get_file_contents`, `list_commits`).
-1. Select **Save**.
-
-### Verify Option B
-
-Ask your agent to hand off to your new subagent:
-
-```text
-Use the github-analyst subagent to analyze the code in my-org/my-repo for memory leaks.
-```
-
-The main agent hands off to your subagent, which uses the GitHub MCP tools to analyze the code.
-
-## The difference source code makes
-
-The following example shows how source code connectivity changes an agent's response.
-
-**Without source code:**
-
-> "The container app is experiencing memory pressure. Consider increasing memory limits."
-
-**With source code:**
-
-> "Found potential memory leak in `src/api/suppliers.js`:
->
-> **Line 45-52:** The `fetchSupplierData()` function creates new HTTP clients per request without cleanup.
->
-> **Line 110-117:** Rate limiting is set to 5 req/min, but the API shows burst patterns of ~40/min.
->
-> **Recommendation:** Add connection pooling or implement client reuse."
-
-Your agent correlates production symptoms to exact code locations.
-
-## Recommended repositories to connect
-
-The following table shows which types of repositories provide the most value.
-
-| Repository type | Value |
-|---|---|
-| **Production apps** | Root cause analysis during incidents |
-| **Infrastructure-as-code** | Configuration drift detection |
-| **Runbook scripts** | Understand automation logic |
+To add multiple repositories, select **Add** to insert more rows.
 
 > [!TIP]
-> Connect your most incident-prone application first. Add more repositories later.
+> The dropdown allows freeform typing. If your repository doesn't appear in the list (for example, if you have more than 100 repos), type the full URL directly.
 
-## Summary
+### Step 4: Confirm and save
 
-Your agent now analyzes source code during investigations, provides file and line references for problems, creates To-Do Plans showing investigation steps, and correlates production symptoms to code changes.
+Select **Add repository** to save.
 
-## Next step
+The system automatically creates the appropriate GitHub OAuth or Azure DevOps OAuth connector if one doesn't already exist.
 
-> [!div class="nextstepaction"]
-> [Step 4: Set up incident response](./incident-response.md)
+### Step 5: Try creating a pull request (preview)
+
+With your repository connected, your agent can now create pull requests directly from chat.
+
+1. Open a chat thread with your agent.
+
+1. Type a prompt like: *"Create a PR in https://github.com/OWNER/REPO from fix/my-branch to main titled 'Fix connection timeout'"*.
+
+1. In Review mode, select **Continue** to approve the PR creation.
+
+Your agent returns a tool card with a clickable link to the created PR.
+
+> [!NOTE]
+> Create pull requests requires Review or Autonomous run mode. The source branch must already exist with your changes committed.
+
+## Manage connected repositories
+
+When you reopen the **Add Repository** dialog, existing connected repositories appear as read-only rows in the grid.
+
+**To remove a repository:**
+
+Use the following steps to remove a connected repository.
+
+1. Go to **Builder** > **Knowledge base** and select the **Add repository** action card.
+
+1. Find the repository row in the grid.
+
+1. Select the **trash icon** on the row to mark it for deletion.
+
+1. Select **Add repository** to save changes.
+
+1. A **Confirm changes** dialog appears listing the repositories that are removed.
+
+1. Select **Confirm** to proceed or **Cancel** to keep them.
+
+**To update authentication:** If your PAT expires or you need to switch accounts, reopen the **Add Repository** dialog and re-authenticate with new credentials.
+
+---
+
+## Alternative: MCP + custom agent
+
+To get full GitHub API access (search code, read files, and list commits across all repositories), connect GitHub as an MCP server with a dedicated custom agent.
+
+This approach uses the Model Context Protocol (MCP) to connect GitHub tools to a custom agent. Follow the step-by-step tutorial, [Set Up MCP Connector](mcp-connector.md).
+
+Your agent now analyzes source code during investigations, provides file and line references for problems, creates To-do Plans showing investigation steps, correlates production symptoms to code changes, and can create pull requests in connected repos directly from chat.
+
+## What you learned
+
+- Your agent now analyzes source code during investigations.
+- It provides file and line references for problems.
+- It creates To-Do Plans that show investigation steps.
+- It correlates production symptoms to code changes.
+
+---
 
 ## Related content
 
-- [Root cause analysis](root-cause-analysis.md): How your agent uses source code to find root causes
-- [Deep investigation](deep-investigation.md): Extended multi-hypothesis analysis using connected repos
-- [Tutorial: Deep investigation](./tutorial-deep-investigation.md): Run a deep investigation with source code
-- [Subagents](sub-agents.md): How subagents extend your agent's capabilities
-- [Connectors](connectors.md): All connector types and how they work
+| Resource | Description |
+|----------|-------------------|
+| [Root cause analysis](root-cause-analysis.md) | How your agent uses source code to find root causes. |
+| [Deep investigation](deep-investigation.md) | Extended multihypothesis analysis using connected repos. |
+| [Agent Playground](agent-playground.md) | Test MCP tools and custom agents interactively. |
+| [Custom agents](sub-agents.md) | How custom agents extend your agent's capabilities. |
+| [Connectors](connectors.md) | All connector types and how they work. |

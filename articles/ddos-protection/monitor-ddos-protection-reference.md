@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/17/2026
 ms.custom: horz-monitor
 ms.topic: reference
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 # Customer intent: As a network administrator, I want to monitor Azure DDoS Protection metrics and logs, so that I can effectively manage traffic and identify potential threats to ensure the security and performance of my network.
 ---

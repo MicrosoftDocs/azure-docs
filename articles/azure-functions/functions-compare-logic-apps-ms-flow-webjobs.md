@@ -1,8 +1,8 @@
 ---
-title: Integration and automation platform options in Azure
+title: Integration and Automation Platform Options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
-ms.date: 02/07/2025
+ms.date: 03/23/2026
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
@@ -21,7 +21,7 @@ All of these services can solve integration problems and automate business proce
 >
 > If you're looking for a more general comparison between Azure Functions and other Azure compute options, see the following articles:
 >
-> - [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
+> - [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) 
 > - [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options)
 >
 > For a summary and comparison of automation service options in Azure, 
@@ -29,7 +29,7 @@ All of these services can solve integration problems and automate business proce
 
 ## Compare Azure Logic Apps and Microsoft Power Automate
 
-These services are both *designer-first* integration platforms where you can build and run automated workflows. Both platforms integrate with various Software-as-a-Service (SaaS) and enterprise applications. Both provide similar workflow designers, and while [their connectors share some overlap](/connectors/connector-reference/), each platform also offers their own unique connectors.
+These services are both *designer-first* integration platforms where you can build and run automated workflows. Both platforms integrate with various software-as-a-service (SaaS) and enterprise applications. Both provide similar workflow designers, and while [their connectors share some overlap](/connectors/connector-reference/), each platform also offers their own unique connectors.
 
 Power Automate empowers business users, office workers, and citizen developers to build simple integrations without having to work with IT or developers or to write code. One example might be an approval workflow for a SharePoint document library. Azure Logic Apps supports integrations ranging from little-to-no-code scenarios to more advanced, codeful, and complex workflows. Examples include B2B processes or scenarios that require enterprise-level interactions with Azure DevOps. A business workflow can also grow from simple to complete over time.
 
@@ -37,9 +37,9 @@ To help you determine whether you want to use Azure Logic Apps or Power Automate
 
 ## Compare Azure Functions and Azure Logic Apps
 
-These Azure services enable you to build and run serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, which are called *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
+These Azure services allow you to build and run serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, which are called *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/what-is-durable-task.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](../durable-task/common/what-is-durable-task.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
 
 You can mix and match services when you build an orchestration. For example, you can call functions from logic app workflows and call logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 
@@ -49,8 +49,8 @@ You can mix and match services when you build an orchestration. For example, you
 | **Connectivity** | - [A dozen built-in binding types](functions-triggers-bindings.md#supported-bindings) <br>- Write code for custom bindings | - [1,400+ prebuilt connectors with triggers and actions](/connectors/connector-reference/connector-reference-logicapps-connectors) <br>- [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) <br>- [Custom connectors](/connectors/custom-connectors/) |
 | **Actions** | Each activity is an Azure function; write code for activity functions | [1,400+ prebuilt connectors with triggers and actions](/connectors/connector-reference/connector-reference-logicapps-connectors) |
 | **Monitoring** | [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) | - [Azure portal](../logic-apps/view-workflow-status-run-history.md) <br>- [Azure Monitor Logs](../logic-apps/monitor-workflows-collect-diagnostic-data.md) <br>- [Microsoft Defender for Cloud](../logic-apps/healthy-unhealthy-resource.md) <br>- [Azure Application Insights for Standard workflows](/azure/logic-apps/create-single-tenant-workflows-azure-portal#enable-or-open-application-insights-after-deployment) <br>- [Health Check for Standard workflows](/azure/logic-apps/monitor-health-standard-workflows) <br><br>For more information, see [Monitor workflows in Azure Logic Apps](/azure/logic-apps/monitor-logic-apps-overview). |
-| **Management** | - [REST API](durable/durable-functions-http-api.md) <br>- [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | - [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) <br>- [Visual Studio Code]() <br>- [REST API](/rest/api/logic/) <br>- [PowerShell](/powershell/module/az.logicapp) <br>- [Azure CLI (Standard workflows)](/cli/azure/logicapp) <br>- [Azure CLI (Consumption workflows)](/cli/azure/logic) |
-| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Can run in Azure, locally in Visual Studio Code, or in partially connected environments. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md#resource-environment-differences)? |
+| **Management** | - [REST API](durable-functions/durable-functions-http-api.md) <br>- [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | - [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) <br>- [Visual Studio Code]() <br>- [REST API](/rest/api/logic/) <br>- [PowerShell](/powershell/module/az.logicapp) <br>- [Azure CLI (Standard workflows)](/cli/azure/logicapp) <br>- [Azure CLI (Consumption workflows)](/cli/azure/logic) |
+| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Can run in Azure, locally in Visual Studio Code, or in partially connected environments. For more information, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md#resource-environment-differences) |
 
 <a name="function"></a>
 
@@ -72,9 +72,9 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 | --- | --- | --- |
 |**[Serverless app model](https://azure.microsoft.com/solutions/serverless/) with [automatic scaling](event-driven-scaling.md)**|✔||
 |**[Develop and test in browser](./functions-get-started.md)** |✔||
-|**[Pay-per-use pricing](consumption-plan.md)**|✔||
+|**[Pay-per-use pricing](flex-consumption-plan.md)**|✔||
 |**[Integration with Logic Apps](functions-twitter-email.md)**|✔||
-| **Trigger events** |[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage queues and blobs](functions-bindings-storage-blob.md)<br>[Azure Service Bus queues and topics](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| **Trigger events** |[Timer](functions-bindings-timer.md)<br>[Azure Storage](functions-bindings-storage-blob.md)<br>[Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage](functions-bindings-storage-blob.md)<br>[Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[File system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **Supported languages**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |**Package managers**|npm and NuGet|NuGet<sup>2</sup>|
 
@@ -84,7 +84,7 @@ Azure Functions is built on the WebJobs SDK, so it shares many of the same event
 
 ### Summary
 
-Azure Functions offers more developer productivity than Azure App Service WebJobs does. It also offers more options for programming languages, development environments, Azure service integration, and pricing. For most scenarios, it's the best choice.
+Azure Functions offers more developer productivity than Azure App Service WebJobs does. Azure Functions also offers more options for programming languages, development environments, Azure service integration, and pricing. For most scenarios, it's the best choice.
 
 Here are two scenarios for which WebJobs might be the best choice:
 
@@ -103,17 +103,10 @@ A Power Automate flow can call an Azure Logic Apps workflow. An Azure Logic Apps
 
 Between Power Automate, Azure Logic Apps, and Functions, the integration experience between these services continues to improve over time. You can build a component in one service and use that component in the other services.
 
-For more information about integration services, see the following articles:
+For more information about integration services, see [Power Automate frequently asked questions](/power-automate/frequently-asked-questions).
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Azure Logic Apps Live webcast](https://aka.ms/logicappslive)
-* [Power Automate frequently asked questions](/power-automate/frequently-asked-questions)
-
-## Next steps
-
-Get started by creating your first flow, logic app workflow, or function app. Select any of the following links:
+## Related content
 
 * [Get started with Power Automate](/power-automate/getting-started)
 * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
-* [Create your first Azure function](./functions-get-started.md)
+* [Get started with Azure Functions](./functions-get-started.md)

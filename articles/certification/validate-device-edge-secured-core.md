@@ -3,7 +3,7 @@ title: Validate device is Edge Secured-core enabled
 description: Instructions to validate device is Edge Secured-core enabled 
 author: sufenfong
 ms.author: sufon
-ms.topic: conceptual 
+ms.topic: how-to
 ms.date: 08/06/2024 
 ms.custom: Edge Secured-core certified devices
 ms.service: azure-certified-device

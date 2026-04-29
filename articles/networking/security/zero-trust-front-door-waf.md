@@ -4,7 +4,7 @@ description: Review Zero Trust security recommendations for Azure Web Applicatio
 author: duongau
 ms.author: duau
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/17/2026
 ms.custom: Network-Secure-Recommendation
 ---
@@ -17,16 +17,37 @@ For a summary of all Azure network security Zero Trust recommendations, see [Azu
 
 ## Recommendations
 
-| Recommendation | Risk level | User impact | Implementation cost |
-|---|---|---|---|
-| [!INCLUDE [Azure Front Door WAF is enabled in prevention mode](includes/25543.md)] | High | Low | Low |
-| [!INCLUDE [Request body inspection is enabled in Azure Front Door WAF](includes/26880.md)] | High | Low | Low |
-| [!INCLUDE [Default rule set is assigned in Azure Front Door WAF](includes/26883.md)] | High | Low | Low |
-| [!INCLUDE [Bot protection rule set is enabled and assigned in Azure Front Door WAF](includes/26884.md)] | High | Low | Low |
-| [!INCLUDE [Rate limiting is enabled in Azure Front Door WAF](includes/27018.md)] | High | Low | Medium |
-| [!INCLUDE [JavaScript challenge is enabled in Azure Front Door WAF](includes/27019.md)] | Medium | Low | Low |
-| [!INCLUDE [CAPTCHA challenge is enabled in Azure Front Door WAF](includes/27020.md)] | Medium | Low | Low |
-| [!INCLUDE [Diagnostic logging is enabled in Azure Front Door WAF](includes/26889.md)] | High | Low | Low |
+### Azure Front Door WAF is enabled in prevention mode
+
+[!INCLUDE [Azure Front Door WAF is enabled in prevention mode](includes/25543.md)]
+
+### Request body inspection is enabled in Azure Front Door WAF
+
+[!INCLUDE [Request body inspection is enabled in Azure Front Door WAF](includes/26880.md)]
+
+### Default rule set is assigned in Azure Front Door WAF
+
+[!INCLUDE [Default rule set is assigned in Azure Front Door WAF](includes/26883.md)]
+
+### Bot protection rule set is enabled and assigned in Azure Front Door WAF
+
+[!INCLUDE [Bot protection rule set is enabled and assigned in Azure Front Door WAF](includes/26884.md)]
+
+### Rate limiting is enabled in Azure Front Door WAF
+
+[!INCLUDE [Rate limiting is enabled in Azure Front Door WAF](includes/27018.md)]
+
+### JavaScript challenge is enabled in Azure Front Door WAF
+
+[!INCLUDE [JavaScript challenge is enabled in Azure Front Door WAF](includes/27019.md)]
+
+### CAPTCHA challenge is enabled in Azure Front Door WAF
+
+[!INCLUDE [CAPTCHA challenge is enabled in Azure Front Door WAF](includes/27020.md)]
+
+### Diagnostic logging is enabled in Azure Front Door WAF
+
+[!INCLUDE [Diagnostic logging is enabled in Azure Front Door WAF](includes/26889.md)]
 
 ## Related content
 

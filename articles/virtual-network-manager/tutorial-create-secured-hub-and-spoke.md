@@ -119,7 +119,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 > [!NOTE]
 > This how-to guide assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
 
-[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
+[!INCLUDE [virtual-network-manager-create-network-group](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-network-group.md)]
 
 ## Define dynamic group membership with Azure Policy
 

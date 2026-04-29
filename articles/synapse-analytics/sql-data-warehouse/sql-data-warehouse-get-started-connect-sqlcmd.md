@@ -7,7 +7,7 @@ ms.author: joanpo
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom:
   - azure-synapse
 ---

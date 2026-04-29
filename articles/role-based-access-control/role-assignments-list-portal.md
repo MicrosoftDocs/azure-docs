@@ -41,6 +41,9 @@ A quick way to see the roles assigned to a user or group in a subscription is to
 
 1. To change the subscription, click the **Subscriptions** list.
 
+>[!Note]
+>Attempting to access **Azure role assignments** > **Subscriptions** from the Intune admin center may display an outage-style error message. This is expected, as the Intune admin center does not support Azure subscription management. Use the **Azure portal** or **Microsoft Entra admin center** to manage Azure subscription role assignments.
+
 ## List owners of a subscription
 
 Users that have been assigned the [Owner](built-in-roles.md#owner) role for a subscription can manage everything in the subscription. Follow these steps to list the owners of a subscription.

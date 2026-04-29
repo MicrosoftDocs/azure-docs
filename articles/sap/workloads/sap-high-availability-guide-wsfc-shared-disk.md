@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 06/19/2024
+ms.date: 03/07/2026
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 # Customer intent: As an Azure administrator, I want to configure a Windows failover cluster for an SAP ASCS/SCS instance with shared disks, so that I can ensure high availability and reliability of SAP services in the cloud environment.
@@ -99,7 +99,7 @@ For more information about ERS1 and ERS2, see [Enqueue Replication Server in a M
 
 There are two options for shared disks in a Windows failover cluster in Azure:
 
-- Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure Managed Disks to multiple VMs simultaneously.
+- Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure managed disks to multiple VMs simultaneously.
 - Use [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage.
 
 When you select a technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:
@@ -120,6 +120,8 @@ Keep in mind the following considerations about SIOS:
 You can implement SAP ASCS/SCS HA with [Azure shared disks](/azure/virtual-machines/disks-shared).
 
 #### Prerequisites and limitations
+
+
 
 
 You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. Consider the following limitations:

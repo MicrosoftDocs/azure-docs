@@ -86,7 +86,7 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 ## Connection reconnection policy
 
-This article doesn't demonstrate a message retry policy for the device to IoT Hub connection or external application to IoT Hub connection. In production code, you should implement connection retry policies as described in [Manage device reconnections to create resilient applications](/azure/iot/concepts-manage-device-reconnections).
+This article doesn't demonstrate a message retry policy for the device to IoT Hub connection or external application to IoT Hub connection. In production code, you should implement connection retry policies as described in [Manage device reconnections to create resilient applications](concepts-manage-device-reconnections.md).
 
 ## Message retention time, retry attempts, and max delivery count
 

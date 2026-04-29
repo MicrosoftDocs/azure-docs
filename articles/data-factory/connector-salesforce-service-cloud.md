@@ -5,9 +5,9 @@ description: Learn how to copy data from Salesforce Service Cloud V2 to supporte
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 09/04/2025
+ms.date: 03/23/2026
 ---
 
 # Copy data from and to Salesforce Service Cloud V2 using Azure Data Factory or Azure Synapse Analytics
@@ -205,6 +205,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
 | query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. If query is not specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset will be retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
+| preserveScaleFromSchema | Indicates whether to enable decimal scale rounding or not according to the decimal scale definition in the schema. Rounding only happens when property is set to true. If not specified, the default behavior is false. For example, if a column is defined as decimal(18,3) in the schema, the value 123.123789 is rounded to 123.124 when this option is enabled. <br>Allowed values: **false** (default), **true**. | No |
 | partitionOption | Provide capability to automatically detect and apply the optimal partitioning algorithm to optimize for read throughput when applicable. You are recommended to specify `AutoDetect` for long-running copy that can benefit from multi-threaded reads. The default value is `AutoDetect`. | No |
 
 > [!IMPORTANT]
@@ -236,6 +237,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
                 "type": "SalesforceServiceCloudV2Source",
                 "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
                 "includeDeletedObjects": false,
+                "preserveScaleFromSchema": false,
                 "partitionOption": "AutoDetect"
             },
             "sink": {
@@ -334,7 +336,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
 | Salesforce Service Cloud V1 | Removed | Not applicable. |
-| Salesforce Service Cloud V2 | GA version available | • Support OAuth2ClientCredentials authentication instead of the basic authentication. <br><br> • Support SOQL query only.<br><br>• Support report by selecting a report ID.<br><br>• Support `partitionOption` in the copy activity source. <br><br>• `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity.|
+| Salesforce Service Cloud V2 | GA version available | • Support OAuth2ClientCredentials authentication instead of the basic authentication. <br><br> • Support SOQL query only.<br><br>• Support report by selecting a report ID.<br><br>• Support `partitionOption` in the copy activity source. <br><br>• Support `preserveScaleFromSchema` in the copy activity source. <br><br>• `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity.|
 
 ### <a name="upgrade-the-salesforce-service-cloud-linked-service"></a> Upgrade the Salesforce Service Cloud connector
 
@@ -347,6 +349,8 @@ Here are steps that help you upgrade your Salesforce Service Cloud connector:
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the V1 linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
 1. Support `partitionOption` in the copy activity source. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
+
+1. Support `preserveScaleFromSchema` in the copy activity source. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
 
 1. `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
 

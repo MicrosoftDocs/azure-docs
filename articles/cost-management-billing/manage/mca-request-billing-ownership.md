@@ -4,8 +4,8 @@ description: Learn how to transfer billing ownership of Azure subscriptions, res
 ms.topic: how-to
 ms.date: 12/29/2025
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.custom: sfi-image-nochange
@@ -105,7 +105,7 @@ The following procedure has you navigate to **Transfer requests** by selecting a
 1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the products, their usage is billed to this billing profile.  
     :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::  
     *If you don't see Billing profiles, you aren't in the right billing scope.* You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
-1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure product billing - that's where the Azure product consumption is transferred to.  
+1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains one invoice section by default. Select the invoice where you want to move your Azure product billing - that's where the Azure product consumption is transferred to.  
     :::image type="content" source="./media/mca-request-billing-ownership/invoice-section.png" alt-text="Screenshot that shows selecting invoice sections." lightbox="./media/mca-request-billing-ownership/invoice-section.png" :::  
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old products.  
     :::image type="content" source="./media/mca-request-billing-ownership/transfer-request-add-email.png" alt-text="Screenshot that shows selecting transfer requests." lightbox="./media/mca-request-billing-ownership/transfer-request-add-email.png" :::
@@ -202,8 +202,7 @@ You can request billing ownership of products for the following subscription typ
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)²
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)¹
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
-    - Subscription, reservation, and savings plan transfers are supported for direct EA customers. A direct enterprise agreement is one that's signed between Microsoft and an enterprise agreement customer.
-    - Only subscription transfers are supported for indirect EA customers. Reservation and savings plan transfers aren't supported. An indirect EA agreement is one where a customer signs an agreement with a Microsoft partner.
+    - Subscription, reservation, and savings plan transfers are supported for EA customers. For more details, see [Azure product transfer hub](subscription-transfer.md).
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Cloud Partner Program](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)¹

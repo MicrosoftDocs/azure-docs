@@ -90,7 +90,7 @@ landingContent:
           - text: Request product feature
             url: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0?c=775ae472-f324-ec11-b6e6-000d3a4f0da0
           - text: Tech Community for Azure Governance
-            url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
+            url: https://techcommunity.microsoft.com/category/azure/discussions/azuregovernance
 
   - title: Reference
     linkLists:

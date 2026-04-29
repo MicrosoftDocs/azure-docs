@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Consumption plan hosting (legacy)
 description: Learn about Azure Functions Consumption plan hosting, a legacy serverless hosting option. We recommend the Flex Consumption plan for new serverless function apps.
-ms.date: 03/13/2026
+ms.date: 04/09/2026
 ms.topic: concept-article
 ms.custom:
   - build-2024
@@ -10,11 +10,9 @@ ms.custom:
 
 # Azure Functions Consumption plan hosting (legacy)
 
-[!INCLUDE [functions-consumption-legacy-banner](../../includes/functions-consumption-legacy-banner.md)]
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 When you use the Consumption plan, the Azure Functions host dynamically adds and removes instances based on the number of incoming events. 
-
-[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 The Consumption plan automatically scales, even during periods of high load. When you run functions in a Consumption plan, you pay for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time. The Consumption plan is currently the only serverless hosting option that supports Windows.
 
@@ -23,21 +21,6 @@ The Consumption plan automatically scales, even during periods of high load. Whe
 Billing is based on the number of executions, execution time, and memory used. The system aggregates usage across all functions within a function app. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
-
-## Create a legacy Consumption plan function app
-
-In Consumption plan hosting, each function app typically runs in its own plan, which the platform creates for you along with the app. In the Azure portal or in code, you might also see the Consumption plan referred to as `Dynamic` or `Y1`.
-
-> [!TIP]
-> For new function apps, consider using the [Flex Consumption plan](flex-consumption-plan.md), which offers faster scaling, virtual network integration, and configurable instance sizes.
-
-Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
-
-- [Azure CLI](functions-cli-samples.md#create)
-- [Azure portal](./functions-get-started.md)
-- [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
-
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./how-to-create-function-vs-code.md#create-the-function-app-in-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## Multiple apps in the same plan
 

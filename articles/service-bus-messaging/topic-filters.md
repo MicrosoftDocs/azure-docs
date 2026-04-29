@@ -2,7 +2,7 @@
 title: Azure Service Bus Topic Filters Overview
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters.
 #customer intent: As a developer, I want to understand how to use SQL filters in Azure Service Bus so that I can filter messages based on specific conditions.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2026
 ms.custom: sfi-ropc-nochange
 ---

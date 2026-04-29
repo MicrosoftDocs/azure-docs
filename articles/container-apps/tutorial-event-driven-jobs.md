@@ -4,7 +4,7 @@ description: Learn how to create a job that processes queue messages by using Az
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/02/2026
 ms.author: cshoe
 ms.custom:

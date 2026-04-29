@@ -3,7 +3,7 @@ title: Service mode in Azure SignalR Service
 description: An overview of service modes in Azure SignalR Service.
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/30/2024
 ms.author: lianwei
 ---

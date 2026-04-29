@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -110,6 +110,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/listKeys/action` | List keys |
 > | `Microsoft.CognitiveServices/accounts/regenerateKey/action` | Regenerate Key |
 > | `Microsoft.CognitiveServices/accounts/privateEndpointConnectionsApproval/action` | Approves Private Endpoint |
+> | `Microsoft.CognitiveServices/accounts/provisionManagedNetwork/action` | Provision the managed network of the Cognitive Services Account. |
 > | `Microsoft.CognitiveServices/accounts/capabilityHosts/read` | Reads a capability host |
 > | `Microsoft.CognitiveServices/accounts/capabilityHosts/write` | Write a capability host |
 > | `Microsoft.CognitiveServices/accounts/capabilityHosts/delete` | Delete a capability host |
@@ -129,6 +130,12 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/read` | Reads an Encryption Scope. |
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/write` | Writes an Encryption Scope. |
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/delete` | Deletes an Encryption Scope. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/read` | Get the managed network associated with the Cognitive Services Account. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/write` | Creates or updates the managed network associated with the Cognitive Services Account. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/batchOutboundRules/action` | Manages the outbound rules of the managed network associated with the Cognitive Services Account. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/outboundRules/read` | Gets the outbound rules of managed network associated with the Cognitive Services Account. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/outboundRules/write` | Creates or updates an outbound rule of managed network associated with the Cognitive Services Account. |
+> | `Microsoft.CognitiveServices/accounts/managedNetworks/outboundRules/delete` | Deletes an outbound rule of managed network associated with the Cognitive Services Account. |
 > | `Microsoft.CognitiveServices/accounts/models/read` | Reads available models. |
 > | `Microsoft.CognitiveServices/accounts/networkSecurityPerimeterAssociationProxies/read` | Reads a network security perimeter association. |
 > | `Microsoft.CognitiveServices/accounts/networkSecurityPerimeterAssociationProxies/write` | Writes a network security perimeter association. |
@@ -1357,6 +1364,12 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/MaaS/v1/embed/action` | Cohere AI - Embed |
 > | `Microsoft.CognitiveServices/accounts/MaaS/v1/rerank/action` | Rerank |
 > | `Microsoft.CognitiveServices/accounts/MaaS/v1/chat/completions/action` | Chat Completion |
+> | `Microsoft.CognitiveServices/accounts/MAI/completions/action` | Creates a completion for the provided prompt and parameters. |
+> | `Microsoft.CognitiveServices/accounts/MAI/embeddings/action` | Creates an embedding vector representing the input text. |
+> | `Microsoft.CognitiveServices/accounts/MAI/rerank/action` | Creates a reranked response for the provided input. |
+> | `Microsoft.CognitiveServices/accounts/MAI/audio/action` | Processes provided input as audio. |
+> | `Microsoft.CognitiveServices/accounts/MAI/images/action` | Creates an image response for the provided input. |
+> | `Microsoft.CognitiveServices/accounts/MAI/chat/completions/action` | Creates a model response for the given chat conversation. |
 > | `Microsoft.CognitiveServices/accounts/MetricsAdvisor/alert/anomaly/configurations/write` | Create or update anomaly alerting configuration |
 > | `Microsoft.CognitiveServices/accounts/MetricsAdvisor/alert/anomaly/configurations/delete` | Delete anomaly alerting configuration |
 > | `Microsoft.CognitiveServices/accounts/MetricsAdvisor/alert/anomaly/configurations/read` | Query a single anomaly alerting configuration |
@@ -1831,6 +1844,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/VideoSearch/trending/action` | Get currently trending videos. |
 > | `Microsoft.CognitiveServices/accounts/VideoSearch/details/action` | Get insights about a video, such as related videos. |
 > | `Microsoft.CognitiveServices/accounts/VideoSearch/search/action` | Get videos relevant for a given query. |
+> | `Microsoft.CognitiveServices/accounts/VideoTranslation/Segments/action` | Perform actions on segments like synthesis. |
 > | `Microsoft.CognitiveServices/accounts/VideoTranslation/EventHubConfiguration/action` | Operate configuration. |
 > | `Microsoft.CognitiveServices/accounts/VideoTranslation/Consents/write` | Create consent. |
 > | `Microsoft.CognitiveServices/accounts/VideoTranslation/Consents/read` | Read consent. |
@@ -1898,6 +1912,7 @@ Azure service: [Azure AI Health Bot](/azure/health-bot/overview)
 > | `Microsoft.HealthBot/healthBots/Admin/UnrecognizedUtterances/Read` | Access for getting unrecognized utterances data |
 > | `Microsoft.HealthBot/healthBots/Admin/UnrecognizedUtterances/Export/Action` | Export unrecognized utterances data |
 > | `Microsoft.HealthBot/healthBots/AIActions/ClinicalCoder/Process/Action` | Process health data in Clinical Coder service API |
+> | `Microsoft.HealthBot/healthBots/AIActions/ProActiveCoding/Process/Action` | Process health data in Pro Active Coding service API |
 > | `Microsoft.HealthBot/healthBots/AnalyticReport/Read` | Access for getting analytic report data |
 > | `Microsoft.HealthBot/healthBots/AuditTrails/Read` | Audit all activity in your bot |
 > | `Microsoft.HealthBot/healthBots/AuthenticationProviders/Read` | List and view details of agent's authentication providers |
@@ -2009,6 +2024,11 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | `Microsoft.MachineLearningServices/workspaces/featurestoreentities/action` | Allows action on the Machine Learning Services FeatureEntity(s) |
 > | `Microsoft.MachineLearningServices/workspaces/agents/read` | Read operations for Agents service in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/agents/delete` | Deletes for agent resources in Machine Learning Services Workspace(s) |
+> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/action` | Create and manage optimization runs in Machine Learning Services Workspace(s) |
+> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/read` | Read optimization runs and results in Machine Learning Services Workspace(s) |
+> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/write` | Write optimization configurations in Machine Learning Services Workspace(s) |
+> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/delete` | Delete optimization runs in Machine Learning Services Workspace(s) |
+> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/cancel/action` | Cancel running optimization runs in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/assets/stage/write` | Updates the stage on a Machine Learning Services workspace asset |
 > | `Microsoft.MachineLearningServices/workspaces/batchEndpoints/read` | Gets batch inference endpoints in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/batchEndpoints/write` | Creates or updates batch inference endpoint in Machine Learning Services Workspace(s) |

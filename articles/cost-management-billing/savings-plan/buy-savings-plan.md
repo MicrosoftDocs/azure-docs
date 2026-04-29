@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -77,7 +77,7 @@ Unlike reservations, you can't cancel or exchange savings plans. You can trade i
 
 ## Need help?
 
-If you have a savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about savings plan.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about savings plan.
 
 ## Related content
 

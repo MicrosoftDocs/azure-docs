@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: conceptual
-ms.date: 09/12/2025
+ms.date: 03/05/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -12,11 +12,100 @@ ms.subservice: azure-firmware-analysis
 # What's new in firmware analysis
 
 This article lists new features and feature enhancements in the firmware analysis service.
-Get notified about when to revisit this page for updates by copying and pasting this URL:
+Get notified about when to revisit this page for updates by copying and pasting this URL into your RSS feed reader:
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
-into your RSS feed reader.
+
+
+## April 2026
+
+- **Azure Device Registry integration (Preview)**
+
+    Firmware analysis now integrates with Azure Device Registry to associate firmware analysis results with Azure Device Registry-managed Devices and Assets using shared metadata.
+
+    This integration enables you to identify Azure Device Registry-managed Devices and Assets affected by critical firmware vulnerabilities and prioritize remediation across your fleet. To learn more, visit [Firmware analysis integration with Azure Device Registry](firmware-analysis-integration-with-azure-device-registry.md).
+
+    This association is based on matching the following metadata fields between uploaded firmware images and Azure Device Registry resources within the same subscription:
+
+    | Firmware analysis metadata | Corresponding ADR resource metadata |
+    |----------------------------|-------------------------------------|
+    | Vendor                     | Manufacturer                        |
+    | Model                      | Model                               |
+    | Version                    | Operating system version (Devices) or Software revision (Assets)  |
+
+
+    When metadata values match, firmware analysis associates Azure Device Registry Devices and Assets with the firmware image.
+
+    Associated ADR device and asset information is surfaced in the firmware image list view, firmware overview panel, and analysis results experience.
+
+    **Current limitations (Preview)**:
+
+    - Displays Azure Device Registry device and asset counts associated with firmware images  
+    - Metadata updates for Azure Device Registry resources might take several minutes to appear in firmware analysis  
+    - Navigation is provided to individual ADR resources
+
+## March 2026
+
+- **Expanded Weakness (CVE) fields (Preview)**
+
+    Firmware analysis now enriches CVE results with more properties to help prioritize remediation and triage vulnerabilities more effectively. These new properties are currently provided in **Preview**.
+
+    > [!NOTE]
+    > The following new CVE fields are only shown for newly uploaded images.
+    >
+
+    New CVE enrichment fields include:
+
+    - **In results grid view**: CISA KEV, EPSS score (percentage), and Fixed in versions. These attributes are filterable.
+        - CISA Known Exploited Vulnerabilities (KEV) – indicates CVEs that are known to be actively exploited in real-world attacks.
+        - Exploit Prediction Scoring System (EPSS) Score (percentage) – provides an estimated likelihood of exploitation.
+        - Fixed in versions – firmware or component versions in which a given CVE is known to be patched.
+
+    - **In details pane, Overview subtab**:
+        - Exploit maturity – describes the availability of exploit techniques or code when such data is available.
+
+            > [!NOTE]
+            > Exploit maturity is often unavailable unless CVSS v4 data exists. When present, this field is shown in the CVE details pane, rather than the main results grid.
+            >
+
+        - CISA KEV, EPSS score (percentage), EPSS percentile, Fixed in versions.
+        
+    - **In details pane, Additional details subtab**:
+        - CVSS vector – Displays the full CVSS metric string that represents how the CVSS severity score is calculated, providing customers with a machine‑readable view of the vulnerability’s exploitability characteristics (for example, attack vector, complexity, privileges required). This provides an understanding of why a CVE has its assigned severity.
+        - CWE – Shows the Common Weakness Enumeration classification for the vulnerability, including its weakness ID and category. CWE identifies the underlying root‑cause pattern, which provides valuable information when prioritizing issues by understanding the fundamental flaw behind each CVE.
+
+    - **Updated CVE database**: Firmware analysis's CVE database was refreshed on March 20, 2026 to incorporate newer CVE data.
+
+    To learn how to interpret these fields together, see [Understanding weaknesses data](understand-weaknesses-data.md#using-weakness-data-together).
+
+
+- **Performance improvements for large result sets**
+
+    Firmware analysis now uses server-side pagination for large results sets, significantly improving load performance. 
+
+    - Up to 90% reduction in load time for large result sets
+    - Paging remains supported using next and previous navigation
+    - When filters are applied, the total result count might be unavailable and therefore not displayed
+    - The page jump selector is no longer available when filtering is applied
+    - Multiselect dropdown filtering now requires values to be entered manually
+
+
+- **UEFI analysis updates (Preview)**
+    
+    The following UEFI related analysis results are available in Preview and might have limited coverage:
+
+    - SBOM: detection of OpenSSL component, version detection, and CVE association when version is detected
+    - CVE Weaknesses: derived from detected SBOM components
+    - Binary hardening: detection of NX/DEP supported for UEFI firmware. You may see other results from non-UEFI executables if they are intermixed with the UEFI image in the binary.
+    - Extractor paths for UEFI firmware now include the UEFI module name, in addition to GUID based identifiers, to improve clarity when reviewing results.
+
+    For more information on UEFI firmware analysis support, see [UEFI firmware analysis capabilities](unified-extensible-firmware-interface-firmware-analysis.md).
+
+    > [!NOTE]
+    > Use the 2025-12-01-preview REST API to retrieve enhanced CVE metadata.
+    >
+
 
 ## January 2026
 

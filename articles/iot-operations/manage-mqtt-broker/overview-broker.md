@@ -19,8 +19,6 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations built-in local MQTT broker
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Azure IoT Operations includes an MQTT broker that's enterprise-grade and standards-compliant. The MQTT broker is scalable, highly available, and Kubernetes native. It provides the messaging plane for Azure IoT Operations, enables bidirectional edge-to-cloud communication, and supports [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
@@ -54,6 +52,9 @@ For configuration, the MQTT broker uses several Kubernetes custom resources to d
 - The main resource is the [Broker](/rest/api/iotoperations/broker), which defines global settings like cardinality, memory usage profile, and diagnostic settings.
 - A Broker resource can have up to three [BrokerListeners](/rest/api/iotoperations/broker-listener), each of which listens for incoming MQTT connections on the specified service type (`NodePort`, `LoadBalancer`, or `ClusterIP`). Each BrokerListener resource can have multiple ports.
 - Each port within a BrokerListener resource can be associated with a [BrokerAuthentication](/rest/api/iotoperations/broker-authentication) resource and a [BrokerAuthorization](/rest/api/iotoperations/broker-authorization) resource. These authentication and authorization policies determine which clients can connect to the port and what actions they can perform on the broker.
+
+> [!IMPORTANT]
+> Use the Azure portal or Azure CLI to manage broker listeners.
 
 The relationship between Broker and BrokerListener is *one-to-many*, while the relationship between BrokerListener and BrokerAuthentication/BrokerAuthorization is *many-to-many*. The entity relationship diagram for these resources is:
 
@@ -205,7 +206,9 @@ To configure settings like the disk-backed message buffer and advanced MQTT clie
 
 Use the Azure portal or Azure CLI to customize the default Broker resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Use the Azure portal or Azure CLI to customize the default Broker resource.
 
@@ -236,7 +239,9 @@ az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-grou
 
 Use the Azure portal, the Azure CLI, or Kubernetes to view the default Broker resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml

@@ -1,11 +1,11 @@
 ---
 title: Migrate Azure Maps Route service version 1.0 to Azure Maps Routing service version 2025-01-01.
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Azure Maps Route service version 1.0 to Azure Maps Route service version 2025-01-01.
+description: Learn how to migrate the Azure Maps Route service version 1.0 to Azure Maps Route service version 2025-01-01.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 03/18/2025
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: rest-api
 ---

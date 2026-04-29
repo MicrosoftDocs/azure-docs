@@ -4,7 +4,7 @@ description: Learn how to create Azure custom roles with Azure role-based access
 author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2025
 ms.author: rolyon
 ---

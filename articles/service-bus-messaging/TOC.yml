@@ -52,6 +52,8 @@
         href: service-bus-quickstart-topics-subscriptions-portal.md
       - name: Azure CLI
         href: service-bus-tutorial-topics-subscriptions-cli.md
+      - name: Azure PowerShell
+        href: service-bus-tutorial-topics-subscriptions-powershell.md
       - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages

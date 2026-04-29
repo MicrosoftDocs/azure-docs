@@ -9,6 +9,31 @@
       "source_path_from_root": "/articles/sre-agent/troubleshoot.md",
       "redirect_url": "/azure/sre-agent/faq",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/configuration-deletion.md",
+      "redirect_url": "/azure/sre-agent/create-and-set-up",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/managed-identity-ado-repos.md",
+      "redirect_url": "/azure/sre-agent/ado-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/log-analytics-app-insights.md",
+      "redirect_url": "/azure/sre-agent/diagnose-azure-observability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/chat-from-your-tools.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/teams-bot.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
     }
   ]
 }
