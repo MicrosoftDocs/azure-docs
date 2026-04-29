@@ -82,7 +82,7 @@ This lets on-device software distinguish between:
 
 The agent status API is **device-local** and is intended for applications running on the device (for example, power management or an on-device supervisor). It **does not** replace Device Update’s service-side diagnostics in the Azure portal.
 
-For fleet troubleshooting and support workflows, use Device Update diagnostics (deployment error codes, Agent Check, and remote log collection). See [Understand Device Update for Azure IoT Hub diagnostic features](https://learn.microsoft.com/azure/iot-hub-device-update/device-update-diagnostics)
+For fleet troubleshooting and support workflows, use Device Update diagnostics (deployment error codes, Agent Check, and remote log collection). See [Understand Device Update for Azure IoT Hub diagnostic features](/azure/iot-hub-device-update/device-update-diagnostics)
 
 ## Implementation steps
 For the SDK package contents, build and install instructions, code samples, IPC details, and Yocto integration guidance, see [Service Status API — GetAduServiceStatus](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/GetAduServiceStatus.md)
