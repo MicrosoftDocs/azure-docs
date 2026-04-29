@@ -76,4 +76,4 @@ To define a job schedule while creating a new migration job, complete the follow
     > [!NOTE]
     > If a schedule for this job was previously enabled, it need not be reeanabled. Otherwise, the job needs to be enabled.
 
-:::image type="content" source="media/job-scheduling/edit-job-schedule-settings-sml.png" alt-text="Screenshot of editing schedule settings for an existing job." lightbox="media/job-scheduling/edit-job-schedule-settings-lrg.png":::
+    :::image type="content" source="media/job-scheduling/edit-job-schedule-settings-sml.png" alt-text="Screenshot of editing schedule settings for an existing job." lightbox="media/job-scheduling/edit-job-schedule-settings-lrg.png":::
