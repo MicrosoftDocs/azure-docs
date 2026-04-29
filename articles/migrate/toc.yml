@@ -173,7 +173,7 @@ items:
               href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
-      - name: Azure VM assessment
+      - name: VM assessment
         items:
         - name: Create an Azure VM assessment
           href: how-to-create-assessment.md
@@ -189,7 +189,7 @@ items:
           href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Review assessment report
           href: review-azure-vmware-solution-assessment.md
-      - name: Azure SQL assessment
+      - name: SQL assessment
         items:
         - name: Create an Azure SQL assessment
           href: tutorial-assess-sql.md
@@ -197,7 +197,7 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
-      - name: Azure Database for PostgreSQL assessment
+      - name: PostgreSQL assessment
         items:
         - name: Create an Azure Database for PostgreSQL assessment
           href: tutorial-assess-postgresql.md

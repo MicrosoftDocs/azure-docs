@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal
 
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
+
 This tutorial shows you how to create a basic web application firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
 In this tutorial, you learn how to:
