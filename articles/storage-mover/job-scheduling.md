@@ -1,5 +1,5 @@
 ---
-title: How to schedule a Azure Storage Mover migration job
+title: How to schedule an Azure Storage Mover migration job
 description: Storage Mover allows users to automate data migration jobs with flexible scheduling options, enabling synchronization of data between on-premises, Azure, and other cloud sources.
 author: stevenmatthew
 ms.author: shaas
@@ -55,7 +55,10 @@ To define a job schedule while creating a new migration job, complete the follow
     :::image type="content" source="media/job-scheduling/create-job-scheduling-settings-sml.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover." lightbox="media/job-scheduling/create-job-scheduling-settings-lrg.png":::
 
 1. Select **Create** to complete the job creation.
-1. After the job is created, select it to display its properties. Select **Enable** to activate the schedule.
+1. After the job is created, select it to display its properties. Select **Enable** to activate the schedule. If all permissions checks are validated, the job schedule begins running automatically. Validation failures or improperly configured permissions result in a failure. In this case, you need to rectify them and enable the schedule again.
+
+    > [!NOTE]
+    > The schedule can be disabled and re-enabled as necessary according to your particular use case.
 
 :::image type="content" source="media/job-scheduling/enable-scheduling-for-job-sml.png" alt-text="Screenshot of enabling a schedule for a job in Azure Storage Mover." lightbox="media/job-scheduling/enable-scheduling-for-job-lrg.png":::
 
