@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Durable Functions app that uses the MSSQL storage provider"
-description: Create a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
+title: "Quickstart: Durable Functions App With MSSQL Storage Provider"
+description: Learn how to create a Durable Functions app with the MSSQL storage provider in Azure Functions. Follow this quickstart to set up stateful orchestrations backed by SQL Server.
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
@@ -17,15 +17,15 @@ ms.custom:
 
 Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-Durable Functions supports several [storage providers](../../durable-task/common/durable-task-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. In this quickstart, you create a Durable Functions app to use the [Microsoft SQL Server (MSSQL) storage provider](../../durable-task/common/durable-task-storage-providers.md#mssql) using **Visual Studio Code**. 
+Durable Functions supports several [storage providers](../../durable-task/common/durable-task-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. In this quickstart, you create a Durable Functions app that uses the [Microsoft SQL Server (MSSQL) storage provider](../../durable-task/common/durable-task-storage-providers.md#mssql) with **Visual Studio Code**.
 
-This quickstart creates a .NET (isolated model) app for demonstration purposes. Content provided in this article applies to other languages in similar ways. 
+This quickstart creates a .NET (isolated model) app for demonstration purposes. The concepts apply to other languages in similar ways.
+
+> [!TIP]
+> If you already have a SQL Server instance and want to skip local database setup, go directly to [Add SQL connection string to local.settings.json](#add-sql-connection-string-to-localsettingsjson).
 
 > [!NOTE]
->
-> - The MSSQL backend was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](../../durable-task/common/durable-task-storage-providers.md).
->
-> - Migrating [task hub data](../../durable-task/common/durable-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
+> Migrating [task hub data](../../durable-task/common/durable-task-hubs.md) across storage providers isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after switching to the MSSQL backend.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ In Visual Studio Code, create a local Azure Functions project.
 
 1. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-    :::image type="content" source="media/durable-functions-create-first-csharp/functions-vscode-create-project.png" alt-text="Screenshot that shows the command to create a Functions project.":::
+    :::image type="content" source="media/durable-functions-create-first-csharp/functions-vscode-create-project.png" alt-text="Screenshot of the command palette in Visual Studio Code showing the option to create a Functions project.":::
 
 1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -83,14 +83,10 @@ For more information about these functions, see [Durable Functions types and fea
 
 ## Set up your database
 
+This quickstart uses a [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server). For alternatives (SQL Server Express, Azure SQL Database, or an on-premises instance), see the [storage providers overview](../../durable-task/common/durable-task-storage-providers.md).
+
 > [!NOTE]
-> If you already have an MSSQL-compatible database, you can skip this section and skip the next section on setting up a Docker-based local database.
-
-Because the MSSQL backend is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting model.
-
-You can also do local, offline development by using [SQL Server Express](https://www.microsoft.com/sql-server/sql-server-downloads) on your local Windows computer or use a [SQL Server Docker image](https://hub.docker.com/_/microsoft-mssql-server) running in a Docker container.
-
-This quickstart focuses on using a SQL Server Docker image.
+> If you already have an MSSQL-compatible database, skip to [Add SQL connection string to local.settings.json](#add-sql-connection-string-to-localsettingsjson).
 
 ### Set up your local Docker-based SQL Server instance
 
@@ -120,7 +116,7 @@ docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q 
 # docker exec -it mssql-server /opt/mssql-tools18/bin/sqlcmd -C -S . -U sa -P "$pw" -Q "CREATE DATABASE [$dbname] COLLATE $collation"
 ```
 
-You should now have a local SQL Server running on Docker and listening on port `1443`. If port `1443` conflicts with another service, rerun these commands after changing the variable `$port` to a different value.
+You should now have a local SQL Server running on Docker and listening on port `1433`. If port `1433` conflicts with another service, rerun these commands after changing the variable `$port` to a different value.
 
 To validate your database installation, query your new SQL database:
 
@@ -187,7 +183,7 @@ Open another terminal window in your app's root folder and start the Function ap
 
 1. In the terminal window, copy the URL endpoint of your HTTP-triggered function.
 
-    :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of the Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
+    :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of the Azure Functions local output window showing the HTTP-triggered function URL endpoint." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
 
 1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
@@ -210,9 +206,14 @@ Open another terminal window in your app's root folder and start the Function ap
     }
     ```
 
-## Run your app in Azure
+## Run your app in Azure (optional)
 
-To run your app in Azure, you need to create various resources. For convenient cleanup later, create all the resources in the same resource group. 
+The previous sections complete the local quickstart. The following sections walk through deploying to Azure, which requires additional resources and configuration.
+
+> [!IMPORTANT]
+> If your app is hosted on the **Flex Consumption plan**, managed identity authentication to Azure SQL Database is _not_ supported. Use a connection string with SQL authentication instead. For managed identity support with a serverless plan, consider using the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md).
+
+To run your app in Azure, you need to create various resources. For convenient cleanup later, create all the resources in the same resource group.
 
 ### Create an Azure SQL database
 
@@ -300,8 +301,11 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 ```
 
 #### Azure SQL Database
+
+The managed identity needs two grants: `db_owner` on your application database (to create and manage task hub schemas) and `dbmanager` on the `master` database (to allow database-level operations during startup).
+
 >[!NOTE]
-> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section. If you'd like to use it, the Flex Consumption plan is supported by Durable Task Scheduler.
+> Authenticating to Azure SQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. If your app is hosted in the Flex Consumption plan, skip to the [set app settings](#set-required-app-settings) section.
 
 1. Start by setting your developer identity as the database's admin.
   
@@ -351,7 +355,7 @@ If you're using user-assigned managed identity to authenticate to the SQL databa
 
 For Flex Consumption apps, use a connection string to authenticate for now. You can find it by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
 
-  :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+  :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot of the Azure SQL database connection strings page in the Azure portal.":::
 
   The connection string should have this format:
   ```bash
@@ -402,7 +406,10 @@ After you run a simple orchestrator, you should see at least one result, as show
 
 ## Next steps
 
-- Host a Durable Functions app using the MSSQL backend in [Azure Container Apps](./durable-functions-mssql-container-apps-hosting.md).
-- See the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/) for more information about this backend's architecture, configuration, and workload behavior. 
+- [Host a Durable Functions app using the MSSQL backend in Azure Container Apps](./durable-functions-mssql-container-apps-hosting.md)
+- [MSSQL storage provider architecture and configuration](https://microsoft.github.io/durabletask-mssql/)
+- [Durable Functions patterns and concepts](durable-functions-overview.md)
+- [Diagnostics and monitoring](durable-functions-diagnostics.md)
+- [About the Durable Task Scheduler storage provider](../../durable-task/scheduler/durable-task-scheduler.md)
 
 

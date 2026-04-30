@@ -1,6 +1,6 @@
 ---
-title: Upgrade Durable Functions extension version
-description: Learn why it's important to use the latest version of the Durable Functions extension and how to upgrade to the latest.
+title: "Upgrade the Durable Functions Extension Version"
+description: "Learn why upgrading to the latest Durable Functions extension version improves performance and fixes bugs. Follow step-by-step instructions to upgrade your extension today."
 author: lilyjma
 ms.topic: how-to
 ms.service: azure-functions
@@ -9,56 +9,77 @@ ms.date: 02/15/2023
 ms.author: azfuncdf
 ---
 
-# Upgrade Durable Functions extension version
+# Upgrade the Durable Functions extension version
 
+If you're experiencing orchestration failures, slow replay, or unexpected behavior, upgrading the Durable Functions extension is the recommended first step. New releases often contain critical bug fixes and performance improvements. To get notified of new releases, [watch releases](https://github.com/Azure/azure-functions-durable-extension) on GitHub.
 
-Many issues users experience with Durable Functions can be resolved simply by upgrading to the latest version of the extension, which often contains important bug fixes and performance improvements. You can follow the instructions in this article to get the latest version of the Durable Functions extension. 
+Choose the upgrade method that matches your app type:
 
-Changes to the extension can be found in the [Release page](https://github.com/Azure/azure-functions-durable-extension/releases) of the `Azure/azure-functions-durable-extension` repo. You can also configure to receive notifications whenever there's a new extension release by going to the **Releases page**, clicking on **Watch**, then on **Custom**, and finally selecting the **Releases** filter:
+| App type | Upgrade method |
+| --- | --- |
+| .NET (in-process or isolated) | [Reference the latest NuGet packages](#reference-the-latest-nuget-packages-for-net-apps) |
+| Non-.NET (JavaScript, Python, Java, PowerShell) | [Upgrade the extension bundle](#upgrade-the-extension-bundle) |
+| Advanced / time-sensitive fix needed | [Manually upgrade the extension](#manually-upgrade-the-durable-functions-extension-version) |
 
-:::image type="content" source="media/durable-functions-best-practice/watch-releases-1.png" alt-text="Screenshot of step 1 to set up release notifications.":::
+## Reference the latest NuGet packages for .NET apps
 
-:::image type="content" source="media/durable-functions-best-practice/watch-releases-2.png" alt-text="Screenshot of step 2 to set up release notifications.":::
+Update the Durable Functions NuGet package reference in your project. The correct package depends on your hosting model and [storage provider](../../durable-task/common/durable-task-storage-providers.md):
 
-## Reference the latest NuGet packages (.NET apps only)
-.NET apps can get the latest version of the Durable Functions extension by referencing the latest NuGet package: 
+| Storage provider | In-process worker | Isolated worker |
+| --- | --- | --- |
+| Azure Storage (default) | [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) |
+| Netherite | [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) |
+| MSSQL | [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer) |
 
-* [.NET in-process worker](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
-* [.NET isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask)
-
-If you're using the Netherite or MSSQL [storage providers](../../durable-task/common/durable-task-storage-providers.md) (instead of Azure Storage), you need to reference one of the following:
-
-* [Netherite, in-process worker](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions)
-* [Netherite, isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite)
-* [MSSQL, in-process worker](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
-* [MSSQL, isolated worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer)
-
-## Upgrade the extension bundle 
-[Extension bundles](../extension-bundles.md) provide an easy and convenient way for non-.NET function apps to reference and use various Azure Function triggers and bindings. For example, if you need to send a message to Event Hubs every time your function is triggered, you can use the Event Hubs extension to gain access to Event Hubs bindings. The Durable Functions extension is also included in each version of extension bundles. Extension bundles are automatically configured in host.json when creating a function app using any of the supported development tools. 
-
-Most non-.NET applications rely on extension bundles to gain access to various triggers and bindings. The [latest bundle release](https://github.com/Azure/azure-functions-extension-bundles) often contains the latest version of the Durable Functions extension with critical bug fixes and performance improvements. Therefore, it's important that your app uses the latest version of extension bundles. You can check your host.json file to see whether the version range you're using includes the latest extension bundle version. 
-
-## Manually upgrade the Durable Functions extension
-If upgrading the extension bundle didn't resolve your problem, and you noticed a newer release of the Durable Functions extension containing a potential fix to your problem, then you could try to manually upgrade the extension itself. Note that this is only intended for advanced scenarios or when time-sensitive fixes are necessary as there are many drawbacks to manually managing extensions. For example, you may have to deal to .NET errors when the extensions you use are incompatible with each other. You also need to manually upgrade extensions to get the latest fixes and patches instead of getting them automatically through the extension bundle.
-
-First, remove the `extensionBundle` section from your host.json file.
-
-Install the `dotnet` CLI if you don't already have it. You can get it from this [page](https://www.microsoft.com/net/download/).
-
-Because applications normally use more than one extension, it's recommended that you run the following to manually install all the latest version of all extensions supported by Extension Bundles:
+For example, to upgrade the default Azure Storage extension in an isolated worker app:
 
 ```console
-func extensions install
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
 ```
 
-However, if you **only** wish to install the latest Durable Functions extension release, you would run the following command: 
+## Upgrade the extension bundle
 
-```console
-func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+Non-.NET apps (JavaScript, Python, Java, PowerShell) use [extension bundles](../extension-bundles.md) to access triggers and bindings, including the Durable Functions extension. Verify that the `extensionBundle` version range in your `host.json` includes the [latest bundle release](https://github.com/Azure/azure-functions-extension-bundles/releases):
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}
 ```
 
-For example:
+Update the version range if needed, then redeploy your app.
 
-```console
-func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 2.9.1
-```
+## Manually upgrade the Durable Functions extension version
+
+If upgrading the extension bundle didn't resolve your issue and a newer Durable Functions extension release contains a fix you need, you can manually install a specific extension version.
+
+> [!CAUTION]
+> Manually managing extensions means you lose automatic updates from extension bundles and may encounter compatibility issues between extensions. Use this approach only for time-sensitive fixes.
+
+1. Remove the `extensionBundle` section from your `host.json` file.
+
+1. Install the [.NET CLI](https://dotnet.microsoft.com/download) if you don't already have it.
+
+1. Install extensions. To install all extensions supported by extension bundles, run:
+
+   ```console
+   func extensions install
+   ```
+
+   To install only the Durable Functions extension at a specific version, run:
+
+   ```console
+   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
+   ```
+
+   Replace `<version>` with the target version from the [releases page](https://github.com/Azure/azure-functions-durable-extension/releases).
+
+## Next steps
+
+- [Durable Functions extension release history](https://github.com/Azure/azure-functions-durable-extension/releases)
+- [Diagnostics and monitoring](durable-functions-diagnostics.md)
+- [Troubleshooting guide](../../durable-task/sdks/durable-task-sdk-troubleshooting.md)
