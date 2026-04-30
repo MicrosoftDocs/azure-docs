@@ -2,7 +2,7 @@
 title: MCP prompt trigger for Azure Functions
 description: Learn how you can use a trigger endpoint to expose functions as model context protocol (MCP) server prompts in Azure Functions.
 ms.topic: reference
-ms.date: 02/18/2026
+ms.date: 04/30/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.collection: 
@@ -22,44 +22,68 @@ For information on setup and configuration details, see the [overview](functions
 >[!NOTE]  
 > For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
 
-This code creates an endpoint to expose a prompt named `code_review` that generates a code review message for a given code snippet. The prompt accepts `code` and `language` arguments.
+This code creates an endpoint to expose a code review prompt: 
 
 ```csharp
-[Function(nameof(CodeReviewPrompt))]
-public string CodeReviewPrompt(
-    [McpPromptTrigger(
-        "code_review",
-        Title = "Code Review",
-        Description = "Generates a code review prompt for the given code snippet")]
-    PromptInvocationContext context,
-    [McpPromptArgument("code", "The code to review", isRequired: true)] string? code,
-    [McpPromptArgument("language", "The programming language")] string? language)
+[Function(nameof(CodeReviewChecklist))]
+public string CodeReviewChecklist(
+    [McpPromptTrigger(CodeReviewPromptName, Description = CodeReviewPromptDescription)]
+        PromptInvocationContext context)
 {
-    code ??= "// no code provided";
-    language ??= "unknown";
+    logger.LogInformation("Code review checklist prompt invoked.");
 
-    return $"Please review the following {language} code and suggest improvements:\n\n```{language}\n{code}\n```";
+    return """
+        You are a senior software engineer performing a code review.
+        Use the following checklist to evaluate the code:
+
+        1. **Correctness** — Does the code do what it's supposed to?
+        2. **Error Handling** — Are edge cases and failures handled?
+        3. **Security** — Are there any vulnerabilities (injection, auth, secrets)?
+        4. **Performance** — Are there obvious inefficiencies?
+        5. **Readability** — Is the code clear and well-named?
+        6. **Tests** — Are there adequate tests for the changes?
+
+        Provide your feedback in a structured format with a severity level
+        (critical, warning, suggestion) for each finding.
+        """;
 }
 ```
 
-This code creates an endpoint to expose a prompt named `summarize` that returns a summarization request for provided text.
+This code creates an endpoint to expose a summarize prompt that takes two arguments, `topic` and `audience`: 
 
 ```csharp
-[Function(nameof(SummarizePrompt))]
-public string SummarizePrompt(
-    [McpPromptTrigger(
-        "summarize",
-        Title = "Summarize Text",
-        Description = "Summarizes the provided text")]
-    PromptInvocationContext context,
-    [McpPromptArgument("text", "The text to summarize", isRequired: true)] string? text)
+[Function(nameof(SummarizeContent))]
+public string SummarizeContent(
+    [McpPromptTrigger(SummarizePromptName, Description = SummarizePromptDescription)]
+        PromptInvocationContext context,
+    [McpPromptArgument("topic", "The topic or content to summarize.", isRequired: true)]
+        string topic,
+    [McpPromptArgument("audience", "Target audience (e.g., 'executive', 'developer', 'beginner').")]
+        string? audience)
 {
-    text ??= "No text provided";
-    return $"Please provide a concise summary of the following text:\n\n{text}";
+    logger.LogInformation("Summarize prompt invoked for topic: {Topic}", topic);
+
+    var audienceInstruction = audience is not null
+        ? $"Tailor the summary for a **{audience}** audience."
+        : "Write the summary for a general technical audience.";
+
+    return $"""
+        Summarize the following topic concisely and accurately:
+
+        **Topic:** {topic}
+
+        {audienceInstruction}
+
+        Guidelines:
+        - Start with a one-sentence overview.
+        - Include 3–5 key points as bullet items.
+        - End with a brief conclusion or recommendation.
+        - Keep the total length under 300 words.
+        """;
 }
 ```
 
-The prompt arguments for the `code_review` prompt can also be configured in `Program.cs` by using the `ConfigureMcpPrompt` builder:
+The prompt arguments for the prompt can also be configured in `Program.cs` by using the `ConfigureMcpPrompt` builder:
 
 ```csharp
 var builder = FunctionsApplication.CreateBuilder(args);
@@ -67,12 +91,15 @@ var builder = FunctionsApplication.CreateBuilder(args);
 builder.ConfigureFunctionsWebApplication();
 
 builder
-    .ConfigureMcpPrompt("code_review")
-    .WithArgument("code", "The code to review", required: true)
-    .WithArgument("language", "The programming language");
+    .ConfigureMcpPrompt(SummarizePromptName)
+    .WithArgument("topic", "The topic or content to summarize.", required: true)
+    .WithArgument("audience", "Target audience (e.g., 'executive', 'developer', 'beginner').");
 
 builder.Build().Run();
 ```
+
+For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/FunctionsMcpPrompts).  
+
 
 > [!TIP]
 > The example above uses literal strings for things like the name of the "code_review" prompt in both `Program.cs` and the function. Consider instead using shared constant strings to keep things in sync across your project.
@@ -80,43 +107,8 @@ builder.Build().Run();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-This code creates an endpoint to expose a prompt named `code_review` that generates a code review message for a given code snippet.
-
-```java
-@FunctionName("CodeReviewPrompt")
-public String codeReview(
-        @McpPromptTrigger(
-                name = "code_review",
-                description = "Generates a code review prompt for the given code snippet",
-                title = "Code Review"
-        )
-        String context,
-        @McpPromptArgument(
-                name = "code",
-                description = "The code to review",
-                isRequired = true
-        )
-        String code,
-        @McpPromptArgument(
-                name = "language",
-                description = "The programming language"
-        )
-        String language,
-        final ExecutionContext executionContext
-) {
-    executionContext.getLogger().info("Generating code review prompt");
-
-    if (code == null || code.isEmpty()) {
-        code = "// no code provided";
-    }
-    if (language == null || language.isEmpty()) {
-        language = "unknown";
-    }
-
-    return "Please review the following " + language + " code and suggest improvements:\n\n```"
-            + language + "\n" + code + "\n```";
-}
-```
+> [!NOTE]
+> Code snippets coming soon. 
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -124,50 +116,124 @@ Example code for JavaScript isn't currently available. See the TypeScript exampl
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-This code creates an endpoint to expose a prompt named `code_review` that generates a code review message for a given code snippet.
+This code creates an endpoint to expose a code review prompt: 
 
 ```typescript
-import { app, InvocationContext, promptArg, PromptInvocationContext } from "@azure/functions";
+app.mcpPrompt('CodeReviewChecklist', {
+    promptName: CodeReviewPromptName,
+    description: CodeReviewPromptDescription,
+    handler: async (_ctx: PromptInvocationContext, context: InvocationContext) => {
+        context.log('Code review checklist prompt invoked.');
 
-const CodeReviewPromptName = "code_review";
-const CodeReviewPromptDescription = "Generates a code review prompt for the given code snippet";
-
-app.mcpPrompt("CodeReviewPrompt", {
-  promptName: CodeReviewPromptName,
-  description: CodeReviewPromptDescription,
-  promptArguments: {
-    code: promptArg.describe("The code to review").isRequired(),
-    language: promptArg.describe("The programming language"),
-  },
-  handler: async (ctx: PromptInvocationContext, context: InvocationContext) => {
-    const code = ctx.arguments.code ?? "// no code provided";
-    const language = ctx.arguments.language ?? "unknown";
-    return `Please review the following ${language} code and suggest improvements:\n\n\`\`\`${language}\n${code}\n\`\`\``;
-  },
+        return [
+            "You are a senior software engineer performing a code review.",
+            'Use the following checklist to evaluate the code:',
+            '',
+            "1. **Correctness** \u2014 Does the code do what it's supposed to?",
+            '2. **Error Handling** \u2014 Are edge cases and failures handled?',
+            '3. **Security** \u2014 Are there any vulnerabilities (injection, auth, secrets)?',
+            '4. **Performance** \u2014 Are there obvious inefficiencies?',
+            '5. **Readability** \u2014 Is the code clear and well-named?',
+            '6. **Tests** \u2014 Are there adequate tests for the changes?',
+            '',
+            'Provide your feedback in a structured format with a severity level',
+            '(critical, warning, suggestion) for each finding.',
+        ].join('\n');
+    },
 });
 ```
+
+This code creates an endpoint to expose a document generation prompt with arguments: 
+
+```typescript
+app.mcpPrompt('GenerateDocumentation', {
+    promptName: GenerateDocsPromptName,
+    description: GenerateDocsPromptDescription,
+    promptArguments: {
+        function_name: promptArg.describe('The function to document.').isRequired(),
+        style: promptArg.describe("Documentation style (e.g., 'concise', 'verbose')."),
+    },
+    handler: async (ctx: PromptInvocationContext, context: InvocationContext) => {
+        const functionName = ctx.arguments.function_name ?? '(unknown)';
+        const style = ctx.arguments.style ?? 'concise';
+
+        context.log(`Generate docs prompt invoked for function: ${functionName}`);
+
+        return [
+            `Generate API documentation for the function named **${functionName}**.`,
+            '',
+            `Documentation style: **${style}**`,
+            '',
+            'Include the following sections:',
+            '- **Description** \u2014 What the function does.',
+            '- **Parameters** \u2014 List each parameter with its type and purpose.',
+            '- **Return Value** \u2014 What the function returns.',
+            '- **Example Usage** \u2014 A short code example showing how to call it.',
+        ].join('\n');
+    },
+});
+```
+
+For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/src/mcp-prompts).
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 
-This code uses the `mcp_prompt_trigger` decorator to create an endpoint to expose a prompt named `code_review` that generates a code review message for a given code snippet.
+This code uses the `mcp_prompt_trigger` decorator to create an endpoint to expose a prompt named `code_review_checklist`: 
 
 ```python
 @app.mcp_prompt_trigger(
     arg_name="context",
-    prompt_name="code_review",
-    prompt_arguments=[
-        func.PromptArgument("code", "The code to review", required=True),
-        func.PromptArgument("language", "The programming language", required=False)
-    ],
-    title="Code Review",
-    description="Generates a code review prompt for the given code snippet"
+    prompt_name="code_review_checklist",
+    description="Returns a structured code review checklist prompt for evaluating code changes."
 )
-def code_review_prompt(context: func.PromptInvocationContext) -> str:
-    code = context.arguments.get("code", "// no code provided")
-    language = context.arguments.get("language", "unknown")
-    return f"Please review the following {language} code:\n\n```{language}\n{code}\n```"
+def code_review_checklist(context: func.PromptInvocationContext) -> str:
+    logging.info("Code review checklist prompt invoked.")
+    
+    return """You are a senior software engineer performing a code review.
+Use the following checklist to evaluate the code:
+
+1. **Correctness** — Does the code do what it's supposed to?
+2. **Error Handling** — Are edge cases and failures handled?
+3. **Security** — Are there any vulnerabilities (injection, auth, secrets)?
+4. **Performance** — Are there obvious inefficiencies?
+5. **Readability** — Is the code clear and well-named?
+6. **Tests** — Are there adequate tests for the changes?
+
+Provide your feedback in a structured format with a severity level
+(critical, warning, suggestion) for each finding."""
 ```
+
+This code creates an endpoint to expose a prompt with arguments for generating API documentation: 
+
+```python
+@app.mcp_prompt_trigger(
+    arg_name="context",
+    prompt_name="generate_documentation",
+    prompt_arguments=[
+        func.PromptArgument("function_name", "The name of the function to document.", required=False),
+        func.PromptArgument("style", "Documentation style: 'concise', 'detailed', or 'tutorial'.", required=False)
+    ],
+    description="Generates API documentation for a function. Arguments are configured in Program.cs."
+)
+def generate_documentation(context: func.PromptInvocationContext) -> str:
+    function_name = context.arguments.get("function_name", "(unknown)")
+    style = context.arguments.get("style", "concise")
+    
+    logging.info(f"Generate docs prompt invoked for function: {function_name}")
+    
+    return f"""Generate API documentation for the function named **{function_name}**.
+
+Documentation style: **{style}**
+
+Include the following sections:
+- **Description** — What the function does.
+- **Parameters** — List each parameter with its type and purpose.
+- **Return Value** — What the function returns.
+- **Example Usage** — A short code example showing how to call it."""
+```
+
+For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/FunctionsMcpPrompts).  
 
 ::: zone-end  
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
