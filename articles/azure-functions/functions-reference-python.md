@@ -218,13 +218,9 @@ def http_trigger(req: func.HttpRequest) -> str:
 
 ### Reading route parameters
 
-When you define a route with parameters in the path — for example, `products/{product_id}` —
-read those parameters from the [HttpRequest] object's `route_params` dictionary inside the
-function body. Don't declare route parameters as additional arguments on the function signature.
-In the Python v2 model, function parameters must correspond to the trigger and any declared
-input or output bindings. Adding an extra argument that doesn't correspond to a declared
-binding, such as a route parameter, can cause the worker indexer to silently drop all
-functions in the app, and the host logs `0 functions found (Custom)` with no traceback.
+You can define route parameters directly in the HTTP route template and read them from the request object.
+
+For example, the route products/{product_id} captures the value from the URL path and makes it available through HttpRequest.route_params.
 
 ```python
 import azure.functions as func
@@ -236,6 +232,9 @@ def get_product(req: func.HttpRequest) -> func.HttpResponse:
     product_id = req.route_params.get("product_id", "")
     return func.HttpResponse(f"Product: {product_id}")
 ```
+
+>[!IMPORTANT]
+>In the Python v2 model, route parameters shouldn't be added as extra function arguments. Read them from `req.route_params` instead.
 
 ### Organizing with blueprints
 
