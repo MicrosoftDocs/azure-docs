@@ -10,7 +10,7 @@ ms.collection:
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# MCP prompt trigger for Azure Functions
+# MCP prompt trigger for Azure Functions (public preview)
 
 Use the MCP prompt trigger to define prompt endpoints in a [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) server. Clients can use prompts to generate structured messages and instructions when interacting with language models. Prompts are user-controlled, meaning they're exposed from servers to clients so users can select them for use. 
 
