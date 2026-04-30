@@ -20,21 +20,25 @@ ms.author: evach
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
 ## April 2026
+### FHIR service
+**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
 
-### Bug fixes:
-**Improved monitoring accuracy for Azure API for FHIR**: An issue was identified and resolved that affected Azure Monitor metrics under Microsoft.HealthcareAPIs : CosmosDbThrottleRate, CosmosDbRequests, TotalErrors, and TotalRequests. There was an unsupported aggregation configuration that may have led to inconsistency in data associated with the metrics. This issue was limited to observability scenarios and did not impact service availability, performance, or data processing. After the fix, customers may now observe improved accuracy and consistency in monitoring experiences without requiring any action.
+#### Bug fixes:
+**Improved monitoring accuracy for Azure API for FHIR**: An issue was identified and resolved that affected Azure Monitor metrics under Microsoft.HealthcareAPIs: CosmosDbThrottleRate, CosmosDbRequests, TotalErrors, and TotalRequests. An unsupported aggregation configuration caused inconsistency in metric data. This issue was limited to observability scenarios and did not impact service availability, performance, or data processing. After the fix, customers may now observe improved accuracy and consistency in monitoring experiences without requiring any action.
+
+**Fix for reindex orchestrator's handling of search parameter status promotion logic**: There was an issue that caused reindex job timeouts and blocked certain search parameter promotion from Supported to Enabled status. The fix improves the reindex orchestrator's handling of Search Parameter hash mismatches and status promotion logic.
 
 ## March 2026
 ### FHIR service
-**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, cancelled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
+**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This update includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, cancelled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
   - Cancelling an already-cancelled export job returns "404 Job Not Found."
-  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job has already been cancelled or failed; otherwise returns "202 Accepted."
+  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job is already cancelled or failed; otherwise returns "202 Accepted."
   - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
   - Trying to get the status of a user-requested cancelled job returns "404 Job Not Found."
 
 
 #### Bug fixes:
-**Added validation for search parameter URL length**:There was an issue where custom search parameter URLs that were longer than the 128-character limit were allowed into the FHIR server and truncated, resulting in faulty search parameter behavior. This issue has been fixed by adding a validation for search parameter URL length. If the URL length exceeds the limit, the validation will fail and return an error: "Search Parameter URL exceeds the maximum length limit of 128".
+**Added validation for search parameter URL length**: There was an issue where custom search parameter URLs that were longer than the 128-character limit were allowed into the FHIR server and truncated, resulting in faulty search parameter behavior. This issue is fixed by adding a validation for search parameter URL length. If the URL length exceeds the limit, the validation fails and returns an error: "Search Parameter URL exceeds the maximum length limit of 128."
 
 **Fix for versioning configuration issue**:  On 10 March 2026, a release rolled out that fixed a bug that prevented the resource versioning policy default setting from being honored in the FHIR server. This fix revealed another bug involving a bad configuration setting value that resulted in some requests failing with 500 errors. The issue was fixed on 10 March 2026.
 
@@ -42,7 +46,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ### FHIR service
 
 #### Bug fixes:
-**Pagination bug in FHIR search fix**: There was an issue where a pagination bug in FHIR search queries caused resources to be intermittently skipped when results span multiple pages and use continuation tokens. The issue is fixed.
+**Pagination bug in FHIR search fix**: A pagination bug in FHIR search queries caused the service to skip resources intermittently when results spanned multiple pages and used continuation tokens. The issue is fixed.
 
 
 ## January 2026

@@ -52,7 +52,7 @@ This section explains how to start execution for your servers discovered using t
     - **Physical servers**: Select the configured Azure Migrate Physical appliance and then select **Continue**.
   
 4. In **Workloads**, select the servers that you want to replicate, and configure the required settings. You can select up to 10 servers in a single selection.
-    - For **VMware agent-based and physical servers**, select the **replication appliance** you have set up from the drop-down menu. In case you are executing agent-based migrations in the project for the first time, select **Set up the replication appliance** and complete the registration by following the steps from [How to set up replication appliance for agent-based migrations](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
+    - For **VMware agent-based and physical servers**, select the **replication appliance** you have set up from the drop-down menu. In case you are executing agent-based migrations in the project for the first time, select **Set up the replication appliance** and complete the registration by following the steps from [How to set up replication appliance for agent-based migrations](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
   
   :::image type="content" source="./media/end-to-end-portal-experience-server-migrations/set-up-replication-appliance.png" alt-text="Screenshot on setting up replication appliance in workloads section." lightbox="./media/end-to-end-portal-experience-server-migrations/set-up-replication-appliance.png":::
     

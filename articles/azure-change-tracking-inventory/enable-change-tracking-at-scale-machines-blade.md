@@ -3,7 +3,7 @@ title: Enable Change Tracking and Inventory at Scale with the Azure Portal - Mac
 description: This article describes how to enable Azure Change Tracking and Inventory at scale for Windows and Linux VMs by using the Machines pane in the Azure portal.
 #customer intent: As a customer, I want to enable Azure Change Tracking and Inventory for multiple virtual machines at once so that I can monitor changes efficiently across my environment.
 services: automation
-ms.date: 11/06/2025
+ms.date: 04/29/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: RochakSingh-blr
@@ -13,7 +13,7 @@ ms.custom: sfi-image-nochange
 
 # Enable Change Tracking and Inventory at scale by using the Azure portal
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software :heavy_check_mark: Arc enabled machines
 
 This article provides procedures that show how you can enable Azure Change Tracking and Inventory at scale by using the Azure portal **Machines** pane.
 

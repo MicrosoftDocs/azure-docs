@@ -213,6 +213,12 @@ items:
         items:
         - name: Create and Review MySQL assessment
           href: create-mysql-assessment.md
+      - name: MongoDB assessment
+        items:
+        - name: Create a MongoDB assessment
+          href: tutorial-assess-mongodb.md
+        - name: Review assessment report
+          href: tutorial-review-mongodb-report.md
       - name: Webapp assessment
         items:
         - name: Create a Webapp assessment

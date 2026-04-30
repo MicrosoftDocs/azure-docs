@@ -20,6 +20,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - April 2026
+  - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
   - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
 - January 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
@@ -64,6 +65,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Cross-subscription backup for Azure VMs (preview)
+
+Azure Backup now supports protecting Azure VMs using a Recovery Services vault in a **different subscription**, within the same Azure AD tenant and region. This capability lets central backup or security teams maintain a single vault to govern VM protection across multiple team or project subscriptions, without requiring the vault and the VM to share the same subscription.
+
+Key capabilities:
+
+- **Centralized governance**: One vault can protect VMs spread across many subscriptions in the same tenant, simplifying policy management and compliance reporting.
+- **Flexible restore**: Vault-tier recovery points can be restored to the protected VM subscription, the vault subscription, or any other subscription when **Cross Subscription Restore** is enabled on the vault. Snapshot-tier recovery points restore only within the protected VM subscription.
+
+For more information, see:
+- [Back up Azure VMs in a Recovery Services vault](backup-azure-arm-vms-prepare.md)
+- [Support matrix for Azure VM backups](backup-support-matrix-iaas.md#supported-backup-actions)
+- [Restore Azure VMs](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm)
 
 ## Simplified CLI experience to enable backup for AKS clusters
 

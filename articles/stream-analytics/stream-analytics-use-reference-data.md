@@ -3,15 +3,15 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: azure-stream-analytics
 ms.topic: concept-article
-ms.date: 02/26/2024
+ms.date: 04/29/2026
 ---
 # Use reference data for lookups in Stream Analytics
 
-Reference data is a finite dataset that's static or slowly changing in nature. It's used to perform a lookup or to augment your data streams. Reference data is also known as a lookup table.
+Reference data is a finite dataset that's static or slowly changing. Use it to perform a lookup or to augment your data streams. Reference data is also known as a lookup table.
 
 Take an IoT scenario as an example. You could store metadata about sensors, which don't change often, in reference data. Then you could join it with real-time IoT data streams.
 
-Azure Stream Analytics loads reference data in memory to achieve low-latency stream processing. To make use of reference data in your Stream Analytics job, you'll generally use a [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query.
+Azure Stream Analytics loads reference data in memory to achieve low-latency stream processing. To make use of reference data in your Stream Analytics job, generally use a [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query.
 
 ## Example
 
@@ -29,13 +29,13 @@ Stream Analytics supports Azure Blob Storage, Azure Data Lake Storage Gen2, and 
 
 ## Azure Blob Storage or Azure Data Lake Storage Gen 2
 
-Reference data is modeled as a sequence of blobs in ascending order of the date/time specified in the blob name. Blobs can only be added to the end of the sequence by using a date/time *greater* than the one specified by the last blob in the sequence. Blobs are defined in the input configuration.
+Model reference data as a sequence of blobs in ascending order of the date and time specified in the blob name. You can only add blobs to the end of the sequence by using a date and time *greater* than the one specified by the last blob in the sequence. Define blobs in the input configuration.
 
 For more information, see [Use reference data from Blob Storage for a Stream Analytics job](data-protection.md).
 
 ### Configure blob reference data
 
-To configure your reference data, you first need to create an input that's of the type *reference data*. The following table explains each property you need to provide when you create the reference data input with its description.
+To configure your reference data, first create an input of the type *reference data*. The following table explains each property you need to provide when you create the reference data input, along with its description.
 
 |Property name  |Description  |
 |---------|---------|
@@ -51,9 +51,9 @@ To configure your reference data, you first need to create an input that's of th
 
 ### Static reference data
 
-Your reference data might not be expected to change. To enable support for static reference data, specify a static path in the input configuration.
+Your reference data might not change. To enable support for static reference data, specify a static path in the input configuration.
 
-Stream Analytics picks up the blob from the specified path. The {date} and {time} substitution tokens aren't required. Because reference data is immutable in Stream Analytics, overwriting a static reference data blob isn't recommended.
+Stream Analytics picks up the blob from the specified path. The {date} and {time} substitution tokens aren't required. Because reference data is immutable in Stream Analytics, don't overwrite a static reference data blob.
 
 ### Generate reference data on a schedule
 
@@ -66,9 +66,9 @@ Stream Analytics automatically scans for refreshed reference data blobs at a one
 To avoid such scenarios, upload the blob earlier than the target effective time, which is 10:30:00 in this example. The Stream Analytics job now has enough time to discover and load the blob in memory and perform operations.
 
 > [!NOTE]
-> Currently, Stream Analytics jobs look for the blob refresh only when the machine time advances to the time encoded in the blob name. For example, the job looks for `sample/2015-04-16/17-30/products.csv` as soon as possible but no earlier than April 16, 2015, at 5:30 PM UTC. It will *never* look for a blob with an encoded time earlier than the last one that's discovered.
+> Currently, Stream Analytics jobs look for the blob refresh only when the machine time advances to the time encoded in the blob name. For example, the job looks for `sample/2015-04-16/17-30/products.csv` as soon as possible but no earlier than April 16, 2015, at 5:30 PM UTC. It *never* looks for a blob with an encoded time earlier than the last one that's discovered.
 >
-> For example, after the job finds the blob `sample/2015-04-16/17-30/products.csv`, it ignores any files with an encoded date earlier than April 16, 2015, at 5:30 PM. If a late-arriving `sample/2015-04-16/17-25/products.csv` blob gets created in the same container, the job won't use it.
+> For example, after the job finds the blob `sample/2015-04-16/17-30/products.csv`, it ignores any files with an encoded date earlier than April 16, 2015, at 5:30 PM. If a late-arriving `sample/2015-04-16/17-25/products.csv` blob gets created in the same container, the job doesn't use it.
 >
 > In another example, `sample/2015-04-16/17-30/products.csv` is only produced on April 16, 2015, at 10:03 PM, but no blob with an earlier date is present in the container. Then the job uses this file starting on April 16, 2015, at 10:03 PM and uses the previous reference data until then.
 >
@@ -87,12 +87,12 @@ For more information on how to set up a Data Factory pipeline to generate refere
 ### Tips on refreshing blob reference data
 
 - Don't overwrite reference data blobs because they're immutable.
-- The recommended way to refresh reference data is to:
-    * Use {date}/{time} in the path pattern.
+- To refresh reference data, follow these steps:
+    * Use `{date}` and `{time}` in the path pattern.
     * Add a new blob by using the same container and path pattern defined in the job input.
-    * Use a date/time *greater* than the one specified by the last blob in the sequence.
-- Reference data blobs aren't* ordered by the blob's **Last Modified** time. They're only ordered by the date and time specified in the blob name using the {date} and {time} substitutions.
-- To avoid having to list a large number of blobs, delete old blobs for which processing will no longer be done. Stream Analytics might have to reprocess a small amount in some scenarios, like a restart.
+    * Use a date and time *greater* than the one specified by the last blob in the sequence.
+- Reference data blobs aren't ordered by the blob's **Last Modified** time. They're only ordered by the date and time specified in the blob name using the `{date}` and `{time}` substitutions.
+- To avoid listing a large number of blobs, delete old blobs for which processing is no longer needed. Stream Analytics might have to reprocess a small amount in some scenarios, like a restart.
 
 ## Azure SQL Database
 
@@ -112,9 +112,9 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 ### Configure SQL Database reference data
 
-To configure your SQL Database reference data, you first need to create reference data input. The following table explains each property you need to provide when you create the reference data input with its description. For more information, see [Use reference data from a SQL Database for a Stream Analytics job](sql-reference-data.md).
+To configure your SQL Database reference data, first create the reference data input. The following table explains each property you need to provide when you create the reference data input, along with its description. For more information, see [Use reference data from a SQL Database for a Stream Analytics job](sql-reference-data.md).
 
-You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). Then you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
+You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as a reference data input. You must [configure a public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). Then, you manually configure the following settings in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is also supported by manually configuring these settings.
 
 |Property name|Description  |
 |---------|---------|
@@ -129,9 +129,9 @@ You can use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-m
 
 ## Size limitation
 
-Use reference datasets that are less than 300 MB for best performance. Reference datasets 5 GB or lower are supported in jobs with six streaming units or more. Using a large reference dataset might affect end-to-end latency of your job.
+For best performance, use reference datasets that are less than 300 MB. Jobs with six streaming units or more support reference datasets up to 5 GB. Using a large reference dataset might affect the end-to-end latency of your job.
 
-Query complexity can increase to include stateful processing such as windowed aggregates, temporal joins, and temporal analytic functions. When complexity increases, the maximum supported size of reference data decreases.
+Query complexity can increase when you include stateful processing such as windowed aggregates, temporal joins, and temporal analytic functions. When complexity increases, the maximum supported size of reference data decreases.
 
 If Stream Analytics can't load the reference data and perform complex operations, the job runs out of memory and fails. In such cases, the streaming unit percent utilization metric reaches 100%.
 
@@ -141,11 +141,11 @@ If Stream Analytics can't load the reference data and perform complex operations
 |3   |150 MB or lower   |
 |6 and beyond   |5 GB or lower    |
 
-Support for compression isn't available for reference data. For reference datasets larger than 300 MB, use SQL Database as the source with the [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If the delta query option isn't used in such scenarios, you see spikes in the watermark delay metric every time the reference dataset is refreshed.
+Compression isn't supported for reference data. For reference datasets larger than 300 MB, use SQL Database as the source with the [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If you don't use the delta query option in such scenarios, you see spikes in the watermark delay metric every time the reference dataset is refreshed.
 
 ## Join multiple reference datasets in a job
 
-You can only join a reference data input to a streaming input. So to join multiple reference datasets, break down your query into multiple steps. Here's an example:
+You can only join a reference data input to a streaming input. To join multiple reference datasets, break down your query into multiple steps. Here's an example:
 
 ```SQL  
 With Step1 as (
@@ -163,11 +163,11 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 
 ## IoT Edge jobs
 
-Only local reference data is supported for Stream Analytics edge jobs. When a job is deployed to an IoT Edge device, it loads reference data from the user-defined file path. Have a reference data file ready on the device.
+Stream Analytics edge jobs support only local reference data. When you deploy a job to an IoT Edge device, the job loads reference data from the user-defined file path. You need to have a reference data file ready on the device.
 
 For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
 
-Reference data on an IoT Edge update is triggered by a deployment. After it's triggered, the Stream Analytics module picks the updated data without stopping the running job.
+A deployment triggers the update of reference data on an IoT Edge. After it's triggered, the Stream Analytics module picks the updated data without stopping the running job.
 
 You can update the reference data in two ways:
 

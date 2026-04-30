@@ -4,7 +4,7 @@ description: Learn how to recover your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 04/29/2026
 ms.author: kendownie
 # Customer intent: "As a cloud architect, I want to understand the disaster recovery and failover processes for Azure Files, so that I can implement a robust data protection strategy that ensures data availability during unplanned outages."
 ---
@@ -13,8 +13,21 @@ ms.author: kendownie
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occur, and you should have a disaster recovery (DR) plan in place for handling a regional service outage. An important part of a disaster recovery plan is preparing to fail over to the secondary endpoint when the primary endpoint becomes unavailable. This article describes the concepts and processes involved with disaster recovery (DR) and storage account failover.
 
-> [!IMPORTANT]
-> Azure File Sync only supports storage account failover if the Storage Sync Service is also failed over. This is because Azure File Sync requires the storage account and Storage Sync Service to be in the same Azure region. If only the storage account is failed over, sync and cloud tiering operations will fail until the Storage Sync Service is failed over to the secondary region. If you want to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, see [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
+## Azure File Sync failover
+If you're using Azure File Sync, read this section first. If you're not using Azure File Sync, then this section doesn't apply.
+
+Azure File Sync only supports storage account failover if the Storage Sync Service is also failed over. This is because Azure File Sync requires the storage account and Storage Sync Service to be in the same Azure region. If only the storage account is failed over, sync and cloud tiering operations will fail until the Storage Sync Service is failed over to the secondary region. 
+
+If you want to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, see [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
+
+After a storage account failover completes (for example, from Canada Central to Canada East), Azure File Sync doesn't automatically recognize the new storage account location. The control plane remains registered in the original ARM region, while only the data plane migrates to the new region. 
+
+Follow these steps to complete a failover for Azure File Sync: 
+
+1. Contact Microsoft Support to request that Azure File Sync honor the new storage account location.
+1. Once updated, Azure File Sync will route server traffic (data plane) to the new region. The Storage Sync Service control plane might still reflect the original region in the Azure portal.
+
+The Azure portal displays only the control plane location for Storage Sync. It doesn't expose the data plane endpoint. You can validate that servers are pointing to the correct region by working with Microsoft Support.
 
 ## Customer-managed planned failover (preview) 
 

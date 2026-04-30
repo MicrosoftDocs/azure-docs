@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/neon/create-service-connection.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/create-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/faq.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/neon/tools.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/neon/tools",
+       "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hpc-cache/access-policies.md",
       "redirect_url": "/previous-versions/azure/hpc-cache/access-policies",
       "redirect_document_id": false
@@ -6060,6 +6095,11 @@
     {
       "source_path_from_root": "/articles/powershell-install-configure.md",
       "redirect_url": "/powershell/azureps-cmdlets-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/tutorial-connectivity.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-troubleshoot-connectivity",
       "redirect_document_id": false
     },
     {

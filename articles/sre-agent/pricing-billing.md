@@ -108,10 +108,12 @@ Go to **Settings** > **Agent consumption** to view your usage:
 
 ### Set an active flow spending limit
 
-Select **Change AAU allocation** to set a monthly active flow AAU limit (up to 1 million AAUs). This limit applies to active flow only. Always-on billing continues for as long as the agent exists.
+Select **Change AAU allocation** to set a monthly active flow AAU limit (minimum 500, maximum 1,000,000 AAUs). This limit applies to active flow only. Always-on billing continues for as long as the agent exists.
 
 - When your agent reaches the active flow limit, it becomes unavailable for chat and actions until the next month. Always-on charges continue for the rest of the month.
 - You can increase or decrease the allocation at any time.
+- **Increases** take effect immediately. If you raise the limit above current consumption, chat and actions resume right away.
+- **Decreases** below current consumption take effect next month. Until then, the agent runs in always-on flow only.
 
 #### Billing impact by action
 

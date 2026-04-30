@@ -503,6 +503,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Enable backup by default for new volumes 
+        href: protect-volumes.md  
       - name: Search backups
         href: backup-search.md 
       - name: Restore a backup to a new volume 

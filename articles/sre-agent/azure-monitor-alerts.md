@@ -14,12 +14,12 @@ ms.custom: azure monitor, alerts, incident detection, managed identity, alert me
 
 When an Azure Monitor alert fires, you open the Azure portal to read the alert details. Then you switch to Log Analytics to check for errors. Then Application Insights for exceptions. Then deployment history to see if someone pushed a change. Each tool switch costs time and breaks your focus.
 
-When the same alert rule fires repeatedly during an ongoing issue, such as a CPU threshold breached every five minutes, each firing demands separate attention. By morning, you handled the same underlying problem twelve times.
+Noisy alerts make it worse. A CPU threshold breached every five minutes generates a new alert each time — and each one sits in your queue demanding separate acknowledgment, triage, and investigation. By morning, you handled the same underlying problem twelve times with no consolidated view of what happened. The signal is buried under duplicate noise.
 
 > [!TIP]
 > - Connect Azure Monitor in **Builder → Incident platform**. Your agent's managed identity handles authentication with no API keys or credentials needed.
 > - The scanner detects new alerts every minute, acknowledges them in Azure Monitor, and creates investigation threads.
-> - Recurring alerts from the same rule merge into one thread. Five firings become one investigation, not five.
+> - Recurring alerts from the same rule merge into one thread within a configurable cooldown window (default 3 hours). Five firings become one investigation, not five.
 > - [Incident response plans](incident-response-plans.md) control which severity levels your agent handles and whether it acts autonomously or waits for approval.
 
 ## How Azure Monitor integration works
@@ -29,7 +29,7 @@ Your agent connects to Azure Monitor through its managed identity. This is the s
 ### Prerequisites
 
 - Your agent must be in **Running** state.
-- The agent's managed identity needs **Monitoring Contributor** role on the subscriptions containing your alert rules (assigned automatically during agent creation).
+- The agent's managed identity needs **Monitoring Contributor** role on the subscriptions containing your alert rules — assigned automatically when you add managed resource groups during agent creation, or when you connect Azure Monitor as your incident platform.
 - [Managed resource groups](complete-setup.md) determine which subscriptions the agent scans. The agent monitors all Azure Monitor alerts across each subscription that contains a managed resource group.
 
 Go to **Builder → Incident platform**, select **Azure Monitor** from the dropdown, and save.
@@ -50,46 +50,48 @@ The scanner polls Azure Monitor every minute for new alerts. When it finds an al
 
 ### Recurring alert merging
 
-When the same alert rule fires again while an active investigation already exists, the new alert merges silently into the existing thread:
+When the same alert rule fires again while an investigation already exists, the agent can merge the new alert into the existing thread instead of starting a new investigation. This behavior is controlled per response plan.
 
-1. The scanner checks for active (non-resolved, non-closed) threads from the same alert rule within the last seven days.
-1. **If a thread exists**, the alert is acknowledged in Azure Monitor but merges into the existing thread with no new investigation. The total alert count increments and the latest fire time updates.
-1. **If no active thread exists**, a new investigation thread is created.
+| Setting | Default | Range |
+|---------|---------|-------|
+| **Merge recurring alerts** | Enabled | On / Off |
+| **Cooldown time** | 3 hours | 1-24 hours |
 
-Five firings of the same alert rule produce one investigation thread with **Total alerts: 5**.  The thread doesn't produce five separate threads investigating the same problem.
+When the cooldown is **enabled** (default):
 
-> [!NOTE]
-> **Merge window and stale investigations:** The seven-day merge window means recurring alerts are consolidated, but the agent doesn't re-investigate when a new alert merges into an existing thread. If an investigation is several days old and the same alert fires again, the new firing is recorded but no fresh diagnosis runs. To trigger a new investigation, resolve or close the existing thread. This way, the next alert firing creates a fresh thread with a new investigation.
+1. If an active thread exists for the same alert rule within the cooldown window, the new alert merges silently. The total alert count increments and the latest fire time updates, but no new investigation starts.
+1. If the previous thread was resolved or closed within the cooldown window, the agent reopens it instead of creating a new thread.
+1. If no thread exists within the cooldown window, a new investigation thread is created.
+
+Five firings of the same alert rule within the cooldown window produce one investigation thread with **Total alerts: 5**.
+
+When the cooldown is **disabled**:
+
+- Every alert fire creates a new investigation thread, even from the same rule.
+
+> [!WARNING]
+> Disabling the cooldown means every fire of a noisy alert rule triggers a new investigation. For rules that fire frequently (such as CPU or memory threshold alerts), this approach can significantly increase token consumption.
 
 ### Status sync
 
-A background process checks Azure Monitor every five minutes for status changes. When an alert transitions to resolved or closed, the agent generates an AI root cause summary for the investigation thread.
+A background process checks Azure Monitor every two minutes for status changes. When an alert transitions to resolved or closed, the agent generates an AI root cause summary for the investigation thread.
 
 Thread titles preserve their severity prefix through status transitions. For example, **[Sev2] CPU Alert** stays **[Sev2] CPU Alert**.
 
 The agent tracks whether each incident was **mitigated by agent** or **mitigated by user**. These counts appear in the [incident analytics](monitor-agent-usage.md) dashboard and in per-response-plan breakdowns, so you can measure how much investigation work the agent handles autonomously.
 
-## What makes this different
+## What's supported
 
-**Zero-credential setup.** PagerDuty requires an API key. ServiceNow requires a username and password or an OAuth flow. Azure Monitor uses your agent's managed identity. Select the platform, save, and alerts start flowing.
-
-**Automatic acknowledgment.** The agent acknowledges alerts in Azure Monitor the moment it creates an investigation thread. Your alert dashboard stays clean and reflects what's being actively investigated.
-
-**Recurring alert consolidation.** Instead of flooding your incident list with duplicate threads for the same problem, the agent merges recurring alerts from the same rule into one thread. You see the total count and can click through to every individual alert instance.
+| Feature | How it works |
+|---------|-------------|
+| **Zero-credential setup** | Agent's managed identity handles authentication — select the platform, save, and alerts start flowing |
+| **Automatic acknowledgment** | Agent acknowledges alerts in Azure Monitor the moment it creates an investigation thread |
+| **Recurring alert merging** | Same alert rule fires merge into one thread within a configurable cooldown window (default 3 hours) |
+| **Resolved thread reopening** | If a resolved thread is within the cooldown window, the agent reopens it instead of creating a new thread |
+| **AI root cause summary** | Generated automatically when an alert resolves |
+| **Mitigation tracking** | Analytics show mitigated by agent vs mitigated by user |
 
 ---
-
-## Before and after
-
-|  | Before | After |
-|---|--------|-------|
-| **Setup** | Configure API keys, OAuth flows, or credential rotation | Select Azure Monitor, click Save |
-| **Alert acknowledgment** | Manual: open Azure portal, change state | Automatic: agent acknowledges on detection |
-| **Investigation** | Open 5+ tools, correlate manually | Agent queries all connected sources automatically |
-| **Recurring alerts** | 5 firings = 5 separate investigations | 5 firings = 1 thread, Total alerts: 5 |
-| **Individual alert tracking** | Scroll through Azure portal alert list | Click Total alerts count to see every instance with portal links |
-| **Resolution analysis** | Write your own post-incident summary | AI root cause summary generated on alert resolution |
-| **Resolution tracking** | No data on who resolved what | Analytics show mitigated by agent vs mitigated by user |
 
 ## Viewing alerts in the incident list
 
@@ -141,8 +143,8 @@ The default response plan created during setup handles **Sev3** alerts in **Auto
 | Alerts per API call | 250 |
 | Initial scan lookback | 1 day |
 | Maximum scan window | 29 days |
-| Merge lookback | 7 days (active threads from same alert rule) |
-| Status sync interval | 5 minutes |
+| Merge cooldown | 3 hours default (configurable 1-24 hours per response plan) |
+| Status sync interval | 2 minutes |
 
 > [!NOTE]
 > If alerts don't appear after connecting, verify:

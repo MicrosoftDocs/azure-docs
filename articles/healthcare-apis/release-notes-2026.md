@@ -27,6 +27,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Improved processing for custom search parameters in bundles**: Enhanced validation has been added to identify and prevent conflicting custom search parameters within bundle requests. This improvement helps ensure more consistent and reliable search parameter processing when submitting bundle operations.
 
+**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. These types of links inside an href property will not pass validation and are rejected by the FHIR service.
+
 #### Bug fixes:
 
 **Fix for versioning errors**: There was an issue where impacted customers could face errors when accessing or updating certain resources (when different resource types shared the same resource ID), where the most recent version may not be returned as expected. The issue was fixed on 11 April 2026 by fixing the resource comparison logic from string-based ID comparison to proper ResourceKey comparison. This fix ensures that resources with the same ID but different resource types are treated as completely separate resources, preventing versioning confusion.
@@ -34,6 +36,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Fix for capability statement intermittent failures**: Previously, users could experience intermittent failures as a side-effect of background in-process attempts to update the capability statements. This issue is fixed by ensuring that access to the resources of the capability statement are using thread-safe components to help prevent these errors.
 
 **Batch oversized bulk operation audit logs**: Previously, some bulk delete audit logs could exceed the maximum body size, preventing their processing. This issue has been fixed by splitting the items into size-bounded batches.
+
+**Fix for reindex orchestrator's handling of search parameter status promotion logic**: There was an issue that caused reindex job timeouts and blocked certain search parameter promotion from Supported to Enabled status. The issue has been fixed by improving the reindex orchestrator's handling of Search Parameter hash mismatches and status promotion logic.
 
 
 ## March 2026

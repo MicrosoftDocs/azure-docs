@@ -84,7 +84,7 @@ Upgrading a public IP resource retains the IP address.
 1. Select the **I acknowledge** check box, and then select **Upgrade**.
 
     > [!WARNING]
-    > Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    > Upgrading a basic public IP to standard SKU can't be reversed.
 
 # [Azure CLI](#tab/azurecli/)
 
@@ -109,7 +109,7 @@ az network public-ip update \
 > The basic public IP you're upgrading must have static assignment. You receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading. Dynamic IP allocation isn't supported for Standard SKU public IP addresses andthere is no replacement for dynamic allocation besides static allocation.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Upgrading a basic public IP to standard SKU can't be reversed.
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
@@ -140,7 +140,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 > The basic public IP you're upgrading must have static assignment. You receive a warning that the IP can't be upgraded if you try to upgrade a dynamically allocated IP address. Change the IP address assignment to static before upgrading. Dynamic IP allocation isn't supported for Standard SKU public IP addresses and there is no replacement for dynamic allocation besides static allocation.
 
 > [!WARNING]
-> Upgrading a basic public IP to standard SKU can't be reversed. Public IPs upgraded from basic to standard SKU continue to have no guaranteed [availability zones](/azure/reliability/availability-zones-overview).
+> Upgrading a basic public IP to standard SKU can't be reversed.
 
 ---
 
