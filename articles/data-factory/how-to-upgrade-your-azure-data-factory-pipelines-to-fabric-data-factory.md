@@ -22,6 +22,17 @@ The migration experience helps you:
 
 This assessment-first approach helps ensure migrations are intentional, transparent, and incremental. You can upgrade pipelines at your own pace and validate results before switching production workloads.
 
+## How to start migration
+
+You can start migrating your Azure Data Factory pipelines from either of two entry points:
+
+| Entry point | Best for | Starting step |
+|---|---|---|
+| **From Azure Data Factory** | Running a full assessment of pipeline readiness before migrating | [Option A: Start from Azure Data Factory](#option-a-start-from-azure-data-factory) |
+| **From a Fabric workspace** | Directly mounting and migrating when you already know which factory to bring over | [Option B: Start from Fabric](#option-b-start-from-fabric) |
+
+Both paths converge at [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+
 
 ## Prerequisites
 
@@ -30,15 +41,17 @@ Before you start, make sure you have:
 - An existing Azure Data Factory instance with pipelines.
 - Access to a Microsoft Fabric tenant.
 - A Fabric workspace in the same Microsoft Entra ID tenant as the Azure Data Factory instance.
+- **If starting from Fabric**: A Fabric workspace where you have at least Contributor permissions.
 
+## Option A: Start from Azure Data Factory
 
-## Step 1: Assess your pipelines for migration
+### Step 1: Assess your pipelines for migration
 
 To run the migration assessment, in your [Azure Data Factory](https://adf.azure.com) authoring canvas, select **Migrate to Fabric (Preview)** > **Get started (preview)** to evaluate pipelines and activities for migration readiness.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png" alt-text="Screenshot showing how to run the Azure Data Factory migration assessment." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png":::
 
-## Step 2: Review and understand assessment results
+### Step 2: Review and understand assessment results
 
 Both the factory and individual pipelines are categorized with a readiness status: **Ready**, **Needs review**, **Coming soon**, or **Not compatible**.
 You can also export your assessment results to a CSV file to support offline review and remediation planning.
@@ -55,7 +68,7 @@ Each pipeline and activity is assigned one of the following statuses. Use these 
 | **Not compatible**| No Fabric equivalent; redesign required.                           |
 
 
-## Step 3: Select a Fabric workspace and mount your Azure Data Factory
+### Step 3: Select a Fabric workspace and mount your Azure Data Factory
 
 After you review the assessment, select **Next** to mount your Azure Data Factory to a Fabric workspace and continue the migration flow in Fabric. Mounting lets you reference your Azure Data Factory (ADF) instance inside a Fabric workspace without migrating, copying, or altering the Azure Data Factory environment.
 
@@ -65,7 +78,25 @@ After mounting completes, select **Continue in Fabric** to proceed with migratio
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png" alt-text="Screenshot showing the Continue in Fabric option after successful mounting." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png":::
 
-## Step 4: Migrate pipelines
+Continue to [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+
+## Option B: Start from Fabric
+1. Open your Fabric workspace.
+2. In the workspace toolbar, select **Migrate**.
+3. In the **Migrate to Fabric** panel, under **Migrate to notebooks, Spark pools, and more**, select **Data Factory**.
+
+   :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-from-fabric-workspace.png" alt-text="Screenshot showing the Migrate to Fabric panel in a Fabric workspace with the Data Factory option highlighted.":::
+
+4. Select the Azure Data Factory instance you want to mount to this workspace.
+   
+   :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-from-fabric-migrate-end-point.png" alt-text="Screenshot showing the mounting experience from Migrate endpoint in Fabric.":::
+
+5. After mounting completes, continue with [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+
+> [!NOTE]
+> Starting from Fabric skips the in-ADF assessment (Steps 1–2). To review pipeline readiness before migrating, start from [Step 1: Assess your pipelines for migration](#step-1-assess-your-pipelines-for-migration) in Azure Data Factory instead.
+
+### Step 4: Migrate pipelines
 
 Continue migration from the Fabric experience by selecting **Migrate to Fabric (Preview)**.
 
@@ -76,7 +107,7 @@ Select the pipelines you want to migrate.
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png" alt-text="Screenshot showing the option to select pipelines for migration." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png":::
 
 
-## Step 5: Map linked services to Fabric connections and complete migration
+### Step 5: Map linked services to Fabric connections and complete migration
 
 Select **Review connections** to map Azure Data Factory linked services to Fabric connections and then select **Confirm**.
 

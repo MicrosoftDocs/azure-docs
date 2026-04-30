@@ -170,7 +170,7 @@ The next time a similar CPU issue occurs, your agent automatically references th
 
 | Scenario | Better approach |
 |----------|----------------|
-| Connecting live wiki content that stays in sync | [ADO Wiki Knowledge](ado-connector.md) |
+| Connecting live wiki content that stays in sync | [ADO Wiki Knowledge](azure-devops-wiki-knowledge.md) |
 | Uploading binary files (PDF, Word, images) | Upload through **Builder → Knowledge settings → Add file** |
 | Bulk importing many documents at once | Upload multiple files through **Builder → Knowledge settings → Add file** |
 | Keeping code repositories up to date automatically | Connect a GitHub or ADO connector |
@@ -179,5 +179,5 @@ The next time a similar CPU issue occurs, your agent automatically references th
 
 | Capability | What it adds |
 |------------|--------------|
-| [ADO wiki knowledge](ado-connector.md) | Connect live wiki content that updates automatically |
+| [ADO wiki knowledge](azure-devops-wiki-knowledge.md) | Connect live wiki content that updates automatically |
 | [Root cause analysis](root-cause-analysis.md) | Investigate issues and capture the findings |

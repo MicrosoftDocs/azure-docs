@@ -28,6 +28,8 @@ items:
         href: subscription-permission-visibility.md
       - name: Agent identity
         href: agent-identity.md
+      - name: Security overview
+        href: security-overview.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -126,6 +128,8 @@ items:
             href: kusto-tools.md
           - name: Azure Data Explorer connector
             href: kusto-cluster-grouping.md
+          - name: Log Analytics & App Insights
+            href: log-analytics-app-insights.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access
@@ -204,6 +208,8 @@ items:
             href: outlook-connector.md
           - name: Set up MCP connector
             href: mcp-connector.md
+          - name: Set up Log Analytics connector
+            href: setup-log-analytics-connector.md
           - name: Create a Kusto tool
             href: create-kusto-tool.md
           - name: Upload knowledge documents
