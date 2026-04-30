@@ -18,13 +18,14 @@ Durable Functions provides several diagnostic tools for troubleshooting orchestr
 
 In this article, you learn how to:
 
-- [Configure Application Insights tracking](#configure-application-insights-tracking) for lifecycle events
-- [Query orchestration instances](#query-orchestration-instances) with Kusto
-- [Enable Durable Task Framework (DTFx) logging](#durable-task-framework-logging-dtfx) for low-level diagnostics
-- [Set up distributed tracing](#distributed-tracing) to visualize end-to-end orchestration flows
-- [Write replay-safe logs](#replay-safe-logging-in-orchestrator-functions) in orchestrator functions
-- [Report custom orchestration status](#custom-orchestration-status) to external clients
-- [Debug orchestrations](#debugging) locally with breakpoints
+> [!div class="checklist"]
+> - [Configure Application Insights tracking](#configure-application-insights-tracking) for lifecycle events
+> - [Query orchestration instances](#query-orchestration-instances) with Kusto
+> - [Enable Durable Task Framework (DTFx) logging](#durable-task-framework-logging-dtfx) for low-level diagnostics
+> - [Set up distributed tracing](#distributed-tracing) to visualize end-to-end orchestration flows
+> - [Write replay-safe logs](#replay-safe-logging-in-orchestrator-functions) in orchestrator functions
+> - [Report custom orchestration status](#custom-orchestration-status) to external clients
+> - [Debug orchestrations](#debugging) locally with breakpoints
 
 ## Configure Application Insights tracking
 
@@ -192,7 +193,7 @@ Distributed tracing tracks requests and shows how different services interact wi
 Distributed tracing requires specific minimum extension versions:
 
 - For .NET Isolated apps, [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) **>= v1.4.0**.
-- For non-.NET apps, [follow these instructions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) to manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) **>= v3.2.0** for now. Distributed tracing will be available in extension bundles **> [v4.24.x](https://github.com/Azure/azure-functions-extension-bundles/releases)**.
+- For non-.NET apps, [follow these instructions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version) to manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) **>= v3.2.0** for now. Distributed tracing will be available in extension bundles **> [v4.24.x](https://github.com/Azure/azure-functions-extension-bundles/releases)**.
 
 ### Setting up distributed tracing
 

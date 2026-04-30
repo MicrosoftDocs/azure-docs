@@ -18,33 +18,26 @@ This guide walks you through migrating your .NET Durable Functions app from the 
 > [!WARNING]
 > Support for the in-process model ends on **November 10, 2026**. We recommend migrating now. For background on the isolated worker model, see [.NET isolated worker process overview](../dotnet-isolated-process-guide.md).
 
+## Migration checklist
+
+Use the following checklist to track your progress through each migration step:
+
+| Step | Section |
+| --- | --- |
+| 1. Verify prerequisites | [Prerequisites](#prerequisites) |
+| 2. Update the project file | [Update the project file](#update-the-project-file) |
+| 3. Add Program.cs | [Add Program.cs](#add-programcs) |
+| 4. Update package references | [Update package references](#update-package-references) |
+| 5. Update function code | [Update function code](#update-function-code) |
+| 6. Update local.settings.json | [Update local.settings.json](#update-localsettingsjson) |
+| 7. Test locally | [Test locally](#test-locally) |
+| 8. Deploy to Azure | [Deploy to Azure](#deploy-to-azure) |
+
 ## Prerequisites
 
 - **Azure Functions Core Tools v4.x** or later
 - **.NET 8.0 SDK** (or your target .NET version)
 - **Visual Studio 2022** or **VS Code with Azure Functions extension**
-
-## Migration overview
-
-At a high level, the migration requires these steps:
-
-1. [Update the project file](#update-the-project-file) — switch to executable output, replace packages
-1. [Add Program.cs](#add-programcs) — create the host entry point
-1. [Update package references](#update-package-references) — swap in-process packages for isolated equivalents
-1. [Update function code](#update-function-code) — change attributes, types, and namespaces
-1. [Update local.settings.json](#update-localsettingsjson) — set runtime to `dotnet-isolated`
-1. [Test locally](#test-locally) and [deploy to Azure](#deploy-to-azure)
-
-### Quick-reference checklist
-
-Use this checklist to track your progress. A [detailed version](#checklist) is at the end of this guide.
-
-- [ ] Project file: added `<OutputType>Exe</OutputType>`, replaced packages
-- [ ] Created `Program.cs`, deleted `FunctionsStartup`
-- [ ] Updated `[FunctionName]` → `[Function]`, replaced context/client types
-- [ ] Removed all `Microsoft.Azure.WebJobs.*` references
-- [ ] Updated `local.settings.json` to `dotnet-isolated`
-- [ ] Tested locally and deployed
 
 ### Identify apps to migrate (optional)
 

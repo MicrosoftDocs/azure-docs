@@ -1,6 +1,6 @@
 ---
-title: Guide to the standalone Durable Functions PowerShell SDK
-description: Learn about the standalone Durable Functions PowerShell SDK, and how to upgrade to it
+title: "Standalone Durable Functions PowerShell SDK: Setup and Migration Guide"
+description: "Learn how to install and migrate to the standalone Durable Functions PowerShell SDK for faster, more reliable orchestrations. Get started with this step-by-step guide."
 author: davidmrdavid
 ms.author: hannahhunter
 ms.topic: feature-guide
@@ -11,33 +11,26 @@ ms.reviewer: azfuncdf
 
 # Guide to the standalone Durable Functions PowerShell SDK
 
-The Durable Functions (DF) PowerShell SDK is now available as a standalone module in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
-This SDK is now **generally available (GA)** and is the recommended approach for authoring Durable Functions apps with PowerShell. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
+The standalone Durable Functions PowerShell SDK ([`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK)) is the recommended approach for authoring Durable Functions apps with PowerShell. It replaces the built-in SDK with faster replay logic (the same engine as the C# isolated SDK), independent versioning, and improved exception handling, null-value handling, and serialization. The built-in SDK remains available for PowerShell 7.4 and earlier but will be removed in a future major release of the PowerShell worker.
 
-## Motivation behind the standalone SDK
+## Migration checklist
 
-The previous DF SDK was built into the PowerShell language worker. This approach came with the benefit that Durable Functions apps could be authored out of the box for Azure Functions PowerShell users.
-However, it also came with various shortcomings:
-- New features, bug fixes, and other changes were dependent on the PowerShell worker's release cadence.
-- Due to the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be conservative about fixing bugs as any behavior changes could constitute a breaking change.
-- The replay algorithm utilized by the built-in DF SDK was outdated: other DF SDKs already utilized a faster and more reliable implementation.
+Use the following checklist to track your progress through each migration step:
 
-By creating a standalone DF PowerShell SDK package, we're able to overcome these shortcomings. These are the benefits of utilizing this new standalone SDK package:
-- This SDK includes many highly requested improvements such as better exception and null-value handling, and serialization fixes.
-- The package is versioned independently of the PowerShell worker. This allows users to incorporate new features and fixes as soon as they're available, while also avoiding breaking changes from automatic upgrades.
-- The replay logic is faster, and more reliable: it uses the same replay engine as the DF isolated SDK for C#.
+| Step | Section |
+| --- | --- |
+| 1. Verify prerequisites | [Prerequisites](#verify-prerequisites) |
+| 2. Enable the standalone SDK | [Enable the standalone SDK](#enable-the-standalone-sdk) |
+| 3. Install the SDK package | [Install the SDK package](#install-the-sdk-package) |
+| 4. Import the SDK | [Import the SDK](#import-the-sdk) |
+| 5. Run your app | [Run your app](#run-your-app) |
+| 6. Review interface and behavioral changes | [Migrate from the built-in SDK](#migrate-from-the-built-in-sdk) |
 
-## Deprecation plan for the built-in DF PowerShell SDK
+## Install the standalone SDK
 
-The built-in DF SDK in the PowerShell worker will remain available for PowerShell 7.4 and prior releases.
+Follow these steps to install and enable the standalone SDK in your existing app.
 
-We plan to eventually release a new **major** version of the PowerShell worker without the built-in SDK. At that point, users would need to install the SDK separately using this standalone package; the installation steps are described below.
-
-## Install and enable the SDK
-
-See this section to learn how to install and enable new standalone SDK in your existing app.
-
-### Prerequisites
+### Verify prerequisites
 
 The standalone PowerShell SDK requires the following minimum versions:
 
@@ -45,14 +38,13 @@ The standalone PowerShell SDK requires the following minimum versions:
 - [Azure Functions Core Tools](../functions-run-local.md) v4.0.5095+ (if running locally)
 - Azure Functions PowerShell app for PowerShell 7.4 or greater
 
-
-### Opt in to the standalone DF SDK
+### Enable the standalone SDK
 
 The following application setting is required to run the standalone PowerShell SDK: 
 - Name: `ExternalDurablePowerShellSDK`
 - Value: `"true"`
 
-This application setting will disable the built-in Durable SDK for PowerShell versions 7.4 and above, forcing the worker to use the external SDK. 
+This application setting disables the built-in Durable SDK for PowerShell versions 7.4 and above, forcing the worker to use the external SDK.
 
 If you're running locally using [Azure Functions Core Tools](../functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
 
@@ -81,15 +73,14 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 3. For the value, type `"true"` and press <kbd>Enter</kbd>.
 ---
 
-### Install and import the SDK
+### Install the SDK package
 
-You have two options for installing the SDK package: it can be installed using [Managed Dependencies](./../functions-reference-powershell.md#managed-dependencies-feature), or [bundled with your app content](./../functions-reference-powershell.md#including-modules-in-app-content).
-In this section, we describe both options, but only one of them is needed.
+You have two options for installing the SDK package. Use [managed dependencies](./../functions-reference-powershell.md#managed-dependencies-feature) (recommended for most apps) or [bundle the module with your app content](./../functions-reference-powershell.md#including-modules-in-app-content) if you need to pin a specific version or your deployment doesn't support managed dependencies. Only one option is needed.
 
-#### Installation option 1: Use managed dependencies
+#### Option 1: Use managed dependencies (recommended)
 
-To install the SDK as a managed dependency, you'll need to follow the [managed dependencies guidance](./../functions-reference-powershell.md#dependency-management). Please review the guidance for details.
-In summary, you first need to ensure your `host.json` contains a `managedDependency` section with an `enabled` property set to `true`. Below is an example `host.json` that satisfies this requirement:
+To install the SDK as a managed dependency, follow the [managed dependencies guidance](./../functions-reference-powershell.md#dependency-management).
+First, ensure your `host.json` contains a `managedDependency` section with `enabled` set to `true`:
 
 ```JSON
 {
@@ -100,11 +91,11 @@ In summary, you first need to ensure your `host.json` contains a `managedDepende
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[3.*, 4.0.0)"
-  },
+  }
 }
 ```
 
-Then you simply need to specify an entry for the DF SDK in your `requirements.psd1` file, as in the example below:
+Then specify an entry for the SDK in your `requirements.psd1` file:
 
 ```PowerShell
 # This file enables modules to be automatically managed by the Functions service.
@@ -116,87 +107,108 @@ Then you simply need to specify an entry for the DF SDK in your `requirements.ps
 }
 ```
 
-#### Installation option 2: Include the SDK module in your app content
+#### Option 2: Include the SDK module in your app content
 
-To include the standalone DF SDK in your app content, you need to follow the [guidance regarding including modules in app content](./../functions-reference-powershell.md#including-modules-in-app-content). Make sure to review the aforementioned docs for details.
-In summary, you'll need to place the SDK package inside a `".\Modules"` directory located at the root of your app.
+To bundle the SDK with your app, place the SDK package inside a `".\Modules"` directory at the root of your app. For more information, see [Including modules in app content](./../functions-reference-powershell.md#including-modules-in-app-content).
 
-For example, from within your application's root, and after creating a `".\Modules"` directory, you may download the standalone SDK into the modules directory as such:
+From your application root, create the directory and download the SDK:
 
 ```powershell
 Save-Module -Name AzureFunctions.PowerShell.Durable.SDK -AllowPrerelease -Path ".\Modules"
 ```
 
-#### Importing the SDK
+### Import the SDK
 
-The final step is importing the SDK into your code's session. To do this, import the PowerShell SDK via `Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop` in your `profile.ps1` file.
-For example, if your app was scaffolded through templates, your `profile.ps1` file may end up looking as such:
+Add the following line to your `profile.ps1` file to import the SDK on every cold start:
 
 ```powershell
-# Azure Functions profile.ps1
-#
-# This profile.ps1 will get executed every "cold start" of your Function App.
-# "cold start" occurs when:
-#
-# * A Function App starts up for the very first time
-# * A Function App starts up after being de-allocated due to inactivity
-#
-# You can define helper functions, run commands, or specify environment variables
-# NOTE: any variables defined that are not environment variables will get reset after the first execution
-
-# Authenticate with Azure PowerShell using MSI.
-# Remove this if you are not planning on using MSI or Azure PowerShell.
-if ($env:MSI_SECRET) {
-    Disable-AzContextAutosave -Scope Process | Out-Null
-    Connect-AzAccount -Identity
-}
-
-# Uncomment the next line to enable legacy AzureRm alias in Azure PowerShell.
-# Enable-AzureRmAlias
-
-# You can also define functions or aliases that can be referenced in any of your PowerShell functions.
-
-# Import standalone PowerShell SDK
 Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop
 ```
 
-These are all the steps needed to utilize the next PowerShell SDK. Run your app as normal, via `func host start` in your terminal to start using the SDK.
+### Run your app
 
-### SDK reference
+Start your app with `func host start`. The standalone SDK is now active.
 
-See [AzureFunctions.PowerShell.Durable.SDK Module](https://github.com/Azure/azure-functions-durable-powershell/blob/main/src/Help/AzureFunctions.PowerShell.Durable.SDK.md) for the complete reference of the SDK cmdlets and their parameters.
+## Migrate from the built-in SDK
 
-You can also use the `Get-Help` cmdlet to get detailed descriptions of the SDK cmdlets. In order to do this, you need to import the module first, as shown in the previous section. After that, you can run the following command to get the entire list of cmdlets:
+If you're migrating an existing app from the built-in SDK, review the following interface and behavioral changes.
+
+### New cmdlets
+
+| Cmdlet | Description |
+| --- | --- |
+| `Invoke-DurableSubOrchestrator` | Call sub-orchestrators from within an orchestrator workflow. |
+| `Suspend-DurableOrchestration` | Suspend a running orchestration instance. |
+| `Resume-DurableOrchestration` | Resume a previously suspended orchestration instance. |
+
+### Modified cmdlets
+
+| Change | Details |
+| --- | --- |
+| `Get-DurableTaskResult` | Now accepts a single `Task` as its argument instead of a list of tasks. |
+| `New-DurableRetryOptions` → `New-DurableRetryPolicy` | Renamed. An alias for the old name is provided for backward compatibility. |
+
+### Behavioral changes
+
+#### Exception handling in `Wait-DurableTask`
+
+Exceptions thrown by activities scheduled with `Wait-DurableTask` (fan-out/fan-in pattern) are no longer silently ignored. The cmdlet now propagates the exception to the orchestrator so you can handle it in your code.
+
+**Built-in SDK** — exceptions were silently swallowed:
 
 ```powershell
-Get-Help *-Durable*
+# Exceptions from failed activities were lost
+$tasks = @()
+$tasks += Invoke-DurableActivity -FunctionName "RiskyActivity" -Input "item1" -NoWait
+$tasks += Invoke-DurableActivity -FunctionName "RiskyActivity" -Input "item2" -NoWait
+$results = Wait-DurableTask -Task $tasks
+# No error even if an activity failed
 ```
 
-In order to get detailed help on a specific cmdlet, including usage examples, run:
+**Standalone SDK** — exceptions propagate to the orchestrator:
 
 ```powershell
-Get-Help Invoke-DurableOrchestration -Full
+try {
+    $tasks = @()
+    $tasks += Invoke-DurableActivity -FunctionName "RiskyActivity" -Input "item1" -NoWait
+    $tasks += Invoke-DurableActivity -FunctionName "RiskyActivity" -Input "item2" -NoWait
+    $results = Wait-DurableTask -Task $tasks
+} catch {
+    # Handle the activity failure
+    Write-Host "An activity failed: $_"
+}
 ```
 
-### Migration guide
+#### Null values preserved in `Wait-DurableTask` results
 
-In this section, we describe the interface and behavioral changes you can expect when utilizing the new SDK.
+Null values are no longer dropped from the result list of a `Wait-DurableTask` (WhenAll) invocation. A successful call without the `-Any` flag now returns an array of the same size as the number of tasks scheduled, including `$null` entries for activities that returned null.
 
-#### New cmdlets
+**Built-in SDK** — null results were dropped:
 
-* `Invoke-DurableSubOrchestrator` is a new cmdlet that allows users to utilize suborchestrators in their workflows.
-* `Suspend-DurableOrchestration` and `Resume-DurableOrchestration` are new cmdlets that allow users to suspend and resume orchestrations, respectively.
+```powershell
+# 3 tasks scheduled, but if one returned $null, results had only 2 items
+$results = Wait-DurableTask -Task $tasks
+$results.Count  # Could be 2 instead of 3
+```
 
-#### Modified cmdlets
+**Standalone SDK** — null results are preserved:
 
-* The `Get-DurableTaskResult` cmdlet now only accepts a single Task as it's argument, instead of accepting a list of Tasks.
-* The `New-DurableRetryOptions` cmdlet is renamed to `New-DurableRetryPolicy` (an alias for the old name is provided for backward compatibility).
+```powershell
+# 3 tasks scheduled, results always has 3 items
+$results = Wait-DurableTask -Task $tasks
+$results.Count  # Always 3, with $null for activities that returned null
+```
 
-#### Behavioral changes
+## SDK reference
 
-* Exceptions thrown by activities scheduled with `Wait-DurableTask` (as in the Fan-Out/Fan-In pattern) are no longer silently ignored. Instead, on an exception, the cmdlet propagates that exception to the orchestrator so that it may be handled by user-code.
-* Null values are no longer dropped from the result list of a `Wait-DurableTask` (i.e., WhenAll) invocation. This means that a successful invocation of `Wait-DurableTask` without the `-Any` flag should return an array of the same size as the number of tasks it scheduled.
+For the complete cmdlet reference, see [AzureFunctions.PowerShell.Durable.SDK Module](https://github.com/Azure/azure-functions-durable-powershell/blob/main/src/Help/AzureFunctions.PowerShell.Durable.SDK.md). After importing the module, you can also run `Get-Help *-Durable*` to list all available cmdlets, or `Get-Help <cmdlet-name> -Full` for detailed usage.
 
-### Get support and provide feedbsck
+## Get support
 
-Please report any feedback and suggestions to the SDK's [_GitHub repo_](https://github.com/Azure/azure-functions-durable-powershell).
+Report bugs and feature requests in the SDK's [GitHub repo](https://github.com/Azure/azure-functions-durable-powershell).
+
+## Next steps
+
+- [Create a Durable Functions app with PowerShell](quickstart-powershell-vscode.md)
+- [Durable Functions patterns and concepts](durable-functions-overview.md)
+- [PowerShell developer reference for Azure Functions](../functions-reference-powershell.md)

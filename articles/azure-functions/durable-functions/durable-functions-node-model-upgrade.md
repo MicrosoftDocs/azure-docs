@@ -1,6 +1,6 @@
 ---
-title: Migrate your Durable Functions app to version 4 of the Node.js programming model
-description: This article shows you how to upgrade your existing Durable Functions apps running on v3 of the Node.js programming model to v4.
+title: "Migrate Durable Functions to Node.js Programming Model v4"
+description: Learn how to migrate your Durable Functions app from v3 to v4 of the Node.js programming model. Follow step-by-step instructions to upgrade triggers, bindings, and client APIs.
 author: hossam-nasr
 ms.service: azure-functions
 ms.date: 04/06/2023
@@ -19,42 +19,60 @@ no-loc:
 
 # Migrate your Durable Functions app to version 4 of the Node.js programming model
 
-This article guides you through upgrading your existing Durable Functions app to version 4 of the Node.js programming model. This article uses "TIP" banners to summarize the key steps needed to upgrade your app.
+This guide covers the Durable Functions-specific changes needed when upgrading to the v4 Node.js programming model. To create a new v4 app instead, see the quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4).
 
-If you're interested in creating a brand new v4 app instead, you can follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4).
+> [!IMPORTANT]
+> Complete the general [Node.js v4 upgrade guide](../functions-node-upgrade-v4.md) first. This article covers only the extra Durable Functions-specific changes.
 
->[!TIP]
-> Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md).
+## Migration checklist
+
+Use the following checklist to track your progress through each migration step:
+
+| Step | Section |
+| --- | --- |
+| 1. Verify prerequisites | [Prerequisites](#prerequisites) |
+| 2. Upgrade the npm package | [Upgrade the durable-functions npm package](#upgrade-the-durable-functions-npm-package) |
+| 3. Replace `function.json` with code-based registration | [Register your Durable Functions triggers](#register-your-durable-functions-triggers) |
+| 4. Register durable client in code | [Register your Durable Client input binding](#register-your-durable-client-input-binding) |
+| 5. Update client API calls | [Update your Durable Client API calls](#update-your-durable-client-api-calls) |
+| 6. Update `callHttp` calls | [Update calls to the callHttp API](#update-calls-to-the-callhttp-api) |
+| 7. (TypeScript) Use new exported types | [Use new exported types for stronger type safety](#use-new-exported-types-for-stronger-type-safety) |
 
 ## Prerequisites
 
-Before following this guide, complete these steps:
-
-- Install [Node.js](https://nodejs.org/en/download/releases) version 18.x+.
-- Install [TypeScript](https://www.typescriptlang.org/) version 4.x+.
-- Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.25+.
-- Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5382+.
-- Review the general [Azure Functions Node.js programming model v4 upgrade guide](../functions-node-upgrade-v4.md).
+- [Node.js](https://nodejs.org/en/download/releases) version 18.x+
+- [TypeScript](https://www.typescriptlang.org/) version 4.x+
+- [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.25+
+- [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5382+ (if running locally)
 
 ## Upgrade the `durable-functions` npm package
 
->[!NOTE]
->The programming model version shouldn't be confused with the `durable-functions` package version. `durable-functions` package version 3.x is required for the v4 programming model, while `durable-functions` version 2.x is required for the v3 programming model.
+The programming model version and the `durable-functions` package version are different:
 
-The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In your programming model v3 app, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the v3.x of the `durable-functions` package.
+| Programming model | `durable-functions` package |
+| --- | --- |
+| v3 | 2.x |
+| v4 | **3.x** |
 
->[!TIP]
-> Upgrade to v3.x of the `durable-functions` npm package with the following command:
->
-> ```bash
-> npm install durable-functions
-> ```
+Upgrade to the v3.x package:
+
+```bash
+npm install durable-functions
+```
 
 ## Register your Durable Functions triggers
 
-In the v4 programming model, you no longer declare triggers and bindings in a separate `function.json` file. Instead, you can register your Durable Functions triggers and bindings directly in code, using the new APIs found in the `app` namespace on the root of the `durable-functions` package. The following code snippets show examples.
+In the v4 model, you no longer declare triggers and bindings in a separate `function.json` file. Instead, register your Durable Functions triggers directly in code using the `df.app` namespace. After migrating each function, delete its `function.json` file.
 
-**Migrating an orchestration**
+| Function type | Registration method |
+| --- | --- |
+| Orchestration | `df.app.orchestration()` |
+| Entity | `df.app.entity()` |
+| Activity | `df.app.activity()` |
+
+The following examples show the migration pattern for each function type.
+
+**Orchestration**
 
 :::zone pivot="programming-language-javascript"
 # [Model v4](#tab/nodejs-v4)
@@ -162,7 +180,7 @@ export default orchestrator;
 :::zone-end
 
 
-**Migrating an entity**
+**Entity**
 
 :::zone pivot="programming-language-javascript"
 
@@ -291,7 +309,7 @@ export default entity;
 ----
 :::zone-end
 
-**Migrating an activity**
+**Activity**
 
 :::zone pivot="programming-language-javascript"
 
@@ -372,13 +390,10 @@ export default helloActivity;
 ---
 :::zone-end
 
->[!TIP]
-> Remove `function.json` files from your Durable Functions app. Instead, register your durable functions using the methods on the `app` namespace: `df.app.orchestration()`, `df.app.entity()`, and `df.app.activity()`.
-
 
 ## Register your Durable Client input binding
 
-In the v4 model, registering secondary input bindings, like durable clients, is also done in code. Use the `input.durableClient()` method to register a durable client input _binding_ to a function of your choice. In the function body, use `getClient()` to retrieve the client instance, as before. The following example uses an HTTP triggered function.
+In the v4 model, registering secondary input bindings like durable clients is also done in code. Use `input.durableClient()` to register a durable client input _binding_, then use `getClient()` to retrieve the client instance. The following example uses an HTTP triggered function.
 
 :::zone pivot="programming-language-javascript"
 
@@ -506,12 +521,9 @@ export default durableHttpStart;
 ---
 :::zone-end
 
->[!TIP]
-> Use the `input.durableClient()` method to register a durable client extra input to your client function. Use `getClient()` as normal to retrieve a `DurableClient` instance.
-
 ## Update your Durable Client API calls
 
-Multiple APIs on the `DurableClient` class (renamed from `DurableOrchestrationClient`) were simplified in `v3.x` of `durable-functions` to make calling them easier and more streamlined. For many optional arguments to APIs, you now pass one options object, instead of multiple discrete optional arguments. The following example shows these changes:
+Several APIs on `DurableClient` (renamed from `DurableOrchestrationClient`) now accept a single options object instead of multiple optional arguments. The most commonly affected APIs are `startNew` and `getStatus`; if you only use those APIs, you can skip the rest of the table. The following example shows the updated pattern:
 
 :::zone pivot="programming-language-javascript"
 
@@ -559,7 +571,7 @@ const status: DurableOrchestrationStatus = await client.getStatus('instanceId', 
 ---
 :::zone-end
 
-The following table lists all the changes:
+The following table lists all the affected APIs:
 
 <table>
 <tr>
@@ -782,20 +794,18 @@ waitForCompletionOrCreateCheckStatusResponse(
 </tr>
 </table>
 
->[!TIP]
-> Make sure to update your `DurableClient` API calls from discrete optional arguments to options objects, where applicable. See the previous list for all APIs affected. 
+## Update calls to the callHttp API
 
+In v3.x of `durable-functions`, the `callHttp()` API was updated with the following changes:
 
-## Update calls to callHttp API
+| Change | Details |
+| --- | --- |
+| Arguments → options object | All arguments are now passed as a single options object, similar to [Express](https://expressjs.com/). |
+| `uri` → `url` | Renamed for consistency. |
+| `content` → `body` | Renamed for consistency. |
+| `asynchronousPatternEnabled` → `enablePolling` | Renamed for clarity. |
 
-In v3.x of `durable-functions`, the `callHttp()` API for `DurableOrchestrationContext` was updated. The following changes were made:
-
-- Accept one options object for all arguments, instead of multiple optional arguments, to be more similar to frameworks such as [Express](https://expressjs.com/).
-- Rename `uri` argument to `url`
-- Rename `content` argument to `body`
-- Deprecate `asynchronousPatternEnabled` flag in favor of `enablePolling`.
-
-If your orchestrations used the `callHttp` API, make sure to update the API calls to conform to the preceding changes. The following example shows the updated syntax:
+If your orchestrations use `callHttp`, update the calls to the new syntax:
 
 :::zone pivot="programming-language-javascript"
 
@@ -855,12 +865,9 @@ const response = yield context.df.callHttp(
 ---
 :::zone-end
 
-> [!TIP]
-> To use the new options object, update your API calls to `callHttp` inside your orchestrations.
-
 :::zone pivot="programming-language-typescript"
 
-## Use new types
+## Use new exported types for stronger type safety
 
 The `durable-functions` package now exposes new types that weren't previously exported. These types allow you to more strongly type your functions and provide stronger type safety for your orchestrations, entities, and activities. They also improve IntelliSense for authoring these functions.
 
@@ -871,18 +878,33 @@ The following list includes some of the new exported types:
 - `ActivityHandler` for activities
 - `DurableClient` class for client functions
 
-> [!TIP]
-> Strongly type your functions by using new types exported from the `durable-functions` package.
-
 :::zone-end
 
 ## Troubleshooting
 
-If you see the following error when running your orchestration code, make sure you're running on at least `v4.25` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5382` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
+### "The orchestrator can’t execute without an OrchestratorStarted event"
+
+If you see the following error, make sure you're running at least `v4.25` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5382` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
 
 ```bash
 Exception: The orchestrator can not execute without an OrchestratorStarted event.
 Stack: TypeError: The orchestrator can not execute without an OrchestratorStarted event.
 ```
 
-If that doesn't work, or if you encounter any other issues, you can always file a bug report in [our GitHub repo](https://github.com/Azure/azure-functions-durable-js).
+### Functions not discovered after migration
+
+If your functions aren't appearing after migration, verify that:
+
+- You deleted or renamed the old `function.json` files. Leftover `function.json` files can conflict with code-based registrations.
+- Your `df.app.orchestration()`, `df.app.entity()`, and `df.app.activity()` calls are being executed at startup (for example, in a file imported by your main entry point).
+
+### Other issues
+
+For other issues, file a bug report in the [azure-functions-durable-js GitHub repo](https://github.com/Azure/azure-functions-durable-js).
+
+## Next steps
+
+- [Create a Durable Functions app with JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4)
+- [Create a Durable Functions app with TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4)
+- [Durable Functions patterns and concepts](durable-functions-overview.md)
+- [`durable-functions` npm package changelog](https://github.com/Azure/azure-functions-durable-js/blob/main/CHANGELOG.md)

@@ -1,26 +1,25 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using the Azure portal'
 description: This quickstart shows how to use Azure Front Door service for your highly available and high-performance global web application by using the Azure portal.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
-manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: quickstart
-ms.date: 11/12/2024
+ms.date: 04/30/2026
 ms.custom:
   - mode-ui
   - sfi-image-nochange
+
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
-# Quickstart: Create an Azure Front Door using Azure portal
+# Quickstart: Create an Azure Front Door using the Azure portal
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-This quickstart guides you through the process of creating an Azure Front Door profile using the Azure portal. You have two options to create an Azure Front Door profile: Quick create and Custom create. The Quick create option allows you to configure the basic settings of your profile, while the Custom create option enables you to customize your profile with more advanced settings.
+This quickstart shows you how to create an Azure Front Door profile by using the Azure portal. You can create an Azure Front Door profile by using either Quick create or Custom create. The Quick create option helps you configure the basic settings of your profile, while the Custom create option enables you to customize your profile with more advanced settings.
 
-In this quickstart, you use the Custom create option to create an Azure Front Door profile. You first deploy two App services as your origin servers. Then, you configure the Azure Front Door profile to route traffic to your App services based on certain rules. Finally, you test the connectivity to your App services by accessing the Azure Front Door frontend hostname.
+In this quickstart, use the Custom create option to create an Azure Front Door profile. First, deploy two App Services as your origin servers. Then, configure the Azure Front Door profile to route traffic to your App Services based on certain rules. Finally, test the connectivity to your App Services by accessing the Azure Front Door frontend hostname.
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
@@ -36,13 +35,13 @@ An Azure account with an active subscription. [Create an account for free](https
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the home page or the Azure menu and select **+ Create a resource**. Enter *Front Door and CDN profiles* in the search box and select **Create**.
+1. Go to the home page or the Azure menu and select **+ Create a resource**. Enter *Front Door and CDN profiles* in the search box and select **Create**.
 
-1. On the **Compare offerings** page, select **Quick create**, and then select **Continue to create a Front Door**.
+1. On **Compare offerings**, select **Quick create**, and then select **Continue to create a Front Door**.
 
     :::image type="content" source="./media/create-front-door-portal/front-door-quick-create.png" alt-text="Screenshot of compare offerings.":::
 
-1. On the **Create a Front Door profile** page, provide the following information:
+1. On **Create a Front Door profile**, enter the following information:
 
      :::image type="content" source="./media/create-front-door-portal/front-door-quick-create-2.png" alt-text="Screenshot of Front Door quick create page.":::    
 
@@ -56,21 +55,21 @@ An Azure account with an active subscription. [Create an account for free](https
      | **Origin type** | Select the type of resource for your origin. For this example, select an App service with Private Link enabled. |
      | **Origin host name** | Enter the hostname for your origin. |
      | **Private link** (Premium only) | Enable private link service for a private connection between Azure Front Door and your origin. Supported origins include internal load balancers, Azure Storage Blobs, Azure App services, and Azure Storage Static Website. See [Private Link service with Azure Front Door](private-link.md). |
-     | **Caching** | Select the check box to cache content closer to users globally using Azure Front Door's edge POPs and the Microsoft network. |
+     | **Caching** | Select the check box to cache content closer to users globally by using Azure Front Door's edge POPs and the Microsoft network. |
      | **WAF policy** | Select **Create new** or choose an existing WAF policy from the dropdown to enable this feature. |
 
      > [!NOTE]
-     > When creating a new Azure Front Door profile, you can only select an origin from the same subscription the Front Door is created in.
+     > When you create a new Azure Front Door profile, you can only select an origin from the same subscription where you create the Front Door.
 
 1. Select **Review + Create** and then **Create** to deploy your Azure Front Door profile.
 
      > [!NOTE]
-     > * It may take a few minutes for the Azure Front Door configuration to propagate to all edge POPs.
-     > * If you enabled Private Link, go to the origin's resource page, select **Networking** > **Configure Private Link**, select the pending request from Azure Front Door, and then select **Approve**. After a few seconds, your origin will be accessible through Azure Front Door securely.
+     > * It can take a few minutes for the Azure Front Door configuration to propagate to all edge POPs.
+     > * If you enabled Private Link, go to the origin's resource page, select **Networking** > **Configure Private Link**, select the pending request from Azure Front Door, and then select **Approve**. After a few seconds, your origin is accessible through Azure Front Door securely.
 
 #### [Custom create](#tab/custom)
 
-You create an Azure Front Door profile using *Custom create* and deploy two App services that your Azure Front Door profile uses as your origins.
+Create an Azure Front Door profile by using *Custom create* and deploy two App services that your Azure Front Door profile uses as your origins.
 
 ### Create two Web App instances
 
@@ -163,7 +162,7 @@ To test the instant global failover feature, follow these steps if you created t
 1. Reload the browser to see the information page again.
 
     > [!TIP]
-    > Traffic may take some time to switch to the second Web App. You may need to reload the browser again.
+    > Traffic may take some time to switch to the second Web App. You might need to reload the browser again.
 
 1. To stop the second Web App, select it from the list and then choose **Stop**. Confirm your action by selecting **Yes**.
 
@@ -173,16 +172,16 @@ To test the instant global failover feature, follow these steps if you created t
 
 ## Clean up resources
 
-If you no longer need the environment, you can delete all the resources you created. Deleting a resource group also removes all its contents. To avoid incurring unnecessary charges, we recommend deleting these resources if you don't plan to use this Azure Front Door.
+If you no longer need the environment, delete all the resources you created. Deleting a resource group also removes all its contents. To avoid incurring unnecessary charges, delete these resources if you don't plan to use this Azure Front Door.
 
-1. In the Azure portal, search for and select **Resource groups**, or navigate to **Resource groups** from the Azure portal menu.
+1. In the Azure portal, search for and select **Resource groups**, or go to **Resource groups** from the Azure portal menu.
 
 1. Use the filter option or scroll down the list to locate the resource groups, such as **myAFDResourceGroup**, **myAppResourceGroup**, or **myAppResourceGroup2**.
 
-1. Select the resource group you want to delete, then choose the **Delete** option.
+1. Select the resource group you want to delete, and then choose the **Delete** option.
 
     > [!WARNING]
-    > Deleting a resource group is irreversible. The resources within the resource group cannot be recovered once deleted.
+    > Deleting a resource group is irreversible. You can't recover the resources within the resource group once deleted.
 
 1. Enter the name of the resource group to confirm, and then select the **Delete** button.
 

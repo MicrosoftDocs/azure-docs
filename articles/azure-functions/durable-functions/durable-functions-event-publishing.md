@@ -1,8 +1,8 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: Durable Functions publishing to Azure Event Grid
-description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
+title: "Configure Durable Functions Publishing to Azure Event Grid"
+description: "Learn how to configure automatic Azure Event Grid publishing for Durable Functions orchestration lifecycle events. Set up managed identity, create custom topics, and verify event delivery in this step-by-step guide."
 ms.topic: how-to
 ms.service: azure-functions
 ms.date: 01/22/2026
@@ -11,72 +11,37 @@ ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
 
-# Durable Functions publishing to Azure Event Grid
+# Configure Durable Functions publishing to Azure Event Grid
 
-Learn how to automatically publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid topic](../../event-grid/overview.md). This feature is useful for DevOps scenarios (blue/green deployments), advanced monitoring, and tracking long-running background activities.
+Publishing orchestration lifecycle events to [Azure Event Grid](../../event-grid/overview.md) enables DevOps automation (such as blue/green deployments), real-time monitoring dashboards, and tracking of long-running background processes.
 
 > [!NOTE]
-> This tutorial uses .NET examples, but the concepts and Azure CLI commands apply to all languages supported by Durable Functions, including JavaScript, Python, Java, and PowerShell. For language-specific setup, see the quickstart for your preferred language in the prerequisites.
+> This guide uses .NET examples, but the concepts and Azure CLI commands apply to all supported Durable Functions languages.
+
+> [!TIP]
+> If you already have an Event Grid custom topic and managed identity configured, skip to [Configure the Durable Functions publisher app](#configure-the-durable-functions-publisher-app).
 
 ## Prerequisites
 
-- A running Durable Functions project deployed to Azure. If you don't have one, create one using the quickstart for your preferred language:
-  - [C# (isolated worker model)](./durable-functions-isolated-create-first-csharp.md)
-  - [JavaScript](./quickstart-js-vscode.md)
-  - [Python](./quickstart-python-vscode.md)
-  - [PowerShell](./quickstart-powershell-vscode.md)
-  - [Java](./quickstart-java.md)
-- Your Durable Functions project must have:
-  - The Durable Functions extension installed (version 2.7.0 or later for in-process, or 1.1.0 or later for isolated worker model).
-  - Managed identity [enabled](../../app-service/overview-managed-identity.md) and [configured](./durable-functions-configure-managed-identity.md).
-  - A [running storage provider](../../durable-task/common/durable-task-storage-providers.md) or the local [Azurite storage emulator](../../storage/common/storage-use-azurite.md).
-- Install [Azure CLI](/cli/azure/) or use [Azure Cloud Shell](../../cloud-shell/overview.md).
+- A Durable Functions project deployed to Azure. If you don't have one, create one using the quickstart for your preferred language:
+  - [C# (isolated worker model)](./durable-functions-isolated-create-first-csharp.md) | [JavaScript](./quickstart-js-vscode.md) | [Python](./quickstart-python-vscode.md) | [PowerShell](./quickstart-powershell-vscode.md) | [Java](./quickstart-java.md)
+- The correct Durable Functions extension version. For .NET, update your extension to the latest version:
+    - **2.7.0+** (in-process)  
+       ```bash
+       dotnet add package Microsoft.Azure.WebJobs.Extensions.DurableTask
+       ```
+       
+    - **1.1.0+** (isolated worker)  
+       ```bash
+       dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
+       ```
+
+   For other languages, check your `package.json`, `requirements.txt`, `pom.xml`, or `requirements.psd1`.
+
+- Managed identity [enabled](../../app-service/overview-managed-identity.md) and [configured](./durable-functions-configure-managed-identity.md) on your function app.
+- A [running storage provider](../../durable-task/common/durable-task-storage-providers.md) or the local [Azurite storage emulator](../../storage/common/storage-use-azurite.md).
+- [Azure CLI](/cli/azure/) or [Azure Cloud Shell](../../cloud-shell/overview.md).
 - An [HTTP test tool](../functions-develop-local.md#http-test-tools) that keeps your data secure.
-
-In this guide, you'll set up end-to-end event publishing from a Durable Functions app to Azure Event Grid.
-
-> [!div class="checklist"]
-> - Configure your Durable Functions **publisher** app to automatically publish lifecycle events (Created, Running, Completed, Failed, Terminated) to an Event Grid custom topic whenever orchestration state changes.
-> - Create an Event Grid custom topic that acts as the central hub for routing events using credentials from your configured managed identity.
-> - Create a listener (**subscriber**) function app with an Event Grid trigger to receive events from the topic and process them.
-> - Deploy your project to Azure, where the Durable Functions app publishes events automatically.
-> - Verify Event Grid handles the routing and delivery to the subscribed functions.
-
-## Verify the Durable Functions extension
-
-Before proceeding, verify you have a compatible Durable Functions extension version installed in your project. The minimum required version is **2.7.0** for in-process model or **1.1.0** for isolated worker model.
-
-The following examples show how to verify and update the extension for .NET projects. For other languages, check your `package.json` (JavaScript), `requirements.txt` (Python), `pom.xml` or `build.gradle` (Java), or `requirements.psd1` (PowerShell) for the Durable Functions extension version.
-
-# [.NET isolated worker model](#tab/isolated)
-
-Check your `.csproj` file includes `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version 1.1.0 or later:
-
-```xml
-<PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.0" />
-```
-
-To update, run:
-
-```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask --version 1.1.0
-```
-
-# [.NET in-process model](#tab/in-process)
-
-Check your `.csproj` file includes `Microsoft.Azure.WebJobs.Extensions.DurableTask` version 2.7.0 or later:
-
-```xml
-<PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="2.7.0" />
-```
-
-To update, run:
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.7.0
-```
-
----
 
 ## Create a custom Event Grid topic
 
@@ -121,53 +86,19 @@ Managed identities in Azure allow resources to authenticate to Azure services wi
 
 ### Configure the Durable Functions publisher app
 
-Although your Durable Functions app automatically publishes orchestration lifecycle events to Event Grid, you need to configure the connection settings. Update your local `host.json` file with the following configuration to enable Event Grid publishing:
-
-# [Durable Functions 2.x](#tab/durable-functions-2)
+Although your Durable Functions app automatically publishes orchestration lifecycle events to Event Grid, you need to configure the connection settings. Add the following to the `extensions.durableTask` section in your `host.json`:
 
 ```json
 {
   "version": "2.0",
-  "logging": {
-    "logLevel": {
-      "default": "Information"
-    }
-  },
   "extensions": {
     "durableTask": {
-      "tracing": {
-        "traceInputsAndOutputs": false
-      },
       "eventGridTopicEndpoint": "%EventGrid__topicEndpoint%",
       "eventGridKeySettingName": "EventGrid__credential"
     }
   }
 }
 ```
-
-# [Durable Functions 1.x](#tab/durable-functions-1)
-
-```json
-{
-  "version": "1.0",
-  "logging": {
-    "logLevel": {
-      "default": "Information"
-    }
-  },
-  "extensions": {
-    "durableTask": {
-      "tracing": {
-        "traceInputsAndOutputs": false
-      },
-      "eventGridTopicEndpoint": "%EventGrid__topicEndpoint%",
-      "eventGridKeySettingName": "EventGrid__credential"
-    }
-  }
-}
-```
-
----
 
 > [!NOTE]
 > The `eventGridTopicEndpoint` setting references the Event Grid custom topic endpoint you saved earlier. The credential setting handles both managed identity and connection string scenarios.
@@ -220,18 +151,18 @@ az functionapp identity show \
 
 Once you've enabled managed identity for your function app and topic, configure the Event Grid app settings on your Durable Functions function app.
 
-#### If using user-assigned managed identity (recommended)
+# [User-assigned identity (recommended)](#tab/user-assigned-settings)
 
 Add the following app settings:
-- `EventGrid__topicEndpoint` with the value as the Event Grid topic endpoint.
-- `EventGrid__credential` with the value `managedidentity`.
-- `EventGrid__clientId` with the value of the user assigned managed identity client ID.
+- `EventGrid__topicEndpoint` — the Event Grid topic endpoint.
+- `EventGrid__credential` — set to `managedidentity`.
+- `EventGrid__clientId` — the user-assigned managed identity client ID.
 
 ```azurecli
 az functionapp config appsettings set --name <function app name> --resource-group <resource group name> --settings EventGrid__topicEndpoint="<topic endpoint>" EventGrid__credential="managedidentity" EventGrid__clientId="<client id>"
 ```
 
-#### If using system-assigned managed identity
+# [System-assigned identity](#tab/system-assigned-settings)
 
 Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid topic endpoint.
 
@@ -239,89 +170,57 @@ Add an `EventGrid__topicEndpoint` app setting with the value as the Event Grid t
 az functionapp config appsettings set --name <function app name> --resource-group <resource group name> --settings EventGrid__topicEndpoint="<topic endpoint>"
 ```
 
-## Create functions that listen for events
+---
 
-Create another function app to listen for events published by your Durable Functions app. The listener function app must be in the same region as the Event Grid topic.
+## Subscribe to events
 
-### Create the listener function app
+To receive the published lifecycle events, create an [Event Grid subscription](../../event-grid/concepts.md) that routes events from your custom topic to a subscriber. Common subscriber types include Azure Functions (with an Event Grid trigger), Logic Apps, and webhooks.
 
-1. Create a resource group for the listener function app.
+The following example creates a subscriber function app with an Event Grid trigger using the Azure CLI. If you already have a subscriber, skip to [Create an Event Grid subscription](#create-an-event-grid-subscription).
 
-    ```azurecli
-    az group create --name <listener-resource-group-name> --location <location>
-    ```
+### Create a listener function app
 
-1. Create a storage account for the listener function app.
+Create a function app to host the Event Grid trigger. The listener must be in the same region as the Event Grid topic.
 
-    ```azurecli
-    az storage account create \
-      --name <storage-account-name> \
-      --resource-group <listener-resource-group-name> \
-      --location <location> \
-      --sku Standard_LRS \
-      --allow-blob-public-access false
-    ```
+```azurecli
+# Create a resource group
+az group create --name <listener-resource-group-name> --location <location>
 
-1. Create the function app.
+# Create a storage account
+az storage account create \
+  --name <storage-account-name> \
+  --resource-group <listener-resource-group-name> \
+  --location <location> \
+  --sku Standard_LRS \
+  --allow-blob-public-access false
 
-    ```azurecli
-    az functionapp create \
-      --resource-group <listener-resource-group-name> \
-      --consumption-plan-location <location> \
-      --runtime <preferred-runtime> \
-      --runtime-version <runtime-version> \
-      --functions-version 4 \
-      --name <listener-function-app-name> \
-      --storage-account <storage-account-name>
-    ```
+# Create the function app
+az functionapp create \
+  --resource-group <listener-resource-group-name> \
+  --consumption-plan-location <location> \
+  --runtime <preferred-runtime> \
+  --functions-version 4 \
+  --name <listener-function-app-name> \
+  --storage-account <storage-account-name>
+```
 
-Replace the placeholder values:
-- `<listener-resource-group-name>`: The name for your listener resource group
-- `<location>`: The Azure region (must match your Event Grid topic region)
-- `<storage-account-name>`: A globally unique name for your storage account (3-24 characters, lowercase and numbers only)
-- `<listener-function-app-name>`: A globally unique name for your listener function app
-- `<preferred-runtime>`: The programming runtime of your project. For example, `dotnet-isolated`.
-- `<runtime-version>`: The version of the runtime you're using. For example, for `dotnet-isolated` runtime, you could specify `8.0`.
+### Create and deploy an Event Grid trigger function
 
-### Create an Event Grid trigger function locally
-
-1. Create a local directory for your listener function project:
-
-    ```bash
-    mkdir EventGridListenerFunction
-    cd EventGridListenerFunction
-    ```
-
-1. Initialize a new Functions project using your preferred language. The following example uses `dotnet-isolated`, but you can use `node`, `python`, `java`, or `powershell`:
-
-    ```bash
-    func init --name EventGridListener --runtime dotnet-isolated
-    ```
-
-1. Create a new Event Grid trigger function:
-
-    ```bash
-    func new --template "Event Grid trigger" --name EventGridTrigger
-    ```
-
-1. Open the generated Event Grid trigger file and review the code. The template provides a basic implementation that logs event information.
-
-### Publish the function to Azure
-
-Publish your locally created function to the listener function app you created earlier:
+Scaffold a local project, add an Event Grid trigger, and publish it:
 
 ```bash
+mkdir EventGridListenerFunction && cd EventGridListenerFunction
+func init --name EventGridListener --runtime dotnet-isolated
+func new --template "Event Grid trigger" --name EventGridTrigger
 func azure functionapp publish <listener-function-app-name>
 ```
 
 > [!NOTE]
-> For detailed deployment instructions, see [Deploy local Python/C# functions to Azure Functions using the Azure Functions Core Tools](/azure/azure-functions/functions-run-local#publish).
+> Replace `dotnet-isolated` with your preferred runtime (`node`, `python`, `java`, or `powershell`). For detailed deployment instructions, see [Publish to Azure](../functions-run-local.md#publish).
 
-### Create an Event Grid subscription using CLI
+### Create an Event Grid subscription
 
-You can now create an Event Grid subscription that connects the Event Grid topic to your listener function. For more information, see [Concepts in Azure Event Grid](../../event-grid/concepts.md).
-
-Create the Event Grid subscription using the `azurefunction` endpoint type, which automatically handles the webhook handshake:
+Create the subscription using the `azurefunction` endpoint type, which automatically handles webhook validation:
 
 ```azurecli
 az eventgrid event-subscription create \
@@ -331,111 +230,51 @@ az eventgrid event-subscription create \
   --endpoint-type azurefunction
 ```
 
-Replace the placeholder values:
-- `<subscription-name>`: A name for your Event Grid subscription (for example, `DurableFunctionsEventSub`)
-- `<subscription-id>`: Your Azure subscription ID
-- `<resource-group-name>`: The resource group containing your Event Grid topic
-- `<topic-name>`: The name of your Event Grid topic
-- `<listener-resource-group-name>`: The resource group containing your listener function app
-- `<listener-function-app-name>`: The name of your listener function app
-
 > [!TIP]
 > Using `--endpoint-type azurefunction` with the function's resource ID is the recommended approach. It automatically handles webhook validation and is more reliable than using `--endpoint-type webhook` with a URL.
 
-Now you're ready to receive lifecycle events.
+## Event schema
 
-## Deploy and verify the setup
+When an orchestration state changes, the Durable Functions runtime publishes an event with the following structure. Events are generated automatically for each state transition — you don't need to add any code.
 
-### Deploy the Durable Functions app
+| Field | Description |
+| --- | --- |
+| `id` | Unique identifier for the Event Grid event. |
+| `subject` | `durable/orchestrator/{orchestrationRuntimeStatus}` — the status can be `Running`, `Completed`, `Failed`, or `Terminated`. |
+| `eventType` | Always `orchestratorEvent`. |
+| `eventTime` | Event time (UTC). |
+| `data.hubName` | [TaskHub](../../durable-task/common/durable-task-hubs.md) name. |
+| `data.functionName` | Orchestrator function name. |
+| `data.instanceId` | Unique orchestration instance ID. |
+| `data.runtimeStatus` | `Running`, `Completed`, `Failed`, or `Canceled`. |
+| `data.reason` | Additional tracking data. For more information, see [Diagnostics in Durable Functions](durable-functions-diagnostics.md). |
 
-Before running the end-to-end flow, ensure your Durable Functions app is deployed to Azure:
+Event Grid ensures at-least-once delivery, so you may receive duplicate events in rare failure scenarios. Consider adding deduplication logic using the `instanceId` if needed.
 
-1. In your Durable Functions project, [publish the function code to Azure](../functions-develop-vs-code.md#publish-to-azure).
-1. Verify deployment by navigating to your function app in the Azure portal and checking that it shows a "Running" status.
+## Verify event delivery
 
-### Verify Event Grid configuration
+To verify the end-to-end setup, deploy your Durable Functions app and trigger an orchestration:
 
-Before starting an orchestration, verify that Event Grid publishing is properly configured:
-
-1. In the Azure portal, navigate to your Event Grid custom topic.
-1. Select **Metrics** and check for **Published Events** or **Dropped Events** to verify the topic is accessible.
-1. In your Durable Functions function app, verify the app settings appear under **Settings** > **Environment variables**:
-   - `EventGrid__topicEndpoint` should be set
-   - `EventGrid__credential` should be set to `managedidentity` (if using managed identity)
-
-### Run an orchestration and monitor events
-
-With the setup verified, trigger an orchestration and monitor the event flow:
-
-1. In the Azure portal, navigate to your Durable Functions function app.
-1. Select **Functions** and locate your HTTP-triggered orchestration starter function (for example, `HelloOrchestration_HttpStart`).
-1. Select **Code + Test** and select **Get function URL**.
-1. Use an HTTP client (such as Postman or curl) to send a POST request to the function URL. For example:
+1. [Publish the function code to Azure](../functions-develop-vs-code.md#publish-to-azure) and verify your function app shows "Running" in the Azure portal.
+1. In the Azure portal, verify your app settings under **Settings** > **Environment variables** include `EventGrid__topicEndpoint` and (if using managed identity) `EventGrid__credential`.
+1. Trigger an orchestration using an HTTP client:
 
    ```bash
    curl -X POST https://<function_app_name>.azurewebsites.net/api/HelloOrchestration_HttpStart
    ```
-1. The orchestration starts, and the Durable Functions runtime publishes lifecycle events to Event Grid.
 
-### Verify events in the listener function
-
-Check the listener function app to confirm it received events:
-
-1. In the Azure portal, navigate to your **listener function app** (the one with the Event Grid trigger).
-1. Select the Event Grid trigger function (for example, `EventGridTrigger`).
-1. Select **Monitor** to view recent executions.
-1. Select an execution to view the event details.
-
-You should see output similar to the following when the listener function processes an orchestration lifecycle event:
-
-```
-2026-01-27T14:32:15.847 [Info] Event Grid trigger function processed an event.
-2026-01-27T14:32:15.848 [Info] Event type: orchestratorEvent
-2026-01-27T14:32:15.849 [Info] Event subject: durable/orchestrator/Running
-2026-01-27T14:32:15.850 [Info] Event data: {"hubName":"DurableFunctionsHub","functionName":"HelloOrchestration","instanceId":"<your_instance_id>","reason":"","runtimeStatus":"Running"}
-2026-01-27T14:32:32.114 [Info] Event Grid trigger function processed an event.
-2026-01-27T14:32:32.115 [Info] Event type: orchestratorEvent
-2026-01-27T14:32:32.116 [Info] Event subject: durable/orchestrator/Completed
-2026-01-27T14:32:32.117 [Info] Event data: {"hubName":"DurableFunctionsHub","functionName":"HelloOrchestration","instanceId":"<your_instance_id>","reason":"","runtimeStatus":"Completed"}
-```
+1. In the Azure portal, navigate to your **listener function app** > **EventGridTrigger** > **Monitor** to view received events. You should see events with subjects like `durable/orchestrator/Running` and `durable/orchestrator/Completed`.
 
 ### Verify in Application Insights (optional)
 
-For a more comprehensive view of events:
+For a more comprehensive view, run this KQL query in your function app's Application Insights **Logs**:
 
-1. In the Azure portal, navigate to your Durable Functions function app.
-1. Select **Application Insights** from the left menu.
-1. Select **Logs** and run this KQL query to view all processed events:
-   ```kusto
-   traces
-   | where message contains "Event type" or message contains "Event subject"
-   | project timestamp, message
-   | order by timestamp desc
-   ```
-
-## Event schema
-
-When a Durable Functions orchestration state changes, Event Grid publishes an event with the following structure:
-
-| Metadata | Description |
-| -------- | ----------- |
-| `id` | Unique identifier for the Event Grid event. |
-| `subject` | Path to the event subject. Format: `durable/orchestrator/{orchestrationRuntimeStatus}`. The status can be `Running`, `Completed`, `Failed`, or `Terminated`. |
-| `data` | Durable Functions specific parameters. |
-| `data.hubName` | [TaskHub](../../durable-task/common/durable-task-hubs.md) name. |
-| `data.functionName` | Orchestrator function name. |
-| `data.instanceId` | Durable Functions instance ID. This ID is unique per orchestration execution. |
-| `data.reason` | Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](durable-functions-diagnostics.md). |
-| `data.runtimeStatus` | Orchestration runtime status. Possible values: `Running`, `Completed`, `Failed`, `Canceled`. |
-| `eventType` | Always "orchestratorEvent" for Durable Functions events. |
-| `eventTime` | Event time (UTC). |
-| `dataVersion` | Version of the lifecycle event schema. |
-| `metadataVersion` | Version of the metadata. |
-| `topic` | Event Grid topic resource identifier. |
-
-### Understanding event flow
-
-Events are published automatically by the Durable Functions runtime for each orchestration state transition. You don't need to add code to emit events—they're generated automatically. Event Grid ensures at-least-once delivery to all subscribers, so you may receive duplicate events in rare failure scenarios. Consider adding deduplication logic using the `instanceId` if needed.
+```kusto
+traces
+| where message contains "Event type" or message contains "Event subject"
+| project timestamp, message
+| order by timestamp desc
+```
 
 ## Troubleshooting
 

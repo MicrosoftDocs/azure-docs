@@ -83,13 +83,13 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript,python,java,powershell"  
 
-In host.json, update the `extensionBundle` property to use the preview version that contains the Durable Task Scheduler package:
+In host.json, update the `extensionBundle` property to use version 4.32.0 or later, which includes Durable Task Scheduler support:
 
 ```json
 {
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.29.0, 5.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.32.0, 5.0.0)"
   }
 }
 ```

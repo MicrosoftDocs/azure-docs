@@ -7,12 +7,12 @@ description: Learn how to configure autopurge retention policies for Durable Tas
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 10/02/2025
+ms.date: 04/30/2026
 ---
 
 # Set autopurge retention policies for Durable Task Scheduler
 
-To prevent reaching the memory limit of a capacity unit (CU), it's best practice to periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
+To prevent reaching the memory limit of a capacity unit (CU), we recommend periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
 
 Autopurge operates asynchronously in the background, optimized to minimize system resource usage and prevent interference with other Durable Task operations. Although autopurge doesn't adhere to a strict schedule, its clean-up rate generally aligns with your orchestration scheduling rate.
 
@@ -99,7 +99,7 @@ Add specific policies to override the default policy applied to orchestrations. 
 
 Since no specific policy is set for `canceled` or `terminated` orchestrations, the default policy still applies to them, purging their data after 1 day. 
 
-[For more information, see the API reference spec for Durable Task Scheduler retention policies.](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2025-04-01-preview&preserve-view=true)
+[For more information, see the API reference spec for Durable Task Scheduler retention policies.](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2026-02-01&tabs=HTTP&preserve-view=true)
 
 ## Enable autopurge
 
@@ -179,7 +179,7 @@ If creation is successful, you receive the following response.
 You can create or update retention policies using the Azure Resource Manager API using the following request. Make sure you're pulling from the latest preview version.
 
 ```HTTP
-PUT https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview
+PUT https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2026-02-01
 
 {
   "properties": {
@@ -241,7 +241,7 @@ If creation is successful, you receive the following response.
 You can create or update retention policies by adding the `retentionPolicies` configuration to your Bicep file. Make sure you're pulling from the latest preview version.
 
 ```bicep
-resource exampleResource 'Microsoft.DurableTask/schedulers/retentionPolicies@2025-04-01-preview' = {
+resource exampleResource 'Microsoft.DurableTask/schedulers/retentionPolicies@2026-02-01' = {
   parent: parentResource 
   name: 'default'
   properties: {
@@ -278,7 +278,7 @@ az durabletask retention-policy delete --scheduler-name SCHEDULER_NAME --resourc
 Delete the retention policy using an API call.
 
 ```HTTP
-DELETE https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview
+DELETE https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2026-02-01
 ```
 
 # [Bicep](#tab/bicep)  

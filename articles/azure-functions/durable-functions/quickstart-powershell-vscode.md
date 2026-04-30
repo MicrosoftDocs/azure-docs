@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create a PowerShell Durable Functions app"
-description: Create and publish a PowerShell Durable Functions app in Azure Functions by using Visual Studio Code.
+description: "Learn how to create, test, and publish a PowerShell Durable Functions app in Azure Functions using Visual Studio Code. Follow this step-by-step quickstart to get started."
 author: anthonychu
 ms.author: hannahhunter
 ms.topic: quickstart
@@ -13,11 +13,9 @@ ms.custom: mode-api, vscode-azure-extension-update-complete
 
 # Quickstart: Create a PowerShell Durable Functions app
 
-Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
+In this quickstart, you use Visual Studio Code to create and test a PowerShell [Durable Functions](../functions-overview.md) app that orchestrates and chains together calls to other functions. You then publish it to Azure.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
-
-:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot showing a Durable Functions app in Visual Studio Code.":::
+Durable Functions manages state, checkpoints, and restarts in your application, letting you write stateful workflows in a serverless environment.
 
 ## Prerequisites
 
@@ -41,7 +39,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Create a function command.":::
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the Create New Project command in Visual Studio Code for Azure Functions.":::
 
 1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -58,9 +56,11 @@ Visual Studio Code installs Azure Functions Core Tools if it's required to creat
 
 A *package.json* file is also created in the root folder.
 
-### Configure the function app to use PowerShell 7.4 and the standalone Durable Functions SDK
+### Configure the standalone Durable Functions SDK
 
-Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `7.4` and a setting named `ExternalDurablePowerShellSDK` is set to `true`. If they are missing or if they are set to other values, update the contents of the file.
+The standalone SDK provides the best performance and latest features for PowerShell Durable Functions. Configure it in three steps:
+
+**Step 1:** Open `local.settings.json` and verify the following settings are present. Add or update them if needed:
 
 ```json
 {
@@ -74,21 +74,17 @@ Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_
 }
 ```
 
-Next, specify an entry for the DF SDK in your `requirements.psd1` file, as in the example below:
+**Step 2:** Open `requirements.psd1` and add the SDK dependency:
 
 ```PowerShell
-# This file enables modules to be automatically managed by the Functions service.
-# See https://aka.ms/functionsmanageddependency for additional information.
-#
 @{
-    # For latest supported version, go to 'https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/'.
     'AzureFunctions.PowerShell.Durable.SDK' = '2.*'
 }
 ```
 
-Make sure you use the latest version of the [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module. The `2.*` version specifier ensures you get the latest stable 2.x version.
+The `2.*` specifier ensures you get the latest stable 2.x version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
 
-Add the following line to your `profile.ps1` file (typically, at the end of the file):
+**Step 3:** Add the following line to the end of your `profile.ps1` file:
 
 ```PowerShell
 Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop
@@ -96,62 +92,48 @@ Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop
 
 ## Create your functions
 
-The most basic Durable Functions app has three functions:
+A basic Durable Functions app has three functions:
 
-* **Orchestrator function**: A workflow that orchestrates other functions.
-* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
-* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
+| Function type | Purpose |
+| --- | --- |
+| **Orchestrator** | A workflow that orchestrates other functions. |
+| **Activity** | Called by the orchestrator to perform work and return a value. |
+| **Client (HTTP starter)** | An HTTP-triggered function that starts an orchestrator. |
 
-### Orchestrator function
+For each function, open the command palette and select **Azure Functions: Create Function**, then provide the prompted values:
 
-Use a template to create the Durable Functions app code in your project.
+### 1. Orchestrator function
 
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
+| Prompt | Value |
+| --- | --- |
+| **Select a template** | **Durable Functions orchestrator** |
+| **Function name** | **HelloOrchestrator** |
 
-1. At the prompts, provide the following information:
+Open *HelloOrchestrator/run.ps1* to see the orchestrator. Each call to `Invoke-ActivityFunction` invokes the `Hello` activity function.
 
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Enter **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
-    | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
+### 2. Activity function
 
-You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the Invoke-ActivityFunction cmdlet invokes an activity function named `Hello`.
+| Prompt | Value |
+| --- | --- |
+| **Select a template** | **Durable Functions activity** |
+| **Function name** | **Hello** |
 
-Next, you add the referenced `Hello` activity function.
+Open *Hello/run.ps1* to see that it takes a name as input and returns a greeting. Activity functions are where you perform actions such as database calls or computations.
 
-### Activity function
+### 3. Client function (HTTP starter)
 
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
+| Prompt | Value |
+| --- | --- |
+| **Select a template** | **Durable Functions HTTP starter** |
+| **Function name** | **HttpStart** |
+| **Authorization level** | **Anonymous** (for demo purposes) |
 
-1. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
-    | **Provide a function name** | Enter **Hello**. | The name of your activity function. |
-
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it takes a name as input and returns a greeting. An activity function is where you perform actions such as making a database call or performing a computation.
-
-Finally, you add an HTTP-triggered function that starts the orchestration.
-
-### Client function (HTTP starter)
-
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-1. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
-    | **Provide a function name** | Enter **HttpStart**. | The name of your activity function. |
-    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication. |
-
-You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to check that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response that contains URLs that can be used to monitor and manage the new orchestration.
+Open *HttpStart/run.ps1* to verify it uses `Start-NewOrchestration` to start a new orchestration and `New-OrchestrationCheckStatusResponse` to return an HTTP response with monitoring URLs.
 
 You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 > [!TIP]
-> This quickstart uses the standalone Durable Functions PowerShell SDK, which is now generally available and provides the best performance and latest features. For more information about the SDK and migration from the legacy built-in version, see the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
+> This quickstart uses the standalone Durable Functions PowerShell SDK. For more information about the SDK and migration from the legacy built-in version, see the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
 
 ## Test the function locally
 
@@ -162,9 +144,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
 
-1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
-
-   :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot that shows the Create storage account command.":::
+1. Durable Functions requires a storage account to run. You can use the [Azurite storage emulator](../../storage/common/storage-use-azurite.md) for local development, or create an Azure storage account when prompted. If Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
 1. At the prompts, provide the following information to create a new storage account in Azure.
 
@@ -178,8 +158,6 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
-
 1. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
@@ -188,7 +166,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
 
-   The request queries the orchestration instance for the status. You must get an eventual response, which shows the instance completed and includes the outputs or results of the durable function. It looks like this example:
+   The request queries the orchestration instance for the status. You should see a response showing the instance completed, with the outputs of the durable function:
 
     ```json
     {
@@ -217,15 +195,15 @@ After you verify that the function runs correctly on your local computer, it's t
 
 ## Test your function in Azure
 
-1. Make sure the app setting named `ExternalDurablePowerShellSDK` is set to `true`.
+1. In the Azure portal (or using the Azure CLI), verify the app setting `ExternalDurablePowerShellSDK` is set to `true`. If it's missing, add it under **Settings** > **Environment variables** and restart the function app.
 
-1. Copy the URL of the HTTP trigger from the output panel. The URL that calls your HTTP-triggered function should be in this format:
+1. Copy the URL of the HTTP trigger from the output panel. The URL should be in this format:
 
    `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
-1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
+1. Send an HTTP POST request to the URL. You should get the same status response that you got when you tested locally.
 
-The PowerShell Durable Functions app that you created and published by using Visual Studio Code is ready to use.
+If the orchestration doesn't start, check the function app logs in the Azure portal under **Monitor** > **Log stream** for errors related to the SDK import or storage connectivity.
 
 ## Clean up resources
 
@@ -233,4 +211,7 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
+* [Common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md)
+* [Standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md)
+* [Durable Functions diagnostics and monitoring](durable-functions-diagnostics.md)
+* [PowerShell developer reference for Azure Functions](../functions-reference-powershell.md)

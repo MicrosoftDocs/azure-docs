@@ -77,7 +77,7 @@ Stay informed with the latest insights, tutorials, and deep-dive blogs from the 
 
 ## Known issues
 
-The product group is actively working on resolutions for the following known issues:
+The following are known issues and limitations that may affect your deployment. Where a resolution is in progress, it is noted. For issues without a planned resolution, recommended mitigations are provided.
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
