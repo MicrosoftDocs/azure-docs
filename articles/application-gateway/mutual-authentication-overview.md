@@ -104,6 +104,55 @@ Application Gateway supports certificates issued from both public and privately 
 > [!NOTE]
 > When you issue client certificates from well-established certificate authorities, consider working with the certificate authority to see if an intermediate certificate can be issued for your organization. This approach prevents inadvertent cross-organizational client certificate authentication.
 
+### An example of self signed client certificate chain creation for mutual TLS stick mode
+
+1. Create the OpenSSL configuration files for root, intermediate and client certificates.
+   
+   vi root.cnf
+   ```
+   [ v3_ca ]
+   basicConstraints = critical, CA:true, pathlen:1
+   keyUsage = critical, keyCertSign, cRLSign
+   subjectKeyIdentifier = hash
+   authorityKeyIdentifier = keyid:always,issuer
+   ```
+
+   vi intermediate.cnf
+
+   ```
+   [ v3_intermediate_ca ]
+   basicConstraints = critical, CA:true, pathlen:0
+   keyUsage = critical, keyCertSign, cRLSign
+   subjectKeyIdentifier = hash
+   authorityKeyIdentifier = keyid:always,issuer
+   ```
+   
+   vi client.cnf
+   
+   ```
+   [ v3_client ]
+   basicConstraints = critical, CA:false
+   keyUsage = critical, digitalSignature, keyEncipherment
+   extendedKeyUsage = critical, clientAuth
+   subjectKeyIdentifier = hash
+   authorityKeyIdentifier = keyid,issuer
+   ```
+
+2. Create the full chain client certificate using OpenSSL.
+   
+   ```
+   openssl ecparam -out root.key -name prime256v1 -genkey
+   openssl req -new -sha256 -key root.key -out root.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=Example Root CA/emailAddress=hostmaster@example.com"
+   openssl x509 -req -sha256 -days 3650 -in root.csr -signkey root.key -out root.crt -extfile root.cnf -extensions v3_ca
+   openssl ecparam -out intermediate.key -name prime256v1 -genkey
+   openssl req -new -sha256 -key intermediate.key -out intermediate.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=Example Intermediate CA/emailAddress=hostmaster@example.com"
+   openssl x509 -req -in intermediate.csr -CA root.crt -CAkey root.key -CAcreateserial -out intermediate.crt -days 1825 -sha256 -extfile intermediate.cnf -extensions v3_intermediate_ca
+   openssl ecparam -out server.key -name prime256v1 -genkey
+   openssl req -new -sha256 -key server.key -out server.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=www.example.com/emailAddress=hostmaster@example.com"
+   openssl x509 -req -in server.csr -CA intermediate.crt -CAkey intermediate.key -CAcreateserial -out server.crt -days 365 -sha256 -extfile server.cnf -extensions v3_server
+   openssl pkcs12 -export -out server.pfx -inkey server.key -in server.crt
+   ```
+
 ## Client authentication validation for mutual TLS strict mode
 
 ### Verify client certificate DN
