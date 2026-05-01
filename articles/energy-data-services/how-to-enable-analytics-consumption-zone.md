@@ -64,8 +64,8 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
-> If your ADME instance already has a user-assigned managed identity (for example, from CMEK or EDS), you can reuse it for ACZ. To reuse an existing identity:
-> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this in Step 5.
+> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. To reuse an existing identity:
+> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this Object ID in Step 5.
 > - Skip the rest of Step 2 (don't create a new identity).
 > - Skip Step 3 (the identity is already assigned to your ADME instance).
 > - Complete Step 4 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
@@ -77,14 +77,14 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 2. Select **+ Create**.
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
-5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this value in Step 5.
+5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this Object ID value in Step 5.
 
 ## Step 3: Assign the managed identity to your ADME instance
 
 If you created a new managed identity in Step 2, assign it to your ADME instance.
 
 > [!NOTE]
-> If you're reusing an existing managed identity from CMEK or EDS, skip this step (it's already assigned). Proceed to Step 4.
+> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already assigned). Proceed to Step 4.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
