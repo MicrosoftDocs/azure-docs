@@ -24,6 +24,9 @@ If you have a reservation with multiple quantities, you can choose to exchange f
 However, you cannot exchange between different product families. For instance, a reservation for Azure Cosmos DB cannot be exchanged for a SQL Database reservation, because they belong to different service categories.
 This flexibility ensures you can adapt your reservations as your cloud strategy evolves—while still benefiting from cost savings.
 
+>[!NOTE]
+> Starting July 1, 2026, Azure Reserved Virtual Machine Instances (RIs) for select VM series will no longer be available for purchase or renewal. Existing reservations will continue to run and deliver savings through the end of their term, but customers will need to plan ahead as renewals for these impacted series will no longer be offered. As your current RIs approach expiration, your Azure costs and optimization strategy may be impacted. Review the full transition guide to understand which reservations are affected, key decision timelines, and recommended actions to avoid unexpected cost changes and maintain your savings strategy.  To learn more, go to [Manage legacy VM RIs after July 1st 2026](manage-legacy-vm-RIs-after-july-1-2026.md)
+
 ## Reservation exchange policy changes
 
 > [!NOTE]
@@ -101,7 +104,7 @@ Microsoft cancels the existing reservation. Then the pro-rated amount for that r
 
 ### Enterprise Agreement customers
 
-Money is added to the Azure Prepayment (previously called monetary commitment) for exchanges and refunds if the original purchase was made using one. If the Azure Prepayment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
+Money is added to the Azure Prepayment (previously called monetary commitment) for exchanges and refunds if the original purchase was made using one. If the Azure Prepayment term in which the reservation was purchased is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
 If the original reservation purchase was made from an overage, the refund is returned to you as a partial credit note. The refund doesn’t affect the original or later invoices.
 
@@ -125,15 +128,15 @@ The original invoice is canceled, and a new invoice is created. The money is ref
 
 Azure has the following policies for cancellations, exchanges, and refunds.
 
-**How is refund calculated**
+**How is the refund calculated**
 
-When a reservation is exchanged or canceled, the refund is calculated based on the number of remaining days in the reservation period. The calculation is done in UTC and uses a consistent formula to ensure fairness and transparency. Taking an example, if you bought an reservation on July 10, 2024, and exchanged it on July 9, 2025, only 1 day remains in the reservation. You’ll receive a small refund for that single day. 
+When a reservation is exchanged or canceled, the refund is calculated based on the number of remaining days in the reservation period. The calculation is done in UTC and uses a consistent formula to ensure fairness and transparency. Taking an example, if you bought a reservation on July 10, 2024, and exchanged it on July 9, 2025, only 1 day remains in the reservation. You'll receive a small refund for that single day.
 
 **Exchange policies**
 
 - You can return multiple existing reservations to purchase one new reservation of the same type. You can't exchange reservations of one type for another. For example, you can't return a VM reservation to purchase a SQL reservation. You can change a reservation property such as family, series, version, SKU, region, quantity, and term with an exchange.
-- Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
-- An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
+- Only reservation owners can process an exchange. [Learn how to add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
+- An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservation that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
 - When exchanging an Azure Reservation, the new reservation’s total lifetime commitment must be equal to or greater than the remaining commitment of the original reservation. This ensures that the financial value of your commitment is maintained.
     - For example, if you have a three-year reservation that costs $100 per month, and you’ve already made 18 monthly payments, your remaining commitment is $1,800. To exchange this reservation, the new reservation must have a total value of at least $1,800, whether you choose to pay monthly or upfront.
@@ -161,10 +164,10 @@ When a reservation is exchanged or canceled, the refund is calculated based on t
 - Azure doesn't process any refund that exceeds the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
     - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
-- Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
+- Only reservation order owners can process a refund. [Learn how to add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - For CSP program, the 50,000 USD limit is per customer.
 
-Let's look at an example with the previous points in mind. If you bought a 300,000 USD reservation, you can exchange it at any time for another reservation that equals or costs more (of the remaining reservation balance, not the original purchase price). For this example:
+Let's look at an example with the previous points in mind. If you bought a 300,000 USD reservation, you can exchange it at any time for another reservation of equal or greater value (of the remaining reservation balance, not the original purchase price). For this example:
 - There's no penalty or annual limits for exchanges. 
 - The refund that results from the exchange doesn't count against the refund limit. 
 
