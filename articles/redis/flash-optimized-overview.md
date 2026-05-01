@@ -140,7 +140,7 @@ The following table summarizes feature availability on the Flash Optimized tier 
 | Import/Export | ✅ | ✅ |
 
 > [!IMPORTANT]
-> Active geo-replication and non-clustered clustering policies are **not supported** on the Flash Optimized tier.
+> Active geo-replication, non-clustered mode, and RediSearch/vector search are not supported on the Flash Optimized tier due to performance considerations inherent to Flash storage. These features are not planned for Flash.
 
 ## Best practices
 
@@ -193,14 +193,6 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 - Use pipelining to maximize throughput.
 - Prefer many small keys over few large keys.
 - Monitor connections, latency percentiles (especially p99), and CPU.
-
-## Limitations
-
-- **No active geo-replication** – If you require multi-region active-active replication, use an in-memory tier instead.
-- **No non-clustered mode** – Flash Optimized only supports clustered instances.
-- **No RediSearch/vector search** – Modules requiring search functionality are not available on Flash.
-- **Higher tail latency** – Cold-data reads served from NVMe will have higher latency than in-memory reads.
-- **Public Preview** – Not recommended for production workloads that require an SLA guarantee until GA.
 
 ## Common issues and troubleshooting
 
