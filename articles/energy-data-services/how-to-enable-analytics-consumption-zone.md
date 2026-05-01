@@ -306,13 +306,15 @@ A successful response returns HTTP status `201` with the ACZ details:
 
 ```json
 {
-  "aczId": "01234567-89ab-cdef-0123-456789abcdef",
+  "aczId": "acz-8a0aa7433085",
   "name": "my-first-acz",
   "status": "ACTIVE",
+  "targetFormat": "DELTA_PARQUET",
+  "aczType": "LATEST_VERSION",
   "sink": {
     "storageType": "microsoft.storage/storageaccounts",
     "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
-    "basePath": "acz-data"
+    "basePath": ""
   },
   "configuration": {
     "catalogKinds": [
@@ -324,11 +326,15 @@ A successful response returns HTTP status `201` with the ACZ details:
     ]
   },
   "historicalSnapshotStatus": "PROCESSING",
-  "createdAt": "2026-05-01T12:00:00Z"
+  "createdTs": "2026-05-01T12:00:00.000000",
+  "updatedTs": "2026-05-01T12:00:00.000000",
+  "createdBy": "your-user-object-id"
 }
 ```
 
-Note the `aczId` value - you need this ACZ identifier to manage and query the ACZ.
+Note the `aczId` value (format: `acz-<identifier>`). You need this ACZ identifier to:
+- Manage and query the ACZ using APIs
+- Locate your data in ADLS Gen2 storage at `<container>/<aczId>/` or `<container>/<basePath>/<aczId>/` if you specified a base path
 
 ## Related content
 
