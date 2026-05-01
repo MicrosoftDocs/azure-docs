@@ -127,7 +127,7 @@ Grant the managed identity write access to the ADLS Gen2 storage account.
 8. Select the managed identity you created in Step 2, then select **Select**.
 9. Select **Review + assign** to complete the role assignment.
 
-## Step 5: Add the managed identity to the entitlement group
+## Step 5: Add user to the entitlement group
 
 The managed identity must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group to perform ACZ operations.
 
