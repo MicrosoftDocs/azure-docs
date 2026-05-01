@@ -215,9 +215,6 @@ Provide the following information to your Microsoft representative:
 
 After Microsoft adds your managed identity to the allow list, you can create an ACZ through the APIs.
 
-> [!NOTE]
-> Allow-listing propagation may take up to 15 minutes. Wait before attempting to create an ACZ.
-
 ## Step 7: Verify your setup
 
 Before you call the ACZ APIs, check these items:
