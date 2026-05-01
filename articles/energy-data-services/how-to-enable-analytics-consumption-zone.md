@@ -1,6 +1,6 @@
 ---
 title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy
-description: Learn how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. Sync Azure Data Manager for Energy (ADME) data to Azure Data Lake Storage.
+description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure managed identity, storage, and permissions for ACZ.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 03/31/2026
@@ -14,28 +14,23 @@ ms.reviewer:
 
 # How to enable the Analytics Consumption Zone (ACZ)
 
-
-This article explains how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy (ADME). ACZ syncs selected ADME entity data to your Azure Data Lake Storage (ADLS) Gen2 account.
+This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy (ADME) instance. Enablement is a one-time setup process that configures your ADME instance, managed identity, and storage account. After enablement, you can create multiple ACZs to sync different ADME data sets to your Azure Data Lake Storage (ADLS) Gen2 account.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Setup overview
 
-Complete the following tasks to enable ACZ. Some steps can be skipped depending on your existing setup.
+Complete the following one-time setup tasks to enable ACZ on your ADME instance. After enablement, you can create multiple ACZs using the APIs.
 
 | Step | Task | When to skip |
 |------|------|-------------|
-| 1 | Create or use existing ADLS Gen2 storage account | Never - required for ACZ destination |
+| 1 | Create or use existing ADLS Gen2 storage account | Required for ACZ destination |
 | 2 | Create or use existing managed identity | Skip if reusing CMEK/EDS identity |
 | 3 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
-| 4 | Grant managed identity storage permissions | Never - required for ACZ to write data |
-| 5 | Add managed identity to entitlement group | Never - required for ACZ operations |
-| 6 | Share managed identity details with Microsoft | Never - preview requirement |
-| 7 | Verify your setup | Recommended before creating ACZ |
-| 8 | Create an ACZ using the API | Never - required to start sync |
-
-**Estimated time to complete**: 30-45 minutes
+| 4 | Add managed identity to entitlement group | Skip if reusing CMEK/EDS identity |
+| 5 | Grant managed identity storage permissions | Required for ACZ to write data |
+| 6 | Share managed identity details with Microsoft | Preview requirement |
 
 ## Prerequisites
 
@@ -53,9 +48,6 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 4. On the **Advanced** tab, select **Enable hierarchical namespace**.
 5. Select **Review + create**, then select **Create**.
 
-> [!NOTE]
-> The storage account must have hierarchical namespace enabled. ACZ doesn't support standard Azure Blob Storage accounts.
-
 > [!IMPORTANT]
 > You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
@@ -65,11 +57,9 @@ ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
 > If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. To reuse an existing identity:
-> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this Object ID in Step 5.
-> - Skip the rest of Step 2 (don't create a new identity).
-> - Skip Step 3 (the identity is already assigned to your ADME instance).
-> - Complete Step 4 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
-> - Complete Step 5 to add the identity to the entitlement group.
+> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this Object ID in Step 4.
+> - Skip Steps 2-4 (the identity already exists, is assigned to ADME, and is in the entitlement group).
+> - Complete Step 5 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
 
 If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
 
@@ -77,14 +67,14 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 2. Select **+ Create**.
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
-5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this Object ID value in Step 5.
+5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this Object ID value in Step 4.
 
 ## Step 3: Assign the managed identity to your ADME instance
 
 If you created a new managed identity in Step 2, assign it to your ADME instance.
 
 > [!NOTE]
-> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already assigned). Proceed to Step 4.
+> If you reuse an existing managed identity from CMEK or EDS, skip this step and Step 4 (the identity is already assigned and in the entitlement group). Proceed to Step 5.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
@@ -146,23 +136,12 @@ az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource
 
 The output should include your managed identity's resource ID.
 
-## Step 4: Grant the managed identity permissions on the ADLS Gen2 container
-
-Grant the managed identity write access to the ADLS Gen2 storage account.
-
-1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
-2. Select **Access control (IAM)** from the left menu.
-3. Select **+ Add** > **Add role assignment**.
-4. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, then select **Next**.
-5. On the **Members** tab, select **Managed identity** for **Assign access to**.
-6. Select **+ Select members**.
-7. In the **Managed identity** dropdown, select **User-assigned managed identity**.
-8. Select the managed identity you created in Step 2, then select **Select**.
-9. Select **Review + assign** to complete the role assignment.
-
-## Step 5: Add user to the entitlement group
+## Step 4: Add user to the entitlement group
 
 The managed identity must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group to perform ACZ operations.
+
+> [!NOTE]
+> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already in the entitlement group). Proceed to Step 5.
 
 Use the Entitlements Service API to add the managed identity to the users group:
 
@@ -215,10 +194,24 @@ curl --request GET \
 
 The response should include the managed identity in the members list.
 
+## Step 5: Grant the managed identity permissions on the ADLS Gen2 container
+
+Grant the managed identity write access to the ADLS Gen2 storage account. This step is required even if you reuse an existing CMEK or EDS identity.
+
+1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
+2. Select **Access control (IAM)** from the left menu.
+3. Select **+ Add** > **Add role assignment**.
+4. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, then select **Next**.
+5. On the **Members** tab, select **Managed identity** for **Assign access to**.
+6. Select **+ Select members**.
+7. In the **Managed identity** dropdown, select **User-assigned managed identity**.
+8. Select the managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
+9. Select **Review + assign** to complete the role assignment.
+
 ## Step 6: Share managed identity details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
-> During the preview, there's no self-service UX to enable ACZ. Share the following details with your Microsoft contact to enable ACZ for your ADME instance and to allow list the managed identity for ACZ operations.
+> During the preview, managed identities must be allowlisted by Microsoft before they can be used for ACZ operations. Share the following details with your Microsoft contact to allowlist the managed identity.
 
 Provide the following information to your Microsoft representative:
 
@@ -227,11 +220,17 @@ Provide the following information to your Microsoft representative:
 | **Azure Data Manager for Energy instance name** | Your ADME instance name (for example, `my-adme-instance`). |
 | **Managed identity Resource ID** | The full Azure Resource ID of the user-assigned managed identity. In the Azure portal, go to your managed identity and select **Settings** > **Properties** to find the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
 
-After Microsoft adds your managed identity to the allow list, you can create an ACZ through the APIs.
+After Microsoft adds your managed identity to the allow list, ACZ is enabled on your ADME instance.
 
-## Step 7: Verify your setup
+## Create an Analytics Consumption Zone
 
-Before you call the ACZ APIs, check these items:
+After completing the enablement steps above, you can create one or more ACZs to sync your ADME data to ADLS Gen2. Each ACZ can be configured to sync different data types.
+
+### Verify your setup
+
+Before creating your first ACZ, verify your configuration:
+
+Check the following items before creating an ACZ:
 
 1. **ADME instance is accessible**: Confirm your instance is running and you can get an access token. See [How to generate auth token](how-to-generate-auth-token.md).
 
@@ -239,24 +238,24 @@ Before you call the ACZ APIs, check these items:
 
 3. **Entitlements group membership**: Confirm your user belongs to the `users@{data-partition-id}.dataservices.energy` group. See [How to manage users](how-to-manage-users.md).
 
-4. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
-   - In the [Azure portal](https://portal.azure.com/), navigate to your ADLS Gen2 storage account.
-   - Select **Access control (IAM)** from the left menu.
-   - Select **Role assignments** and search for your managed identity name.
-   - Confirm the managed identity has the **Storage Blob Data Contributor** role assigned.
-   - If not configured, see [Step 4](#step-4-grant-the-managed-identity-permissions-on-the-adls-gen2-container).
-
-5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance using Azure CLI:
+4. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance using Azure CLI:
    ```bash
    az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
    ```
    The output should include your managed identity's resource ID. If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
 
-6. **ACZ enabled on ADME instance**: Confirm with your Microsoft contact that ACZ is enabled on your ADME instance. Also verify that the managed identity is on the allow list for ACZ operations.
+5. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
+   - In the [Azure portal](https://portal.azure.com/), navigate to your ADLS Gen2 storage account.
+   - Select **Access control (IAM)** from the left menu.
+   - Select **Role assignments** and search for your managed identity name.
+   - Confirm the managed identity has the **Storage Blob Data Contributor** role assigned.
+   - If not configured, see [Step 5](#step-5-grant-the-managed-identity-permissions-on-the-adls-gen2-container).
 
-## Step 8: Create an ACZ using the API
+6. **ACZ enabled on ADME instance**: Confirm with your Microsoft contact that ACZ is enabled on your ADME instance and that the managed identity is on the allow list.
 
-After allow-listing, use the ACZ Create API to set up your Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
+### Call the ACZ Create API
+
+Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
 The following example uses cURL:
 
