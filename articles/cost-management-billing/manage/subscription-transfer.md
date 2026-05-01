@@ -109,19 +109,16 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MOSP (pay-as-you-go) | EA | • If you're transferring the admin account to the EA enrollment, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea).<br><br> •  If you're transferring subscriptions to the EA enrollment or if reservations don't automatically transfer, you must create a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). |
 | MOSP (pay-as-you-go) | MCA-E | •  For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md).<br><br> •  Self-service reservation transfers are supported. |
 
-### Transfer Reservations and Savings Plans with currency change
+### Transfer reservations and savings plans with currency change
 Self-service reservation and savings plan transfers with no pricing or billing currency change are supported if the channel and audience permits. In this case, the existing payment plan will continue.
 
 **Reservation**: 
 - Transfer of reservations with only **pricing currency** change is supported. 
-- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. However, if the reservation has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the reservation has an upfront payment, there will be no impact on the reservation. 
+- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from the billing group, the transfer will proceed. However, if the reservation has a monthly or flexible payment plan, the billing plan will be canceled at the next billing cycle. If the reservation has an upfront payment, there will be no impact on the reservation.
 
 **Savings Plan**:
-- For transfer of savings plans that involve a **pricing currency** change, the transfer will be immediately blocked. Except: 
-    - **Only If** you are transfering your savings plan from EA to MCA-E, MCA-online or CSP (MCA managed by partner), **and** the original pricing currency is non-USD: the original savings plan will be immediately cancelled and returned with full refund and a new savings plan will be repurchased. The new savings plan will be purchased in destination enrollment with pricing currency in USD , 1-year term, and monthly billing frequency. The scope and commitment will remain the same. 
-        - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
-        - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
-- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. If the savings plan has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the savings plan has an upfront payment, there will be no impact on the savings plan. 
+- For transfers of savings plans that involve a **pricing currency** change, the transfer will be immediately blocked. Learn more about [savings plan transfers](mca-request-billing-ownership.md#prerequisites).
+- If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from the billing group, the transfer will proceed. If the savings plan has a monthly or flexible payment plan, the billing plan will be canceled at the next billing cycle. If the savings plan has an upfront payment, there will be no impact on the savings plan.
 
 ## Perform resource transfers
 
