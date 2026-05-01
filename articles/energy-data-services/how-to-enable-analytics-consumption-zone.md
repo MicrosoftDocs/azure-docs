@@ -107,11 +107,13 @@ curl --request PUT \
 > - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.
 > - This operation updates the entire instance configuration. Ensure all existing properties are included in the request body.
 
-After the operation completes, verify the identity is assigned:
+After the operation completes, verify the identity is assigned using Azure CLI:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance.
-2. Select **Identity** from the left menu.
-3. Under **User assigned**, confirm your managed identity appears in the list.
+```bash
+az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
+```
+
+The output should include your managed identity's resource ID.
 
 ## Step 4: Grant the managed identity permissions on the ADLS Gen2 container
 
@@ -199,15 +201,11 @@ Before you call the ACZ APIs, check these items:
    - Confirm the managed identity has the **Storage Blob Data Contributor** role assigned.
    - If not configured, see [Step 4](#step-4-grant-the-managed-identity-permissions-on-the-adls-gen2-container).
 
-5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance.
-   - In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance.
-   - Select **Identity** from the left menu.
-   - Under **User assigned**, confirm your managed identity appears in the list.
-   - Alternatively, use Azure CLI to verify:
-     ```bash
-     az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
-     ```
-   - If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
+5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance using Azure CLI:
+   ```bash
+   az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
+   ```
+   The output should include your managed identity's resource ID. If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
 
 6. **ACZ enabled on ADME instance**: Confirm with your Microsoft representative that ACZ has been enabled on your ADME instance and the managed identity has been allow-listed for ACZ operations.
 
