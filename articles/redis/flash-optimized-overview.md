@@ -202,7 +202,11 @@ Keys with very large values or keys that may grow over a certain size become ine
 
 ### Hot keys causing RAM fragmentation
 
-Frequently accessed (hot) keys remain in RAM and can cause memory fragmentation over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected. Mitigation: distribute access patterns across more keys where possible.
+Having frequently accessed (hot) keys in RAM is expected and desirable for Flash Optimized — this is how the tier delivers low-latency reads. However, hot keys that are frequently updated or resized can cause memory fragmentation in RAM over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
+
+This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but if those hot keys are also write-heavy with variable value sizes, RAM fragmentation can accumulate.
+
+Mitigation: monitor the memory fragmentation ratio and, where possible, use fixed-size values for frequently updated keys to reduce fragmentation.
 
 ## Pricing
 
