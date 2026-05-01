@@ -48,7 +48,7 @@ The following table summarizes support for APIs, IoT Plug and Play (PnP) models,
 
 Device Update agents use IoT Plug and Play (PnP) models to communicate with the service. The models listed in the following table identify the interfaces required for each agent version. For more information, see [IoT Plug and Play in Azure Device Update for IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/device-update-plug-and-play).
 
-The latest Device Update agent release is **1.3.0**, which includes ongoing improvements and expanded platform support. Customers should use version 1.0.0 or later and are encouraged to use the latest available version. 
+Customers should use the Device Update agent version 1.0.0 or later and are encouraged to use the latest available version 1.3.0, which includes ongoing improvements and expanded platform support. 
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
