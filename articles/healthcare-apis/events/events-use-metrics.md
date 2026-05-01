@@ -1,49 +1,50 @@
 ---
-title: Use events metrics -  Azure Health Data Services
-description: Learn how use events metrics.
+title: View Events Metrics in Azure Health Data Services
+description: View events metrics in the Azure portal to monitor event subscriptions and Event Hubs in Azure Health Data Services. Learn how to track processed events and failures.
 services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
-ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 04/28/2026
 ms.author: chrupa
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
 ---
 
-# How to use events metrics
+# View events metrics
 
-In this article, learn how to use events metrics using the Azure portal. 
+In this article, you learn how to view events metrics in the Azure portal to monitor event subscriptions and Event Hubs. 
 
-> [!TIP]
-> To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics).
+Events metrics provide a way to track the health and performance of your event subscriptions and Event Hubs by showing how many events are successfully processed, delivered, or failed over time.
 
-> [!NOTE]
-> For the purposes of this article, an [Azure Event Hubs](../../event-hubs/event-hubs-about.md) was used as the events message endpoint. 
+To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](/azure-monitor/essentials/data-platform-metrics).
 
-## Use metrics
+## Prerequisites
 
-1. Within your Azure Health Data Services workspace, select the **Events** button. 
+Before you can view events metrics, ensure you have the following:
 
-   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the Azure Health Data Services workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
+- An Azure subscription. If you don't have one, you can create a free account at [https://azure.com/free](https://azure.com/free).
+- An Azure Health Data Services workspace with with at least one event subscription configured to send events to an [Azure Event Hubs](events-deploy-portal.md) instance.
 
-2. The Events page displays the combined metrics for all Events Subscriptions. In this example, we have one subscription named  **fhir-events** and one processed message. To view the metrics for that subscription, select the subscription in the lower left-hand corner of the page.
+## View events metrics
 
-   :::image type="content" source="media\events-display-metrics\events-metrics-main.png" alt-text="Screenshot of events you would like to display metrics for." lightbox="media\events-display-metrics\events-metrics-main.png":::
+1. Within your Azure Health Data Services workspace, select  **Events**. 
+
+   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of the Events page in an Azure Health Data Services workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
+
+1. The **Events** page displays the combined metrics for all events subscriptions. In this example, you have one subscription named **fhir-events** and one processed message. To view the metrics for that subscription, select the subscription in the lower left corner of the page.
+
+   :::image type="content" source="media\events-display-metrics\events-metrics-main.png" alt-text="Screenshot of the Events page showing metrics for all event subscriptions." lightbox="media\events-display-metrics\events-metrics-main.png":::
     
-3. On this page, notice that the subscription named **fhir-events** has one processed message. To view the Event Hubs metrics, select the name of the Event Hubs (in this example, **azuredocsfhirservice**) from the lower right-hand corner of the page.
+1. On **Event Subscription**, the subscription named **fhir-events** has one processed message. To view the Event Hubs metrics, select the name of the Event Hubs (in this example, **azuredocsfhirservice**) from the lower right corner of the page.
 
-   :::image type="content" source="media\events-display-metrics\events-metrics-subscription.png" alt-text="Screenshot of select the metrics button." lightbox="media\events-display-metrics\events-metrics-subscription.png"::: 
+   :::image type="content" source="media\events-display-metrics\events-metrics-subscription.png" alt-text="Screenshot of the Event Subscription page with the selected Event Hubs name." lightbox="media\events-display-metrics\events-metrics-subscription.png"::: 
 
-4. On this page, notice that the Event Hubs received the incoming message presented in the previous Events Subscription metrics pages.
+1. On **Event Hubs Instance**, the Event Hubs received the incoming message presented in the previous Events Subscription metrics pages.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-event-hub.png" alt-text="Screenshot of displaying event hubs metrics." lightbox="media\events-display-metrics\events-metrics-event-hub.png"::: 
 
 ## Next steps
-
-In this tutorial, you learned how to use events metrics using the Azure portal.
-
-To learn how to enable events diagnostic settings, see:
 
 > [!div class="nextstepaction"]
 > [Enable diagnostic settings for events](events-enable-diagnostic-settings.md)

@@ -1,15 +1,16 @@
 ---
-title: Configure an IP restriction WAF rule for Azure Front Door
+title: Configure an IP restriction WAF Rule For Azure Front Door
 description: Learn how to configure an Azure Web Application Firewall rule to restrict IP addresses for an existing Azure Front Door endpoint.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 04/30/2026
 ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
   - sfi-image-nochange
+
 # Customer intent: "As a web application administrator, I want to configure IP restriction rules in a web application firewall for Azure Front Door, so that I can control access to my applications based on specific IP addresses or ranges."
 ---
 
@@ -19,11 +20,11 @@ ms.custom:
 
 This article shows you how to configure IP restriction rules in a web application firewall (WAF) for Azure Front Door by using the Azure portal, the Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
-An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. The rule specifies a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format.
+An IP address–based access control rule is a custom WAF rule that you use to control access to your web applications. The rule specifies a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format.
 
-There are two types of match variables in an IP address match: `RemoteAddr` and `SocketAddr`. The `RemoteAddr` variable is the original client IP that's usually sent via the `X-Forwarded-For` request header. The `SocketAddr` variable is the source IP address the WAF sees. If your user is behind a proxy, `SocketAddr` is often the proxy server address.
+An IP address match has two types of match variables: `RemoteAddr` and `SocketAddr`. The `RemoteAddr` variable is the original client IP that's usually sent through the `X-Forwarded-For` request header. The `SocketAddr` variable is the source IP address the WAF sees. If your user is behind a proxy, `SocketAddr` is often the proxy server address.
 
-By default, your web application is accessible from the internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you can create an IP matching rule that contains the list of IP addresses as matching values and sets the operator to `Not` (negate is true) and the action to `Block`. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
+By default, your web application is accessible from the internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, create an IP matching rule that contains the list of IP addresses as matching values, sets the operator to `Not` (negate is true), and sets the action to `Block`. After you apply an IP restriction rule, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
 
 ## Configure a WAF policy
 
@@ -91,7 +92,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
    :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="WAF rule test":::
 
    > [!NOTE]
-   > A private IP address was intentionally used in the custom rule to guarantee the rule would trigger. In an actual deployment, create *allow* and *deny* rules by using IP addresses for your particular situation.
+   > A private IP address is used in the custom rule to guarantee the rule triggers. In an actual deployment, create *allow* and *deny* rules by using IP addresses for your particular situation.
 
 #### [CLI](#tab/azure-devops-cli)
 
@@ -111,7 +112,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 ### Create a WAF policy
 
 Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) command.
-In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
+In the following example, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive
 az network front-door waf-policy create \
@@ -191,7 +192,7 @@ Before you begin to configure an IP restriction policy, set up your PowerShell e
 #### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing Azure resources.
 
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az PowerShell module module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az PowerShell module.
 
 1. Connect to Azure by using the following command and then use an interactive dialog to sign in.
     ```
@@ -209,11 +210,11 @@ You can install [Azure PowerShell](/powershell/azure/) on your local machine and
     Install-Module -Name Az.FrontDoor
     ```
 ### Create an Azure Front Door profile
-Create an Azure Front Door profile by following the instructions described in [Quickstart: Create a Front Door for a highly available global web application](../../frontdoor/quickstart-create-front-door.md).
+Create an Azure Front Door profile by following the instructions in [Quickstart: Create a Front Door for a highly available global web application](../../frontdoor/quickstart-create-front-door.md).
 
 ### Define an IP match condition
 Use the [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) command to define an IP match condition.
-In the following example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.
+In the following example, replace *ip-address-range-1* and *ip-address-range-2* with your own ranges.
 
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
@@ -225,7 +226,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 
 ### Create a custom IP allow rule
 
-Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests not from client IPs that match the list are blocked.
+Use the [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) command to define an action and set a priority. In the following example, requests from client IPs that don't match the list are blocked.
 
 ```azurepowershell
 $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
@@ -248,7 +249,7 @@ Find the name of the resource group that contains the Azure Front Door profile b
    ```
 
 > [!TIP]
-> For an existing WAF policy, you can use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) to update the policy.
+> For an existing WAF policy, use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/update-azfrontdoorwafpolicy) to update the policy.
 
 ### Link a WAF policy to an Azure Front Door front-end host
 

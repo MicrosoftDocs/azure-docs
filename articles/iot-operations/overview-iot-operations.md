@@ -63,7 +63,7 @@ The Azure IoT Operations architecture has these core elements:
 
 * Data services that run on Azure Arc-enabled edge Kubernetes clusters:
   * An edge-native *MQTT broker* to power event-driven architectures.
-  * *Akri connectors*, like the connector for OPC UA, to simplify communication with servers and leaf devices.
+  * *Akri connectors*, like the Connector for HTTP/REST, to simplify communication with servers and leaf devices.
   * *Data flows* to transform and contextualize data. You can route messages to various locations, including cloud endpoints.
 * The *operations experience*. OT users use this web UI to manage assets and data flows in an Azure IoT Operations deployment.
 

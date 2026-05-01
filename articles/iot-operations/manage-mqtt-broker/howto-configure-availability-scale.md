@@ -22,7 +22,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperations/b
 ## Configure scaling settings
 
 > [!IMPORTANT]
-> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. For more information, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the scaling settings of the MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment.
 
@@ -32,7 +32,7 @@ To automatically determine the initial cardinality during deployment, omit the c
 
 # [Portal](#tab/portal)
 
-Automatic cardinality isn't yet supported when you deploy IoT Operations through the Azure portal. You can manually specify the cluster deployment mode as either **Single node** or **Multi-node**. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Automatic cardinality isn't yet supported when you deploy IoT Operations through the Azure portal. You can manually specify the cluster deployment mode as either **Single node** or **Multi-node**. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 :::image type="content" source="media/howto-configure-availability-scale/single-or-multi-node.png" alt-text="Screenshot that shows where to select single or multi-node setup in the Azure portal.":::
 
@@ -52,13 +52,13 @@ Then, deploy IoT Operations by using the `az iot ops create` command with the `-
 az iot ops create ... --broker-config-file <FILE>.json
 ```
 
-To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ---
 
 The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This capability is useful for nonproduction scenarios where you don't need high availability or scale.
 
-This capability is *not* autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator determines the initial number of pods to deploy only based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
+This capability is not autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator determines the initial number of pods to deploy only based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
 
 ### Configure cardinality directly
 
@@ -141,7 +141,7 @@ For example, if your cluster has three nodes, each with eight CPU cores, then se
 The memory profile specifies the broker's memory usage for resource-limited environments. You can choose from predefined memory profiles that have different memory usage characteristics. The memory profile setting is used to configure the memory usage of the frontend and backend replicas. The memory profile interacts with the cardinality settings to determine the total memory usage of the broker.
 
 > [!IMPORTANT]
-> This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. For more information, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the memory profile settings of the MQTT broker, specify the memory profile fields in the specification of the Broker resource during IoT Operations deployment.
 
@@ -161,7 +161,7 @@ For example, to specify the memory profile as `Tiny`, see the following command 
 az iot ops create ... --broker-mem-profile Tiny
 ```
 
-To learn more, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#az-iot-ops-create-optional-parameters).
+For more information, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#az-iot-ops-create-optional-parameters).
 
 ---
 
@@ -369,7 +369,7 @@ Then, deploy IoT Operations by using the `az iot ops create` command with the `-
 az iot ops create ... --broker-config-file <FILE>.json
 ```
 
-To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ---
 

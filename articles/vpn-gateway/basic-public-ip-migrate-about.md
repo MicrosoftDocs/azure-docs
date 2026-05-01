@@ -30,6 +30,8 @@ To migrate your gateway, you first need to validate whether your resource is cap
 * For VPN Gateway SKUs VpnGw1-5 and Legacy SKUs (High-Performance SKU and Standard SKU):
 
   * Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least **three** available IP addresses in your current prefix.
+ 
+  * When configuring a third VIP in Active‑Active mode for Point‑to‑Site (P2S), a non‑zonal Public IP must be used.
   
   * If your current gateway subnet is /28 or smaller, the migration tool might error out. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration.
 

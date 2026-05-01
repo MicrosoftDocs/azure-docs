@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/18/2024
+ms.date: 04/24/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -55,20 +55,20 @@ Azure Front Door Standard and Premium tiers offer advanced cloud delivery networ
     > [!NOTE]
     > The **Configure WAF policy upgrades** link appears only if you have WAF policies associated with the Azure Front Door (classic) profile.
 
-    For each WAF policy associated with the Azure Front Door (classic) profile, select an action. You can copy the WAF policy to match the tier you're migrating to or use an existing compatible WAF policy. You can also change the WAF policy name from the default provided name. Once completed, select **Apply** to save your Azure Front Door WAF settings.
+    For each WAF policy associated with the Azure Front Door (classic) profile, select an action. You can copy the WAF policy to match the tier you're migrating to or use an existing compatible WAF policy. You can also change the WAF policy name from the default provided name. When you finish, select **Apply** to save your Azure Front Door WAF settings.
 
     :::image type="content" source="./media/migrate-tier/waf-policy.png" alt-text="Screenshot of the upgrade WAF policy screen.":::
 
-1. Select **Prepare**, and when prompted, select **Yes** to confirm that you want to proceed with the migration process. Once confirmed, you can't make further changes to the Azure Front Door (classic) profile.
+1. Select **Prepare**, and when prompted, select **Yes** to confirm that you want to proceed with the migration process. After you confirm, you can't make further changes to the Azure Front Door (classic) profile.
 
-1. Select the link that appears to view the configuration of the new Azure Front Door profile. Review each setting to ensure they're correct. Once done, select the **X** in the top right corner to return to the migration screen.
+1. Select the link that appears to view the configuration of the new Azure Front Door profile. Review each setting to ensure they're correct. When done, select the **X** in the top right corner to return to the migration screen.
 
 ## Enable managed identities
 
-If you're using your own certificate, you need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Microsoft Entra ID that allows you to securely connect to other Azure services without managing credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+If you're using your own certificate, you need to enable managed identity so Azure Front Door can access the certificate in your Azure Key Vault. Managed identity is a feature of Microsoft Entra ID that you can use to securely connect to other Azure services without managing credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> * If you're not using your own certificate, enabling managed identities and granting access to the Key Vault is not required. You can skip to the [**Migrate**](#migrate) phase.
+> * If you're not using your own certificate, you don't need to enable managed identities or grant access to the Key Vault. You can skip to the [**Migrate**](#migrate) phase.
 
 1. Select **Enable** and then choose either **System assigned** or **User assigned** depending on the type of managed identity you want to use.
 
@@ -77,7 +77,7 @@ If you're using your own certificate, you need to enable managed identity so Azu
     * **System assigned** - Toggle the status to **On** and then select **Save**.
     * **User assigned** - To create a user-assigned managed identity, see [Create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If you already have a user-assigned managed identity, select the identity, and then select **Add**.
 
-1. Close the page to return to the migration page. You'll then see that managed identities were successfully enabled.
+1. Close the page to return to the migration page. You see that managed identities are successfully enabled.
 
 ## Grant managed identity access to Azure Key Vault
 
@@ -90,7 +90,7 @@ Select **Grant** to add the managed identity to all Azure Key Vaults used with t
 1. Select **Migrate** to start the migration process. Confirm by selecting **Yes** when prompted. The migration duration depends on the complexity of your Azure Front Door (classic) profile.
 
     > [!NOTE]
-    > If you cancel the migration, only the new Azure Front Door profile is deleted. Any new WAF policy copies must be manually deleted.
+    > If you cancel the migration, only the new Azure Front Door profile is deleted. You must manually delete any new WAF policy copies.
 
 1. After migration completes, select the banner at the top of the page or the link in the success message to access the new Azure Front Door profile.
 
@@ -99,7 +99,7 @@ Select **Grant** to add the managed identity to all Azure Key Vaults used with t
 1. The Azure Front Door (classic) profile is now **Disabled** and can be deleted from your subscription.
 
 > [!WARNING]
-> Deleting the new profile after migration will delete the production environment, which is irreversible.
+> Deleting the new profile after migration deletes the production environment, which is irreversible.
 
 ## Update DNS records
 
@@ -107,7 +107,7 @@ Azure Front Door (classic) uses a different fully qualified domain name (FQDN) t
 
 You don't need to update your DNS records before or during the migration. Azure Front Door automatically routes traffic from the classic endpoint to your new Standard or Premium profile without any configuration changes.
 
-After migration, you should update your DNS records to point to the new Azure Front Door endpoint. This ensures your profile continues to function properly in the future. Updating DNS records doesn't cause any downtime and can be done at your convenience.
+After migration, update your DNS records to point to the new Azure Front Door endpoint. This update ensures your profile continues to function properly in the future. Updating DNS records doesn't cause any downtime and can be done at your convenience.
 
 ## Next steps
 

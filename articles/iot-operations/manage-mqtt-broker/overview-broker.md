@@ -179,7 +179,7 @@ Each IoT Operations deployment can have only one broker, and it must be named *d
 > [!CAUTION]
 > Don't delete the default broker resource. Doing so disrupts communication between IoT Operations internal components, and the deployment stops functioning.
 
-### Customize default Broker
+### Customize default broker
 
 Customizing the default broker resource isn't required for most setups. The settings that require customization include:
 
@@ -204,13 +204,13 @@ To configure settings like the disk-backed message buffer and advanced MQTT clie
 
 # [Bicep](#tab/bicep)
 
-Use the Azure portal or Azure CLI to customize the default Broker resource.
+Use the Azure portal or the Azure CLI to customize the default broker resource.
 
 # [Kubernetes (debug only)](#tab/kubernetes)
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-Use the Azure portal or Azure CLI to customize the default Broker resource.
+Use the Azure portal or the Azure CLI to customize the default broker resource.
 
 ---
 
@@ -219,7 +219,7 @@ Use the Azure portal or Azure CLI to customize the default Broker resource.
 >
 > As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
-### View default Broker settings
+### View default broker settings
 
 To view the settings for the default broker:
 
@@ -237,7 +237,7 @@ az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-grou
 
 # [Bicep](#tab/bicep)
 
-Use the Azure portal, the Azure CLI, or Kubernetes to view the default Broker resource.
+Use the Azure portal, the Azure CLI, or Kubernetes to view the default broker resource.
 
 # [Kubernetes (debug only)](#tab/kubernetes)
 

@@ -5,8 +5,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: overview
-ms.date: 03/10/2025
+ms.date: 04/30/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: "As a security engineer, I want to implement a web application firewall with customizable policies on my application gateway, so that I can protect my web applications from common exploits and monitor attack patterns effectively."
 ---
 
@@ -35,21 +36,21 @@ This section describes the core benefits that Azure Web Application Firewall on 
 
 ### Protection
 
-- Help protect your web applications from web vulnerabilities and attacks without modification to back-end code.
+- Protect your web applications from web vulnerabilities and attacks without modifying back-end code.
 
-- Help protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites that use a web application firewall.
+- Protect multiple web applications at the same time. One instance of Application Gateway can host up to 40 websites that use a web application firewall.
 
 - Create custom WAF policies for different sites behind the same WAF.
 
-- Help protect your web applications from malicious bots with the IP Reputation Rule Set.
+- Protect your web applications from malicious bots by using the IP Reputation Rule Set.
 
-- Help protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../shared/application-ddos-protection.md).
+- Protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../shared/application-ddos-protection.md).
 
 ### Monitoring
 
-- Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](/azure/azure-monitor/overview?toc=/azure/web-application-firewall/toc.json) to track WAF alerts and monitor trends.
+- Monitor attacks against your web applications by using a real-time WAF log. [Azure Monitor](/azure/azure-monitor/overview?toc=/azure/web-application-firewall/toc.json) integrates with the log to track WAF alerts and monitor trends.
 
-- The Application Gateway WAF is integrated with Microsoft Defender for Cloud. Defender for Cloud provides a central view of the security state of all your Azure, hybrid, and multicloud resources.
+- Microsoft Defender for Cloud integrates with the Application Gateway WAF. Defender for Cloud provides a central view of the security state of all your Azure, hybrid, and multicloud resources.
 
 ### Customization
 
@@ -77,24 +78,24 @@ This section describes the core benefits that Azure Web Application Firewall on 
 
 ## WAF policy and rules
 
-To use a web application firewall on Application Gateway, you must create a WAF policy. This policy is where all of the managed rules, custom rules, exclusions, and other customizations (such as file upload limit) exist.
+To use a web application firewall on Application Gateway, you must create a WAF policy. This policy contains all of the managed rules, custom rules, exclusions, and other customizations, such as the file upload limit.
 
 You can configure a WAF policy and associate that policy with one or more application gateways for protection. A WAF policy consists of two types of security rules:
 
 - Custom rules that you create
 - Managed rule sets that are collections of Azure-managed preconfigured rules
 
-When both are present, the WAF processes custom rules before processing the rules in a managed rule set.
+When both types of rules are present, the WAF processes custom rules before it processes the rules in a managed rule set.
 
-A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, and `LOG`. You can create a fully customized policy that meets your specific requirements for application protection by combining managed and custom rules.
+A rule consists of a match condition, a priority, and an action. Supported action types are `ALLOW`, `BLOCK`, and `LOG`. By combining managed and custom rules, you can create a fully customized policy that meets your specific requirements for application protection.
 
-The WAF processes rules within a policy in a priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, and the WAF evaluates those rules before rules that have a higher integer value. After the WAF matches a rule with a request, it applies the corresponding action that the rule defines to the request. After the WAF processes such a match, rules that have lower priorities aren't processed further.
+The WAF processes rules within a policy in priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, so the WAF evaluates those rules before rules that have a higher integer value. After the WAF matches a rule with a request, it applies the corresponding action that the rule defines to the request. After the WAF processes such a match, it doesn't process rules that have lower priorities.
 
 A web application that Application Gateway delivers can have a WAF policy associated with it at the global level, at a per-site level, or at a per-URI level.
 
 ### Custom rules
 
-Application Gateway supports the creation of your own custom rules. Application Gateway evaluates custom rules for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. If a request meets a set of conditions, the WAF takes an action to allow or block. For more information on custom rules, see [Custom rules for Application Gateway](custom-waf-rules-overview.md).
+Application Gateway supports the creation of your own custom rules. Application Gateway evaluates custom rules for each request that passes through the WAF. These rules have a higher priority than the rest of the rules in the managed rule sets. If a request meets a set of conditions, the WAF takes an action to allow or block. For more information on custom rules, see [Custom rules for Application Gateway](custom-waf-rules-overview.md).
 
 The `Geomatch` operator is now available for custom rules. For more information, see [Geomatch custom rules](geomatch-custom-rules.md).
 
@@ -108,7 +109,7 @@ You can enable a managed Bot Manager Rule Set to take custom actions on requests
 
 Application Gateway supports three bot categories:
 
-- **Bad bots**: Bots that have malicious IP addresses or that falsified their identities. Malicious IP addresses might be sourced from the Microsoft Threat Intelligence feed's high-confidence IP Indicators of Compromise and from IP reputation feeds. Bad bots also include bots that identify themselves as good bots but have IP addresses that don't belong to legitimate bot publishers.
+- **Bad bots**: Bots that have malicious IP addresses or that falsify their identities. Malicious IP addresses might come from the Microsoft Threat Intelligence feed's high-confidence IP Indicators of Compromise and from IP reputation feeds. Bad bots also include bots that identify themselves as good bots but have IP addresses that don't belong to legitimate bot publishers.
 
 - **Good bots**: Trusted user agents. Rules for good bots are sorted into multiple categories to provide granular control over WAF policy configuration. These categories include:
 
@@ -119,7 +120,7 @@ Application Gateway supports three bot categories:
   - Verified content checker bots.
   - Validated miscellaneous bots.
 
-- **Unknown bots**: User agents without additional validation. Unknown bots might also have malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed's medium-confidence IP Indicators of Compromise.
+- **Unknown bots**: User agents without additional validation. Unknown bots might also have malicious IP addresses that come from the Microsoft Threat Intelligence feed's medium-confidence IP Indicators of Compromise.
 
 Azure Web Application Firewall actively manages and dynamically updates the bot signatures.
 
@@ -133,11 +134,11 @@ For more information about Application Gateway bot protection, see [Web Applicat
 
 You can configure the Application Gateway WAF to run in the following modes:
 
-- **Detection mode**: Monitors and logs all threat alerts. You turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You must also make sure that the WAF log is selected and turned on. A web application firewall doesn't block incoming requests when it's operating in detection mode.
+- **Detection mode**: Monitors and logs all threat alerts. Turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You must also make sure that the WAF log is selected and turned on. A web application firewall doesn't block incoming requests when it's operating in detection mode.
 - **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
 > [!NOTE]
-> We recommend that you run a newly deployed WAF in detection mode for a short period in a production environment. Doing so provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) before transitioning to prevention mode. It also helps reduce the occurrence of unexpected blocked traffic.
+> Run a newly deployed WAF in detection mode for a short period in a production environment. This period provides the opportunity to obtain [firewall logs](../../application-gateway/application-gateway-diagnostics.md#firewall-log) and update any exceptions or [custom rules](./custom-waf-rules-overview.md) before transitioning to prevention mode. It also helps reduce the occurrence of unexpected blocked traffic.
 
 ### WAF engine
 
@@ -145,7 +146,7 @@ The WAF engine is the component that inspects traffic and detects whether a requ
 
 ### WAF actions
 
-You can choose which action the WAF runs when a request matches a rule condition. Application Gateway supports the following actions:
+Choose which action the WAF runs when a request matches a rule condition. Application Gateway supports the following actions:
 
 - **Allow**: The request passes through the WAF and is forwarded to the back end. No further lower-priority rules can block this request. These actions apply only to the Bot Manager Rule Set. They don't apply to the CRS.
 - **Block**: The request is blocked. The WAF sends a response to the client without forwarding the request to the back end.
@@ -178,7 +179,7 @@ You can configure and deploy all WAF policies by using the Azure portal, REST AP
 
 ### WAF monitoring
 
-Monitoring the health of your application gateway is important. You can achieve it by integrating your WAF (and the applications that it helps protect) with Microsoft Defender for Cloud, Azure Monitor, and Azure Monitor Logs.
+Monitoring the health of your application gateway is important. You can achieve this monitoring by integrating your WAF (and the applications that it helps protect) with Microsoft Defender for Cloud, Azure Monitor, and Azure Monitor Logs.
 
 :::image type="content" source="../media/ag-overview/diagnostics.png" alt-text="Diagram of Application Gateway WAF diagnostics.":::
 
@@ -252,7 +253,7 @@ The Application Gateway WAF provides detailed reporting on each threat that it d
 
 ## Application Gateway WAF pricing
 
-The pricing models are different for the WAF_v1 and WAF_v2 versions. For more information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+The WAF_v1 and WAF_v2 versions use different pricing models. For more information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## What's new
 

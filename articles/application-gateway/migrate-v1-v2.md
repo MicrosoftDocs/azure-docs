@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 04/30/2026
 ms.author: mbender
 #customer intent: As a DevOps engineer, I want to migrate my Azure Application Gateway and Web Application Firewall deployments from V1 to V2 so that I can take advantage of the improved features and performance while ensuring minimal downtime during the transition.
 ---
@@ -109,7 +109,7 @@ Private Application Gateway deployments must have subnet delegation configured t
 
 - `PublicIpResourceId -Optional`. Resource ID of the public IP address (if it already exists) to be attached to the application gateway. If you don't provide it, the public IP name is `{AppGwName}-IP`.
 
-- `DisableAutoscale -Optional`. Option to disable autoscale configuration for Application Gateway V2 instances. It's `false` by default.
+- `DisableAutoscale -Optional`. The option to disable autoscale configuration for Application Gateway V2 instances. It's `false` by default.
 
 - `WafPolicyName -Optional`. Name of the Web Application Firewall policy that will be created from the Web Application Firewall V1 configuration and attached to the Web Application Firewall V2 gateway.
 
@@ -210,7 +210,7 @@ The legacy script takes the following parameters:
 
   For each of your TLS/SSL certificates configured for your Standard V1 or Web Application Firewall V1 gateway, you can create a new `PSApplicationGatewaySslCertificate` object via the `New-AzApplicationGatewaySslCertificate` command shown in the following code. You need the path to your TLS/SSL certificate file and the password.
 
-  This parameter is optional only if you don't have HTTPS listeners configured for your V1 gateway or for Web Application Firewall. If you have at least one HTTPS listener set up, you must specify this parameter.
+  This parameter is optional only if you don't have HTTPS listeners configured for your V1 gateway or for Web Application Firewall. If you have at least one HTTPS listener setup, you must specify this parameter.
 
   ```azurepowershell
        $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -361,7 +361,7 @@ The command also installs the required Az modules.
 
 If you have some Azure Az modules installed and can't uninstall them (or you don't want to uninstall them), you can manually download the script by using the **Manual Download** tab in the script download link.
 
-The script is downloaded as a raw .nupkg file. To install the script from this .nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
+The script is downloaded as a raw `.nupkg` file. To install the script from this `.nupkg` file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 For the legacy cloning script, version 1.0.11 is the new version of the migration script. It includes major bug fixes. Make sure to use the latest stable version from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
@@ -395,6 +395,7 @@ After you successfully migrate the configuration and thoroughly test your new V2
 
 - The script reserves the Basic public IP from V1, converts it to Standard, and attaches it to the V2 gateway. This action effectively redirects all incoming traffic to the V2 gateway.
 - This IP swap operation typically results in a brief *downtime of approximately one to five minutes*. Plan accordingly.
+- In order for the IP retention to work, the V1 and V2 gateways need to be in the same subscription.
 - After a successful script run, the public IP is moved from Application Gateway V1 to Application Gateway V2. Application Gateway V1 receives a new public IP.
 - During IP migration, don't attempt any other operation on the V1 and V2 gateways or any associated resources.
 - The public IP swap that this script performs is irreversible. After you initiate it, you can't revert the IP to the V1 gateway by using the script.

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 10/09/2025
+ms.date: 04/30/2026
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -17,7 +17,7 @@ ms.custom:
 The Backend Settings enable you to manage the configurations for backend connections established from an application gateway resource to a server in the backend pool. A Backend Settings configuration can be associated with one or more Routing rules.
 
 ## Types of Backend Settings in Application Gateway
-While Portal users will only see the "Backend Settings" option, API users will have access to two types of settings. You must utilize the correct configuration, according to the protocol.
+While Portal users only see the "Backend Settings" option, API users have access to two types of settings. You must utilize the correct configuration, according to the protocol.
 
 * Backend HTTP settings - It is for Layer 7 proxy configurations that support HTTP and HTTPS protocols.
 * Backend settings - It is for Layer 4 proxy (Preview) configurations that support TLS and TCP protocols.
@@ -32,14 +32,14 @@ Azure Application Gateway uses gateway-managed cookies for maintaining user sess
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 
 > [!NOTE]
-> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags aren't set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
+> Some vulnerability scans can flag the Application Gateway affinity cookie because the Secure or HttpOnly flags aren't set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
 
 
 The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. For CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
 
 To support this change, starting February 17 2020, Application Gateway (all the SKU types) will inject another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie. The *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it (*"SameSite=None; Secure"*) so that sticky sessions are maintained even for cross-origin requests.
 
-The default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, an additional cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
+The default affinity cookie name is *ApplicationGatewayAffinity* and you can change it. If in your network topology, you deploy multiple application gateways in line, you must set unique cookie names for each resource. If you're using a custom affinity cookie name, another cookie is added with `CORS` as suffix. For example: *CustomCookieNameCORS*.
 
 > [!NOTE]
 > If the attribute *SameSite=None* is set, it's mandatory that the cookie also contains the *Secure* flag, and must be sent over HTTPS. If session affinity is required over CORS, you must migrate your workload to HTTPS. Refer to TLS offload and End-to-End TLS documentation for Application Gateway. See the [SSL overview](ssl-overview.md), [Configure an application gateway with TLS termination](create-ssl-portal.md), and [Configure end-to-end TLS](end-to-end-ssl-portal.md).
@@ -53,12 +53,12 @@ You can apply this setting to all backend pool members by enabling Connection Dr
 | Configuration Type  | Value |
 | ---------- | ---------- |
 |Default value when Connection Draining isn't enabled in Backend Setting| 30 seconds |
-|User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3600 seconds |
+|User-defined value when Connection Draining is enabled in Backend Setting | 1 to 3,600 seconds |
 
 The only exception to this process are requests bound for deregistering instances because of gateway-managed session affinity. These requests continue to be forwarded to the deregistering instances.
 
 > [!NOTE]
-> There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining time-out in the backend settings to a value higher than the max expected client download time. 
+> There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining timeout in the backend settings to a value higher than the max expected client download time. 
 
 ### Protocol
 
@@ -72,7 +72,7 @@ This setting specifies the port where the backend servers listen to traffic from
 
 ### Trusted root certificate 
 
-When selecting the HTTPS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
+When the HTTPS protocol is selected in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
 By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate with complete TLS validation, you must provide the corresponding Root CA certificate (.cer) in the Backend Settings configuration.
 
@@ -84,7 +84,7 @@ When HTTPS is selected in the Backend Settings of Azure Application Gateway, the
 2.	Verifying the Subject Name of certificate against the Server Name Indication (SNI) that was sent by the Application Gateway.
 3.	Verifying the certificate expiry to confirm if the certificate is still valid.
    
-The default validation settings ensure secure TLS communication between the gateway and backend services. In certain scenarios, it may be necessary to adjust one or more of these validation settings. To accommodate diverse customer requirements, Application Gateway offers the following configurable options. You can use either or both options as needed.
+The default validation settings ensure secure TLS communication between the gateway and backend services. In certain scenarios, it can be necessary to adjust one or more of these validation settings. To accommodate diverse customer requirements, Application Gateway offers the following configurable options. You can use either or both options as needed.
 
 :::image source="media/configuration-http-settings/backend-tls-validations.png" alt-text="A diagram showing portal view of the TLS validation controls available for customers.":::
 
@@ -96,14 +96,14 @@ The default validation settings ensure secure TLS communication between the gate
 
 > [!NOTE]
 > - We recommend keeping all validations enabled for production environments. Disabling some or all validations is suggested only for testing and development purposes, such as when self-signed certificates are used.
-> - These settings don't apply to test probe functionality when adding a custom Health Probe. As a result, you may see differences in the results when comparing to periodic health probes.
+> - These settings don't apply to test probe functionality when adding a custom Health Probe. As a result, you can see differences in the results when comparing to periodic health probes.
 > - Currently, unsupported for TLS proxy.
 > - PowerShell and CLI to be supported soon.
 
 
 ### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application. Acceptable values are from 1 second to 86400 seconds (24 hours).
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you can wish to adjust this setting to the needs of your application. Acceptable values are from 1 second to 86400 seconds (24 hours).
 
 ### Override backend path
 
@@ -178,26 +178,22 @@ To support security functions in customer data paths that necessitate unique bac
 
 This capability establishes direct, one-to-one mapping between frontend and backend connections, ensuring persistent connectivity for each individual client.
 
->[!NOTE]
->To enable NTLM or Kerberos passthrough authentication, ensure that the Dedicated Backend Connection setting is turned on. This configuration maintains a one-to-one mapping between frontend and backend connections, which is essential for preserving session integrity required by these authentication protocols.
-
->[!NOTE]
->If your environment includes legacy clients running older browsers like MSIE 6 or clients that send legacy User-Agent header (eg:MSIE6), enabling Dedicated Backend Connection will lead to connectivity issues. This is due to known defects in MSIE 6's HTTP/1.1 and keep-alive implementations, which can result in unexpected connection failures.To ensure a stable and reliable experience, upgrading these clients to a modern browser or client stack is  recommended.
-
->[!IMPORTANT]
->Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, you must consider increasing the number of instances or enabling auto scale.
+> [!IMPORTANT]
+> Review the following considerations before you enable **Dedicated Backend Connection** on Application Gateway:
 >
->When the backend is a remote server, Application Gateway instances utilize SNAT ports for every connection. As each client connection establishes a dedicated backend connection, SNAT port consumption correspondingly increases. Therefore, it is important to account for potential SNAT port exhaustion. Visit the [architecture best practices](/azure/well-architected/service-guides/azure-application-gateway#design-checklist) for guidance.
->
->Dedicated Backend connection is not supported with HTTP/2.
+> - **NTLM/Kerberos Support**: NTLM and Kerberos passthrough authentication require a one-to-one mapping between frontend and backend connections to preserve session integrity. Turn on Dedicated Backend Connection to support these protocols.
+> - **Legacy clients**: Legacy clients like MSIE6 or applications using older User‑Agent signatures can’t fully support modern HTTP features and connection management behaviors. To improve reliability and help prevent issues such as incomplete or corrupted responses, Azure Application Gateway applies additional compatibility handling by default. When the Dedicated Backend Connection feature is enabled, this compatibility handling can result in differences in connection behavior for legacy clients with NTLM, potentially leading to connectivity inconsistencies. For optimal reliability and predictable behavior, it's recommended to use modern, standards‑compliant clients or upgrade legacy clients where possible.
+> - **Capacity planning**: Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, increase the instance count or enable autoscale to accommodate the load.
+> - **SNAT port consumption**: When the backend is a remote server, each client connection consumes a dedicated SNAT port, which increases the risk of SNAT port exhaustion. For guidance, see [architecture best practices](https://github.com/MJyot/azure-docs-pr/blob/main/azure/well-architected/service-guides/azure-application-gateway#design-checklist).
+> - **Protocol support**: Dedicated Backend Connection isn't supported with HTTP/2.
 
 **Troubleshooting 4xx Errors with Dedicated Backend Connections**
 
 When Dedicated Backend Connections is enabled for a backend setting, and the backend application returns 4xx status codes, use the following guidance to diagnose and resolve the issue.
 
-**Verify Service Principal Name (SPN) Configuration**-Authentication mechanisms such as NTLM and Kerberos require correctly registered Service Principal Names .Ensure that SPNs are properly configured and unique in the directory to allow successful authentication.For additional details , see the [Kerberos documentation.]( /windows/win32/ad/mutual-authentication-using-kerberos)
+**Verify Service Principal Name (SPN) Configuration**-Authentication mechanisms such as NTLM and Kerberos require correctly registered Service Principal Names. Ensure that SPNs are properly configured and unique in the directory to allow successful authentication. For more information, see the [Kerberos documentation.]( /windows/win32/ad/mutual-authentication-using-kerberos)
 
-**Review Backend Server Logs for Sub‑Status Codes**-Application Gateway surfaces only the primary HTTP status (for example, 401 Unauthorized). To identify the underlying cause, review the backend server logs for more detailed sub‑status information.For guidance refer to the [Windows Authentication configuration.](/iis/configuration/system.webserver/security/authentication/windowsauthentication/#remarks)
+**Review Backend Server Logs for Sub‑Status Codes**-Application Gateway surfaces only the primary HTTP status (for example, 401 Unauthorized). To identify the underlying cause, review the backend server logs for more detailed substatus information. For guidance, refer to the [Windows Authentication configuration.](/iis/configuration/system.webserver/security/authentication/windowsauthentication/#remarks)
 
 
 ## [Backend Settings](#tab/backendsettings)
@@ -212,19 +208,19 @@ This setting is the number of seconds that the application gateway waits before 
 
 ### Trusted root certificate 
 
-When selecting the TLS protocol in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
+When TLS protocol is selected in the backend settings, the application gateway resource utilizes its default Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
 By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a Public CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
 
 ### SNI (Server Name Indication)
-This configuration is applicable only to a backend setting with the TLS protocol. The SNI value provided here is transmitted to the backend server during the TLS handshake. The backend server must present the appropriate certificate.
+This configuration is applicable only to a backend setting with the TLS protocol. The SNI value provided here's transmitted to the backend server during the TLS handshake. The backend server must present the appropriate certificate.
 
 ### Use custom probe
 
 This setting associates a [custom probe](application-gateway-probe-overview.md#custom-health-probe) with a Backend setting. You can associate only one custom probe with a backend setting. If you don't explicitly associate a custom probe, the [default probe](application-gateway-probe-overview.md#default-health-probe-settings) is used to monitor the health of the backend.
 
 > [!NOTE]
-> The custom probe doesn't monitor the health of the backend pool unless it is linked to a Backend Setting that is associated with a Rule.
+> The custom probe doesn't monitor the health of the backend pool unless it's linked to a Backend Setting that is associated with a Rule.
 
 ---
 

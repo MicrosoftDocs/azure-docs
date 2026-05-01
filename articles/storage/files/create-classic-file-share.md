@@ -159,7 +159,7 @@ The **Encryption** tab controls settings related to encryption at rest.
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
 | Encryption type | Radio button group | <ul><li>Microsoft-managed keys</li><li>Customer-managed keys</li></ul> | Yes | This setting controls who holds the encryption key for the data placed in this storage account. See [Encryption for data at rest](../common/storage-service-encryption.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
-| Enable support for customer-managed keys | Radio button group | <ul><li>Blobs and files only</li><li>All service types (blobs, files, tables, and queues)</li></ul> | No | All kind/SKU combinations for Azure Files support customer-managed keys regardless of this setting. |
+| Enable support for customer-managed keys | Radio button group | <ul><li>Blobs and files only</li><li>All service types (blobs, files, tables, and queues)</li></ul> | No | All kind/SKU combinations for Azure classic file shares support customer-managed keys regardless of this setting. |
 | Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optionally use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json). |
 
 ### Tags

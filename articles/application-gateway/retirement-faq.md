@@ -6,39 +6,25 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: faq
-ms.date: 03/04/2026
+ms.date: 04/30/2026
 ms.author: mbender
 # Customer intent: "As an existing Application Gateway V1 customer, I want to understand the migration process to V2 and its timeline so that I can keep my services operational and avoid disruptions before the retirement of V1 on April 28, 2026."
 ---
 # Frequently asked questions about Application Gateway V1 retirement
 
-On April 28, 2023, Microsoft announced that Azure Application Gateway V1 is retiring on *April 28, 2026*. If you're still using V1 resources, be sure to plan and complete your migration to V2 before this date to avoid service disruptions.
+*Application Gateway V1 is retired as of 28 April 2026.*
 
 This article answers commonly asked questions about the V1 retirement timeline, what to expect after retirement, and how to migrate from V1 to V2. For migration guidance, see [Migrate Azure Application Gateway and Web Application Firewall from V1 to V2](./migrate-v1-v2.md).
 
 ## Common questions about V1 retirement
 
-### When can I no longer create Application Gateway V1 resources?
-
-As of July 1, 2023, new customers can't create Application Gateway V1 resources. As of September 1, 2024, existing customers can't create V1 resources in existing subscriptions.
-
-Although you can no longer create V1 resources, you can manage any existing V1 resources until the retirement date of April 28, 2026.
-
 ### What happens to existing Application Gateway V1 resources after April 28, 2026?
 
 After April 28, 2026, Microsoft will no longer support Application Gateway V1 resources. There's no service-level agreement (SLA) for customers who use this version. As Microsoft begins decommissioning the hardware that supports V1, traffic passing through V1 resources can't be guaranteed.
 
-### How does this migration plan affect my existing workloads that run on Application Gateway V1?
+### How does this migration plan affect my existing workloads that run on Application Gateway V1? What happens to my V1 application gateways if I don't migrate?
 
-Until April 28, 2026, Microsoft supports existing Application Gateway V1 deployments. After April 28, 2026, Microsoft will no longer provide patches, support, or SLA coverage for active V1 resources. Workloads running on V1 will face service disruption as Microsoft blocks the data path and deletes the resources.
-
-### What happens to my V1 application gateways if I don't plan to migrate soon?
-
-On April 28, 2026, Microsoft will fully retire the V1 gateways. All active Application Gateway V1 resources will stop receiving patches, support, or SLA coverage and face service disruptions. To prevent business impact, start planning your migration now and complete it before April 28, 2026.
-
-### Does the retirement of Basic-tier public IPs on September 30, 2025, affect my existing V1 Application Gateways?
-
-Although Microsoft retired Basic-tier public IPs on September 30, 2025, it won't retire Basic-tier IP resources linked to Application Gateway V1 deployments until V1 retires on April 28, 2026. Microsoft will handle this retirement, and you don't need to take any action.
+Until April 28, 2026, Microsoft supports existing Application Gateway V1 deployments. After April 28, 2026, Microsoft will no longer provide patches, support, or SLA coverage for active V1 resources. Workloads running on V1 face service disruption as Microsoft blocks the data path and deletes the resources. To prevent business impact, migrate the remaining V1 gateways as soon as possible.
 
 ## Common questions about migration from V1 to V2
 

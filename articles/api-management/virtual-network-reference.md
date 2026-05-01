@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 04/10/2026
+ms.date: 04/30/2026
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -50,8 +50,8 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Outbound | VirtualNetwork | * | AzureKeyVault | 443                     |  TCP                | Allow                | **Access to Azure Key Vault**                         | External & Internal  |
 | Outbound | VirtualNetwork | * | EventHub | 5671, 5672, 443          |  TCP                | Allow            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and [Azure Monitor](api-management-howto-use-azure-monitor.md) (optional) | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureMonitor | 1886, 443                     |  TCP                | Allow         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](/azure/service-health/resource-health-overview), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
-| Inbound & Outbound | VirtualNetwork | * | Virtual Network | 6380              | TCP                | Allow     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
-| Inbound & Outbound | VirtualNetwork | * | VirtualNetwork | 6381 - 6383              |  TCP                | Allow     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| Inbound & Outbound | VirtualNetwork | * | Virtual Network | 10000              | TCP                | Allow     | Access external Azure Managed Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
+| Inbound & Outbound | VirtualNetwork | * | VirtualNetwork | 6381 - 6383              |  TCP                | Allow     | Access internal cache for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | Inbound & Outbound | VirtualNetwork | * | VirtualNetwork |  4290               | UDP                | Allow     | Sync Counters for [Rate Limit](rate-limit-policy.md) policies between machines (optional)        | External & Internal  |
 | Inbound | AzureLoadBalancer | * | VirtualNetwork | 6390                       |  TCP                | Allow | **Azure Infrastructure Load Balancer**                          | External & Internal  |
 | Inbound | AzureTrafficManager | * | VirtualNetwork | 443                       | TCP                | Allow | **Azure Traffic Manager**  routing for multi-region deployment                        | External |
@@ -111,7 +111,6 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 The following settings and FQDNs are required to maintain and diagnose API Management's internal compute infrastructure.
 
 * Allow outbound UDP access on port `123` for NTP.
-* Allow outbound TCP access on port `12000` for diagnostics.
 * Allow outbound access on port `443` to the following endpoints for internal diagnostics: `azurewatsonanalysis-prod.core.windows.net`, `*.data.microsoft.com`, `azureprofiler.trafficmanager.net`, `shavamanifestazurecdnprod1.azureedge.net`, `shavamanifestcdnprod1.azureedge.net`.
 * Allow outbound access on port `443` to the following endpoint for internal PKI: `issuer.pki.azure.com`.
 * Allow outbound access on ports `80` and `443` to the following endpoints for Windows Update: `*.update.microsoft.com`, `*.ctldl.windowsupdate.com`, `ctldl.windowsupdate.com`, `download.windowsupdate.com`.

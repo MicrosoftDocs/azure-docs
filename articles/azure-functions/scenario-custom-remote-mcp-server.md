@@ -207,9 +207,9 @@ You can view the complete project template in the [Azure Functions Python MCP Se
 ::: zone pivot="programming-language-typescript"
 The function code for the MCP server tools is defined in the `src` folder. The MCP function registration exposes these functions as MCP Server tools:
 
-:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/helloMcpTool.ts" range="6-29" :::
+<!--:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/helloMcpTool.ts" range="6-29" ::: -->
 
-:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/snippetsMcpTool.ts" range="56-86" :::
+<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/snippetsMcpTool.ts" range="56-86" ::: -->
 
 You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) GitHub repository.  
 ::: zone-end  

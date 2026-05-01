@@ -3,7 +3,7 @@ title: Managed API linting and analysis - Azure API Center
 description: Automatic linting of API definitions in your API center helps you analyze compliance of APIs with the organization's API style guide.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 04/28/2026
 
 
 ms.custom: 
@@ -16,24 +16,24 @@ Your organization's [API center](overview.md) includes built-in, Microsoft-manag
 
 With API analysis:
 
-* Azure API Center automatically analyzes your API definitions whenever you add or update an API definition. API definitions are linted by default with a [spectral:oas ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules) (API style guide).  
-* API analysis reports are generated in the Azure portal, showing how your API definitions conform to the style guide.
-* Use analysis profiles to specify the ruleset and filter conditions for the APIs that are analyzed. Customize a profile's ruleset using the Azure API Center extension for Visual Studio Code. 
+- Azure API Center automatically analyzes your API definitions whenever you add or update an API definition. The linting for your API definitions is done by default with a [`spectral:oas` ruleset](https://docs.stoplight.io/docs/spectral/4dec24461f3af-open-api-rules) (API style guide).  
+- API analysis reports are generated in the Azure portal, showing how your API definitions conform to the style guide.
+- Use analysis profiles to specify the ruleset and filter conditions for the APIs that are analyzed. Customize a profile's ruleset using the Azure API Center extension for Visual Studio Code. 
 
 > [!IMPORTANT]
 > If you prefer, you can enable [self-managed](enable-api-analysis-linting.md) linting and analysis using a custom Azure function, overriding the built-in capabilities. **Disable any function used for self-managed linting before using managed API analysis.**
 
 ## Limitations
 
-* Currently, only OpenAPI and AsyncAPI specification documents in JSON or YAML format are analyzed.
-* There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of analysis profiles and the maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
+- Currently, only OpenAPI and AsyncAPI specification documents in JSON or YAML format are analyzed.
+- There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) for the number of analysis profiles and the maximum number of API definitions analyzed. Analysis can take a few minutes to up to 24 hours to complete.
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md). 
-* For customizing the ruleset, [Visual Studio Code](https://code.visualstudio.com/) and the following Visual Studio Code extensions:
-    * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
-    * [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
+- An API center in your Azure subscription. If you don't have one already, see [Quickstart: Create your API center](set-up-api-center.md). 
+- For customizing the ruleset, [Visual Studio Code](https://code.visualstudio.com/) and the following Visual Studio Code extensions:
+    - [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
+    - [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral)
     
 ## View API analysis reports
 
@@ -62,7 +62,7 @@ Azure API Center uses *analysis profiles* for linting and analyzing APIs. An ana
 You can customize the ruleset and define filter conditions in the default profile, or you can create a new profile. For example, you might want to use one profile for APIs that are in development and a different one for APIs that are in production.
 
 > [!NOTE]
-> In the Standard plan of API Center, you can create up to 3 analysis profiles. Only a single profile is supported in the Free plan.
+> In the Standard plan of API Center, you can create up to three analysis profiles. Only a single profile is supported in the Free plan.
 
 To create an analysis profile:
 
@@ -74,18 +74,18 @@ To create an analysis profile:
 1. Select **Create**.
 
 
-:::image type="content" source="media/enable-managed-api-analysis-linting/create-analysis-profile.png" alt-text="Screenshot of creating an analysis profile in the portal.":::
+:::image type="content" source="media/enable-managed-api-analysis-linting/create-analysis-profile.png" alt-text="Screenshot of creating an analysis profile in the portal." lightbox="media/enable-managed-api-analysis-linting/create-analysis-profile.png":::
 
 The profile is created and a ruleset scaffold is created. To view the current ruleset, select the profile, and in the context (...) menu, select **View the ruleset**.
 
-Continue to the following sections to customize the ruleset. 
+To customize the ruleset, continue to the following sections. 
 
 ### Customize the profile's ruleset
 
 Use the Visual Studio Code extension for Azure API Center to customize a profile's ruleset. After customizing the ruleset and testing it locally, you can deploy it back to your API center.
 
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
-1. In the API Center pane, expand the API center resource you are working with, and expand **Profiles**.
+1. In the API Center pane, expand the API center resource you're working with, and expand **Profiles**.
 1. Expand the profile you want to modify, and select `ruleset.yaml`.
 1. Modify or replace the content as needed. 
 1. Save your changes to `ruleset.yaml`.
@@ -124,5 +124,5 @@ To see the results of linting with the updated ruleset, view the API analysis re
 
 ## Related content
 
-* To learn more about the default built-in ruleset, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
-* [Enable API analysis in your API center - self-managed](enable-api-analysis-linting.md)
+- To learn more about the default built-in ruleset, see the [Spectral GitHub repo](https://github.com/stoplightio/spectral/blob/develop/docs/reference/openapi-rules.md). 
+- [Enable API analysis in your API center - self-managed](enable-api-analysis-linting.md)

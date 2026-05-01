@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/15/2024
+ms.date: 04/30/2026
 ---
 
 # Web Application Firewall (WAF) on Azure Front Door
@@ -38,13 +38,13 @@ Azure Web Application Firewall (WAF) can sometimes block requests that you want 
 
 By default, Azure Front Door responds to all user requests regardless of their location. Geo-filtering allows you to restrict access to your web application by countries/regions. For more information, see [WAF geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
 
-## Bot Protection
+## Bot protection
 
 Azure Web Application Firewall (WAF) for Front Door includes bot protection rules to identify and allow good bots while blocking bad bots. For more information, see [configure bot protection](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md).
 
 ## IP restriction
 
-IP restriction rules in Azure WAF allow you to control access to your web applications by specifying allowed or blocked IP addresses or IP address ranges. For more information, see [configure IP restriction](../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md).
+IP restriction rules in Azure WAF help you control access to your web applications by specifying allowed or blocked IP addresses or IP address ranges. For more information, see [configure IP restriction](../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md).
 
 ## Rate limiting
 
@@ -58,7 +58,7 @@ Azure WAF's Default Rule Set is based on the [OWASP Core Rule Set (CRS)](https:/
 
 Azure WAF provides monitoring and logging through integration with Azure Monitor and Azure Monitor logs. For more information, see [Azure Web Application Firewall (WAF) logging and monitoring](../web-application-firewall/afds/waf-front-door-monitor.md).
 
-## Next steps
+## Related content
 
-* Learn how to [create and apply Web Application Firewall policy](../web-application-firewall/afds/waf-front-door-create-portal.md) to your Azure Front Door.
-* For more information, see [Web Application Firewall (WAF) FAQ](../web-application-firewall/afds/waf-faq.yml).
+- [Create and apply Web Application Firewall policy](../web-application-firewall/afds/waf-front-door-create-portal.md)
+- [Web Application Firewall (WAF) FAQ](../web-application-firewall/afds/waf-faq.yml)

@@ -49,4 +49,4 @@ kubectl delete -f ama-metrics-prometheus-config.yaml
 ## Next steps
 
 - [Deploy observability resources with a script](howto-configure-observability.md)
-- [How to Deploy observability resources manually](howto-configure-observability-manual.md)
+
