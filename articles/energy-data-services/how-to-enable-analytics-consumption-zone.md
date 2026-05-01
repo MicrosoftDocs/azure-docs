@@ -147,6 +147,15 @@ curl --request POST \
   }'
 ```
 
+A successful response returns HTTP status `200` with the member details:
+
+```json
+{
+  "email": "12345678-1234-1234-1234-123456789abc",
+  "role": "MEMBER"
+}
+```
+
 **Replace the placeholders:**
 
 | Placeholder | Description |
@@ -249,7 +258,33 @@ curl --request POST \
 | `{rg}` | Resource group where the ADLS Gen2 storage account resides |
 | `{account}` | Name of the ADLS Gen2 storage account |
 
-A successful response returns status `201` with the ACZ details. The response includes the ACZ ID and an initial status of `ACTIVE`.
+A successful response returns HTTP status `201` with the ACZ details:
+
+```json
+{
+  "aczId": "01234567-89ab-cdef-0123-456789abcdef",
+  "name": "my-first-acz",
+  "status": "ACTIVE",
+  "sink": {
+    "storageType": "microsoft.storage/storageaccounts",
+    "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
+    "basePath": "acz-data"
+  },
+  "configuration": {
+    "catalogKinds": [
+      "osdu:wks:master-data--Well:*",
+      "osdu:wks:master-data--Field:*"
+    ],
+    "wellboreDDMSKinds": [
+      "osdu:wks:work-product-component--WellLog:*"
+    ]
+  },
+  "historicalSnapshotStatus": "PROCESSING",
+  "createdAt": "2026-05-01T12:00:00Z"
+}
+```
+
+Note the `aczId` value - you'll need this to manage and query the ACZ.
 
 ## Related content
 
