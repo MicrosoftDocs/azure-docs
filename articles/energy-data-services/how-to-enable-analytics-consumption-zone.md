@@ -52,7 +52,7 @@ ACZ uses a managed identity to write data to ADLS Gen2. Create a user-assigned m
 2. Select **+ Create**.
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
-5. After creation, open the managed identity and note the **Client ID** and **Object (principal) ID** from the **Overview** page.
+5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this value in Step 5.
 
 ## Step 3: Assign the managed identity to your ADME instance
 
