@@ -116,6 +116,31 @@ The following table summarizes feature availability on the Flash Optimized tier 
 
 ## Best practices
 
+### How Flash storage is utilized
+
+On Flash Optimized instances, 20% of the cache space is on RAM, while the other 80% uses Flash storage. All keys are stored in RAM, while values can be stored either in Flash storage or RAM. The Redis software intelligently determines the location of values. Hot values that are accessed frequently are stored in RAM, while cold values that are less commonly used are kept on Flash. Before data is read or written, it must be moved to RAM, becoming hot data.
+
+Because Redis optimizes for the best performance, the instance first fills up the available RAM before adding items to Flash storage. Filling RAM first has a few implications for performance:
+
+- Better performance and lower latency can occur when testing with low memory usage. Testing with a full cache instance can yield lower performance because only RAM is being used in the low memory usage testing phase.
+- As you write more data to the cache, the proportion of data in RAM compared to Flash storage decreases, typically causing latency and throughput performance to decrease as well.
+
+### Workloads well-suited for Flash Optimized
+
+Workloads that are likely to run well on the Flash Optimized tier often have the following characteristics:
+
+- Read heavy, with a high ratio of read commands to write commands.
+- Access is focused on a subset of keys that are used much more frequently than the rest of the dataset.
+- Relatively large values in comparison to key names. (Because key names are always stored in RAM, large values can become a bottleneck for memory growth.)
+
+### Workloads that aren't well-suited for Flash Optimized
+
+Some workloads have access characteristics that are less optimized for the design of the Flash tier:
+
+- Write heavy workloads.
+- Random or uniform data access patterns across most of the dataset.
+- Long key names with relatively small value sizes.
+
 ### Optimize your hot/cold data ratio
 
 The more predictable your access patterns, the better Flash Optimized performs:
