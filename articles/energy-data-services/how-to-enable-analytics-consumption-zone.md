@@ -1,6 +1,6 @@
 ---
 title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy
-description: Learn how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. Sync OSDU data to Azure Data Lake Storage.
+description: Learn how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. Sync Open Subsurface Data Universe (OSDU) data to Azure Data Lake Storage.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 03/31/2026
@@ -15,7 +15,7 @@ ms.reviewer:
 # How to enable the Analytics Consumption Zone (ACZ)
 
 
-This article explains how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ syncs selected Azure Data Manager for Energy entity data to your Azure Data Lake Storage (ADLS) Gen2 account.
+This article explains how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy (ADME). ACZ syncs selected ADME entity data to your Azure Data Lake Storage (ADLS) Gen2 account.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -57,7 +57,7 @@ ACZ uses a user-assigned managed identity to write data to ADLS Gen2. If you don
 If you don't already have a managed identity assigned to your Azure Data Manager for Energy instance (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you must assign the user-assigned managed identity you created in Step 2.
 
 > [!NOTE]
-> If your ADME instance already has user-assigned managed identities configured for CMEK or EDS, you can skip this step and proceed to Step 4.
+> If your ADME instance already includes user-assigned managed identities configured for CMEK or EDS, skip this step and proceed to Step 4.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
@@ -214,7 +214,7 @@ Before you call the ACZ APIs, check these items:
    ```
    The output should include your managed identity's resource ID. If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
 
-6. **ACZ enabled on ADME instance**: Confirm with your Microsoft representative that ACZ has been enabled on your ADME instance and the managed identity has been allow-listed for ACZ operations.
+6. **ACZ enabled on ADME instance**: Confirm with your Microsoft contact that ACZ is enabled on your ADME instance. Also verify that the managed identity is on the allow list for ACZ operations.
 
 ## Step 8: Create an ACZ using the API
 
@@ -282,7 +282,7 @@ A successful response returns HTTP status `201` with the ACZ details:
 }
 ```
 
-Note the `aczId` value - you'll need this to manage and query the ACZ.
+Note the `aczId` value - you need this ACZ identifier to manage and query the ACZ.
 
 ## Related content
 
