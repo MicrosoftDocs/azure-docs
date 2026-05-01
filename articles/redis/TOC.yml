@@ -51,7 +51,7 @@ items:
             href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
           - name: Azure Managed Redis architecture
             href: architecture.md
-          - name: Flash Optimized tier
+          - name: Best practices for the Flash Optimized tier
             href: flash-optimized-overview.md
           - name: Create and manage with Azure PowerShell
             href: how-to-manage-redis-cache-powershell.md
