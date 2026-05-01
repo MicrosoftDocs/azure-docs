@@ -36,14 +36,13 @@ Flash Optimized is ideal for scenarios where:
 - Your dataset is very large (hundreds of GB to multiple TB).
 - A significant portion of data is accessed infrequently ("cold").
 - You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
-- You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
-- Your workload can tolerate higher latency on cold-data reads compared to in-memory tiers.
+- Your workload can tolerate slightly higher latency on cold-data reads compared to in-memory tiers.
 
 Common use cases include:
 
 - **Analytics and reporting** – Large lookup tables, aggregated datasets
 - **Social and gaming** – User profiles, session histories, leaderboards with long tails
-- **AI/ML** – Feature stores, embedding caches, vector data (note: RediSearch/vector search is not supported on Flash)
+- **AI/ML** – Feature stores, caching vector data, e.g. embeddings (note: RediSearch/vector search is not supported on Flash)
 - **IoT and telemetry** – Time-series data, device state
 
 ## Region availability
