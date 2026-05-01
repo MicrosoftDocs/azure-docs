@@ -10,7 +10,7 @@ ms.date: 05/01/2026
 
 # Transition guide for retired Azure Reserved VM Instances
 
-This guide is for customers with [Azure Reserved Virtual Machine Instances (RIs)](https://learn.microsoft.com/azure/virtual-machines/prepay-reserved-vm-instances) that will no longer be available for new purchase or renewal starting **July 1, 2026** for select VM series. It helps you understand the impact of these changes and plan next steps to maintain cost predictability and avoid lapses in commitment-based savings.
+This guide is for customers with [Azure Reserved Virtual Machine Instances (RIs)](/azure/virtual-machines/prepay-reserved-vm-instances) that will no longer be available for new purchase or renewal starting **July 1, 2026** for select VM series. It helps you understand the impact of these changes and plan next steps to maintain cost predictability and avoid lapses in commitment-based savings.
 
 The guidance focuses on RIs associated with impacted VM series and explains the options available as existing reservations approach expiration, including transitioning to Azure savings plans for compute, or migrating workloads to newer VM series. Existing RIs continue to provide reservation discounts through the end of their term.
 
@@ -95,7 +95,7 @@ As you evaluate your long-term strategy:
 - Want to improve performance or efficiency.
 - Plan to stay optimized beyond the current RI term.
 
-For more information, see [Retired VM sizes migration guide](https://learn.microsoft.com/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide).
+For more information, see [Retired VM sizes migration guide](/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide).
 
 #### Option 3: Renew RIs before July 1, 2026
 
@@ -104,7 +104,7 @@ If you want to continue using these VM series and prefer instance-specific commi
 - This is the final opportunity to renew RIs for impacted legacy VM series.
 - Renewed RIs are honored for their full term, even after July 1, 2026.
 - After July 1, no additional renewals or purchases are allowed.
-- Review the [VM migration guide](https://learn.microsoft.com/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide) to confirm VM retirement dates.
+- Review the [VM migration guide](/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide) to confirm VM retirement dates.
 
 **Best fit for customers who:**
 
@@ -148,7 +148,7 @@ You can:
 - Want to improve performance or efficiency.
 - Plan to stay optimized beyond the current RI term.
 
-For more information, see [Retired VM sizes migration guide](https://learn.microsoft.com/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide).
+For more information, see [Retired VM sizes migration guide](/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide).
 
 #### Option 3: Take no action and accept pay-as-you-go pricing
 
@@ -184,4 +184,4 @@ To succeed:
 - [Self-service trade-in for savings plans](../savings-plan/reservation-trade-in.md)
 - [Buy a savings plan](../savings-plan/buy-savings-plan.md)
 - [View Azure reservation utilization](reservation-utilization.md)
-- [Retired VM sizes migration guide](https://learn.microsoft.com/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide)
+- [Retired VM sizes migration guide](/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide)

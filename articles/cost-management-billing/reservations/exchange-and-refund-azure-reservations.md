@@ -25,7 +25,7 @@ However, you cannot exchange between different product families. For instance, a
 This flexibility ensures you can adapt your reservations as your cloud strategy evolves—while still benefiting from cost savings.
 
 >[!NOTE]
-> Starting July 1, 2026, Azure Reserved Virtual Machine Instances (RIs) for select VM series will no longer be available for purchase or renewal. Existing reservations will continue to run and deliver savings through the end of their term, but customers will need to plan ahead as renewals for these impacted series will no longer be offered. As your current RIs approach expiration, your Azure costs and optimization strategy may be impacted. Review the full transition guide to understand which reservations are affected, key decision timelines, and recommended actions to avoid unexpected cost changes and maintain your savings strategy.  To learn more, go to [Manage legacy VM RIs after July 1st 2026](manage-legacy-vm-RIs-after-july-1-2026.md)
+> Starting July 1, 2026, Azure Reserved Virtual Machine Instances (RIs) for select VM series will no longer be available for purchase or renewal. Existing reservations will continue to run and deliver savings through the end of their term, but customers will need to plan ahead as renewals for these impacted series will no longer be offered. As your current RIs approach expiration, your Azure costs and optimization strategy may be impacted. Review the full transition guide to understand which reservations are affected, key decision timelines, and recommended actions to avoid unexpected cost changes and maintain your savings strategy.  To learn more, go to [Manage legacy VM RIs after July 1st 2026](manage-legacy-vm-reservations-after-july-1-2026.md)
 
 ## Reservation exchange policy changes
 
