@@ -26,7 +26,7 @@ ACZ is a managed sync layer. It exports entity data from your Azure Data Manager
 
 Key characteristics of ACZ:
 
-- **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you provision and manage. You're responsible for selecting an in-geo destination storage account if you have data residency requirements.
+- **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you create and manage. You're responsible for selecting an in-geo destination storage account if you have data residency requirements.
 - **Open format**: Data exports in Delta Parquet format. Analytics engines widely support this format.
 - **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds.
 - **Historical and incremental sync**: ACZ takes an initial snapshot of existing data, then synchronizes changes as they occur.
@@ -68,7 +68,7 @@ ACZ synchronizes two categories of ADME entity types:
 
 | Category | Description | Example kinds |
 |---|---|---|
-| **Catalog kinds** | Master data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:master-data--Field:*` |
+| **Catalog kinds** | Primary data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:master-data--Field:*` |
 | **Wellbore DDMS kinds** | Entities from the Wellbore Domain Data Management Service | `osdu:wks:work-product-component--WellLog:*` |
 
 ### Version types
@@ -108,7 +108,7 @@ ACZ propagates created, updated, and deleted records from ADME to the Delta tabl
 
 - **Creations and updates**: When you create a record or change its data block, ADME creates a new version. ACZ detects the change and writes a new row to the Delta table.
 - **Metadata-only updates**: A PATCH operation can change the access control list (ACL), Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
-- **Soft deletes**: When you soft-delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. This preserves history for auditing and time-travel queries.
+- **Soft deletes**: When you soft-delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. Soft deletes preserve history for auditing and time-travel queries.
 - **Purges**: When you purge a record in ADME, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
 
 ## Data output format
