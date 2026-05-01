@@ -1,12 +1,13 @@
 ---
 title: Azure Managed Redis - Flash Optimized tier
 description: Learn about the Flash Optimized tier in Azure Managed Redis, including SKU sizes, features, best practices, and common issues.
-author: apbhatnagar
-ms.author: apbhatnagar
-ms.service: azure-managed-redis
-ms.topic: conceptual
 ms.date: 04/30/2026
-ms.custom: references_regions
+ms.topic: conceptual
+ms.custom:
+  - references_regions
+  - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Azure Managed Redis – Flash Optimized tier
