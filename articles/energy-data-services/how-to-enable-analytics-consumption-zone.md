@@ -193,8 +193,21 @@ Before you call the ACZ APIs, check these items:
 3. **Entitlements group membership**: Confirm your user belongs to the `users@{data-partition-id}.dataservices.energy` group. See [How to manage users](how-to-manage-users.md).
 
 4. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
+   - In the [Azure portal](https://portal.azure.com/), navigate to your ADLS Gen2 storage account.
+   - Select **Access control (IAM)** from the left menu.
+   - Select **Role assignments** and search for your managed identity name.
+   - Confirm the managed identity has the **Storage Blob Data Contributor** role assigned.
+   - If not configured, see [Step 4](#step-4-grant-the-managed-identity-permissions-on-the-adls-gen2-container).
 
-5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance. In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance, select **Identity** from the left menu, then confirm your managed identity appears under **User assigned**.
+5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance.
+   - In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance.
+   - Select **Identity** from the left menu.
+   - Under **User assigned**, confirm your managed identity appears in the list.
+   - Alternatively, use Azure CLI to verify:
+     ```bash
+     az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
+     ```
+   - If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
 
 6. **ACZ enabled on ADME instance**: Confirm with your Microsoft representative that ACZ has been enabled on your ADME instance and the managed identity has been allow-listed for ACZ operations.
 
