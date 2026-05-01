@@ -277,6 +277,10 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
 
 ## Interoperability with other services
 
+* <a id="azure-files-versus-azure-netapp-files"></a>
+**What's the difference between Azure Files and Azure NetApp Files?**  
+    Azure Files and Azure NetApp Files are different file storage services in Azure, and they're designed for different workloads and performance requirements. Azure Files provides serverless SMB and NFS file shares, and offers Azure File Sync as an option for caching SMB file shares on Windows Server. Azure NetApp Files is a high-performance, bare-metal file storage service powered by NetApp technology that supports NFS, SMB, and dual-protocol file shares. For more information, see [Compare Azure Files and Azure NetApp Files](storage-files-netapp-comparison.md).
+
 * <a id="cluster-witness"></a>
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
