@@ -227,6 +227,17 @@ curl --request POST \
   }'
 ```
 
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data_partition_id}` | Your data partition ID (for example, `dp1`) |
+| `{sub-id}` | Subscription ID where the ADLS Gen2 storage account resides |
+| `{rg}` | Resource group where the ADLS Gen2 storage account resides |
+| `{account}` | Name of the ADLS Gen2 storage account |
+
 A successful response returns status `201` with the ACZ details. The response includes the ACZ ID and an initial status of `ACTIVE`.
 
 ## Related content
