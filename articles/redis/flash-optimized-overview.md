@@ -36,7 +36,8 @@ Flash Optimized is ideal for scenarios where:
 - Your dataset is very large (hundreds of GB to multiple TB).
 - A significant portion of data is accessed infrequently ("cold").
 - You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
-- Your workload can tolerate slightly higher latency on cold-data reads compared to in-memory tiers.
+- You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
+- Your workload can tolerate higher latency on cold-data reads compared to in-memory tiers.
 
 Common use cases include:
 
