@@ -24,13 +24,11 @@ This article explains how to set up and enable the Analytics Consumption Zone (A
 
 - An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Data Manager for Energy instance with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- An Azure Data Lake Storage Gen2 storage account with [hierarchical namespace enabled](../storage/blobs/data-lake-storage-namespace.md).
-- A user-assigned managed identity.
 - The [Azure CLI](/cli/azure/install-azure-cli) installed on your machine, or access to [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## Step 1: Create or configure an ADLS Gen2 storage account
+## Step 1: Create or use an existing ADLS Gen2 storage account
 
-If you don't already have an ADLS Gen2 storage account, create one:
+ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
 2. On the **Basics** tab, select your subscription and resource group.
@@ -44,9 +42,9 @@ If you don't already have an ADLS Gen2 storage account, create one:
 > [!IMPORTANT]
 > You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
-## Step 2: Create a managed identity
+## Step 2: Create or use an existing managed identity
 
-ACZ uses a managed identity to write data to ADLS Gen2. Create a user-assigned managed identity:
+ACZ uses a user-assigned managed identity to write data to ADLS Gen2. If you don't already have a user-assigned managed identity, create one:
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Managed Identities** and select it.
 2. Select **+ Create**.
