@@ -198,7 +198,7 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Large keys causing OOM despite available Flash capacity
 
-Keys with very large values or keys that may grow over a certain size become ineligible to move to Flash storage and will remain in RAM. If many large keys accumulate, RAM can fill up causing OOM errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, or monitor RAM usage independently from total cache capacity.
+Keys with very large values or keys that may grow over a certain size become ineligible to move to Flash storage and will remain in RAM. If many large keys accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, or monitor RAM usage independently from total cache capacity.
 
 ### Hot keys causing RAM fragmentation
 
@@ -207,13 +207,6 @@ Having frequently accessed (hot) keys in RAM is expected and desirable for Flash
 This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but if those hot keys are also write-heavy with variable value sizes, RAM fragmentation can accumulate.
 
 Mitigation: monitor the memory fragmentation ratio and, where possible, use fixed-size values for frequently updated keys to reduce fragmentation.
-
-## Pricing
-
-Flash Optimized pricing is based on the selected cache size. Because Flash uses NVMe storage for a portion of data, the cost per GB is lower than equivalent in-memory tiers at scale.
-
-- [Azure Managed Redis Pricing Calculator](https://azure.microsoft.com/pricing/details/managed-redis/)
-- [Reservations for Azure Managed Redis](reserved-pricing) – Prepay for compute to reduce costs.
 
 ## Migration from Azure Cache for Redis
 
