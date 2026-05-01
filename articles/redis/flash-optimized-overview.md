@@ -174,7 +174,7 @@ Some workloads have access characteristics that are less optimized for the desig
 The more predictable your access patterns, the better Flash Optimized performs:
 
 - Keys with consistent access frequency benefit from stable tiering.
-- Workloads with extremely random access patterns across the full dataset may not see as much cost benefit.
+- Workloads with extremely random access patterns across the full dataset will cause degraded latency
 - Use `INFO` and monitoring to understand your hit rates and eviction behavior.
 
 ### Use data persistence for durability
@@ -189,7 +189,7 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Client configuration
 
-- Set appropriate client timeouts to account for occasional higher latency on cold-data reads.
+- Benchmark with representative data, including total data volume and data access patterns, to set appropriate client timeouts that account for higher latency on cold-data reads.
 - Use pipelining to maximize throughput.
 - Prefer many small keys over few large keys.
 - Monitor connections, latency percentiles (especially p99), and CPU.
