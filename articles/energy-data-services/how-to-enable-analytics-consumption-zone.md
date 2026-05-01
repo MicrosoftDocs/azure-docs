@@ -127,6 +127,12 @@ curl --request PUT \
 | `{rg}` | Resource group where the managed identity resides |
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
+**To get the Management API access token**, use Azure CLI:
+
+```bash
+TOKEN=$(az account get-access-token --resource "https://management.core.windows.net/" --query accessToken -o tsv)
+```
+
 > [!IMPORTANT]
 > - If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
 > - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.
@@ -189,6 +195,14 @@ A successful response returns HTTP status `200` with the member details:
 | `{access_token}` | Access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
 | `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 | `{managed-identity-object-id}` | The Object (principal) ID of the managed identity from Step 2 |
+
+**To get the ADME API access token**, use Azure CLI:
+
+```bash
+TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
+```
+
+Replace `{auth-app-id}` with your ADME authentication application ID.
 
 Verify the managed identity was added successfully:
 
@@ -279,6 +293,14 @@ curl --request POST \
 | `{sub-id}` | Subscription ID where the ADLS Gen2 storage account resides |
 | `{rg}` | Resource group where the ADLS Gen2 storage account resides |
 | `{account}` | Name of the ADLS Gen2 storage account |
+
+**To get the ADME API access token**, use Azure CLI:
+
+```bash
+TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
+```
+
+Replace `{auth-app-id}` with your ADME authentication application ID.
 
 A successful response returns HTTP status `201` with the ACZ details:
 
