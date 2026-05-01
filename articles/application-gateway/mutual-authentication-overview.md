@@ -147,10 +147,12 @@ Application Gateway supports certificates issued from both public and privately 
    openssl ecparam -out intermediate.key -name prime256v1 -genkey
    openssl req -new -sha256 -key intermediate.key -out intermediate.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=Example Intermediate CA/emailAddress=hostmaster@example.com"
    openssl x509 -req -in intermediate.csr -CA root.crt -CAkey root.key -CAcreateserial -out intermediate.crt -days 1825 -sha256 -extfile intermediate.cnf -extensions v3_intermediate_ca
-   openssl ecparam -out server.key -name prime256v1 -genkey
-   openssl req -new -sha256 -key server.key -out server.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=www.example.com/emailAddress=hostmaster@example.com"
-   openssl x509 -req -in server.csr -CA intermediate.crt -CAkey intermediate.key -CAcreateserial -out server.crt -days 365 -sha256 -extfile server.cnf -extensions v3_server
-   openssl pkcs12 -export -out server.pfx -inkey server.key -in server.crt
+   openssl ecparam -out client.key -name prime256v1 -genkey
+   openssl req -new -sha256 -key client.key -out client.csr -subj "/C=IN/ST=TL/L=HYD/O=myOrg/OU=IT/CN=www.example.com/emailAddress=hostmaster@example.com"
+   openssl x509 -req -in client.csr -CA intermediate.crt -CAkey intermediate.key -CAcreateserial -out client.crt -days 365 -sha256 -extfile client.cnf -extensions v3_client
+   cat intermediate.crt >> client.crt
+   cat root.crt >> client.crt
+   openssl pkcs12 -export -out client.pfx -inkey client.key -in client.crt
    ```
 
 ## Client authentication validation for mutual TLS strict mode
