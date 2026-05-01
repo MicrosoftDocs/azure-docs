@@ -20,6 +20,23 @@ This article explains how to set up and enable the Analytics Consumption Zone (A
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## Setup overview
+
+Complete the following tasks to enable ACZ. Some steps can be skipped depending on your existing setup.
+
+| Step | Task | When to skip |
+|------|------|-------------|
+| 1 | Create or use existing ADLS Gen2 storage account | Never - required for ACZ destination |
+| 2 | Create or use existing managed identity | Skip if reusing CMEK/EDS identity |
+| 3 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
+| 4 | Grant managed identity storage permissions | Never - required for ACZ to write data |
+| 5 | Add managed identity to entitlement group | Never - required for ACZ operations |
+| 6 | Share managed identity details with Microsoft | Never - preview requirement |
+| 7 | Verify your setup | Recommended before creating ACZ |
+| 8 | Create an ACZ using the API | Never - required to start sync |
+
+**Estimated time to complete**: 30-45 minutes
+
 ## Prerequisites
 
 - An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
