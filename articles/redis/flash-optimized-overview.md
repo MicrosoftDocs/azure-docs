@@ -103,19 +103,19 @@ The Flash Optimized tier is available in the following Azure regions:
 
 For the latest region availability, see [Azure products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
-## SKU sizes and max client connections
+## SKU sizes
 
-| SKU | Size (GB) | Max Client Connections | Status |
-|-----|-----------|------------------------|--------|
-| A250 | 235       | 75,000                 | Public Preview |
-| A500 | 480       | 150,000                | Public Preview |
-| A700 | 720       | 200,000                | Public Preview |
-| A1000 | 960       | 200,000                | Public Preview |
-| A1500 | 1,440     | 200,000                | Public Preview |
-| A2000 | 1,920     | 200,000                | Public Preview |
-| A4500 | 4,500     | 200,000                | Public Preview |
+| SKU | Size (GB) | Status |
+|-----|-----------|--------|
+| A250 | 235       | Public Preview |
+| A500 | 480       | Public Preview |
+| A700 | 720       | Public Preview |
+| A1000 | 960       | Public Preview |
+| A1500 | 1,440     | Public Preview |
+| A2000 | 1,920     | Public Preview |
+| A4500 | 4,500     | Public Preview |
 
-For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
+For connection limits per SKU, see [Maximum number of client connections](overview#maximum-number-of-client-connections). For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
 ## Feature support
 
@@ -142,6 +142,8 @@ The following table summarizes feature availability on the Flash Optimized tier 
 
 > [!IMPORTANT]
 > Active geo-replication, non-clustered mode, and RediSearch/vector search are not supported on the Flash Optimized tier due to performance considerations inherent to Flash storage. These features are not planned for Flash.
+
+For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
 
 ## Best practices
 
@@ -190,7 +192,7 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Client configuration
 
-- Benchmark with representative data, including total data volume and data access patterns, to set appropriate client timeouts that account for higher latency on cold-data reads.
+- For client timeout and connection resilience guidance, see [Connection resilience best practices](best-practices-connection).
 - Use pipelining to maximize throughput.
 - Prefer many small keys over few large keys.
 - Monitor connections, latency percentiles (especially p99), and CPU.
