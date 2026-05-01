@@ -104,15 +104,15 @@ For the latest region availability, see [Azure products by region](https://azure
 
 ## SKU sizes and max client connections
 
-| Size (GB) | Max Client Connections | Status |
-|-----------|------------------------|--------|
-| 235       | 75,000                 | Public Preview |
-| 480       | 150,000                | Public Preview |
-| 720       | 200,000                | Public Preview |
-| 960       | 200,000                | Public Preview |
-| 1,440     | 200,000                | Public Preview |
-| 1,920     | 200,000                | Public Preview |
-| 4,500     | 200,000                | Public Preview |
+| SKU | Size (GB) | Max Client Connections | Status |
+|-----|-----------|------------------------|--------|
+| A250 | 235       | 75,000                 | Public Preview |
+| A500 | 480       | 150,000                | Public Preview |
+| A700 | 720       | 200,000                | Public Preview |
+| A1000 | 960       | 200,000                | Public Preview |
+| A1500 | 1,440     | 200,000                | Public Preview |
+| A2000 | 1,920     | 200,000                | Public Preview |
+| A4500 | 4,500     | 200,000                | Public Preview |
 
 For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
