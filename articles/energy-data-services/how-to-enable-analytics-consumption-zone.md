@@ -1,6 +1,6 @@
 ---
 title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy
-description: Learn how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. Sync Open Subsurface Data Universe (OSDU) data to Azure Data Lake Storage.
+description: Learn how to set up and enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. Sync Azure Data Manager for Energy (ADME) data to Azure Data Lake Storage.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 03/31/2026
