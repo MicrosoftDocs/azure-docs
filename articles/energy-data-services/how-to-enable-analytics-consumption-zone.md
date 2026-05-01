@@ -44,7 +44,17 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 
 ## Step 2: Create or use an existing managed identity
 
-ACZ uses a user-assigned managed identity to write data to ADLS Gen2. If you don't already have a user-assigned managed identity, create one:
+ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
+
+> [!TIP]
+> If your ADME instance already has a user-assigned managed identity (for example, from CMEK or EDS), you can reuse it for ACZ. To reuse an existing identity:
+> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this in Step 5.
+> - Skip the rest of Step 2 (don't create a new identity).
+> - Skip Step 3 (the identity is already assigned to your ADME instance).
+> - Complete Step 4 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
+> - Complete Step 5 to add the identity to the entitlement group.
+
+If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Managed Identities** and select it.
 2. Select **+ Create**.
@@ -54,10 +64,10 @@ ACZ uses a user-assigned managed identity to write data to ADLS Gen2. If you don
 
 ## Step 3: Assign the managed identity to your ADME instance
 
-If you don't already have a managed identity assigned to your Azure Data Manager for Energy instance (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you must assign the user-assigned managed identity you created in Step 2.
+If you created a new managed identity in Step 2, assign it to your ADME instance.
 
 > [!NOTE]
-> If your ADME instance already includes user-assigned managed identities configured for CMEK or EDS, skip this step and proceed to Step 4.
+> If you're reusing an existing managed identity from CMEK or EDS, skip this step (it's already assigned). Proceed to Step 4.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
