@@ -27,9 +27,9 @@ Complete the following one-time setup tasks to enable ACZ on your ADME instance.
 |------|------|-------------|
 | 1 | Create or use existing ADLS Gen2 storage account | Required for ACZ destination |
 | 2 | Create or use existing managed identity | Skip if reusing CMEK/EDS identity |
-| 3 | Grant managed identity storage permissions | Required for ACZ to write data |
-| 4 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
-| 5 | Verify user has entitlement group access | Required to call ACZ APIs |
+| 3 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
+| 4 | Verify user has entitlement group access | Required to call ACZ APIs |
+| 5 | Grant managed identity storage permissions | Required for ACZ to write data |
 | 6 | Share managed identity and ADME instance details with Microsoft | Preview requirement |
 
 ## Prerequisites
@@ -56,7 +56,7 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
-> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the managed identity **Resource ID** from **Settings** > **Properties**, then proceed to Step 3 to grant storage permissions, skip Step 4, and continue to Step 5.
+> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the managed identity **Resource ID** from **Settings** > **Properties**, then skip Step 3 and proceed to Step 4.
 
 If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
 
@@ -65,26 +65,12 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
 
-## Step 3: Grant the managed identity permissions on the ADLS Gen2 container
-
-Grant the managed identity write access to the ADLS Gen2 storage account. This step is required even if you reuse an existing CMEK or EDS identity.
-
-1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
-2. Select **Access control (IAM)** from the left menu.
-3. Select **+ Add** > **Add role assignment**.
-4. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, then select **Next**.
-5. On the **Members** tab, select **Managed identity** for **Assign access to**.
-6. Select **+ Select members**.
-7. In the **Managed identity** dropdown, select **User-assigned managed identity**.
-8. Select the managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
-9. Select **Review + assign** to complete the role assignment.
-
-## Step 4: Assign the managed identity to your ADME instance
+## Step 3: Assign the managed identity to your ADME instance
 
 If you created a new managed identity in Step 2, assign it to your ADME instance.
 
 > [!NOTE]
-> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already assigned to ADME). Proceed to Step 5 to verify you have entitlement group access.
+> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already assigned to ADME). Proceed to Step 4 to verify you have entitlement group access.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
@@ -146,7 +132,7 @@ az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource
 
 The output should include your managed identity's resource ID.
 
-## Step 5: Verify user has entitlement group access
+## Step 4: Verify user has entitlement group access
 
 To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
@@ -173,6 +159,20 @@ curl --request GET \
 | `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 
 The response should include your user account in the members list. If you're not listed, contact your ADME administrator to add you to the users group.
+
+## Step 5: Grant the managed identity permissions on the ADLS Gen2 container
+
+Grant the managed identity write access to the ADLS Gen2 storage account. This step is required even if you reuse an existing CMEK or EDS identity.
+
+1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
+2. Select **Access control (IAM)** from the left menu.
+3. Select **+ Add** > **Add role assignment**.
+4. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, then select **Next**.
+5. On the **Members** tab, select **Managed identity** for **Assign access to**.
+6. Select **+ Select members**.
+7. In the **Managed identity** dropdown, select **User-assigned managed identity**.
+8. Select the managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
+9. Select **Review + assign** to complete the role assignment.
 
 ## Step 6: Share managed identity details with Microsoft (Preview requirement)
 
