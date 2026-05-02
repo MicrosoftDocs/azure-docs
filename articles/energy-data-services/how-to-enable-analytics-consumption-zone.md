@@ -65,12 +65,6 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
 
-> [!TIP]
-> You'll also need the managed identity's **Resource ID** in Step 6. While you're on the managed identity page, select **Settings** > **Properties** and copy the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). Save this value for later.
-
-> [!NOTE]
-> The managed identity is used by the ACZ service to write data to your ADLS Gen2 storage account. It is NOT used for calling ACZ APIs—you (the user) need to be in the entitlement group for that (see Step 4).
-
 ## Step 3: Assign the managed identity to your ADME instance
 
 If you created a new managed identity in Step 2, assign it to your ADME instance.
