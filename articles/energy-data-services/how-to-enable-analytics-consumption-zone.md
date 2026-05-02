@@ -164,14 +164,6 @@ curl --request GET \
 | `{access_token}` | Your personal access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
 | `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 
-**To get your ADME API access token**, use Azure CLI:
-
-```bash
-TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
-```
-
-Replace `{auth-app-id}` with your ADME authentication application ID.
-
 The response should include your user account in the members list. If you're not listed, contact your ADME administrator to add you to the users group.
 
 ## Step 5: Grant the managed identity permissions on the ADLS Gen2 container
