@@ -117,7 +117,7 @@ ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded f
 
 ### ADLS Gen2 folder structure
 
-ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets its own folder under the container or under the base path if you specified one. ACZ partitions catalog Delta Lake tables by kind. One folder per DDMS entity type and record id.
+ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets its own folder under the container or under the base path if you specified one. ACZ partitions catalog Delta Lake tables by kind. One folder per DDMS entity type and record ID.
 
 #### Folder layout
 
