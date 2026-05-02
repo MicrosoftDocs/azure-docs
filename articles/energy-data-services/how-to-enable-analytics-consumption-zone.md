@@ -238,14 +238,6 @@ curl --request POST \
 | `{rg}` | Resource group where the ADLS Gen2 storage account resides |
 | `{account}` | Name of the ADLS Gen2 storage account |
 
-**To get the ADME API access token**, use Azure CLI:
-
-```bash
-TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
-```
-
-Replace `{auth-app-id}` with your ADME authentication application ID.
-
 A successful response returns HTTP status `201` with the ACZ details:
 
 ```json
