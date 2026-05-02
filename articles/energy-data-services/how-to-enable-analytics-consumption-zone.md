@@ -198,33 +198,6 @@ After Microsoft adds your managed identity to the allow list, ACZ is enabled on 
 
 After completing the enablement steps above, you can create one or more ACZs to sync your ADME data to ADLS Gen2. Each ACZ can be configured to sync different data types.
 
-### Verify your setup
-
-Before creating your first ACZ, verify your configuration:
-
-Check the following items before creating an ACZ:
-
-1. **ADME instance is accessible**: Confirm your instance is running and you can get an access token. See [How to generate auth token](how-to-generate-auth-token.md).
-
-2. **Data partition exists**: Confirm you have at least one data partition. Check the **Overview** page of your instance in the Azure portal.
-
-3. **Entitlements group membership**: Confirm your user belongs to the `users@{data-partition-id}.dataservices.energy` group. See [How to manage users](how-to-manage-users.md).
-
-4. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance using Azure CLI:
-   ```bash
-   az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
-   ```
-   The output should include your managed identity's resource ID. If not configured, see [Step 3](#step-3-assign-the-managed-identity-to-your-adme-instance).
-
-5. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
-   - In the [Azure portal](https://portal.azure.com/), navigate to your ADLS Gen2 storage account.
-   - Select **Access control (IAM)** from the left menu.
-   - Select **Role assignments** and search for your managed identity name.
-   - Confirm the managed identity has the **Storage Blob Data Contributor** role assigned.
-   - If not configured, see [Step 5](#step-5-grant-the-managed-identity-permissions-on-the-adls-gen2-container).
-
-6. **ACZ enabled on ADME instance**: Confirm with your Microsoft contact that ACZ is enabled on your ADME instance and that the managed identity is on the allow list.
-
 ### Call the ACZ Create API
 
 Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
