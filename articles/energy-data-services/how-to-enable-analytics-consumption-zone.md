@@ -27,8 +27,9 @@ Complete the following one-time setup tasks to enable ACZ on your ADME instance.
 |------|------|-------------|
 | 1 | Create or use existing ADLS Gen2 storage account | Required for ACZ destination |
 | 2 | Create or use existing managed identity | Skip if reusing CMEK/EDS identity |
+| 2.5 | Record managed identity Resource ID | Never skip - required for Step 6 |
 | 3 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
-| 4 | Add managed identity to entitlement group | Skip if reusing CMEK/EDS identity |
+| 4 | Verify user has entitlement group access | Required to call ACZ APIs |
 | 5 | Grant managed identity storage permissions | Required for ACZ to write data |
 | 6 | Share managed identity details with Microsoft | Preview requirement |
 
@@ -68,6 +69,23 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
 5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this Object ID value in Step 4.
+
+> [!TIP]
+> You'll also need the managed identity's **Resource ID** in Step 6. While you're on the managed identity page, select **Settings** > **Properties** and copy the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). Save this value for later.
+
+> [!NOTE]
+> The managed identity is used by the ACZ service to write data to your ADLS Gen2 storage account. It is NOT used for calling ACZ APIs—you (the user) need to be in the entitlement group for that (see Step 4).
+
+## Step 2.5: Record the managed identity Resource ID
+
+Before proceeding, ensure you have saved the managed identity's **Resource ID** from Step 2. This full Azure Resource ID is required in Step 6 to complete the ACZ enablement process.
+
+**To find the Resource ID:**
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your managed identity.
+2. Select **Settings** > **Properties** from the left menu.
+3. Copy the **Resource ID** value (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`).
+4. Save this value in a secure location—you'll provide it to Microsoft in Step 6.
 
 ## Step 3: Assign the managed identity to your ADME instance
 
@@ -136,54 +154,16 @@ az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource
 
 The output should include your managed identity's resource ID.
 
-## Step 4: Add user to the entitlement group
+## Step 4: Verify user has entitlement group access
 
-The managed identity must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group to perform ACZ operations.
+To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
-> [!NOTE]
-> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already in the entitlement group). Proceed to Step 5.
+> [!IMPORTANT]
+> This step verifies that YOU (the user calling ACZ APIs) have access, not the managed identity. The managed identity created in Step 2 is only used by the ACZ service to write data to storage—it does not need entitlement group membership.
 
-Use the Entitlements Service API to add the managed identity to the users group:
+If you're not already a member of the users entitlement group, have an ADME administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
-```bash
-curl --request POST \
-  --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
-  --header 'Authorization: Bearer {access_token}' \
-  --header 'Content-Type: application/json' \
-  --header 'data-partition-id: {data-partition-id}' \
-  --data '{
-    "email": "{managed-identity-object-id}",
-    "role": "MEMBER"
-  }'
-```
-
-A successful response returns HTTP status `200` with the member details:
-
-```json
-{
-  "email": "12345678-1234-1234-1234-123456789abc",
-  "role": "MEMBER"
-}
-```
-
-**Replace the placeholders:**
-
-| Placeholder | Description |
-|---|---|
-| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
-| `{access_token}` | Access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
-| `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
-| `{managed-identity-object-id}` | The Object (principal) ID of the managed identity from Step 2 |
-
-**To get the ADME API access token**, use Azure CLI:
-
-```bash
-TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
-```
-
-Replace `{auth-app-id}` with your ADME authentication application ID.
-
-Verify the managed identity was added successfully:
+**To verify you have access**, use the Entitlements Service API to check your membership:
 
 ```bash
 curl --request GET \
@@ -192,7 +172,23 @@ curl --request GET \
   --header 'data-partition-id: {data-partition-id}'
 ```
 
-The response should include the managed identity in the members list.
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Your personal access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
+
+**To get your ADME API access token**, use Azure CLI:
+
+```bash
+TOKEN=$(az account get-access-token --resource {auth-app-id} --query accessToken -o tsv)
+```
+
+Replace `{auth-app-id}` with your ADME authentication application ID.
+
+The response should include your user account in the members list. If you're not listed, contact your ADME administrator to add you to the users group.
 
 ## Step 5: Grant the managed identity permissions on the ADLS Gen2 container
 
