@@ -46,12 +46,6 @@ Common use cases include:
 - **AI/ML** – Feature stores, caching vector data, e.g. embeddings (note: RediSearch/vector search is not supported on Flash)
 - **IoT and telemetry** – Time-series data, device state
 
-## Region availability
-
-Azure Managed Redis Flash Optimized is available in a subset of Azure regions where the required NVMe-equipped compute is deployed. The Flash Optimized tier is continually expanding into new regions.
-
-To check the current availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
-
 ## SKU sizes
 
 | SKU | Size (GB) | Status |
