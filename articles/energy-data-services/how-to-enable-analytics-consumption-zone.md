@@ -137,7 +137,7 @@ The output should include your managed identity's resource ID.
 To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
 > [!IMPORTANT]
-> This step verifies that YOU (the user calling ACZ APIs) have access, not the managed identity. The managed identity created in Step 2 is only used by the ACZ service to write data to storage—it does not need entitlement group membership.
+> This step verifies that YOU (the user calling ACZ APIs) have access, not the managed identity. The managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
 
 If you're not already a member of the users entitlement group, have an ADME administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
@@ -177,7 +177,7 @@ Grant the managed identity write access to the ADLS Gen2 storage account. This s
 ## Step 6: Share managed identity details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
-> During the preview, managed identities must be allowlisted by Microsoft before they can be used for ACZ operations. Share the following details with your Microsoft contact to allowlist the managed identity.
+> During the preview, Microsoft must add managed identities to an allow list before they can be used for ACZ operations. Share the following details with your Microsoft contact to add the managed identity to the allow list.
 
 Provide the following information to your Microsoft representative:
 
@@ -190,7 +190,7 @@ After Microsoft adds your managed identity to the allow list, ACZ is enabled on 
 
 ## Create an Analytics Consumption Zone
 
-After completing the enablement steps above, you can create one or more ACZs to sync your ADME data to ADLS Gen2. Each ACZ can be configured to sync different data types.
+After completing the enablement steps, you can create one or more ACZs to sync your ADME data to ADLS Gen2. Each ACZ can be configured to sync different data types.
 
 ### Call the ACZ Create API
 
