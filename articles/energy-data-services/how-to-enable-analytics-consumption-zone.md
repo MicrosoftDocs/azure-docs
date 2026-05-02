@@ -56,11 +56,7 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
-> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. To reuse an existing identity:
-> - Note the **Object (principal) ID** from the managed identity's **Overview** page (you may need this for troubleshooting).
-> - Skip Step 3 (the identity already exists and is already assigned to ADME).
-> - Still complete Step 4 to verify YOU have entitlement group access to call ACZ APIs.
-> - Complete Step 5 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
+> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the managed identity **Resource ID** from **Settings** > **Properties**, then skip Step 3 and proceed to Step 4.
 
 If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
 
