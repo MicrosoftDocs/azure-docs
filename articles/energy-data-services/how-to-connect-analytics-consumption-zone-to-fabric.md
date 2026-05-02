@@ -136,12 +136,12 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 1. After you create the semantic model, select **New report** to open the Power BI report editor.
 1. In the **Data** pane, expand the ACZ tables to see columns.
-1. To create a simple visualization showing record counts by entity type:
+1. To create a visualization showing record counts by entity type:
    - Select **Line chart** from the Visualizations pane.
    - Drag the `kind` field to the **X-axis**.
    - Drag the `id` field to the **Y-axis** and set aggregation to **Count**.
-   - This chart shows the distribution of records across different OSDU entity types in your ACZ.
-1. Add filters, slicers, and additional pages as needed.
+   - This chart shows the distribution of records across different Open Subsurface Data Universe (OSDU) entity types in your ACZ.
+1. Add filters, slicers, and other pages as appropriate.
 1. Select **File** > **Save** to save the report to your Fabric workspace.
 
 > [!TIP]
@@ -149,7 +149,7 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 ## Considerations
 
-- **Data freshness**: ACZ synchronizes changes incrementally after the initial snapshot. New and updated OSDU records appear in ADLS Gen2 and show through Fabric shortcuts with no extra steps.
+- **Data freshness**: ACZ synchronizes changes incrementally after the initial snapshot. New and updated Open Subsurface Data Universe (OSDU) records appear in ADLS Gen2 and show through Fabric shortcuts with no extra steps.
 - **Cross-tenant access**: If your Fabric tenant and ADLS Gen2 account are in different Microsoft Entra tenants, use a service principal or SAS token for authentication. See [ADLS Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
 
 ## Related content
