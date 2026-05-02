@@ -58,8 +58,9 @@ ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
 > If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. To reuse an existing identity:
-> - Note the **Object (principal) ID** from the managed identity's **Overview** page. You need this Object ID in Step 4.
-> - Skip Steps 2-4 (the identity already exists, is assigned to ADME, and is in the entitlement group).
+> - Note the **Object (principal) ID** from the managed identity's **Overview** page (you may need this for troubleshooting).
+> - Skip Step 3 (the identity already exists and is already assigned to ADME).
+> - Still complete Step 4 to verify YOU have entitlement group access to call ACZ APIs.
 > - Complete Step 5 to grant the identity **Storage Blob Data Contributor** permissions on your ACZ destination storage account.
 
 If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
@@ -92,7 +93,7 @@ Before proceeding, ensure you have saved the managed identity's **Resource ID** 
 If you created a new managed identity in Step 2, assign it to your ADME instance.
 
 > [!NOTE]
-> If you reuse an existing managed identity from CMEK or EDS, skip this step and Step 4 (the identity is already assigned and in the entitlement group). Proceed to Step 5.
+> If you reuse an existing managed identity from CMEK or EDS, skip this step (the identity is already assigned to ADME). Proceed to Step 4 to verify you have entitlement group access.
 
 Use the Azure Management API to update your ADME instance with the managed identity:
 
