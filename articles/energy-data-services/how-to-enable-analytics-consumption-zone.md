@@ -27,11 +27,10 @@ Complete the following one-time setup tasks to enable ACZ on your ADME instance.
 |------|------|-------------|
 | 1 | Create or use existing ADLS Gen2 storage account | Required for ACZ destination |
 | 2 | Create or use existing managed identity | Skip if reusing CMEK/EDS identity |
-| 2.5 | Record managed identity Resource ID | Never skip - required for Step 6 |
 | 3 | Assign managed identity to ADME | Skip if reusing CMEK/EDS identity |
 | 4 | Verify user has entitlement group access | Required to call ACZ APIs |
 | 5 | Grant managed identity storage permissions | Required for ACZ to write data |
-| 6 | Share managed identity details with Microsoft | Preview requirement |
+| 6 | Share managed identity and ADME instance details with Microsoft | Preview requirement |
 
 ## Prerequisites
 
