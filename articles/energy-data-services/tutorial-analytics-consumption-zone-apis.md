@@ -33,10 +33,7 @@ In this tutorial, you learn how to:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance in your Azure subscription.
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
-- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled.
-- A user-assigned managed identity that:
-  - Is assigned to your ADME instance. See [How to use managed identity](how-to-use-managed-identity.md).
-  - Has **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account.
+- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where your Azure Data Manager for Energy (ADME) instance's managed identity has **Storage Blob Data Contributor** role.
 - Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
 - cURL installed on your machine.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
@@ -105,7 +102,7 @@ curl --request POST \
 | `sink.storageId` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account. |
 | `sink.basePath` | string | No | Base path within the storage account for ACZ data output. |
 | `configuration` | object | Yes | Entity filter configuration. |
-| `configuration.catalogKinds` | string[] | No | OSDU catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
+| `configuration.catalogKinds` | string[] | No | Open Subsurface Data Universe (OSDU) catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
 | `configuration.wellboreDDMSKinds` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
 
 > [!NOTE]
@@ -141,7 +138,7 @@ curl --request POST \
 }
 ```
 
-After you create the ACZ, it enters `ACTIVE` status and begins the historical snapshot with `PROCESSING` state. Use the Get ACZ API to check the status.
+After you create the ACZ, it begins the historical snapshot with `PROCESSING` state. Use the Get ACZ API to check the status.
 
 ## List ACZs
 
@@ -153,6 +150,7 @@ Use the List ACZs API to get all Analytics Consumption Zones in a data partition
 curl --request GET \
   --url https://{base_url}/api/acz/v1/aczs \
   --header 'Authorization: Bearer {access_token}' \
+  --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
 
@@ -191,7 +189,7 @@ curl --request GET \
 }
 ```
 
-The response lists all ACZs in any status: `PROVISIONING`, `ACTIVE`, `FAILED`, `ACCESS_DENIED`, or `DELETING`.
+The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED`.
 
 ## Get ACZ details
 
@@ -203,6 +201,7 @@ Use the Get ACZ API to get details for a specific ACZ.
 curl --request GET \
   --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
   --header 'Authorization: Bearer {access_token}' \
+  --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
 
@@ -253,6 +252,7 @@ Use the Delete ACZ API to remove an ACZ configuration.
 curl --request DELETE \
   --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
   --header 'Authorization: Bearer {access_token}' \
+  --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
 
@@ -275,8 +275,8 @@ The ACZ APIs return these error codes:
 
 ## Related content
 
+- [ACZ API Swagger documentation](https://aczinfradint2.energy.azure.com/api/acz/v1/docs)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
-- [ACZ API Swagger documentation](https://aczinfradint2.energy.azure.com/api/acz/v1/docs)
 
