@@ -102,7 +102,7 @@ curl --request PUT \
 
 | Placeholder | Description |
 |---|---|
-| `{subscription-id}` | Your Azure subscription ID |
+| `{subscription-id}` | Subscription ID where ADME resides |
 | `{resource-group}` | The resource group containing your ADME instance |
 | `{adme-instance-name}` | Your ADME instance name |
 | `{management-api-token}` | Azure Management API access token. See [Get access token](/rest/api/azure/#acquire-an-access-token) |
