@@ -66,7 +66,7 @@ An ADLS Gen2 shortcut makes ACZ data available in your Fabric lakehouse without 
 
 6. Select **Next**.
 7. Browse to the `<aczId>/osducatalog/` folder in your container. The `aczId` is the identifier from your ACZ creation (for example, `acz-8a0aa7433085`).
-8. Select the catalog entity folders you want to add as shortcuts (for example, `master-data--Well`, `master-data--Field`).
+8. Select **osducatalog** to add as a shortcut for catalog data.
 9. Select **Next** to review your selections.
 10. Select **Create**.
 
@@ -87,13 +87,13 @@ After you create the shortcuts, query ACZ data from the SQL analytics endpoint:
 ```sql
 -- Count records by entity type
 SELECT kind, COUNT(*) AS record_count
-FROM [EnergyDataLakehouse].[dbo].[master-data--Well]
+FROM [EnergyDataLakehouse].[dbo].[osducatalog]
 GROUP BY kind
 ORDER BY record_count DESC
 
 -- Query record details
 SELECT *
-FROM [EnergyDataLakehouse].[dbo].[master-data--Well]
+FROM [EnergyDataLakehouse].[dbo].[osducatalog]
 LIMIT 100
 ```
 
@@ -106,7 +106,7 @@ For advanced analytics, use a Fabric notebook:
 
 ```python
 # Read data from ACZ shortcut
-df = spark.read.format("delta").load("Tables/master-data--Well")
+df = spark.read.format("delta").load("Tables/osducatalog")
 
 # Display schema
 df.printSchema()
@@ -127,7 +127,7 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 #### Create a semantic model
 
 1. In your Fabric lakehouse, select the **Tables** folder in the explorer pane.
-1. Verify that the ACZ catalog tables (for example, `master-data--Well`, `master-data--Field`) appear in the table list.
+1. Verify that the ACZ catalog table (`osducatalog`) appears in the table list.
 1. On the top ribbon, select **New semantic model**.
 1. Enter a name for the semantic model (for example, `ACZ Energy Data`).
 1. Select the ACZ tables you want to include in the model, then select **Confirm**.
@@ -150,7 +150,6 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 ## Considerations
 
 - **Data freshness**: ACZ synchronizes changes incrementally after the initial snapshot. New and updated OSDU records appear in ADLS Gen2 and show through Fabric shortcuts with no extra steps.
-- **Schema evolution**: If the OSDU schema changes, the Delta Parquet files reflect those changes. To see schema updates, refresh your lakehouse metadata.
 - **Cross-tenant access**: If your Fabric tenant and ADLS Gen2 account are in different Microsoft Entra tenants, use a service principal or SAS token for authentication. See [ADLS Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
 
 ## Related content
