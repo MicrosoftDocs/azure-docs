@@ -113,12 +113,6 @@ curl --request PUT \
 | `{rg}` | Resource group where the managed identity resides |
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
-**To get the Management API access token**, use Azure CLI:
-
-```bash
-TOKEN=$(az account get-access-token --resource "https://management.core.windows.net/" --query accessToken -o tsv)
-```
-
 > [!IMPORTANT]
 > - If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
 > - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.

@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance in your Azure subscription.
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
-- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where your Azure Data Manager for Energy (ADME) instance's managed identity has **Storage Blob Data Contributor** role.
+- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where managed identity allow listed for ACZ operations has **Storage Blob Data Contributor** role.
 - Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
 - cURL installed on your machine.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
