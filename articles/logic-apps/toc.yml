@@ -1,10 +1,12 @@
 items:
-- name: Azure Logic Apps documentation
+- name: Logic Apps documentation
   href: index.yml
 - name: Overview
   items:
   - name: About Azure Logic Apps
     href: logic-apps-overview.md
+  - name: About Logic Apps Automation
+    href: automation/introduction.md
 - name: Quickstarts
   expanded: true
   items:
@@ -38,6 +40,11 @@ items:
       href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
+  - name: Automation dynamic workflows
+    expanded: true
+    items:
+    - name: Create dynamic workflows
+      href: automation/quickstart-create-dynamic-workflows.md 
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
