@@ -64,24 +64,12 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 2. Select **+ Create**.
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
-5. After creation, open the managed identity and note the **Object (principal) ID** from the **Overview** page. You need this Object ID value in Step 4.
 
 > [!TIP]
 > You'll also need the managed identity's **Resource ID** in Step 6. While you're on the managed identity page, select **Settings** > **Properties** and copy the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). Save this value for later.
 
 > [!NOTE]
 > The managed identity is used by the ACZ service to write data to your ADLS Gen2 storage account. It is NOT used for calling ACZ APIs—you (the user) need to be in the entitlement group for that (see Step 4).
-
-## Step 2.5: Record the managed identity Resource ID
-
-Before proceeding, ensure you have saved the managed identity's **Resource ID** from Step 2. This full Azure Resource ID is required in Step 6 to complete the ACZ enablement process.
-
-**To find the Resource ID:**
-
-1. In the [Azure portal](https://portal.azure.com/), navigate to your managed identity.
-2. Select **Settings** > **Properties** from the left menu.
-3. Copy the **Resource ID** value (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`).
-4. Save this value in a secure location—you'll provide it to Microsoft in Step 6.
 
 ## Step 3: Assign the managed identity to your ADME instance
 
