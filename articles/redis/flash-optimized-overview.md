@@ -48,60 +48,9 @@ Common use cases include:
 
 ## Region availability
 
-The Flash Optimized tier is available in the following Azure regions:
+Azure Managed Redis Flash Optimized is available in a subset of Azure regions where the required NVMe-equipped compute is deployed. The Flash Optimized tier is continually expanding into new regions.
 
-| Region |
-|--------|
-| Australia Central |
-| Australia Central 2 |
-| Australia East |
-| Austria East |
-| Belgium Central |
-| Brazil South |
-| Brazil Southeast |
-| Canada Central |
-| Canada East |
-| Central India |
-| Central US |
-| Chile Central |
-| Denmark East |
-| East US |
-| East US 2 |
-| France Central |
-| France South |
-| Germany North |
-| Germany West Central |
-| Indonesia Central |
-| Israel Central |
-| Italy North |
-| Japan West |
-| Jio India Central |
-| Jio India West |
-| Korea Central |
-| Korea South |
-| Malaysia West |
-| Mexico Central |
-| New Zealand North |
-| North Central US |
-| North Europe |
-| Norway East |
-| Norway West |
-| Poland Central |
-| South Africa North |
-| South Africa West |
-| Spain Central |
-| Sweden Central |
-| Switzerland North |
-| Switzerland West |
-| UAE North |
-| UK South |
-| West Central US |
-| West Europe |
-| West US |
-| West US 2 |
-| West US 3 |
-
-For the latest region availability, see [Azure products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
+To check the current availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## SKU sizes
 
