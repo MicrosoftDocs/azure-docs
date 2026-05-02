@@ -1787,6 +1787,8 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.yml": "Azure Logic Apps",
+        "articles/logic-apps/automation/*.md": "Azure Logic Apps",
+        "articles/logic-apps/automation/*.yml": "Azure Logic Apps",
         "articles/logic-apps/enterprise-connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/enterprise-integration/*.md": "Azure Logic Apps",
         "articles/logic-apps/rules-engine/*.md": "Azure Logic Apps",
