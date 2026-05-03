@@ -53,7 +53,7 @@ A deployment that uses delta updates must include:
 
 Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk - devices that can't use the delta path still install the full update.
 
-For step-by-step instructions on generating and importing delta updates, see [Use delta updates with Azure Device Update for IoT Hub](use-delta-updates.md).
+For step-by-step instructions on generating and importing delta updates, see [Deploy delta updates with Azure Device Update for IoT Hub](deploy-delta-updates.md).
 
 ### Per-device evaluation
 
@@ -115,4 +115,4 @@ For example, a deployment targets **v3** and includes a **v1 → v3** delta, a *
 
 To generate and deploy delta updates, see:
 
-- [Use delta updates with Azure Device Update for IoT Hub](use-delta-updates.md)
+- [Deploy delta updates with Azure Device Update for IoT Hub](deploy-delta-updates.md)
