@@ -23,7 +23,7 @@ This article describes how to generate, configure, import, and deploy delta upda
 - An IoT device or simulator provisioned for Device Update with **agent version 1.3 or later**. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
 - Source and target update files in **SWUpdate (SWU) format**, with a raw image inside. The Microsoft reference sample uses the **Ext4** filesystem, but **Ext2** and **Ext3** are also supported.
 
-# Configure the device
+## Configure the device
 
 To apply delta updates, the device needs the Device Update agent with a compatible update handler and the delta processor extension installed. The following sections describe how to set up each component.
 
@@ -140,7 +140,7 @@ Before running DiffGen, install the following on your build machine:
 | Dependency       | Where to get it | How to install |
 |----------------|-----------------|----------------|
 | DiffGen tool   | [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta) | Download the version that matches your OS and architecture |
-| .NET runtime   | Package manager or terminal | See [Install .NET on Linux](https://learn.microsoft.com/dotnet/core/install/linux). Only the runtime is required. |
+| .NET runtime   | Package manager or terminal | See [Install .NET on Linux](/dotnet/core/install/linux). Only the runtime is required. |
 
 
 ### Option 2: Use DiffGen from a Yocto build
