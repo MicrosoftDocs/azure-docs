@@ -6,7 +6,7 @@ ms.author: cwatson
 ms.date: 02/14/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
-ms.subservice: device-update
+ms.topic: how-to
 ---
 
 # Deploy delta updates to devices
