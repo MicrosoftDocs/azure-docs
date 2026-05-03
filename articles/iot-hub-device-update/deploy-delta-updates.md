@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Deploy delta updates to devices
 
-This article describes how to generate, configure, import, and deploy delta updates by using Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
+This article shows how to generate delta update files, import them into Azure Device Update for IoT Hub, and deploy them to devices. Delta files can be generated either by using the DiffGen tool or as part of a Yocto-based build. For an overview, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
 
 > [!NOTE]
 > Delta updates are available starting with Device Update agent version 1.3 or later.
@@ -20,7 +20,7 @@ This article describes how to generate, configure, import, and deploy delta upda
 ## Prerequisites
 
 - An Azure Device Update for IoT Hub account and instance.
-- An IoT device or simulator provisioned for Device Update with **agent version 1.3 or later**. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
+- An IoT device or simulator provisioned for Device Update with agent version 1.3 or later. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
 - Source and target update files in **SWUpdate (SWU) format**, with a raw image inside. The Microsoft reference sample uses the **Ext4** filesystem, but **Ext2** and **Ext3** are also supported.
 
 ## Configure the device
@@ -112,16 +112,17 @@ Where:
 | `/`           | `_2F`          |
 | `=`           | `_3D`          |
 
-## Generate a delta update
+## Generate a delta update file
 
-Generate delta updates by using the **DiffGen** tool, a Microsoft-provided reference tool that runs on a build machine.
+Generate delta update files by using DiffGen, a Microsoft-provided reference tool that runs on a build machine.
 
 DiffGen takes a source SWU file and a target SWU file as inputs, recompresses the target by using gzip, and produces a delta update file that contains only the differences between the two.
 
-There are two ways to obtain the DiffGen tool:
+There are two ways to generate delta update files:
 
 - **Option 1:** Download and run DiffGen on a build machine  
-- **Option 2:** Use the tools generated as part of a Yocto build  
+- **Option 2:** Use delta generation tools from a Yocto build
+
 
 ### Option 1: Download and run DiffGen manually
 
