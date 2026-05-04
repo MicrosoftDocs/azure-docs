@@ -2257,7 +2257,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | services / privateEndpointConnectionProxies | No | No |
 > | services / privateEndpointConnections | No | No |
 > | services / privateLinkResources | No | No |
-> | validateMedtechMappings | No | No |
 > | workspaces | Yes | Yes |
 > | workspaces / analyticsconnectors | Yes | Yes |
 > | workspaces / dicomservices | Yes | Yes |

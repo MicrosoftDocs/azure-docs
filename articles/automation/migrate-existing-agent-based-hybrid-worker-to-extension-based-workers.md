@@ -3,7 +3,7 @@ title: Migrate existing agent-based hybrid workers to extension-based-workers in
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/05/2026
+ms.date: 04/24/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
@@ -127,7 +127,7 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
-[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 #### [Bicep file](#tab/bicep-file)
 

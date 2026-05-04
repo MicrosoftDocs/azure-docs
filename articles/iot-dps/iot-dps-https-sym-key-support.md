@@ -239,7 +239,7 @@ To learn more about using SAS tokens with DPS and their structure, see [Control 
   
 ## Register your device
 
-You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) REST API to provision your device through DPS.
+You call the [Register Device](/rest/api/iot-dps/data-plane/runtime-registration/register-device) REST API to provision your device through DPS.
 
 Use the following curl command:
 
@@ -286,7 +286,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 {"operationId":"5.316aac5bdc130deb.b1e02da8-c3a0-4ff2-a121-7ea7a6b7f550","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups) REST API to determine when your device is assigned or whether a failure occurs.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you poll for status using the [Operation Status Lookup](/rest/api/iot-dps/data-plane/runtime-registration/operation-status-lookup) REST API to determine when your device is assigned or whether a failure occurs.
 
 The valid status values for DPS are:
 

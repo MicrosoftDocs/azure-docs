@@ -616,11 +616,11 @@ Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, and CVE-2026-32280.
 Security improvements.
 - Released: May 2026
 - Kubernetes: 1.36+
-- Gatekeeper: 3.22.0
+- Gatekeeper: 3.22.1
 
-##### Gatekeeper 3.22.0
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
 
 #### 1.15.5
 Security improvements.

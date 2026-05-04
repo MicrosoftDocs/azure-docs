@@ -18,13 +18,13 @@ Azure IoT Operations provides two ways to process and route data: **data flows**
 
 ## What are data flows?
 
-A [data flow](overview-dataflow.md) is a simple, linear pipeline that moves data from a source to a destination with optional transformations. The transformation stage runs three operations in a fixed order: enrich, filter, then map. You configure a data flow by creating a `Dataflow` custom resource.
+A [data flow](overview-dataflow.md) is a simple, linear pipeline that moves data from a source to a destination with optional transformations. The transformation stage runs three operations in a fixed order: enrich, filter, then map. You configure a data flow by using the operations experience web UI, the Azure CLI, or Azure Resource Manager templates.
 
 Data flows are generally available and support all endpoint types.
 
 ## What are data flow graphs?
 
-A [data flow graph](concept-dataflow-graphs.md) is a composable, graph-based pipeline that connects multiple transforms in any topology you define. You can chain, branch, and merge processing steps. Each transform is a pre-built processing unit (map, filter, branch, window, enrichment) that you configure with rules. You configure a data flow graph by creating a `DataflowGraph` custom resource.
+A [data flow graph](concept-dataflow-graphs.md) is a composable, graph-based pipeline that connects multiple transforms in any topology you define. You can chain, branch, and merge processing steps. Each transform is a pre-built processing unit (map, filter, branch, window, enrichment) that you configure with rules. You configure a data flow graph by using the operations experience web UI, the Azure CLI, or Azure Resource Manager templates.
 
 Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 

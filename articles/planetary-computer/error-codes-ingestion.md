@@ -1,8 +1,8 @@
 ---
 title: Ingestion error codes for Microsoft Planetary Computer Pro
 description: Learn how to troubleshoot ingestion errors when adding geospatial data to your Microsoft Planetary Computer Pro GeoCatalog.
-author: prasadko
-ms.author: prasadkomma
+author: aloverro
+ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: error-reference
 ms.date: 06/16/2025

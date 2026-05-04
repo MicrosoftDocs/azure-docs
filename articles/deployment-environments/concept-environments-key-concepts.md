@@ -1,5 +1,5 @@
 ---
-title: Key Concepts and Roles
+title: Key concepts and roles
 titleSuffix: Azure Deployment Environments
 description: Learn the key concepts, role definitions, features, and terminology for Azure Deployment Environments.
 ms.service: azure-deployment-environments
@@ -47,7 +47,7 @@ An environment is a collection of Azure resources on which your application is d
 
 ## Identities
 
-In Deployment Environments, you use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
+In Deployment Environments, you use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to provide elevation-of-privilege capabilities. Identities can help you provide self-serve capabilities to your development teams without giving them access to the target subscriptions in which the Azure resources are created. 
 
 The managed identity attached to the dev center or project needs to be granted appropriate access to connect to the catalogs. You should grant Contributor and User Access Administrator access to the target deployment subscriptions that are configured at the project level. Deployment Environments uses the specific managed identity to perform the deployment on behalf of the developer.
 

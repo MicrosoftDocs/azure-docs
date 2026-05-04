@@ -72,23 +72,14 @@ For more information and considerations related to capacity management, see [Und
 
 3. You can apply filters for **Quota Target**, **Quota Type**, and **% Used** to view a specific subset of the quota report.
 
-	> [!IMPORTANT]
-	> When using the quota target filter, you must first select a quota type value. The quota target is dependent on the quota type and can't be applied independently.
+> [!IMPORTANT]
+> When using the quota target filter, you must first select a quota type value. The quota target is dependent on the quota type and can't be applied independently.
 
-	> [!NOTE]
-	> You can add a new quota only for derived quotas. You can only edit non-derived quotas.
-
-4. You can edit individual user/group quota rules for a quota target directly from the report. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**.
-
-	> [!NOTE]
-	> This option is not available for derived quotas or quota targets from default user or default group quota rules.
-
+4. You can edit individual user/group quota rules for a quota target directly from the report. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**. This option is not available for derived quotas or quota targets from the default user or default group quota rules.
+	
 ![Screenshot that shows the edit option for non-derived quotas.](./media/manage-default-individual-user-group-quotas/edit-report-quota.png) 
 
-5. You can add individual user/group quota rules from derived quotes in the report. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row then **Add**.
-
-	> [!NOTE]
-	> This option is only available for derived quotas or quota targets that are subject to a default user or default group quota rule.
+5. You can add individual user/group quota rules from derived quotes in the report. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row then **Add**. This option is only available for derived quotas or quota targets that are subject to a default user or default group quota rule.
 
 ![Screenshot that shows the add option for derived quotas.](./media/manage-default-individual-user-group-quotas/add-derived-quota.png) 
 

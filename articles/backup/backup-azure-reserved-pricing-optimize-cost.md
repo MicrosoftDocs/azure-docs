@@ -4,6 +4,7 @@ description: This article explains about how to optimize costs for Azure Backup 
 ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/15/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-mallicka

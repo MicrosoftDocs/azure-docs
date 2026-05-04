@@ -118,7 +118,7 @@ If you want to define applications at scale, you can select **Import> Import app
 3. In the exported CSV, you can add names of the applications, a workload is a part of. You can add more than one name if the workload is shared amongst multiple applications. For instance, if a database- "SQLDB01" is shared by 2 applications, then you can add- "App01, App02" under Application name column in the same row. 
 
     >[!Note]
-    > The **Application name(s)** are case-sensitive. The application name also allows for alphanumeric and special characters except `','` and `'\'`. You can add applications in multiple import operations but it is recommended to not trigger multiple import operations in parallel. 
+    > The **Application name(s)** are case-sensitive. The application name also allows for alphanumeric and special characters except `','` and `'\'`. In each import operation, you can add up to 500 workloads per application and 200 applications. To import more applications, run multiple import operations with up to 200 applications per operation.
 
 4. After adding the application names to the file, you can browse and select the CSV file. 
 5. If the selected file passes the validation checks, you can select **Import** to upload the details of the applications, as added in the CSV file.
