@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 # Use external tables with Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage (ADLS). 
 
 You can use external tables to read data from files or write data to files in Azure Storage. With Azure Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.

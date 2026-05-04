@@ -1,20 +1,20 @@
 ---
-title: HTTP features in Durable Functions - Azure Functions
-description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
+title: "HTTP Features in Durable Functions - Azure Functions"
+description: Discover how to use HTTP APIs, async operation tracking, and managed identities in Durable Functions for Azure Functions. Start building durable HTTP workflows today.
 author: cgillum
 ms.topic: feature-guide
 ms.service: azure-functions
-ms.date: 11/11/2024
+ms.date: 04/22/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ---
 
-# HTTP Features
+# HTTP features in Durable Functions
 
 Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
 
-## Exposing HTTP APIs
+## Expose HTTP APIs
 
 Orchestrations and entities can be invoked and managed using HTTP requests. The Durable Functions extension exposes built-in HTTP APIs. It also provides APIs for interacting with orchestrations and entities from within HTTP-triggered functions.
 
@@ -247,7 +247,7 @@ This protocol allows coordination of long-running processes with external client
 
 For more information on how to manage orchestrations and entities using client APIs, see the [Instance management article](../../durable-task/common/durable-task-instance-management.md).
 
-## Consuming HTTP APIs
+## Consume HTTP APIs
 
 As described in the [orchestrator code constraints](../../durable-task/common/durable-task-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activities](../../durable-task/common/programming-model-overview.md#activities) that do I/O operations.
 

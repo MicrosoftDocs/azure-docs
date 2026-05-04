@@ -13,6 +13,8 @@ ms.author: stefanazaric
 
 # Connect to serverless SQL pool with Power BI Professional
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 > [!div class="op_single_selector"]
 > - [Power BI](get-started-power-bi-professional.md)
 > - [Visual Studio](../sql/get-started-visual-studio.md)

@@ -35,7 +35,7 @@ Availability zone configuration for Azure Functions depends on your [Functions h
 > [!IMPORTANT]  
 > Before configuring zone redundancy, review the requirements and details listed in [Reliability in Azure Functions - Resilience to availability zone failures](/azure/reliability/reliability-functions?pivots=premium#resilience-to-availability-zone-failures).
 > 
-> You can only enable availability zones in the plan when you create your app. You can't convert an existing Premium plan to use availability zones.
+> You can enable or disable availability zones on existing Elastic Premium plans using the Azure CLI. See [Enable zone redundancy on an existing plan](#enable-zone-redundancy-on-an-existing-plan) for important details about Elastic Premium-specific capacity behavior.
 
 ::: zone-end
 
@@ -253,7 +253,7 @@ You can use a [Bicep file](/azure/azure-resource-manager/bicep/quickstart-create
 The only properties to be aware of while creating a zone-redundant hosting plan are the `zoneRedundant` property and the plan's instance count (`capacity`) fields. The `zoneRedundant` property must be set to `true` and the `capacity` property should be set based on the workload requirement, but not less than `3`. Choosing the right capacity varies based on several factors and high availability / fault tolerance strategies. A good rule of thumb is to specify sufficient instances for the application to ensure that losing one zone instance leaves sufficient capacity to handle expected load.
 
 > [!IMPORTANT]
-> Azure Functions apps hosted on an Elastic Premium, zone-redundant plan must have a minimum [always ready instance](/azure/azure-functions/functions-premium-plan#always-ready-instances) count of 3. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
+> Azure Functions apps hosted on an Elastic Premium, zone-redundant plan must have a minimum [always ready instance](/azure/azure-functions/functions-premium-plan#always-ready-instances) count of 2. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
 
 Following is a Bicep template snippet for a zone-redundant, Premium plan. It shows the `zoneRedundant` field and the `capacity` specification.
 
@@ -293,7 +293,7 @@ You can use an [ARM template](/azure/azure-resource-manager/templates/quickstart
 The only properties to be aware of while creating a zone-redundant hosting plan are the `zoneRedundant` property and the plan's instance count (`capacity`) fields. The `zoneRedundant` property must be set to `true` and the `capacity` property should be set based on the workload requirement, but not less than `3`. Choosing the right capacity varies based on several factors and high availability / fault tolerance strategies. A good rule of thumb is to specify sufficient instances for the application to ensure that losing one zone instance leaves sufficient capacity to handle expected load.
 
 > [!IMPORTANT]
-> Azure Functions apps hosted on an Elastic Premium, zone-redundant plan must have a minimum [always ready instance](/azure/azure-functions/functions-premium-plan#always-ready-instances) count of 3. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
+> Azure Functions apps hosted on an Elastic Premium, zone-redundant plan must have a minimum [always ready instance](/azure/azure-functions/functions-premium-plan#always-ready-instances) count of 2. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
 
 Following is an ARM template snippet for a zone-redundant, Premium plan. It shows the `zoneRedundant` field and the `capacity` specification.
 
@@ -446,24 +446,199 @@ In this template, replace `<YOUR_PLAN_NAME>` and `<YOUR_REGION_NAME>` with the n
 
 ::: zone pivot="premium-plan"
 
-You can't change the availability zone support of an existing Elastic Premium plan. Instead, you need to migrate to a new zone-redundant plan.
+You can enable or disable zone redundancy on existing Elastic Premium plans using the Azure CLI. The `zoneRedundant` property is mutable for Elastic Premium plans, allowing you to toggle availability zone support without creating a new plan.
 
-### Downtime
+> [!IMPORTANT]
+> Elastic Premium plans capacity behavior differs from Dedicated (App Service) plans. In Elastic Premium, the plan's instance count (`sku.capacity`) is **derived from the app level**, not set directly on the plan. Each function app in the plan has a `minimumElasticInstanceCount` property (always-ready instances), and the control plane automatically sets the plan's `sku.capacity` to the **highest `minimumElasticInstanceCount` across all apps** in the plan. 
+>
+> When enabling zone redundancy, you must update **both** the plan-level `zoneRedundant` property to `true` and `sku.capacity` to `2` **and** the app-level `minimumElasticInstanceCount` to at least 2 on each function app that you want to be zone redundant. Setting in the plan update command alone does not enforce a minimum of 2 instances.
 
-The downtime required for this migration depends on how you redirect traffic during the migration to your new availability zone-enabled function app:
+#### [Azure portal](#tab/azure-portal)
 
-- Consider HTTP-based functions that use an [Application Gateway](/azure/app-service/networking/app-gateway-with-service-endpoints), [custom domain](/azure/app-service/app-service-web-tutorial-custom-domain), or [Azure Front Door](/azure/frontdoor/front-door-overview). In this case, downtime depends on how long it takes to update those respective services with the new app information.
-- You might also be routing traffic to multiple apps at the same time using a service such as [Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager). In this scenario, you can only fully switch to the new zone-redundant app after everything is deployed and tested fully.
-- For message-based functions, you should [write defensive functions](/azure/azure-functions/performance-reliability#write-defensive-functions) to ensure messages aren't lost during the migration.
+Portal support for toggling availability zone redundancy on existing Elastic Premium plans is not yet available. Use the Azure CLI tab for the current supported workflow.
 
-### Migration steps
+#### [Azure CLI](#tab/azure-cli)
 
-To enable an existing Premium plan function app to use availability zones, redeploy your project files to a new function app hosted in a zone-redundant Premium plan. Follow these steps:
+Follow these steps to enable zone redundancy on an existing Elastic Premium plan:
 
-1. If you're already hosted in a Premium plan in a supported region, you can reuse your existing resource group and skip to the next step. Otherwise, create a new resource group in a supported region. For a list of regions that support zone redundancy for Azure Functions Premium plans, see [Reliability in Azure Functions - Resilience to availability zone failures - Requirements](/azure/reliability/reliability-functions#requirements).
-1. Create a zone-redundant Premium plan in a supported region.
-1. Create a function app in the new Premium plan and deploy your project code to this new app using your desired [deployment method](functions-deployment-technologies.md).
-1. After the new app is up and running successfully, you can optionally disable or delete the nonzonal app.
+1. Enable zone redundancy on the plan:
+
+    ```azurecli
+    az appservice plan update \
+      --resource-group <RESOURCE_GROUP> \
+      --name <PLAN_NAME> \
+      --set zoneRedundant=true sku.capacity=2
+    ```
+
+    > [!NOTE]
+    > The `sku.capacity=2` parameter in this command sets the intended minimum, but it is not enforced until you complete step 2.
+
+1. Update always-ready instances to at least 2 for each function app that needs to be zone zone redundant in the plan:
+
+    ```azurecli
+    az functionapp update \
+      --resource-group <RESOURCE_GROUP> \
+      --name <APP_NAME> \
+      --set siteConfig.minimumElasticInstanceCount=2
+    ```
+
+    The plan's actual `sku.capacity` will update to reflect the highest `minimumElasticInstanceCount` across all apps.
+
+To disable zone redundancy on an existing plan:
+
+```azurecli
+az appservice plan update \
+  --resource-group <RESOURCE_GROUP> \
+  --name <PLAN_NAME> \
+  --set zoneRedundant=false
+```
+
+After disabling zone redundancy, you can optionally reduce `minimumElasticInstanceCount` back to 1 on your function apps if desired.
+
+#### [Bicep template](#tab/bicep)
+
+You can update an existing Elastic Premium plan to be zone-redundant using Bicep templates. The following example shows how to enable zone redundancy:
+
+```bicep
+resource EPFuncPlan 'Microsoft.Web/serverfarms@2024-04-01' existing = {
+  name: '<YOUR_PLAN_NAME>'
+}
+
+resource EPFuncPlanUpdate 'Microsoft.Web/serverfarms@2024-04-01' = {
+  name: EPFuncPlan.name
+  location: EPFuncPlan.location
+  sku: {
+    name: 'EP1'
+    tier: 'ElasticPremium'
+    size: 'EP1'
+    family: 'EP'
+    capacity: 2
+  }
+  kind: 'elastic'
+  properties: {
+    perSiteScaling: false
+    elasticScaleEnabled: true
+    maximumElasticWorkerCount: 20
+    isSpot: false
+    reserved: false
+    isXenon: false
+    hyperV: false
+    targetWorkerCount: 0
+    targetWorkerSizeId: 0
+    zoneRedundant: true
+  }
+}
+
+resource FunctionApp 'Microsoft.Web/sites@2024-04-01' = {
+  name: '<YOUR_APP_NAME>'
+  location: EPFuncPlan.location
+  kind: 'functionapp'
+  properties: {
+    serverFarmId: EPFuncPlan.id
+    siteConfig: {
+      minimumElasticInstanceCount: 2
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Remember to update the `minimumElasticInstanceCount` property to at least 2 on all function apps in the plan to ensure zone redundancy requirements are met.
+
+#### [ARM template](#tab/arm-template)
+
+You can update an existing Elastic Premium plan to be zone-redundant using ARM templates. The following example shows how to enable zone redundancy:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2024-04-01",
+      "name": "<YOUR_PLAN_NAME>",
+      "location": "<YOUR_REGION_NAME>",
+      "sku": {
+        "name": "EP1",
+        "tier": "ElasticPremium",
+        "size": "EP1",
+        "family": "EP",
+        "capacity": 2
+      },
+      ...
+      "properties": {
+        ...
+        "zoneRedundant": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2024-04-01",
+      "name": "<YOUR_APP_NAME>",
+      "location": "<YOUR_REGION_NAME>",
+      "kind": "functionapp",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', '<YOUR_PLAN_NAME>')]",
+        "siteConfig": {
+          "minimumElasticInstanceCount": 2
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', '<YOUR_PLAN_NAME>')]"
+      ]
+    }
+  ]
+}
+```
+
+> [!NOTE]
+> Remember to update the `minimumElasticInstanceCount` property to at least 2 on all function apps in the plan to ensure zone redundancy requirements are met.
+
+---
+
+### Verify instance zone placement
+
+After enabling zone redundancy, you can verify that your function app instances are distributed across availability zones.
+
+In the Azure portal, navigate to your function app in the Azure portal. Under **Settings**, select **Instances**. The **Instances** page shows each running instance and the availability zone it's placed in.
+
+Using the Azure CLI, use the following commands to query instance zone placement:
+
+```azurecli-interactive
+RESOURCE_ID=$(az functionapp show \
+  --resource-group <RESOURCE_GROUP> \
+  --name <APP_NAME> \
+  --query id -o tsv)
+
+az rest \
+  --method get \
+  --url "${RESOURCE_ID}/instances?api-version=2024-04-01" \
+  --query "value[].{machineName:properties.machineName, physicalZone:properties.physicalZone}" \
+  -o table
+```
+
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and function app, respectively.
+
+Example output:
+
+```output
+MachineName     PhysicalZone
+--------------  --------------
+pl1sdlwk0002Q7  westus3-az3
+pl0sdlwk0002HP  westus3-az1
+```
+
+In the output:
+- `machineName` is the internal name of the worker instance
+- `physicalZone` shows the actual availability zone the instance is placed in (format: `{region}-az{N}`)
+- For a zone-redundant plan with 2+ instances, you should see instances distributed across different zones
+
+### Troubleshooting
+
+If zone redundancy is not working as expected after following these steps, review the [Common Issues and Solutions](https://techcommunity.microsoft.com/blog/appsonazureblog/deep-dive-on-availability-zones-in-azure-app-service/4433526) section in the deep dive blog post on Availability Zones in Azure App Service. While the blog post focuses on App Service plans, many troubleshooting steps apply to Elastic Premium plans as well.
+
+---
 
 ::: zone-end
 

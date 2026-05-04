@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 01/29/2026
+ms.date: 04/30/2026
 ms.author: danlep
 ---
 
@@ -11,7 +11,7 @@ ms.author: danlep
 
 If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you must meet these requirements:
 
-- You must use the API Management instance's system-assigned managed identity to access the key vault.
+- You **must** use the API Management instance's system-assigned managed identity to access the key vault. You can't use a user-assigned identity for access from API Management. 
 
 - In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option: 
 

@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 01/12/2026
 ms.custom:
   - sfi-image-nochange
 
@@ -727,10 +727,15 @@ For a full list of these settings, see [Broker Listener CertManagerCertificateSp
 
 #### Verify deployment
 
-Use kubectl to check that the service associated with the BrokerListener resource is running. From the preceding example, the service name is `aio-broker-loadbalancer-tls` and the namespace is `azure-iot-operations`. The following command checks the service status:
+Use **kubectl** to check that the service associated with the BrokerListener resource is running. From the preceding example, the service name is `aio-broker-loadbalancer-tls` and the namespace is `azure-iot-operations`. The following command checks the service status:
 
-```console 
+```bash
 $ kubectl get service my-new-tls-listener -n azure-iot-operations
+```
+
+The output should look similar to the following example:
+
+```output
 NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 aio-broker-loadbalancer-tls    LoadBalancer   10.X.X.X        172.X.X.X     8884:32457/TCP   33s
 ```

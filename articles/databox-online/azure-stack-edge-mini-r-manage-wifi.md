@@ -2,12 +2,12 @@
 title: Azure Stack Edge Mini R Wi-Fi management
 description: Describes how to use the Azure portal to manage Wi-Fi on your Azure Stack Edge.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/10/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Use the local web UI to manage wireless connectivity on your Azure Stack Edge Mini R

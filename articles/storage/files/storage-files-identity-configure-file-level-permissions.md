@@ -17,13 +17,18 @@ Before you can configure directory-level and file-level permissions, you must [a
 
 ## Prerequisites
 
-If you want to configure Windows ACLs for [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) and the identity source for your storage account is Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos, you need a client machine running Windows that has unimpeded network connectivity to on-premises Active Directory.
+Consult the following table to determine which tool can be used to configure ACLs for which authentication type.
 
-If the identity source for your storage account is Microsoft Entra Domain Services, you need a client machine running Windows that has unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages. These domain controllers are located in Azure.
+| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only, preview) |
+|---------------------------------|:------------------------:|:------------------------------:|:------------------------:|:------------------------------------:|
+| Windows File Explorer           | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
+| icacls                          | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
+| Azure portal                    | ⛔ | ⛔       | :heavy_check_mark:       | :heavy_check_mark:                   |
+| PowerShell (RestSetAcls module) | ⛔ | ⛔       | :heavy_check_mark:       | :heavy_check_mark:                   |
 
-If your identity source is Microsoft Entra Kerberos and you want to configure Windows ACLs for cloud-only identities (preview), there's no dependency on domain controllers, but the client device must be joined to Microsoft Entra ID.
+To configure ACLs by using Windows File Explorer or icacls, you need a client machine running Windows. You also need to mount the file share with admin-level access. If the identity source for your storage account is Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos, this machine must have unimpeded network connectivity to an on-premises Active Directory. If the identity source is Microsoft Entra Domain Services, the machine must have unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages; these domain controllers are located in Azure.
 
-Before you can configure Windows ACLs, you need to mount the file share with admin-level access.
+To use the Azure portal or the PowerShell `RestSetAcls` module, there's no dependency on domain controllers. However, the identities must be hybrid or cloud-only (preview). For `RestSetAcls`, you need a client machine running Windows.
 
 ## How Azure RBAC and Windows ACLs work together
 
@@ -74,7 +79,9 @@ For more information on these permissions, see the [command-line reference for i
 
 ## Mount the file share with admin-level access
 
-Before you configure Windows ACLs, mount the file share with admin-level access. You can take two approaches:
+Before you configure Windows ACLs by using File Explorer or icacls, mount the file share with admin-level access. If you'll configure ACLs by using the Azure portal or the `RestSetAcls` PowerShell module, skip this section and proceed to [Configure Windows ACLs by using the Azure portal](#configure-windows-acls-by-using-the-azure-portal) or [Configure Windows ACLs for cloud-only identities by using PowerShell](#configure-windows-acls-for-cloud-only-identities-by-using-powershell).
+
+You have two options for mounting the file share with admin-level access:
 
 - **Use the Windows permission model for SMB admin (recommended)**: Assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users who will configure ACLs. Then mount the file share by using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. If an existing ACL on a file or directory denies the admin access, the admin can use the Windows `takeown` command to take ownership of the file or directory and then modify the ACL. This approach is more secure because it doesn't require your storage account key to mount the file share.
 
@@ -134,7 +141,7 @@ The process for configuring Windows ACLs varies depending on whether you're auth
 
 - For cloud-only identities (preview), you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
 
-- For hybrid identities, you can configure Windows ACLs by using icacls, or you can use Windows File Explorer. You can also use the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command.
+- For hybrid identities, you can configure Windows ACLs by using icacls, or you can use Windows File Explorer. If the identity source for your storage account is Microsoft Entra Kerberos, you can also use the Azure portal or `RestSetAcls` PowerShell module.
 
   If you have directories or files in on-premises file servers with Windows ACLs configured against the AD DS identities, you can copy them over to Azure Files while preserving the ACLs by using traditional file copy tools like Robocopy or the latest version of [Azure AzCopy](https://github.com/Azure/azure-storage-azcopy/releases). If you tier directories and files to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
@@ -142,45 +149,6 @@ The process for configuring Windows ACLs varies depending on whether you're auth
 > If you're using Microsoft Entra Kerberos to authenticate hybrid identities, the hybrid identities must be synced to Microsoft Entra ID for ACLs to be enforced.
 >
 > You can set file-level and directory-level ACLs for identities that aren't synced to Microsoft Entra ID. However, these ACLs aren't enforced because the Kerberos ticket used for authentication and authorization doesn't contain the not-synced identities. If you're using on-premises AD DS as your identity source, you can include not-synced identities in the ACLs. AD DS puts those security identifiers (SIDs) in the Kerberos ticket, and ACLs are enforced.
-
-### Configure Windows ACLs by using the Azure portal
-
-If you configure Entra Kerberos as your identity source, you can configure Windows ACLs for each Entra user or group by using the Azure portal. This method works for both hybrid and cloud-only identities only when Entra Kerberos is used as the identity source.
-
-1. Sign in to the Azure portal by using this specific URL: [https://aka.ms/portal/fileperms](https://aka.ms/portal/fileperms).
-
-1. Go to the file share where you want to configure Windows ACLs.
-
-1. On the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
-
-   :::image type="content" source="media/configure-file-level-permissions/set-root-access.png" alt-text="Screenshot of the Azure portal that shows how to manage access for the root folder of a file share." lightbox="media/configure-file-level-permissions/set-root-access.png" border="true":::
-
-1. To set an ACL for a file or directory, right-click the file or directory, and then select **Manage access**.
-
-   :::image type="content" source="media/configure-file-level-permissions/manage-access.png" alt-text="Screenshot of the Azure portal that shows how to set Windows ACLs for a file or directory." lightbox="media/configure-file-level-permissions/manage-access.png" border="true":::
-
-1. The pane shows the available users and groups. You can optionally add a new user or group. Select the pencil icon at the far right of any user or group to add or edit permissions for the user or group to access the specified file or directory.
-
-   :::image type="content" source="media/configure-file-level-permissions/users-and-groups.png" alt-text="Screenshot of the Azure portal that shows a list of Entra users and groups." lightbox="media/configure-file-level-permissions/users-and-groups.png" border="true":::
-
-1. Edit the permissions. **Deny** always takes precedence over **Allow** when both are set. When neither is set, default permissions are inherited.
-
-   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal that shows how to add or edit permissions for an Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
-
-1. Select **Save** to set the ACL.
-
-### Configure Windows ACLs for cloud-only identities by using PowerShell
-
-If you need to assign ACLs in bulk to cloud-only users, use the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/) to automate the process by using the Azure Files REST API.
-
-For example, if you want to set a root ACL that gives the cloud-only user `testUser@contoso.com` read access:
-
-```powershell
-$AccountName = "<storage-account-name>" # replace with the storage account name 
-$AccountKey = "<storage-account-key>" # replace with the storage account key 
-$context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
-Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
-```
 
 ### Configure Windows ACLs by using icacls
 
@@ -221,6 +189,45 @@ To configure ACLs by using Windows File Explorer, follow these steps:
 1. On the **Security** tab, select all permissions you want to grant your new user.
 
 1. Select **Apply**.
+
+### Configure Windows ACLs by using the Azure portal
+
+If you configure Microsoft Entra Kerberos as the identity source for your storage account, you can configure Windows ACLs for each Entra user or group by using the Azure portal. This method works for both hybrid and cloud-only identities only when Microsoft Entra Kerberos is the identity source.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Go to the file share where you want to configure Windows ACLs.
+
+1. On the service menu, select **Browse**. If you want to set an ACL at the root folder, select **Manage access** from the top menu.
+
+   :::image type="content" source="media/configure-file-level-permissions/set-root-access.png" alt-text="Screenshot of the Azure portal that shows how to manage access for the root folder of a file share." lightbox="media/configure-file-level-permissions/set-root-access.png" border="true":::
+
+1. To set an ACL for a file or directory, right-click the file or directory, and then select **Manage access**.
+
+   :::image type="content" source="media/configure-file-level-permissions/manage-access.png" alt-text="Screenshot of the Azure portal that shows how to set Windows ACLs for a file or directory." lightbox="media/configure-file-level-permissions/manage-access.png" border="true":::
+
+1. The pane shows the available users and groups. You can optionally add a new user or group. Select the pencil icon at the far right of any user or group to add or edit permissions for the user or group to access the specified file or directory.
+
+   :::image type="content" source="media/configure-file-level-permissions/users-and-groups.png" alt-text="Screenshot of the Azure portal that shows a list of Entra users and groups." lightbox="media/configure-file-level-permissions/users-and-groups.png" border="true":::
+
+1. Edit the permissions. **Deny** always takes precedence over **Allow** when both are set. When neither is set, default permissions are inherited.
+
+   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal that shows how to add or edit permissions for an Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
+
+1. Select **Save** to set the ACL.
+
+### Configure Windows ACLs for cloud-only identities by using PowerShell
+
+If you need to assign ACLs in bulk to cloud-only users, use the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/) to automate the process by using the Azure Files REST API. This module doesn't require network connectivity to Active Directory.
+
+For example, if you want to set a root ACL that gives the cloud-only user `testUser@contoso.com` read access:
+
+```powershell
+$AccountName = "<storage-account-name>" # replace with the storage account name 
+$AccountKey = "<storage-account-key>" # replace with the storage account key 
+$context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
+Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
+```
 
 ## Next step
 

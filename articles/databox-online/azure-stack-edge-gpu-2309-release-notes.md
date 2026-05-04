@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2309 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2309 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 10/26/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2309 release notes

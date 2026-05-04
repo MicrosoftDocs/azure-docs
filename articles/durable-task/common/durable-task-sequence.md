@@ -1,10 +1,10 @@
 ---
-title: Function chaining
-description: Learn how to run a sample that executes a sequence of functions using Durable Functions or Durable Task SDKs.
+title: "Function Chaining Pattern: Durable Functions and Durable Task SDKs"
+description: "Learn how to implement the function chaining pattern to execute a sequence of activities using Durable Functions or Durable Task SDKs. Get started with code samples."
 author: hhunter-ms
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 02/04/2026
+ms.date: 04/22/2026
 ms.author: hannahhunter
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
@@ -12,7 +12,7 @@ ms.custom: devx-track-js, devx-track-python
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Function chaining
+# Function chaining pattern
 
 ::: zone pivot="durable-functions"
 
@@ -28,7 +28,7 @@ Function chaining is a pattern where you run a sequence of activities in order. 
 
 ::: zone-end
 
-## Functions
+## Functions in the chaining sample
 
 ::: zone pivot="durable-functions"
 
@@ -50,7 +50,7 @@ This article describes these components in the sample app:
 
 ::: zone-end
 
-## Orchestrator
+## Orchestrator function code
 
 ::: zone pivot="durable-functions"
 
@@ -281,7 +281,7 @@ In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context
 
 ::: zone-end
 
-## Activity
+## Activity function code
 
 ::: zone pivot="durable-functions"
 
@@ -513,7 +513,7 @@ Register each activity with the worker builder by using `addActivity`. Activitie
 
 ::: zone-end
 
-## Client
+## Client code to start the orchestration
 
 ::: zone pivot="durable-functions"
 
@@ -710,7 +710,7 @@ Create the `DurableTaskClient` by using a connection string. Use `scheduleNewOrc
 
 ::: zone-end
 
-## Run the sample
+## Run the function chaining sample
 
 ::: zone pivot="durable-functions"
 

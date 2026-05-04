@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 04/16/2026
 ai-usage: ai-assisted
 
 ---
@@ -182,13 +182,85 @@ For the full list of operators and functions, see [Expressions reference](concep
 
 You can configure a filter transform to validate incoming messages against a JSON schema before filter rules run. Messages that don't conform to the schema are dropped immediately.
 
-To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the dataflow source's `schemaRef` setting.
+To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the filter node).
+
+# [Operations experience](#tab/portal)
+
+The filter transform configuration includes a **Validate schema** checkbox. However, the Operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+
+# [Bicep](#tab/bicep)
+
+Include `validateSchema` in the filter rules JSON and configure `schemaRef` on the incoming node connection:
+
+```bicep
+nodes: [
+  {
+    nodeType: 'Graph'
+    name: 'schema-filter'
+    graphSettings: {
+      registryEndpointRef: 'default'
+      artifact: 'azureiotoperations/graph-dataflow-filter:1.0.0'
+      configuration: [
+        {
+          key: 'rules'
+          value: '{"version":"1.0.0","validateSchema":true,"filter":[]}'
+        }
+      ]
+    }
+  }
+]
+nodeConnections: [
+  {
+    from: {
+      name: 'sensors'
+      schema: {
+        schemaRef: 'aio-sr://my-namespace/sensor-schema:1'
+        serializationFormat: 'Json'
+      }
+    }
+    to: { name: 'schema-filter' }
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+nodes:
+  - nodeType: Graph
+    name: schema-filter
+    graphSettings:
+      registryEndpointRef: default
+      artifact: azureiotoperations/graph-dataflow-filter:1.0.0
+      configuration:
+        - key: rules
+          value: |
+            {
+              "version": "1.0.0",
+              "validateSchema": true,
+              "filter": []
+            }
+
+nodeConnections:
+  - from:
+      name: sensors
+      schema:
+        schemaRef: "aio-sr://my-namespace/sensor-schema:1"
+        serializationFormat: Json
+    to:
+      name: schema-filter
+```
+
+---
 
 Guidelines:
 
 - Use only one validating filter per pipeline.
 - Place the validating filter first so that invalid messages are dropped before other processing.
 - Filter rules still apply after schema validation passes. If you only need schema validation, leave the filter rules empty.
+- The `schemaRef` must point to a schema in the schema registry. The `serializationFormat` specifies the schema format (for example, `Json`).
 
 To learn about configuring schemas, see [Understand message schemas](concept-schema-registry.md).
 

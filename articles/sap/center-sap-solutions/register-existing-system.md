@@ -4,7 +4,7 @@ description: Learn how to register an existing SAP system in Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/11/2026
+ms.date: 04/22/2026
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
@@ -19,7 +19,7 @@ In this how-to guide, you learn how to register an existing SAP system with *Azu
 - Get recommendations for your SAP infrastructure, operating system (OS) configurations, etc. based on quality checks that evaluate best practices for SAP on Azure.
 - Get health and status information about your SAP system.
 - Start and Stop SAP application tier.
-- Start and Stop individual instances of Advanced Business Application Programming Central Services (ASCS), App server, and HANA Database.
+- Start and Stop individual instances of Advanced Business Application Programming SAP Central Services (ASCS), App server, and HANA Database.
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 - View Cost Analysis for the SAP system.
 

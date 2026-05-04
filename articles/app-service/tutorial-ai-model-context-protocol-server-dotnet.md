@@ -152,7 +152,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     });
     ```
 
-    When you [use streamable HTTP with the MCP server](https://mcp-framework.com/docs/Transports/http-stream-transport/), you need to enable Cross-Origin Resource Sharing (CORS) if you want to test it with client browser tools or GitHub Copilot (both in Visual Studio Code and in GitHub Codespaces).
+    When you [use streamable HTTP with the MCP server](https://www.mcp-framework.com/docs/transports/http-stream), you need to enable Cross-Origin Resource Sharing (CORS) if you want to test it with client browser tools or GitHub Copilot (both in Visual Studio Code and in GitHub Codespaces).
 
 1. In *Program.cs*, enable the MCP and CORS middleware.
 

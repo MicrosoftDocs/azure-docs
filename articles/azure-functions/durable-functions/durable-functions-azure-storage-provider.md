@@ -1,11 +1,11 @@
 ---
-title: Azure Storage provider for Durable Functions
+title: "Azure Storage Provider for Durable Functions"
 titleSuffix: Durable Task
-description: Learn about the characteristics of the Durable Functions Azure Storage provider.
+description: "Learn how the Azure Storage provider for Durable Functions stores state using queues, tables, and blobs. Configure and optimize your orchestration performance."
 author: cgillum
 reviewer: hhunter-ms
 ms.topic: concept-article
-ms.date: 01/14/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 ms.service: azure-functions
 ms.subservice: durable
@@ -26,7 +26,7 @@ Let's explore how these Azure Storage components work together and impact your a
 > [!NOTE]
 > [Explore other supported storage providers based on your specific needs.](../../durable-task/common/durable-task-storage-providers.md).
 
-## Storage representation
+## Azure Storage representation in a task hub
 
 A [task hub](../../durable-task/common/durable-task-hubs.md) durably persists all instance states and all messages. For a quick overview of how the task hub tracks orchestration progress, see the [task hub execution example](../../durable-task/common/durable-task-hubs.md#execution-example).
 
@@ -44,18 +44,18 @@ When you create a task hub, the Azure Storage provider sets up these components 
 
 For example, if you name your task hub `xyz` and set `PartitionCount = 4`, you see these queues and tables:
 
-:::image type="content" source="./media/durable-functions-task-hubs/azure-storage.png" alt-text="Diagram showing Azure Storage provider storage organization for four control queues.":::
+:::image type="content" source="./media/durable-functions-task-hubs/azure-storage.png" alt-text="Screenshot of Azure Storage provider task hub organization showing four control queues, tables, and blob containers.":::
 
 Let's look at each component and understand what role it plays.
 
-- [History table](#history-table)(`xyzHistory`)
-- [Instances table](#instances-table)(`xyzInstances`)
-- [Partitions table](#partitions-table)
+- [History table](#history-table-for-orchestration-events)(`xyzHistory`)
+- [Instances table](#instances-table-for-orchestration-and-entity-status)(`xyzInstances`)
+- [Partitions table](#partitions-table-for-worker-distribution)
 - [Work items queue](#work-item-queue)(`xyz-workitems`)
 - [Control queues](#control-queues)(`xyz-control-00`, `xyz-control-01`, `xyz-control-02`, `xyz-control-03`)
 - [Blobs and blob leases](#blobs)(`xyz-largemessages`, `xyz-applease`, `xyz-leases`)
 
-### History table
+### History table for orchestration events
 
 The **History** table is an Azure Storage table that contains the history events for all orchestration instances data within your task hub, including output payloads from activity and suborchestrator functions, and payloads from external events. The table name follows the format `<TaskHubName>History`. As your instances run, new rows are added to this table. In this table:
 - The *partition key* derives from the orchestration's instance ID. By default, instance IDs are random, ensuring optimal distribution of internal partitions in Azure Storage. 
@@ -68,7 +68,7 @@ Potentially, this approach creates significant memory pressure on a virtual mach
 - Shrinking the size of outputs returned by your activity and suborchestrator functions. 
 - Lowering your per-virtual machine [concurrency throttles](durable-functions-perf-and-scale.md#concurrency-throttles) to limit how many orchestrations can concurrently load into memory.
 
-### Instances table
+### Instances table for orchestration and entity status
 
 The **Instances** table contains the statuses of all orchestration and entity instances within a task hub. As you create instances, new rows get added to this table. In this table:
 - The *partition key* is either the orchestration instance ID or entity key.
@@ -76,9 +76,9 @@ The **Instances** table contains the statuses of all orchestration and entity in
 
 The instance table satisfies [instance query requests from code](../../durable-task/common/durable-task-instance-management.md#query-instances) and [status query HTTP API](durable-functions-http-api.md#get-instance-status) calls. It stays eventually consistent with the contents of the **History** table. This separation of concerns follows the [Command and Query Responsibility Segregation (CQRS) pattern](/azure/architecture/patterns/cqrs), which efficiently handles instance query operations.
 
-The Instances table's partitioning lets you store millions of orchestration instances without any noticeable impact on runtime performance or scale. However, the number of instances can significantly impact your [multi-instance query](../../durable-task/common/durable-task-instance-management.md#query-all-instances) performance. To control how much data these tables store, consider periodically [purging old instance data](../../durable-task/common/durable-task-instance-management.md#purge-instance-history).
+The Instances table's partitioning lets you store millions of orchestration instances without any noticeable impact on runtime performance or scale. However, the number of instances can significantly impact your [multi-instance query](../../durable-task/common/durable-task-instance-management.md#query-all-orchestration-instances) performance. To control how much data these tables store, consider periodically [purging old instance data](../../durable-task/common/durable-task-instance-management.md#purge-orchestration-instance-history).
 
-### Partitions table
+### Partitions table for worker distribution
 
 > [!NOTE]
 > This table is only visible in your task hub when you enable `Table Partition Manager`. To use it, configure the `useTablePartitionManagement` setting in your app's [host.json](durable-functions-host-json-settings.md).
@@ -163,7 +163,7 @@ As a result, persisting large data payloads can cause high memory usage. To mini
 
 Storing payloads to local disks is *not* recommended, since on-disk state isn't guaranteed to be available. Functions may execute on different virtual machines throughout their lifetimes.
 
-## Configuring the Azure storage provider
+## Configure the Azure Storage provider
 
 The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of [Durable Functions host.json configuration options](durable-functions-host-json-settings.md) under the `extensions/durableTask/storageProvider` path.
 
@@ -346,7 +346,7 @@ Extended sessions affect orchestrator and entity functions differently. Let's ex
 
 ### Orchestrator function replay
 
-As mentioned earlier, the system replays orchestrator functions using the contents of [the History table](#history-table). By default, your orchestrator function code replays every time a batch of messages are dequeued from a control queue. Even if you're using the fan-out/fan-in pattern and awaiting all tasks to complete, replays occur as batches of task responses are processed over time. When you enable extended sessions, orchestrator function instances stay in memory longer and new messages can be processed without a full history replay.
+As mentioned earlier, the system replays orchestrator functions using the contents of [the History table](#history-table-for-orchestration-events). By default, your orchestrator function code replays every time a batch of messages are dequeued from a control queue. Even if you're using the fan-out/fan-in pattern and awaiting all tasks to complete, replays occur as batches of task responses are processed over time. When you enable extended sessions, orchestrator function instances stay in memory longer and new messages can be processed without a full history replay.
 
 Most often, you can observe the performance improvement of extended sessions when:
 
@@ -392,15 +392,20 @@ You should follow these performance recommendations when you host Durable Functi
 - Set the [always ready instance count](../flex-consumption-how-to.md#set-always-ready-instance-counts) for the `durable` group to `1`. This setting ensures you always have one instance ready to handle Durable Functions related requests, reducing your application's cold start. 
 - Reduce the [queue polling interval](#queue-polling) to 10 seconds or less. Since this plan type is more sensitive to queue polling delays, lowering the polling interval helps increase the frequency of polling operations, ensuring requests are handled faster. However, more frequent polling operations lead to higher Azure Storage account costs.
 
-## High throughput processing
+## High-throughput processing with the Durable Task Scheduler
 
-The Azure Storage backend architecture puts certain limitations on the maximum theoretical performance and scalability of Durable Functions. If your testing shows that Durable Functions on Azure Storage doesn't meet your throughput requirements, you should consider using the [Netherite storage provider for Durable Functions](../../durable-task/common/durable-task-storage-providers.md#netherite) instead.
+The Azure Storage backend architecture puts certain limitations on the maximum theoretical performance and scalability of Durable Functions. If your testing shows that Durable Functions on Azure Storage doesn't meet your throughput requirements, consider switching to the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md), the recommended storage provider for Durable Functions.
 
-[Compare the achievable throughput for various basic scenarios](https://microsoft.github.io/durabletask-netherite/#/scenarios).
+The Durable Task Scheduler is a fully managed Azure service purpose-built for Durable Task workloads. Compared to the Azure Storage provider, the Durable Task Scheduler offers:
 
-The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput increased by more than an order of magnitude when compared to the default Azure Storage provider.
+- **Lower latency** through push-based work item streaming via gRPC, which eliminates the need for queue polling.
+- **Reduced resource consumption** with no separate storage account to provision or manage.
+- **Built-in monitoring** via the [Durable Task Scheduler dashboard](../../durable-task/scheduler/durable-task-scheduler-dashboard.md) for filtering, inspecting, and managing orchestration instances.
+- **Automatic cleanup** with configurable autopurge retention policies for stale orchestration data.
 
-For more information on the supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md) documentation.
+Existing Durable Functions apps can migrate to the Durable Task Scheduler with no code changes. To get started, see [Quickstart: Create a Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md).
+
+For more information on all supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md) documentation.
 
 ## Next steps
 
