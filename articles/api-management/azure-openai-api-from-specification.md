@@ -31,9 +31,6 @@ Learn more about managing LLM APIs in API Management:
 
 * [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
-  > [!NOTE]
-  > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) support certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-in-microsoft-foundry-models).
-
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).

@@ -25,8 +25,6 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
-          - text: Dev Box and Windows 365
-            url: dev-box-windows-365-announcement.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
 
@@ -137,8 +135,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable guest user access (preview)
-            url: how-to-enable-guest-access.md
           - text: Configure conditional access policies
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box

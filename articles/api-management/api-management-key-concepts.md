@@ -127,12 +127,13 @@ API Management is offered in various pricing tiers to meet the needs of differen
 - [Understanding API Management limits](service-limits.md)
 - [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/)
 
-## Integration with Azure services
+## Integration with Microsoft services
 
-API Management integrates with many complementary Azure services to create enterprise solutions, including:
+API Management integrates with many complementary Microsoft and Azure services to create enterprise solutions, including:
 
 - **[Azure API Center](../api-center/overview.md)** to build a complete inventory of APIs​ in the organization - regardless of their type, lifecycle stage, or deployment location​ - for API discovery, reuse, and governance
 - **[Azure Copilot](/azure/copilot/overview)** to help author API Management policies or explain already configured policies​
+- **[Microsoft Foundry](azure-ai-foundry-api.md)** to govern AI model endpoints deployed in Microsoft Foundry as APIs.
 - **[Azure Key Vault](/azure/key-vault/general/overview)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 - **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
 - **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
@@ -141,7 +142,7 @@ API Management integrates with many complementary Azure services to create enter
 - **Microsoft Entra ID** for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 - **[Event Hubs](api-management-howto-log-event-hubs.md)** for streaming events​
 - **[Azure Redis](api-management-howto-cache-external.md)** for caching responses​ with Azure Cache for Redis or Azure Managed Redis​
-- Several Azure compute offerings commonly used to build and host APIs on Azure, including **[Functions](import-function-app-as-api.md)**, **[Logic Apps](import-logic-app-as-api.md)**, **[Web Apps](import-app-service-as-api.md)**, **[Service Fabric](how-to-configure-service-fabric-backend.yml)**, and others including **[Azure OpenAI](azure-openai-api-from-specification.md)** service.​
+- Several Azure compute offerings commonly used to build and host APIs on Azure, including **[Functions](import-function-app-as-api.md)**, **[Logic Apps](import-logic-app-as-api.md)**, **[Web Apps](import-app-service-as-api.md)**, **[Service Fabric](how-to-configure-service-fabric-backend.yml)**, and others.​
 - Azure database offerings, including [Azure Cosmos DB](cosmosdb-data-source-policy.md), enabling direct CRUD (Create, Read, Update, Delete) operations without requiring intermediate compute resources.
 
 **More information**:

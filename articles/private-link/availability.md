@@ -75,6 +75,9 @@ The following tables list the Private Link services and the regions where they'r
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](/azure/mariadb/concepts-data-access-security-private-link)      |
 | Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](../azure-cache-for-redis/cache-private-link.md) |
 
+> [!NOTE]
+> Azure Cache for Redis is being retired in September 2028. New cache creation will be unavailable starting April 2026. We recommend migrating to [Azure Managed Redis](/azure/azure-cache-for-redis/retirement-faq).
+
 ### Integration
 
 |Supported services  |Available regions | Other considerations | Status  |

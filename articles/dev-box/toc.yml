@@ -6,12 +6,9 @@ items:
       - name: What is Microsoft Dev Box?
         href: overview-what-is-microsoft-dev-box.md
         displayName: DevBox, VDI
-      - name: Roadmap for Microsoft Dev Box
+      - name: Dev Box maintenance mode
         href: dev-box-roadmap.md
-        displayName: roadmap, future, features, enhancements, coming soon, in development
-      - name: Windows 365 adds Microsoft Dev Box capabilities
-        href: dev-box-windows-365-announcement.md
-        displayName: Windows 365, announcement, news
+        displayName: roadmap, maintenance mode, Windows 365, transition
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template
@@ -128,9 +125,6 @@ items:
       - name: Manage project access
         href: how-to-manage-dev-box-access.md
         displayName: project access, RBAC, roles, permissions
-      - name: Enable guest user access
-        href: how-to-enable-guest-access.md
-        displayName: guest, external users, cross-tenant, B2B, preview
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes

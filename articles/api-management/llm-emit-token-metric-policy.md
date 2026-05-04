@@ -102,7 +102,6 @@ The following example sends LLM token count metrics to Application Insights alon
 
 * [Logging](api-management-policies.md#logging)
 * [emit-metric](emit-metric-policy.md) policy
-* [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) policy
 * [llm-token-limit](llm-token-limit-policy.md) policy 
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

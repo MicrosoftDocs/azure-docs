@@ -13,6 +13,8 @@ ms.date: 02/23/2025
 
 # Quickstart: Configure Microsoft Dev Box by using an ARM template
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 This quickstart describes how to use an Azure Resource Manager (ARM) template to set up the Microsoft Dev Box Service in Azure. 
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
@@ -86,14 +88,14 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 
 - *User Principal ID*: The user principal ID of the user or group that is granted the *Devcenter Dev Box User* role.
 - *User Principal Type*: The type of user principal. Valid values are *User* or *Group*.
-- *Location*: The location where the resources are deployed. Choose a location close to the dev boxes users to reduce latency.
+- *Location*: The location where the resources are deployed. To reduce latency, choose a location close to the dev box users.
 
 Alternatively, you can provide access to a dev box project in the Azure portal. For more information, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
 
 ### Virtual network considerations
 
 - **Security:** 
-Planning for a Microsoft Dev Box deployment covers many areas, including securing the virtual network (VNet). For more information, see [Azure network security overview](../security/fundamentals/network-overview.md).
+Planning for a Microsoft Dev Box deployment covers many areas, including securing the virtual network. For more information, see [Azure network security overview](../security/fundamentals/network-overview.md).
 
 - **NIC resource group:**
 Microsoft Dev Box automatically creates a resource group for each network connection, which holds the network interface cards (NICs) that use the virtual network assigned to the network connection. The resource group has a fixed name based on the name and region of the network connection. You can't change the name of the resource group, or specify an existing resource group.
@@ -116,12 +118,12 @@ Go to the Azure portal, select the resource group that contains the resources, a
 
 To find more templates that are related to Microsoft Dev Box, see [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter).
 
-For example, you can use a template to [add other customized images for Base, Java, .NET and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
+For example, you can use a template to [add other customized images for Base, Java, .NET, and Data](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter/devbox-with-customized-image#add-other-customized-image-for-base-java-net-and-data). These images have the following software and tools installed:
 
 
 |Image type  |Software and tools  |
 |---------|---------|
-|Base     |Git, Azure CLI, VS Code, VS Code Extension for GitHub Copilot |
+|Base     |Git, Azure CLI, Visual Studio (VS) Code, VS Code Extension for GitHub Copilot |
 |Java     |Git, Azure CLI, VS Code, Maven, OpenJdk11, VS Code Extension for Java Pack |
 |.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio |
 |Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter |

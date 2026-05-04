@@ -117,7 +117,7 @@ For a detailed example, see [Add caching to improve performance in Azure API Man
 
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * To cache items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
-* Learn how to [enable semantic caching for Azure OpenAI APIs](azure-openai-enable-semantic-caching.md).
+* Learn how to [enable semantic caching for LLM APIs](azure-openai-enable-semantic-caching.md).
 
 [API Management policy reference]: ./api-management-policies.md
 [Caching policies]: ./api-management-policies.md#caching

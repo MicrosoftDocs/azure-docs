@@ -684,7 +684,7 @@ The following functions are only available in policy rules:
       "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
       "definitionReferenceId": "StorageAccountNetworkACLs"
     }
-```
+    ```
 
 - `ipRangeContains(range, targetRange)`
   - `range`: [Required] string - String specifying a range of IP addresses to check if the _targetRange_ is within.

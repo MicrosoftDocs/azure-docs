@@ -7,4 +7,7 @@ ms.service: dev-box
 ---
 
 > [!NOTE]
-> Microsoft Dev Box supports work and school accounts and guest accounts (preview). It doesn't support the use of personal accounts. For more information about configuring guest access, see [Enable guest user access to dev boxes](../how-to-enable-guest-access.md).
+> Microsoft Dev Box supports work and school accounts. It doesn't support the use of personal accounts.
+
+> [!IMPORTANT]
+> Guest account access (preview) has been retired and is no longer available. Microsoft Dev Box no longer supports guest user access via Microsoft Entra B2B collaboration.

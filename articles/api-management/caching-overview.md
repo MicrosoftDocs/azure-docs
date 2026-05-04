@@ -88,7 +88,6 @@ Configure caching policies to control how API responses are cached and retrieved
 |----------|-------------|-------|
 | [cache-lookup](cache-lookup-policy.md) / [cache-store](cache-store-policy.md) | - Retrieve a response from the cache<br>- Store a response in the cache request | - Use for retrieving a complete API response from the cache for an identical `GET` request |
 | [cache-lookup-value](cache-lookup-value-policy.md) / [cache-store-value](cache-store-value-policy.md) | - Retrieve a specific value from the cache<br>- Store a specific value in the cache  | - Use for custom caching scenarios with specific cache keys |
-| [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) / [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) | - Check if a semantically similar response exists in the cache for an Azure OpenAI API request <br>- Store a response for an Azure OpenAI API request | - Use for retrieving similar responses to Azure OpenAI Chat Completion API requests |
 | [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) / [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) | - Check if a semantically similar response exists in the cache for an LLM API request<br>- Store a response for an LLM API request | - Use for retrieving similar responses to LLM Chat Completion API requests |
 
 

@@ -16,6 +16,9 @@ Several Azure Managed Grafana dashboards, including [GitHub Copilot](https://por
 
 This guide walks through the end-to-end ingestion pipeline: running an OpenTelemetry Collector with the Azure Monitor Exporter, then pointing each source application at it.
 
+> [!NOTE]
+> The OpenTelemetry Collector (including the `contrib` distribution) and the [Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) are open-source components. Support for these components is provided exclusively through community channels. To submit bug reports, request new features, or report other issues, create a new issue in the [opentelemetry-collector-contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib/issues) repository. Microsoft Azure Support covers the Azure services in this pipeline: Application Insights, Log Analytics, and Azure Managed Grafana.
+
 ## Architecture
 
 ```
@@ -37,6 +40,9 @@ This guide walks through the end-to-end ingestion pipeline: running an OpenTelem
 ## Run the OpenTelemetry Collector
 
 Deploy an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) (the `contrib` distribution) configured with the [Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter). The collector is what bridges OTLP to the Application Insights ingestion API.
+
+> [!NOTE]
+> Azure Monitor also supports native OTLP ingestion as an alternative to the path shown in this guide. The dashboards work with either path because data lands in the same Application Insights / Log Analytics tables. For more information, see [Ingest OTLP data into Azure Monitor with the OpenTelemetry Collector (Preview)](/azure/azure-monitor/containers/opentelemetry-protocol-ingestion).
 
 ### Get the Application Insights connection string
 
@@ -210,10 +216,15 @@ Each dashboard has its own import and variables reference:
 
 All three require **Grafana 11.6+** with an **Azure Monitor data source** that has access to the subscription containing your Application Insights resource.
 
+> [!TIP]
+> These dashboards are also available natively in the Azure portal as Azure Monitor dashboards with Grafana, with no separate Azure Managed Grafana instance required. For more information, see [Use Azure Monitor dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards).
+
 ## Related content
 
 - [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/)
 - [Azure Monitor Exporter for the OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter)
+- [Ingest OTLP data into Azure Monitor with the OpenTelemetry Collector (Preview)](/azure/azure-monitor/containers/opentelemetry-protocol-ingestion)
+- [Use Azure Monitor dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards)
 - [Application Insights connection strings](/azure/azure-monitor/app/sdk-connection-string)
 - [Monitoring GitHub Copilot agents](https://code.visualstudio.com/docs/copilot/guides/monitoring-agents)
 - [Monitoring Claude Code usage](https://code.claude.com/docs/en/monitoring-usage)

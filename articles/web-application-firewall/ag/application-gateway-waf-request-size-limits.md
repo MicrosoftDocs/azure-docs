@@ -16,9 +16,6 @@ ms.date: 02/25/2026
 
 Web Application Firewall allows you to configure request size limits within a lower and upper boundary. Application Gateways Web Application Firewalls running Core Rule Set 3.2 or later have more request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
 
-> [!IMPORTANT]
-> We are in the process of deploying a new feature for Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2 or later that allows for greater control of your request body size, file upload size, and request body inspection. If you're running Application Gateway v2 Web Application Firewall with Core Rule Set 3.2 or later, and you notice requests getting rejected (or not getting rejected) for a size limit,  refer to the [troubleshooting](#troubleshooting) steps in this article.
-
 ## Limits
 
 The request body size field and the file upload size limit are both configurable within the Web Application Firewall. The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. The file upload limit field is specified in megabytes and it governs the maximum allowed file upload size. For the request size limits and file upload size limit, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
@@ -29,7 +26,7 @@ Only requests with Content-Type of *multipart/form-data* are considered for file
 
 
 >[!NOTE]
->If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading the full request first.
+>If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization lets the Web Application Firewall run high priority custom rules that don't require reading the full request first.
 >
 >**Example:** If you have a custom rule with priority 0 (the highest priority) set to allow a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get allowed before the max size limit is enforced
 

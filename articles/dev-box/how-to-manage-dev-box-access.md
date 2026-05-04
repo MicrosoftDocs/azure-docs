@@ -113,10 +113,6 @@ Users can now view the project and all pools within it. Dev box users can create
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 
-
-> [!TIP]
-> To grant access to users from other Microsoft Entra tenants, see [Enable guest user access to dev boxes](how-to-enable-guest-access.md).
-
 ## Troubleshooting
 
 - Role assignment propagation can take a minute; refresh the portal and wait a short time before retrying.

@@ -13,7 +13,9 @@ ms.topic: how-to
 
 # Manage a Microsoft Dev Box dev center
 
-Development teams can vary in their functions and needs. A Microsoft Dev Box dev center helps you manage different scenarios by grouping and applying the same settings to similar projects.
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
+Development teams can vary in their functions and needs.A Microsoft Dev Box dev center helps you manage different scenarios by grouping and applying the same settings to similar projects.
 
 You can create as many dev centers as you need, depending on how you organize and manage your development teams. You can delete dev centers and create new ones to support organizational changes, new business requirements, or new regional centers.
 
