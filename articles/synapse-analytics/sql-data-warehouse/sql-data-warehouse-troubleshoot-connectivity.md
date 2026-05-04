@@ -16,6 +16,8 @@ ms.custom:
 
 # Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article lists common troubleshooting techniques around connecting to your dedicated SQL pool database (formerly SQL DW).
 
 ## Check service availability

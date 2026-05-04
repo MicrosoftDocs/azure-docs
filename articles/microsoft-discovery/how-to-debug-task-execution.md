@@ -50,7 +50,7 @@ The required chat model for task validation might not be deployed.
 
 **How to check**: Verify that your workspace has a chat model deployment named `gpt-5-2` (model: `gpt-5.2`).
 
-**How to fix**: Deploy the model (see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment)), then enable Discovery Mode.
+**How to fix**: Deploy the model (see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment)), then enable Discovery Mode.
 
 ### Cognition is busy with other tasks
 
