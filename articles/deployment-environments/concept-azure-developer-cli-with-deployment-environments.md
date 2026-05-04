@@ -74,7 +74,7 @@ For a list of services, see [Supported Azure compute services (host)](/azure/dev
 
 ## Make your ADE catalog compatible with `azd`
 
-To enable your development teams to use `azd` with ADE, you need to create an environment definition in your catalog that's compatible with `azd`. You can create a new `azd`compatible environment definition, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
+To enable your development teams to use `azd` with ADE, you need to create an environment definition in your catalog that's compatible with `azd`. You can create a new `azd` compatible environment definition, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
 
 Changes include:
 
