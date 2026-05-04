@@ -3,7 +3,7 @@ title: Services that support customer managed keys (CMKs) in Azure Key Vault and
 description: Services that support customer managed keys (CMKs) in Azure Key Vault and Azure Managed HSM
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/01/2026
+ms.date: 05/04/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -87,7 +87,7 @@ The following services support server-side encryption with customer managed keys
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
 | [Azure Cosmos DB](/azure/cosmos-db/) | Yes | Yes | [Configure customer-managed keys using Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk), [Configure customer-managed keys using Azure Key Vault Managed HSM](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
-| [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/) | Yes | | [Configure customer-managed keys for Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/how-to-data-encryption) |
+| [Azure DocumentDB (with MongoDB compatibility)](/azure/documentdb/) | Yes | | [Configure customer-managed key (CMK) for data encryption at rest for an Azure DocumentDB cluster](/azure/documentdb/how-to-data-encryption) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-customer-managed-key) |
 | [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
