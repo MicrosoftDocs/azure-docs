@@ -25,4 +25,13 @@ This guide shows how to create a [workflow]() in Logic Apps Automation, while in
 
 
 
-## Build your workflow
+
+## 1: Set up your project
+
+## 2: Set up your app
+
+## 3: Manage users and permissions
+
+## 4: Set up an agent
+
+## 5: Build your workflow

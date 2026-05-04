@@ -26,12 +26,12 @@ This overview explains when to use Logic Apps Automation, how it works, how to g
 
 ## Why use Logic Apps Automation
 
-Logic Apps Automation is designed so you can build and run dynamic, agentic workflows where the best path can change at runtime. When your team's success is measured by outcomes, and each request can take a different path, let workflows handle reasoning and decision-making, while you stay in control with human approval. This helps reduce rework when business rules change, exceptions increase, or new tools must be added quickly.
+Logic Apps Automation is designed for you to build and run dynamic, agentic workflows where the best path can change at runtime. When your team's success is measured by outcomes, and each request can take a different path, let workflows handle reasoning and decision-making, while you stay in control with human approval. This helps reduce rework when business rules change, exceptions increase, or new tools must be added quickly.
 
 | When | Choose |
 |------|--------|
 | Business process is variable and decision-loaded. | Logic Apps Automation |
-| Business process is stable, known, and predictable. | Azure Logic Apps |
+| Business process is stable, known, and predictable. | Azure Logic Apps (Standard or Consumption) |
 
 Compared with other automation platforms, Logic Apps Automation combines adaptive orchestration with enterprise controls, so you can move faster without giving up governance, monitoring, or traceability.
 
@@ -68,9 +68,9 @@ This solution works well when the best path varies during each run, for example:
 - Conversational agents backed by deterministic workflow orchestrations.
 - Scenarios that need typed tools, orchestration, and summarization.
 
-If you used Azure Logic Apps before, think about Logic Apps Automation as a complementary model for ambiguous, changing scenarios and workloads.
+If you used Azure Logic Apps before, consider Logic Apps Automation as a complementary model for ambiguous, changing scenarios and workloads. Both the models for Azure Logic Apps (Standard) and Logic Apps Automation use the same runtime, connectors, and management plane. You might think about them as siblings.
 
-If you're coming from another automation platform, think about Logic Apps Automation as a way to build dynamic workflows with connectors, governance, and monitoring. Both models use the same runtime, connectors, and management plane.
+If you're coming from another automation platform, think about Logic Apps Automation as a way to build dynamic workflows with connectors, governance, and monitoring.
 
 If you're new to dynamic automation, start here. Logic Apps Automation shares a foundation with Azure Logic Apps, but you don't need Azure Logic Apps experience to begin.
 
