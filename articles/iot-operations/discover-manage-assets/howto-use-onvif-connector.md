@@ -23,9 +23,9 @@ The following table summarizes the features the connector for ONVIF supports:
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | |
-| X.509 client certificates | No | |
+| X.509 user certificates | No | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
+| Southbound certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
 | OpenTelemetry integration | Yes | |
 | Device discovery | Yes | Discovers ONVIF cameras on the network |
 | Capability discovery | Yes | Discovers PTZ and other device capabilities |

@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/02/2025
+ms.date: 03/25/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -18,48 +18,49 @@ ms.custom:
   - linux-related-content
   - sfi-image-nochange
   - sfi-ropc-nochange
+#customer intent: As an application developer, I want to create a JBoss application that connects to a database to satisfy business requirements.
 ---
 
 # Tutorial: Build a JBoss web app with Azure App Service on Linux and MySQL
 
-This tutorial shows how to build, configure, and deploy a secure JBoss application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a JBoss app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure JBoss application in Azure App Service that connects to a MySQL database using [Azure Database for MySQL](/azure/mysql/). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you finish this tutorial, you have a JBoss app that runs on [Azure App Service on Linux](overview.md).
 
 > [!NOTE]
-> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+> JBoss Enterprise Application Platform (JBoss EAP) on App Service now supports "Bring Your Own License" (BYOL) billing. This approach allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
 
 :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of JBoss application storing data in MySQL.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL Flexible Server.
-> * Secure database connectivity using a passwordless connection string.
-> * Verify JBoss data sources in App Service using JBoss CLI.
-> * Deploy a JBoss sample app to App Service from a GitHub repository.
-> * Access App Service app settings in the application code.
-> * Make updates and redeploy the application code.
-> * Stream diagnostic logs from App Service.
-> * Manage the app in the Azure portal.
-> * Provision the same architecture and deploy by using Azure Developer CLI.
-> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+> - Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL Flexible Server.
+> - Secure database connectivity using a passwordless connection string.
+> - Verify JBoss data sources in App Service using JBoss CLI.
+> - Deploy a JBoss sample app to App Service from a GitHub repository.
+> - Access App Service app settings in the application code.
+> - Make updates and redeploy the application code.
+> - Stream diagnostic logs from App Service.
+> - Manage the app in the Azure portal.
+> - Provision the same architecture and deploy by using Azure Developer CLI.
+> - Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
 
 ## Prerequisites
 
 ::: zone pivot="azure-portal"  
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* A GitHub account. you can also [get one for free](https://github.com/join).
-* Knowledge of Java with JBoss development.
-* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- A GitHub account. You can [get one for free](https://github.com/join).
+- Knowledge of Java with JBoss development.
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
-* Knowledge of Java with JBoss development.
-* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
+- Knowledge of Java with JBoss development.
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
 
@@ -76,7 +77,7 @@ azd up
 
 ## 1. Run the sample
 
-First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
+First, set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app) includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables the sample application needs. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::
@@ -94,7 +95,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
-        Select **Code** > **Create codespace on starter-no-infra**.
+        1. Select **Code** > **Codespaces**. Then select **Create codespace on starter-no-infra**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -117,8 +118,8 @@ First, you set up a sample data-driven app as a starting point. For your conveni
 > [!TIP]
 > You can ask [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) about this repository. For example:
 >
-> * *@workspace What does this project do?*
-> * *@workspace What does the .devcontainer folder do?*
+> - *@workspace What does this project do?*
+> - *@workspace What does the .devcontainer folder do?*
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -126,13 +127,13 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 2. Create App Service and MySQL
 
-First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
+First, create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app.
-* The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
-* The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
-* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
-* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
+- The **Name** for the web app. It's used as part of the DNS name for your app.
+- The **Region** to run the app physically in the world. The region is part of the DNS name for your app.
+- The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
+- The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
+- The **Resource Group** for the app. A resource group lets you group all the Azure resources needed for the application in a logical container.
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
@@ -140,7 +141,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column span="2":::
         **Step 1:** In the Azure portal:
         1. In the top search bar, type *app service*.
-        1. Select the item labeled **App Service** under the **Services** heading.
+        1. Under the **Services** heading, select **App Service**.
         1. Select **Create** > **Web App**.
         You can also navigate to the [creation wizard](https://portal.azure.com/#create/Microsoft.WebSite) directly.
     :::column-end:::
@@ -151,7 +152,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
-        1. *Name*: **msdocs-jboss-mysql**. A resource group named **msdocs-jboss-mysql_group** will be generated for you.
+        1. *Name*: **msdocs-jboss-mysql**. The process creates a resource group named **msdocs-jboss-mysql_group** for you.
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Red Hat JBoss EAP 8**.
         1. *Operating system*: **Linux**.
@@ -169,6 +170,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. Select the **Database** tab.
         1. Select **Create a Database**.
         1. In **Engine**, select **MySQL - Flexible Server**.
+        1. Select **Deployment**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the database configuration in the Web App wizard." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
@@ -192,7 +194,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 5:** The deployment takes a few minutes to complete. After deployment completes, select **Go to resource**. It takes you directly to the App Service app, but the following resources are created:
         - **Resource group**: The container for all the created resources.
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
@@ -202,7 +204,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private endpoints**: Access endpoints for the database server in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-3.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
     :::column-end:::
 :::row-end:::
 
@@ -216,7 +218,7 @@ In this step, you generate a managed identity based service connection, which yo
     :::column span="2":::
         **Step 1: Create a managed identity.** 
         1. In the top search bar, type *managed identity*.
-        1. Select the item labeled **Managed Identities** under the **Services** heading.
+        1. Under the **Services** heading, select **Managed Identities**.
         1. Select **Create**.
         1. In **Resource group**, select **msdocs-jboss-mysql_group**.
         1. In **Region**, select the same region that you used for your web app.
@@ -230,15 +232,15 @@ In this step, you generate a managed identity based service connection, which yo
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2: Enable Microsoft Entra authentication in the MySQL server.** 
+        **Step 2: Enable Microsoft Entra authentication in the MySQL server.**
         1. In the top search bar, type *msdocs-jboss-mysql-server*.
         1. Select the Azure Database for MySQL Flexible Server resource called **msdocs-jboss-mysql-server**.
         1. From the left menu, select **Security** > **Authentication**.
         1. In **Assign access to**, select **Microsoft Entra authentication only**.
-        1. In **User assigned managed identity**, select **Select**.
+        1. In **Select Identity**, choose **Select**.
         1. Select **msdocs-jboss-mysql-server-identity**, then select **Add**. It takes a moment for the identity to be assigned to the MySQL server.
-        1. In **Microsoft Entra Admin Name**, select **Select**.
-        1. Find your Azure account and select it, then select **Select**.
+        1. In **Microsoft Entra Admin Name**, choose **Select**.
+        1. Find your Azure account and select it, then choose **Select**.
         1. Select **Save** and wait for the operation to complete.
     :::column-end:::
     :::column:::
@@ -291,7 +293,7 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the App Service page:
-        1. In the left menu, select **Development Tools > SSH**.
+        1. In the left menu, select **Development Tools** > **SSH**.
         1. Select **Go**. 
     :::column-end:::
     :::column:::
@@ -312,7 +314,7 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
 :::row-end:::
 
 > [!NOTE]
-> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml` or change server configuration in the JBoss CLI, the changes won't persist beyond an app restart. To persist your changes, use a startup script, such as demonstrated in [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?tabs=linux&pivots=java-jboss)
+> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml` or change server configuration in the JBoss CLI, the changes don't persist beyond an app restart. To persist your changes, use a startup script, such as demonstrated in [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?tabs=linux&pivots=java-jboss).
 >
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
@@ -325,8 +327,8 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
-        This pulls the newly committed workflow file into your codespace. You can modify it according to your needs at *.github/workflows/starter-no-infra_msdocs-jboss-mysql.yml*.
+        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`.
+        This command pulls the newly committed workflow file into your codespace. You can modify it according to your needs at *.github/workflows/starter-no-infra_msdocs-jboss-mysql.yml*.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-1.png":::
@@ -335,10 +337,10 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
 :::row:::
     :::column span="2":::
         **Step 2 (Option 1: with GitHub Copilot):**  
-        1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
-        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured. 
-        1. Say, "*The data source in JBoss in Azure uses the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the class. 
-        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+        1. To start a new chat session, select the **Chat** view, then select **+**.
+        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured.
+        1. Say, "*The data source in JBoss in Azure uses the JNDI name java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.*" Copilot might give you a code suggestion similar to the one in the following **Option 2: without GitHub Copilot** step and even tell you to make the change in the class. 
+        GitHub Copilot doesn't give you the same response every time. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-java-jboss-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-jboss-mysql-app/github-copilot-1.png":::
@@ -371,7 +373,6 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
         **Step 4:**
         Back in the App Service management page in the Azure portal:
         1. From the left menu, select **Deployment** > **Deployment Center**.
-
         1. Select **Logs**. A new deployment run is already started from your committed changes.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
@@ -405,7 +406,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 :::row:::
     :::column span="2":::
         **Step 2:** Add a few tasks to the list.
-        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
+        Congratulations! You're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the JBoss web app with MySQL running in Azure." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png":::
@@ -503,7 +504,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete. The Redis cache takes the most time. The command also compiles and deploys your application code. You modify your code later to work with App Service. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -519,13 +520,13 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
     <!-- Author note: This networking for Azure Database for MySQL's is not the same as other databases. It integrates with the virtual network directly, not indirectly through a private endpoint. -->
 
-    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
+    The command finishes creating resources and deploying the application code the first time, but the deployed sample app doesn't work yet. You must make small changes to make it connect to the database in Azure.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Verify connection strings
 
-The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
+The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs them to the terminal. App settings are one way to keep connection secrets out of your code repository.
 
 1. In the AZD output, find the app setting `AZURE_MYSQL_CONNECTIONSTRING`. Only the setting names are displayed. They look like this in the AZD output:
 
@@ -537,11 +538,11 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_REDIS_CONNECTIONSTRING
     </pre>
 
-    `AZURE_MYSQL_CONNECTIONSTRING` contains the connection string to the MySQL database in Azure. You need to use it in your code later. 
+    `AZURE_MYSQL_CONNECTIONSTRING` contains the connection string to the MySQL database in Azure. You need to use it in your code later.
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
-    If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service adds it as a Java Naming and Directory Interface (JNDI) data source in the JBoss server's *context.xml* file. 
+    If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service adds it as a Java Naming and Directory Interface (JNDI) data source in the JBoss server's *context.xml* file.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -565,7 +566,7 @@ You now have a JNDI name `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`, 
     :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
 
 > [!NOTE]
-> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml` or change server configuration in the JBoss CLI, the changes won't persist beyond an app restart. To persist your changes, use a startup script, such as demonstrated in [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?tabs=linux&pivots=java-jboss)
+> Only changes to files in `/home` can persist beyond app restarts. For example, if you edit `/opt/eap/standalone/configuration/standalone.xml` or change server configuration in the JBoss CLI, the changes don't persist beyond an app restart. To persist your changes, use a startup script, such as demonstrated in [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?tabs=linux&pivots=java-jboss).
 >
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
@@ -574,15 +575,15 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. In the GitHub codespace, start a new chat session by clicking the **Chat** view, then clicking **+**. 
+1. To start a new chat session, in the GitHub codespace, select the **Chat** view, then select **+**.
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `java:jboss/MySQLDS` data source and how it's configured.
 
-1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in JBoss.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [persistence.xml](https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app/blob/starter-no-infra/src/main/resources/META-INF/persistence.xml) file. 
+1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in JBoss.*" Copilot might give you a code suggestion similar to the one in the following **Option 2: without GitHub Copilot** steps and even tell you to make the change in the [persistence.xml](https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app/blob/starter-no-infra/src/main/resources/META-INF/persistence.xml) file. 
 
 1. Open *src/main/resources/META-INF/persistence.xml* in the explorer and make the suggested JNDI change.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+    GitHub Copilot doesn't give you the same response every time. You might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 1. In the codespace terminal, run `azd deploy`.
  
@@ -594,7 +595,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. From the explorer, open *src/main/resources/META-INF/persistence.xml*.
 
-1. In the `<jta-data-source>` element (line 7), change the JNDI data source from `java:jboss/MySQLDS` to `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`. 
+1. In the `<jta-data-source>` element (line 7), change the JNDI data source from `java:jboss/MySQLDS` to `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS`.
 
     ```xml
     <jta-data-source>java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS</jta-data-source>
@@ -611,7 +612,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 > [!TIP]
 > You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
 >
-> To find out how the War file is packaged, you can run `azd package --debug` by itself.
+> To find out how the *.war* file is packaged, you can run `azd package --debug` by itself.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -630,13 +631,13 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
     :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the JBoss web app with MySQL running in Azure showing tasks." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-browse-app-2.png":::
 
-    Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
+    Congratulations! You're running a web app in Azure App Service, with secure connectivity to Azure Database for MySQL.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 7. Stream diagnostic logs
 
-Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and it [sends the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
 The sample application includes standard Log4j logging statements to demonstrate this capability, as shown in the following snippet:
 
@@ -673,7 +674,7 @@ azd down
 
 #### I see the error 'not entitled to use the Bring Your Own License feature' in the creation wizard.
 
-If you see the error: `The subscription '701ea799-fb46-4407-bb67-9cbcf289f1c7' is not entitled to use the Bring Your Own License feature when creating the application`, it means that you selected **Red Hat JBoss EAP 7/8 BYO License** in **Java web server stack** but haven't set up your Azure account in Red Hat Cloud Access or don't have an active JBoss EAP license in Red Hat Cloud Access.
+If you see the error: `The subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not entitled to use the Bring Your Own License feature when creating the application`, it means that you selected **Red Hat JBoss EAP 7/8 BYO License** in **Java web server stack** but haven't set up your Azure account in Red Hat Cloud Access or don't have an active JBoss EAP license in Red Hat Cloud Access.
 
 #### The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status.
 
@@ -697,11 +698,11 @@ If you see the JBoss splash page instead of the tasks list app, App Service is m
 
 #### My app failed to start, and I see 'Access denied for user... (using password: NO)' in the logs.
 
-This error is most likely because you didn't add the passwordless authentication plugin to the connection string (see the Java sample code for [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md?tabs=java#default-environment-variable-names-or-application-properties-and-sample-code)). Change the MySQL connection string by following the instructions in [3. Create a passwordless connection](#3-create-a-passwordless-connection).
+This error is most likely because you didn't add the passwordless authentication plugin to the connection string. See the Java sample code for [Integrate Azure Database for MySQL with Service Connector](../service-connector/how-to-integrate-mysql.md?tabs=java#default-environment-variable-names-or-application-properties-and-sample-code). Change the MySQL connection string by following the instructions in [3. Create a passwordless connection](#3-create-a-passwordless-connection).
 
 #### I see a "Table 'Task' already exists" error in the diagnostic logs.
 
-You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts (see *src/main/resources/META-INF/persistence.xml*). When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
+You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts, as in *src/main/resources/META-INF/persistence.xml*. When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
 
 ## Frequently asked questions
 
@@ -720,11 +721,11 @@ Pricing for the created resources is as follows:
 - The MySQL flexible server is created in **D2ds** tier and can be scaled up or down. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 - The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
-- The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
+- The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-In this tutorial, the App Service app already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
+In this tutorial, the App Service app already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session. Get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting.
 
 ```bash
 apt-get update
@@ -735,14 +736,14 @@ mysql -h <server> --user <user> --database <database> --enable-cleartext-plugin 
 A few considerations:
 
 - The tools you install in the SSH session don't persist across app restarts.
-- If you followed the portal steps and configured MySQL using your Microsoft Entra user as the administrator, you can connect to MySQL using the Microsoft Entra user.
-- To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network, such as an Azure VM deployed into the same virtual network. You must also configure authentication separately, either with a managed identity or with a Microsoft Entra user.
-- To connect from a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network, you can't configure authentication with a managed identity, but you can configure authentication by using a Microsoft Entra user.
+- If you followed the Azure portal steps and configured MySQL using your Microsoft Entra user as the administrator, you can connect to MySQL using the Microsoft Entra user.
+- To connect from a desktop tool like MySQL Workbench, your machine must be in the virtual network, such as an Azure virtual machine deployed into the same virtual network. You must also configure authentication separately, either with a managed identity or with a Microsoft Entra user.
+- To connect from a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network, you can't configure authentication with a managed identity. You can configure authentication by using a Microsoft Entra user.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) and connect using Azure CLI or the MySQL CLI. To authenticate, you can configure a Microsoft Entra user.
 
 #### How do I get a valid access token for the MySQL connection using Microsoft Entra authentication?
 
-For a Microsoft Entra user, a system-assigned managed identity, or a user-assigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
+For a Microsoft Entra user, a system-assigned managed identity, or a user-assigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. If you use a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI.
 
 ```azurecli-interactive
 # Sign in as a Microsoft Entra user
@@ -756,13 +757,14 @@ az login --identity --username <client-id-of-user-assigned-identity>
 az account get-access-token --resource-type oss-rdbms
 ```
 
-If you want, you can also use the [az mysql flexible-server connect](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-connect) Azure CLI command to connect to MySQL. When prompted, use the access token as the password.
+You can also use the [az mysql flexible-server connect](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-connect) Azure CLI command to connect to MySQL. When prompted, use the access token as the password.
 
 ```azurecli-interactive
 az mysql flexible-server connect -n <server-name-only> -u <user> -d <database> --interactive
 ```
 
 For more information, see:
+
 - [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)
 - [Authenticate to Azure using Azure CLI](/cli/azure/authenticate-azure-cli)
 - [Connect to Azure Database for MySQL Flexible Server using Microsoft Entra ID](/azure/mysql/flexible-server/how-to-azure-ad#connect-to-azure-database-for-mysql-flexible-server-using-microsoft-entra-id)
@@ -783,7 +785,7 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 #### What can I do with GitHub Copilot in my codespace?
 
-You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition, as in *.devcontainer/devcontainer.json*. You need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available).
 
 A few tips for you when you talk to GitHub Copilot:
 
@@ -794,12 +796,12 @@ A few tips for you when you talk to GitHub Copilot:
 
 Here are some other things you can say to fine-tune the answer you get:
 
-* Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
-* Some imports in your code are using javax but I have a Jakarta app.
-* I want this code to run only if the environment variable AZURE_MYSQL_CONNECTIONSTRING is set.
-* I want this code to run only in Azure App Service and not locally.
+- Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
+- Some imports in your code are using javax but I have a Jakarta app.
+- I want this code to run only if the environment variable AZURE_MYSQL_CONNECTIONSTRING is set.
+- I want this code to run only in Azure App Service and not locally.
  
-## Next steps
+## Related content
 
 - [Azure for Java Developers](/java/azure/)
 

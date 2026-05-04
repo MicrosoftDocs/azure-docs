@@ -1,7 +1,7 @@
 ---
 title: Azure Device Update for IoT Hub using the Ubuntu package agent
 description: Perform an end-to-end package update using the Device Update Ubuntu Server 22.04 x64 package agent to update Azure IoT Edge.
-author: eshashah
+author: cwatson-cat
 ms.author: cwatson
 ms.date: 12/18/2024
 ms.topic: tutorial

@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Use schemas in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Data flow graphs handle schemas differently from classic data flows. Instead of setting the schema on the source or transformation, you configure schemas on the **node connections** between nodes in the graph.
 
 For information about message schema definitions, formats (JSON, Delta), and how to upload schemas, see [Understand message schemas](concept-schema-registry.md).
@@ -49,7 +47,9 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 nodeConnections:
@@ -91,7 +91,9 @@ Data flow graph destinations support an `outputSchemaSettings` field to control 
 
 When using storage destinations (ADLS, Fabric, ADX), the output schema and serialization format are configured on the destination endpoint. See [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - name: output

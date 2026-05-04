@@ -1,6 +1,6 @@
 ---
 title: Azure NAT Gateway SKUs
-description: Overview of available NAT Gateway SKUs and their differences.
+description: Overview of available Azure NAT Gateway SKUs and their differences.
 ms.date: 11/04/2025
 ms.topic: overview
 ms.service: azure-nat-gateway
@@ -10,121 +10,110 @@ ms.customs: references_regions
 ---
 
 # Azure NAT Gateway SKUs
-Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKUs). This article provides an overview of these different SKUs and their differences.
+
+Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. This article provides an overview of these SKUs and their differences.
 
 ## SKU comparison
-Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKUs) - Standard and StandardV2. To compare and understand the differences between Standard and StandardV2 SKU, see the following table.
 
-| Category | Feature | StandardV2 | Standard |
-|----------|---------|------------|----------|
-| Reliability | Availability Zones | Supported | Not Supported |
-| Functionality | Source Network Address Translation (SNAT) | Supported | Supported |
+| Category | Feature | Standard | StandardV2 |
+| -------- | ------- | ---------- | -------- |
+| Reliability | Availability zones | Not supported | Supported |
+| Functionality | Source network address translation (SNAT) | Supported | Supported |
 | | Dynamic port allocation | Supported | Supported |
 | | Idle timeout timer | Supported | Supported |
 | | Port reuse timer | Supported | Supported |
 | | Protocols | TCP, UDP | TCP, UDP |
-| | Public IP version| IPv4, IPv6 | IPv4 |
+| | Public IP version | IPv4 | IPv4, IPv6 |
 | | Attach point | Subnet | Subnet |
-| Scalability | Public IP Addresses | 16 IPv4 addresses, 16 IPv6 addresses | 16 IPv4 addresses |
-| | Public IP Prefixes | /28 IPv4 Prefix, /124 IPv6 Prefix | /28 IPv4 Prefix |
+| Scalability | Public IP addresses | 16 IPv4 addresses | 16 IPv4 addresses, 16 IPv6 addresses |
+| | Public IP prefixes | /28 IPv4 prefix | /28 IPv4 prefix, /124 IPv6 prefix |
 | | Virtual networks | 1 | 1 |
 | | Subnets | 800 | 800 |
 | Monitoring | Metrics | Supported | Supported |
-| Limits | Bandwidth | 100 Gbps per NAT Gateway, 1 Gbps per connection | 50 Gbps per NAT Gateway |
-| | Packets per second | 10 million packets per second, 100,000 packets per second per connection | 5 million packets per second |
+| Limits | Bandwidth | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per connection |
+| | Packets per second | 5 million packets per second | 10 million packets per second, 100,000 packets per second per connection |
 | | Connections per IP per destination | 50,000 | 50,000 |
-| | Total connections | 2 million | 2 million | 
+| | Total connections | 2 million | 2 million |
 
-## Pricing and Service Level Agreement (SLA)
-Standard and StandardV2 NAT Gateway are the same price. For Azure NAT Gateway pricing, see [NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
+## Pricing and SLA
 
-For information on the Service Level Agreement (SLA), see [SLA for Azure NAT Gateway](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
+Standard and StandardV2 NAT gateways are the same price. For more information, see [Azure NAT Gateway pricing](https://azure.microsoft.com/pricing/details/azure-nat-gateway/).
 
-## StandardV2 NAT Gateway features
+For information on the service-level agreement (SLA), see the [Microsoft SLAs for online services](https://azure.microsoft.com/support/legal/sla/virtual-network-nat/v1_0/).
 
-### Zone-redundant 
+## Standard SKU features
 
-StandardV2 SKU NAT Gateway is **zone-redundant** by default. It automatically spans across multiple availability zones in a region, ensuring continued outbound connectivity even if one zone becomes unavailable. 
+The Standard SKU is a zonal resource. It's deployed into a specific availability zone and is resilient within that zone.
+
+You can attach a Standard NAT gateway to individual subnets within the same virtual network in order to provide scalable outbound connectivity to the internet.
+
+## StandardV2 SKU features
+
+### Zone redundancy
+
+A StandardV2 NAT gateway is *zone redundant* by default. It automatically spans multiple availability zones in a region to provide continued outbound connectivity even if one zone becomes unavailable.
 
 For more information, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
 
-### Performance 
+### Performance
 
-StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second. On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
+A StandardV2 NAT gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second. On a per-connection basis, a StandardV2 NAT gateway supports 1 Gbps per connection and 100,000 packets per second.  
 
 ### IPv6 support
 
-StandardV2 NAT Gateway can be attached to 16 IPv6 public IPs and 16 IPv4 public IPs simultaneously in order to provide highly scalable dual-stack outbound connectivity to the internet.  
+You can attach a StandardV2 NAT gateway to 16 IPv6 public IPs and 16 IPv4 public IPs simultaneously in order to provide highly scalable dual-stack outbound connectivity to the internet.  
 
-### Flow logs 
+### Flow logs
 
-StandardV2 NAT Gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic flowing through the NAT Gateway. For more information, see [Analyze NAT Gateway traffic with flow logs](./nat-gateway-flow-logs.md). 
+A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic that flows through the NAT gateway. For more information, see [Manage StandardV2 NAT gateway flow logs](./nat-gateway-flow-logs.md).
 
-## Known limitations 
+### Known limitations
 
-* Requires StandardV2 SKU Public IP addresses and prefixes. Standard SKU public IPs aren’t supported. 
+* The StandardV2 SKU requires StandardV2 public IP addresses and prefixes. Standard public IPs aren't supported.
 
-* Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway. 
+* You can't upgrade the Standard SKU to the StandardV2 SKU. You must deploy a StandardV2 NAT gateway to replace the Standard NAT gateway.
 
-* Custom IP prefixes (BYOIP public IPs) aren't supported with StandardV2 NAT Gateway. Only StandardV2 SKU Azure public IPs are supported. 
+* Custom IP prefixes (bring-your-own-IP public IPs) aren't supported with the StandardV2 SKU. Only StandardV2 Azure public IPs are supported.
 
-* The following regions don't support StandardV2 NAT Gateway:
-    * Brazil Southeast
-      
-    * Canada East  
+* The following regions don't support StandardV2 NAT gateways:
 
-    * Central India  
+  * Canada East  
+  * Chile Central  
+  * Indonesia Central  
+  * Israel Northwest  
+  * Malaysia West  
+  * Qatar Central
+  * Sweden South
+  * West Central US
+  * West India
 
-    * Chile Central  
+* Deployment of a StandardV2 NAT gateway as a managed NAT gateway for Azure Kubernetes Service (AKS) is now in preview. A StandardV2 NAT gateway can also be configured as a user-assigned NAT gateway for AKS workloads. For more information, see [Create a NAT gateway for your AKS cluster](/azure/aks/nat-gateway).
 
-    * Indonesia Central  
+* A StandardV2 NAT gateway doesn't support and can't be attached to delegated subnets for the following services:
 
-    * Israel Northwest  
+  * Azure SQL Managed Instance
+  * Azure Container Instances
+  * Azure Database for PostgreSQL
+  * Azure Database for MySQL  
+  * Azure Data Factory (data movement)
+  * Microsoft Power Platform
+  * Azure Stream Analytics
+  * Azure Container Apps
+  * Web Apps feature of Azure App Service
+  * Azure DNS Private Resolver
 
-    * Malaysia West  
+### Known issues
 
-    * Qatar Central
- 
-    * Sweden South   
+* A StandardV2 NAT gateway disrupts outbound connections made with load balancer outbound rules for IPv6 traffic only. If you see disruption to outbound connectivity for IPv6 outbound traffic with load balancer outbound rules, remove the StandardV2 NAT gateway from the subnet or virtual network. Then use either:
+  
+  * Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic
+  * A Standard NAT gateway to provide outbound connectivity for IPv4 traffic and load balancer outbound rules for IPv6 traffic
 
-    * UAE Central
- 
-    * West Central US
- 
-    * West India
+* Attaching a StandardV2 NAT gateway to an empty subnet created before April 2025 without any virtual machines (VMs) might cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove the StandardV2 NAT gateway, create and add a VM to the subnet, and then reattach the StandardV2 NAT gateway.
 
-* StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for Azure Kubernetes Service (AKS) workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](/azure/aks/nat-gateway).
+* Outbound connections that use a load balancer, Azure Firewall, or VM instance-level public IPs might be interrupted when you add a StandardV2 NAT gateway to a subnet. All net new outbound connections use the StandardV2 NAT gateway.
 
-* Terraform doesn't yet support StandardV2 NAT Gateway and StandardV2 Public IP deployments.
+## Related content
 
-* StandardV2 NAT Gateway doesn't support and can't be attached to delegated subnets for the following services: 
-    * Azure SQL Managed Instance 
-    * Azure Container Instances 
-    * Azure Database for PostgreSQL - Flexible Server 
-    * Azure Database for MySQL - Flexible Server 
-    * Azure Database for MySQL  
-    * Azure Data Factory - Data Movement 
-    * Microsoft Power Platform services 
-    * Azure Stream Analytics
-    * Azure Container Apps
-    * Azure Web Apps 
-    * Azure DNS Private Resolver 
-
-## Known issues 
-* StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Standard SKU NAT gateway can be used to provide outbound for IPv4 traffic while Load balancer outbound rules is used for IPv6 outbound traffic. If you see disruption to outbound connectivity for IPv6 outbound traffic with Load balancer outbound rules, remove the StandardV2 NAT Gateway from the subnet or virtual network. Use Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic. Or use Standard SKU NAT Gateway to provide outbound connectivity for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
-
-* Attaching a StandardV2 NAT gateway to an empty subnet created before April 2025 without any virtual machines may cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway.
-
-* Outbound connections using Load balancer, Azure Firewall, or virtual machine instance level public IPs may be interrupted when adding StandardV2 NAT gateway to a subnet. All net new outbound connections will use the StandardV2 NAT gateway.
-
-## Standard NAT Gateway features
-
-Standard SKU is a zonal resource. It's deployed into a specific availability zone and is resilient within that zone. 
-
-Standard NAT Gateway can be attached to individual subnets within the same virtual network in order to provide scalable outbound connectivity to the internet. 
-
-## Next steps 
-
-* [Deploy StandardV2 NAT Gateway](./quickstart-create-nat-gateway-v2.md) to provide a zone-resilient network architecture. 
-
-* [Deploy Standard NAT Gateway](./quickstart-create-nat-gateway.md) for single zone deployments. 
+* [Deploy a Standard NAT gateway](./quickstart-create-nat-gateway.md) for single-zone deployments.
+* [Deploy a StandardV2 NAT gateway](./quickstart-create-nat-gateway-v2.md) to provide a zone-resilient network architecture.

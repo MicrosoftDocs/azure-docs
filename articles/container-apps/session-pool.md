@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ---
 
@@ -97,7 +97,7 @@ With the `Timed` lifecycle, a session is deleted after a period of inactivity. A
 
 All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions-usage.md#authentication).
 
-Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](./sessions-usage.md#identifiers).
+Most API requests also require the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. Pool-wide operations like listing sessions don't require an identifier. To learn more about session identifiers, see [Session identifiers](./sessions-usage.md#identifiers).
 
 ## Image caching
 
@@ -183,10 +183,14 @@ The following endpoints are available for managing sessions in a pool:
 | `files/upload` | `POST` | Upload a file to a session. |
 | `files/content/{filename}` | `GET` | Download a file from a session. |
 | `files` | `GET` | List the files in a session. |
+| `.management/getSession` | `POST` | Get details about a specific session. |
+| `.management/listSessions` | `POST` | List all sessions in the pool with pagination. |
 
 You build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier, and an `api-version` parameter with the value `2024-02-02-preview`. API versions can change, so always confirm the latest version in the REST API docs before using it in production.
 
 For example: `{sessionManagementEndpoint}/code/execute?api-version=2024-02-02-preview&identifier=<IDENTIFIER>`
+
+For the `getSession` and `listSessions` endpoints, see [Retrieve session information](./sessions-usage.md#retrieve-session-information) for request and response details.
 
 For REST API references, see [Container Apps data-plane APIs](/rest/api/containerapps/#data-plane-apis) and the [Container Apps data-plane operations overview](/rest/api/data-plane/containerapps/operation-groups).
 
@@ -203,6 +207,16 @@ The following capabilities apply only to custom container session pools.
 For custom container session pools, get the management endpoint from the Azure portal or the Azure CLI output. The endpoint is returned as `poolManagementEndpoint`.
 
 The endpoint is in the format `https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io`. 
+
+Custom container pools support the same management endpoints as code interpreter pools, plus custom application endpoints you define:
+
+| Endpoint path | Method | Description |
+|----------|--------|-------------|
+| `*` (custom paths) | `POST`, `GET` | Custom endpoints defined by your container application. |
+| `.management/getSession` | `POST` | Get details about a specific session. |
+| `.management/listSessions` | `POST` | List all sessions in the pool with pagination. |
+
+For the `getSession` and `listSessions` endpoints, see [Retrieve session information](./sessions-usage.md#retrieve-session-information) for request and response details.
 
 #### OnContainerExit
 

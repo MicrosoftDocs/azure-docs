@@ -30,7 +30,7 @@ The module twin for the IoT Edge agent is called **$edgeAgent**. It coordinates 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | `imagePullPolicy` | Specifies when to pull the image: **OnCreate** or **Never**. Use **Never** if the image is already on the device. | Yes |
-| `restartPolicy` | When to restart the module. Possible values are: **Never**: don't restart module if not running, **Always**: always restart module if not running, **On-Unhealthy**: restart module if unhealthy, **On-Failed**: restart if Failed. **Note:** Only **Never** and **Always** are currently implemented. **On-Unhealthy** and **On-Failed** are accepted by the schema but don't initiate a restart. For details, see [IoT Edge limits and restrictions](iot-edge-limits-and-restrictions.md). | Yes |
+| `restartPolicy` | When to restart the module. Possible values are: **never**: don't restart module if not running, **on-failure**: restart module if it exits with a non-zero exit code, **on-unhealthy**: restart module if unhealthy (see note), **always**: always restart module if not running. **Note:** The `on-failure` policy restarts modules that exit with a non-zero exit code. The `on-unhealthy` policy is accepted by the schema but the runtime doesn't currently derive unhealthy status from Docker health checks, so it has no practical effect. For details, see [IoT Edge limits and restrictions](iot-edge-limits-and-restrictions.md). | Yes |
 | `runtime.type` | Must be **docker**. | Yes |
 | `runtime.settings.minDockerVersion` | Specifies the minimum Docker version required by this deployment manifest. | Yes |
 | `runtime.settings.loggingOptions` | Specifies a stringified JSON with the logging options for the IoT Edge agent container. Learn more about [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/). | No |
@@ -54,7 +54,7 @@ The module twin for the IoT Edge agent is called **$edgeAgent**. It coordinates 
 | `modules.{moduleId}.version` | A user-defined string representing the version of this module. | Yes |
 | `modules.{moduleId}.type` | Must be **docker**. | Yes |
 | `modules.{moduleId}.status` | **running** \| **stopped** | Yes |
-| `modules.{moduleId}.restartPolicy` | **never** \| **always** | Yes |
+| `modules.{moduleId}.restartPolicy` | **never** \| **on-failure** \| **on-unhealthy** \| **always** | Yes |
 | `modules.{moduleId}.startupOrder` | An integer value for the location a module has in the startup order. A **0** is first and **max integer** (4294967295) is last. If you don't provide a value, the default is **max integer**.  | No |
 | `modules.{moduleId}.imagePullPolicy` | **on-create** \| **never** | No |
 | `modules.{moduleId}.env` | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}`. | No |

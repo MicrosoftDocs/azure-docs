@@ -59,7 +59,7 @@ sections:
       - question: |
          How can I get an authorization token to use for REST service operations? 
         answer: |
-         For information about how to get an authorization token for REST service operations like [Create or Update Enrollment Group](/rest/api/iot-dps/service/enrollment-group/create-or-update) and [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get), see [Service API authentication](how-to-control-access.md#service-api-authentication).
+         For information about how to get an authorization token for REST service operations like [Create or Update Enrollment Group](/rest/api/iot-dps/data-plane/enrollment-group/create-or-update) and [Get Device Registration State](/rest/api/iot-dps/data-plane/device-registration-state/get), see [Service API authentication](how-to-control-access.md#service-api-authentication).
       - question: |
          Where does DPS store customer data?
         answer: |

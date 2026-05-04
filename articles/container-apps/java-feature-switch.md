@@ -1,12 +1,12 @@
 ---
 title: How to turn on Java features in Azure Container Apps
-description: How to turn on Java features to use Java-optimized supports in Azure Container Apps
+description: How to turn on Java features to use Java-optimized supports in Azure Container Apps.
 services: container-apps
 author: hangwang
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 03/30/2026
 ms.author: hangwan
 zone_pivot_groups: container-apps-portal-or-cli
 ---
@@ -15,7 +15,7 @@ zone_pivot_groups: container-apps-portal-or-cli
 
 This guide provides step-by-step instructions for enabling key Java features in Azure Container Apps. By activating these features, you can optimize your Java applications for performance, monitoring, and ease of development. 
 
-## Java virtual machine (JVM) metrics
+## Java virtual machine metrics
 
 Java virtual machine (JVM) metrics are essential for tracking the performance and health of your Java applications. These metrics offer insights into memory consumption, garbage collection, and thread activity within the JVM. By enabling Java metrics in Azure Container Apps, you can access these detailed metrics in Azure Monitor to proactively optimize application performance and address potential issues.
 
@@ -30,12 +30,12 @@ To turn on Java virtual machine (JVM) metrics on CLI, refer to [Java metrics for
 ::: zone-end
 
 ## Automatic memory fitting
-By default, the JVM manages memory conservatively, but Java automatic memory fitting fine-tunes how memory is managed for your Java application. Automatic memory fitting makes more memory available to your Java app, which may potentially boost performance by 10-20% without requiring code changes.
+By default, the JVM manages memory conservatively, but Java automatic memory fitting fine-tunes how memory is managed for your Java application. Automatic memory fitting makes more memory available to your Java app, which might potentially boost performance by 10-20% without requiring code changes.
 
-Automatic memory fitting is **enabled by default**, but you can disable manually.
+Automatic memory fitting is **enabled by default**, but you can disable it manually.
 
 ::: zone pivot="azure-portal"
-Disabling automatic memory fitting is currently only available on CLI, please refer to [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).
+Disabling automatic memory fitting is currently only available on CLI. For more information, see [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).
 
 ::: zone-end
 
@@ -59,7 +59,7 @@ To turn on dynamic logger level on CLI, refer to [Enable JVM diagnostics for you
 
 ## Java components
 
-Azure Container Apps supports Java components as managed services, which allows you to extend the capability of your applications without having to deploy additional code.
+Azure Container Apps supports Java components as managed services, which allows you to extend the capability of your applications without having to deploy extra code.
 
 ### Eureka Server for Spring
 

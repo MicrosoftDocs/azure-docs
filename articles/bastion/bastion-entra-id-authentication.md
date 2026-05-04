@@ -2,11 +2,11 @@
 title: 'Configure Microsoft Entra ID authentication'
 titleSuffix: Azure Bastion
 description: Learn how to configure Microsoft Entra ID authentication for RDP and SSH connections through Azure Bastion, including role assignments, virtual machine extensions, and connection steps.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/09/2026
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to configure Microsoft Entra ID authentication with Azure Bastion, so that I can use identity-based access policies and MFA for my virtual machines."
 ---

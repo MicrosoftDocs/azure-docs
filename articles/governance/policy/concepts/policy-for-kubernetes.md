@@ -610,17 +610,23 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.16.0
+#### 1.16.1
 Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
-Patch CVE-2026-25679, CVE-2026-27142, and CVE-2026-27139.
+Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, and CVE-2026-32280.
 Security improvements.
-- Released: Apr 2026
-- Kubernetes: 1.29+
-- Gatekeeper: 3.22.0
+- Released: May 2026
+- Kubernetes: 1.36+
+- Gatekeeper: 3.22.1
 
-##### Gatekeeper 3.22.0
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
+
+#### 1.15.5
+Security improvements.
+- Released: Feb 2026
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
 
 #### 1.15.4
 Patch CVE-2025-61727.

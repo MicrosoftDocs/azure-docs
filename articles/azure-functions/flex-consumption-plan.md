@@ -87,7 +87,7 @@ In per-function scaling, the platform makes decisions for certain function trigg
 | ---- | ---- | --- |
 | HTTP triggers |[HTTP trigger](functions-bindings-http-webhook-trigger.md)<br/>[SignalR trigger](functions-bindings-signalr-service-trigger.md) | `http` |
 | Blob storage triggers<br/>(Event Grid-based) |  [Blob storage trigger](functions-bindings-storage-blob-trigger.md) | `blob`|
-| Durable Functions | [Orchestration trigger](./durable/durable-functions-bindings.md#orchestration-trigger)<br/>[Activity trigger](./durable/durable-functions-bindings.md#activity-trigger)<br/>[Entity trigger](./durable/durable-functions-bindings.md#entity-trigger) | `durable` |
+| Durable Functions | [Orchestration trigger](./durable-functions/durable-functions-bindings.md#orchestration-trigger)<br/>[Activity trigger](./durable-functions/durable-functions-bindings.md#activity-trigger)<br/>[Entity trigger](./durable-functions/durable-functions-bindings.md#entity-trigger) | `durable` |
 
 The platform scales all other functions in the app individually in their own set of instances. The platform references these instances by using the convention `function:<NAMED_FUNCTION>`.
 
@@ -97,7 +97,7 @@ Flex Consumption includes an _always ready_ feature that you can use to choose i
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running for those functions. Those instances process your function executions first. Depending on concurrency settings, the platform scales beyond those two instances by using on-demand instances.
 
-You can configure no fewer than two always-ready instances per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#resilience-to-availability-zone-failures). 
+You can configure no fewer than two always-ready instances per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
@@ -148,10 +148,10 @@ This table shows the language stack versions that are currently supported for Fl
 | Language stack  | Required version |
 | --- | :-----: |
 | C# (isolated worker model)<sup>1</sup> | .NET 8, .NET 9, .NET 10 |
-| Java | Java 11, Java 17, Java 21 |
+| Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 20, Node.js 22   |
 | PowerShell | PowerShell 7.4   |
-| Python | Python 3.10, Python 3.11, Python 3.12  | 
+| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13  | 
 
 1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  
 
@@ -202,7 +202,7 @@ Keep these considerations in mind when using the Flex Consumption plan:
 
 + **Apps per plan**: You can only have one app per Flex Consumption plan.  
 + **Host**: The app initialization times out after 30 seconds. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this timeout. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
-+ **Durable Functions**: Azure Storage and Durable Task Scheduler are the only supported [storage providers](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
++ **Durable Functions**: Azure Storage and Durable Task Scheduler are the only supported [storage providers](../durable-task/common/durable-task-storage-providers.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable-functions/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration and resource provider registration**: You must have the `Microsoft.App` Azure resource provider registered in your subscription to integrate to a virtual network, which is needed for subnet delegation. The Azure portal and Azure CLI enforce registration at app creation time since you can enable virtual network integration at any point after your app is created. To register this provider, [follow these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version.
 + **Regions**: While the Flex Consumption plan is available in many Azure regions, it doesn't currently support all regions. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).

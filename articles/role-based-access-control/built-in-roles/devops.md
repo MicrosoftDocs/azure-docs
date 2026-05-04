@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -1304,7 +1304,6 @@ View and list all load tests and load test resources but can not make any change
 > | --- | --- |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/*/read | Read load testing resources |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | **NotActions** |  |
@@ -1330,7 +1329,6 @@ View and list all load tests and load test resources but can not make any change
       "actions": [
         "Microsoft.LoadTestService/*/read",
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/alertRules/*"
       ],
@@ -1466,7 +1464,6 @@ View and list all Playwright Workspace resources and tests but can not make any 
 > | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/*/read |  |
 > | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/locations/playwrightquotas/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1489,7 +1486,6 @@ View and list all Playwright Workspace resources and tests but can not make any 
         "Microsoft.Loadtestservice/playwrightworkspaces/*/read",
         "Microsoft.Loadtestservice/locations/playwrightquotas/*/read",
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],

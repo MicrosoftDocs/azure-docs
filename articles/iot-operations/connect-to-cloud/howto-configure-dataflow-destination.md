@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure a data flow destination in Azure IoT Operations
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 The destination is where a data flow or data flow graph sends processed data. You configure the destination by specifying an endpoint reference and a data destination (topic, container, or table).
 
 This page applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). For data flows, the destination is an operation in the `Dataflow` resource. For data flow graphs, the destination is a `Destination` node in the `DataflowGraph` resource.
@@ -58,7 +56,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 destinationSettings:
@@ -141,7 +141,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To send data back to the local MQTT broker:
 
@@ -208,7 +210,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 destinationSettings:
@@ -237,7 +241,7 @@ For more information and complete examples, see [Route messages to different top
 If you want to serialize the data before sending it to the destination, specify a schema and serialization format. Otherwise, the system serializes the data in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 # [Operations experience](#tab/portal)
 
@@ -269,7 +273,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 After you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the data flow configuration.
 

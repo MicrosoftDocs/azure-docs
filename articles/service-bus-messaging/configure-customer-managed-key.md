@@ -1,6 +1,6 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
-description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
+description: This article provides information on how to configure your own key for encrypting Azure Service Bus data at rest. 
 ms.topic: concept-article
 ms.date: 02/03/2025
 ms.custom: sfi-image-nochange
@@ -239,7 +239,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
  
 ### Grant Service Bus namespace identity access to key vault
 
-Set the key vault access policy so that the managed identity of the Service Bus namespace can access key value in the key vault. Use the ID of the Service Bus namespace from the previous section. 
+Set the key vault access policy so that the managed identity of the Service Bus namespace can access key values in the key vault. Use the ID of the Service Bus namespace from the previous section. 
 
 ```powershell
 $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity

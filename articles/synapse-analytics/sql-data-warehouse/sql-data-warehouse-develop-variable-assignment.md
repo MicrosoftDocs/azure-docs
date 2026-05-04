@@ -14,6 +14,8 @@ ms.custom:
 
 # Assign variables for dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find essential tips for assigning T-SQL variables in dedicated SQL pool.
 
 ## Set variables with DECLARE

@@ -18,6 +18,11 @@ ms.custom:
 
 # Azure IoT Hub extension for Visual Studio Code
 
+> [!NOTE]
+> The Azure IoT Hub extension for Visual Studio Code relies on the Azure Account extension for authentication and connectivity. The Azure Account extension was deprecated in January 2025.
+> As a result, the Azure IoT Hub extension for Visual Studio Code will be retired in a future update. We recommend planning to transition to alternative tools or workflows supported by current authentication mechanisms.
+> Further guidance and timelines for this transition will be shared in upcoming updates.
+
 Visual Studio Code (VS Code) lets you add *extensions*, such as languages, debuggers, and tools, to your VS Code installation to support your development workflow. The [Azure IoT Hub extension for Visual Studio Code](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki) lets you add Azure IoT Hub support to your VS Code installation, so you can manage and interact with your IoT hubs, devices, and modules during development. The Azure IoT Hub extension is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
 [!INCLUDE [basic-partial](../../includes/iot-hub-basic-partial.md)]

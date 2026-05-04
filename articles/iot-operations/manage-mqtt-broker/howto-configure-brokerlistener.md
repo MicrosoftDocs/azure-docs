@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 01/12/2026
 ms.custom:
   - sfi-image-nochange
 
@@ -14,8 +14,6 @@ ms.custom:
 ---
 
 # Secure MQTT broker communication by using BrokerListener
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 A BrokerListener resource corresponds to a network endpoint that exposes the broker to clients over the network. You can have one or more BrokerListener resources for each broker, with multiple ports and different access control on each.
 
@@ -139,7 +137,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To view the default BrokerListener resource, use the following command:
 
@@ -362,7 +362,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -688,7 +690,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and `Issuer` for the frontends.
 
@@ -723,10 +727,15 @@ For a full list of these settings, see [Broker Listener CertManagerCertificateSp
 
 #### Verify deployment
 
-Use kubectl to check that the service associated with the BrokerListener resource is running. From the preceding example, the service name is `aio-broker-loadbalancer-tls` and the namespace is `azure-iot-operations`. The following command checks the service status:
+Use **kubectl** to check that the service associated with the BrokerListener resource is running. From the preceding example, the service name is `aio-broker-loadbalancer-tls` and the namespace is `azure-iot-operations`. The following command checks the service status:
 
-```console 
+```bash
 $ kubectl get service my-new-tls-listener -n azure-iot-operations
+```
+
+The output should look similar to the following example:
+
+```output
 NAME                           TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 aio-broker-loadbalancer-tls    LoadBalancer   10.X.X.X        172.X.X.X     8884:32457/TCP   33s
 ```
@@ -907,7 +916,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the previous example).
 

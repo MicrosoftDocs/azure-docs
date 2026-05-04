@@ -2,12 +2,12 @@
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
-author: abell
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 02/20/2026
-ms.author: abell
+ms.author: allensu
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 ---
 

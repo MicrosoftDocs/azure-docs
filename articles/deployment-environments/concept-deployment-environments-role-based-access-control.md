@@ -8,7 +8,7 @@ ms.author: rosemalcolm
 ms.topic: concept-article
 ms.date: 12/30/2025
 
-#Customer intent: As a platform engineer, I want to understand how to assign Azure RBAC roles in ADE so that I can manage permissions effectively across resources.
+#customer intent: As a platform engineer, I want to understand how to assign Azure RBAC roles in ADE so that I can manage permissions effectively across resources.
 ---
 # Plan Azure role-based access control in Azure Deployment Environments
 
@@ -171,7 +171,7 @@ When a developer creates an environment based on an environment type, they're as
 
 ## Identity and access management (IAM)
 
-Use the **Access control (IAM)** page in the Azure portal to configure Azure role-based access control on Azure Deployment Environments resources. You can use built-in roles for individuals and groups in Active Directory. The following screenshot shows Active Directory integration (Azure RBAC) by using access control (IAM) in the Azure portal:
+Use the **Access control (IAM)** page in the Azure portal to configure Azure role-based access control on Azure Deployment Environments resources. You can use built-in roles for individuals and groups in Microsoft Entra ID. The following screenshot shows Microsoft Entra ID integration (Azure RBAC) by using access control (IAM) in the Azure portal:
 
 :::image type="icon" source="media/concept-deployment-environments-role-based-access-control/access-control-page.png" alt-text="Screenshot of the Access control (IAM) page for a dev center.":::
 

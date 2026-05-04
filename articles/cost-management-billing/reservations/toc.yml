@@ -117,6 +117,8 @@
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Managed Redis
+      href: /azure/redis/reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json   
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
     - name: Copilot Credit Pre-Purchase

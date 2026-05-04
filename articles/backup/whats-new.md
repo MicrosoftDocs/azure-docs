@@ -19,6 +19,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- April 2026
+  - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
+  - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
 - January 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
@@ -63,6 +66,27 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Cross-subscription backup for Azure VMs (preview)
+
+Azure Backup now supports protecting Azure VMs using a Recovery Services vault in a **different subscription**, within the same Azure AD tenant and region. This capability lets central backup or security teams maintain a single vault to govern VM protection across multiple team or project subscriptions, without requiring the vault and the VM to share the same subscription.
+
+Key capabilities:
+
+- **Centralized governance**: One vault can protect VMs spread across many subscriptions in the same tenant, simplifying policy management and compliance reporting.
+- **Flexible restore**: Vault-tier recovery points can be restored to the protected VM subscription, the vault subscription, or any other subscription when **Cross Subscription Restore** is enabled on the vault. Snapshot-tier recovery points restore only within the protected VM subscription.
+
+For more information, see:
+- [Back up Azure VMs in a Recovery Services vault](backup-azure-arm-vms-prepare.md)
+- [Support matrix for Azure VM backups](backup-support-matrix-iaas.md#supported-backup-actions)
+- [Restore Azure VMs](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm)
+
+## Simplified CLI experience to enable backup for AKS clusters
+
+Azure Backup now supports configuring backups for Azure Kubernetes Service (AKS) clusters using a single Azure CLI command. This simplified experience eliminates the need for multiple manual setup steps such as installing the Backup extension, preparing storage, creating a backup vault and policy, configuring Trusted Access, and creating the backup instance.
+ 
+The single command automatically completes all required configuration, including extension deployment, storage preparation, vault and policy provisioning or reuse, Trusted Access setup, and backup instance creation. Optional configuration files let you reference existing resources and apply tags, making this capability well‑suited for automation, infrastructure‑as‑code, and CI/CD pipelines.
+ 
+For more information, see [Configure AKS backup using a single CLI command](azure-kubernetes-service-cluster-backup-using-cli.md#configure-backup-using-a-single-azure-cli-command).
 
 ## Backup support for Confidential VMs (preview)
 
@@ -118,7 +142,7 @@ Azure Backup now allows secure backup and restoration for Azure Elastic SAN volu
 Key features include:
 
 - Protects against accidental deletions, ransomware attacks, and application updates.
-- Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
+- Captures Elastic SAN volumes at specific points in time as independent managed disk incremental snapshots with Locally redundant storage (LRS) resiliency.
 - Stores up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 
 >[!Note]

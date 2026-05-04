@@ -2,11 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: AbdullahBell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/30/2026
-ms.author: abell
+ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a service provider, I want to configure an Azure Private Link Service for my application behind a standard load balancer, so that I can enable secure private access for consumers from their virtual networks."
 ---

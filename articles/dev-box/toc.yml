@@ -128,6 +128,9 @@ items:
       - name: Manage project access
         href: how-to-manage-dev-box-access.md
         displayName: project access, RBAC, roles, permissions
+      - name: Enable guest user access
+        href: how-to-enable-guest-access.md
+        displayName: guest, external users, cross-tenant, B2B, preview
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes

@@ -5,7 +5,7 @@ services: application-gateway
 author: JackStromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 2/23/2026
+ms.date: 4/29/2026
 ms.author: jstrom
 ---
 
@@ -21,16 +21,15 @@ Here's a diagram of Application Gateway for Containers integrating with Istio se
 
 ![Diagram depicting alb-controller and alb-controller-servicemesh-extension to establish mutual TLS to services part of the Istio mesh.](./media/service-mesh-integration/service-mesh-istio-overview.svg)
 
-> [!IMPORTANT]
-> Application Gateway for Containers Service Mesh Extension is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## ALB Controller Service Mesh Extension
 
-## ALB Controller Service Mesh Extension (Preview)
-
-The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management between Application Gateway for Containers and Istio, and implicitly handle mTLS configuration to services part of a service mesh.
+The ALB Controller Istio Extension consists of two pods, deployed in active / standby configuration to allow resiliency during node failure, handle certificate lifecycle management between Application Gateway for Containers and Istio, and implicitly handle mTLS configuration to the services participating in the service mesh.
 
 >[!NOTE]
 >To use ALB Controller Service Mesh Extension, you must define your ingress intent using Gateway API. Ingress API isn't supported.
+
+>[!NOTE]
+>This integration assumes an Istio sidecar-based service mesh. Ambient (sidecar-less) mode isn't supported.
 
 ### Install the ALB Controller Service Mesh Extension for Istio
 
@@ -48,7 +47,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 
 helm install alb-controller-servicemesh-extension oci://mcr.microsoft.com/application-lb/charts/alb-controller-servicemesh-extension \
      --namespace $HELM_NAMESPACE \
-     --version 1.9.13
+     --version 1.10.26
 ```
 
 ### Verify the ALB Controller installation
@@ -74,13 +73,13 @@ Application Gateway for Containers supports integration with Istio v1.24 and gre
 
 After the ALB Controller Service Mesh Extension is installed, if Istio is installed, the service mesh integration will attempt to provision a sidecar for integration into the mesh.
 
-If ALB Controller Service Mesh is installed prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. Restart of the ALB Controller Service Mesh deployment may be done with the command: `kubectl rollout restart deployment/alb-controller-istio-extension`
+If ALB Controller Service Mesh is installed prior to Istio, you must restart the ALB Controller Service Mesh extension deployment. Restart of the ALB Controller Service Mesh deployment can be done with the command: `kubectl rollout restart deployment/alb-controller-istio-extension`
 
 ### Routing traffic to Istio service mesh
 
 Follow these five steps to configure Istio service mesh with Application Gateway for Containers:
 
-- Define a namespace with istio-injection
+- Define a namespace for istio sidecar injection
 - Enable mTLS for the services in that namespace
 - Deploy a sample application for testing (optional)
 - Define a Gateway resource
@@ -88,7 +87,11 @@ Follow these five steps to configure Istio service mesh with Application Gateway
 
 #### Define the namespace
 
-ALB Controller Service Mesh Extension will implicitly define mutual authentication to services part of a namespace with the key/value label of `istio-injection: enabled`.
+Depending on how Istio is installed, you'll need to configure the label used to enable Istio sidecar injection.
+
+# [Open-source Istio](#tab/oss-istio)
+
+ALB Controller Service Mesh Extension will implicitly define mutual authentication to the services in a namespace with the key/value label of `istio-injection: enabled`.
 
 For example:
 
@@ -96,32 +99,99 @@ For example:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: istio-example-namespace
+  name: test-infra
   labels:
     istio-injection: enabled
 ```
 
+# [Istio AKS Add-on](#tab/istio-aks-add-on)
+
+Unlike open-source Istio which uses `istio-injection=enabled`, the Istio AKS add-on uses the revision label (istio.io/rev) corresponding to the installed Istio version (e.g., asm-1-28, asm-1-27).
+
+ALB Controller Service Mesh Extension will implicitly define mutual authentication to services part of a namespace with the key/value label of `istio.io/rev: asm-<version>`.
+
+You can obtain the Istio version via Kubectl:
+
+```bash
+kubectl get configmap -n aks-istio-system | grep asm-
+```
+
+Which will output the following:
+
+```
+istio-asm-1-27                        2      90m
+istio-sidecar-injector-asm-1-27       2      90m
+```
+
+Or Azure CLI:
+
+```azurecli-interactive
+az aks show --resource-group <rg> --name <cluster> --query "serviceMeshProfile"
+```
+
+Which will yield:
+
+```json
+{
+  "istio": {
+    "certificateAuthority": null,
+    "components": {
+      "egressGateways": null,
+      "ingressGateways": [
+        {
+          "enabled": null,
+          "mode": "Internal"
+        },
+        {
+          "enabled": null,
+          "mode": "External"
+        }
+      ]
+    },
+    "revisions": [
+      "asm-1-27"
+    ]
+  },
+  "mode": "Istio"
+}
+```
+
+In both examples, `asm-1-27` is the version of Istio installed.
+
+To configure sidecar injection, define the following using the Istio version for your environment:
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-infra
+  labels:
+    istio.io/rev: asm-1-27 # Istio version obtained previously
+```
+
+---
+
 #### Enable mTLS handling for services in the namespace
 
-In this example, we define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `istio-example-namespace`.
+In this example, we define a `PeerAuthentication` Istio custom resource to require mTLS for incoming connections to the services in the `test-infra` namespace.
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
   name: default
-  namespace: istio-example-namespace
+  namespace: test-infra
 spec:
   mtls:
     mode: STRICT
 ```
 
 >[!NOTE]
->Istio supports different modes to handle the behavior of mutual authentication. In Application Gateway for Containers' implementation, mTLS will always be enforced for services that are part of the namespace with the `istio-injection: enabled` label. If you wish to proxy traffic via clear-text or TLS, don't define the `istio-injection: enabled` label on the namespace and Application Gateway for Containers will proxy traffic to the backend via the defined configuration in HTTPRoute and BackendTLSPolicy resources accordingly.
+>Istio supports different modes to handle the behavior of mutual authentication. In Application Gateway for Containers' implementation, mTLS will always be enforced for services that are part of the namespace with the `istio-injection` or `istio.io/rev` label. If you wish to proxy traffic via clear-text or TLS, don't define the `istio-injection: enabled` or `istio.io/rev: asm-<version>` label on the namespace and Application Gateway for Containers will proxy traffic to the backend via the defined configuration in HTTPRoute and BackendTLSPolicy resources accordingly.
 
 #### Deploy a sample application (optional)
 
-In this step, we provision some test resources so we can validate the end-to-end scenario.  If you have your own application, you can skip this step.
+In this step, we provision some test resources so we can validate the end-to-end scenario. If you have your own application, you can skip this step.
 
 Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate sending traffic to an application part of the Istio service mesh.
 
@@ -269,7 +339,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: traffic-split-mesh-route
-  namespace: istio-example-namespace
+  namespace: test-infra
 spec:
   parentRefs:
   - name: gateway-01
@@ -284,7 +354,7 @@ EOF
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 
 ```bash
-kubectl get httproute traffic-split-mesh-route -n istio-example-namespace -o yaml
+kubectl get httproute traffic-split-mesh-route -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
@@ -336,7 +406,7 @@ curl http://$fqdn
 Next, let's delete the PeerAuthentication resource to simulate removal of mTLS.
 
 ```bash
-kubectl delete PeerAuthentication default -n istio-example-namespace
+kubectl delete PeerAuthentication default -n test-infra
 ```
 
 When you run the curl command again, you should see a 503 HTTP response code, indicating failure of mTLS negotiation between Application Gateway for Containers and the test application (as the test application is no longer expecting mutual authentication).

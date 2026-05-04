@@ -7,7 +7,7 @@ metadata:
   
   ms.service: azure-api-center
   ms.topic: how-to 
-  ms.date: 04/28/2025
+  ms.date: 04/28/2026
   ms.collection: ce-skilling-ai-copilot
   ms.update-cycle: 180-days
   ms.custom: template-how-to
@@ -58,7 +58,7 @@ procedureSection:
       - |
         Select **Create**. 
 
-        :::image type="content" source="media/export-to-copilot-studio/copilot-studio-menu-item.png" alt-text="Screenshot of creating a Copilot Studio connector in the portal.":::
+        :::image type="content" source="media/export-to-copilot-studio/copilot-studio-menu-item.png" alt-text="Screenshot of creating a Copilot Studio connector in the portal." lightbox="media/export-to-copilot-studio/copilot-studio-menu-item.png":::
 
         
         The connector is now available for use in Microsoft Copilot Studio.

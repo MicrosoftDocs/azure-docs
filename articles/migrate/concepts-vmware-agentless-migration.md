@@ -40,7 +40,7 @@ After the migration is successful and the VM restarts in Azure, ensure that you 
 > Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Migrate.
 > Snapshot-based backups conflict with Azure Migrate’s agentless change tracking and replication process and should not be used concurrently.
 
-A replication cycle is the periodic process of transferring data from an on-premises environment to Azure Managed Disks. A full replication cycle consists of the following steps:
+A replication cycle is the periodic process of transferring data from an on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
 1. Create a VMware snapshot for each disk associated with the VM.
 2. Upload data to a log storage account in Azure.
@@ -71,15 +71,7 @@ The following table summarizes the *Azure* components that are created when you 
 
 ## Required permissions
 
-When you start replication for the first time, the logged-in user must have the following roles:
-
-- Owner or Contributor and User Access Administrator on the Azure Migrate project's resource group and the target resource group
-
-For the subsequent replications, the logged-in user must have the following roles:
-
-- Owner or Contributor on the Azure Migrate project's resource group and the target resource group
-
-In addition to the preceding roles, the logged-in user needs the following permission at a subscription level: `Microsoft.Resources/subscriptions/resourceGroups/read`.
+- Azure Migrate Owner or Azure Migrate Execute Expert on the Azure Migrate project's resource group and the target resource group. [Learn more](prepare-azure-accounts.md).
 
 ## Data integrity
 
@@ -105,7 +97,21 @@ Upon decompression, Azure Migrate calculates the checksum for the data and compa
 
 The Azure Migrate appliance compresses data and encrypts it before uploading it. Data is transmitted over a secure communication channel that uses HTTPS and TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted to the cloud (encryption at rest).
 
-## Replication status
+## Tracking  migrations
+
+Execution progress is shown in **Execution stage** and **Execution status**:
+
+**Execution stage**: Preparation, Testing, or Completion.
+   
+- Preparation: Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. After initial replication is complete, the servers move to the Testing stage.
+  
+- Testing: Servers for which initial replication is complete, and delta replication is in progress will move to the Testing phase. You can choose to run test migrations on a test virtual network before the actual migration (recommended). Ensure that you clean up test migrations after validation.
+  
+- Completion: Servers for which Test Migrations are completed or skipped will move to this stage. You can perform final migrations (cut over) for these servers. After migration finishes, ensure that you select Complete Migration from the same drop-down menu to clean up resources and shut down the source virtual machines.
+
+**Execution status**: In progress, In error, Action pending, or Completed. Click on the status hyperlink to view the details in the drill-down menu.
+
+## Replication states
 
 When a VM undergoes replication (data copy), there are several possible states:
 
@@ -230,9 +236,10 @@ You can also increase and decrease replication bandwidth based on a schedule by 
 Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only outside business hours.
 
 > [!NOTE]
-> The existing replication cycles at the start of the blackout window finish before the replication pauses.
+> The existing replication cycles before the start of the blackout window will complete before the replication pauses.
 >
 > For any migration that you initiate during the blackout window, the final replication doesn't run. The migration fails.
+
 
 You can specify a blackout window for the appliance by creating or updating the `GatewayDataWorker.json` file in `C:\ProgramData\Microsoft Azure\Config`. A typical file has this form:
 

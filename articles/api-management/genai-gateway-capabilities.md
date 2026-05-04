@@ -233,6 +233,7 @@ More information:
 * [Enable AI gateway in Microsoft Foundry](/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal)
 * [Register custom agents in Foundry](/azure/ai-foundry/control-plane/register-custom-agent)
 * [Govern tools with AI gateway](/azure/ai-foundry/agents/how-to/tools/governance)
+* [Connect an AI gateway to Foundry Agent Service](/azure/foundry/agents/how-to/ai-gateway)
 
 ## Early access to AI gateway features    
 

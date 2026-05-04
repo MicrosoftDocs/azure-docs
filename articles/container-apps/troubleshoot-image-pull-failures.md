@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom:
 ---
@@ -45,3 +45,50 @@ The Container Apps diagnostics features an intelligent and interactive experienc
     You can also look at the image pull failures per revision in the last 24 hours, by selecting the required revision from the dropdown.  
 
     To view the number of image pull failures per revision for your container app, select **Click to show**.  
+
+## Image pull validation
+
+Image pull validation is only performed when the container image reference changes during an update. When you update your container app with the same image reference, the validation process is skipped and the deployment proceeds without re-validating the image. This optimization reduces deployment time for unchanged images.
+
+If you need to validate an image again, you can modify the image tag or reference and then update your container app to trigger the validation.
+
+## Resolving image pull failures
+
+### Step 1: Verify the image exists
+
+To verify that the image exists in the registry:
+
+1. Use a Docker client to pull the image from the registry manually.
+1. Confirm the exact image name and tag.
+1. Verify that the image tag exists in the registry.
+
+### Step 2: Check authentication credentials
+
+If you're using a private registry:
+
+1. Verify that the registry credentials (username and password) are correct.
+1. Confirm that the credentials haven't expired.
+1. Ensure that the identity pulling the image has permission to access the registry.
+1. For Azure Container Registry, verify that the managed identity has the **AcrPull** role assigned.
+
+### Step 3: Verify network connectivity
+
+To verify network connectivity between Azure Container Apps and the registry:
+
+1. Confirm that your Container Apps environment can reach the registry.
+1. Check DNS resolution for the registry FQDN.
+1. Verify firewall and network security group rules aren't blocking access.
+1. If using a private endpoint, ensure it's properly configured and accessible.
+
+### Step 4: Check rate limits
+
+If you suspect rate limiting:
+
+1. Wait a few minutes before attempting to pull the image again.
+1. For Docker Hub, consider using a paid account or implementing a registry mirror.
+1. If using Azure Container Registry, check the registry's quotas and limits.
+
+## Related content
+
+- [Containers in Azure Container Apps](containers.md)
+- [Managed identities in Azure Container Apps](managed-identity.md)

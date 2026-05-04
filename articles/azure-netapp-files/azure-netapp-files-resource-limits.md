@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 04/14/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -27,8 +27,8 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
-|  Number of volumes per capacity pool     |    500   |    Yes     |
-|  Number of snapshots per volume       |    255     |    No        |
+|  Number of volumes per capacity pool  |    500   |    Yes     |
+|  Number of snapshots per volume  |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered virtual networks [VNets]) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  2,048 TiB   |   No   |
@@ -57,6 +57,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum number of volumes supported for cool access per subscription per region |  500  |  Yes  |
 | Maximum number of [short-term clones](create-short-term-clone.md) per volume | 5 | No | 
 | Maximum number of [short-term clones](create-short-term-clone.md) per subscription | 16 | No | 
+| Advanced ransomware protection volumes per subscription | 10 | Yes | 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 

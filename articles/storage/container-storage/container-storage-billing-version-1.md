@@ -46,7 +46,7 @@ Now, let's say you want to deploy Azure Container Storage with a storage pool ca
 | Service fee   | 9 TiB          | 4 * 1024 * Azure Container Storage service fee per GiB |
 | Storage costs | Premium SSD v2 managed disk, East US (LRS) | Price of 9 TiB Premium SSD v2 |
 
-See [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+See [Azure managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Azure Container Storage with Ephemeral Disk
 

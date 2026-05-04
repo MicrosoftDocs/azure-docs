@@ -328,6 +328,81 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
 
+## RBAC permission evaluation functions in Azure Resource Graph
+
+Azure Resource Graph (ARG) provides two functions that allow you to evaluate whether the *current querying identity* has specific permissions on individual resources:
+
+- `hasPermission()`
+- `hasDataPermission()`
+
+These functions return a boolean value (`1` or `0`) per resource and enable scenarios such as filtering or summarizing resources based on access.
+
+> [!NOTE]
+> These functions are evaluated in the context of a **resource instance and effective RBAC assignments**. They do **not** operate on role definitions directly.
+
+### hasPermission()
+
+The `hasPermission()` function evaluates whether the querying identity has a specific **control‑plane** permission on a resource.
+
+Use the following format for `hasPermission()`:
+
+```kusto
+hasPermission('<permission-string>')
+```
+
+The `hasPermission()` function uses effective RBAC assignments for the querying identity and evaluates per resource row. The function returns **1** is the identity has the specified permission on the resource, and **0** if the identity does not. 
+
+#### Example Check write access to Azure Container Registries
+
+```kusto
+resources
+| where type =~ 'Microsoft.ContainerRegistry/registries'
+| extend canPush = hasPermission('Microsoft.ContainerRegistry/registries/push/write')
+```
+
+In this example each container registry resource is evaluated individually, and `canPush` indicates whether the querying identity can perform the specified write action on that resource. The results can be used for filtering, aggregating, or summarizing based on the returned value.
+
+### hasDataPermission()
+
+The `hasDataPermission()` evaluates whether the querying identity has a specific data‑plane permission on a resource.
+
+Use the following format for `hasDataPermission()`:
+
+```kusto
+hasDataPermission('<permission-string>')
+```
+The `hasDataPermission()` function uses effective data‑plane access evaluation for the querying identity and is evaluated per resource row. The function returns 1 if the identity has the specified data‑plane permission on the resource, and 0 if the identity does not.
+
+#### Example: Check data-plane read access to Azure Blob Storage
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend canReadBlobs = hasDataPermission('Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read')
+```
+
+In this example, each storage resource is evaluated individually. The `hasDataPermissions()` function checks whether the querying identity has the specified data-plne permissions. The returned value can be used for filtering, summarizing, or reporting. 
+
+#### Example: Check data-plane read access to Azure Blob Storage with filtering 
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| where hasDataPermission('Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read') == 1
+```
+
+This example returns only the storage accounts where the querying identity has blob read access.
+
+### Important limitations
+
+These functions are frequently confused with role or permission discovery scenarios. The following limitations are important to understand:
+
+- The `hasPermission()` and `hasDataPermission()` functions do not determine what permissions a role definition grants.
+- They cannot be used to query or filter *microsoft.authorization/roledefinitions* resources.
+- They are not intended for answering questions such as:
+    - “Which roles grant this permission?”
+    - “What actions does this role definition include?”
+
 ## Next steps
 
 - Azure Resource Graph query language [Starter queries](../samples/starter.md) and [Advanced queries](../samples/advanced.md).

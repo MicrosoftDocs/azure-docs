@@ -6,6 +6,7 @@ ms.date: 12/06/2024
 ms.topic: overview
 author: kamalmaini
 ms.author: v-uhabiba
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to utilize Update Manager to perform periodic and on-demand update assessments on my machines, so that I can ensure they are compliant with the latest updates and manage installations effectively."
 ---
 

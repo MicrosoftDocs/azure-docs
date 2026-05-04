@@ -29,7 +29,7 @@ Before getting started, follow these steps.
 
 4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves to orchestrate business logic. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) is enabled. 
 5. Add the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) assignments to the ADF system-assigned managed identity:
-   * **FHIR Data Converter** role to [grant permission to the FHIR service](../../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-service).
+   * **FHIR Data Converter** role to [grant permission to the FHIR service](../../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-and-dicom-services).
    * **Storage Blob Data Contributor** role to [grant permission to the ADLS Gen2 account](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal).
 
 ## Configure an Azure Data Factory pipeline  
