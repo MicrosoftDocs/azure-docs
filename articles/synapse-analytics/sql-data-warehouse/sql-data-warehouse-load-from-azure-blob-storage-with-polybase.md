@@ -11,6 +11,8 @@ ms.topic: tutorial
 
 # Load Contoso retail data into dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into dedicated SQL pools.
 
 In this tutorial you will:

@@ -213,6 +213,9 @@ items:
           - name: Publish a tool to Azure Container Registry
             href: how-to-publish-tool-to-acr.md
             displayName: Microsoft Discovery, tool, ACR, publish, container registry
+          - name: Deploy a tool to Microsoft Discovery
+            href: how-to-deploy-tool-to-discovery.md
+            displayName: Microsoft Discovery, tool, deploy, create tool, definition content, environment variables, REST API, portal
       - name: Observability
         items:
           - name: Access resource logs

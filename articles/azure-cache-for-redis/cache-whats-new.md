@@ -17,6 +17,9 @@ Find out what's new in Azure Redis.
 
 ## April 2026
 
+### Tooling to migrate Azure Cache for Redis Enterprise instance to Azure Managed Redis
+Tooling to aid migration from Azure Cache for Redis Enterprise is now generally available. When migration is initiated using the tooling, your Azure Cache for Redis Enterprise instance is transformed into Azure Managed Redis instance. For more information, see [Migration using tooling](/azure/redis/migrate/migrate-redis-enterprise-with-tooling).
+
 ### Tooling to migrate Azure Cache for Redis instance to Azure Managed Redis (preview)
 Tooling to aid migration from Azure Cache for Redis (Basic, Standard, and Premium) is now available in Public Preview. When migration is initiated using the tooling, your Azure Cache for Redis endpoint is updated to point to your precreated Azure Managed Redis. For more information, see [Migration using tooling](/azure/redis/migrate/migrate-basic-standard-premium-with-tooling).
 

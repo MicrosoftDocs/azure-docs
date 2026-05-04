@@ -14,6 +14,8 @@ ms.custom:
 
 # Primary key, foreign key, and unique key using dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Learn about table constraints in dedicated SQL pool, including primary key, foreign key, and unique key.
 
 ## Table constraints

@@ -77,6 +77,9 @@ After registering `Microsoft.Discovery`, register the following dependent resour
 - `Microsoft.Web`
 - `Microsoft.Insights`
 - `Microsoft.Resources`
+- `Microsoft.Sql`
+- `Microsoft.App`
+- `Microsoft.Bing`
 
 #### Verify registration in the portal
 

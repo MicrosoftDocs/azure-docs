@@ -12,6 +12,8 @@ ms.author: joanpo
 
 # Restore a dedicated SQL pool (formerly SQL DW) from a deleted server
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you learn how to restore a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics after an accidental drop of a server using PowerShell.
 
 > [!NOTE]

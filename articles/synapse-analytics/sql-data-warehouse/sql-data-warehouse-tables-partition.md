@@ -13,6 +13,8 @@ ms.custom:
 
 # Partitioning tables in dedicated SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Recommendations and examples for using table partitions in dedicated SQL pool.
 
 ## What are table partitions?

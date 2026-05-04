@@ -13,6 +13,8 @@ ms.custom:
 
 # Design guidance for using replicated tables in Synapse SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article gives recommendations for designing replicated tables in your Synapse SQL pool schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 
 ## Prerequisites

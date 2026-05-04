@@ -14,6 +14,8 @@ ms.custom:
 
 # Performance tuning with ordered clustered columnstore index in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 **Applies to:** Azure Synapse Analytics dedicated SQL pools
 
 When users query a columnstore table in dedicated SQL pool, the optimizer checks the minimum and maximum values stored in each segment. Segments that are outside the bounds of the query predicate aren't read from disk to memory. A query can finish faster if the number of segments to read and their total size are small.

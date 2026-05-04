@@ -12,6 +12,8 @@ ms.topic: concept-article
 
 # Stored procedures using Synapse SQL in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Synapse SQL provisioned and serverless pools enable you to place complex data processing logic into SQL stored procedures. Stored procedures are a great way for encapsulating your SQL code and storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units, and facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 In this article you will find some tips for implementing stored procedures in Synapse SQL pool for developing solutions.
 

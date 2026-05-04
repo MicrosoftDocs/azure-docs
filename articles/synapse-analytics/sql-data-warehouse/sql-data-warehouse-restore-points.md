@@ -13,6 +13,8 @@ ms.custom:
 
 # User-defined restore points for a dedicated SQL pool (formerly SQL DW)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn to create a new user-defined restore point for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics by using PowerShell and the Azure portal.
 
 ## Create user-defined restore points through PowerShell

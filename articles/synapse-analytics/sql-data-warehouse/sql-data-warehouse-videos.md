@@ -11,6 +11,8 @@ ms.topic: overview
 
 # Azure Synapse Analytics - dedicated SQL pool  (formerly SQL DW) Videos
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Watch the latest dedicated SQL pool (formerly SQL DW) videos to learn about new capabilities and performance improvements. 
 
 To get started, select the overview video below to learn about the new updates to dedicated SQL pool. Also, learn how modern data warehouse patterns can be used to tackle real world scenarios such as cybercrime.

@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 # SQL Authentication in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
 To authenticate to Synapse SQL, you can use two options:

@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Memory and concurrency limits for dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics. 
 
 > [!NOTE]

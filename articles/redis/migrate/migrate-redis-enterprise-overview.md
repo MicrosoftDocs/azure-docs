@@ -15,19 +15,29 @@ appliesto:
 
 This guide walks you through migrating your Azure Cache for Redis Enterprise instances to Azure Managed Redis. The guide is organized into three phases:
 
-## Understand the differences
+## 1. Understand the differences
 
 Azure Managed Redis is built on the same Redis Enterprise software stack as Azure Cache for Redis Enterprise. Because the core software is the same, your existing applications require minimal changes. Review the key feature differences, SKU structure changes, and sizing guidance to plan effectively.
 
 > [!div class="nextstepaction"]
 > [Understand the differences](migrate-redis-enterprise-understand.md)
 
-## Plan execution
+## 2. Explore migration options
 
-Follow step-by-step instructions to create your new Azure Managed Redis instance, migrate your data, update your application, and validate the migration.
+There are two migration paths to consider — switching over to a new Azure Managed Redis instance manually or using Azure migration tooling. Review the options and their trade-offs to choose the right approach for your scenario.
 
 > [!div class="nextstepaction"]
-> [Plan execution](migrate-redis-enterprise-self-service.md)
+> [Explore migration options](migrate-redis-enterprise-options.md)
+
+## 3. Plan execution
+
+Based on the option you have chosen to perform migration, follow step-by-step instructions to create your new Azure Managed Redis instance, migrate your data, update your application, and validate the migration.
+
+> [!div class="nextstepaction"]
+> [Plan execution for self-service migration](migrate-redis-enterprise-self-service.md)
+
+> [!div class="nextstepaction"]
+> [Plan migration with tooling](migrate-redis-enterprise-with-tooling.md)
 
 ## Related content
 

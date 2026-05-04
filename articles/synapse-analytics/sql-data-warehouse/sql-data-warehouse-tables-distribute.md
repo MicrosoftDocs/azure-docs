@@ -13,6 +13,8 @@ ms.custom:
 
 # Guidance for designing distributed tables using dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article contains recommendations for designing hash-distributed and round-robin distributed tables in dedicated SQL pools.
 
 This article assumes you are familiar with data distribution and data movement concepts in dedicated SQL pool. For more information, see [Azure Synapse Analytics  architecture](massively-parallel-processing-mpp-architecture.md).

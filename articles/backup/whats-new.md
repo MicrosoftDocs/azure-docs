@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 01/28/2026
+ms.date: 05/04/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- May 2026
+  - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
   - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
@@ -65,6 +67,15 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+
+## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
+
+Azure Backup now supports bulk restore of Azure Virtual Machines (preview). You can restore up to 100 VMs together from a Recovery Services vault in a single operation by selecting multiple protected VMs, defining a restore point time range, and specifying a common restore configuration.
+
+During large-scale outages or ransomware incidents, you can use bulk VM restore to orchestrate restore of multiple VMs as one coordinated operation that simplifies recovery at-scale. Each VM restore runs separately, and you can track its progress independently while retaining full VM-level flexibility and control.
+
+For more information, see [Restore VMs in bulk (preview)](backup-azure-arm-restore-vms.md#restore-vms-in-bulk-preview).
 
 ## Cross-subscription backup for Azure VMs (preview)
 

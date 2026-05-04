@@ -94,7 +94,7 @@ When an agent completes a task, cognition doesn't accept the result automaticall
 An independent process validates the result, not the agent that produced it. The agent that did the work never grades its own output. This separation ensures that validation requirements are evaluated objectively.
 
 > [!IMPORTANT]
-> Validation requires a chat model deployment named `gpt-5-2` (model: `gpt-5.2`) in your workspace. Without this deployment, the Discovery Engine cannot start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for setup instructions.
+> Validation requires a chat model deployment named `gpt-5-2` (model: `gpt-5.2`) in your workspace. Without this deployment, the Discovery Engine cannot start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
 
 During validation, the process:
 

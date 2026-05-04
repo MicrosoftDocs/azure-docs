@@ -34,6 +34,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
 
+- Smart tier starts tracking object access patterns after enablement, the first tiering event will occur 30 days after enablement, moving inactive objects to the cool tier.
+
 ## Enabling smart tier
 Smart tier is **available by default** on supported storage accounts in generally available regions. Set the **default account access tier** to smart tier to enable it.
 After you enable smart tier on existing storage accounts, all blobs in the account that don't have an explicitly set access tier will move to smart tier. Blobs with an **explicit tier set** don't move to smart tier.

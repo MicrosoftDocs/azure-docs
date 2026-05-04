@@ -21,7 +21,7 @@ In this tutorial, you create an investigation, set up a small set of tasks, enab
 Before starting this tutorial, verify you have:
 
 - A Microsoft Discovery workspace with a project created
-- A chat model deployment named `gpt-5-2` (model: `gpt-5.2`) in your workspace. The Discovery Engine requires this model for task validation. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for setup instructions.
+- A chat model deployment named `gpt-5-2` (model: `gpt-5.2`) in your workspace. The Discovery Engine requires this model for task validation. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
 - Access to Discovery Studio in your browser
 
 Create an agent as part of this tutorial. You don't need prior agent setup.

@@ -13,6 +13,8 @@ appliesto:
 
 # Plan execution - Redis Enterprise
 
+[!INCLUDE [Redis Enterprise migration agent skill](../includes/redis-enterprise-migration-agent-skill.md)]
+
 This article provides step-by-step instructions for both migration paths:
 
 - [Self-service migration for caches without geo-replication](#self-service-migration-for-caches-without-geo-replication)
@@ -34,10 +36,10 @@ You can alternately use list-skus-for-scaling command on your Redis Enterprise i
 
 ### Step 3: Migrate your data
 
-Choose a data migration strategy based on your tolerance for downtime and data loss.
+Choose a data migration strategy based on your tolerance for downtime and data loss. If your application can tolerate data loss, or has mechanisms to rehydrate the cache from its data source, you can skip this step and proceed directly to [Step 4: Update your application](#step-4-update-your-application).
 
-> [!NOTE]
-> If your application can tolerate data loss, or has mechanisms to rehydrate the cache from its data source, you can skip this step and proceed directly to [Step 4: Update your application](#step-4-update-your-application).
+> [!IMPORTANT]
+> Azure Managed Redis reserves approximately 20% of memory for system operations and overhead. Account for this reservation when choosing the right memory size for your new instance. For example, if your workload requires 10 GB of usable memory, select a SKU with at least 12.5 GB of total memory.
 
 #### Export and import data using an RDB file
 

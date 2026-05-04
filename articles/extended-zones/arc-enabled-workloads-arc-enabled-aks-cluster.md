@@ -5,14 +5,14 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 04/30/2026
 
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
 # Create an Arc-enabled AKS cluster in an Extended Zone
  
-In this article, you'll learn how to create an Arc-enabled AKS cluster in an Extended Zone, which helps you deploy PaaS services through Arc. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
+In this article, you learn how to create an Arc-enabled AKS cluster in an Extended Zone. This cluster helps you deploy PaaS services through Azure Arc. For currently supported PaaS workloads, see [Service offerings for Azure Extended Zones](overview.md#service-offerings-for-azure-extended-zones).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In this article, you'll learn how to create an Arc-enabled AKS cluster in an Ext
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
 ## Getting started	
-If you're already familiar with the subject, you may skip this paragraph. Here are important topics you may want read before you proceed with creation:
+If you're already familiar with the subject, you can skip this paragraph. Here are important topics you might want to read before you proceed with creation:
 -	[Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
 -	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
 -	[Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
@@ -47,10 +47,10 @@ az provider register --namespace Microsoft.OperationalInsights --wait
 
 ### Create an Arc-enabled AKS cluster in Extended Zones
 
-Before proceeding to deploy PaaS workloads in Extended Zones, an Arc-enabled AKS cluster has to be created in the target Extended Zone. The following script helps do that and ease the deployment of supported PaaS services (see related content at the end of this article to learn more about them). 
+Before you deploy PaaS workloads in Extended Zones, create an Arc-enabled AKS cluster in the target Extended Zone. The following script helps you create the cluster and eases the deployment of supported PaaS services. To learn more about these services, see the [related content](#related-content) at the end of this article.  
 
 > [!NOTE] 
-> Make sure to keep parameters consistent and transfer them correctly from this script to any following ones.
+> Make sure to keep parameters consistent and transfer them correctly from this script to any following scripts.
  
 ```powershell
 # Create an Arc-enabled AKS cluster on an edge zone
@@ -110,7 +110,7 @@ createArcEnabledAksOnEz -SubscriptionId "ffc37441-49e9-4291-a520-0b2d4972bb99" `
 
 ## Clean up resources
 
-When no longer needed, delete **my-aks-cluster** resource group and all of the resources it contains using the [az group delete](/cli/azure/group#az-group-delete) command.
+When you no longer need the resources, delete the **my-aks-cluster** resource group and all of the resources it contains by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```powershell
 az group delete --name my-aks-cluster

@@ -181,8 +181,12 @@ items:
             href: migrate/migrate-redis-enterprise-overview.md
           - name: Understand differences
             href: migrate/migrate-redis-enterprise-understand.md
+          - name: Explore migration options
+            href: migrate/migrate-redis-enterprise-options.md
           - name: Self-service migration
             href: migrate/migrate-redis-enterprise-self-service.md
+          - name: Migration using tooling
+            href: migrate/migrate-redis-enterprise-with-tooling.md
       - name: Migrate to Azure Managed Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis

@@ -13,6 +13,8 @@ ms.custom:
 
 # Restore an existing dedicated SQL pool (formerly SQL DW)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you learn how to restore an existing dedicated SQL pool (formerly SQL Data Warehouse) using Azure portal and PowerShell.
 
 > [!NOTE]

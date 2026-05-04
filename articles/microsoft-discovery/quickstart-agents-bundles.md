@@ -30,7 +30,7 @@ In this quickstart, you use agent bundles to quickly deploy a preconfigured set 
 
 1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com/).
 1. Select the **Projects** tab in the left navigation pane.
-1. Open the project that you created in the [infrastructure quickstart](./quickstart-infrastructure-portal.md#8-create-a-project) by selecting the project name. The project opens in a new tab.
+1. Open the project that you created in the [infrastructure quickstart](./quickstart-infrastructure-portal.md#9-create-a-project) by selecting the project name. The project opens in a new tab.
 
 ## 2. Add agents using a bundle
 
@@ -39,7 +39,7 @@ Agent bundles provide a preconfigured set of agents and tools that work together
 1. In the project welcome page, select **Add agents**.
    :::image type="content" source="media/quickstart-agents-bundles/add-agents.jpg" alt-text="Screenshot showing the project welcome page with add agents button." lightbox="media/quickstart-agents-bundles/add-agents.jpg":::
 1. In the **Add agents** wizard, select the **Bundles** tab.
-1. Under **Chat model**, select the chat model deployment created in the [infrastructure quickstart](./quickstart-infrastructure-portal.md#5-create-chat-model-deployment).
+1. Under **Chat model**, select the chat model deployment created in the [infrastructure quickstart](./quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
 1. Select the **Hello Discovery** bundle. This bundle is the only bundle available today and deploys a curated set of agents designed for scientific research workflows.
 1. Select **Add** to begin the deployment.
    :::image type="content" source="media/quickstart-agents-bundles/add-agent-bundles.jpg" alt-text="Screenshot showing the add agent wizard with bundles tab." lightbox="media/quickstart-agents-bundles/add-agent-bundles.jpg":::

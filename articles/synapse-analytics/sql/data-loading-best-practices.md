@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Best practices for loading data into a dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find recommendations and performance optimizations for loading data.
 
 ## Prepare data in Azure Storage

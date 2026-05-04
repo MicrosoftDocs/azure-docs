@@ -10,6 +10,8 @@ ms.topic: how-to
 ---
 # Restore a dedicated SQL pool from a deleted workspace
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you learn how to restore a dedicated SQL pool in Azure Synapse Analytics after an accidental drop of a workspace using PowerShell.
 
 > [!NOTE]

@@ -11,6 +11,8 @@ ms.topic: release-notes
 
 # Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics release notes
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article summarizes the new features and improvements in the recent releases of [dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Check your dedicated SQL pool (formerly SQL DW) version

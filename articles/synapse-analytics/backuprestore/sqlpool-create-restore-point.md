@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 ---
 # User-defined restore points
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn to create a new user-defined restore point for a dedicated SQL pool in Azure Synapse Analytics by using the Azure portal.
 
 ## Create user-defined restore points through the Azure portal

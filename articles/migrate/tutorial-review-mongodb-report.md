@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Migrate to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Review MongoDB assessment properties (preview)
+# Tutorial: Review MongoDB assessment properties (preview)
 
 This article describes what you can review in a MongoDB assessment in Azure Migrate, including readiness, target recommendations, and estimated costs.
 

@@ -13,6 +13,8 @@ ms.custom:
 
 # REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
 > [!NOTE]

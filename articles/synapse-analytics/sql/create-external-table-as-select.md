@@ -12,6 +12,8 @@ ms.author: vvasic
 
 # Store query results to storage using serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn how to store query results to storage using serverless SQL pool.
 
 ## Prerequisites

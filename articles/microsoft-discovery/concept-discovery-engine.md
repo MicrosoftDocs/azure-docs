@@ -69,7 +69,7 @@ This single objective involves multiple knowledge domains, requires coordinating
 ### 2. Enable Discovery Mode
 
 > [!IMPORTANT]
-> Before enabling Discovery Mode, ensure your workspace has a chat model deployment named `gpt-5-2` (model: `gpt-5.2`). The Discovery Engine requires this model for task validation. Without it, the engine doesn't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for setup instructions.
+> Before enabling Discovery Mode, ensure your workspace has a chat model deployment named `gpt-5-2` (model: `gpt-5.2`). The Discovery Engine requires this model for task validation. Without it, the engine doesn't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
 
 When you turn on Discovery Mode, the Discovery Engine begins a continuous cycle:
 

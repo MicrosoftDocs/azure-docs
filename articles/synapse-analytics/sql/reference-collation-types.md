@@ -12,6 +12,8 @@ ms.topic: reference
 
 # Database collation support for Synapse SQL in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Collations provide the locale, code page, sort order, and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
 This article applies to dedicated SQL pools in Azure Synapse workspaces, for more information on dedicated SQL pools (formerly SQL DW), see [Collation types supported for dedicated SQL pool (formerly SQL DW)](../sql-data-warehouse/sql-data-warehouse-reference-collation-types.md).

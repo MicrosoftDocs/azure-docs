@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Load data from Azure Data Lake Storage into dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This guide outlines how to use the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to load data from Azure Data Lake Storage. For quick examples on using the COPY statement across all authentication methods, visit the following documentation: [Securely load data using dedicated SQL pools](./quickstart-bulk-load-copy-tsql-examples.md).
 
 > [!NOTE]  

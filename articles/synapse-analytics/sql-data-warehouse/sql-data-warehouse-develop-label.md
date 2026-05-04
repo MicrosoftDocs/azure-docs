@@ -14,6 +14,8 @@ ms.custom:
 
 # Using labels to instrument queries for dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Included in this article are tips for developing solutions using labels to instrument queries in dedicated SQL pools.
 
 ## What are labels?

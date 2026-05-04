@@ -15,6 +15,8 @@ ms.custom:
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using T-SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Scale compute in dedicated SQL pools using T-SQL and SQL Server Management Studio (SSMS). [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.

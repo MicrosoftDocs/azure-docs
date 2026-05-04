@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Temporary tables in Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within Synapse SQL. 
 
 Both the dedicated SQL pool and serverless SQL pool resources can utilize temporary tables. Serverless SQL pool has limitations that are discussed at the end of this article. 

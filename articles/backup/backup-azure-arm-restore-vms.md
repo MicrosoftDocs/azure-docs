@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 05/04/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -423,6 +423,38 @@ You can also select the [user-managed identity](../active-directory/managed-iden
 >Cross Region Restore isn't supported with managed identities.
 >
 >Currently, this is available in all Azure public and national cloud regions.
+
+## Restore VMs in bulk (preview)
+
+Azure Backup allows you to restore up to 100 protected Azure virtual machines to an alternate location in a single, guided experience, with control and flexibility over restore settings for each virtual machine.
+
+>[!NOTE]
+>- Bulk VM restore doesn’t support Classic, Unmanaged, Encrypted, or Confidential virtual machines.
+>- Bulk VM restore isn’t supported for cross‑region restore (CRR) scenarios.
+>- Target subnets must use `/16` or a smaller subnet mask.
+
+To restore VMs in bulk using the Azure portal, follow these steps:
+
+1. Go to the **Recovery Services vault** and select **Protected items** > **Backup items**.
+1. On the **Backup items** pane, select **Azure Virtual Machine** as the **BACKUP MANAGEMENT TYPE**.
+1. On the **Backup Items (Azure Virtual Machine)** pane,  select one or more VMs that you want to restore, and then select **Bulk restore (Preview)**.
+
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/bulk-restore-virtual-machines.png" alt-text="Screenshot that shows how to initiate virtual machines in bulk." lightbox="./media/backup-azure-arm-restore-vms/bulk-restore-virtual-machines.png":::
+
+1. On the **Bulk Restore** pane, on the **Basics** tab, modify (add or remove) the VM selection for restore.
+1. On the **Restore point** tab, modify the time range or update the restore point for individual VMs by selecting **Edit** corresponding to each VM.
+
+   By default, the latest restore points appear automatically for each VM. 
+
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/select-restore-points-bulk-restore.png" alt-text="Screenshot that shows how to select restore points for virtual machines in bulk." lightbox="./media/backup-azure-arm-restore-vms/select-restore-points-bulk-restore.png":::
+
+
+1. On the **Restore parameters** tab, select common restore configurations - **Target resource group**, **Virtual Network**, **Subnet** and other that apply to all selected VMs. 
+1. On the **Validation pre-checks** tab, review the auto validation results for the bulk VM restore configurations.
+
+   Azure Backup automatically triggers multiple validations to ensure that the selected configuration is valid for bulk restore. 
+
+1. On the **Review + restore** tab, select **Restore** and start the bulk restore operation that hosts individual restore operations.
 
 ## Track the restore operation
 

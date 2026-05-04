@@ -14,6 +14,8 @@ ms.custom:
 
 # Data loading strategies for dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Traditional SMP dedicated SQL pools use an Extract, Transform, and Load (ETL) process for loading data. Synapse SQL, within Azure Synapse Analytics, uses distributed query processing architecture that takes advantage of the scalability and flexibility of compute and storage resources.
 
 Using an Extract, Load, and Transform (ELT) process uses built-in distributed query processing capabilities and eliminates the resources needed for data transformation before loading.

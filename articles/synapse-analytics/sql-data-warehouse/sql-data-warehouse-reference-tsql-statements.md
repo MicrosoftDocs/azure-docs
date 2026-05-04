@@ -14,6 +14,8 @@ ms.custom:
 
 # T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Links to the documentation for T-SQL statements supported in dedicated SQL pool.
 
 ## Data Definition Language (DDL) statements

@@ -15,6 +15,8 @@ ms.custom:
 
 # Quickstart: Scale compute for an Azure Synapse dedicated SQL pool (formerly SQL DW) with the Azure portal
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 You can scale compute for an Azure Synapse dedicated SQL pool (formerly SQL DW) with the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.

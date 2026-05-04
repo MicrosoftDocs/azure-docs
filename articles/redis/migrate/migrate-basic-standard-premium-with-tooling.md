@@ -35,8 +35,9 @@ Use these steps if you choose migration tooling for Basic, Standard, or Premium 
 1. If you need your data to be copied over to your new Azure Managed Redis instance, review multiple [data migration strategies](migrate-basic-standard-premium-self-service.md#step-2-migrate-your-data).
 
 ## Step 3: Validate and start migration
-1. In the Azure portal, use the **Resource** menu  for your Azure Cache for Redis instance and go to **Overview**.
-1. Select **Migrate** from the top level command bar.
+1. In the Azure portal, use the **Resource** menu  for your Azure Cache for Redis instance and go to **Overview**. Select **Migrate** from the top level command bar.
+
+    :::image type="content" source="../media/migration-tooling/migrate-tooling-portal.png" alt-text="Screenshot showing the migration tooling in the Azure portal." lightbox="../media/migration-tooling/migrate-tooling-portal.png":::
 1. In the migration pane, select the existing Azure Managed Redis instance you want to migrate to, then select **Validate**. This will run validations on your Azure Cache for Redis instance to ensure it is ready for migration. 
 1. You may see some warnings about potential differences between your Azure Cache for Redis and Azure Managed Redis instances. If there are differences identified, they could be of type **warning** or **error**. For example, if Azure Cache for Redis instance has persistence enabled but the new Azure Managed Redis does not, then this will be flagged as a warning. If Azure Cache for Redis instance is injected in a virtual network, then this will be an error as this is not supported.
 1. After reviewing warnings, you can choose to bypass warnings (if present) and then select **Migrate** to begin migration.

@@ -58,7 +58,7 @@ The following scenarios describe common use cases for serverless GPUs.
 
 Keep the following items in mind as you use serverless GPUs:
 
-- **CUDA version**: Serverless GPUs support the latest CUDA version.
+- **CUDA version**: Serverless GPUs support the latest CUDA version. For details on the current driver and runtime versions, see [GPU software stack](#gpu-software-stack).
 
 - **Support limitations**:
   - Only one container in an app can use the GPU at a time. If you have multiple containers in an app, the first container gets access to the GPU.
@@ -67,6 +67,45 @@ Keep the following items in mind as you use serverless GPUs:
   - The first container in your application gets access to the GPU.
 
 - **IP addresses**: Consumption GPUs use one IP address per replica when you set up integration with your own virtual network.
+
+## GPU software stack
+
+Azure Container Apps periodically updates the NVIDIA GPU software stack to incorporate security patches, performance improvements, and new capabilities.
+
+The following table shows the current and upcoming platform-provided GPU software versions:
+
+| Component | Current version | Upcoming version |
+|---|---|---|
+| NVIDIA driver | 570 | 580 |
+| Platform-provided CUDA runtime | 12.x | 13.x |
+
+> [!IMPORTANT]
+> The platform is transitioning to the upcoming versions listed in this table. The rollout begins no earlier than May 23, 2026 and completes over several days as updates are applied region by region. Validate your application against the upcoming versions before the update takes effect. For guidance, see [Validate your application](#validate-your-application).
+
+### Validate your application
+
+When the platform updates the GPU software stack, you must verify that your application remains compatible. The steps you take depend on how your container image consumes CUDA.
+
+**If your application ships its own CUDA runtime** (for example, by using a pinned CUDA base image):
+
+- Verify that your application works with the current NVIDIA driver version.
+- No container image changes are required.
+
+**If your application relies on the platform-provided CUDA runtime**:
+
+- Verify that your application works with both the current NVIDIA driver and CUDA runtime versions.
+- If your application isn't yet compatible with the latest CUDA version, pin an earlier CUDA version in your container image to retain previous behavior.
+
+### Version policy
+
+GPU software versions in Azure Container Apps serverless environments follow these principles:
+
+- GPU software versions are documented at the **major or minor family level** (for example, CUDA 12.x or CUDA 13.x).
+- Patch versions are managed by the platform and may change without notice.
+- This documentation is updated when significant GPU software version transitions are planned or introduced.
+
+> [!NOTE]
+> The GPU software stack information in this section applies only to serverless GPU workloads. For dedicated GPU workloads, the operating system, including the driver and CUDA runtime, is updated automatically by the platform.
 
 ## Supported regions
 

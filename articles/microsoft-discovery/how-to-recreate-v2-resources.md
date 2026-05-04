@@ -29,9 +29,9 @@ Create the v2 infrastructure resources that host your recreated tools, agents, a
 
 1. Create a v2 Supercomputer and Nodepools. For detailed steps, see [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md).
 1. Create a v2 workspace. For detailed steps, see [Manage workspaces](how-to-manage-workspaces.md).
-1. Create chat model deployments at the workspace level. For detailed steps, see [Create chat model deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment).
+1. Create chat model deployments at the workspace level. For detailed steps, see [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
 1. Create v2 Storage Container and Storage Asset resources using the storage account and blob information you collected from your v1 Data Containers and Data Assets.
-1. Create a v2 project under the new workspace and bind it with the Storage Container resources. For detailed steps, see [Create a project](quickstart-infrastructure-portal.md#8-create-a-project).
+1. Create a v2 project under the new workspace and bind it with the Storage Container resources. For detailed steps, see [Create a project](quickstart-infrastructure-portal.md#9-create-a-project).
 
 > [!NOTE]
 > v2 uses workspace-level model deployments shared across all project agents. Deploy your preferred model, such as GPT-5.2, before you create agents.
