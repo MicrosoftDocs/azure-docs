@@ -32,7 +32,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 ## Create a cache volume
 
   > [!NOTE]
-  > SMB protocol cache volume cannot be created when the NetApp account is configured with shared Active Directory. You should [configure the account with dedicated Active Directory connections](create-active-directory-connections#multi-ad) to create SMB protocol cache volumes.
+  > SMB protocol cache volume cannot be created when the NetApp account is configured with shared Active Directory. You should [configure the account with dedicated Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) to create SMB protocol cache volumes.
 
 1.	Initiate the cache volume creation using the PUT caches API call. For information about cache operations, see [API documentation](/rest/api/netapp/caches?view=rest-netapp-2026-01-01&preserve-view=true).
 
