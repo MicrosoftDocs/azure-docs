@@ -17,7 +17,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## April 2026 
+## May 2026 
 
 * [Support for Red Hat IdM and Oracle Unified Directory (OUD)](configure-directory-server.md) (preview)
  
@@ -27,6 +27,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     This enhancement also supports Bind Distinguished Name (Bind DN) authentication for additional LDAP services. When you provide Bind DN credentials during the LDAP configuration, the password is stored in Azure Key Vault. Azure NetApp Files service retrieves the password from the Azure Key Vault when establishing LDAP connections. 
 
+## April 2026 
         
 * [Advanced ransomware protection](ransomware-configure.md) is now generally available (GA)
 
