@@ -27,7 +27,7 @@ The following diagram shows the recommended structure for a repository. Each tem
 
 ## Linked environment definitions
 
-In a linked environment definitions scenario, multiple *.json* files can point to a single template. Azure Deployment Environments checks linked environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
+In a linked environment definitions scenario, multiple *.json* files can point to a single template. Azure Deployment Environments checks linked environment definitions sequentially and retrieves the linked files and environment definitions from the repository. For best performance, these interactions should be minimized. 
 
 ## Update environment definitions and sync changes
 
