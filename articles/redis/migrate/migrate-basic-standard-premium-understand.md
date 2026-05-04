@@ -77,13 +77,15 @@ Review these differences when planning your application updates:
 
 ## Choose the right Azure Managed Redis size and SKU
 
+> [!IMPORTANT]
+> Azure Managed Redis reserves approximately 20% of memory for system operations and overhead. Account for this reservation when choosing the right memory size for your new instance. For example, if your workload requires 10 GB of usable memory, select a SKU with at least 12.5 GB of total memory.
+
 Choosing the right Azure Managed Redis SKU involves two steps: selecting the right **memory size** and then selecting the right **performance tier**.
 
 ### Step A: Choose the right memory size
 
 1. **Identify the memory size of your current cache.** Go to the Azure portal, open your Basic, Standard, or Premium cache, and note the memory size from the **Overview** page (for example, C3 = 13 GB, P2 = 13 GB).
-> [!NOTE]
-> For Premium clustered caches: for sharded clusters, choose a size that has equivalent total memory across all shards.
+For Premium clustered caches, choose a size that has equivalent total memory across all shards.
 
 1. **Find a similar size SKU in Azure Managed Redis.** Look for an Azure Managed Redis SKU that offers the same or greater amount of usable memory. When comparing sizes, note that Azure Managed Redis reserves approximately 20% of memory for system operations and overhead. Account for this reservation when selecting a size — for example, the B10/M10/X10 SKUs offer 12 GB of total memory but approximately 9.6 GB of usable memory for your data after reservation.
 

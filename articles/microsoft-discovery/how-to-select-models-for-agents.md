@@ -20,7 +20,7 @@ This article helps you choose the right model for your agents based on task comp
 
 - An active [Azure subscription](https://azure.microsoft.com/free/).
 - A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure-portal.md).
-- A chat model deployment configured at the workspace level. For details, see [Create a chat model deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment).
+- A chat model deployment configured at the workspace level. For details, see [Create a chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
 
 ## Understand available GPT-5.x models
 
@@ -109,7 +109,7 @@ Use the following decision matrix to guide your model selection.
 
 You configure model deployments at the workspace level. All agents in a project share these deployments.
 
-1. Deploy a model as an Azure resource managed resource at the workspace level using Azure CLI, Bicep, or ARM templates. See [Create a chat model deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for detailed steps.
+1. Deploy a model as an Azure resource managed resource at the workspace level using Azure CLI, Bicep, or ARM templates. See [Create a chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for detailed steps.
 
 1. In Discovery Studio, create or edit a prompt agent.
 

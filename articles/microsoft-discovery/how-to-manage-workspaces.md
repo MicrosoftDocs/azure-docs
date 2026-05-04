@@ -30,13 +30,13 @@ Before you begin, make sure the following requirements are met:
 
 - An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) that is enabled for Microsoft Discovery **Public Preview** support.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on the resource group.
-- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#create-a-virtual-network-and-subnets).
-- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure-portal.md#create-a-user-assigned-managed-identity-uami).
+- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#c-create-a-virtual-network-and-subnets).
+- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure-portal.md#d-create-a-user-assigned-managed-identity-uami).
 - At least one **supercomputer** created and available for attachment. For more information, see [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md).
 
 ## Create a workspace
 
-For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#3-create-a-workspace).
+For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#4-create-a-workspace).
 
 The following steps summarize the workspace creation process:
 
@@ -130,7 +130,7 @@ To view the chat model deployments configured for your workspace:
 
 - In the workspace resource, in the left navigation pane, under **Settings**, select **Chat Model Deployments**.
 
-This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment).
+This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
 
 ### Projects
 
