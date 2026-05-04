@@ -776,7 +776,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - security
-      url: sentinel/index.yml
+      url: /azure/sentinel/
     # Card
     - title: Azure Local
       summary: Operate infrastructure across distributed locations enabled by Azure Arc
@@ -1119,7 +1119,7 @@ productDirectory:
       azureCategories:
         - security
         - iot
-      url: ./defender-for-iot/index.yml
+      url: /azure/defender-for-iot/
     # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks
@@ -1230,7 +1230,7 @@ productDirectory:
       azureCategories:
         - security
         - management-and-governance
-      url: external-attack-surface-management/overview.md
+      url: /azure/external-attack-surface-management/overview
     # Card
     - title: Key Vault
       summary: Safeguard and maintain control of keys and other secrets

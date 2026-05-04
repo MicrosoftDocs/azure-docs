@@ -190,7 +190,7 @@ Follow the steps to delete a project:
    :::image type="content" source="./media/create-manage-projects/delete-window.png" alt-text="Window appears to delete a project.":::
 
    > [!Note]
-   > You can't delete or manage the associated Azure Active Directory (AAD) app from this Azure Migrate project level. To delete this resource, visit the AAD app details or use the Azure Command Line Interface (AzCLI). `az ad app delete --id <aad app id>`
+   > You can't delete or manage the associated Microsoft Entra app from this Azure Migrate project level. To delete this resource, visit the Microsoft Entra app details or use the Azure Command Line Interface (AzCLI). `az ad app delete --id <aad app id>`
 
 1. When you delete a project, both the project and its metadata about discovered servers are deleted. If you want to keep resources such as **key vaults** or **storage vaults**, you can **deselect them** 
 1. After you finalize the list of resources to delete, select **Next**.

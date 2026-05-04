@@ -21,7 +21,7 @@ Learn how to upgrade an Azure IoT Operations deployment to a newer version.
 
 ## Understand upgrade support
 
-Azure IoT Operations release versions can be preview or generally available (GA), you can find the latest version in the [Azure IoT Operations versions](https://aka.ms/aio-versions) document. The Azure IoT Operations CLI extension version is tied to the Azure IoT Operations version, so you need to ensure that you have the correct CLI extension version installed to perform an upgrade.
+Azure IoT Operations release versions can be preview or generally available (GA). You can find the latest version in [Azure IoT Operations versions](https://aka.ms/aio-versions). The Azure IoT Operations CLI extension version is tied to the Azure IoT Operations version, so you need to ensure that you have the correct CLI extension version installed to perform an upgrade.
 
 Azure IoT Operations supports the following upgrade scenarios:
 
@@ -31,7 +31,7 @@ Azure IoT Operations supports the following upgrade scenarios:
 - You can't upgrade from any GA version to a preview version. For more information on how to install a preview version, see [Upgrade to preview version](howto-upgrade.md#upgrade-to-preview-version).
 
 > [!NOTE]
-> Azure IoT Operations doesn't support live upgrades. Please expect some downtime during the upgrade process.
+> Azure IoT Operations doesn't support live upgrades. Expect some downtime during the upgrade process.
 
 ## Upgrade
 
@@ -47,9 +47,9 @@ If your Azure IoT Operations deployment is eligible for an upgrade, the Azure po
 
 1. Select **Upgrade** on the **Overview** page of your instance.
 
-   :::image type="content" source="./media/howto-upgrade/instance-upgrade.png" alt-text="Screenshot that shows the upgrade button enabled in the Azure portal.":::
+   :::image type="content" source="./media/howto-upgrade/instance-upgrade.png" alt-text="Screenshot that shows the upgrade button enabled in the Azure portal." lightbox="media/howto-upgrade/instance-upgrade.png":::
 
-1. You need to use the latest version of the Azure IoT Operations CLI extension to get the latest version of Azure IoT Operations. If you didn't update the extension as part of the prerequisites, do so now.
+1. You must use the latest version of the Azure IoT Operations CLI extension to get the latest version of Azure IoT Operations. If you didn't update the extension as part of the prerequisites, do so now.
 
    ```azurecli
    az extension add --upgrade --name azure-iot-ops
@@ -105,8 +105,8 @@ Sometimes the latest version of Azure IoT Operations is in preview. Check the [A
 
 You can only install a preview version using the Azure CLI.
 
-1. If you have an existing Azure IoT Operations instance, you need to [Uninstall Azure IoT Operations](howto-manage-update-uninstall.md#uninstall) to do a new deployment. 
-1. Add the latest version of the Azure IoT Operations CLI extension with the `--allow-preview` flag.
+1. If you have an existing Azure IoT Operations instance, [Uninstall Azure IoT Operations](howto-manage-update-uninstall.md#uninstall) to do a new deployment. 
+1. Add the latest version of the Azure IoT Operations CLI extension with the `--allow-preview` flag:
 
    ```azurecli
    az extension add --upgrade --name azure-iot-ops --allow-preview

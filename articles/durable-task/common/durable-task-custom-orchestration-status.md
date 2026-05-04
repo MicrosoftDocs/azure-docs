@@ -1,9 +1,9 @@
 ---
 author: hhunter-ms
-title: Custom orchestration status
-description: Learn how to configure and use custom orchestration status.
+title: "Custom Orchestration Status: Configure and Query"
+description: "Learn how to set, query, and display custom orchestration status values to track progress and share metadata with external clients in your workflows."
 ms.topic: how-to
-ms.date: 01/15/2026
+ms.date: 04/24/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms
 ms.service: durable-task
@@ -12,9 +12,16 @@ zone_pivot_groups: azure-durable-approach
 # ms.devlang: csharp, javascript, python
 ---
 
-# Custom orchestration status
+# Set and query custom orchestration status
 
-Custom orchestration status lets you set a custom status value for an orchestration instance. External clients can query this value to track progress or share metadata while the orchestration is running.
+Custom orchestration status lets you attach arbitrary JSON metadata to a running orchestration instance so that external clients can query it at any time. Use custom status when you need to:
+
+- **Report progress mid-flight** — let a UI show which step an orchestration has reached without waiting for it to complete.
+- **Return dynamic data to callers** — surface recommendations, discount info, or next-step instructions while the orchestration is still running.
+- **Coordinate with external systems** — share state that other services or human operators can poll and act on.
+
+> [!WARNING]
+> The custom status payload is limited to 16 KB of UTF-16 JSON text. If you need a larger payload, use external storage and store a reference (such as a blob URL) in the custom status instead.
 
 ::: zone pivot="durable-functions"
 In Azure Functions, this status is available via the [HTTP GetStatus API](../../azure-functions/durable-functions/durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-task-instance-management.md#query-instances) on the orchestration client object.
@@ -27,12 +34,23 @@ In Durable Task SDKs, this status is available through orchestration status quer
 
 ::: zone-end
 
-## Sample use cases
+## Sample use cases for custom orchestration status
 
-### Visualize progress
+The following table summarizes common patterns. Select a use case to jump to the corresponding example.
+
+| Use case | Description |
+|---|---|
+| [Visualize orchestration progress](#visualize-orchestration-progress) | Update a string or object after each activity so clients can display a progress indicator. |
+| [Return dynamic metadata to clients](#return-dynamic-metadata-to-clients) | Set structured data (like recommendations) that clients render without needing custom server-side endpoints. |
+| [Provide actionable data to clients](#provide-actionable-data-to-clients) | Surface booking URLs, discount info, or next-step instructions that clients act on while the orchestration waits for an external event. |
+| [Query custom status](#query-custom-orchestration-status) | Read the custom status value from a client using HTTP APIs or SDK calls. |
+
+### Visualize orchestration progress
+
+In this pattern, the orchestrator calls `SetCustomStatus` (or the equivalent in your language) after each activity completes, updating the status with the name of the last-completed city. A client polls the status endpoint, reads the current value, and updates a progress indicator in the UI.
 
 ::: zone pivot="durable-functions"
-Clients can poll the status endpoint and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
+The following sample demonstrates progress sharing using the Durable Functions HTTP status endpoint:
 
 # [C#](#tab/csharp)
 
@@ -175,7 +193,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
-Clients can poll orchestration metadata and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
+The following sample demonstrates progress sharing using the Durable Task SDK client APIs:
 
 # [C#](#tab/csharp)
 
@@ -352,7 +370,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 ::: zone-end
 
 ::: zone pivot="durable-functions"
-And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
+The following client code polls the orchestration status and waits until `CustomStatus` is set to `"London"` before returning a response:
 
 # [C#](#tab/csharp)
 
@@ -446,7 +464,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 # [PowerShell](#tab/powershell)
 
-The feature isn't currently implemented in PowerShell.
+Client-side polling of custom status isn't directly supported in the PowerShell SDK. Use the [HTTP status API](../../azure-functions/durable-functions/durable-functions-http-api.md#get-instance-status) or the `Get-DurableStatus` cmdlet to query orchestration status.
 
 # [Java](#tab/java)
 
@@ -481,9 +499,9 @@ public HttpResponseMessage startHelloCities(
 
 ::: zone-end
 
-### Output customization
+### Return dynamic metadata to clients
 
-You can use custom orchestration status to segment users by returning customized output based on unique characteristics or interactions. With custom orchestration status, your client-side code stays generic while all main modifications happen on the server side:
+You can use custom orchestration status to return structured data — like personalized recommendations — to clients without building separate endpoints. The orchestrator sets the custom status based on input, and the client reads it through the standard status API. This keeps client-side code generic while all logic stays on the server side.
 
 ::: zone pivot="durable-functions"
 
@@ -819,9 +837,9 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-### Instruction specification
+### Provide actionable data to clients
 
-Your orchestrator can provide unique instructions to clients through the custom status. The custom status instructions map to the steps in your orchestration code:
+In this pattern, the orchestrator surfaces time-sensitive information — such as a discount, a booking URL, and a timeout — through custom status, then pauses to wait for an external event. A client reads the custom status to display the offer and sends the confirmation event back to the orchestrator when the user acts.
 
 ::: zone pivot="durable-functions"
 
@@ -1100,105 +1118,18 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-## Querying custom status
+## Query custom orchestration status
+
+The previous examples show how to set custom status from orchestrator code. This section focuses on how external clients read that value.
 
 ::: zone pivot="durable-functions"
-The following example shows how custom status values can be queried using the built-in HTTP APIs.
-
-# [C#](#tab/csharp)
-
-```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    // ...do work...
-
-    // update the status of the orchestration with some arbitrary data
-    var customStatus = new { nextActions = new [] {"A", "B", "C"}, foo = 2, };
-    context.SetCustomStatus(customStatus);
-
-    // ...do more work...
-}
-```
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context) {
-    // ...do work...
-
-    // update the status of the orchestration with some arbitrary data
-    const customStatus = { nextActions: [ "A", "B", "C" ], foo: 2, };
-    context.df.setCustomStatus(customStatus);
-
-    // ...do more work...
-});
-```
-
-# [Python](#tab/python)
-
-```python
-import azure.functions as func
-import azure.durable_functions as df
-
-def orchestrator_function(context: df.DurableOrchestrationContext):
-    # ...do work...
-
-    custom_status = {'nextActions': ['A','B','C'], 'foo':2}
-    context.set_custom_status(custom_status)
-
-    # ...do more work...
-
-main = df.Orchestrator.create(orchestrator_function)
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-param($Context)
-
-# ...do work...
-
-Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C'); 
-                                         foo = 2 
-                                        }  
-
-# ...do more work...
-```
-
-# [Java](#tab/java)
-
-```java
-@FunctionName("MyCustomStatusOrchestrator")
-public void myCustomStatusOrchestrator(
-        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
-    // ... do work ...
-
-    // update the status of the orchestration with some arbitrary data
-    CustomStatusPayload payload = new CustomStatusPayload();
-    payload.nextActions = new String[] { "A", "B", "C" };
-    payload.foo = 2;
-    ctx.setCustomStatus(payload);
-
-    // ... do more work ...
-}
-
-class CustomStatusPayload {
-    public String[] nextActions;
-    public int foo;
-}
-```
-
----
-
-While the orchestration is running, external clients can fetch this custom status:
+After an orchestrator calls `SetCustomStatus`, external clients can query the value through the built-in Durable Functions HTTP API. For example:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
-Clients get the following response:
+The response includes the `customStatus` field alongside runtime metadata:
 
 ```json
 {
@@ -1211,84 +1142,12 @@ Clients get the following response:
 }
 ```
 
-> [!WARNING]
-> The custom status payload is limited to 16 KB of UTF-16 JSON text. If you need a larger payload, we recommend you use external storage.
+You can also query custom status programmatically using the orchestration client SDK. For a complete reference, see [Query instances](durable-task-instance-management.md#query-instances).
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
-Durable Task SDKs don't provide a built-in HTTP status endpoint. Instead, you query custom status by using orchestration instance metadata APIs on the `DurableTaskClient`.
-
-# [C#](#tab/csharp)
-
-```csharp
-using System.Threading.Tasks;
-using Microsoft.DurableTask;
-
-public class MyCustomStatusOrchestrator : TaskOrchestrator<object?, object?>
-{
-    public override Task<object?> RunAsync(TaskOrchestrationContext context, object? input)
-    {
-        context.SetCustomStatus(new { nextActions = new[] { "A", "B", "C" }, foo = 2 });
-        return Task.FromResult<object?>(null);
-    }
-}
-```
-
-# [Python](#tab/python)
-
-```python
-from durabletask import task
-
-def my_custom_status_orchestrator(ctx: task.OrchestrationContext, _):
-    ctx.set_custom_status({"nextActions": ["A", "B", "C"], "foo": 2})
-```
-
-# [Java](#tab/java)
-
-```java
-import com.microsoft.durabletask.TaskOrchestration;
-import com.microsoft.durabletask.TaskOrchestrationContext;
-
-public class MyCustomStatusOrchestrator implements TaskOrchestration {
-    @Override
-    public void run(TaskOrchestrationContext ctx) {
-        CustomStatusPayload payload = new CustomStatusPayload();
-        payload.nextActions = new String[] { "A", "B", "C" };
-        payload.foo = 2;
-        ctx.setCustomStatus(payload);
-
-        ctx.complete(null);
-    }
-}
-
-class CustomStatusPayload {
-    public String[] nextActions;
-    public int foo;
-}
-```
-
-# [JavaScript](#tab/javascript)
-
-```typescript
-import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
-
-const myCustomStatusOrchestrator: TOrchestrator = async function* (ctx: OrchestrationContext): any {
-    // ...do work...
-
-    ctx.setCustomStatus({ nextActions: ["A", "B", "C"], foo: 2 });
-
-    // ...do more work...
-};
-```
-
-# [PowerShell](#tab/powershell)
-
-The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
-
----
-
-Query the custom status from a client:
+Durable Task SDKs don't provide a built-in HTTP status endpoint. Instead, query custom status programmatically using orchestration instance metadata APIs on the `DurableTaskClient`.
 
 # [C#](#tab/csharp)
 
@@ -1339,16 +1198,21 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-
-
 ## Next steps
 
 ::: zone pivot="durable-functions"
 > [!div class="nextstepaction"]
 > [Learn about durable timers](durable-task-timers.md)
+
+- [Wait for external events in an orchestration](durable-task-external-events.md)
+- [Manage orchestration instances](durable-task-instance-management.md)
+- [Durable Functions HTTP API reference](../../azure-functions/durable-functions/durable-functions-http-api.md)
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 > [!div class="nextstepaction"]
 > [Get started with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+
+- [Wait for external events in an orchestration](durable-task-external-events.md)
+- [Manage orchestration instances](durable-task-instance-management.md)
 ::: zone-end

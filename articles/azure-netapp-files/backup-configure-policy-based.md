@@ -24,7 +24,8 @@ Backups are long-running operations. The system schedules backups based on the p
 
 Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. This baseline snapshot is deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry appears in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot isn't created. A baseline snapshot is created only when the volume has no prior backups.
 
-[!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
+>[!NOTE]
+>If you need to delete a volume that has backups, you should delete the backups first. Deleting the volume doesn't delete the backups. [You can delete backups manually](backup-delete.md). 
 
 ## Configure a backup policy
 
@@ -44,12 +45,15 @@ To enable a policy-based (scheduled) backup:
 
 4. Select **Backup Policies**.
 5. Select **Add**. 
-6. In the **Backup Policy** page, specify the backup policy name.  Enter the number of backups that you want to keep for daily, weekly, and monthly backups. Select **Save**.      
+6. In the **Backup Policy** page, select the backup policy template and then specify the backup policy name. 
 
-    The minimum value for **Daily Backups to Keep** is 2. 
-
+    >[!NOTE]
+    >For the backup policy template, you can select Default, Extended, or Custom. Under the default backup policy template, 7 backup copies are kept for each frequency - daily, weekly, and monthly, and under the Extended backup policy template, 14 backup copies are kept for each frequency - daily, weekly, and monthly. For Custom backup policy template, you can manually enter the number of backups that you want to keep for daily, weekly, and monthly. The minimum value for **Daily Backups to Keep** is 2. 
+  
     :::image type="content" source="./media/backup-configure-policy-based/backup-policy-window-daily.png" alt-text="Screenshot that shows the Backup Policy window." lightbox="./media/backup-configure-policy-based/backup-policy-window-daily.png":::
- 
+
+ 7. Select **Save**.      
+
 ### Example of a valid configuration
 
 The following example configuration shows you how to configure a data protection policy on the volume. This configuration results in backing up 15 latest daily snapshots, 6 latest weekly snapshots, and 4 latest monthly snapshots.

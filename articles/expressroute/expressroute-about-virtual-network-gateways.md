@@ -103,11 +103,16 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 **Availability:**  
 
-Auto-assigned public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-assigned public IP isn't available for Virtual WAN (vWAN).
  
 ## Connectivity from virtual network to virtual network and from virtual network to virtual WAN
 
+> [!NOTE]
+> If your Virtual WAN hub has undergone the software upgrade associated with [enabling route maps](../virtual-wan/route-maps-how-to.md), a known issue prevents the virtual network gateway from properly identifying Virtual WAN routes. As a result, the **Allow traffic from remote Virtual WAN network** setting on Virtual Network Gateway isn't applied correctly, and Virtual WAN address prefixes from that Virtual WAN hub are always learned by the Virtual Network Gateway regardless of the configured setting.
+
 By default, virtual network-to-virtual network and virtual network-to-virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable virtual network-to-virtual network or virtual network-to-virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+
+
 
 ## FastPath
 

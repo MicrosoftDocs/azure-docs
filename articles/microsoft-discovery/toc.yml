@@ -1,0 +1,261 @@
+items:
+  - name: Microsoft Discovery Documentation
+    href: index.yml
+  - name: Overview
+    items:
+      - name: What is Microsoft Discovery?
+        href: overview-what-is-microsoft-discovery.md
+        displayName: Microsoft Discovery, services, overview, introduction
+      - name: Service architecture overview
+        href: overview-service-architecture.md
+        displayName: Microsoft Discovery, service architecture, resource model, workspace, supercomputer, project
+      - name: Key scenarios
+        href: overview-key-scenarios.md
+        displayName: Microsoft Discovery, key scenarios, use cases, scientific research
+      - name: Microsoft Discovery Studio
+        href: concept-studio.md
+        displayName: Microsoft Discovery, Studio, web interface, investigations
+  - name: Quickstarts
+    items:
+      - name: v1 to v2 transition guidance
+        href: concept-v1-to-v2-transition-guide.md
+        displayName: Microsoft Discovery, v1, v2, migration, transition, resources
+      - name: Quickstart - Deploy infrastructure using Azure portal
+        href: quickstart-infrastructure-portal.md
+        displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
+      - name: Quickstart - Deploy infrastructure using Bicep
+        href: quickstart-infrastructure-bicep.md
+        displayName: Microsoft Discovery, quickstart, Bicep, infrastructure, deployment, getting started
+      - name: Quickstart - First set of Agent and investigation
+        href: quickstart-agents-studio.md
+        displayName: Microsoft Discovery, quickstart, project, studio, getting started
+      - name: Quickstart - Add agents using bundles
+        href: quickstart-agents-bundles.md
+        displayName: Microsoft Discovery, quickstart, agents, bundles, hello discovery, getting started
+  - name: Plan and prepare
+    items:
+      - name: Onboarding prerequisites
+        items:
+          - name: Resource provider registration
+            href: concept-resource-provider-registration.md
+            displayName: Microsoft Discovery, resource provider, registration, prerequisites
+          - name: Role assignments
+            href: concept-role-assignments.md
+            displayName: Microsoft Discovery, RBAC, role assignments, permissions, access control
+          - name: Resource Naming
+            href: concept-resource-naming.md
+            displayName: Microsoft Discovery, resource naming conventions, best practices, organization
+      - name: Infrastructure building blocks
+        items:
+          - name: Virtual Networks and Subnets
+            href: concept-virtual-networks.md
+            displayName: Microsoft Discovery, services, overview, virtual networks
+          - name: Azure Container Registry
+            href: concept-azure-container-registry.md
+            displayName: Microsoft Discovery, ACR, container registry, tools, images, infrastructure
+          - name: Azure Blob Storage Account
+            href: concept-storage-account.md
+            displayName: Microsoft Discovery, storage account, blob storage, CORS, networking, infrastructure
+          - name: Managed identities
+            href: concept-managed-identities.md
+            displayName: Microsoft Discovery, managed identity, UAMI, authentication, roles, infrastructure
+          - name: Quota reservations
+            href: concept-quota-reservation.md
+            displayName: Microsoft Discovery, quota, capacity reservation, VM SKU, deployment prerequisites
+  - name: Concepts
+    items:
+      - name: Data & Knowledge
+        items: 
+          - name: Bookshelf & Knowledge Bases
+            href: concept-bookshelf-knowledge-bases.md
+            displayName: Microsoft Discovery, Concept, Bookshelf Service, Knowledge Bases
+          - name: Storage containers and storage assets
+            href: concept-storage-containers-assets.md
+            displayName: Microsoft Discovery, storage containers, storage assets, blob storage, data layer
+      - name: Network Security & Data Protection
+        items:
+          - name: Network security
+            href: concept-network-security.md
+            displayName: Microsoft Discovery, network security, NSP, private endpoints, network hardening
+          - name: Data encryption at rest
+            href: concept-data-encryption-at-rest.md
+            displayName: Microsoft Discovery, encryption at rest, Microsoft-managed keys, customer-managed keys, CMK
+      - name: Projects & Investigations
+        items:
+          - name: Projects and Investigations
+            href: concept-projects-investigations.md
+            displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+      - name: Agents
+        items:
+          - name: Discovery Agent concepts
+            href: concept-discovery-agent.md
+            displayName: Discovery Agent, prompt agent, workflow agent, multi-agent orchestration
+          - name: Discovery Agent types
+            href: concept-discovery-agent-types.md
+            displayName: Discovery Agent, agent types, prompt agent, workflow agent, orchestration
+      - name: Tools & Models
+        items:
+          - name: Tools and model integration
+            href: concept-tools-model-integration.md
+            displayName: Microsoft Discovery, tools, model integration, action-based tools, code-environment based tools, OpenAPI, MCP
+      - name: Discovery Engine
+        items:
+          - name: Discovery Engine overview
+            href: concept-discovery-engine.md
+            displayName: Discovery Engine, cognition, tasks, autonomous research, Discovery Mode
+          - name: Cognition overview
+            href: concept-cognition-overview.md
+            displayName: cognition, reasoning loop, task management, agent selection, Discovery Mode
+          - name: Tasks and investigations
+            href: concept-tasks-investigations.md
+            displayName: tasks, investigations, workflows, task status, dependencies, validation requirements
+          - name: Files and storage assets
+            href: concept-files-storage-assets.md
+            displayName: files, storage assets, WriteResource, file types, file outputs, binary files
+          - name: Trust relationship and basic investigation patterns
+            href: concept-trust-basic-investigation-patterns.md
+            displayName: trust, validation requirements, investigation patterns, workflow patterns, task structure, autonomy
+          - name: Advanced investigation patterns
+            href: concept-advanced-investigation-patterns.md
+            displayName: investigation patterns, workflow patterns, deterministic, guided exploration, autonomous research
+      - name: Responsible AI
+        items:
+          - name: Responsible AI in Microsoft Discovery
+            href: concept-responsible-ai.md
+            displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
+  - name: How-tos
+    items:
+      - name: Migration
+        items:
+          - name: Collect v1 resource configurations
+            href: how-to-collect-v1-configurations.md
+            displayName: Microsoft Discovery, v1, v2, migration, export, tools, agents, workflows, collect
+          - name: Recreate resources in v2
+            href: how-to-recreate-v2-resources.md
+            displayName: Microsoft Discovery, v1, v2, migration, recreate, tools, agents, workflows, bookshelves
+      - name: Identity & Access
+        items:
+          - name: Configure managed identities
+            href: how-to-configure-managed-identity.md
+            displayName: Microsoft Discovery, managed identity, UAMI, role assignments, authentication
+      - name: Supercomputer & Workspace Management
+        items:
+          - name: Manage Supercomputer & Nodepools
+            href: how-to-manage-supercomputers.md
+            displayName: Microsoft Discovery, services, how to, supercomputers
+          - name: Manage Supercomputer using REST APIs
+            href: how-to-manage-supercomputers-rest-api.md
+            displayName: Microsoft Discovery, services, how to, supercomputers
+          - name: Run and manage jobs on Supercomputer using REST APIs
+            href: how-to-run-jobs-supercomputer-rest-api.md
+            displayName: Microsoft Discovery, services, how to, jobs, supercomputers
+          - name: Manage Workspaces
+            href: how-to-manage-workspaces.md
+            displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
+      - name: Agents
+        items:
+          - name: Create agents
+            href: how-to-agent-creation.md
+            displayName: Microsoft Discovery, agents, prompt agent, workflow agent, create, author
+          - name: Select models for agents
+            href: how-to-select-models-for-agents.md
+            displayName: Microsoft Discovery, model selection, GPT-5, OpenAI, agent model, cost, performance
+          - name: Write effective prompts for agents
+            href: how-to-prompt-engineering.md
+            displayName: Microsoft Discovery, prompt engineering, agent instructions, GPT-5, few-shot, scientific research
+          - name: Data handling with tools and agents
+            href: how-to-data-handling-with-tools-agents.md
+            displayName: Microsoft Discovery, data handling, tools, agents, virtual paths, data assets, mounts, promotion
+      - name: Data & Knowledge
+        items:
+          - name: Manage storage containers
+            href: how-to-manage-storage-containers.md
+            displayName: Microsoft Discovery, storage containers, storage assets, blob storage, data ingestion
+          - name: Create Bookshelf and index a Knowledgebase
+            href: how-to-index-bookshelf-knowledgebase.md
+            displayName: Microsoft Discovery, bookshelf, knowledgebase, indexing, LazyGraphRAG, storage, blob, managed identity
+      - name: Network Security & Data Protection
+        items:
+          - name: Configure network security
+            href: how-to-configure-network-security.md
+            displayName: Microsoft Discovery, network security, NSP, private endpoints, network hardening
+          - name: End-to-end network-hardened deployment
+            href: how-to-deploy-network-hardened-stack.md
+            displayName: Microsoft Discovery, network hardening, end-to-end, deployment, private endpoints
+          - name: Configure customer-managed keys
+            href: howto-data-encryption-at-rest.md
+            displayName: Microsoft Discovery, customer-managed keys, CMK, encryption at rest, Key Vault
+      - name: Investigations & Discovery Mode
+        items:
+          - name: Build investigations with cognition
+            href: how-to-build-investigations-cognition.md
+            displayName: investigations, workflows, cognition, tasks, Discovery Mode, investigation
+          - name: Task addition and execution
+            href: how-to-task-addition-execution.md
+            displayName: tasks, dependencies, execution, results, task management
+          - name: Debug task execution
+            href: how-to-debug-task-execution.md
+            displayName: debug, troubleshoot, stuck tasks, validation, errors
+      - name: Tools
+        items:
+          - name: Plan tool requirements
+            href: how-to-plan-tool-requirements.md
+            displayName: Microsoft Discovery, tool, planning, requirements
+          - name: Create a tool definition
+            href: how-to-create-tool-definition.md
+            displayName: Microsoft Discovery, tool, definition, create
+          - name: Create a Dockerfile for a tool
+            href: how-to-create-tool-docker-file.md
+            displayName: Microsoft Discovery, tool, Dockerfile, container image
+          - name: Write action scripts for a tool
+            href: how-to-write-tool-action-scripts.md
+            displayName: Microsoft Discovery, tool, action scripts, write
+          - name: Publish a tool to Azure Container Registry
+            href: how-to-publish-tool-to-acr.md
+            displayName: Microsoft Discovery, tool, ACR, publish, container registry
+          - name: Deploy a tool to Microsoft Discovery
+            href: how-to-deploy-tool-to-discovery.md
+            displayName: Microsoft Discovery, tool, deploy, create tool, definition content, environment variables, REST API, portal
+      - name: Observability
+        items:
+          - name: Access resource logs
+            href: how-to-access-resource-logs.md
+            displayName: Microsoft Discovery, resource logs, access, diagnostics
+          - name: View activity logs
+            href: how-to-view-activity-logs.md
+            displayName: Microsoft Discovery, activity logs, view, Azure Monitor
+          - name: Enable audit logging
+            href: how-to-enable-audit-logging.md
+            displayName: Microsoft Discovery, audit logging, enable, diagnostic settings
+          - name: Query workspace logs
+            href: how-to-query-workspace-logs.md
+            displayName: Microsoft Discovery, workspace logs, query, KQL, Log Analytics
+          - name: Query CogLoop logs
+            href: how-to-query-cognitive-loop-logs.md
+            displayName: Microsoft Discovery, CogLoop, cognitive loop, logs, query, KQL
+          - name: Query Supercomputer logs
+            href: how-to-query-supercomputer-logs.md
+            displayName: Microsoft Discovery, Supercomputer, logs, query, KQL
+          - name: Query Bookshelf indexing logs
+            href: how-to-query-bookshelf-indexing-logs.md
+            displayName: Microsoft Discovery, Bookshelf, indexing, logs, query, KQL
+          - name: Query Bookshelf query logs
+            href: how-to-query-bookshelf-logs.md
+            displayName: Microsoft Discovery, Bookshelf, query logs, KQL
+  - name: Operate & Support
+    items:
+      - name: Observability overview
+        href: concept-observability.md
+        displayName: Microsoft Discovery, observability, monitoring, logs, diagnostics
+      - name: Billing overview
+        href: concept-discovery-billing.md
+        displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
+  - name: Tutorials
+    items:
+      - name: "Tutorial: Discovery Mode"
+        href: tutorial-discovery-mode.md
+        displayName: tutorial, Discovery Mode, first investigation, getting started
+  - name: Reference
+    items:
+    - name: REST API
+      href: /rest/api/discovery/

@@ -13,7 +13,7 @@ ms.date: 03/20/2025
 
 # Properties and parameters in environment.yaml
 
-Azure Deployment Environments environment definitions are infrastructure as code (IaC) that are written in Bicep or Terraform and stored in repositories. You can modify and adapt environment definitions for your requirements and then use them to create a deployment environment on Azure. The environment.yaml schema defines and describes the types of Azure resources included in environment definitions.
+Azure Deployment Environments environment definitions are infrastructure as code (IaC) templates written in ARM, Bicep, Terraform, or other frameworks supported through the ADE extensibility model, and stored in repositories. You can modify and adapt environment definitions for your requirements and then use them to create a deployment environment on Azure. The environment.yaml schema defines and describes the types of Azure resources included in environment definitions.
 
 
 ## What is environment.yaml?

@@ -48,8 +48,7 @@ If you haven’t done so, assign a backup vault to the volume before creating ma
 3. In the Configure Backup page, select the backup vault from the dropdown menu.  
 4. Select **OK**.   
 
-![Screenshot that shows the Enabled setting of Configure Backups window.](./media/shared/backup-configure-enabled.png)
-:::image type="content" source="./media/shared/backup-configure-enabled.png" alt-text="Screenshot of backup vault creation.":::
+:::image type="content" source="./media/shared/backup-configure-enabled.png" alt-text="Screenshot that shows the Enabled setting of Configure Backups window." lightbox="./media/shared/backup-configure-enabled.png":::
 
 ## Create a manual backup for a volume
 

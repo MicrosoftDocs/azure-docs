@@ -503,6 +503,8 @@
           href: backup-configure-policy-based.md
         - name: Configure manual backups 
           href: backup-configure-manual.md
+      - name: Enable backup by default for new volumes 
+        href: protect-volumes.md  
       - name: Search backups
         href: backup-search.md 
       - name: Restore a backup to a new volume 
@@ -529,8 +531,6 @@
         href: reestablish-deleted-volume-relationships.md
       - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
-      - name: Enable cross-subscription replication
-        href: enable-cross-subscription-replication.md
     - name: Manage caching 
       items: 
         - name: Manage cache volumes 

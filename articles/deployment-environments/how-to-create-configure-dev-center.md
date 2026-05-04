@@ -112,7 +112,8 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 
    ```azurecli
    az role assignment create --assignee <YourPrincipalId> --role "Key Vault Secrets Officer" --scope /subscriptions/<YourSubscriptionId>/resourceGroups/<YourResourceGroupName>/providers/Microsoft.KeyVault/vaults/<YourKeyVaultName>
-   
+   ```
+
 1. Add the GitHub PAT to Key Vault as a secret:
 
    ```azurecli

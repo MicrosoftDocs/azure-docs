@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 - An Azure SRE Agent in **Running** state with Agent Space configured
 - **Contributor** role or higher on the SRE Agent resource
 - Internet access to GitHub (the marketplace resolves plugins from public GitHub repositories)
-- The **Plugins** page must be visible in your sidebar under **Builder**. If you don't see it, you might need to enable workspace tooling features for your agent space.
+- The **Plugins** page must be visible in your sidebar under **Builder**. If you don't see it, your agent may need workspace tools enabled. For older agents created during Public Preview, a banner at the top of the portal prompts you to migrate — click **Start migration now** and confirm.
 
 ## Open the Plugin Marketplace
 

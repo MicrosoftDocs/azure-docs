@@ -14,6 +14,8 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 # Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) using Bicep
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This Bicep file will create a dedicated SQL pool (formerly SQL DW) with Transparent Data Encryption enabled. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]

@@ -1,10 +1,10 @@
 ---
-title: What is Durable Task?
-description: Learn about Durable Task, the umbrella technology that includes Durable Task SDKs, Durable Functions, and the Durable Task Scheduler to provide durable execution with automatic state persistence, fault tolerance, and horizontal scalability.
+title: "What is Durable Task?"
+description: "Discover what Durable Task is and how its SDKs, Durable Functions, and Durable Task Scheduler enable durable execution with horizontal scalability, fault tolerance, and automatic state persistence. Get started today."
 author: cgillum
 ms.author: cgillum
 ms.reviewer: hannahhunter
-ms.date: 02/14/2026
+ms.date: 04/22/2026
 ms.topic: overview
 ms.service: durable-task
 titleSuffix: Durable Task
@@ -13,9 +13,9 @@ titleSuffix: Durable Task
 
 # What is Durable Task?
 
-Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Instead of managing complex retry logic, state machines, or message queues, you express your business logic as straightforward functions - Durable Task handles state persistence, automatic recovery, and distributed coordination for you.
+Durable Task is Microsoft's durable execution framework for building fault-tolerant workflows and orchestrations as ordinary code. Instead of managing complex retry logic, state machines, or message queues, you write your business logic as straightforward functions — Durable Task handles state persistence, automatic recovery, and distributed coordination for you.
 
-Workflows can run for hours, days, or even months, reliably resuming from the last completed step after any crash, restart, or redeployment. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management.
+Durable Task workflows can run for hours, days, or even months, reliably resuming from the last completed step after any crash, restart, or redeployment. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management.
 
 Durable Task encompasses:
 - The **[Durable Task SDKs](../sdks/durable-task-overview.md)** for self-hosted applications.
@@ -25,9 +25,9 @@ Durable Task encompasses:
 > [!NOTE]
 > *Durable execution* is an industry-wide approach to making ordinary code fault-tolerant by automatically persisting its progress. Durable Task is Microsoft's implementation of durable execution.
 
-## Key use cases
+## Key Durable Task use cases
 
-Durable Task is a great fit for many development scenarios, including:
+Use Durable Task when your application requires reliable, long-running workflow orchestration across distributed services. Common scenarios include:
 
 - **Long-running processes**: Durable Task can manage state and progress for processes that run for extended periods of time, even in the face of interruptions or errors. Examples include order processing, data pipelines, machine learning model training, and long-running simulations.
 - **Parallel and fan-out/fan-in scenarios**: Durable Task can coordinate work that is fanned out across multiple workers running in parallel on different machines, and then aggregate results back together. Examples include image processing, map-reduce jobs, and ETL workflows.
@@ -38,7 +38,7 @@ Durable Task is a great fit for many development scenarios, including:
 
 A common theme across these scenarios is that they involve work that is too complex, too long-running, or too distributed to manage reliably with ad-hoc code. Durable Task provides the underlying guarantees - persistence, fault tolerance, and stateful coordination - so you can express that work as straightforward code.
 
-## Supported languages and hosting models
+## Supported languages and Durable Task hosting models
 
 Durable Task supports multiple programming languages across two hosting models: **Azure Functions** (via the Durable Functions extension) and **self-hosted** (via the standalone Durable Task SDKs). The *Azure Functions* hosting model provides a fully managed, serverless compute environment with built-in scaling and orchestration features, while the *self-hosted* model allows you to run durable applications on any compute platform of your choice, such as Azure Container Apps, Azure Kubernetes Service, Azure App Service, or virtual machines.
 
@@ -75,7 +75,7 @@ Alternatively, Durable Functions supports several **bring-your-own (BYO) storage
 
 For more information about storage options, see [Storage providers](durable-task-storage-providers.md).
 
-## Additional resources
+## Additional Durable Task resources
 
 ### Research publications
 

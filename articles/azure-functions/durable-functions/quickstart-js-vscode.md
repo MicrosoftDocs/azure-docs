@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create a JavaScript Durable Functions app"
-description: Create and publish a JavaScript Durable Functions app in Azure Functions by using Visual Studio Code.
+description: "Create, test, and publish a JavaScript Durable Functions app in Azure Functions using Visual Studio Code. Build a stateful serverless workflow in minutes."
 author: anthonychu
 ms.author: hannahhunter
 ms.topic: quickstart
 ms.service: azure-functions
-ms.date: 07/24/2024
+ms.date: 04/23/2026
 ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
 zone_pivot_groups: functions-nodejs-model
@@ -18,9 +18,16 @@ ms.custom:
 
 # Quickstart: Create a JavaScript Durable Functions app
 
-Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. In this quickstart, you use Visual Studio Code to create, test locally, and publish a "hello world" Durable Functions app that orchestrates and chains calls to other functions.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this article:
+
+- [Prerequisites](#prerequisites)
+- [Create your local project](#create-an-azure-functions-project)
+- [Install the npm package](#install-the-durable-functions-npm-package)
+- [Create your functions](#create-your-functions) — Orchestrator, activity, and HTTP starter
+- [Test the function locally](#test-the-function-locally)
+- [Test your function in Azure](#test-your-function-in-azure)
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
@@ -61,13 +68,13 @@ To complete this quickstart, you need:
 
 ::: zone pivot="nodejs-model-v3"
 
-* [Node.js](https://nodejs.org/) version 16.x+ installed.
+* [Node.js](https://nodejs.org/) version 18.x+ installed.
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-* [Node.js](https://nodejs.org/) version 18.x+ installed.
+* [Node.js](https://nodejs.org/) version 20.x+ installed.
 
 ::: zone-end
 
@@ -135,7 +142,7 @@ To use the v3 programming model, install the durable-functions v2.x library.
 
 ::: zone pivot="nodejs-model-v3"
 
-2. Install the durable-functions npm package by running `npm install durable-functions@2.1.4` in the root directory of the function app.
+2. Install the durable-functions npm package by running `npm install durable-functions@^2` in the root directory of the function app.
 
 ::: zone-end
 
@@ -155,6 +162,9 @@ The most basic Durable Functions app has three functions:
 
 ::: zone pivot="nodejs-model-v3"
 
+> [!IMPORTANT]
+> The v3 programming model is in maintenance mode. For new projects, use the **v4 programming model** (select the pivot at the top of this page). See [Upgrade to the v4 model](../functions-node-upgrade-v4.md) for migration guidance.
+
 ### Orchestrator function
 
 You use a template to create the Durable Functions app code in your project.
@@ -168,6 +178,9 @@ You use a template to create the Durable Functions app code in your project.
     | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
     | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Selects the storage back end that's used for your Durable Functions app. |
     | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
+
+> [!TIP]
+> This quickstart uses Azure Storage as the storage backend. For production workloads, the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) is the recommended storage provider. See [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md).
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
 
@@ -220,6 +233,9 @@ One of the benefits of the v4 programming model is the flexibility of where you 
     | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your Durable Functions app. |
     | **Provide a function name** | Enter **hello**. | The name of your durable function. |
 
+> [!TIP]
+> This quickstart uses Azure Storage as the storage backend. For production workloads, the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) is the recommended storage provider. See [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md).
+
 Open *src/functions/hello.js* to view the functions you created.
 
 You created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
@@ -235,6 +251,9 @@ You now have a Durable Functions app that you can run locally and deploy to Azur
 ## Test the function locally
 
 Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
+
+> [!NOTE]
+> Testing locally requires an Azure Storage account (or the [Azurite emulator](../../storage/common/storage-use-azurite.md)). Steps 2–3 walk you through creating one if you don't already have one.
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -310,8 +329,8 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2020-03-18T21:54:49Z",
-        "lastUpdatedTime": "2020-03-18T21:54:54Z"
+        "createdTime": "2026-04-23T14:22:49Z",
+        "lastUpdatedTime": "2026-04-23T14:22:54Z"
     }
     ```
 
@@ -335,8 +354,8 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
             "Hello, Seattle",
             "Hello, Cairo"
         ],
-        "createdTime": "2023-02-13T23:02:21Z",
-        "lastUpdatedTime": "2023-02-13T23:02:25Z"
+        "createdTime": "2026-04-23T14:32:21Z",
+        "lastUpdatedTime": "2026-04-23T14:32:25Z"
     }
     ```
 
@@ -387,3 +406,7 @@ If you no longer need the resources that you created to complete the quickstart,
 ## Related content
 
 * Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
+* [Quickstart: Create a C# Durable Functions app](durable-functions-isolated-create-first-csharp.md)
+* [Quickstart: Create a Python Durable Functions app](quickstart-python-vscode.md)
+* [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md)
+* [Durable Functions overview](durable-functions-overview.md)
