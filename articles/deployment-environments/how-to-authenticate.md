@@ -73,7 +73,7 @@ After authentication succeeds, Microsoft Entra ID returns an access token for th
 The token is a Base64 string. The token is valid for at least five minutes. The maximum duration is 90 minutes. The `expiresOn` value defines the actual token expiration time.
 
 > [!TIP]
-> Developer API tokens for the service are encrypted. JWT decoding tools can't decrypt the tokens. Only the service and process them.
+> Developer API tokens for the service are encrypted. JWT decoding tools can't decrypt the tokens. Only the service can process them.
 
 ### Use a bearer token to access REST APIs
 
