@@ -141,7 +141,7 @@ public override async Task<string> RunAsync(TaskOrchestrationContext context, st
 }
 ```
 
-Each worker registers only its local tasks. The SDK generates work item filters from the task registry.
+Each worker registers only its local tasks and calls `UseWorkItemFilters()` to opt in to filtering. The SDK then generates work item filters from the task registry.
 
 ```csharp
 builder.Services.AddDurableTaskWorker()
@@ -149,8 +149,12 @@ builder.Services.AddDurableTaskWorker()
     {
         registry.AddAllGeneratedTasks();
     })
+    .UseWorkItemFilters()
     .UseDurableTaskScheduler(connectionString);
 ```
+
+> [!NOTE]
+> Starting in version 1.23.0 of the .NET Durable Task SDK, work item filters are no longer enabled by default. You must explicitly call `UseWorkItemFilters()` on each worker to enable filtering. Workers that don't call it receive all work item types as before.
 
 For example:
 

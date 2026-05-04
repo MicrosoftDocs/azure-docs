@@ -106,7 +106,7 @@ This technique enables the developer's client application to determine how to cr
 
 ## Considerations for multiple regions or gateways
 
-Rate limiting policies like `rate-limit`, `rate-limit-by-key`, `azure-openai-token-limit`, and `llm-token-limit` use counters at the level of the API Management gateway. Therefore, in [multi-region deployments](api-management-howto-deploy-multi-region.md) of API Management, each regional gateway has a separate counter, and rate limits are enforced separately for each region. Similarly, in API Management instances with [workspaces](workspaces-overview.md), limits are enforced separately for each workspace gateway. 
+Rate limiting policies like `rate-limit`, `rate-limit-by-key`, and `llm-token-limit` use counters at the level of the API Management gateway. Therefore, in [multi-region deployments](api-management-howto-deploy-multi-region.md) of API Management, each regional gateway has a separate counter, and rate limits are enforced separately for each region. Similarly, in API Management instances with [workspaces](workspaces-overview.md), limits are enforced separately for each workspace gateway. 
 
 Quota policies like `quota` and `quota-by-key` are global, which means that a single counter is used at the level of the API Management instance. 
 
