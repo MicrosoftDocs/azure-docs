@@ -119,5 +119,4 @@ landingContent:
            url: workloads/nc2-on-azure/architecture.md
          - text: Getting started
            url: workloads/nc2-on-azure/get-started.md         
-         - text: FAQ
-           url: workloads/nc2-on-azure/faq.md
+         
