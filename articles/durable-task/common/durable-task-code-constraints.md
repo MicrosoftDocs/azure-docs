@@ -404,7 +404,7 @@ Environment variables in orchestrators can change over time, resulting in nondet
 
 ::: zone pivot="durable-functions"
 
-Use activity functions to make outbound network calls. If you need to make an HTTP call from your orchestrator function, you can also use the [durable HTTP APIs](../../azure-functions/durable-functions/durable-functions-http-features.md#consuming-http-apis).
+Use activity functions to make outbound network calls. If you need to make an HTTP call from your orchestrator function, you can also use the [durable HTTP APIs](../../azure-functions/durable-functions/durable-functions-http-features.md#consume-http-apis).
 
 ::: zone-end
 

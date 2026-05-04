@@ -174,7 +174,7 @@ You can use the following sample Resource Manager template to create a Service B
 
 ```json
 {
-	"$schema": "https: //schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"serviceBusNamespaceName": {

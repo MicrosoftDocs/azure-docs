@@ -18,7 +18,7 @@ This article describes how to configure object REST API access and walks you thr
 
 ## Register the feature
 
-You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+The object REST API feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time.  
 
 1. Register the feature: 
 

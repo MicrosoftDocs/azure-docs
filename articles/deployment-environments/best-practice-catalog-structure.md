@@ -7,7 +7,7 @@ ms.service: azure-deployment-environments
 ms.topic: best-practice 
 ms.date: 03/20/2025
 
-# Customer intent: As a platform engineer, I want to structure my catalog so that Azure Deployment Environments can find and cache  environment definitions efficiently.
+# customer intent: As a platform engineer, I want to structure my catalog so that Azure Deployment Environments can find and cache environment definitions efficiently.
 
 ---
 
@@ -35,11 +35,11 @@ Over time, environment definitions need updates. You make those updates in your 
 
 ## Files outside of the recommended structure
 
-In the following example, the Azuredeploy.json file is above the environment.yaml (or manifest.yaml) file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
+In the following example, the azuredeploy.json file is above the environment.yaml (or manifest.yaml) file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
 
 :::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png" alt-text="Diagram that shows an unsupported structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png":::
 
 ## Related content
 
-- [Add and configure a catalog from GitHub or Azure DevOps in Azure Deployment Environments](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI)
+- [Add and configure a catalog from GitHub or Azure DevOps in Azure Deployment Environments](/azure/deployment-environments/how-to-configure-catalog)
 - [Add and configure an environment definition in Azure Deployment Environments](/azure/deployment-environments/configure-environment-definition)

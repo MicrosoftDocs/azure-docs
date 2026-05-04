@@ -16,6 +16,9 @@ For regional disaster recovery, we recommend the following two approaches:
 - **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
 - **Utilize Multiple Endpoints**. You learn how to do so **in this document**
 
+> [!NOTE]
+> To learn more about reliability in Azure Web PubSub, including how your solution can be resilient to various types of faults, see [Reliability in Azure Web PubSub](/azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json).
+
 ## High available architecture for Web PubSub service
 
 There are two typical patterns using Web PubSub service:

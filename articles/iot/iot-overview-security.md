@@ -41,7 +41,7 @@ Microsoft Defender for IoT is a unified security solution built specifically to 
 Both Defender for IoT and Defender for Containers can automatically monitor some of the recommendations included in this article. Defender for IoT and Defender for Containers should be the frontline of defense to protect your edge-connected solution. To learn more, see:
 
 - [Microsoft Defender for Containers - overview](/azure/defender-for-cloud/defender-for-containers-introduction)
-- [Microsoft Defender for IoT for organizations - overview](../defender-for-iot/organizations/overview.md).
+- [Microsoft Defender for IoT for organizations - overview](/azure/defender-for-iot/organizations/overview).
 
 ### Asset security
 
@@ -120,9 +120,9 @@ The recommendations in this article help you meet the security obligations descr
 
 Microsoft Defender for IoT automatically monitors some of the recommendations in this article. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities and then offers recommendations on how to address them. To learn more, see:
 
-- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md)
-- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md)
-- [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
+- [What is Microsoft Defender for IoT for organizations?](/azure/defender-for-iot/organizations/overview)
+- [What is Microsoft Defender for IoT for device builders?](/azure/defender-for-iot/device-builders/overview)
+- [Enhance security posture with security recommendations](/azure/defender-for-iot/organizations/recommendations).
 
 ### Device security
 

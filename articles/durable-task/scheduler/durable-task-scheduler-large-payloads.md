@@ -21,7 +21,7 @@ This feature is available for:
 - [.NET Durable Task SDK](../sdks/durable-task-overview.md)
 - [Python Durable Task SDK](../sdks/durable-task-overview.md)
 
-If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../../azure-functions/durable-functions/durable-functions-serialization-and-persistence.md#keep-inputs-and-outputs-small).
+If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../../azure-functions/durable-functions/durable-functions-serialization-and-persistence.md#keep-durable-functions-inputs-and-outputs-small).
 
 ## Supported frameworks
 

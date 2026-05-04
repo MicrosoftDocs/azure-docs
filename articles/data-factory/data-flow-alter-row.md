@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: how-to
 ms.custom: synapse
-ms.date: 09/26/2024
+ms.date: 04/27/2026
 ---
 
 # Alter row transformation in mapping data flow
@@ -16,6 +16,9 @@ ms.date: 09/26/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  The Alter Row transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. These conditions should be specified in order of priority, as each row is marked with the policy corresponding to the first-matching expression. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upserted. Alter Row can produce both DDL & DML actions against your database.
 

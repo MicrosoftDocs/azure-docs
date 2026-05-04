@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Optimizing transactions in dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Learn how to optimize the performance of your transactional code in dedicated SQL pool while minimizing risk for long rollbacks.
 
 ## Transactions and logging

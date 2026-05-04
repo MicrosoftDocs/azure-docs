@@ -1,71 +1,47 @@
 ---
-title: Migrate your Durable Functions app from In-Process to Isolated Worker Model
-description: Learn how to migrate your Durable Functions application from the in-process model to the isolated worker model.
+title: "Migrate Durable Functions from in-process to isolated worker (.NET)"
+description: Step-by-step guide to migrate your .NET Durable Functions app from the in-process model to the isolated worker model. Includes code examples, API mapping, and troubleshooting.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 02/25/2026
+ms.date: 04/27/2026
 ms.topic: concept-article
 ms.service: azure-functions
 ms.subservice: durable
+# CustomerIntent: As a .NET developer using Durable Functions with the in-process model, I want to migrate to the isolated worker model so that I have continued support and access to new features.
 ---
 
-# Migrate from In-Process to Isolated Worker model
+# Migrate your Durable Functions app from in-process to isolated worker model (.NET)
 
-This guide shows you how to migrate your Durable Functions application from the in-process model to the isolated worker model.
+This guide walks you through migrating your .NET Durable Functions app from the in-process model to the isolated worker model. The in-process model reaches end of support on **November 10, 2026**. After that date, no security updates or bug fixes are provided. The isolated worker model also gives you full process control, standard .NET dependency injection, and access to the latest platform features.
 
 > [!WARNING]
-> Support for the in-process model ends on **November 10, 2026**. Migrate to the isolated worker model for continued support and access to new features.
+> Support for the in-process model ends on **November 10, 2026**. We recommend migrating now. For background on the isolated worker model, see [.NET isolated worker process overview](../dotnet-isolated-process-guide.md).
 
-## Why migrate?
+## Migration checklist
 
-### In-process model end of support
+Use the following checklist to track your progress through each migration step:
 
-Microsoft announced that the in-process model for .NET Azure Functions reaches end of support on November 10, 2026. After this date:
-
-- No security updates are provided
-- No bug fixes are released
-- New features are only available in the isolated worker model
-
-### Benefits of the isolated worker model
-
-Migrating to the isolated worker model provides the following benefits:
-
-| Benefit | Description |
-| ------- | ----------- |
-| **No assembly conflicts** | Your code runs in a separate process, eliminating version conflicts |
-| **Full process control** | Control startup, configuration, and middleware via `Program.cs` |
-| **Standard DI patterns** | Use familiar .NET dependency injection |
-| **.NET version flexibility** | Support for LTS, STS, and .NET Framework |
-| **Middleware support** | Full ASP.NET Core middleware pipeline |
-| **Better performance** | ASP.NET Core integration for HTTP triggers |
-| **Platform support** | Access to Flex Consumption plan and .NET Aspire |
+| Step | Section |
+| --- | --- |
+| 1. Verify prerequisites | [Prerequisites](#prerequisites) |
+| 2. Update the project file | [Update the project file](#update-the-project-file) |
+| 3. Add Program.cs | [Add Program.cs](#add-programcs) |
+| 4. Update package references | [Update package references](#update-package-references) |
+| 5. Update function code | [Update function code](#update-function-code) |
+| 6. Update local.settings.json | [Update local.settings.json](#update-localsettingsjson) |
+| 7. Test locally | [Test locally](#test-locally) |
+| 8. Deploy to Azure | [Deploy to Azure](#deploy-to-azure) |
 
 ## Prerequisites
-
-Before starting the migration, make sure you have the following prerequisites:
 
 - **Azure Functions Core Tools v4.x** or later
 - **.NET 8.0 SDK** (or your target .NET version)
 - **Visual Studio 2022** or **VS Code with Azure Functions extension**
-- Familiarity with [Durable Functions concepts](../../durable-task/common/durable-task-orchestrations.md)
 
-## Migration overview
+### Identify apps to migrate (optional)
 
-The migration process involves these main steps:
-
-1. [Identify apps to migrate](#identify-apps-to-migrate)
-1. [Update the project file](#update-the-project-file)
-1. [Add Program.cs](#add-programcs)
-1. [Update package references](#update-package-references)
-1. [Update function code](#update-function-code)
-1. [Update local.settings.json](#update-localsettingsjson)
-1. [Test locally](#test-locally)
-1. [Deploy to Azure](#deploy-to-azure)
-
-## Identify apps to migrate
-
-Use this Azure PowerShell script to find function apps in your subscription that use the in-process model:
+If you're not sure which apps still use the in-process model, run this Azure PowerShell script:
 
 ```powershell
 $FunctionApps = Get-AzFunctionApp
@@ -83,11 +59,11 @@ foreach ($App in $FunctionApps)
 $AppInfo
 ```
 
-Apps that show `dotnet` as the runtime use the in-process model. Apps that use `dotnet-isolated` already use the isolated worker model.
+Apps that show `dotnet` as the runtime use the in-process model. Apps that show `dotnet-isolated` already use the isolated worker model.
 
 ## Update the project file
 
-### Before (In-Process)
+### Before (in-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -102,7 +78,7 @@ Apps that show `dotnet` as the runtime use the in-process model. Apps that use `
 </Project>
 ```
 
-### After (Isolated Worker)
+### After (isolated worker)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -128,16 +104,11 @@ Apps that show `dotnet` as the runtime use the in-process model. Apps that use `
 </Project>
 ```
 
-### Key changes
-
-- Add `<OutputType>Exe</OutputType>` - The isolated worker is an executable
-- Add `<FrameworkReference Include="Microsoft.AspNetCore.App" />` - For ASP.NET Core integration
-- Replace `Microsoft.NET.Sdk.Functions` with `Microsoft.Azure.Functions.Worker.*` packages
-- Replace `Microsoft.Azure.WebJobs.Extensions.DurableTask` with `Microsoft.Azure.Functions.Worker.Extensions.DurableTask`
+The main changes are switching to an executable output type and replacing all `Microsoft.Azure.WebJobs.*` packages with their `Microsoft.Azure.Functions.Worker.*` equivalents.
 
 ## Add Program.cs
 
-Create a new `Program.cs` file in your project root:
+The isolated worker model requires a `Program.cs` entry point. Create this file in your project root. If you have a `FunctionsStartup` class in `Startup.cs`, move those service registrations into the `ConfigureServices` block and delete `Startup.cs`.
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -147,46 +118,20 @@ using Microsoft.Extensions.Hosting;
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
     .ConfigureServices(services => {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
-    })
-    .Build();
-
-host.Run();
-```
-
-### With custom services
-
-If you had a `FunctionsStartup` class, move that configuration to `Program.cs`:
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services => {
-        // Application Insights
         services.AddApplicationInsightsTelemetryWorkerService();
         services.ConfigureFunctionsApplicationInsights();
         
-        // Your custom services (previously in FunctionsStartup)
-        services.AddSingleton<IMyService, MyService>();
-        services.AddHttpClient<IApiClient, ApiClient>();
+        // Add your custom services here (previously in FunctionsStartup)
+        // services.AddSingleton<IMyService, MyService>();
     })
     .Build();
 
 host.Run();
 ```
 
-### Delete FunctionsStartup
-
-If you have a `Startup.cs` with `[assembly: FunctionsStartup(...)]`, delete it after moving the configuration to `Program.cs`.
-
 ## Update package references
 
-### Durable Functions package changes
+### Durable Functions package mapping
 
 | In-process package | Isolated worker package |
 | ------------------ | ---------------------- |
@@ -194,7 +139,7 @@ If you have a `Startup.cs` with `[assembly: FunctionsStartup(...)]`, delete it a
 | `Microsoft.DurableTask.SqlServer.AzureFunctions` | `Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer` |
 | `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` | `Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite` |
 
-### Common extension package changes
+### Common extension package mapping
 
 | In-process | Isolated worker |
 | ---------- | --------------- |
@@ -208,6 +153,17 @@ If you have a `Startup.cs` with `[assembly: FunctionsStartup(...)]`, delete it a
 > Remove any references to `Microsoft.Azure.WebJobs.*` namespaces and `Microsoft.Azure.Functions.Extensions` from your project.
 
 ## Update function code
+
+This section covers the code changes for each Durable Functions type. Jump to the section for the function types your app uses:
+
+- [Namespace changes](#namespace-changes)
+- [Orchestrator functions](#orchestrator-function-changes)
+- [Activity functions](#activity-function-changes)
+- [Client functions](#client-function-changes)
+- [Retry policies](#retry-policy-changes) (if used)
+- [Entity functions](#entity-function-changes) (if used)
+
+For a complete API-by-API mapping, see the [API reference](./durable-functions-isolated-api-mapping.md).
 
 ### Namespace changes
 
@@ -422,94 +378,12 @@ public class CounterEntity
 }
 ```
 
-## Complete API reference
+## Breaking behavior changes
 
-The following tables provide a comprehensive mapping between the in-process 2.x SDK and the isolated worker SDK APIs.
+Review these changes before testing your migrated app. For the complete API-by-API mapping, see the [API reference](./durable-functions-isolated-api-mapping.md).
 
-### Client APIs
-
-| In-process (2.x) | Isolated worker |
-| ---- | ---- |
-| `IDurableOrchestrationClient` | `DurableTaskClient` |
-| `IDurableOrchestrationClient.StartNewAsync` | `DurableTaskClient.ScheduleNewOrchestrationInstanceAsync` |
-| `IDurableOrchestrationClient.GetStatusAsync` | `DurableTaskClient.GetInstanceAsync` |
-| `IDurableOrchestrationClient.ListInstancesAsync` | `DurableTaskClient.GetAllInstancesAsync` |
-| `IDurableOrchestrationClient.TerminateAsync` | `DurableTaskClient.TerminateInstanceAsync` |
-| `IDurableOrchestrationClient.SuspendAsync` | `DurableTaskClient.SuspendInstanceAsync` |
-| `IDurableOrchestrationClient.ResumeAsync` | `DurableTaskClient.ResumeInstanceAsync` |
-| `IDurableOrchestrationClient.RaiseEventAsync` | `DurableTaskClient.RaiseEventAsync` |
-| `IDurableOrchestrationClient.RewindAsync` | `DurableTaskClient.RewindInstanceAsync` |
-| `IDurableOrchestrationClient.RestartAsync` | `DurableTaskClient.RestartAsync` |
-| `IDurableOrchestrationClient.PurgeInstanceHistoryAsync` | `DurableTaskClient.PurgeInstanceAsync` or `PurgeAllInstancesAsync` |
-| `IDurableOrchestrationClient.CreateCheckStatusResponse` | `DurableTaskClient.CreateCheckStatusResponseAsync` (extension method, takes `HttpRequestData`) |
-| `IDurableOrchestrationClient.WaitForCompletionOrCreateCheckStatusResponseAsync` | `DurableTaskClient.WaitForCompletionOrCreateCheckStatusResponseAsync` (extension method, `timeout` replaced by `CancellationToken`) |
-| `IDurableOrchestrationClient.CreateHttpManagementPayload` | `DurableTaskClient.CreateHttpManagementPayload` (extension method) |
-| `IDurableOrchestrationClient.MakeCurrentAppPrimaryAsync` | Removed |
-| `IDurableOrchestrationClient.GetStatusAsync(IEnumerable<string>)` | Removed. Use `GetInstanceAsync` in a loop or `GetAllInstancesAsync` with a query filter. |
-| `IDurableOrchestrationClient.PurgeInstanceHistoryAsync(IEnumerable<string>)` | Removed. Use `PurgeInstanceAsync` in a loop or `PurgeAllInstancesAsync` with a filter. |
-| `IDurableOrchestrationClient.RaiseEventAsync` (cross-task-hub overload with `taskHubName`) | Removed. Only same-task-hub raise event is supported. |
-| `IDurableEntityClient.SignalEntityAsync` | `DurableTaskClient.Entities.SignalEntityAsync` |
-| `IDurableEntityClient.SignalEntityAsync` (cross-task-hub overload with `taskHubName`, `connectionName`) | Removed. Only same-task-hub entity operations are supported. |
-| `IDurableEntityClient.ReadEntityStateAsync` | `DurableTaskClient.Entities.GetEntityAsync` |
-| `IDurableEntityClient.ReadEntityStateAsync` (cross-task-hub overload with `taskHubName`, `connectionName`) | Removed. Only same-task-hub entity operations are supported. |
-| `IDurableEntityClient.ListEntitiesAsync` | `DurableTaskClient.Entities.GetAllEntitiesAsync` |
-| `IDurableEntityClient.CleanEntityStorageAsync` | `DurableTaskClient.Entities.CleanEntityStorageAsync` (takes `CleanEntityStorageRequest` object instead of bool parameters) |
-| `DurableOrchestrationStatus` | `OrchestrationMetadata` |
-| `DurableOrchestrationStatus.History` | Removed from status object. Use `DurableTaskClient.GetOrchestrationHistoryAsync` instead. |
-| `PurgeHistoryResult` | `PurgeResult` |
-| `OrchestrationStatusQueryCondition` | `OrchestrationQuery` |
-| `OrchestrationStatusQueryResult` | `AsyncPageable<OrchestrationMetadata>` |
-
-### Orchestration context APIs
-
-| In-process (2.x) | Isolated worker |
-| ---- | ---- |
-| `IDurableOrchestrationContext` | `TaskOrchestrationContext` |
-| `IDurableOrchestrationContext.GetInput<T>()` | `TaskOrchestrationContext.GetInput<T>()` or inject input as a parameter: `MyOrchestration([OrchestrationTrigger] TaskOrchestrationContext context, T input)` |
-| `IDurableOrchestrationContext.SetOutput` | Removed. Use the return value from the orchestrator function. |
-| `IDurableOrchestrationContext.CallActivityWithRetryAsync` | `TaskOrchestrationContext.CallActivityAsync` with a `TaskOptions` parameter for retry details. |
-| `IDurableOrchestrationContext.CallSubOrchestratorWithRetryAsync` | `TaskOrchestrationContext.CallSubOrchestratorAsync` with a `TaskOptions` parameter for retry details. |
-| `IDurableOrchestrationContext.CallHttpAsync` | `TaskOrchestrationContext.CallHttpAsync` |
-| `IDurableOrchestrationContext.CreateTimer<T>(DateTime, T, CancellationToken)` | `TaskOrchestrationContext.CreateTimer(DateTime, CancellationToken)`. State parameter removed. |
-| `IDurableOrchestrationContext.WaitForExternalEvent(string)` (non-generic) | Removed. Use `WaitForExternalEvent<T>(string, CancellationToken)`. |
-| `IDurableOrchestrationContext.WaitForExternalEvent<T>(string, TimeSpan, T)` (with `defaultValue`) | Removed. Use `WaitForExternalEvent<T>(string, TimeSpan, CancellationToken)`, which throws `TaskCanceledException` on timeout. |
-| `IDurableOrchestrationContext.ParentInstanceId` | `TaskOrchestrationContext.Parent.InstanceId` |
-| `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` | `TaskOrchestrationContext.CreateReplaySafeLogger<T>()` or `TaskOrchestrationContext.CreateReplaySafeLogger(string)` |
-| `IDurableOrchestrationContext.CreateEntityProxy<T>` | Removed. Use `Entities.CallEntityAsync` or `Entities.SignalEntityAsync` directly. |
-| `IDurableOrchestrationContext.CallEntityAsync` | `TaskOrchestrationContext.Entities.CallEntityAsync` |
-| `IDurableOrchestrationContext.SignalEntity` | `TaskOrchestrationContext.Entities.SignalEntityAsync` |
-| `IDurableOrchestrationContext.LockAsync` | `TaskOrchestrationContext.Entities.LockEntitiesAsync` |
-| `IDurableOrchestrationContext.IsLocked` | `TaskOrchestrationContext.Entities.InCriticalSection()` |
-| `RetryOptions` | `TaskOptions` with `TaskRetryOptions` |
-| `DurableActivityContext` | No equivalent |
-| `DurableActivityContext.GetInput<T>()` | Inject input as a parameter: `MyActivity([ActivityTrigger] T input)` |
-| `DurableHttpRequest` (WebJobs namespace) | `DurableHttpRequest` (`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Http` namespace) |
-| `DurableHttpResponse` (WebJobs namespace) | `DurableHttpResponse` (`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Http` namespace) |
-
-### Entity APIs
-
-| In-process (2.x) | Isolated worker |
-| ---- | ---- |
-| `IDurableEntityContext` | `TaskEntityContext` |
-| `IDurableEntityContext.EntityName` | `TaskEntityContext.Id.Name` |
-| `IDurableEntityContext.EntityKey` | `TaskEntityContext.Id.Key` |
-| `IDurableEntityContext.OperationName` | `TaskEntityOperation.Name` |
-| `IDurableEntityContext.FunctionBindingContext` | Removed. Add `FunctionContext` as an input parameter. |
-| `IDurableEntityContext.HasState` | `TaskEntityOperation.State.HasState` |
-| `IDurableEntityContext.GetState` | `TaskEntityOperation.State.GetState` |
-| `IDurableEntityContext.SetState` | `TaskEntityOperation.State.SetState` |
-| `IDurableEntityContext.DeleteState` | `TaskEntityOperation.State.SetState(null)` |
-| `IDurableEntityContext.GetInput` | `TaskEntityOperation.GetInput` |
-| `IDurableEntityContext.Return` | Removed. Use the method return value instead. |
-| `IDurableEntityContext.SignalEntity` | `TaskEntityContext.SignalEntity`. Scheduled signals use `SignalEntityOptions.SignalTime` instead of a `DateTime` parameter overload. |
-| `IDurableEntityContext.StartNewOrchestration` | `TaskEntityContext.ScheduleNewOrchestration`. Instance ID is set via `StartOrchestrationOptions.InstanceId` instead of a string parameter. |
-| `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed; use standard DI instead. |
-| `IDurableEntityContext.BatchSize` | Removed |
-| `IDurableEntityContext.BatchPosition` | Removed |
-
-### Behavioral changes
-
-- **Serialization**: The default serializer changed from `Newtonsoft.Json` to `System.Text.Json`. For more information, see [Serialization and persistence in Durable Functions](./durable-functions-serialization-and-persistence.md).
+> [!WARNING]
+> **Serialization default changed**: The isolated worker uses `System.Text.Json` by default instead of `Newtonsoft.Json`. If your orchestrations pass complex objects, test serialization carefully. See [JSON serialization differences](#issue-json-serialization-differences) for configuration options.
 
 > [!WARNING]
 > **ContinueAsNew default change**: The `preserveUnprocessedEvents` parameter default changed from `false` (2.x) to `true` (isolated). If your orchestration uses `ContinueAsNew` and relies on unprocessed events being discarded, explicitly pass `preserveUnprocessedEvents: false`.
@@ -517,40 +391,32 @@ The following tables provide a comprehensive mapping between the in-process 2.x 
 > [!NOTE]
 > **RestartAsync default change**: The `restartWithNewInstanceId` parameter default changed from `true` (2.x) to `false` (isolated). If your code calls `RestartAsync` and depends on a new instance ID being generated, explicitly pass `restartWithNewInstanceId: true`.
 
-- **Entity proxy removal**: `CreateEntityProxy<T>` and the typed `SignalEntityAsync<TEntityInterface>(Action<T>)` delegate overloads aren't available in the isolated worker. Call `Entities.CallEntityAsync` or `Entities.SignalEntityAsync` directly with string-based operation names instead of using typed proxy interfaces.
-- **WaitForCompletionOrCreateCheckStatusResponseAsync**: The `timeout` parameter was removed. Use a `CancellationToken` with a cancellation timeout instead.
-- **Cross-task-hub operations removed**: The in-process overloads that accepted `taskHubName` and `connectionName` parameters (on `RaiseEventAsync`, `SignalEntityAsync`, and `ReadEntityStateAsync`) aren't available in isolated worker. Only same-task-hub operations are supported.
-- **Batch operations by ID removed**: The in-process `GetStatusAsync(IEnumerable<string>)` and `PurgeInstanceHistoryAsync(IEnumerable<string>)` overloads aren't available in isolated worker. Use `GetAllInstancesAsync` with an `OrchestrationQuery` filter or call `GetInstanceAsync`/`PurgeInstanceAsync` individually.
-- **Orchestration history moved**: `DurableOrchestrationStatus.History` (the embedded `JArray`) is no longer part of the status object. Use the separate `DurableTaskClient.GetOrchestrationHistoryAsync` API to retrieve orchestration history.
-- **Entity DispatchAsync constructor params removed**: The `DispatchAsync<T>(params object[])` constructor parameter overload isn't available. Entity classes are activated through standard dependency injection. Register your entity's dependencies in `Program.cs`.
-- **Entity query filter changes**: `EntityQuery.EntityName` is replaced by `EntityQuery.InstanceIdStartsWith`, and `EntityQuery.IncludeDeleted` is replaced by `EntityQuery.IncludeTransient`.
-- **CleanEntityStorageAsync signature change**: Instead of `(bool removeEmptyEntities, bool releaseOrphanedLocks, CancellationToken)`, the isolated version takes a `CleanEntityStorageRequest` object with `RemoveEmptyEntities` and `ReleaseOrphanedLocks` properties.
-- **New APIs in isolated worker**: `DurableTaskClient.GetOrchestrationHistoryAsync` and the `TaskOrchestrationContext.GetFunctionContext()` extension method are available in the isolated worker but have no in-process equivalent.
+Other notable changes:
+
+- **Entity proxies removed** — `CreateEntityProxy<T>` isn't available. Use `Entities.CallEntityAsync` or `Entities.SignalEntityAsync` directly.
+- **Cross-task-hub operations removed** — Overloads that accepted `taskHubName`/`connectionName` aren't available. Only same-task-hub operations are supported.
+- **Orchestration history moved** — `DurableOrchestrationStatus.History` is no longer on the status object. Use `DurableTaskClient.GetOrchestrationHistoryAsync`.
 
 ## Update local.settings.json
+
+The key change is setting `FUNCTIONS_WORKER_RUNTIME` from `dotnet` to `dotnet-isolated`:
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-        "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;Authentication=None"
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
     }
 }
 ```
 
-The key change is `FUNCTIONS_WORKER_RUNTIME` from `dotnet` to `dotnet-isolated`.
+> [!NOTE]
+> Your storage backend configuration (Azure Storage, MSSQL, Netherite, or Durable Task Scheduler) is unchanged by the migration. Keep your existing storage-related settings.
 
 ## Test locally
 
-### Start the emulator
-
-```bash
-docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
-```
-
-### Run the function app
+Run your function app locally and verify all orchestrations, activities, and entities work correctly.
 
 ```bash
 func start
@@ -558,7 +424,7 @@ func start
 
 ### Verify functionality
 
-Test all your orchestrations, activities, and entities to make sure they work correctly:
+Test the following scenarios as applicable:
 
 1. Start an orchestration with an HTTP trigger
 1. Monitor the orchestration status
@@ -667,25 +533,11 @@ services.Configure<WorkerOptions>(options => {
 
 ### Issue: Migrating custom serialization settings
 
-**Symptom:** You used `IMessageSerializerSettingsFactory` in the in-process model to customize JSON serialization for orchestration inputs, outputs, or entity state, and need the equivalent in isolated worker.
+**Symptom:** You used `IMessageSerializerSettingsFactory` in the in-process model and need the equivalent in isolated worker.
 
-**Solution:** The `IMessageSerializerSettingsFactory` interface isn't available in isolated worker. Instead, configure the worker-level serializer in `Program.cs`:
+**Solution:** Configure the worker-level serializer in `Program.cs`. For details, see the [behavioral changes section](./durable-functions-isolated-api-mapping.md#behavioral-changes) of the API reference and [Serialization and persistence in Durable Functions](./durable-functions-serialization-and-persistence.md).
 
-Before (In-Process):
-
-```csharp
-// Startup.cs
-[assembly: FunctionsStartup(typeof(MyStartup))]
-public class MyStartup : FunctionsStartup
-{
-    public override void Configure(IFunctionsHostBuilder builder)
-    {
-        builder.Services.AddSingleton<IMessageSerializerSettingsFactory, CustomSerializerSettingsFactory>();
-    }
-}
-```
-
-After (Isolated Worker):
+To use Newtonsoft.Json with custom settings:
 
 ```csharp
 // Program.cs
@@ -707,7 +559,7 @@ var host = new HostBuilder()
 ```
 
 > [!NOTE]
-> This approach requires the `Newtonsoft.Json` and `Azure.Core.Serialization` NuGet packages. The `WorkerOptions.Serializer` setting applies globally to everything serialized by the Durable Functions extension. For more details, see [Serialization and persistence in Durable Functions](./durable-functions-serialization-and-persistence.md).
+> This approach requires the `Newtonsoft.Json` and `Azure.Core.Serialization` NuGet packages.
 
 ## Checklist
 
@@ -736,17 +588,15 @@ Use this checklist to ensure a complete migration:
 
 ## Next steps
 
-- [.NET isolated worker process overview](../dotnet-isolated-process-guide.md)
+- [In-process to isolated worker API mapping](./durable-functions-isolated-api-mapping.md) — complete API reference for your migration
 - [Durable Functions overview for .NET isolated worker](./durable-functions-dotnet-isolated-overview.md)
-- [Durable Functions patterns and technical concepts](./durable-functions-overview.md)
+- [Durable Functions versions and migration guide](./durable-functions-versions.md)
 
-## Additional resources
+## Related content
 
-- [Official Microsoft migration guide](../migrate-dotnet-to-isolated-model.md)
+- [Official Microsoft migration guide (all Azure Functions)](../migrate-dotnet-to-isolated-model.md)
+- [.NET isolated worker process overview](../dotnet-isolated-process-guide.md)
 - [Isolated worker model differences](../dotnet-isolated-in-process-differences.md)
-- [Unit testing guide for Durable Functions (isolated)](./durable-functions-unit-testing.md)
 - [Serialization and persistence in Durable Functions](./durable-functions-serialization-and-persistence.md)
-- [Versioning in Durable Functions](./durable-functions-versioning.md)
 - [Zero-downtime deployment for Durable Functions](./durable-functions-zero-downtime-deployment.md)
 - [Configure Durable Task Scheduler](../../durable-task/scheduler/develop-with-durable-task-scheduler.md)
-- [Code samples for Durable Functions](/samples/browse/?term=durable%20functions)

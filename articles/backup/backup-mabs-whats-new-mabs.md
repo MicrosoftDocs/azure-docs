@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: azure-backup
 ms.topic: release-notes
-ms.date: 07/25/2025
+ms.date: 04/24/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
@@ -132,15 +132,14 @@ To achieve the scale and performance by MBS we recommend using a small percentag
 
 ### Support for ReFS volumes
 
-With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. You can back up the following workloads deployed on the ReFS volumes:
+With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3. You can back up the following workloads deployed on the ReFS volumes:
 
 * Operating System (64 bit): Windows Server 2019, 2016, 2012 R2, 2012.
 * SQL Server: SQL Server 2019, SQL Server 2017, 2016.
 * Exchange: Exchange 2019, 2016.
 * SharePoint: SharePoint 2019, 2016 with latest SP.
 
-> [!NOTE]
-> Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 > [!IMPORTANT]
 > We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.

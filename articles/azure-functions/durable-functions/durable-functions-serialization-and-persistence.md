@@ -1,10 +1,10 @@
 ---
-title: Data persistence and serialization in Durable Functions - Azure
-description: Learn how the Durable Functions extension for Azure Functions persists data
+title: "Data Persistence and Serialization in Durable Functions - Azure"
+description: "Learn how Durable Functions persists and serializes data in Azure Functions. Discover best practices for handling large payloads, sensitive data, and custom serialization to optimize performance."
 author: cgillum
 ms.topic: concept-article
 ms.service: azure-functions
-ms.date: 07/18/2022
+ms.date: 04/23/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -12,11 +12,20 @@ ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 
-# Data persistence and serialization in Durable Functions (Azure Functions)
+# Data persistence and serialization in Durable Functions for Azure Functions
 
-The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](../../durable-task/common/durable-task-hubs.md) in order to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
+The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](../../durable-task/common/durable-task-hubs.md) to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
 
-## Task Hub Contents
+This article explains what data gets persisted, how to handle large payloads and sensitive data, and how to customize serialization for each supported language.
+
+In this article:
+
+- [Task hub contents](#task-hub-contents) - What data is stored and how
+- [Keep inputs and outputs small](#keep-durable-functions-inputs-and-outputs-small) - Strategies for managing payload size
+- [Work with sensitive data](#work-with-sensitive-data) - Protect secrets and personally identifiable information
+- [Customize serialization and deserialization](#customize-serialization-and-deserialization) - Language-specific serialization options
+
+## Task hub contents
 
 Task hubs store the current state of instances, and any pending messages:
 
@@ -29,7 +38,7 @@ For an example of how states and messages represent the progress of an orchestra
 
 Where and how states and messages are represented in storage [depends on the storage provider](../../durable-task/common/durable-task-hubs.md#representation-in-storage). Durable Functions' default provider is [Azure Storage](durable-functions-azure-storage-provider.md), which persists data to queues, tables, and blobs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account that you specify.
 
-### Types of data that is serialized and persisted
+### Types of data that are serialized and persisted
 The following list shows the different types of data that will be serialized and persisted when using features of Durable Functions:
 
 - All inputs and outputs of orchestrator, activity, and entity functions, including any IDs and unhandled exceptions
@@ -42,7 +51,9 @@ The following list shows the different types of data that will be serialized and
 - Entity call and signal payloads
 - Entity state payloads
 
-### Keep inputs and outputs small
+For guidance on managing payload size and protecting sensitive items in this list, see the following sections.
+
+### Keep Durable Functions inputs and outputs small
 
 You can run into memory issues if you provide large inputs and outputs to and from Durable Functions APIs. Inputs and outputs are serialized into the orchestration history, which means that large payloads can, over time, greatly contribute to unbounded history growth. This growth risks causing memory exceptions during [replay](../../durable-task/common/durable-task-orchestrations.md#reliability).
 
@@ -56,7 +67,7 @@ If you use Durable Task Scheduler, you can also use [large payload support](../.
 > [!TIP]
 > The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
 
-### Working with sensitive data
+### Work with sensitive data
 
 Inputs and outputs (including exceptions) to and from Durable Functions APIs are durably persisted in your [storage provider of choice](../../durable-task/common/durable-task-storage-providers.md). If those inputs, outputs, or exceptions contain sensitive data (such as secrets, connection strings, or personally identifiable information), anyone with read access to your storage provider's resources could obtain them.
 
@@ -68,14 +79,18 @@ To safely handle sensitive data, fetch that data within activity functions from 
 > [!NOTE]
 > Avoid logging data containing secrets as anyone with read access to your logs (for example in Application Insights) could obtain those secrets.
 
+#### Encryption at rest
+
 When using the Azure Storage provider, all data is automatically encrypted at rest. However, anyone with access to the storage account can read the data in its unencrypted form. If you need stronger protection for sensitive data, consider first encrypting the data using your own encryption keys so that the data is persisted in its pre-encrypted form.
 
 Alternatively, .NET users have the option of implementing custom serialization providers that provide automatic encryption. An example of custom serialization with encryption can be found in [this GitHub sample](https://github.com/charleszipp/azure-durable-entities-encryption).
 
 > [!NOTE]
-> If you decide to implement application-level encryption, be aware that orchestrations and entities can exist for indefinite amounts of time. This matters when it comes time to rotate your encryption keys because an orchestration or entities may run longer than your key rotation policy. If a key rotation happens, the key used to encrypt your data may no longer be available to decrypt it the next time your orchestration or entity executes. Customer encryption is therefore recommended only when orchestrations and entities are expected to run for relatively short periods of time.
+> If you decide to implement application-level encryption, be aware that orchestrations and entities can exist for indefinite amounts of time. This matters when it comes time to rotate your encryption keys because an orchestration or entities may run longer than your key rotation policy. If a key rotation happens, the key used to encrypt your data may no longer be available to decrypt it the next time your orchestration or entity executes. Custom encryption is therefore recommended only when orchestrations and entities are expected to run for relatively short periods of time.
 
-## Customizing serialization and deserialization
+## Customize serialization and deserialization
+
+Serialization customization options vary by language. Select your language tab to see the available options.
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -106,11 +121,11 @@ JsonSerializerSettings
 
 Read more detailed documentation about `JsonSerializerSettings` [here](https://www.newtonsoft.com/json/help/html/SerializationSettings.htm).
 
-## Customizing serialization with .NET attributes
+### Customize serialization with .NET attributes
 
 During serialization, Json.NET looks for [various attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm) on classes and properties that control how the data is serialized and deserialized from JSON. If you own the source code for data type passed to Durable Functions APIs, consider adding these attributes to the type to customize serialization and deserialization.
 
-## Customizing serialization with Dependency Injection
+### Customize serialization with Dependency Injection
 
 Function apps that target .NET and run on the Functions V3 runtime can use [Dependency Injection (DI)](../functions-dotnet-dependency-injection.md) to customize how data and exceptions are serialized. The following sample code demonstrates how to use DI to override the default Json.NET serialization settings using custom implementations of the `IMessageSerializerSettingsFactory` and `IErrorSerializerSettingsFactory` service interfaces.
 
@@ -170,7 +185,7 @@ For more information on the built-in support for JSON serialization in .NET, see
 
 ### Serialization and deserialization logic
 
-Azure Functions Node applications use [`JSON.stringify()` for serialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.Parse()` for deserialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). Most types should serialize and deserialize seamlessly. In cases where the default logic is insufficient, defining a `toJSON()` method on the object will hijack the serialization logic. However, no analog exists for object deserialization.
+Azure Functions Node applications use [`JSON.stringify()` for serialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.Parse()` for deserialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). Most types should serialize and deserialize seamlessly. In cases where the default logic is insufficient, defining a `toJSON()` method on the object will override the serialization logic. However, no analog exists for object deserialization.
 
 For full customization of the serialization/deserialization pipeline, consider handling the serialization and deserialization with your own code and passing around data as strings.
 
@@ -188,3 +203,9 @@ For custom data types, you make JSON serialization and deserialization possible 
 Java uses the [Jackson v2.x](https://github.com/FasterXML/jackson#jackson-project-home-github) libraries for serialization and deserialization of data payloads. You can use [Jackson annotations](https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations) on your POJO types to customize the serialization behavior.
 
 ---
+
+## Next steps
+
+- [Task hubs in Durable Functions](../../durable-task/common/durable-task-hubs.md)
+- [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md)
+- [Durable Functions bindings](durable-functions-bindings.md)

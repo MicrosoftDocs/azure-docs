@@ -12,6 +12,8 @@ ms.topic: concept-article
 
 # Performance tuning with materialized views using dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In dedicated SQL pool, materialized views provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
 ## Materialized views vs. standard views

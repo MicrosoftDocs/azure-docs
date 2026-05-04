@@ -62,6 +62,16 @@ The following metrics are *message metrics*.
 | Abandoned Messages | The number of messages abandoned over a specified period. |
 | Size | Size of an entity (queue or topic) in bytes. |
 
+> [!NOTE]
+> **Incoming Messages and Outgoing Messages counts may not always match.** This is expected behavior and doesn't indicate message loss. Common reasons include:
+>
+> - **Duplicate detection**: Messages identified as duplicates are counted as incoming but are discarded and never become outgoing.
+> - **Topic subscription filters**: A single message sent to a topic counts as one incoming message but produces an outgoing message only for each subscription whose filter matches. If no subscription filter matches, there are zero outgoing messages for that incoming message.
+> - **Consumer lag**: If consumers receive messages more slowly than producers send them, the incoming count exceeds the outgoing count until consumers catch up.
+> - **Message expiration (TTL)**: Messages that expire before being consumed are never counted as outgoing.
+> - **Dead-lettering**: Messages moved to the dead-letter queue aren't counted as outgoing.
+> - **Autoforwarding**: In Basic and Standard tiers, autoforwarded messages are included in the incoming count but not in the outgoing count (Premium tier excludes autoforwarded messages from the incoming count).
+
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.
 

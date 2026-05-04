@@ -1,9 +1,9 @@
 ---
 title: Layered networking for Azure IoT Operations
 description: Learn about deploying Azure IoT Operations across layered (Purdue/ISA-95) industrial networks using Envoy proxy chaining, CoreDNS, and Kubernetes-based configuration.
-author: dominicbetts
+author: sethmanheim
 ms.subservice: layered-network-management
-ms.author: dobett
+ms.author: sethm
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
