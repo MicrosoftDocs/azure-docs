@@ -1,5 +1,5 @@
 ---
-title: Understanding and prioritizing weaknesses data in Firmware analysis
+title: Understand and Prioritize Weaknesses Data in Firmware Analysis
 description: Learn what the weaknesses data are in the CVE view of the firmware analysis results.
 author: karengu0
 ms.author: karenguo
@@ -12,7 +12,7 @@ ms.service: azure
 
 Firmware analysis surfaces weaknesses detected in firmware components extracted during analysis. These signals help you understand potential security risks, but they should be interpreted carefully and in context.
 
-This article explains weakness-related fields you may see in firmware analysis results, how they relate to one another, and how to evaluate them together to prioritize risk effectively.
+This article explains weakness-related fields you might see in firmware analysis results, how they relate to one another, and how to evaluate them together to prioritize risk effectively.
 
 > [!NOTE]
 > The presence of a weakness or CVE in firmware analysis doesn't necessarily mean a device is vulnerable. Actual impact depends on how the affected component is used within the system.
@@ -34,9 +34,9 @@ For more information about CVE identifiers and the CVE program, see the official
 Firmware analysis might display Common Vulnerability Scoring System (CVSS) data for a CVE.
 Multiple CVSS versions can appear for the same CVE:
 
-- CVSS v2 – legacy scoring used by older vulnerabilities
-- CVSS v3 – widely adopted standard with improved metrics
-- CVSS v4 – newer version that introduces extra dimensions
+- CVSS v2: legacy scoring used by older vulnerabilities
+- CVSS v3: widely adopted standard with improved metrics
+- CVSS v4: newer version that introduces extra dimensions
 
 The presence of multiple CVSS versions reflects how vulnerability scoring evolves over time rather than multiple distinct vulnerabilities.
 
@@ -156,40 +156,36 @@ Effective prioritization requires more than severity scoring. The following stru
     > [!NOTE]
     > To filter by EPSS in the Azure portal, specify the EPSS score in a decimal form (for example, for an EPSS score of `>50%`, filter for `>0.5`).
 
-1. Review attack vector and exposure
+1. Review attack vector and exposure. From the CVSS vector, consider:
 
-    From the CVSS vector, consider:
-    - Network-accessible vulnerabilities vs. local or physical access
-    - Authentication and user interaction requirements
-    - Whether the affected component or service is exposed in the deployment
+   - Network-accessible vulnerabilities vs. local or physical access
+   - Authentication and user interaction requirements
+   - Whether the affected component or service is exposed in the deployment
 
-    A vulnerability may appear severe but present reduced risk if it isn't reachable in practice
+   A vulnerability might appear severe but present reduced risk if it isn't reachable in practice
 
-1. Assess technical impact severity (CVSS)
+1. Assess technical impact severity (CVSS). Use CVSS to understand impact if exploitation succeeds, not likelihood:
 
-    Use CVSS to understand impact if exploitation succeeds, not likelihood:
-    - High or Critical severity: prioritize when exposure or likelihood is moderate or higher
-    - Medium severity: prioritize based on exploitation signals and exposure
-    - Low severity: deprioritize unless active exploitation or high exposure exists
+   - High or Critical severity: prioritize when exposure or likelihood is moderate or higher
+   - Medium severity: prioritize based on exploitation signals and exposure
+   - Low severity: deprioritize unless active exploitation or high exposure exists
 
-    When likelihood is similar, address higher-impact vulnerabilities first.
+   When likelihood is similar, address higher-impact vulnerabilities first.
 
-1. Evaluate business impact (assess criticality)
+1. Evaluate business impact (assess criticality). Asset criticality reflects organizational context and includes:
 
-    Asset criticality reflects organizational context and includes:
-    - Whether the system is production or core infrastructure
-    - Potential operational, safety, or compliance impact
+   - Whether the system is production or core infrastructure
+   - Potential operational, safety, or compliance impact
 
-    Business impact influences urgency but doesn't change vulnerability mechanics.
+   Business impact influences urgency but doesn't change vulnerability mechanics.
 
-1. Consider fix availability
+1. Consider fix availability. Remediation feasibility affects execution planning:
 
-    Remediation feasibility affects execution planning:
-    - Patch or firmware update availability
-    - Upgrade complexity
-    - Available mitigations
+   - Patch or firmware update availability
+   - Upgrade complexity
+   - Available mitigations
 
-    Fix availability should inform scheduling, but shouldn't override exploitation evidence.
+   Fix availability should inform scheduling, but shouldn't override exploitation evidence.
 
 ## Important considerations
 
@@ -199,9 +195,7 @@ Always interpret weakness data alongside:
 - System configuration
 - Firmware usage within the platform
 
-> [!NOTE]
-> Firmware analysis identifies potential risks based on extracted firmware content. It doesn't determine whether a vulnerability is reachable, exploitable, or impactful in a specific deployment.
-
-## Next steps
+  > [!NOTE]
+  > Firmware analysis identifies potential risks based on extracted firmware content. It doesn't determine whether a vulnerability is reachable, exploitable, or impactful in a specific deployment.
 
 To learn more about how firmware analysis extracts and presents component data, see [Interpreting extractor paths from SBOM view in firmware analysis](interpreting-extractor-paths.md).

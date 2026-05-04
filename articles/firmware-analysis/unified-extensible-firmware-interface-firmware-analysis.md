@@ -1,5 +1,5 @@
 ---
-title: Understanding Unified Extensible Firmware Interface firmware analysis capabilities and limitations in Firmware analysis.
+title: Understand Unified Extensible Firmware Interface Analysis Capabilities
 description: Learn what UEFI analysis capabilities and limitations exist for firmware analysis.
 author: karengu0
 ms.author: karenguo
@@ -10,9 +10,9 @@ ms.service: azure
 
 # UEFI firmware analysis capabilities
 
-Firmware analysis can analyze Unified Extensible Firmware Interface (UEFI) firmware images and surface detected components, weaknesses, and selected binary attributes. Some UEFI analysis capabilities are **Generally Available**, while others are provided in **Preview** and may have limited coverage.
+Firmware analysis can analyze Unified Extensible Firmware Interface (UEFI) firmware images and surface detected components, weaknesses, and selected binary attributes. Some UEFI analysis capabilities are **Generally Available**, while others are provided in **Preview** and might have limited coverage.
 
-UEFI firmware differs from other firmware types in structure and content. As a result, some analysis results may vary across binaries or appear incomplete.
+UEFI firmware differs from other firmware types in structure and content. As a result, some analysis results might vary across binaries or appear incomplete.
 
 This article explains:
 
@@ -32,7 +32,7 @@ A single UEFI firmware image can contain:
 - UEFI-specific binaries
 - Other executable formats embedded within the firmware
 
-Because of this structure, firmware analysis results may include a mix of different executable types within the same analysis.
+Because of this structure, firmware analysis results might include a mix of different executable types within the same analysis.
 
 ## Generally available UEFI analysis capabilities
 
@@ -49,10 +49,10 @@ These capabilities apply to UEFI firmware and are considered stable.
 
 ## Preview UEFI analysis capabilities
 
-The following additional UEFI analysis capabilities are currently provided in **Preview*- and may have limited coverage.
+The following additional UEFI analysis capabilities are currently provided in *preview* and might have limited coverage.
 
 > [!NOTE]
-> Because some UEFI analysis results are in **Preview**, not all firmware components, attributes, or weaknesses may be detected. Results should be interpreted as signals, not guarantees of vulnerability or protection.
+> Because some UEFI analysis results are in *preview*, not all firmware components, attributes, or weaknesses might be detected. Results should be interpreted as signals, not guarantees of vulnerability or protection.
 
 ### UEFI SBOM analysis results (Preview)
 
@@ -73,7 +73,7 @@ Weakness data for UEFI firmware is derived from detected SBOM components.
 
 This means:
 
-- CVEs may be detected only for components' versions that can be confidently identified
+- CVEs might be detected only for components' versions that can be confidently identified
 - Weakness results are signals, not verification of exploitability
 
 ### Binary hardening attributes for UEFI firmware (Preview)
@@ -82,11 +82,11 @@ Binary hardening attributes reflect security properties detected from executable
 
 #### Supported today
 
-- NX (NoExecute / DEP) is the supported binary hardening signal for UEFI firmware
+- NX (NoExecute/DEP) is the supported binary hardening signal for UEFI firmware
 
 #### Limitations
 
-Other binary hardening attributes such as PIE, RELRO, or Stripped may appear in the results grid. These values may originate from:
+Other binary hardening attributes such as PIE, RELRO, or Stripped might appear in the results grid. These values might originate from:
 
 - Non-UEFI executables embedded in the firmware
 - Generic executable analysis that does not uniformly apply to UEFI binaries
@@ -114,8 +114,8 @@ When reviewing UEFI firmware analysis results:
 
 - Detection of cryptographic certificates and keys is **Generally Available**
 - SBOM, weaknesses data, binary hardening, and extractor path enhancements are currently in **Preview**
-- Preview capabilities may have limited coverage and should be interpreted as indicative signals, not guarantees of a vulnerability
+- Preview capabilities might have limited coverage and should be interpreted as indicative signals, not guarantees of a vulnerability
 - Rely on NX/DEP for UEFI binary hardening interpretation
 - Interpret other binary attributes with caution
 
-UEFI analysis capabilities may expand over time, and documentation will be updated accordingly.
+UEFI analysis capabilities might expand over time, and documentation will be updated accordingly.
