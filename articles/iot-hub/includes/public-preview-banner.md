@@ -1,8 +1,8 @@
 ---
 ms.topic: include
 ms.date: 10/20/2025
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ---

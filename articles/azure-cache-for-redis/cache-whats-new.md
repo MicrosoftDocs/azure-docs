@@ -38,12 +38,20 @@ The following are the important dates to note for the Enterprise tiers:
 
 If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30, 2028. 
 
-The following are the important dates to note for Basic, Standard, and Premium tiers:
+The following are the important dates to note for Basic, Standard, and Premium tiers in **Azure Public Cloud**:
 
 | Date            | Description                                                                                |
 |-----------------|--------------------------------------------------------------------------------------------|
 | April 1, 2026   | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers.      |
 | October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
+| October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
+
+The following are important dates to note for Basic, Standard, and Premium tiers in **Azure Government** and **Microsoft Azure operated by 21Vianet (Azure in China)**:
+
+| Date            | Description                                                                                |
+|-----------------|--------------------------------------------------------------------------------------------|
+| October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers.      |
+| April 1, 2027   | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
 | October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
 
 For more information on moving your caches to Azure Managed Redis, see:

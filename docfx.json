@@ -790,6 +790,7 @@
         "articles/import-export/**/*.md": "akashdubey",
         "articles/integration-environments/*.md": "susanpotter",
         "articles/internet-peering/**/*.md": "kumud",
+        "articles/iot-hub/**/*.md": "lizross",
         "articles/lab-services/**/*.md": "mijacobs",
         "articles/load-balancer/**/*.md": "kumud",
         "articles/logic-apps/*.md": "susanpotter",
