@@ -1,0 +1,1 @@
+[     236ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/06017315-cde4-483f-8798-f12c5a7649d1:0

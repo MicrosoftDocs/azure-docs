@@ -1,0 +1,231 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Scorecard" [level=1] [ref=e6]
+      - heading "functions...rence-go.md" [level=2] [ref=e7]:
+        - link "functions...rence-go.md" [ref=e8] [cursor=pointer]:
+          - /url: 06017315-cde4-483f-8798-f12c5a7649d1_report.xml
+    - table [ref=e9]:
+      - rowgroup [ref=e10]:
+        - row "Acrolinx Score 90" [ref=e11]:
+          - cell "Acrolinx Score" [ref=e12]:
+            - heading "Acrolinx Score" [level=2] [ref=e13]
+          - cell [ref=e14]
+          - cell "90" [ref=e17]:
+            - generic [ref=e18]: "90"
+          - cell [ref=e19]
+        - row [ref=e20]:
+          - cell [ref=e21]
+        - row "Summary" [ref=e22]:
+          - cell "Summary" [ref=e23]:
+            - heading "Summary" [level=2] [ref=e24]
+        - row "Clarity 84 3" [ref=e25]:
+          - cell "Clarity" [ref=e26]:
+            - heading "Clarity" [level=3] [ref=e27]:
+              - link "Clarity" [ref=e28] [cursor=pointer]:
+                - /url: "#CLARITY"
+          - cell [ref=e29]
+          - cell "84" [ref=e32]:
+            - generic [ref=e33]: "84"
+          - cell "3" [ref=e34]:
+            - generic [ref=e35]: "3"
+        - row "Consistency 92 1" [ref=e36]:
+          - cell "Consistency" [ref=e37]:
+            - heading "Consistency" [level=3] [ref=e38]:
+              - link "Consistency" [ref=e39] [cursor=pointer]:
+                - /url: "#CONSISTENCY"
+          - cell [ref=e40]
+          - cell "92" [ref=e43]:
+            - generic [ref=e44]: "92"
+          - cell "1" [ref=e45]:
+            - generic [ref=e46]: "1"
+        - row "Inclusive language 0" [ref=e47]:
+          - cell "Inclusive language" [ref=e48]:
+            - heading "Inclusive language" [level=3] [ref=e49]:
+              - link "Inclusive language" [ref=e50] [cursor=pointer]:
+                - /url: "#INCLUSIVE"
+          - cell "This goal is grayed out because it's set to \"Recommended\" and doesn't count toward the score. You'll still see the issues for this goal in the corresponding section below." [ref=e51]
+          - cell [ref=e53]
+          - cell "0" [ref=e54]:
+            - generic [ref=e55]: "0"
+        - row "Spelling and grammar 74 4" [ref=e56]:
+          - cell "Spelling and grammar" [ref=e57]:
+            - heading "Spelling and grammar" [level=3] [ref=e58]:
+              - link "Spelling and grammar" [ref=e59] [cursor=pointer]:
+                - /url: "#CORRECTNESS"
+          - cell [ref=e60]
+          - cell "74" [ref=e63]:
+            - generic [ref=e64]: "74"
+          - cell "4" [ref=e65]:
+            - generic [ref=e66]: "4"
+        - row "Terminology 100 1" [ref=e67]:
+          - cell "Terminology" [ref=e68]:
+            - heading "Terminology" [level=3] [ref=e69]:
+              - link "Terminology" [ref=e70] [cursor=pointer]:
+                - /url: "#WORDS_AND_PHRASES"
+          - cell [ref=e71]
+          - cell "100" [ref=e74]:
+            - generic [ref=e75]: "100"
+          - cell "1" [ref=e76]:
+            - generic [ref=e77]: "1"
+        - row "Tone 100 0" [ref=e78]:
+          - cell "Tone" [ref=e79]:
+            - heading "Tone" [level=3] [ref=e80]:
+              - link "Tone" [ref=e81] [cursor=pointer]:
+                - /url: "#TONE"
+          - cell [ref=e82]
+          - cell "100" [ref=e85]:
+            - generic [ref=e86]: "100"
+          - cell "0" [ref=e87]:
+            - generic [ref=e88]: "0"
+    - generic [ref=e89]:
+      - heading "Metrics" [level=2] [ref=e92] [cursor=pointer]
+      - heading "Document Information" [level=2] [ref=e95] [cursor=pointer]
+      - heading "Administrative Information" [level=2] [ref=e98] [cursor=pointer]
+  - generic [ref=e100]:
+    - generic [ref=e101]:
+      - heading "Clarity" [level=1] [ref=e102]
+      - generic [ref=e103]: "Order by: Guideline | Occurrence"
+    - table [ref=e104]:
+      - rowgroup [ref=e105]:
+        - row "Issue" [ref=e106]:
+          - cell "Issue" [ref=e107]
+      - rowgroup [ref=e108]:
+        - row "Did you define the acronym in your content?" [ref=e109]:
+          - cell "Did you define the acronym in your content?" [ref=e110]:
+            - link "Did you define the acronym in your content?" [ref=e111] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/22dce12d89d09078ddd7bd99925f72d51ac56e05.html
+              - generic [ref=e112]: Did you define the acronym in your content?
+        - row "Timer triggers run on a schedule defined by a CRON expression:" [ref=e113]:
+          - cell "Timer triggers run on a schedule defined by a CRON expression:" [ref=e114]: "Timer triggers run on a schedule defined by a CRON expression:"
+        - row "CRON (1) Timer triggers run on a schedule defined by a CRON expression:" [ref=e115]:
+          - cell "CRON (1) Timer triggers run on a schedule defined by a CRON expression:" [ref=e116]:
+            - table [ref=e117]:
+              - rowgroup [ref=e118]:
+                - row "CRON (1)" [ref=e119]:
+                  - cell "CRON (1)" [ref=e120]:
+                    - generic [ref=e122]: CRON (1)
+                - row "Timer triggers run on a schedule defined by a CRON expression:" [ref=e123]:
+                  - cell "Timer triggers run on a schedule defined by a CRON expression:" [ref=e124]:
+                    - generic [ref=e125]: "Timer triggers run on a schedule defined by a CRON expression:"
+        - row "Could you use a noun after this, that, these, or those?" [ref=e126]:
+          - cell "Could you use a noun after this, that, these, or those?" [ref=e127]:
+            - link "Could you use a noun after this, that, these, or those?" [ref=e128] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/48a6a3aa4b7de6bd32f6116f8fb21319e938b9e3.html
+              - generic [ref=e129]: Could you use a noun after this, that, these, or those?
+        - row "This produces a zip file that you can deploy using the Azure CLI or other deployment tools." [ref=e130]:
+          - cell "This produces a zip file that you can deploy using the Azure CLI or other deployment tools." [ref=e131]:
+            - generic [ref=e132]: This produces a zip file that you can deploy using the Azure CLI or other deployment tools.
+        - row "Could you use a noun after this, that, these, or those?" [ref=e133]:
+          - cell "Could you use a noun after this, that, these, or those?" [ref=e134]:
+            - link "Could you use a noun after this, that, these, or those?" [ref=e135] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/48a6a3aa4b7de6bd32f6116f8fb21319e938b9e3.html
+              - generic [ref=e136]: Could you use a noun after this, that, these, or those?
+        - row "This generates a … along with the standard project files." [ref=e137]:
+          - cell "This generates a … along with the standard project files." [ref=e138]:
+            - generic [ref=e139]: This generates a … along with the standard project files.
+  - generic [ref=e141]:
+    - generic [ref=e142]:
+      - heading "Consistency" [level=1] [ref=e143]
+      - generic [ref=e144]: "Order by: Guideline | Occurrence"
+    - table [ref=e145]:
+      - rowgroup [ref=e146]:
+        - row "Issue Suggestion" [ref=e147]:
+          - cell "Issue" [ref=e148]
+          - cell "Suggestion" [ref=e149]
+      - rowgroup [ref=e150]:
+        - row "Could you check if the hyphen is needed after the prefix?" [ref=e151]:
+          - cell "Could you check if the hyphen is needed after the prefix?" [ref=e152]:
+            - link "Could you check if the hyphen is needed after the prefix?" [ref=e153] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/c3b9879419b19be5e09eb1c3d8bc92582c040a98.html
+              - generic [ref=e154]: Could you check if the hyphen is needed after the prefix?
+        - row "The … file configures the Go worker and is auto-generated. The … file configures the Go worker and is autogenerated." [ref=e155]:
+          - cell "The … file configures the Go worker and is auto-generated." [ref=e156]:
+            - generic [ref=e157]: The … file configures the Go worker and is auto-generated.
+          - cell "The … file configures the Go worker and is autogenerated." [ref=e158]
+  - generic [ref=e160]:
+    - generic [ref=e161]:
+      - heading "Inclusive language" [level=1] [ref=e162]
+      - generic [ref=e163]: "Order by: Guideline | Occurrence"
+    - table [ref=e164]:
+      - rowgroup [ref=e165]:
+        - row "Issue" [ref=e166]:
+          - cell "Issue" [ref=e167]
+      - rowgroup [ref=e168]:
+        - row [ref=e169]:
+          - cell [ref=e170]
+  - generic [ref=e173]:
+    - generic [ref=e174]:
+      - heading "Spelling and grammar" [level=1] [ref=e175]
+      - generic [ref=e176]: "Order by: Guideline | Occurrence"
+    - table [ref=e177]:
+      - rowgroup [ref=e178]:
+        - row "Issue" [ref=e179]:
+          - cell "Issue" [ref=e180]
+      - rowgroup [ref=e181]:
+        - row "Should this verb be singular or plural?" [ref=e182]:
+          - cell "Should this verb be singular or plural?" [ref=e183]:
+            - link "Should this verb be singular or plural?" [ref=e184] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/7bead7ff5b4768f3b41dc85c17e568e36ea84286.html
+              - generic [ref=e185]: Should this verb be singular or plural?
+        - row "Azure Functions Go developer reference" [ref=e186]:
+          - cell "Azure Functions Go developer reference" [ref=e187]:
+            - generic [ref=e188]: Azure Functions Go developer reference
+        - row "Is it clear who does this?" [ref=e189]:
+          - cell "Is it clear who does this?" [ref=e190]:
+            - link "Is it clear who does this?" [ref=e191] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/7a7c52f9f360e96c6382a20083489a5670c22b1c.html
+              - generic [ref=e192]: Is it clear who does this?
+        - row "When using … for local development, Core Tools compiles the code automatically for your current OS." [ref=e193]:
+          - cell "When using … for local development, Core Tools compiles the code automatically for your current OS." [ref=e194]:
+            - generic [ref=e195]: When using … for local development, Core Tools compiles the code automatically for your current OS.
+        - row "Should this verb be singular or plural?" [ref=e196]:
+          - cell "Should this verb be singular or plural?" [ref=e197]:
+            - link "Should this verb be singular or plural?" [ref=e198] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/7bead7ff5b4768f3b41dc85c17e568e36ea84286.html
+              - generic [ref=e199]: Should this verb be singular or plural?
+        - row "The Azure Functions Go worker includes built-in observability features that integrate automatically with Azure Application Insights." [ref=e200]:
+          - cell "The Azure Functions Go worker includes built-in observability features that integrate automatically with Azure Application Insights." [ref=e201]:
+            - generic [ref=e202]: The Azure Functions Go worker includes built-in observability features that integrate automatically with Azure Application Insights.
+        - row "Should this verb be singular or plural?" [ref=e203]:
+          - cell "Should this verb be singular or plural?" [ref=e204]:
+            - link "Should this verb be singular or plural?" [ref=e205] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/7bead7ff5b4768f3b41dc85c17e568e36ea84286.html
+              - generic [ref=e206]: Should this verb be singular or plural?
+        - row "Azure Functions Go worker samples" [ref=e207]:
+          - cell "Azure Functions Go worker samples" [ref=e208]:
+            - generic [ref=e209]: Azure Functions Go worker samples
+  - generic [ref=e211]:
+    - generic [ref=e212]:
+      - heading "Terminology" [level=1] [ref=e213]
+      - generic [ref=e214]: "Order by: Term | Occurrence"
+    - list:
+      - listitem [ref=e215]: Preferred
+      - listitem [ref=e216]: Deprecated
+      - listitem [ref=e217]: Admitted
+    - table [ref=e218]:
+      - rowgroup [ref=e219]:
+        - row "Term Terminology Suggestion Context" [ref=e220]:
+          - cell "Term Terminology Suggestion Context" [ref=e221]:
+            - table [ref=e222]:
+              - rowgroup [ref=e223]:
+                - row "Term Terminology Suggestion Context" [ref=e224]:
+                  - cell "Term" [ref=e225]
+                  - cell "Terminology" [ref=e226]
+                  - cell "Suggestion" [ref=e227]
+                  - cell "Context" [ref=e228]
+        - row:
+          - cell
+        - row:
+          - cell
+  - generic [ref=e230]:
+    - generic [ref=e231]:
+      - heading "Tone" [level=1] [ref=e232]
+      - generic [ref=e233]: "Order by: Guideline | Occurrence"
+    - table [ref=e234]:
+      - rowgroup [ref=e235]:
+        - row "Issue" [ref=e236]:
+          - cell "Issue" [ref=e237]
+      - rowgroup [ref=e238]:
+        - row [ref=e239]:
+          - cell [ref=e240]

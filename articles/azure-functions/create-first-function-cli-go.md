@@ -99,7 +99,7 @@ In Azure Functions, a function project is a container for one or more individual
     func start
     ```
 
-    Core Tools automatically compiles your Go application before starting the local Azure Functions host. Toward the end of the output, the HTTP endpoint for your function is displayed:
+    Core Tools automatically compile your Go application before starting the local Azure Functions host. Toward the end of the output, the HTTP endpoint for your function is displayed:
 
     ```output
     Functions:
@@ -179,11 +179,11 @@ Functions in <APP_NAME>:
         Invoke url: https://<APP_NAME>.azurewebsites.net/api/hello
 ```
 
-Open the invoke URL with `?name=Functions` appended to verify the function is running in Azure.
+Open the URL with `?name=Functions` appended to verify that the function runs in Azure.
 
 ## Clean up resources
 
-If you continue to the [next step](#next-steps), keep all resources in place as you build on what you've already done.
+If you continue to the [next step](#next-steps), keep all resources in place as you build on what you already created.
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 

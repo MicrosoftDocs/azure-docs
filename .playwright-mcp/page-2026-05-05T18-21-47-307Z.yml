@@ -1,0 +1,626 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Scorecard" [level=1] [ref=e6]
+      - heading "functions...-trigger.md" [level=2] [ref=e7]:
+        - link "functions...-trigger.md" [ref=e8] [cursor=pointer]:
+          - /url: 3a62e9a1-c67e-468e-9b4e-9109cbf79a3f_report.xml
+    - table [ref=e9]:
+      - rowgroup [ref=e10]:
+        - row "Acrolinx Score 81" [ref=e11]:
+          - cell "Acrolinx Score" [ref=e12]:
+            - heading "Acrolinx Score" [level=2] [ref=e13]
+          - cell [ref=e14]
+          - cell "81" [ref=e17]:
+            - generic [ref=e18]: "81"
+          - cell [ref=e19]
+        - row [ref=e20]:
+          - cell [ref=e21]
+        - row "Summary" [ref=e22]:
+          - cell "Summary" [ref=e23]:
+            - heading "Summary" [level=2] [ref=e24]
+        - row "Clarity 84 10" [ref=e25]:
+          - cell "Clarity" [ref=e26]:
+            - heading "Clarity" [level=3] [ref=e27]:
+              - link "Clarity" [ref=e28] [cursor=pointer]:
+                - /url: "#CLARITY"
+          - cell [ref=e29]
+          - cell "84" [ref=e32]:
+            - generic [ref=e33]: "84"
+          - cell "10" [ref=e34]:
+            - generic [ref=e35]: "10"
+        - row "Consistency 90 5" [ref=e36]:
+          - cell "Consistency" [ref=e37]:
+            - heading "Consistency" [level=3] [ref=e38]:
+              - link "Consistency" [ref=e39] [cursor=pointer]:
+                - /url: "#CONSISTENCY"
+          - cell [ref=e40]
+          - cell "90" [ref=e43]:
+            - generic [ref=e44]: "90"
+          - cell "5" [ref=e45]:
+            - generic [ref=e46]: "5"
+        - row "Inclusive language 0" [ref=e47]:
+          - cell "Inclusive language" [ref=e48]:
+            - heading "Inclusive language" [level=3] [ref=e49]:
+              - link "Inclusive language" [ref=e50] [cursor=pointer]:
+                - /url: "#INCLUSIVE"
+          - cell "This goal is grayed out because it's set to \"Recommended\" and doesn't count toward the score. You'll still see the issues for this goal in the corresponding section below." [ref=e51]
+          - cell [ref=e53]
+          - cell "0" [ref=e54]:
+            - generic [ref=e55]: "0"
+        - row "Spelling and grammar 85 8" [ref=e56]:
+          - cell "Spelling and grammar" [ref=e57]:
+            - heading "Spelling and grammar" [level=3] [ref=e58]:
+              - link "Spelling and grammar" [ref=e59] [cursor=pointer]:
+                - /url: "#CORRECTNESS"
+          - cell [ref=e60]
+          - cell "85" [ref=e63]:
+            - generic [ref=e64]: "85"
+          - cell "8" [ref=e65]:
+            - generic [ref=e66]: "8"
+        - row "Terminology 72 62" [ref=e67]:
+          - cell "Terminology" [ref=e68]:
+            - heading "Terminology" [level=3] [ref=e69]:
+              - link "Terminology" [ref=e70] [cursor=pointer]:
+                - /url: "#WORDS_AND_PHRASES"
+          - cell [ref=e71]
+          - cell "72" [ref=e74]:
+            - generic [ref=e75]: "72"
+          - cell "62" [ref=e76]:
+            - generic [ref=e77]: "62"
+        - row "Tone 78 13" [ref=e78]:
+          - cell "Tone" [ref=e79]:
+            - heading "Tone" [level=3] [ref=e80]:
+              - link "Tone" [ref=e81] [cursor=pointer]:
+                - /url: "#TONE"
+          - cell [ref=e82]
+          - cell "78" [ref=e85]:
+            - generic [ref=e86]: "78"
+          - cell "13" [ref=e87]:
+            - generic [ref=e88]: "13"
+    - generic [ref=e89]:
+      - heading "Metrics" [level=2] [ref=e92] [cursor=pointer]
+      - heading "Document Information" [level=2] [ref=e95] [cursor=pointer]
+      - heading "Administrative Information" [level=2] [ref=e98] [cursor=pointer]
+  - generic [ref=e100]:
+    - generic [ref=e101]:
+      - heading "Clarity" [level=1] [ref=e102]
+      - generic [ref=e103]: "Order by: Guideline | Occurrence"
+    - table [ref=e104]:
+      - rowgroup [ref=e105]:
+        - row "Issue Suggestion" [ref=e106]:
+          - cell "Issue" [ref=e107]
+          - cell "Suggestion" [ref=e108]
+      - rowgroup [ref=e109]:
+        - row "Could you write this passive sentence with by in the active voice?" [ref=e110]:
+          - cell "Could you write this passive sentence with by in the active voice?" [ref=e111]:
+            - link "Could you write this passive sentence with by in the active voice?" [ref=e112] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/63471f3711cbb90279f3cd5f881b548adc872bcc.html
+              - generic [ref=e113]: Could you write this passive sentence with by in the active voice?
+        - row "A Service Bus binding is defined in function.json where type is set to … and the queue is set by …." [ref=e114]:
+          - cell "A Service Bus binding is defined in function.json where type is set to … and the queue is set by …." [ref=e115]:
+            - generic [ref=e116]: A Service Bus binding is defined in function.json where type is set to … and the queue is set by ….
+        - row "Could you write this passive sentence with by in the active voice?" [ref=e117]:
+          - cell "Could you write this passive sentence with by in the active voice?" [ref=e118]:
+            - link "Could you write this passive sentence with by in the active voice?" [ref=e119] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/63471f3711cbb90279f3cd5f881b548adc872bcc.html
+              - generic [ref=e120]: Could you write this passive sentence with by in the active voice?
+        - row "A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by …." [ref=e121]:
+          - cell "A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by …." [ref=e122]:
+            - generic [ref=e123]: A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by ….
+        - row "Could you write this passive sentence with by in the active voice?" [ref=e124]:
+          - cell "Could you write this passive sentence with by in the active voice?" [ref=e125]:
+            - link "Could you write this passive sentence with by in the active voice?" [ref=e126] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/63471f3711cbb90279f3cd5f881b548adc872bcc.html
+              - generic [ref=e127]: Could you write this passive sentence with by in the active voice?
+        - row "A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by …." [ref=e128]:
+          - cell "A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by …." [ref=e129]:
+            - generic [ref=e130]: A Service Bus binding is defined in function.json where type is set to …, the topic is set by …, and the subscription is set by ….
+        - row "Could you write this passive sentence with by in the active voice?" [ref=e131]:
+          - cell "Could you write this passive sentence with by in the active voice?" [ref=e132]:
+            - link "Could you write this passive sentence with by in the active voice?" [ref=e133] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/63471f3711cbb90279f3cd5f881b548adc872bcc.html
+              - generic [ref=e134]: Could you write this passive sentence with by in the active voice?
+        - 'row "::: zone pivot=\"programming-language-csharp\" The following parameter types are supported by all C# modalities and extension versions:" [ref=e135]':
+          - 'cell "::: zone pivot=\"programming-language-csharp\" The following parameter types are supported by all C# modalities and extension versions:" [ref=e136]':
+            - generic [ref=e137]: "::: zone pivot=\"programming-language-csharp\" The following parameter types are supported by all C# modalities and extension versions:"
+        - row "Did you define the acronym in your content?" [ref=e138]:
+          - cell "Did you define the acronym in your content?" [ref=e139]:
+            - link "Did you define the acronym in your content?" [ref=e140] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/22dce12d89d09078ddd7bd99925f72d51ac56e05.html
+              - generic [ref=e141]: Did you define the acronym in your content?
+        - row "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e142]:
+          - cell "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e143]: When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type.
+        - row "CLR (1) When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e144]:
+          - cell "CLR (1) When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e145]:
+            - table [ref=e146]:
+              - rowgroup [ref=e147]:
+                - row "CLR (1)" [ref=e148]:
+                  - cell "CLR (1)" [ref=e149]:
+                    - generic [ref=e151]: CLR (1)
+                  - cell [ref=e152]
+                - row "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e153]:
+                  - cell "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e154]:
+                    - generic [ref=e155]: When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type.
+                  - cell [ref=e156]
+        - row "Use a simpler word or phrase." [ref=e157]:
+          - cell "Use a simpler word or phrase." [ref=e158]:
+            - link "Use a simpler word or phrase." [ref=e159] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/e4d19db4ff7c6928ca6ab11cf379407daa6c29bd.html
+              - generic [ref=e160]: Use a simpler word or phrase.
+        - row "Messaging-specific parameter types contain additional message metadata. Messaging-specific parameter types contain other message metadata." [ref=e161]:
+          - cell "Messaging-specific parameter types contain additional message metadata." [ref=e162]:
+            - generic [ref=e163]: Messaging-specific parameter types contain additional message metadata.
+          - cell "Messaging-specific parameter types contain other message metadata." [ref=e164]
+        - row "Messaging-specific parameter types contain more message metadata." [ref=e165]:
+          - cell [ref=e166]
+          - cell "Messaging-specific parameter types contain more message metadata." [ref=e167]
+        - row "Messaging-specific parameter types contain another message metadata." [ref=e168]:
+          - cell [ref=e169]
+          - cell "Messaging-specific parameter types contain another message metadata." [ref=e170]
+        - row "Messaging-specific parameter types contain extra message metadata." [ref=e171]:
+          - cell [ref=e172]
+          - cell "Messaging-specific parameter types contain extra message metadata." [ref=e173]
+        - row "Use a simpler word or phrase." [ref=e174]:
+          - cell "Use a simpler word or phrase." [ref=e175]:
+            - link "Use a simpler word or phrase." [ref=e176] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/e4d19db4ff7c6928ca6ab11cf379407daa6c29bd.html
+              - generic [ref=e177]: Use a simpler word or phrase.
+        - row "Additional options are available to extension 5.x and higher More options are available to extension 5.x and higher" [ref=e178]:
+          - cell "Additional options are available to extension 5.x and higher" [ref=e179]:
+            - generic [ref=e180]: Additional options are available to extension 5.x and higher
+          - cell "More options are available to extension 5.x and higher" [ref=e181]
+        - row "Extra options are available to extension 5.x and higher" [ref=e182]:
+          - cell [ref=e183]
+          - cell "Extra options are available to extension 5.x and higher" [ref=e184]
+        - row "Other options are available to extension 5.x and higher" [ref=e185]:
+          - cell [ref=e186]
+          - cell "Other options are available to extension 5.x and higher" [ref=e187]
+        - row "Another options are available to extension 5.x and higher" [ref=e188]:
+          - cell [ref=e189]
+          - cell "Another options are available to extension 5.x and higher" [ref=e190]
+        - row "Could you add a comma before which?" [ref=e191]:
+          - cell "Could you add a comma before which?" [ref=e192]:
+            - link "Could you add a comma before which?" [ref=e193] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/73ef5393b5030f7943c43bdd02d30bfa02f058a5.html
+              - generic [ref=e194]: Could you add a comma before which?
+        - row "The application-specific label which can be used in place of the … metadata property. The application-specific label, which can be used in place of the … metadata property." [ref=e195]:
+          - cell "The application-specific label which can be used in place of the … metadata property." [ref=e196]:
+            - generic [ref=e197]: The application-specific label which can be used in place of the … metadata property.
+          - cell "The application-specific label, which can be used in place of the … metadata property." [ref=e198]
+        - row "The application-specific label that can be used in place of the … metadata property." [ref=e199]:
+          - cell [ref=e200]
+          - cell "The application-specific label that can be used in place of the … metadata property." [ref=e201]
+        - row "Could you add a comma before which?" [ref=e202]:
+          - cell "Could you add a comma before which?" [ref=e203]:
+            - link "Could you add a comma before which?" [ref=e204] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/73ef5393b5030f7943c43bdd02d30bfa02f058a5.html
+              - generic [ref=e205]: Could you add a comma before which?
+        - row "The application-specific label which can be used in place of the … metadata property. The application-specific label, which can be used in place of the … metadata property." [ref=e206]:
+          - cell "The application-specific label which can be used in place of the … metadata property." [ref=e207]:
+            - generic [ref=e208]: The application-specific label which can be used in place of the … metadata property.
+          - cell "The application-specific label, which can be used in place of the … metadata property." [ref=e209]
+        - row "The application-specific label that can be used in place of the … metadata property." [ref=e210]:
+          - cell [ref=e211]
+          - cell "The application-specific label that can be used in place of the … metadata property." [ref=e212]
+        - row "Use a simpler word or phrase." [ref=e213]:
+          - cell "Use a simpler word or phrase." [ref=e214]:
+            - link "Use a simpler word or phrase." [ref=e215] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/e4d19db4ff7c6928ca6ab11cf379407daa6c29bd.html
+              - generic [ref=e216]: Use a simpler word or phrase.
+        - row "Additional options are available to Extension 5.x and higher More options are available to Extension 5.x and higher" [ref=e217]:
+          - cell "Additional options are available to Extension 5.x and higher" [ref=e218]:
+            - generic [ref=e219]: Additional options are available to Extension 5.x and higher
+          - cell "More options are available to Extension 5.x and higher" [ref=e220]
+        - row "Extra options are available to Extension 5.x and higher" [ref=e221]:
+          - cell [ref=e222]
+          - cell "Extra options are available to Extension 5.x and higher" [ref=e223]
+        - row "Other options are available to Extension 5.x and higher" [ref=e224]:
+          - cell [ref=e225]
+          - cell "Other options are available to Extension 5.x and higher" [ref=e226]
+        - row "Another options are available to Extension 5.x and higher" [ref=e227]:
+          - cell [ref=e228]
+          - cell "Another options are available to Extension 5.x and higher" [ref=e229]
+  - generic [ref=e231]:
+    - generic [ref=e232]:
+      - heading "Consistency" [level=1] [ref=e233]
+      - generic [ref=e234]: "Order by: Guideline | Occurrence"
+    - table [ref=e235]:
+      - rowgroup [ref=e236]:
+        - row "Issue" [ref=e237]:
+          - cell "Issue" [ref=e238]
+      - rowgroup [ref=e239]:
+        - row "Could you use only one space between sentences?" [ref=e240]:
+          - cell "Could you use only one space between sentences?" [ref=e241]:
+            - link "Could you use only one space between sentences?" [ref=e242] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/0bded66fd06c0376e70c4d59ba40f3b5a4ec2298.html
+              - generic [ref=e243]: Could you use only one space between sentences?
+        - row "Name of the queue to monitor." [ref=e244]:
+          - cell "Name of the queue to monitor." [ref=e245]:
+            - generic [ref=e246]: Name of the queue to monitor.
+        - row "Could you put the punctuation inside the quote?" [ref=e247]:
+          - cell "Could you put the punctuation inside the quote?" [ref=e248]:
+            - link "Could you put the punctuation inside the quote?" [ref=e249] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/ad42402b6d7873da6b11003c91f6682547f50140.html
+              - generic [ref=e250]: Could you put the punctuation inside the quote?
+        - row "Must be set to \"in\"." [ref=e251]:
+          - cell "Must be set to \"in\"." [ref=e252]:
+            - generic [ref=e253]: Must be set to "in".
+        - row "Could you use only one space between sentences?" [ref=e254]:
+          - cell "Could you use only one space between sentences?" [ref=e255]:
+            - link "Could you use only one space between sentences?" [ref=e256] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/0bded66fd06c0376e70c4d59ba40f3b5a4ec2298.html
+              - generic [ref=e257]: Could you use only one space between sentences?
+        - row "Name of the queue to monitor." [ref=e258]:
+          - cell "Name of the queue to monitor." [ref=e259]:
+            - generic [ref=e260]: Name of the queue to monitor.
+        - row "Could you put the punctuation inside the quote?" [ref=e261]:
+          - cell "Could you put the punctuation inside the quote?" [ref=e262]:
+            - link "Could you put the punctuation inside the quote?" [ref=e263] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/ad42402b6d7873da6b11003c91f6682547f50140.html
+              - generic [ref=e264]: Could you put the punctuation inside the quote?
+        - row "Must be set to \"in\"." [ref=e265]:
+          - cell "Must be set to \"in\"." [ref=e266]:
+            - generic [ref=e267]: Must be set to "in".
+        - row "Could you use only one space between sentences?" [ref=e268]:
+          - cell "Could you use only one space between sentences?" [ref=e269]:
+            - link "Could you use only one space between sentences?" [ref=e270] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/0bded66fd06c0376e70c4d59ba40f3b5a4ec2298.html
+              - generic [ref=e271]: Could you use only one space between sentences?
+        - row "Name of the queue to monitor." [ref=e272]:
+          - cell "Name of the queue to monitor." [ref=e273]:
+            - generic [ref=e274]: Name of the queue to monitor.
+  - generic [ref=e276]:
+    - generic [ref=e277]:
+      - heading "Inclusive language" [level=1] [ref=e278]
+      - generic [ref=e279]: "Order by: Guideline | Occurrence"
+    - table [ref=e280]:
+      - rowgroup [ref=e281]:
+        - row "Issue" [ref=e282]:
+          - cell "Issue" [ref=e283]
+      - rowgroup [ref=e284]:
+        - row [ref=e285]:
+          - cell [ref=e286]
+  - generic [ref=e289]:
+    - generic [ref=e290]:
+      - heading "Spelling and grammar" [level=1] [ref=e291]
+      - generic [ref=e292]: "Order by: Guideline | Occurrence"
+    - table [ref=e293]:
+      - rowgroup [ref=e294]:
+        - row "Issue Suggestion" [ref=e295]:
+          - cell "Issue" [ref=e296]
+          - cell "Suggestion" [ref=e297]
+      - rowgroup [ref=e298]:
+        - row "Could you capitalize the first word of the sentence?" [ref=e299]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e300]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e301] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e302]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-java\" Zone pivot=\"programming-language-java\"" [ref=e303]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-java\"" [ref=e304]':
+            - generic [ref=e305]: "::: zone-end ::: zone pivot=\"programming-language-java\""
+          - cell "Zone pivot=\"programming-language-java\"" [ref=e306]
+        - row "Could you capitalize the first word of the sentence?" [ref=e307]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e308]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e309] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e310]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-typescript\" Zone pivot=\"programming-language-typescript\"" [ref=e311]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-typescript\"" [ref=e312]':
+            - generic [ref=e313]: "::: zone-end ::: zone pivot=\"programming-language-typescript\""
+          - cell "Zone pivot=\"programming-language-typescript\"" [ref=e314]
+        - row "Could you capitalize the first word of the sentence?" [ref=e315]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e316]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e317] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e318]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-powershell\" Zone pivot=\"programming-language-powershell\"" [ref=e319]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-powershell\"" [ref=e320]':
+            - generic [ref=e321]: "::: zone-end ::: zone pivot=\"programming-language-powershell\""
+          - cell "Zone pivot=\"programming-language-powershell\"" [ref=e322]
+        - row "Could you capitalize the first word of the sentence?" [ref=e323]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e324]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e325] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e326]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-python\" This example uses SDK types to directly access the underlying … object provided by the Service Bus trigger: Zone pivot=\"programming-language-python\" This example uses SDK types to directly access the underlying … object provided by the Service Bus trigger:" [ref=e327]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-python\" This example uses SDK types to directly access the underlying … object provided by the Service Bus trigger:" [ref=e328]':
+            - generic [ref=e329]: "::: zone-end ::: zone pivot=\"programming-language-python\" This example uses SDK types to directly access the underlying … object provided by the Service Bus trigger:"
+          - cell "Zone pivot=\"programming-language-python\" This example uses SDK types to directly access the underlying … object provided by the Service Bus trigger:" [ref=e330]
+        - row "Could you capitalize the first word of the sentence?" [ref=e331]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e332]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e333] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e334]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-go\" Zone pivot=\"programming-language-go\"" [ref=e335]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-go\"" [ref=e336]':
+            - generic [ref=e337]: "::: zone-end ::: zone pivot=\"programming-language-go\""
+          - cell "Zone pivot=\"programming-language-go\"" [ref=e338]
+        - row "Could you capitalize the first word of the sentence?" [ref=e339]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e340]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e341] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e342]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-csharp\" Zone pivot=\"programming-language-csharp\"" [ref=e343]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-csharp\"" [ref=e344]':
+            - generic [ref=e345]: "::: zone-end ::: zone pivot=\"programming-language-csharp\""
+          - cell "Zone pivot=\"programming-language-csharp\"" [ref=e346]
+        - row "Could you capitalize the first word of the sentence?" [ref=e347]:
+          - cell "Could you capitalize the first word of the sentence?" [ref=e348]:
+            - link "Could you capitalize the first word of the sentence?" [ref=e349] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/a9a63a0107b5097e64f5624dff1fd9e6e961317b.html
+              - generic [ref=e350]: Could you capitalize the first word of the sentence?
+        - 'row "::: zone-end ::: zone pivot=\"programming-language-powershell,programming-language-python\" Zone pivot=\"programming-language-powershell,programming-language-python\"" [ref=e351]':
+          - 'cell "::: zone-end ::: zone pivot=\"programming-language-powershell,programming-language-python\"" [ref=e352]':
+            - generic [ref=e353]: "::: zone-end ::: zone pivot=\"programming-language-powershell,programming-language-python\""
+          - cell "Zone pivot=\"programming-language-powershell,programming-language-python\"" [ref=e354]
+        - row "Should this verb be singular or plural?" [ref=e355]:
+          - cell "Should this verb be singular or plural?" [ref=e356]:
+            - link "Should this verb be singular or plural?" [ref=e357] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/7bead7ff5b4768f3b41dc85c17e568e36ea84286.html
+              - generic [ref=e358]: Should this verb be singular or plural?
+        - row "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type. When a message contains JSON, Functions try to deserialize the JSON data into known plain-old CLR object type." [ref=e359]:
+          - cell "When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type." [ref=e360]:
+            - generic [ref=e361]: When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type.
+          - cell "When a message contains JSON, Functions try to deserialize the JSON data into known plain-old CLR object type." [ref=e362]
+        - row "When a message contains JSON, Function tries to deserialize the JSON data into known plain-old CLR object type." [ref=e363]:
+          - cell [ref=e364]
+          - cell "When a message contains JSON, Function tries to deserialize the JSON data into known plain-old CLR object type." [ref=e365]
+  - generic [ref=e367]:
+    - generic [ref=e368]:
+      - heading "Terminology" [level=1] [ref=e369]
+      - generic [ref=e370]: "Order by: Term | Occurrence"
+    - list:
+      - listitem [ref=e371]: Preferred
+      - listitem [ref=e372]: Deprecated
+      - listitem [ref=e373]: Admitted
+    - table [ref=e374]:
+      - rowgroup [ref=e375]:
+        - row [ref=e376]:
+          - cell [ref=e377]:
+            - table [ref=e378]:
+              - rowgroup [ref=e379]:
+                - row "Term Terminology Suggestion Context" [ref=e380]:
+                  - cell "Term" [ref=e381]
+                  - cell "Terminology" [ref=e382]
+                  - cell "Suggestion" [ref=e383]
+                  - cell "Context" [ref=e384]
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone pivot=\"programming-language-javascript,programming-language-typescript\" [!INCLUDE functions-nodejs-model-tabs-description ] ::: zone-end ::: zone pivot=\"programming-language-python\" [!INCLUDE functions-bindings-python-models-intro ]" [ref=e385]':
+                  - cell "javascript (1 occurrence)" [ref=e386]:
+                    - paragraph [ref=e387]:
+                      - link "javascript" [ref=e388] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e389]
+                  - cell "JavaScript" [ref=e390]: JavaScript
+                  - 'cell "::: zone pivot=\"programming-language-javascript,programming-language-typescript\" [!INCLUDE functions-nodejs-model-tabs-description ] ::: zone-end ::: zone pivot=\"programming-language-python\" [!INCLUDE functions-bindings-python-models-intro ]" [ref=e391]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone pivot=\"programming-language-javascript,programming-language-typescript\" [!INCLUDE functions-nodejs-model-tabs-description ] ::: zone-end ::: zone pivot=\"programming-language-python\" [!INCLUDE functions-bindings-python-models-intro ]" [ref=e392]':
+                  - cell "typescript (1 occurrence)" [ref=e393]:
+                    - paragraph [ref=e394]:
+                      - link "typescript" [ref=e395] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e396]
+                  - cell "TypeScript" [ref=e397]: TypeScript
+                  - 'cell "::: zone pivot=\"programming-language-javascript,programming-language-typescript\" [!INCLUDE functions-nodejs-model-tabs-description ] ::: zone-end ::: zone pivot=\"programming-language-python\" [!INCLUDE functions-bindings-python-models-intro ]" [ref=e398]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone-end ::: zone pivot=\"programming-language-typescript\"" [ref=e399]':
+                  - cell "typescript (1 occurrence)" [ref=e400]:
+                    - paragraph [ref=e401]:
+                      - link "typescript" [ref=e402] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e403]
+                  - cell "TypeScript" [ref=e404]: TypeScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-typescript\"" [ref=e405]'
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone-end ::: zone pivot=\"programming-language-javascript\"" [ref=e406]':
+                  - cell "javascript (1 occurrence)" [ref=e407]:
+                    - paragraph [ref=e408]:
+                      - link "javascript" [ref=e409] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e410]
+                  - cell "JavaScript" [ref=e411]: JavaScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript\"" [ref=e412]'
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python\"" [ref=e413]':
+                  - cell "javascript (1 occurrence)" [ref=e414]:
+                    - paragraph [ref=e415]:
+                      - link "javascript" [ref=e416] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e417]
+                  - cell "JavaScript" [ref=e418]: JavaScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python\"" [ref=e419]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python\"" [ref=e420]':
+                  - cell "typescript (1 occurrence)" [ref=e421]:
+                    - paragraph [ref=e422]:
+                      - link "typescript" [ref=e423] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e424]
+                  - cell "TypeScript" [ref=e425]: TypeScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python\"" [ref=e426]'
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e427]':
+                  - cell "javascript (1 occurrence)" [ref=e428]:
+                    - paragraph [ref=e429]:
+                      - link "javascript" [ref=e430] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e431]
+                  - cell "JavaScript" [ref=e432]: JavaScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e433]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e434]':
+                  - cell "typescript (1 occurrence)" [ref=e435]:
+                    - paragraph [ref=e436]:
+                      - link "typescript" [ref=e437] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e438]
+                  - cell "TypeScript" [ref=e439]: TypeScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e440]'
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e441]':
+                  - cell "javascript (1 occurrence)" [ref=e442]:
+                    - paragraph [ref=e443]:
+                      - link "javascript" [ref=e444] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e445]
+                  - cell "JavaScript" [ref=e446]: JavaScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e447]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e448]':
+                  - cell "typescript (1 occurrence)" [ref=e449]:
+                    - paragraph [ref=e450]:
+                      - link "typescript" [ref=e451] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e452]
+                  - cell "TypeScript" [ref=e453]: TypeScript
+                  - 'cell "::: zone-end ::: zone pivot=\"programming-language-javascript,programming-language-typescript\"" [ref=e454]'
+                - 'row "javascript (1 occurrence) Microsoft JavaScript ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell\" By default, the runtime calls … on the message if the function finishes successfully, or calls … if the function fails." [ref=e455]':
+                  - cell "javascript (1 occurrence)" [ref=e456]:
+                    - paragraph [ref=e457]:
+                      - link "javascript" [ref=e458] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=1ddf68f8-99f3-4979-943f-4402d9833042&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft" [ref=e459]
+                  - cell "JavaScript" [ref=e460]: JavaScript
+                  - 'cell "::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell\" By default, the runtime calls … on the message if the function finishes successfully, or calls … if the function fails." [ref=e461]'
+                - 'row "typescript (1 occurrence) Microsoft, Products TypeScript ::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell\" By default, the runtime calls … on the message if the function finishes successfully, or calls … if the function fails." [ref=e462]':
+                  - cell "typescript (1 occurrence)" [ref=e463]:
+                    - paragraph [ref=e464]:
+                      - link "typescript" [ref=e465] [cursor=pointer]:
+                        - /url: https://microsoft-ce-csi.acrolinx.cloud/termhelp/?termUniversalId=40aaec1e-c898-47e1-afe3-6739f439b7bc&locale=en
+                      - text: (1 occurrence)
+                  - cell "Microsoft, Products" [ref=e466]
+                  - cell "TypeScript" [ref=e467]: TypeScript
+                  - 'cell "::: zone pivot=\"programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell\" By default, the runtime calls … on the message if the function finishes successfully, or calls … if the function fails." [ref=e468]'
+        - row:
+          - cell
+        - row:
+          - cell
+  - generic [ref=e470]:
+    - generic [ref=e471]:
+      - heading "Tone" [level=1] [ref=e472]
+      - generic [ref=e473]: "Order by: Guideline | Occurrence"
+    - table [ref=e474]:
+      - rowgroup [ref=e475]:
+        - row "Issue Suggestion" [ref=e476]:
+          - cell "Issue" [ref=e477]
+          - cell "Suggestion" [ref=e478]
+      - rowgroup [ref=e479]:
+        - row "Could you use contractions to make it less formal?" [ref=e480]:
+          - cell "Could you use contractions to make it less formal?" [ref=e481]:
+            - link "Could you use contractions to make it less formal?" [ref=e482] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e483]: Could you use contractions to make it less formal?
+        - 'row "TypeScript samples are not documented for model v3. TypeScript samples aren''t documented for model v3. ::: zone-end :::" [ref=e484]':
+          - cell "TypeScript samples are not documented for model v3." [ref=e485]:
+            - generic [ref=e486]: TypeScript samples are not documented for model v3.
+          - 'cell "TypeScript samples aren''t documented for model v3. ::: zone-end :::" [ref=e487]'
+        - row "Could you use contractions to make it less formal?" [ref=e488]:
+          - cell "Could you use contractions to make it less formal?" [ref=e489]:
+            - link "Could you use contractions to make it less formal?" [ref=e490] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e491]: Could you use contractions to make it less formal?
+        - row "The … property is not supported. The … property isn't supported." [ref=e492]:
+          - cell "The … property is not supported." [ref=e493]:
+            - generic [ref=e494]: The … property is not supported.
+          - cell "The … property isn't supported." [ref=e495]
+        - row "Could you use contractions to make it less formal?" [ref=e496]:
+          - cell "Could you use contractions to make it less formal?" [ref=e497]:
+            - link "Could you use contractions to make it less formal?" [ref=e498] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e499]: Could you use contractions to make it less formal?
+        - row "… if it should not, such as when you are handling message settlement in code . … if it shouldn't, such as when you are handling message settlement in code ." [ref=e500]:
+          - cell "… if it should not, such as when you are handling message settlement in code ." [ref=e501]:
+            - generic [ref=e502]: … if it should not, such as when you are handling message settlement in code .
+          - cell "… if it shouldn't, such as when you are handling message settlement in code ." [ref=e503]
+        - row "Could you use contractions to make it less formal?" [ref=e504]:
+          - cell "Could you use contractions to make it less formal?" [ref=e505]:
+            - link "Could you use contractions to make it less formal?" [ref=e506] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e507]: Could you use contractions to make it less formal?
+        - row "… if it should not, such as when you are handling message settlement in code . … if it should not, such as when you're handling message settlement in code ." [ref=e508]:
+          - cell "… if it should not, such as when you are handling message settlement in code ." [ref=e509]:
+            - generic [ref=e510]: … if it should not, such as when you are handling message settlement in code .
+          - cell "… if it should not, such as when you're handling message settlement in code ." [ref=e511]
+        - row "Could you use contractions to make it less formal?" [ref=e512]:
+          - cell "Could you use contractions to make it less formal?" [ref=e513]:
+            - link "Could you use contractions to make it less formal?" [ref=e514] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e515]: Could you use contractions to make it less formal?
+        - row "If you use a connection string that does not have the Manage permission, set … to \"listen\". If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e516]:
+          - cell "If you use a connection string that does not have the Manage permission, set … to \"listen\"." [ref=e517]:
+            - generic [ref=e518]: If you use a connection string that does not have the Manage permission, set … to "listen".
+          - cell "If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e519]
+        - row "Could you use contractions to make it less formal?" [ref=e520]:
+          - cell "Could you use contractions to make it less formal?" [ref=e521]:
+            - link "Could you use contractions to make it less formal?" [ref=e522] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e523]: Could you use contractions to make it less formal?
+        - row "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e524]:
+          - cell "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e525]:
+            - generic [ref=e526]: In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.
+          - cell "In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e527]
+        - row "Could you use contractions to make it less formal?" [ref=e528]:
+          - cell "Could you use contractions to make it less formal?" [ref=e529]:
+            - link "Could you use contractions to make it less formal?" [ref=e530] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e531]: Could you use contractions to make it less formal?
+        - row "When set to …, you are responsible for calling ServiceBusReceiver methods to complete, abandon, or deadletter the message, session, or batch. When set to …, you're responsible for calling ServiceBusReceiver methods to complete, abandon, or deadletter the message, session, or batch." [ref=e532]:
+          - cell "When set to …, you are responsible for calling ServiceBusReceiver methods to complete, abandon, or deadletter the message, session, or batch." [ref=e533]:
+            - generic [ref=e534]: When set to …, you are responsible for calling ServiceBusReceiver methods to complete, abandon, or deadletter the message, session, or batch.
+          - cell "When set to …, you're responsible for calling ServiceBusReceiver methods to complete, abandon, or deadletter the message, session, or batch." [ref=e535]
+        - row "Could you use contractions to make it less formal?" [ref=e536]:
+          - cell "Could you use contractions to make it less formal?" [ref=e537]:
+            - link "Could you use contractions to make it less formal?" [ref=e538] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e539]: Could you use contractions to make it less formal?
+        - row "If you use a connection string that does not have the Manage permission, set … to \"listen\". If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e540]:
+          - cell "If you use a connection string that does not have the Manage permission, set … to \"listen\"." [ref=e541]:
+            - generic [ref=e542]: If you use a connection string that does not have the Manage permission, set … to "listen".
+          - cell "If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e543]
+        - row "Could you use contractions to make it less formal?" [ref=e544]:
+          - cell "Could you use contractions to make it less formal?" [ref=e545]:
+            - link "Could you use contractions to make it less formal?" [ref=e546] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e547]: Could you use contractions to make it less formal?
+        - row "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e548]:
+          - cell "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e549]:
+            - generic [ref=e550]: In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.
+          - cell "In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e551]
+        - row "Could you use contractions to make it less formal?" [ref=e552]:
+          - cell "Could you use contractions to make it less formal?" [ref=e553]:
+            - link "Could you use contractions to make it less formal?" [ref=e554] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e555]: Could you use contractions to make it less formal?
+        - row "If you use a connection string that does not have the Manage permission, set … to \"listen\". If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e556]:
+          - cell "If you use a connection string that does not have the Manage permission, set … to \"listen\"." [ref=e557]:
+            - generic [ref=e558]: If you use a connection string that does not have the Manage permission, set … to "listen".
+          - cell "If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e559]
+        - row "Could you use contractions to make it less formal?" [ref=e560]:
+          - cell "Could you use contractions to make it less formal?" [ref=e561]:
+            - link "Could you use contractions to make it less formal?" [ref=e562] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e563]: Could you use contractions to make it less formal?
+        - row "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e564]:
+          - cell "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e565]:
+            - generic [ref=e566]: In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.
+          - cell "In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e567]
+        - row "Could you use contractions to make it less formal?" [ref=e568]:
+          - cell "Could you use contractions to make it less formal?" [ref=e569]:
+            - link "Could you use contractions to make it less formal?" [ref=e570] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e571]: Could you use contractions to make it less formal?
+        - row "If you use a connection string that does not have the Manage permission, set … to \"listen\". If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e572]:
+          - cell "If you use a connection string that does not have the Manage permission, set … to \"listen\"." [ref=e573]:
+            - generic [ref=e574]: If you use a connection string that does not have the Manage permission, set … to "listen".
+          - cell "If you use a connection string that doesn't have the Manage permission, set … to \"listen\"." [ref=e575]
+        - row "Could you use contractions to make it less formal?" [ref=e576]:
+          - cell "Could you use contractions to make it less formal?" [ref=e577]:
+            - link "Could you use contractions to make it less formal?" [ref=e578] [cursor=pointer]:
+              - /url: https://microsoft-ce-csi.acrolinx.cloud/htmldata/en/rules/4842fecd80f7ca65b1a967ad39bb2a19f99dd2ae.html
+              - generic [ref=e579]: Could you use contractions to make it less formal?
+        - row "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e580]:
+          - cell "In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e581]:
+            - generic [ref=e582]: In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.
+          - cell "In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations." [ref=e583]

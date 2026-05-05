@@ -1,0 +1,1211 @@
+- generic [ref=e2]:
+  - region
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner "Global Navigation Menu" [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - button "Open menu" [ref=e12] [cursor=pointer]:
+            - img [ref=e13]
+          - link "Homepage (g then d)" [ref=e15] [cursor=pointer]:
+            - /url: /
+            - img [ref=e16]
+        - generic [ref=e18]:
+          - navigation "Breadcrumbs" [ref=e19]:
+            - list [ref=e20]:
+              - listitem [ref=e21]:
+                - link "MicrosoftDocs" [ref=e22] [cursor=pointer]:
+                  - /url: /MicrosoftDocs
+                  - generic [ref=e23]: MicrosoftDocs
+              - listitem [ref=e24]:
+                - link "azure-docs-pr" [ref=e25] [cursor=pointer]:
+                  - /url: /MicrosoftDocs/azure-docs-pr
+                  - generic [ref=e26]: azure-docs-pr
+                  - img [ref=e27]
+          - button "Search or jump to…" [ref=e31] [cursor=pointer]:
+            - generic [ref=e32]:
+              - generic:
+                - img
+              - generic [ref=e33]:
+                - generic:
+                  - text: Type
+                  - generic: /
+                  - text: to search
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e37]:
+              - generic [ref=e38]:
+                - link "Chat with Copilot" [ref=e40] [cursor=pointer]:
+                  - /url: /copilot
+                  - img [ref=e41]
+                - button "Open Copilot…" [ref=e45] [cursor=pointer]:
+                  - generic:
+                    - img
+              - button "Open agents panel" [ref=e46] [cursor=pointer]:
+                - generic [ref=e47]:
+                  - generic:
+                    - img
+                  - generic:
+                    - img
+            - button "Create new..." [ref=e49] [cursor=pointer]:
+              - generic [ref=e50]:
+                - generic:
+                  - img
+              - generic:
+                - img
+            - generic [ref=e51]:
+              - link "All issues (g then i)" [ref=e52] [cursor=pointer]:
+                - /url: /issues
+                - img [ref=e53]
+              - link "All pull requests" [ref=e56] [cursor=pointer]:
+                - /url: /pulls
+                - img [ref=e57]
+              - link "All repositories" [ref=e59] [cursor=pointer]:
+                - /url: /repos
+                - img [ref=e60]
+          - link "You have no unread notifications (g then n)" [ref=e62] [cursor=pointer]:
+            - /url: /notifications
+            - img [ref=e63]
+          - button "Open user navigation menu" [ref=e66] [cursor=pointer]:
+            - img "Anthony Chu" [ref=e67]
+      - heading "Repository navigation" [level=2] [ref=e68]
+      - navigation "Repository" [ref=e69]:
+        - list [ref=e70]:
+          - listitem [ref=e71]:
+            - link "Code" [ref=e72] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr
+              - img [ref=e74]
+              - generic [ref=e76]: Code
+          - listitem [ref=e77]:
+            - link "Pull requests (537)" [ref=e78] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/pulls
+              - img [ref=e80]
+              - generic [ref=e82]: Pull requests
+              - generic [ref=e83]:
+                - generic [ref=e84]: "537"
+                - generic [ref=e85]: (537)
+          - listitem [ref=e86]:
+            - link "Agents" [ref=e87] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/agents?author=anthonychu
+              - img [ref=e89]
+              - generic [ref=e92]: Agents
+          - listitem [ref=e93]:
+            - link "Actions" [ref=e94] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/actions
+              - img [ref=e96]
+              - generic [ref=e98]: Actions
+          - listitem [ref=e99]:
+            - link "Security and quality" [ref=e100] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/security
+              - img [ref=e102]
+              - generic [ref=e104]: Security and quality
+          - listitem [ref=e105]:
+            - link "Insights" [ref=e106] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/pulse
+              - img [ref=e108]
+              - generic [ref=e110]: Insights
+  - main [ref=e114]:
+    - generic [ref=e121]:
+      - generic [ref=e124]:
+        - 'heading "[Functions] Add first-class Go language support documentation (public preview) #315652 Edit title" [level=1] [ref=e126]':
+          - text: "[Functions] Add first-class Go language support documentation (public preview)"
+          - generic [ref=e127]:
+            - generic [ref=e128]: "#315652"
+            - button "Edit title" [ref=e129] [cursor=pointer]:
+              - img [ref=e130]
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - button "View status View status" [disabled] [ref=e135]:
+              - generic [ref=e136]:
+                - generic:
+                  - generic:
+                    - img
+                    - generic: Loading
+            - generic [ref=e138]: Loading merge status
+          - button "Code" [ref=e139] [cursor=pointer]:
+            - generic [ref=e140]:
+              - generic [ref=e141]: Code
+              - generic:
+                - img
+        - generic [ref=e143]:
+          - generic [ref=e145]:
+            - img "Pull request" [ref=e146]
+            - text: Open
+          - generic [ref=e149]:
+            - link "anthonychu" [ref=e150] [cursor=pointer]:
+              - /url: /anthonychu
+            - text: wants to merge 1 commit into
+            - link "MicrosoftDocs:main" [ref=e151] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/tree/main
+            - generic [ref=e152]: from
+            - generic [ref=e153]:
+              - link "anthonychu:go-language-support" [ref=e154] [cursor=pointer]:
+                - /url: /anthonychu/azure-docs-pr/tree/go-language-support
+              - button "Copy head branch name to clipboard" [ref=e155] [cursor=pointer]:
+                - img [ref=e156]
+        - navigation "Pull request navigation tabs" [ref=e162]:
+          - tablist [ref=e163]:
+            - tab "Conversation" [selected] [ref=e164] [cursor=pointer]:
+              - img [ref=e165]
+              - text: Conversation
+            - tab "Commits (1)" [ref=e167] [cursor=pointer]:
+              - img [ref=e168]
+              - text: Commits
+              - generic [ref=e170]: "1"
+              - generic [ref=e171]: (1)
+            - tab "Checks" [ref=e172] [cursor=pointer]:
+              - img [ref=e173]
+              - text: Checks
+            - tab "Files changed" [ref=e175] [cursor=pointer]:
+              - img [ref=e176]
+              - text: Files changed
+      - generic [ref=e182]:
+        - generic [ref=e184]:
+          - heading "Conversation" [level=2] [ref=e185]
+          - generic [ref=e186]:
+            - generic [ref=e187]:
+              - generic [ref=e189]:
+                - link "@anthonychu" [ref=e190] [cursor=pointer]:
+                  - /url: /anthonychu
+                  - img "@anthonychu" [ref=e191]
+                - generic [ref=e193]:
+                  - generic [ref=e194]:
+                    - group [ref=e197]:
+                      - button "Show options" [ref=e198] [cursor=pointer]:
+                        - img "Show options" [ref=e201]
+                    - heading "anthonychu commented May 5, 202611 minutes ago" [level=3] [ref=e203]:
+                      - generic [ref=e204]:
+                        - strong [ref=e205]:
+                          - link "anthonychu" [ref=e206] [cursor=pointer]:
+                            - /url: /anthonychu
+                        - text: commented
+                        - link "May 5, 202611 minutes ago" [ref=e207] [cursor=pointer]:
+                          - /url: "#issue-4386162855"
+                  - generic [ref=e211]:
+                    - heading "Summary" [level=2] [ref=e212]
+                    - paragraph [ref=e213]: Adds first-class Go (public preview) documentation to Azure Functions, including a quickstart, developer reference guide, Go code examples in trigger/binding docs, and updates to redirect Go users away from custom handlers.
+                    - heading "New files" [level=3] [ref=e214]
+                    - list [ref=e215]:
+                      - listitem [ref=e216]:
+                        - strong [ref=e217]: create-first-function-cli-go.md
+                        - text: "- Go quickstart (CLI-based)"
+                      - listitem [ref=e218]:
+                        - strong [ref=e219]: functions-reference-go.md
+                        - text: "- Go developer reference guide"
+                    - heading "Updated files (49)" [level=3] [ref=e220]
+                    - list [ref=e221]:
+                      - listitem [ref=e222]:
+                        - strong [ref=e223]: zone-pivot-groups.yml
+                        - text: "- Added"
+                        - code [ref=e224]: programming-language-go
+                        - text: to
+                        - code [ref=e225]: programming-languages-set-functions
+                        - text: and
+                        - code [ref=e226]: "-full"
+                        - text: pivot groups; renamed 'Other (Go/Rust)' to 'Other (Rust)'
+                      - listitem [ref=e227]:
+                        - strong [ref=e228]: TOC.yml
+                        - text: "- Added 'Go (Preview)' under Languages and quickstart under Developer tools"
+                      - listitem [ref=e229]:
+                        - strong [ref=e230]: supported-languages.md
+                        - text: "- Added Go as first-class preview language row"
+                      - listitem [ref=e231]:
+                        - strong [ref=e232]: functions-overview, get-started, reference
+                        - text: "- Added Go references"
+                      - listitem [ref=e233]:
+                        - strong [ref=e234]: functions-custom-handlers.md
+                        - text: "- Added redirect banner for Go users"
+                      - listitem [ref=e235]:
+                        - strong [ref=e236]: VS Code and CLI quickstarts
+                        - text: "- Redirected Go users to standalone quickstart"
+                      - listitem [ref=e237]:
+                        - strong [ref=e238]: AWS migration doc
+                        - text: "- Updated Go mapping from custom handlers to native support"
+                      - listitem [ref=e239]:
+                        - strong [ref=e240]: Language selector include
+                        - text: "- Added Go"
+                      - listitem [ref=e241]:
+                        - strong [ref=e242]: 8 trigger/binding docs
+                        - text: "- Added Go code examples (HTTP, Timer, Cosmos DB, Service Bus, Event Hubs, Event Grid, Blob)"
+                      - listitem [ref=e243]:
+                        - strong [ref=e244]: 30 unsupported binding docs
+                        - text: "- Added Go 'not currently supported' zone pivot stubs"
+                    - heading "Notes" [level=3] [ref=e245]
+                    - list [ref=e246]:
+                      - listitem [ref=e247]:
+                        - text: "Core Tools minimum version placeholder:"
+                        - code [ref=e248]: 4.0.7100
+                        - text: (to be confirmed)
+                      - listitem [ref=e249]:
+                        - text: "Go worker repo:"
+                        - link "https://github.com/Azure/azure-functions-golang-worker" [ref=e250] [cursor=pointer]:
+                          - /url: https://github.com/Azure/azure-functions-golang-worker
+                  - group [ref=e254]:
+                    - generic "Add or remove reactions" [ref=e255] [cursor=pointer]:
+                      - img [ref=e256]
+              - generic [ref=e258]:
+                - generic [ref=e262]:
+                  - img [ref=e264]
+                  - generic [ref=e269]:
+                    - link "@anthonychu" [ref=e272] [cursor=pointer]:
+                      - /url: /anthonychu
+                      - img "@anthonychu" [ref=e273]
+                    - generic [ref=e274]:
+                      - code [ref=e275]:
+                        - link "Add first-class Go language support documentation (public preview)" [ref=e276] [cursor=pointer]:
+                          - /url: /MicrosoftDocs/azure-docs-pr/pull/315652/commits/486b728ab2b3517792e2c9d95ecd1bf7476078b1
+                      - button "…" [ref=e278] [cursor=pointer]
+                    - code [ref=e286]:
+                      - link "486b728" [ref=e287] [cursor=pointer]:
+                        - /url: /MicrosoftDocs/azure-docs-pr/pull/315652/commits/486b728ab2b3517792e2c9d95ecd1bf7476078b1
+                - generic [ref=e288]:
+                  - generic [ref=e289]:
+                    - img [ref=e291]
+                    - generic [ref=e293]:
+                      - link "@prmerger-automator" [ref=e294] [cursor=pointer]:
+                        - /url: /apps/prmerger-automator
+                        - img "@prmerger-automator" [ref=e295]
+                      - link "prmerger-automator" [ref=e296] [cursor=pointer]:
+                        - /url: /apps/prmerger-automator
+                      - generic [ref=e297]: Bot
+                      - text: added the
+                      - link "do-not-merge" [ref=e298] [cursor=pointer]:
+                        - /url: /MicrosoftDocs/azure-docs-pr/issues?q=state%3Aopen%20label%3Ado-not-merge
+                      - text: label
+                      - link "May 5, 202611 minutes ago" [ref=e299] [cursor=pointer]:
+                        - /url: "#event-25188661569"
+                  - generic [ref=e300]:
+                    - img [ref=e302]
+                    - generic [ref=e304]:
+                      - link "@anthonychu" [ref=e305] [cursor=pointer]:
+                        - /url: /anthonychu
+                        - img "@anthonychu" [ref=e306]
+                      - link "anthonychu" [ref=e307] [cursor=pointer]:
+                        - /url: /anthonychu
+                      - text: changed the title
+                      - deletion [ref=e308]: Add first-class Go language support documentation (public preview)
+                      - insertion [ref=e309]: "[Functions] Add first-class Go language support documentation (public preview)"
+                      - link "May 5, 202610 minutes ago" [ref=e310] [cursor=pointer]:
+                        - /url: "#event-25188677455"
+                - generic [ref=e312]:
+                  - link "@microsoft-production-github-app" [ref=e314] [cursor=pointer]:
+                    - /url: /apps/microsoft-production-github-app
+                    - img "@microsoft-production-github-app" [ref=e315]
+                  - generic [ref=e317]:
+                    - generic [ref=e318]:
+                      - group [ref=e321]:
+                        - button "Show options" [ref=e322] [cursor=pointer]:
+                          - img "Show options" [ref=e325]
+                      - heading "microsoft-production-github-app Bot commented May 5, 20269 minutes ago" [level=3] [ref=e327]:
+                        - generic [ref=e328]:
+                          - strong [ref=e329]:
+                            - link "microsoft-production-github-app" [ref=e330] [cursor=pointer]:
+                              - /url: /apps/microsoft-production-github-app
+                            - generic [ref=e331]: Bot
+                          - text: commented
+                          - link "May 5, 20269 minutes ago" [ref=e332] [cursor=pointer]:
+                            - /url: "#issuecomment-4381826315"
+                    - generic [ref=e333]:
+                      - table [ref=e335]:
+                        - rowgroup [ref=e336]:
+                          - row [ref=e337]:
+                            - cell [ref=e338]:
+                              - heading "Acrolinx Scorecards" [level=2] [ref=e339]
+                              - paragraph [ref=e340]:
+                                - strong [ref=e341]: A minimum total score of 80 is required.
+                              - paragraph [ref=e342]:
+                                - text: Select the total score link to review all feedback on clarity, consistency, tone, brand, terms, spelling, grammar, readability, and inclusive language.
+                                - emphasis [ref=e343]: You should fix all spelling errors regardless of your total score
+                                - text: . Fixing spelling errors helps maintain customer trust in overall content quality.
+                              - table [ref=e345]:
+                                - rowgroup [ref=e346]:
+                                  - 'row "Article Total score (Required: 80) Terminology Spelling and grammar Clarity (Readability)" [ref=e347]':
+                                    - columnheader "Article" [ref=e348]
+                                    - 'columnheader "Total score (Required: 80)" [ref=e349]':
+                                      - text: Total score
+                                      - text: "(Required: 80)"
+                                    - columnheader "Terminology" [ref=e350]
+                                    - columnheader "Spelling and grammar" [ref=e351]
+                                    - columnheader "Clarity (Readability)" [ref=e352]:
+                                      - text: Clarity
+                                      - text: (Readability)
+                                - rowgroup [ref=e353]:
+                                  - row "✅ articles/azure-functions/TOC.yml 93 88 83 94" [ref=e354]:
+                                    - cell "✅ articles/azure-functions/TOC.yml" [ref=e355]:
+                                      - link "✅" [ref=e356] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/TOC.yml" [ref=e357] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2FTOC.yml
+                                    - cell "93" [ref=e358]:
+                                      - link "93" [ref=e359] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/8565cab5-2c06-4ba6-bdf9-5c0fcbb6f6ba
+                                    - cell "88" [ref=e360]
+                                    - cell "83" [ref=e361]
+                                    - cell "94" [ref=e362]
+                                  - row "✅ articles/azure-functions/create-first-function-cli-go.md 91 100 68 90" [ref=e363]:
+                                    - cell "✅ articles/azure-functions/create-first-function-cli-go.md" [ref=e364]:
+                                      - link "✅" [ref=e365] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/create-first-function-cli-go.md" [ref=e366] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Fcreate-first-function-cli-go.md
+                                    - cell "91" [ref=e367]:
+                                      - link "91" [ref=e368] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/1278540d-1483-4ab7-ad43-1032a7e99e7e
+                                    - cell "100" [ref=e369]
+                                    - cell "68" [ref=e370]
+                                    - cell "90" [ref=e371]
+                                  - row "✅ articles/azure-functions/functions-bindings-azure-mysql-input.md 89 59 100 90" [ref=e372]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-azure-mysql-input.md" [ref=e373]:
+                                      - link "✅" [ref=e374] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-azure-mysql-input.md" [ref=e375] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-azure-mysql-input.md
+                                    - cell "89" [ref=e376]:
+                                      - link "89" [ref=e377] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/2b99d2db-5c00-4853-9503-29869b3a065a
+                                    - cell "59" [ref=e378]
+                                    - cell "100" [ref=e379]
+                                    - cell "90" [ref=e380]
+                                  - row "✅ articles/azure-functions/functions-bindings-azure-mysql-output.md 88 59 94 90" [ref=e381]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-azure-mysql-output.md" [ref=e382]:
+                                      - link "✅" [ref=e383] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-azure-mysql-output.md" [ref=e384] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-azure-mysql-output.md
+                                    - cell "88" [ref=e385]:
+                                      - link "88" [ref=e386] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/c705a27c-c87c-4cfd-bacf-b1e1caa288c3
+                                    - cell "59" [ref=e387]
+                                    - cell "94" [ref=e388]
+                                    - cell "90" [ref=e389]
+                                  - row "✅ articles/azure-functions/functions-bindings-azure-sql-input.md 80 59 92 52" [ref=e390]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-azure-sql-input.md" [ref=e391]:
+                                      - link "✅" [ref=e392] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-azure-sql-input.md" [ref=e393] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-azure-sql-input.md
+                                    - cell "80" [ref=e394]:
+                                      - link "80" [ref=e395] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/4becb86b-fc27-45e5-8785-2b1d562b24c2
+                                    - cell "59" [ref=e396]
+                                    - cell "92" [ref=e397]
+                                    - cell "52" [ref=e398]
+                                  - row "✅ articles/azure-functions/functions-bindings-azure-sql-output.md 81 58 86 62" [ref=e399]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-azure-sql-output.md" [ref=e400]:
+                                      - link "✅" [ref=e401] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-azure-sql-output.md" [ref=e402] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-azure-sql-output.md
+                                    - cell "81" [ref=e403]:
+                                      - link "81" [ref=e404] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/fd430365-2cb3-4710-be19-30d3774c2969
+                                    - cell "58" [ref=e405]
+                                    - cell "86" [ref=e406]
+                                    - cell "62" [ref=e407]
+                                  - row "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-input.md 80 70 84 65" [ref=e408]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-input.md" [ref=e409]:
+                                      - link "✅" [ref=e410] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-cosmosdb-v2-input.md" [ref=e411] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-cosmosdb-v2-input.md
+                                    - cell "80" [ref=e412]:
+                                      - link "80" [ref=e413] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/7224f3c4-79e7-4ca3-9611-6b4fa9e660bb
+                                    - cell "70" [ref=e414]
+                                    - cell "84" [ref=e415]
+                                    - cell "65" [ref=e416]
+                                  - row "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-output.md 81 57 69 90" [ref=e417]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-output.md" [ref=e418]:
+                                      - link "✅" [ref=e419] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-cosmosdb-v2-output.md" [ref=e420] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-cosmosdb-v2-output.md
+                                    - cell "81" [ref=e421]:
+                                      - link "81" [ref=e422] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/404eabd6-a818-4fbb-995e-0a9dd42fc8d3
+                                    - cell "57" [ref=e423]
+                                    - cell "69" [ref=e424]
+                                    - cell "90" [ref=e425]
+                                  - row "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md 85 61 70 96" [ref=e426]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md" [ref=e427]:
+                                      - link "✅" [ref=e428] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md" [ref=e429] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-cosmosdb-v2-trigger.md
+                                    - cell "85" [ref=e430]:
+                                      - link "85" [ref=e431] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/371eff41-3a72-4681-a996-2341e5d6a701
+                                    - cell "61" [ref=e432]
+                                    - cell "70" [ref=e433]
+                                    - cell "96" [ref=e434]
+                                  - row "✅ articles/azure-functions/functions-bindings-event-grid-output.md 89 64 84 99" [ref=e435]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-event-grid-output.md" [ref=e436]:
+                                      - link "✅" [ref=e437] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-event-grid-output.md" [ref=e438] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-event-grid-output.md
+                                    - cell "89" [ref=e439]:
+                                      - link "89" [ref=e440] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/25c68dd4-ddda-423a-8ff2-a58ede51a46d
+                                    - cell "64" [ref=e441]
+                                    - cell "84" [ref=e442]
+                                    - cell "99" [ref=e443]
+                                  - row "✅ articles/azure-functions/functions-bindings-event-grid-trigger.md 82 58 72 98" [ref=e444]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-event-grid-trigger.md" [ref=e445]:
+                                      - link "✅" [ref=e446] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-event-grid-trigger.md" [ref=e447] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-event-grid-trigger.md
+                                    - cell "82" [ref=e448]:
+                                      - link "82" [ref=e449] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/a1eff4c7-d314-48cb-8476-e4c949ecc6f4
+                                    - cell "58" [ref=e450]
+                                    - cell "72" [ref=e451]
+                                    - cell "98" [ref=e452]
+                                  - row "✅ articles/azure-functions/functions-bindings-event-hubs-output.md 81 56 73 94" [ref=e453]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-event-hubs-output.md" [ref=e454]:
+                                      - link "✅" [ref=e455] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-event-hubs-output.md" [ref=e456] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-event-hubs-output.md
+                                    - cell "81" [ref=e457]:
+                                      - link "81" [ref=e458] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/50dfd751-aaa3-499c-8eb5-247469098a51
+                                    - cell "56" [ref=e459]
+                                    - cell "73" [ref=e460]
+                                    - cell "94" [ref=e461]
+                                  - row "✅ articles/azure-functions/functions-bindings-http-webhook-output.md 88 69 87 87" [ref=e462]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-http-webhook-output.md" [ref=e463]:
+                                      - link "✅" [ref=e464] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-http-webhook-output.md" [ref=e465] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-http-webhook-output.md
+                                    - cell "88" [ref=e466]:
+                                      - link "88" [ref=e467] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/d9387150-a28b-4ef2-8c40-96db2c86e4f7
+                                    - cell "69" [ref=e468]
+                                    - cell "87" [ref=e469]
+                                    - cell "87" [ref=e470]
+                                  - row "✅ articles/azure-functions/functions-bindings-http-webhook-trigger.md 80 66 75 79" [ref=e471]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-http-webhook-trigger.md" [ref=e472]:
+                                      - link "✅" [ref=e473] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-http-webhook-trigger.md" [ref=e474] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-http-webhook-trigger.md
+                                    - cell "80" [ref=e475]:
+                                      - link "80" [ref=e476] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/2cd0c346-fe50-4e0c-9faf-3881a16ded62
+                                    - cell "66" [ref=e477]
+                                    - cell "75" [ref=e478]
+                                    - cell "79" [ref=e479]
+                                  - row "✅ articles/azure-functions/functions-bindings-kafka-output.md 83 84 90 88" [ref=e480]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-kafka-output.md" [ref=e481]:
+                                      - link "✅" [ref=e482] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-kafka-output.md" [ref=e483] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-kafka-output.md
+                                    - cell "83" [ref=e484]:
+                                      - link "83" [ref=e485] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/9607a0aa-f945-42fb-bde0-5315c2a92f0b
+                                    - cell "84" [ref=e486]
+                                    - cell "90" [ref=e487]
+                                    - cell "88" [ref=e488]
+                                  - row "✅ articles/azure-functions/functions-bindings-kafka-trigger.md 83 85 94 87" [ref=e489]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-kafka-trigger.md" [ref=e490]:
+                                      - link "✅" [ref=e491] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-kafka-trigger.md" [ref=e492] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-kafka-trigger.md
+                                    - cell "83" [ref=e493]:
+                                      - link "83" [ref=e494] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/bf2dff86-6049-4306-96b5-d816375c2eb4
+                                    - cell "85" [ref=e495]
+                                    - cell "94" [ref=e496]
+                                    - cell "87" [ref=e497]
+                                  - row "✅ articles/azure-functions/functions-bindings-mcp-resource-trigger.md 85 45 89 92" [ref=e498]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-mcp-resource-trigger.md" [ref=e499]:
+                                      - link "✅" [ref=e500] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-mcp-resource-trigger.md" [ref=e501] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-mcp-resource-trigger.md
+                                    - cell "85" [ref=e502]:
+                                      - link "85" [ref=e503] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/b88e1363-6262-4517-bc95-4e9588700be1
+                                    - cell "45" [ref=e504]
+                                    - cell "89" [ref=e505]
+                                    - cell "92" [ref=e506]
+                                  - row "✅ articles/azure-functions/functions-bindings-mcp-tool-trigger.md 87 54 95 90" [ref=e507]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-mcp-tool-trigger.md" [ref=e508]:
+                                      - link "✅" [ref=e509] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-mcp-tool-trigger.md" [ref=e510] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-mcp-tool-trigger.md
+                                    - cell "87" [ref=e511]:
+                                      - link "87" [ref=e512] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/74ffe822-7cf3-486c-a9d6-c6d7bc0e175d
+                                    - cell "54" [ref=e513]
+                                    - cell "95" [ref=e514]
+                                    - cell "90" [ref=e515]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-assistant-trigger.md 87 58 86 91" [ref=e516]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-assistant-trigger.md" [ref=e517]:
+                                      - link "✅" [ref=e518] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-assistant-trigger.md" [ref=e519] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-assistant-trigger.md
+                                    - cell "87" [ref=e520]:
+                                      - link "87" [ref=e521] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/87a65b03-2e39-4711-891e-391ecb46da27
+                                    - cell "58" [ref=e522]
+                                    - cell "86" [ref=e523]
+                                    - cell "91" [ref=e524]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-assistantcreate-output.md 85 52 76 100" [ref=e525]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-assistantcreate-output.md" [ref=e526]:
+                                      - link "✅" [ref=e527] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-assistantcreate-output.md" [ref=e528] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-assistantcreate-output.md
+                                    - cell "85" [ref=e529]:
+                                      - link "85" [ref=e530] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/0935ad85-7e39-4f47-9b06-12a8129074e9
+                                    - cell "52" [ref=e531]
+                                    - cell "76" [ref=e532]
+                                    - cell "100" [ref=e533]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-assistantpost-input.md 93 74 93 100" [ref=e534]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-assistantpost-input.md" [ref=e535]:
+                                      - link "✅" [ref=e536] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-assistantpost-input.md" [ref=e537] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-assistantpost-input.md
+                                    - cell "93" [ref=e538]:
+                                      - link "93" [ref=e539] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/cd15bc73-ff34-44bd-a0f3-51d6162bc365
+                                    - cell "74" [ref=e540]
+                                    - cell "93" [ref=e541]
+                                    - cell "100" [ref=e542]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-assistantquery-input.md 88 51 90 100" [ref=e543]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-assistantquery-input.md" [ref=e544]:
+                                      - link "✅" [ref=e545] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-assistantquery-input.md" [ref=e546] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-assistantquery-input.md
+                                    - cell "88" [ref=e547]:
+                                      - link "88" [ref=e548] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/281cc9d9-56e9-41fd-b951-ecd54d6bb83d
+                                    - cell "51" [ref=e549]
+                                    - cell "90" [ref=e550]
+                                    - cell "100" [ref=e551]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-embeddings-input.md 84 52 80 100" [ref=e552]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-embeddings-input.md" [ref=e553]:
+                                      - link "✅" [ref=e554] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-embeddings-input.md" [ref=e555] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-embeddings-input.md
+                                    - cell "84" [ref=e556]:
+                                      - link "84" [ref=e557] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/e156da19-bfab-428d-93aa-b4538a15db44
+                                    - cell "52" [ref=e558]
+                                    - cell "80" [ref=e559]
+                                    - cell "100" [ref=e560]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-embeddingsstore-output.md 91 66 90 100" [ref=e561]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-embeddingsstore-output.md" [ref=e562]:
+                                      - link "✅" [ref=e563] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-embeddingsstore-output.md" [ref=e564] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-embeddingsstore-output.md
+                                    - cell "91" [ref=e565]:
+                                      - link "91" [ref=e566] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/7bb932c0-e876-48f7-9034-ce476875bb0b
+                                    - cell "66" [ref=e567]
+                                    - cell "90" [ref=e568]
+                                    - cell "100" [ref=e569]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-semanticsearch-input.md 92 72 92 100" [ref=e570]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-semanticsearch-input.md" [ref=e571]:
+                                      - link "✅" [ref=e572] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-semanticsearch-input.md" [ref=e573] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-semanticsearch-input.md
+                                    - cell "92" [ref=e574]:
+                                      - link "92" [ref=e575] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/6a54941f-463c-47f3-a4bb-291ff81381f0
+                                    - cell "72" [ref=e576]
+                                    - cell "92" [ref=e577]
+                                    - cell "100" [ref=e578]
+                                  - row "✅ articles/azure-functions/functions-bindings-openai-textcompletion-input.md 96 83 97 100" [ref=e579]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-openai-textcompletion-input.md" [ref=e580]:
+                                      - link "✅" [ref=e581] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-openai-textcompletion-input.md" [ref=e582] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-openai-textcompletion-input.md
+                                    - cell "96" [ref=e583]:
+                                      - link "96" [ref=e584] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/253cc5c2-02e0-4724-8280-22ba978ac4a3
+                                    - cell "83" [ref=e585]
+                                    - cell "97" [ref=e586]
+                                    - cell "100" [ref=e587]
+                                  - row "✅ articles/azure-functions/functions-bindings-sendgrid.md 83 53 72 100" [ref=e588]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-sendgrid.md" [ref=e589]:
+                                      - link "✅" [ref=e590] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-sendgrid.md" [ref=e591] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-sendgrid.md
+                                    - cell "83" [ref=e592]:
+                                      - link "83" [ref=e593] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/4444a327-7818-408f-9f97-1107e9a5d838
+                                    - cell "53" [ref=e594]
+                                    - cell "72" [ref=e595]
+                                    - cell "100" [ref=e596]
+                                  - row "✅ articles/azure-functions/functions-bindings-service-bus-output.md 84 65 67 93" [ref=e597]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-service-bus-output.md" [ref=e598]:
+                                      - link "✅" [ref=e599] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-service-bus-output.md" [ref=e600] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-service-bus-output.md
+                                    - cell "84" [ref=e601]:
+                                      - link "84" [ref=e602] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/13437d66-b071-40d2-a026-e52c04af0c78
+                                    - cell "65" [ref=e603]
+                                    - cell "67" [ref=e604]
+                                    - cell "93" [ref=e605]
+                                  - row "✅ articles/azure-functions/functions-bindings-service-bus-trigger.md 81 72 85 84" [ref=e606]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-service-bus-trigger.md" [ref=e607]:
+                                      - link "✅" [ref=e608] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-service-bus-trigger.md" [ref=e609] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-service-bus-trigger.md
+                                    - cell "81" [ref=e610]:
+                                      - link "81" [ref=e611] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/3a62e9a1-c67e-468e-9b4e-9109cbf79a3f
+                                    - cell "72" [ref=e612]
+                                    - cell "85" [ref=e613]
+                                    - cell "84" [ref=e614]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-blob-input.md 79 59 73 78" [ref=e615]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-blob-input.md" [ref=e616]:
+                                      - link "✅" [ref=e617] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-blob-input.md" [ref=e618] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-blob-input.md
+                                    - cell "79" [ref=e619]:
+                                      - link "79" [ref=e620] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/532d9f6c-838e-466a-bc47-5e200bb682d2
+                                    - cell "59" [ref=e621]
+                                    - cell "73" [ref=e622]
+                                    - cell "78" [ref=e623]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-blob-output.md 77 58 78 72" [ref=e624]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-blob-output.md" [ref=e625]:
+                                      - link "✅" [ref=e626] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-blob-output.md" [ref=e627] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-blob-output.md
+                                    - cell "77" [ref=e628]:
+                                      - link "77" [ref=e629] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/13bfb285-b728-4b16-8741-c1f8f36cd3ca
+                                    - cell "58" [ref=e630]
+                                    - cell "78" [ref=e631]
+                                    - cell "72" [ref=e632]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-blob-trigger.md 81 66 82 80" [ref=e633]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-blob-trigger.md" [ref=e634]:
+                                      - link "✅" [ref=e635] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-blob-trigger.md" [ref=e636] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-blob-trigger.md
+                                    - cell "81" [ref=e637]:
+                                      - link "81" [ref=e638] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/dcf48516-c09d-414f-bc29-6415c91db633
+                                    - cell "66" [ref=e639]
+                                    - cell "82" [ref=e640]
+                                    - cell "80" [ref=e641]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-queue-output.md 86 63 83 95" [ref=e642]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-queue-output.md" [ref=e643]:
+                                      - link "✅" [ref=e644] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-queue-output.md" [ref=e645] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-queue-output.md
+                                    - cell "86" [ref=e646]:
+                                      - link "86" [ref=e647] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/eaf32b46-ea39-46ce-92b6-6ffb960265ff
+                                    - cell "63" [ref=e648]
+                                    - cell "83" [ref=e649]
+                                    - cell "95" [ref=e650]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-queue-trigger.md 82 64 82 79" [ref=e651]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-queue-trigger.md" [ref=e652]:
+                                      - link "✅" [ref=e653] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-queue-trigger.md" [ref=e654] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-queue-trigger.md
+                                    - cell "82" [ref=e655]:
+                                      - link "82" [ref=e656] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/962f56dc-7723-4809-9f10-06dfe163167b
+                                    - cell "64" [ref=e657]
+                                    - cell "82" [ref=e658]
+                                    - cell "79" [ref=e659]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-table-input.md 81 67 88 74" [ref=e660]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-table-input.md" [ref=e661]:
+                                      - link "✅" [ref=e662] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-table-input.md" [ref=e663] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-table-input.md
+                                    - cell "81" [ref=e664]:
+                                      - link "81" [ref=e665] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/63752bec-aa01-465d-9bba-99d3049ebccb
+                                    - cell "67" [ref=e666]
+                                    - cell "88" [ref=e667]
+                                    - cell "74" [ref=e668]
+                                  - row "✅ articles/azure-functions/functions-bindings-storage-table-output.md 84 59 75 93" [ref=e669]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-storage-table-output.md" [ref=e670]:
+                                      - link "✅" [ref=e671] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-storage-table-output.md" [ref=e672] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-storage-table-output.md
+                                    - cell "84" [ref=e673]:
+                                      - link "84" [ref=e674] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/e1ed07ec-7211-4cce-93a1-a622e2529449
+                                    - cell "59" [ref=e675]
+                                    - cell "75" [ref=e676]
+                                    - cell "93" [ref=e677]
+                                  - row "✅ articles/azure-functions/functions-bindings-timer.md 79 70 90 70" [ref=e678]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-timer.md" [ref=e679]:
+                                      - link "✅" [ref=e680] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-timer.md" [ref=e681] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-timer.md
+                                    - cell "79" [ref=e682]:
+                                      - link "79" [ref=e683] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/13d76384-bc81-452d-9763-428fed5fdad6
+                                    - cell "70" [ref=e684]
+                                    - cell "90" [ref=e685]
+                                    - cell "70" [ref=e686]
+                                  - row "✅ articles/azure-functions/functions-bindings-twilio.md 85 59 81 96" [ref=e687]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-twilio.md" [ref=e688]:
+                                      - link "✅" [ref=e689] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-twilio.md" [ref=e690] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-twilio.md
+                                    - cell "85" [ref=e691]:
+                                      - link "85" [ref=e692] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/454c8ca6-bc9b-43f7-b33a-478722f27673
+                                    - cell "59" [ref=e693]
+                                    - cell "81" [ref=e694]
+                                    - cell "96" [ref=e695]
+                                  - row "✅ articles/azure-functions/functions-bindings-warmup.md 87 59 77 100" [ref=e696]:
+                                    - cell "✅ articles/azure-functions/functions-bindings-warmup.md" [ref=e697]:
+                                      - link "✅" [ref=e698] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-bindings-warmup.md" [ref=e699] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-bindings-warmup.md
+                                    - cell "87" [ref=e700]:
+                                      - link "87" [ref=e701] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/a01e0e6c-633d-48f1-9f10-a4775b117765
+                                    - cell "59" [ref=e702]
+                                    - cell "77" [ref=e703]
+                                    - cell "100" [ref=e704]
+                                  - row "✅ articles/azure-functions/functions-custom-handlers.md 91 100 90 74" [ref=e705]:
+                                    - cell "✅ articles/azure-functions/functions-custom-handlers.md" [ref=e706]:
+                                      - link "✅" [ref=e707] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-custom-handlers.md" [ref=e708] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-custom-handlers.md
+                                    - cell "91" [ref=e709]:
+                                      - link "91" [ref=e710] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/b33fb530-226d-47ed-87e7-92b895741636
+                                    - cell "100" [ref=e711]
+                                    - cell "90" [ref=e712]
+                                    - cell "74" [ref=e713]
+                                  - row "✅ articles/azure-functions/functions-get-started.md 82 45 79 88" [ref=e714]:
+                                    - cell "✅ articles/azure-functions/functions-get-started.md" [ref=e715]:
+                                      - link "✅" [ref=e716] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-get-started.md" [ref=e717] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-get-started.md
+                                    - cell "82" [ref=e718]:
+                                      - link "82" [ref=e719] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/1bdcdc6e-92d8-48a9-93d9-f400fb099a5a
+                                    - cell "45" [ref=e720]
+                                    - cell "79" [ref=e721]
+                                    - cell "88" [ref=e722]
+                                  - row "✅ articles/azure-functions/functions-overview.md 93 100 68 100" [ref=e723]:
+                                    - cell "✅ articles/azure-functions/functions-overview.md" [ref=e724]:
+                                      - link "✅" [ref=e725] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-overview.md" [ref=e726] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-overview.md
+                                    - cell "93" [ref=e727]:
+                                      - link "93" [ref=e728] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/61d35b67-442f-4170-8df4-d38c441a7590
+                                    - cell "100" [ref=e729]
+                                    - cell "68" [ref=e730]
+                                    - cell "100" [ref=e731]
+                                  - row "✅ articles/azure-functions/functions-reference-go.md 90 100 74 84" [ref=e732]:
+                                    - cell "✅ articles/azure-functions/functions-reference-go.md" [ref=e733]:
+                                      - link "✅" [ref=e734] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-reference-go.md" [ref=e735] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-reference-go.md
+                                    - cell "90" [ref=e736]:
+                                      - link "90" [ref=e737] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/06017315-cde4-483f-8798-f12c5a7649d1
+                                    - cell "100" [ref=e738]
+                                    - cell "74" [ref=e739]
+                                    - cell "84" [ref=e740]
+                                  - row "✅ articles/azure-functions/functions-reference.md 83 74 87 74" [ref=e741]:
+                                    - cell "✅ articles/azure-functions/functions-reference.md" [ref=e742]:
+                                      - link "✅" [ref=e743] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/functions-reference.md" [ref=e744] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Ffunctions-reference.md
+                                    - cell "83" [ref=e745]:
+                                      - link "83" [ref=e746] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/60174358-7f54-41a3-84dc-948021d95905
+                                    - cell "74" [ref=e747]
+                                    - cell "87" [ref=e748]
+                                    - cell "74" [ref=e749]
+                                  - row "✅ articles/azure-functions/how-to-create-function-azure-cli.md 83 61 72 86" [ref=e750]:
+                                    - cell "✅ articles/azure-functions/how-to-create-function-azure-cli.md" [ref=e751]:
+                                      - link "✅" [ref=e752] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/how-to-create-function-azure-cli.md" [ref=e753] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Fhow-to-create-function-azure-cli.md
+                                    - cell "83" [ref=e754]:
+                                      - link "83" [ref=e755] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/b6dab912-3a94-4406-8cb6-32fa8fbb3be9
+                                    - cell "61" [ref=e756]
+                                    - cell "72" [ref=e757]
+                                    - cell "86" [ref=e758]
+                                  - row "✅ articles/azure-functions/how-to-create-function-vs-code.md 82 53 72 89" [ref=e759]:
+                                    - cell "✅ articles/azure-functions/how-to-create-function-vs-code.md" [ref=e760]:
+                                      - link "✅" [ref=e761] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/how-to-create-function-vs-code.md" [ref=e762] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Fhow-to-create-function-vs-code.md
+                                    - cell "82" [ref=e763]:
+                                      - link "82" [ref=e764] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/826d6fb8-eed7-45a6-87c8-ef48604d8d3e
+                                    - cell "53" [ref=e765]
+                                    - cell "72" [ref=e766]
+                                    - cell "89" [ref=e767]
+                                  - row "✅ articles/azure-functions/migration/migrate-aws-lambda-to-azure-functions.md 93 98 90 86" [ref=e768]:
+                                    - cell "✅ articles/azure-functions/migration/migrate-aws-lambda-to-azure-functions.md" [ref=e769]:
+                                      - link "✅" [ref=e770] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/migration/migrate-aws-lambda-to-azure-functions.md" [ref=e771] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Fmigration%2Fmigrate-aws-lambda-to-azure-functions.md
+                                    - cell "93" [ref=e772]:
+                                      - link "93" [ref=e773] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/eec78afd-2b1a-4661-8bda-7063927494a9
+                                    - cell "98" [ref=e774]
+                                    - cell "90" [ref=e775]
+                                    - cell "86" [ref=e776]
+                                  - row "✅ articles/azure-functions/supported-languages.md 96 100 80 100" [ref=e777]:
+                                    - cell "✅ articles/azure-functions/supported-languages.md" [ref=e778]:
+                                      - link "✅" [ref=e779] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/azure-functions/supported-languages.md" [ref=e780] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fazure-functions%2Fsupported-languages.md
+                                    - cell "96" [ref=e781]:
+                                      - link "96" [ref=e782] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/4c2ae4f6-dcef-4bfe-bb6e-0e2120405c99
+                                    - cell "100" [ref=e783]
+                                    - cell "80" [ref=e784]
+                                    - cell "100" [ref=e785]
+                                  - row "✅ articles/zone-pivot-groups.yml 89 88 84 83" [ref=e786]:
+                                    - cell "✅ articles/zone-pivot-groups.yml" [ref=e787]:
+                                      - link "✅" [ref=e788] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "articles/zone-pivot-groups.yml" [ref=e789] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/articles%2Fzone-pivot-groups.yml
+                                    - cell "89" [ref=e790]:
+                                      - link "89" [ref=e791] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/1311d532-9368-41f1-ab67-8a97e9cef301
+                                    - cell "88" [ref=e792]
+                                    - cell "84" [ref=e793]
+                                    - cell "83" [ref=e794]
+                                  - row "✅ includes/functions-bindings-event-hubs-trigger.md 82 67 70 86" [ref=e795]:
+                                    - cell "✅ includes/functions-bindings-event-hubs-trigger.md" [ref=e796]:
+                                      - link "✅" [ref=e797] [cursor=pointer]:
+                                        - /url: "#"
+                                      - link "includes/functions-bindings-event-hubs-trigger.md" [ref=e798] [cursor=pointer]:
+                                        - /url: https://github.com/MicrosoftDocs/azure-docs-pr/blob/486b728ab2b3517792e2c9d95ecd1bf7476078b1/includes%2Ffunctions-bindings-event-hubs-trigger.md
+                                    - cell "82" [ref=e799]:
+                                      - link "82" [ref=e800] [cursor=pointer]:
+                                        - /url: https://microsoft-ce-csi.acrolinx.cloud/api/v1/checking/scorecards/ef142c56-282f-4d21-9305-174b681f7a54
+                                    - cell "67" [ref=e801]
+                                    - cell "70" [ref=e802]
+                                    - cell "86" [ref=e803]
+                              - paragraph [ref=e804]:
+                                - strong [ref=e805]: More information about Acrolinx
+                              - list [ref=e806]:
+                                - listitem [ref=e807]:
+                                  - link "Install Acrolinx locally for VSCode" [ref=e808] [cursor=pointer]:
+                                    - /url: https://learn.microsoft.com/help/contribute/contribute-acrolinx-vscode
+                                - listitem [ref=e809]:
+                                  - link "False positives or issues" [ref=e810] [cursor=pointer]:
+                                    - /url: https://aka.ms/acrolinxbug
+                                - listitem [ref=e811]:
+                                  - link "Troubleshooting issues with Acrolinx" [ref=e812] [cursor=pointer]:
+                                    - /url: https://learn.microsoft.com/help/contribute/acrolinx-error-messages
+                      - group [ref=e817]:
+                        - generic "Add or remove reactions" [ref=e818] [cursor=pointer]:
+                          - img [ref=e819]
+                - generic [ref=e822]:
+                  - link "@learn-build-service-prod" [ref=e824] [cursor=pointer]:
+                    - /url: /apps/learn-build-service-prod
+                    - img "@learn-build-service-prod" [ref=e825]
+                  - generic [ref=e827]:
+                    - generic [ref=e828]:
+                      - group [ref=e831]:
+                        - button "Show options" [ref=e832] [cursor=pointer]:
+                          - img "Show options" [ref=e835]
+                      - heading "learn-build-service-prod Bot commented May 5, 20267 minutes ago" [level=3] [ref=e837]:
+                        - generic [ref=e838]:
+                          - strong [ref=e839]:
+                            - link "learn-build-service-prod" [ref=e840] [cursor=pointer]:
+                              - /url: /apps/learn-build-service-prod
+                            - generic [ref=e841]: Bot
+                          - text: commented
+                          - link "May 5, 20267 minutes ago" [ref=e842] [cursor=pointer]:
+                            - /url: "#issuecomment-4381839255"
+                    - generic [ref=e843]:
+                      - table [ref=e845]:
+                        - rowgroup [ref=e846]:
+                          - 'row "PoliCheck Scan Report The following report lists PoliCheck issues in PR files. Before you merge the PR, you must fix all severity-1 and severity-2 issues. The AI Review Details column lists suggestions for either removing or replacing the terms. If you find a false positive result, mention it in a PR comment and include this text: #policheck-false-positive. This feedback helps reduce false positives in future scans. ✅ No issues found More information about PoliCheck Information: PoliCheck | Severity Guidance | Term For any questions: Try searching the learn.microsoft.com contributor guides or post your question in the Learn support channel." [ref=e847]':
+                            - 'cell "PoliCheck Scan Report The following report lists PoliCheck issues in PR files. Before you merge the PR, you must fix all severity-1 and severity-2 issues. The AI Review Details column lists suggestions for either removing or replacing the terms. If you find a false positive result, mention it in a PR comment and include this text: #policheck-false-positive. This feedback helps reduce false positives in future scans. ✅ No issues found More information about PoliCheck Information: PoliCheck | Severity Guidance | Term For any questions: Try searching the learn.microsoft.com contributor guides or post your question in the Learn support channel." [ref=e848]':
+                              - heading "PoliCheck Scan Report" [level=3] [ref=e849]
+                              - paragraph [ref=e850]: "The following report lists PoliCheck issues in PR files. Before you merge the PR, you must fix all severity-1 and severity-2 issues. The AI Review Details column lists suggestions for either removing or replacing the terms. If you find a false positive result, mention it in a PR comment and include this text: #policheck-false-positive. This feedback helps reduce false positives in future scans."
+                              - heading "✅ No issues found" [level=3] [ref=e851]
+                              - heading "More information about PoliCheck" [level=3] [ref=e852]
+                              - paragraph [ref=e853]:
+                                - text: "Information:"
+                                - link "PoliCheck" [ref=e854] [cursor=pointer]:
+                                  - /url: https://aka.ms/PoliCheckSystem
+                                - text: "|"
+                                - link "Severity Guidance" [ref=e855] [cursor=pointer]:
+                                  - /url: https://aka.ms/PoliCheckSevcodes
+                                - text: "|"
+                                - link "Term" [ref=e856] [cursor=pointer]:
+                                  - /url: https://aka.ms/PoliCheckTerms
+                                - text: "For any questions: Try searching the learn.microsoft.com"
+                                - link "contributor guides" [ref=e857] [cursor=pointer]:
+                                  - /url: https://aka.ms/learnhelp
+                                - text: or post your question in the
+                                - link "Learn support channel" [ref=e858] [cursor=pointer]:
+                                  - /url: https://aka.ms/learnsupportchannel
+                                - text: .
+                      - group [ref=e863]:
+                        - generic "Add or remove reactions" [ref=e864] [cursor=pointer]:
+                          - img [ref=e865]
+            - generic [ref=e870]:
+              - img [ref=e871]
+              - generic [ref=e874]: Loading
+            - generic [ref=e877]:
+              - link "@anthonychu" [ref=e879] [cursor=pointer]:
+                - /url: /anthonychu
+                - img "@anthonychu" [ref=e880]
+              - form "Add a comment" [ref=e883]:
+                - group [ref=e884]:
+                  - heading "Add a comment" [level=4] [ref=e887]
+                  - generic [ref=e888]: Comment
+                  - generic [ref=e889]:
+                    - generic [ref=e890]:
+                      - tablist "Add a comment" [ref=e891]:
+                        - tab "Write" [selected] [ref=e892] [cursor=pointer]
+                        - tab "Preview" [ref=e893] [cursor=pointer]
+                      - toolbar [ref=e894]:
+                        - generic [ref=e895]:
+                          - button "Mention Copilot" [ref=e897] [cursor=pointer]:
+                            - img
+                          - separator [ref=e898]
+                          - button "Heading" [ref=e900] [cursor=pointer]:
+                            - img
+                          - button "Bold" [ref=e902] [cursor=pointer]:
+                            - img
+                          - button "Italic" [ref=e904] [cursor=pointer]:
+                            - img
+                          - button "Quote" [ref=e906] [cursor=pointer]:
+                            - img
+                          - button "Code" [ref=e908] [cursor=pointer]:
+                            - img
+                          - button "Link" [ref=e910] [cursor=pointer]:
+                            - img
+                          - separator [ref=e911]
+                          - button "Numbered list" [ref=e913] [cursor=pointer]:
+                            - img
+                          - button "Unordered list" [ref=e915] [cursor=pointer]:
+                            - img
+                          - button "Task list" [ref=e917] [cursor=pointer]:
+                            - img
+                          - separator [ref=e918]
+                          - button "Attach files" [ref=e920] [cursor=pointer]:
+                            - img
+                          - button "Mention" [ref=e922] [cursor=pointer]:
+                            - img
+                          - button "Reference" [ref=e924] [cursor=pointer]:
+                            - img
+                          - button "Saved replies" [ref=e926] [cursor=pointer]:
+                            - img
+                          - button "Slash commands" [ref=e928] [cursor=pointer]:
+                            - img
+                    - tabpanel "Write" [ref=e929]:
+                      - generic [ref=e934]:
+                        - textbox "Comment" [ref=e935]:
+                          - /placeholder: " "
+                        - paragraph: Add your comment here...
+                      - generic [ref=e936]:
+                        - link "Markdown is supported" [ref=e938] [cursor=pointer]:
+                          - /url: https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+                          - generic [ref=e939]:
+                            - generic:
+                              - img
+                            - generic [ref=e940]: Markdown is supported
+                        - button "Paste, drop, or click to add files" [ref=e941] [cursor=pointer]:
+                          - generic [ref=e942]:
+                            - generic:
+                              - img
+                            - generic [ref=e943]: Paste, drop, or click to add files
+                - generic [ref=e946]:
+                  - button "Close pull request" [ref=e948] [cursor=pointer]:
+                    - img [ref=e949]
+                    - text: Close pull request
+                  - button "Comment" [disabled] [ref=e952]
+              - generic [ref=e953]:
+                - img [ref=e954]
+                - generic [ref=e956]:
+                  - text: Remember, contributions to this repository should follow its
+                  - link "contributing guidelines" [ref=e957] [cursor=pointer]:
+                    - /url: /MicrosoftDocs/azure-docs-pr/blob/fd94635abbed26b7d7255a3bf972b14b7d42b870/CONTRIBUTING.md
+                  - text: ","
+                  - link "security policy" [ref=e958] [cursor=pointer]:
+                    - /url: /MicrosoftDocs/azure-docs-pr/blob/fd94635abbed26b7d7255a3bf972b14b7d42b870/SECURITY.md
+                  - text: ", and"
+                  - link "code of conduct" [ref=e959] [cursor=pointer]:
+                    - /url: /MicrosoftDocs/azure-docs-pr/blob/fd94635abbed26b7d7255a3bf972b14b7d42b870/CODE_OF_CONDUCT.md
+                  - text: .
+              - generic [ref=e960]:
+                - img [ref=e961]
+                - strong [ref=e963]: ProTip!
+                - text: Add comments to specific lines under
+                - link "Files changed" [ref=e964] [cursor=pointer]:
+                  - /url: /MicrosoftDocs/azure-docs-pr/pull/315652/files
+                - text: .
+        - generic [ref=e968]:
+          - form "Select reviewers" [ref=e970]:
+            - heading "Reviewers" [level=3] [ref=e971]
+            - text: No reviews
+            - generic [ref=e972]:
+              - generic [ref=e973]: Still in progress?
+              - group [ref=e974]:
+                - button "Convert to draft" [ref=e975] [cursor=pointer]
+          - form "Select assignees" [ref=e977]:
+            - heading "Assignees" [level=3] [ref=e978]
+            - text: No one assigned
+          - generic [ref=e979]:
+            - heading "Labels" [level=3] [ref=e980]
+            - link "do-not-merge" [ref=e982] [cursor=pointer]:
+              - /url: /MicrosoftDocs/azure-docs-pr/issues?q=state%3Aopen%20label%3Ado-not-merge
+              - generic [ref=e983]: do-not-merge
+          - form "Select projects" [ref=e985]:
+            - heading "Projects" [level=3] [ref=e986]
+            - text: None yet
+          - form "Select milestones" [ref=e988]:
+            - heading "Milestone" [level=3] [ref=e989]
+            - text: No milestone
+          - form "Link issues" [ref=e995]:
+            - heading "Development" [level=3] [ref=e996]
+            - paragraph [ref=e997]: Successfully merging this pull request may close these issues.
+          - generic [ref=e999]:
+            - button "Notifications Customize" [ref=e1002] [cursor=pointer]:
+              - generic [ref=e1003]:
+                - generic [ref=e1004]: Notifications
+                - generic [ref=e1005]: Customize
+            - button "Unsubscribe" [ref=e1007] [cursor=pointer]:
+              - generic [ref=e1008]:
+                - generic:
+                  - img
+                - generic [ref=e1009]: Unsubscribe
+            - paragraph [ref=e1010]: You’re receiving notifications because you authored the thread.
+          - generic [ref=e1012]:
+            - heading "1 participant" [level=3] [ref=e1013]
+            - link "@anthonychu" [ref=e1015] [cursor=pointer]:
+              - /url: /anthonychu
+              - img "@anthonychu" [ref=e1016]
+          - generic [ref=e1019]:
+            - generic [ref=e1020]:
+              - checkbox "Allow edits and access to secrets by maintainers" [checked] [ref=e1021]
+              - text: Allow edits and access to secrets by maintainers
+            - button "Learn more about allowing maintainer edits" [ref=e1022] [cursor=pointer]:
+              - img [ref=e1025]
+  - contentinfo [ref=e1028]:
+    - heading "Footer" [level=2] [ref=e1029]
+    - generic [ref=e1030]: Microsoft Open Source
+    - generic [ref=e1031]:
+      - generic [ref=e1032]:
+        - link "Microsoft Open Source Home page" [ref=e1033] [cursor=pointer]:
+          - /url: https://opensource.microsoft.com
+          - img "Microsoft Open Source Home page" [ref=e1034]
+        - link "Microsoft Open Source" [ref=e1035] [cursor=pointer]:
+          - /url: https://opensource.microsoft.com
+      - list [ref=e1036]:
+        - link [ref=e1037] [cursor=pointer]:
+          - /url: https://aka.ms/opensource
+          - text: Docs
+        - link [ref=e1038] [cursor=pointer]:
+          - /url: https://aka.ms/opensource/portal
+          - text: Portal
+        - link [ref=e1039] [cursor=pointer]:
+          - /url: https://aka.ms/github
+          - text: GitHub @ MSFT
+        - link [ref=e1040] [cursor=pointer]:
+          - /url: https://aka.ms/opensource/support
+          - text: Support Options
+        - link [ref=e1041] [cursor=pointer]:
+          - /url: https://go.microsoft.com/fwlink/?LinkId=518021
+          - text: Data Protection Notice
+      - list [ref=e1042]:
+        - listitem [ref=e1043]:
+          - link "Docs" [ref=e1044] [cursor=pointer]:
+            - /url: https://aka.ms/opensource
+        - listitem [ref=e1045]:
+          - link "Portal" [ref=e1046] [cursor=pointer]:
+            - /url: https://aka.ms/opensource/portal
+        - listitem [ref=e1047]:
+          - link "GitHub @ MSFT" [ref=e1048] [cursor=pointer]:
+            - /url: https://aka.ms/github
+        - listitem [ref=e1049]:
+          - link "Support Options" [ref=e1050] [cursor=pointer]:
+            - /url: https://aka.ms/opensource/support
+        - listitem [ref=e1051]:
+          - link "Data Protection Notice" [ref=e1052] [cursor=pointer]:
+            - /url: https://go.microsoft.com/fwlink/?LinkId=518021
+    - generic [ref=e1053]:
+      - generic [ref=e1054]:
+        - link "GitHub Homepage" [ref=e1055] [cursor=pointer]:
+          - /url: https://github.com
+          - img [ref=e1056]
+        - generic [ref=e1058]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=e1059]:
+        - heading "Footer navigation" [level=3] [ref=e1060]
+        - list "Footer navigation" [ref=e1061]:
+          - listitem [ref=e1062]:
+            - link "Terms" [ref=e1063] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=e1064]:
+            - link "Privacy" [ref=e1065] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=e1066]:
+            - link "Security" [ref=e1067] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=e1068]:
+            - link "Status" [ref=e1069] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=e1070]:
+            - link "Community" [ref=e1071] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=e1072]:
+            - link "Docs" [ref=e1073] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=e1074]:
+            - link "Contact" [ref=e1075] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=e1076]:
+            - button "Manage cookies" [ref=e1078] [cursor=pointer]
+          - listitem [ref=e1079]:
+            - button "Do not share my personal information" [ref=e1081] [cursor=pointer]
