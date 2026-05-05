@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 05/05/2026
 ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
 
@@ -92,6 +92,7 @@ The following table shows the values logged for each request.
 | ClientPort | The IP port of the client that made the request. |
 | Details | More details on the request, including any threats that were detected. <br />`matchVariableName`: HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> `matchVariableValue`: Values that triggered the match (up to 100 characters maximum). |
 | Host | The `Host` header of the request. |
+| ParanoiaLevel | The paranoia level (1–4) of the matched managed rule. Higher levels include broader rule sets but increase false positives. Empty for custom rules and bot rules. For more information, see [Paranoia levels](waf-front-door-drs.md). |
 | Policy | The name of the WAF policy that processed the request. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are `Prevention` and `Detection`. |
 | RequestUri | Full URI of the request. |
@@ -141,6 +142,7 @@ The following snippet shows an example log entry, including the reason that the 
     "host": "wafdemofrontdoorwebapp.azurefd.net",
     "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
     "policyMode": "prevention",
+    "paranoiaLevel": "1",
     "details": {
       "matches": [
         {
@@ -173,6 +175,7 @@ The following snippet shows an example log entry, including the reason that the 
     "host": "wafdemofrontdoorwebapp.azurefd.net",
     "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
     "policyMode": "prevention",
+    "paranoiaLevel": "1",
     "details": {
       "matches": [
         {
