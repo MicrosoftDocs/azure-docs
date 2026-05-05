@@ -41,15 +41,49 @@ You need to update the function code and add a definition to the function.json c
 ::: zone pivot="programming-language-go"
 In Go, you add triggers and bindings by using the fluent registration API in your `main()` function. Each trigger type has a dedicated registration method with functional options for configuration. No separate binding configuration file is needed.
 
-The following example adds a [Queue Storage output binding](functions-bindings-storage-queue-output.md) alongside an [HTTP trigger](functions-bindings-http-webhook-trigger.md):
+The following example shows the function definition after adding a [Queue Storage output binding](functions-bindings-storage-queue-output.md) to an [HTTP triggered function](functions-bindings-http-webhook-trigger.md):
 
 ```go
-app := sdk.FunctionApp()
-app.HTTP("myFunction", myHandler,
-    sdk.WithMethods("GET", "POST"),
-    sdk.WithAuth("anonymous"),
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "net/http"
+
+    "github.com/azure/azure-functions-golang-worker/sdk"
+    "github.com/azure/azure-functions-golang-worker/worker"
 )
+
+func main() {
+    app := sdk.FunctionApp()
+    app.HTTP("HttpExample", httpHandler,
+        sdk.WithMethods("GET", "POST"),
+        sdk.WithAuth("anonymous"),
+    )
+    worker.Start(app)
+}
+
+func httpHandler(w http.ResponseWriter, r *http.Request) {
+    name := r.URL.Query().Get("name")
+    if name == "" {
+        var body struct{ Name string }
+        json.NewDecoder(r.Body).Decode(&body)
+        name = body.Name
+    }
+    if name == "" {
+        w.WriteHeader(http.StatusBadRequest)
+        fmt.Fprint(w, "Please pass a name on the query string or in the request body.")
+        return
+    }
+    // Queue output bindings are not yet supported in the Go worker.
+    // Use the Azure SDK for Go to write to Queue Storage directly.
+    fmt.Fprintf(w, "Hello, %s!", name)
+}
 ```
+
+> [!NOTE]
+> The Go worker currently supports trigger bindings only. Output bindings like Queue Storage are not yet available. Use the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) to interact with other Azure services directly from your function code.
 
 The Go worker currently supports the following trigger types:
 
