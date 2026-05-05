@@ -369,3 +369,7 @@ You used [Visual Studio Code](functions-develop-vs-code.md) to create a function
 > [!div class="nextstepaction"]
 > [Azure Functions custom handlers](functions-custom-handlers.md)
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end

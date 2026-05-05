@@ -76,7 +76,6 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end 
 ::: zone pivot="programming-language-go"  
-## Usage
 
 In Go, HTTP output is handled through the standard `http.ResponseWriter` that's passed to your HTTP trigger handler. You write your response directly using the writer. No separate output binding configuration is needed.
 

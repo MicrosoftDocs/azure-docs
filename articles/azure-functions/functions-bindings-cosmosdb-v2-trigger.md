@@ -490,7 +490,9 @@ func processChanges(ctx context.Context, docs []bindings.CosmosDocument) error {
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-## Attributes C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#azure-cosmos-db-v2-trigger).
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use `CosmosDBTriggerAttribute` to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#azure-cosmos-db-v2-trigger).
 
 The specific properties depend on both the process model and the extension version:
 

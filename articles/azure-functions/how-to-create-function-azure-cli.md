@@ -314,6 +314,10 @@ You can now use Maven to deploy your code project to your existing app.
 1. Copy the returned endpoint URL and key, which you use to invoke the function endpoint.    
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Invoke the function on Azure
 
 Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL using the function-level access key. It's easiest to execute a GET request in a browser. 
