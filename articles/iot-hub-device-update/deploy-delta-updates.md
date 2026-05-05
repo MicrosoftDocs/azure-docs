@@ -1,5 +1,5 @@
 ---
-title: Deploy delta updates with Azure Device Update for IoT Hub | Microsoft Learn
+title: Deploy delta updates with Device Update for IoT Hub | Microsoft Learn
 description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub
 author: cwatson-cat
 ms.author: cwatson
@@ -11,7 +11,7 @@ ms.service: azure-iot-hub
 
 # Deploy delta updates to devices
 
-This article shows how to generate delta update files, import them into Azure Device Update for IoT Hub, and deploy them to devices. Delta files can be generated either by using the DiffGen tool or as part of a Yocto-based build. For an overview, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
+This article shows how to generate delta update files, import them into Device Update for IoT Hub, and deploy them to devices. Delta files can be generated either by using the DiffGen tool or as part of a Yocto-based build. For an overview, see [Device Update for IoT Hub delta updates](delta-updates.md).
 
 > [!NOTE]
 > Delta updates are available starting with Device Update agent version 1.3 or later.
@@ -19,7 +19,7 @@ This article shows how to generate delta update files, import them into Azure De
 
 ## Prerequisites
 
-- An Azure Device Update for IoT Hub account and instance.
+- An Device Update for IoT Hub account and instance.
 - An IoT device or simulator provisioned for Device Update with agent version 1.3 or later. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
 - Source and target update files in **SWUpdate (SWU) format**, with a raw image inside. The Microsoft reference sample uses the **Ext4** filesystem, but **Ext2** and **Ext3** are also supported.
 
@@ -219,7 +219,7 @@ sudo ./DiffGenTool
 
 ## Import the delta update
 
-The basic process for importing a delta update into the Device Update service is the same as importing any other update. For background information, see [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md).
+The basic process for importing a delta update into the Device Update service is the same as importing any other update. For background information, see [How to prepare an update to be imported into Device Update for IoT Hub](create-update.md).
 
 ### Generate the import manifest
 
@@ -336,7 +336,7 @@ If you can't resolve the issue by using the error code, collect logs from the de
 
 ## Related content
 
-- [Azure Device Update for IoT Hub delta updates](delta-updates.md)
-- [Azure Device Update for IoT Hub import manifest schema](import-schema.md)
+- [Device Update for IoT Hub delta updates](delta-updates.md)
+- [Device Update for IoT Hub import manifest schema](import-schema.md)
 - [Troubleshoot common issues](troubleshoot-device-update.md)
 

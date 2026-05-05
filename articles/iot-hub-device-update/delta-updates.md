@@ -1,6 +1,6 @@
 ---
-title: Azure Device Update for IoT Hub delta updates | Microsoft Learn
-description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub
+title: Device Update for IoT Hub delta updates | Microsoft Learn
+description: Understand key concepts for using delta or differential updates with Device Update for IoT Hub
 author: isabellaecr
 ms.author: isabellac
 ms.date: 04/22/2026
@@ -14,7 +14,7 @@ ms.subservice: device-update
 
 Deploying updates to IoT devices at scale can be constrained by bandwidth, connectivity, and the size of update content. These constraints are especially challenging for devices connected over cellular or metered networks.
 
-Delta updates (also called differential updates or diff updates) in Azure Device Update for IoT Hub help address this constraint by allowing devices to download only the differences between two versions of an update instead of the full update. This approach reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
+Delta updates (also called differential updates or diff updates) in Device Update for IoT Hub help address this constraint by allowing devices to download only the differences between two versions of an update instead of the full update. This approach reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
 
 A single deployment can include multiple delta updates to support fleets where devices are on different starting versions.
 
@@ -28,7 +28,7 @@ Delta updates trade some on-device storage for bandwidth savings: devices must r
 
 ## Supported update formats
 
-The current implementation of delta updates in Azure Device Update for IoT Hub supports image-based updates delivered in SWUpdate (SWU) format. Microsoft provides this implementation as a [reference implementation](https://github.com/Azure/iot-hub-device-update-delta), including the source code for delta generation and the on-device reconstruction logic. You can extend or customize the reference implementation to support other update formats or alternative delta and reconstruction approaches as needed.
+The current implementation of delta updates in Device Update for IoT Hub supports image-based updates delivered in SWUpdate (SWU) format. Microsoft provides this implementation as a [reference implementation](https://github.com/Azure/iot-hub-device-update-delta), including the source code for delta generation and the on-device reconstruction logic. You can extend or customize the reference implementation to support other update formats or alternative delta and reconstruction approaches as needed.
 
 ## How delta updates work
 
@@ -39,7 +39,7 @@ A delta update is a compact update artifact that contains only the differences b
 
 Instead of downloading the full target version, the device downloads the delta update and combines it with the source version already present on the device to reconstruct the full target update before installation.
 
-Before deployment, you generate delta updates using [Microsoft-provided reference tooling](https://github.com/Azure/iot-hub-device-update-delta) and import them into Azure Device Update alongside the full target update.
+Before deployment, you generate delta updates using [Microsoft-provided reference tooling](https://github.com/Azure/iot-hub-device-update-delta) and import them into Device Update alongside the full target update.
 
 Because a delta update depends on the source version, the corresponding source version must be available on the device. The Device Update agent typically caches previously installed updates for future use. If needed, you can also pre-stage source versions on the device before deployment.
 
@@ -53,7 +53,7 @@ A deployment that uses delta updates must include:
 
 Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk - devices that can't use the delta path still install the full update.
 
-For step-by-step instructions on generating and importing delta updates, see [Deploy delta updates with Azure Device Update for IoT Hub](deploy-delta-updates.md).
+For step-by-step instructions on generating and importing delta updates, see [Deploy delta updates with Device Update for IoT Hub](deploy-delta-updates.md).
 
 ### Per-device evaluation
 
@@ -115,4 +115,4 @@ For example, a deployment targets **v3** and includes a **v1 → v3** delta, a *
 
 To generate and deploy delta updates, see:
 
-- [Deploy delta updates with Azure Device Update for IoT Hub](deploy-delta-updates.md)
+- [Deploy delta updates with Device Update for IoT Hub](deploy-delta-updates.md)
