@@ -24,7 +24,7 @@ Delta updates are most beneficial when the differences between the source and ta
 
 When most of the update content changes between versions, the delta might provide limited bandwidth savings. In those scenarios, using the full update directly might be simpler to generate and manage.
 
-Delta updates trade some on-device storage for bandwidth savings: devices must retain the source update locally to apply a delta, so they need enough storage capacity for cached source updates in addition to space for new updates. Consider this trade-off when deciding whether delta updates fit your fleet's constraints.
+Delta updates trade some on-device storage for bandwidth savings: devices must retain the source update locally to apply a delta, so they need enough storage capacity for cached source updates in addition to space for new updates. Consider this trade-off when deciding whether delta updates fit your fleet's constraints. Applying a delta update also requires additional processing on the device to reconstruct the target version, which can impact overall update time depending on the device’s processing capabilities.
 
 ## Supported update formats
 
