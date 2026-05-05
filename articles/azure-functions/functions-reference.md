@@ -37,6 +37,9 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 ::: zone pivot="programming-language-python"
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
+::: zone pivot="programming-language-go"
+If you prefer to jump right in, you can complete a quickstart tutorial from the [command line](./create-first-function-cli-go.md).
+::: zone-end
 
 ## Code project
 
@@ -56,6 +59,9 @@ The way that you lay out your code project and how you indicate which methods in
 ::: zone-end
 ::: zone pivot="programming-language-python"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Python developers guide](functions-reference-python.md).
+::: zone-end
+::: zone pivot="programming-language-go"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Go developers guide](functions-reference-go.md).
 ::: zone-end
 All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 

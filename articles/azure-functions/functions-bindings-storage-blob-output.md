@@ -30,6 +30,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]

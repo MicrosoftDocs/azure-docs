@@ -75,6 +75,20 @@ The following table explains the binding configuration properties that you set i
 | **name** | The variable name used in function code for the response, or `$return` to use the return value. |
 
 ::: zone-end 
+::: zone pivot="programming-language-go"  
+## Usage
+
+In Go, HTTP output is handled through the standard `http.ResponseWriter` that's passed to your HTTP trigger handler. You write your response directly using the writer. No separate output binding configuration is needed.
+
+```go
+func hello(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "application/json")
+    w.WriteHeader(http.StatusOK)
+    fmt.Fprintf(w, `{"message": "Hello from Go!"}`)
+}
+```
+
+::: zone-end 
 
 ## Usage
 

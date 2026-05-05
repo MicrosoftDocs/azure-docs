@@ -1,0 +1,203 @@
+---
+title: "Quickstart: Create a Go function in Azure from the command line"
+description: Create a Go function from the command line, then publish the local project to serverless hosting in Azure Functions.
+ms.topic: quickstart
+ms.date: 05/05/2026
+ms.devlang: golang
+ms.custom:
+  - devx-track-go
+zone_pivot_groups: programming-languages-set-functions
+#customer intent: As a Go developer, I want to create a Go function app from the command line so that I can build and deploy serverless apps in Azure.
+---
+
+# Quickstart: Create a Go function in Azure from the command line
+
+[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+
+In this article, you use command-line tools to create a Go function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
+
+> [!IMPORTANT]
+> Go support for Azure Functions is currently in public preview.
+
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+## Prerequisites
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
++ [Go 1.24](https://go.dev/dl/) or later.
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.7100 or later.
+
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+## Create a local function project
+
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations.
+
+1. Run the `func init` command to create a Go functions project:
+
+    ```console
+    func init MyGoFunctionApp --worker-runtime go
+    ```
+
+    This command creates a project folder named `MyGoFunctionApp` with the following files:
+
+    | File | Description |
+    | --- | --- |
+    | `host.json` | Host configuration for the function app. |
+    | `local.settings.json` | Settings used when running locally. |
+    | `main.go` | Entry point with a sample HTTP-triggered function. |
+    | `go.mod` | Go module file for dependency management. |
+
+1. Navigate to the project folder:
+
+    ```console
+    cd MyGoFunctionApp
+    ```
+
+1. Open `main.go` to review the generated code. It contains a sample HTTP-triggered function:
+
+    ```go
+    package main
+
+    import (
+        "fmt"
+        "net/http"
+
+        "github.com/azure/azure-functions-golang-worker/sdk"
+        "github.com/azure/azure-functions-golang-worker/worker"
+    )
+
+    func main() {
+        app := sdk.FunctionApp()
+
+        app.HTTP("hello", hello,
+            sdk.WithMethods("GET", "POST"),
+            sdk.WithAuth("anonymous"),
+        )
+
+        worker.Start(app)
+    }
+
+    func hello(w http.ResponseWriter, r *http.Request) {
+        name := r.URL.Query().Get("name")
+        if name == "" {
+            name = "Azure"
+        }
+        fmt.Fprintf(w, "Hello, %s! Welcome to Go on Azure Functions.", name)
+    }
+    ```
+
+    Go functions use the standard `net/http` types (`http.ResponseWriter` and `*http.Request`) for HTTP triggers, making the experience feel native to Go developers. Functions are registered using the fluent builder API in `main()`, and no `function.json` files are needed.
+
+## Run the function locally
+
+1. Start the function app locally:
+
+    ```console
+    func start
+    ```
+
+    Core Tools automatically compiles your Go application before starting the local Azure Functions host. Toward the end of the output, the HTTP endpoint for your function is displayed:
+
+    ```output
+    Functions:
+
+        hello: [GET,POST] http://localhost:7071/api/hello
+    ```
+
+1. With the function running locally, open a browser and navigate to the following URL:
+
+    ```
+    http://localhost:7071/api/hello?name=Functions
+    ```
+
+    You should see the following response:
+
+    ```
+    Hello, Functions! Welcome to Go on Azure Functions.
+    ```
+
+1. Press **Ctrl+C** to stop the function app.
+
+## Create supporting Azure resources
+
+Before you can deploy your function code to Azure, you need to create three resources:
+
++ A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
++ A [storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
++ A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
+
+Use the following commands to create these items.
+
+1. Sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
+
+1. Create a resource group:
+
+    ```azurecli
+    az group create --name MyResourceGroup --location eastus2
+    ```
+
+1. Create a general-purpose storage account in the resource group:
+
+    ```azurecli
+    az storage account create --name <STORAGE_NAME> --location eastus2 --resource-group MyResourceGroup --sku Standard_LRS
+    ```
+
+    Replace `<STORAGE_NAME>` with a globally unique name. Names must contain 3 to 24 characters and only lowercase letters and numbers.
+
+1. Create the function app in Azure:
+
+    ```azurecli
+    az functionapp create --resource-group MyResourceGroup --consumption-plan-location eastus2 --runtime custom --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    ```
+
+    Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step.
+
+## Deploy the function project to Azure
+
+After you successfully create your function app in Azure, you're ready to deploy your local functions project.
+
+Use the following command to publish your project to Azure:
+
+```console
+func azure functionapp publish <APP_NAME>
+```
+
+Replace `<APP_NAME>` with the name of your function app. The `publish` command compiles your Go code for the target platform, packages the output, and deploys it to your function app in Azure.
+
+After deployment completes, the output shows the URL for your function endpoint:
+
+```output
+Functions in <APP_NAME>:
+    hello - [httpTrigger]
+        Invoke url: https://<APP_NAME>.azurewebsites.net/api/hello
+```
+
+Open the invoke URL with `?name=Functions` appended to verify the function is running in Azure.
+
+## Clean up resources
+
+If you continue to the [next step](#next-steps), keep all resources in place as you build on what you've already done.
+
+Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
+
+```azurecli
+az group delete --name MyResourceGroup
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Go developer reference guide](functions-reference-go.md)
+
+For more information about developing Go functions, see the following resources:
+
++ [Azure Functions Go developer reference](functions-reference-go.md)
++ [Azure Functions Go worker samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples)
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)

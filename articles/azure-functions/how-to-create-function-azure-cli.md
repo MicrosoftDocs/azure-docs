@@ -21,10 +21,12 @@ Make sure to select your preferred development language at the top of the articl
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
 ::: zone pivot="programming-language-other"  
-### [Go](#tab/go)
-+ [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 ### [Rust](#tab/rust)
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
+
+> [!TIP]
+> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](create-first-function-cli-go.md) to get started.
+
 ---
 ::: zone-end  
 + [Azure CLI](/cli/azure/install-azure-cli)

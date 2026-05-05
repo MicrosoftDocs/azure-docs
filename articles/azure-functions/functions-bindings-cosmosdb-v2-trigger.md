@@ -454,10 +454,43 @@ Here's the Python code:
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp"
-## Attributes
+::: zone pivot="programming-language-go"
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use `CosmosDBTriggerAttribute` to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#azure-cosmos-db-v2-trigger).
+The following example shows an Azure Cosmos DB trigger function that logs each changed document:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.CosmosDB("cosmosDBTrigger", processChanges,
+		sdk.WithDatabase("mydb"),
+		sdk.WithContainer("mycontainer"),
+		sdk.WithConnection("CosmosDBConnection"),
+	)
+	worker.Start(app)
+}
+
+func processChanges(ctx context.Context, docs []bindings.CosmosDocument) error {
+	for _, doc := range docs {
+		log.Printf("Document modified: %s", doc.ID)
+	}
+	return nil
+}
+```
+
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+## Attributes C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#azure-cosmos-db-v2-trigger).
 
 The specific properties depend on both the process model and the extension version:
 

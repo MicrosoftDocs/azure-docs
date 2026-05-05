@@ -226,11 +226,43 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 ```
 
 ::: zone-end
+::: zone pivot="programming-language-go"
+
+The following example shows a timer trigger function that runs every five minutes:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.Timer("timerTrigger", timerHandler,
+		sdk.WithSchedule("0 */5 * * * *"),
+	)
+	worker.Start(app)
+}
+
+func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
+	log.Printf("Timer trigger function ran at: %s", timer.Schedule.Next)
+	if timer.IsPastDue {
+		log.Println("Timer is running late!")
+	}
+	return nil
+}
+```
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-## Attributes
-
-[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
+## Attributes from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
 # [Isolated worker model](#tab/isolated-process)
 

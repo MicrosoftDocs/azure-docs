@@ -39,12 +39,22 @@ You can create your first function by using one of the following tools:
 + [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
 ::: zone-end
 ::: zone pivot="programming-language-other"  
-Besides the natively supported programming languages, you can use [custom handlers](functions-custom-handlers.md) to create functions in any language that supports HTTP primitives. To use custom handlers to write your function code in either Rust or Go, see [Create a Go or Rust function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivots=programming-language-other). 
+Besides the natively supported programming languages, you can use [custom handlers](functions-custom-handlers.md) to create functions in any language that supports HTTP primitives. To use custom handlers to write your function code in Rust, see [Create a Rust function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivots=programming-language-other). 
+::: zone-end
+::: zone pivot="programming-language-go"  
+Get started with Go on Azure Functions:
+
++ [Command line quickstart](create-first-function-cli-go.md)
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript" 
 ## Review end-to-end samples
 
 These sites let you browse existing functions reference projects and samples in your desired language:
+::: zone-end
+::: zone pivot="programming-language-go"  
+## Review end-to-end samples
+
++ [Azure Functions Go worker samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples)
 ::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=dotnetCsharp)
@@ -120,7 +130,10 @@ Learn more about developing functions by reviewing the [PowerShell language refe
 Learn more about developing functions by reviewing the [Python language reference](./functions-reference-python.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-other"  
-Learn more about developing functions using Rust, Go, and other languages by reviewing the [custom handlers](functions-custom-handlers.md) documentation. 
+Learn more about developing functions using Rust and other languages by reviewing the [custom handlers](functions-custom-handlers.md) documentation. 
+::: zone-end
+::: zone pivot="programming-language-go"  
+Learn more about developing functions by reviewing the [Go developer reference](./functions-reference-go.md) guide. 
 ::: zone-end
 
 You might also be interested in these articles:

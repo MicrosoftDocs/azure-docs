@@ -28,6 +28,10 @@ For information on setup and configuration details of the Azure OpenAI extension
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store.
 

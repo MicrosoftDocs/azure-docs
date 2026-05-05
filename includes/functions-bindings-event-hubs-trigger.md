@@ -361,6 +361,39 @@ public class EventHubReceiver {
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+The following example shows an Event Hubs trigger function that logs incoming event messages:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.EventHub("eventHubTrigger", processEvent,
+		sdk.WithEventHubName("myeventhub"),
+		sdk.WithConnection("EventHubConnection"),
+	)
+	worker.Start(app)
+}
+
+func processEvent(ctx context.Context, event bindings.EventHubMessage) error {
+	log.Printf("Event Hub trigger processed a message: %s", event.Body)
+	return nil
+}
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

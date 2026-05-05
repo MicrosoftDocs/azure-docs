@@ -22,7 +22,10 @@ Use Visual Studio Code to create a function that responds to HTTP requests from 
 ::: zone pivot="programming-language-other"
 Use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After verifying the code locally, you deploy it to the serverless Flex Consumption hosting plan in Azure Functions.
 
-Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both Go and Rust.
+Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports Rust.
+
+> [!TIP]
+> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](create-first-function-cli-go.md) to get started.
 
 ::: zone-end  
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.

@@ -379,6 +379,39 @@ def main(msg: azf.ServiceBusMessage) -> str:
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Azure Service Bus queue trigger function that logs incoming messages:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.ServiceBus("serviceBusQueueTrigger", processMessage,
+		sdk.WithQueueName("myqueue"),
+		sdk.WithConnection("ServiceBusConnection"),
+	)
+	worker.Start(app)
+}
+
+func processMessage(ctx context.Context, msg bindings.ServiceBusMessage) error {
+	log.Printf("Service Bus queue trigger processed message: %s", msg.Body)
+	log.Printf("Message ID: %s", msg.MessageID)
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
