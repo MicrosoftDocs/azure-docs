@@ -318,8 +318,10 @@
           href: resource-governance-with-app-groups.md
         - name: Configure properties for an event hub
           href: configure-event-hub-properties.md
-        - name: Automatically scale throughput units
+        - name: Auto inflate overview
           href: event-hubs-auto-inflate.md
+        - name: Enable Auto inflate
+          href: enable-auto-inflate.md
         - name: Event Hubs management libraries
           href: event-hubs-management-libraries.md
         - name: Use geo-replication

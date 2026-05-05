@@ -17,9 +17,6 @@ ms.custom:
 
 This article describes how to use Azure API Center to register agent [skills](https://agentskills.io/home) as part of your API inventory. Skills are reusable capabilities that AI agents can discover and consume to extend their functionality.
 
-> [!NOTE]
-> Registering skills in API Center is currently in preview.
-
 By registering skills in your API center, you create a centralized registry that helps your organization:
 
 - Discover available skills and their capabilities
