@@ -288,6 +288,19 @@ You can review the code that defines the two HTTP trigger function endpoints:
 ::: zone pivot="programming-language-csharp"  
 :::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpGetFunction.cs" range="17-29" :::
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+```go
+func httpget(w http.ResponseWriter, r *http.Request) {
+    name := r.URL.Query().Get("name")
+    if name == "" {
+        name = "world"
+    }
+    fmt.Fprintf(w, "Hello, %s!", name)
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-java" 
 :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
 ::: zone-end  
@@ -311,6 +324,23 @@ This `run.ps1` file implements the function code:
  
 ::: zone pivot="programming-language-csharp"   
 :::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpPostBodyFunction.cs" range="19-35":::  
+::: zone-end  
+::: zone pivot="programming-language-go"
+
+```go
+func httppost(w http.ResponseWriter, r *http.Request) {
+    var body struct {
+        Name string `json:"name"`
+    }
+    if err := json.NewDecoder(r.Body).Decode(&body); err != nil || body.Name == "" {
+        w.WriteHeader(http.StatusBadRequest)
+        fmt.Fprint(w, "Please provide a name in the request body.")
+        return
+    }
+    fmt.Fprintf(w, "Hello, %s!", body.Name)
+}
+```
+
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 :::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="44-71" :::
@@ -350,6 +380,9 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-http-azd).
+::: zone-end  
+::: zone pivot="programming-language-go" 
+You can review Go samples in the [Azure Functions Go worker repository](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples).
 ::: zone-end  
 After you verify your functions locally, it's time to publish them to Azure. 
  
