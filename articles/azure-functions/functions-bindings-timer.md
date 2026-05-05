@@ -251,7 +251,7 @@ func main() {
 }
 
 func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
-	log.Printf("Timer trigger function ran at: %s", timer.Schedule.Next)
+	log.Printf("Timer trigger function ran at: %s", timer.ScheduleStatus.Next)
 	if timer.IsPastDue {
 		log.Println("Timer is running late!")
 	}
@@ -262,7 +262,9 @@ func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-## Attributes from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
+## Attributes
+
+[In-process](functions-dotnet-class-library.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) from [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) whereas [isolated worker process](dotnet-isolated-process-guide.md) C# library uses [TimerTriggerAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Timer/src/TimerTriggerAttribute.cs) from [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
 # [Isolated worker model](#tab/isolated-process)
 

@@ -70,7 +70,7 @@
       displayName: quickstart, get started, go, golang
       href: create-first-function-cli-go.md
     - name: Visual Studio Code
-      displayName: quickstart, get started, go, rust
+      displayName: quickstart, get started, go, golang, rust
       href: how-to-create-function-vs-code.md
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md

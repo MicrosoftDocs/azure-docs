@@ -363,8 +363,6 @@ func processBlob(ctx context.Context, client *blob.Client) error {
 
 ::: zone-end  
 
----
-
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

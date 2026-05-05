@@ -397,7 +397,7 @@ import (
 
 func main() {
 	app := sdk.FunctionApp()
-	app.ServiceBus("serviceBusQueueTrigger", processMessage,
+	app.ServiceBusQueue("serviceBusQueueTrigger", processMessage,
 		sdk.WithQueueName("myqueue"),
 		sdk.WithConnection("ServiceBusConnection"),
 	)

@@ -99,7 +99,7 @@ app.CosmosDB("myCosmosFunc", handler,
 )
 
 // Azure Service Bus trigger
-app.ServiceBus("myServiceBusFunc", handler,
+app.ServiceBusQueue("myServiceBusFunc", handler,
     sdk.WithQueueName("myqueue"),
     sdk.WithConnection("ServiceBusConnection"),
 )
@@ -174,7 +174,8 @@ Supported core triggers:
 | HTTP | `func(http.ResponseWriter, *http.Request)` | `app.HTTP()` |
 | Timer | `TimerHandler` | `app.Timer()` |
 | Azure Cosmos DB | `func(context.Context, []bindings.CosmosDocument) error` | `app.CosmosDB()` |
-| Azure Service Bus | `ServiceBusHandler` | `app.ServiceBus()` |
+| Azure Service Bus (Queue) | `ServiceBusHandler` | `app.ServiceBusQueue()` |
+| Azure Service Bus (Topic) | `ServiceBusHandler` | `app.ServiceBusTopic()` |
 | Event Hubs | `EventHubHandler` | `app.EventHub()` |
 | Event Grid | `EventGridHandler` | `app.EventGrid()` |
 
@@ -288,7 +289,7 @@ app.Timer("myScheduledFunc", timerHandler,
 )
 
 func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
-    log.Printf("Timer trigger executed at: %s", timer.Schedule.Next)
+    log.Printf("Timer trigger executed at: %s", timer.ScheduleStatus.Next)
     return nil
 }
 ```
