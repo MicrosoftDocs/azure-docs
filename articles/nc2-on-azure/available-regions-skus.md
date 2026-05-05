@@ -6,8 +6,7 @@ description: Learn about the available regions and SKUs for Nutanix Cloud Cluste
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: references_regions
-ms.date: 03/28/2025
-ms.service: azure-baremetal-infrastructure
+ms.date: 04/5/2026
 # Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 

@@ -4,9 +4,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure.
 ms.topic: reference
-ms.subservice: baremetal-nutanix
-ms.date: 04/23/2025
-ms.service: azure-baremetal-infrastructure
+ms.date: 04/5/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

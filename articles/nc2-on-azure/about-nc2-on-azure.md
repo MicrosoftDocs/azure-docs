@@ -4,18 +4,14 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
-ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 03/28/2025
-ms.service: azure-baremetal-infrastructure
+ms.date: 04/5/2026
 # Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 
-# About Nutanix Cloud Clusters on Azure
+# What is Nutanix Cloud Clusters on Azure?
 
-In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
-
-Nutanix Cloud Clusters (NC2) on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With NC2 running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With NC2 on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
+In this article, we provide an overview of the features and benefits of Nutanix Cloud Clusters (NC2) on Microsoft Azure. NC2 provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With NC2 running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With NC2 on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
 
 You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-premises Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), Prism Element and Prism Central web consoles, and APIs.  
 
@@ -41,6 +37,7 @@ Running Nutanix Cloud Clusters (NC2) on Azure offers several key benefits includ
 - **Cost efficiency and savings**: Benefit from cost efficiencies including: Reuse existing licenses for NC2 and Microsoft software via Azure Hybrid Benefit, Register for reserved instances for hardware cost savings, and get free Extended Security Updates for Windows Server by being in Azure. 
 
 ## Pricing
+The cost of NC2 on Azure is based on the underlying Azure infrastructure, which is billed on a pay-as-you-go basis. You can also use your existing Microsoft Azure Consumption Contract (MACC) to cover the cost of the Azure infrastructure.
 
 ### Nutanix Cloud Cluster software
 
@@ -55,43 +52,20 @@ More cost savings on the hardware can be realized with reserved instances: [Save
 
 ## Other cost benefits
 
-### Microsoft Azure Consumption Contract (MACC) credits 
-NC2 on Azure infrastructure counts toward your organization's Microsoft Azure Consumption Commitment (MACC) agreement.
+There are additional cost benefits to consider with NC2 on Azure, including:
 
-### Azure Hybrid Benefit for Windows and SQL Server
-Azure Hybrid Benefit enables commercial customers to use their qualifying on-premises licenses on Azure. With Software Assurance or an active Linux subscription, you can take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. 
+**Microsoft Azure Consumption Contract (MACC) credits**: NC2 on Azure infrastructure counts toward your organization's Microsoft Azure Consumption Commitment (MACC) agreement.
 
-The primary benefit allows you to reuse you existing licensing investments to run in NC2 on Azure. There are other benefits, including allowing you to migrate over time while maintaining license compliance both on-premises and in Azure. 
+**Azure Hybrid Benefit for Windows and SQL Server**: Azure Hybrid Benefit enables commercial customers to use their qualifying on-premises licenses on Azure. With Software Assurance or an active Linux subscription, you can take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. This allows you to reuse existing licensing investments to run in NC2 on Azure and migrate over time while maintaining license compliance both on-premises and in Azure.
 
-Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicated Host. For details on full benefits and considerations see the Azure Hybrid Benefit section under the Product terms
+Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicated Host. For details on full benefits and considerations, see:
 - [SQL Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/SQLServer/EAEAS)
 - [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS) 
 - [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS)
 
-Currently, it is not possible to specify the use of Azure Hybrid Benefit in NC2 on Azure. For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
+Currently, it is not possible to specify the use of Azure Hybrid Benefit in NC2 on Azure. For additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive.
 
-### No-cost Extended Security Updates (ESU) for Windows Server
-Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. 
-
-For further information on ESUs, including qualifying Windows product versions and timelines see: [Extended Security Updates for Windows Server overview](/windows-server/get-started/extended-security-updates-overview).
-
-The process to get the Extended Security Updates for Windows VMs in NC2 on Azure requires a manual request, approval, and delivery. 
-
-#### To request ESU keys
-
-1. Draft an email to send to your Microsoft Account team. The email should contain the following information:
-   1. Your contact information in the body of the email
-   1. Customer name and TPID
-   1. Specific Deployment Scenario: Nutanix Cloud Clusters on Azure
-   1. Number of Servers, nodes, or both where applicable requested to be covered by ESUs
-   1. Point of Contact: Name and email address of a customer employee who can either install or manage the keys once provided. Manage in this context means ensuring that
-      1. Keys aren't disclosed to anyone outside of the client company.
-      2. Keys aren't publicly exposed.
-1. The Microsoft response will include the ESU Keys and Terms of Use.
-
->> **Terms of Use**
-
->> By activating this key you agree that it will only be used for only NC2 on Azure. If you violate these terms, we may stop providing services to you or we may close your Microsoft account.
+**No-cost Extended Security Updates (ESU) for Windows Server**: Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. For further information on ESUs, including qualifying Windows product versions and timelines, see [Extended Security Updates for Windows Server overview](/windows-server/get-started/extended-security-updates-overview).
 
 ## Responsibility matrix
 
@@ -114,7 +88,7 @@ Microsoft provides support for the BareMetal infrastructure of NC2 on Azure. You
 
 Nutanix delivers support for Nutanix software of NC2 on Azure. Nutanix offers a support tier called Production Support for NC2. For more information about Production Support tiers and SLAs, see Nutanix documentation at ([Product Support Programs)](https://www.nutanix.com/support-services/product-support/product-support-programs) under Cloud Services Support.
 
-## Release notes
+## Related resources
 
 [Nutanix Cloud Clusters on Azure Release Notes](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-On-Azure-Release-Notes:Nutanix-Cloud-Clusters-On-Azure-Release-Notes)
 

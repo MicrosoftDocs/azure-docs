@@ -8,9 +8,8 @@ metadata:
   author: jjaygbay1
   ms.author: jacobjaygbay
   description: Learn how to use Nutanix Cloud Clusters to create, deploy, and manage virtual machines in Microsoft Azure.
-  ms.service: nc2-on-azure
   ms.topic: landing-page
-  ms.date: 05/04/2026
+  ms.date: 05/5/2026
 
 
 # card 1
@@ -24,7 +23,7 @@ landingContent:
           - text: Architecture of Nutanix Cloud Clusters in Azure
             url: architecture.md
           - text: Getting Started with Nutanix Cloud Clusters in Azure
-            url: getting-started.md
+            url: get-started.md
           - text: Azure Regions and Availability Zones for Nutanix Cloud Clusters
             url: available-regions-skus.md
           - text: FAQ

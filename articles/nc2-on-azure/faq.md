@@ -4,10 +4,9 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Questions frequently asked about NC2 on Azure
 ms.topic: faq
-ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 12/10/2024
-ms.service: azure-baremetal-infrastructure
+ms.service: nc2-on-azure
 # Customer intent: As a cloud solutions architect, I want to understand the support structure and integration capabilities of NC2 on Azure, so that I can effectively design and implement solutions that leverage both Nutanix software and Azure infrastructure.
 ---
 
