@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 02/12/2026
+ms.date: 05/05/2026
 
 ---
 
@@ -54,10 +54,10 @@ Azure provides built-in capabilities to defend against ransomware attacks at eve
 Key Azure-native protection capabilities include:
 
 - **[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** - Provides threat detection and response (XDR) for Azure workloads, with ransomware-specific detection capabilities
-- **[Azure Backup](/azure/backup/)** - Offers immutable backups with soft delete and MFA protection to ensure recovery options
+- **[Azure Backup](../../backup/index.yml)** - Offers immutable backups with soft delete and MFA protection to ensure recovery options
 - **[Azure Firewall Premium](../../firewall/premium-features.md)** - Includes IDPS to detect and block ransomware Command & Control (C&C) communications
 - **[Microsoft Entra ID Protection](/entra/id-protection/overview-identity-protection)** - Detects credential theft and suspicious authentication patterns targeting Azure resources
-- **[Azure Policy](/azure/governance/policy/)** - Enforces security configurations and compliance across Azure resources
+- **[Azure Policy](../../governance/policy/index.yml)** - Enforces security configurations and compliance across Azure resources
 - **[Microsoft Sentinel](/azure/sentinel/)** - Provides SIEM/SOAR capabilities with ransomware-specific detection analytics
 
 For detailed information about Azure features that help protect, detect, and respond to ransomware, see [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md).
