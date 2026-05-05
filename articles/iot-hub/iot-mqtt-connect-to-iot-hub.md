@@ -2,8 +2,8 @@
 title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Guidance on using the MQTT protocol to connect a device to IoT Hub. Includes using the Azure IoT device SDKs and connecting directly using MQTT.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 03/19/2025
