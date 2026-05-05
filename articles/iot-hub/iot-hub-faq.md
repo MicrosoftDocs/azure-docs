@@ -2,8 +2,8 @@
 title: "FAQ: What is New in Azure IoT Hub?"
 titleSuffix: Azure IoT Hub
 description: Learn about the new features and improvements in Azure IoT Hub.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 11/04/2025

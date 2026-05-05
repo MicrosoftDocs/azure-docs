@@ -92,6 +92,8 @@ items:
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
+          - name: Troubleshoot Java applications on AKS
+            href: troubleshoot-java-aks.md
       - name: Act
         items:
           - name: Execute mitigations

@@ -2,8 +2,8 @@
 title: Integration with Azure Device Registry (preview)
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure Device Registry helps users manage IoT devices.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview

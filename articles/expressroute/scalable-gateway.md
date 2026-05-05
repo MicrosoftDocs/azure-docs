@@ -36,6 +36,9 @@ When autoscaling is enabled, the gateway automatically scales based on your work
 | Fixed scaling         | 40                | 40                | No                  |  
 | Autoscaling           | 2 or higher       | Up to 40          | Yes                 |
 
+> [!NOTE]
+> If your workload includes Private Link traffic, use fixed scaling rather than autoscaling. 
+
 ## Upgrade and migration paths
 
 You can move to ErGwScale using either an upgrade or migration process, depending on your current gateway SKU.

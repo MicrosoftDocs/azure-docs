@@ -1,17 +1,17 @@
 ---
 author: hhunter-ms
-title: Export orchestration history with Durable Task Scheduler (Preview)
+title: "Export Orchestration History with Durable Task Scheduler (Preview)"
 titleSuffix: Durable Task
-description: Learn how to export orchestration execution history from Durable Task Scheduler to Azure Blob Storage using the Durable Task .NET SDK.
+description: Learn how to export orchestration execution history from Durable Task Scheduler to Azure Blob Storage using the Durable Task .NET SDK. Set up batch or continuous export jobs for auditing and compliance.
 ms.topic: feature-guide
-ms.date: 04/14/2026
+ms.date: 05/04/2026
 ms.author: torosent
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
 ms.devlang: csharp
 ---
 
-# Export orchestration history with Durable Task Scheduler (Preview)
+# Export orchestration history with Durable Task Scheduler (preview)
 
 The orchestration history export feature lets your app extract execution histories for terminal orchestration instances (completed, failed, or terminated status) from [Durable Task Scheduler](durable-task-scheduler.md) and write them to Azure Blob Storage. Use this feature for auditing, compliance, analytics, and long-term archival of orchestration data outside of the scheduler.
 
@@ -21,7 +21,7 @@ The orchestration history export feature lets your app extract execution histori
 > [!TIP]
 > A complete, runnable reference sample is available at [ExportHistoryWebApp](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/ExportHistoryWebApp). We recommend using it as a reference as you follow this guide.
 
-## How it works
+## How exporting orchestration history works
 
 Export history uses durable entities and orchestrations internally to manage export jobs reliably with the following process.
 
@@ -32,7 +32,7 @@ Export history uses durable entities and orchestrations internally to manage exp
 1. The history is serialized (JSONL with gzip compression by default) and written to Azure Blob Storage.
 1. The job checkpoints its progress, so it can resume if interrupted.
 
-## Export modes
+## Export modes for batch and continuous jobs
 
 Export history supports two modes:
 
@@ -41,22 +41,40 @@ Export history supports two modes:
 | **Batch** | Exports instances that reached a terminal state within a fixed time window (`completedTimeFrom` to `completedTimeTo`), then marks the job as completed. |
 | **Continuous** | Tails terminal instances continuously from `completedTimeFrom` onward, with no end time. The job stays active until you delete it. |
 
-## Enable export history
+## Prerequisites
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
+- A [Durable Task Scheduler](durable-task-scheduler.md) task hub (or the local emulator)
+- An Azure Storage account (or [Azurite](../../storage/common/storage-use-azurite.md) for local development)
+- The following NuGet packages:
+  - `Microsoft.DurableTask.ExportHistory`
+  - `Microsoft.DurableTask.Client.AzureManaged`
+  - `Microsoft.DurableTask.Worker.AzureManaged`
+
+## Enable orchestration history export
 
 1. Install the export history package.
 
    ```bash
    dotnet add package Microsoft.DurableTask.ExportHistory
+   ```
 
 1. Install the Azure Managed client and worker packages for Durable Task Scheduler.
 
    ```bash
    dotnet add package Microsoft.DurableTask.Client.AzureManaged
    dotnet add package Microsoft.DurableTask.Worker.AzureManaged
+   ```
 
 1. Register export history on both the worker and client.
 
    ```csharp
+   using Microsoft.DurableTask.Client;
+   using Microsoft.DurableTask.Client.AzureManaged;
+   using Microsoft.DurableTask.ExportHistory;
+   using Microsoft.DurableTask.Worker;
+   using Microsoft.DurableTask.Worker.AzureManaged;
+
    string connectionString = builder.Configuration.GetValue<string>("DURABLE_TASK_CONNECTION_STRING")
        ?? throw new InvalidOperationException("Missing DURABLE_TASK_CONNECTION_STRING");
 
@@ -72,10 +90,6 @@ Export history supports two modes:
    {
        worker.UseDurableTaskScheduler(connectionString);
        worker.UseExportHistory();
-       worker.AddTasks(tasks =>
-       {
-           // Register your own orchestrations and activities here
-       });
    });
 
    // Register the client with export history support.
@@ -136,13 +150,16 @@ ExportHistoryJobClient jobClient = await exportClient.CreateJobAsync(options);
 
 When `destination` is null, the job uses the default container and prefix configured in `ExportHistoryStorageOptions`.
 
-### Get job status
+### Get export job details
 
-Use the following line to export the job ID, job status, and other information.
+Use the following code to retrieve a job's full description, including its status, progress counters, and any errors.
 
 ```csharp
 ExportJobDescription? job = await exportClient.GetJobAsync("my-job-id");
 ```
+
+> [!NOTE]
+> `GetJobAsync` throws `ExportJobNotFoundException` if the specified job ID doesn't exist. Handle this exception when querying for jobs that may have been deleted.
 
 The `ExportJobDescription` includes:
 
@@ -176,6 +193,17 @@ await foreach (ExportJobDescription job in jobs)
 }
 ```
 
+The `ExportJobQuery` supports the following filter properties:
+
+| Property | Description |
+| --- | --- |
+| `Status` | Filter by job status: `Pending`, `Active`, `Failed`, or `Completed`. |
+| `JobIdPrefix` | Filter jobs whose ID starts with this prefix. |
+| `CreatedFrom` | Only return jobs created at or after this time. |
+| `CreatedTo` | Only return jobs created at or before this time. |
+| `PageSize` | Maximum number of results per page. |
+| `ContinuationToken` | Token for retrieving the next page of results. |
+
 ### Delete a job
 
 Use the following code to delete a job.
@@ -184,6 +212,9 @@ Use the following code to delete a job.
 ExportHistoryJobClient jobClient = exportClient.GetJobClient("my-job-id");
 await jobClient.DeleteAsync();
 ```
+
+> [!NOTE]
+> `DeleteAsync` throws `ExportJobNotFoundException` if the job doesn't exist. Deleting a job does **not** remove already-exported blobs from Azure Blob Storage.
 
 ## Export job creation options
 
@@ -200,7 +231,7 @@ The `ExportJobCreationOptions` class controls export job behavior and includes t
 | `runtimeStatus` | No | Filter by terminal statuses: `Completed`, `Failed`, `Terminated`. | All terminal statuses |
 | `maxInstancesPerBatch` | No | Number of instances to process per batch (1–1000). | `100` |
 
-## Where exported data goes
+## Where exported data is stored in Azure Blob Storage
 
 Exported history is written to Azure Blob Storage with the following parameters.
 
@@ -213,7 +244,7 @@ Exported history is written to Azure Blob Storage with the following parameters.
 
 Each blob includes an `instanceId` metadata tag for traceability.
 
-## Environment variable configuration
+## Environment variables for export history configuration
 
 Use these environment variables with the Durable Task .NET SDK export history sample.
 
@@ -225,14 +256,14 @@ Use these environment variables with the Durable Task .NET SDK export history sa
 | `EXPORT_HISTORY_PREFIX` | Optional virtual folder path prefix for blob names | unset |
 | `ASPNETCORE_URLS` | Listen URLs for the sample's HTTP host | framework default |
 
-## Azure permissions
+## Azure permissions for export history
 
 When you use Azure resources instead of local emulators, the app identity needs access to Durable Task Scheduler and Blob Storage:
 
 1. Grant `Durable Task Data Contributor` on the app's task hub.
 1. Grant `Storage Blob Data Contributor` on the storage account that stores exported history blobs.
 
-## Important considerations
+## Important considerations for export jobs
 
 - **Concurrent purge operations**:   
    If you purge orchestration instances while an export job is running, the export can be impacted. Instances that are purged before the export reads them will be missing from the exported data. Avoid running purge operations concurrently with active export jobs that cover the same time window.
@@ -247,6 +278,19 @@ After you create an export job, verify it works by checking for both signals:
 - The job status transitions from `Pending` to `Active` and eventually to `Completed` (for Batch mode).
 - Blob entries appear in your configured export container.
 
+You can poll the job status programmatically:
+
+```csharp
+ExportJobDescription? job;
+do
+{
+    await Task.Delay(TimeSpan.FromSeconds(5));
+    job = await exportClient.GetJobAsync(jobId);
+    Console.WriteLine($"Status: {job?.Status}, Exported: {job?.ExportedInstances}");
+}
+while (job?.Status is ExportJobStatus.Pending or ExportJobStatus.Active);
+```
+
 For local development, run this Azure CLI command to inspect the container:
 
 ```azurecli
@@ -255,6 +299,9 @@ az storage blob list \
   --container-name export-history \
   --output table
 ```
+
+> [!TIP]
+> The [ExportHistoryWebApp sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/ExportHistoryWebApp) includes an `ExportHistoryWebApp.http` file with ready-made REST Client requests for VS Code. Open it and click **Send Request** to quickly test create, get, list, and delete operations.
 
 ## Next steps
 

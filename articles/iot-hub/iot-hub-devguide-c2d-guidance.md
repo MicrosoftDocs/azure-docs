@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub cloud-to-device options
 description: This article provides guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/22/2025

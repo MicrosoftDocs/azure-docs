@@ -2,8 +2,8 @@
 title: Understand Azure IoT Hub Message routing
 titleSuffix: Azure IoT Hub
 description: This article describes how to use message routing to send device-to-cloud messages. Includes information about sending both telemetry and nontelemetry data.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/27/2025

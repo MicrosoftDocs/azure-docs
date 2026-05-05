@@ -1,16 +1,32 @@
 ---
-title: Durable Task extension for Microsoft Agent Framework - Azure
-description: Learn how to use the Durable Task extension for Microsoft Agent Framework to build fault-tolerant, scalable AI agents with persistent sessions and automatic checkpointing.
+title: "Durable Task Extension for Microsoft Agent Framework"
+description: Use the Durable Task extension for Microsoft Agent Framework to build fault-tolerant AI agents with persistent sessions and automatic checkpointing. Get started now.
 author: greenie-msft
 ms.topic: conceptual
-ms.date: 04/07/2026
+ms.date: 05/04/2026
 ms.author: nigreenf
 zone_pivot_groups: agent-framework-approach
 ---
 
-# Durable Task extension for Microsoft Agent Framework (Preview)
+# Durable Task extension for Microsoft Agent Framework
 
 The [Durable Task extension for Microsoft Agent Framework](/agent-framework/integrations/azure-functions) brings [durable execution](./durable-task-for-ai-agents.md) directly into the [Microsoft Agent Framework](/agent-framework/). You can register agents with the extension to make them automatically durable with persistent sessions, built-in API endpoints, and distributed scaling — without changes to your agent logic.
+
+## When to use durable agents
+
+Choose the Durable Task extension when you need:
+
+- **Persistent conversation state** — Agent sessions survive process crashes, restarts, and scaling events without losing context.
+- **Multi-agent orchestration** — Coordinate specialized agents in deterministic workflows with automatic checkpointing and failure recovery.
+- **Long-running workflows** — Support human-in-the-loop approvals or timed waits that can last hours, days, or weeks without consuming compute resources.
+- **Scalable, serverless hosting** — Scale to thousands of concurrent agent sessions (or to zero) on the Azure Functions Flex Consumption plan.
+
+If you don't need durable state or multi-agent coordination, a standard [Microsoft Agent Framework](/agent-framework/) agent without the extension may be sufficient.
+
+> [!TIP]
+> For a step-by-step walkthrough including local setup, prerequisites, and deployment, see the [tutorial on Microsoft Learn](/agent-framework/integrations/azure-functions#tutorial-create-and-run-a-durable-agent).
+
+## Architecture
 
 The extension internally implements [entity-based agent loops](./durable-agents-patterns.md#entity-based-agent-loops), where each agent session is a durable entity that automatically manages conversation state and checkpointing.
 
@@ -30,12 +46,13 @@ Define your agent using the standard Microsoft Agent Framework pattern, then enh
 ```csharp
 var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME")
-    ?? throw new InvalidOperationException("AZURE_OPENAI_DEPLOYMENT_NAME is not set.");
+var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT")
+    ?? "gpt-4o-mini";
 
-AIAgent agent = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
-    .GetChatClient(deploymentName)
+// Create an AI agent using the Microsoft Agent Framework pattern
+AIAgent agent = new AIProjectClient(new Uri(endpoint), new DefaultAzureCredential())
     .AsAIAgent(
+        model: deploymentName,
         instructions: "You are a professional content writer who creates engaging, "
                     + "well-structured documents for any given topic.",
         name: "DocumentPublisher");
@@ -53,17 +70,19 @@ app.Run();
 
 ```python
 import os
-from agent_framework.azure import AzureOpenAIChatClient, AgentFunctionApp
+from agent_framework.azure import FoundryChatClient, AgentFunctionApp
 from azure.identity import DefaultAzureCredential
 
 endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
+deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") or "gpt-4o-mini"
 
-agent = AzureOpenAIChatClient(
+client = FoundryChatClient(
     endpoint=endpoint,
-    deployment_name=deployment_name,
     credential=DefaultAzureCredential()
-).as_agent(
+)
+
+agent = client.as_agent(
+    model=deployment_name,
     instructions="You are a professional content writer who creates engaging, "
                  "well-structured documents for any given topic.",
     name="DocumentPublisher"
@@ -84,12 +103,13 @@ app = AgentFunctionApp(agents=[agent])
 ```csharp
 var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
     ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_NAME")
-    ?? throw new InvalidOperationException("AZURE_OPENAI_DEPLOYMENT_NAME is not set.");
+var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT")
+    ?? "gpt-4o-mini";
 
-AIAgent agent = new AzureOpenAIClient(new Uri(endpoint), new DefaultAzureCredential())
-    .GetChatClient(deploymentName)
+// Create an AI agent using the Microsoft Agent Framework pattern
+AIAgent agent = new AIProjectClient(new Uri(endpoint), new DefaultAzureCredential())
     .AsAIAgent(
+        model: deploymentName,
         instructions: "You are a professional content writer who creates engaging, "
                     + "well-structured documents for any given topic.",
         name: "DocumentPublisher");
@@ -113,11 +133,17 @@ await host.StartAsync();
 # [Python](#tab/python)
 
 ```python
-from agent_framework.azure import AzureOpenAIChatClient, DurableAIAgentWorker
+from agent_framework.azure import FoundryChatClient, DurableAIAgentWorker
 from azure.identity import AzureCliCredential
 from durabletask.azuremanaged.worker import DurableTaskSchedulerWorker
 
-agent = AzureOpenAIChatClient(credential=AzureCliCredential()).as_agent(
+endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") or "gpt-4o-mini"
+
+client = FoundryChatClient(endpoint=endpoint, credential=AzureCliCredential())
+
+agent = client.as_agent(
+    model=deployment_name,
     name="DocumentPublisher",
     instructions="You are a professional content writer who creates engaging, "
                  "well-structured documents for any given topic.",
@@ -140,9 +166,14 @@ worker.start()
 
 ::: zone-end
 
-## Multi-agent orchestration
+> [!NOTE]
+> The C# examples use `AIProjectClient` from the `Azure.AI.Projects` package, which is the recommended pattern for new projects. The Python examples use `FoundryChatClient` from `agent_framework.azure`. Both clients support the `.AsAIAgent()` / `.as_agent()` extension that integrates with the Durable Task extension. See the [samples on GitHub](#related-links) for the latest package references.
+
+## Multi-agent orchestration with durable checkpointing
 
 You can coordinate multiple specialized agents as steps in a durable orchestration. Each agent call is checkpointed, and the orchestration recovers automatically if any step fails. Completed agent calls aren't re-executed on recovery.
+
+Use `context.GetAgent()` (C#) or `app.get_agent()` (Python) to retrieve registered agents inside an orchestration. The returned `DurableAIAgent` wrapper ensures calls are tracked and checkpointed by the framework.
 
 The following example shows a sequential multi-agent workflow where a research agent gathers information and a writer agent produces a document.
 
@@ -282,9 +313,11 @@ def document_publishing_orchestration(ctx, doc_request: dict):
 
 ::: zone-end
 
-## Graph-based workflows
+## Graph-based workflows with Microsoft Agent Framework
 
 The Durable Task extension also supports [Microsoft Agent Framework workflows](/agent-framework/workflows), which use a declarative, graph-based programming model (`WorkflowBuilder`) to define multi-step pipelines of executors and agents. The extension automatically checkpoints each step in the graph and recovers from failures without changes to the workflow definition.
+
+Workflows complement orchestrations: use orchestrations for imperative agent coordination with conditional logic, and workflows for fixed graph topologies with type-validated message routing.
 
 ### Sequential workflow
 
@@ -889,7 +922,7 @@ The following screenshot shows a deterministic orchestration with activity execu
 
 :::image type="content" source="media/durable-task-for-ai-agents/dashboard-orchestration.png" alt-text="Screenshot of the Durable Task Scheduler dashboard showing a deterministic agentic orchestration view." lightbox="media/durable-task-for-ai-agents/dashboard-orchestration.png":::
 
-## Session time-to-live (TTL)
+## Session time-to-live (TTL) for durable agents
 
 Durable agent sessions automatically maintain conversation history and state, which can accumulate indefinitely. The time-to-live (TTL) feature provides automatic cleanup of idle sessions, preventing storage resource consumption and increased costs. 
 
@@ -941,6 +974,16 @@ services.ConfigureDurableAgents(
 
 - **TTL expiration.**  
    The TTL timer is based on wall-clock time since the last message, not cumulative activity time. Once a session is deleted (via TTL expiration or manual deletion), its conversation history can't be recovered.
+
+## Additional capabilities
+
+The following advanced patterns are available in the [samples on GitHub](#related-links) but aren't covered in detail in this article:
+
+| Pattern | Description |
+|---------|-------------|
+| **Long-running tools** | Agents can start durable orchestrations from tool calls, enabling tools that run for extended periods with progress tracking. |
+| **Agent as MCP tool** | Expose durable agents as [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools, allowing other agents or clients to invoke them through a standard interface. |
+| **Reliable streaming** | Use Redis Streams (or similar transports) for resumable token streaming that survives client disconnects and reconnections. |
 
 ## Related links
 

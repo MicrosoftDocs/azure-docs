@@ -1,9 +1,9 @@
 ---
-title: Agentic application patterns - Azure
-description: Learn how to implement deterministic agentic workflows and agent loops using the Durable Task programming model with Durable Functions or the Durable Task SDKs.
+title: "Agentic Application Patterns - Azure"
+description: Implement deterministic agentic workflows and agent loops using the Durable Task programming model. Build reliable AI agents with automatic checkpointing and retry policies.
 author: cgillum
 ms.topic: conceptual
-ms.date: 04/07/2026
+ms.date: 05/05/2026
 ms.author: cgillum
 zone_pivot_groups: azure-durable-approach
 ---
@@ -15,7 +15,19 @@ There are two general approaches to building agentic applications with AI:
 - [**Deterministic workflows**](#deterministic-workflow-patterns) — Your code defines the control flow. You write the sequence of steps, branching, parallelism, and error handling using standard programming constructs. The LLM performs work inside each step but doesn't control the overall flow.
 - [**Agent-directed workflows (agent loops)**](#agent-loops) — The LLM drives the control flow. The agent decides which tools to call, in what order, and when the task is complete. You provide tools and instructions, but the agent determines the execution path at runtime.
 
-Both approaches benefit from [durable execution](./durable-task-for-ai-agents.md) and can be implemented using the [Durable Task programming model](../common/programming-model-overview.md). This article shows how to build each pattern using code examples.
+Both approaches benefit from [durable execution](./durable-task-for-ai-agents.md) and can be implemented using the [Durable Task programming model](../common/programming-model-overview.md). This article shows how to build each pattern with ready-to-use code samples in C#, Python, JavaScript/TypeScript, and Java.
+
+> [!TIP]
+> **Prerequisites:** Before using these patterns, set up the Durable Task SDKs or Durable Functions. See the [SDK overview](./durable-task-overview.md) or [Durable Functions overview](../../azure-functions/durable-functions/durable-functions-overview.md) to get started.
+
+**On this page:**
+
+- [Prompt chaining](#prompt-chaining-pattern) — Sequential LLM steps with validation gates
+- [Routing](#routing) — Classify and dispatch to specialized agents
+- [Parallelization](#parallelization) — Fan-out/fan-in for independent subtasks
+- [Orchestrator-workers](#orchestrator-workers-pattern) — LLM-planned dynamic subtask delegation
+- [Evaluator-optimizer](#evaluator-optimizer-pattern) — Iterative generation and refinement loop
+- [Agent loops](#agent-loops) — LLM-directed tool-calling loops (orchestration-based or entity-based)
 
 > [!TIP]
 > These patterns align with the agentic workflow designs described in Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents). The Durable Task programming model maps naturally to these patterns: **orchestrations** define the workflow control flow and are automatically checkpointed, while **activities** wrap non-deterministic operations like LLM calls, tool invocations, and API requests.
@@ -52,7 +64,7 @@ The following examples use the portable [Durable Task SDKs](./durable-task-overv
 
 ::: zone-end
 
-### Prompt chaining
+### Prompt chaining pattern
 
 Prompt chaining is the simplest agentic pattern. You break a complex task into a series of sequential LLM interactions, where each step's output feeds into the next step's input. Because each activity call is automatically checkpointed, a crash midway through the pipeline doesn't force you to restart from scratch and re-consume expensive LLM tokens — execution resumes from the last completed step.
 
@@ -61,6 +73,9 @@ You can also insert programmatic validation gates between steps. For example, af
 This pattern maps directly to the [function chaining](../common/durable-task-sequence.md) pattern in the Durable Task programming model.
 
 **When to use:** Content-generation pipelines, multi-step document processing, sequential data enrichment, workflows that require intermediate validation gates.
+
+> [!NOTE]
+> In all the following examples, the orchestration state is automatically checkpointed at each `await`/`yield` statement. If the host process crashes or the VM recycles, the orchestration resumes from the last completed step rather than starting over.
 
 ::: zone pivot="durable-functions"
 
@@ -89,9 +104,6 @@ public async Task<string> PromptChainingOrchestration(
 }
 ```
 
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `await` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
-
 # [Python](#tab/python)
 
 ```python
@@ -110,9 +122,6 @@ def prompt_chaining_orchestration(context: df.DurableOrchestrationContext):
 
     return final_content
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `yield` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 # [JavaScript](#tab/javascript)
 
@@ -134,9 +143,6 @@ df.app.orchestration("promptChainingOrchestration", function* (context) {
     return finalContent;
 });
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `yield` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 # [Java](#tab/java)
 
@@ -161,9 +167,6 @@ public String promptChainingOrchestration(
     return finalContent;
 }
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `await()` invocation. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 ---
 
@@ -197,9 +200,6 @@ public class PromptChainingOrchestration : TaskOrchestrator<string, string>
 }
 ```
 
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `await` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
-
 # [Python](#tab/python)
 
 ```python
@@ -215,9 +215,6 @@ def prompt_chaining_orchestration(ctx: task.OrchestrationContext, topic: str) ->
 
     return final_content
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `yield` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 # [JavaScript](#tab/javascript)
 
@@ -237,9 +234,6 @@ const promptChainingOrchestration: TOrchestrator = async function* (
     return finalContent;
 };
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `yield` statement. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 # [Java](#tab/java)
 
@@ -262,9 +256,6 @@ ctx -> {
     ctx.complete(finalContent);
 }
 ```
-
-> [!NOTE]
-> The state of the orchestration is automatically checkpointed at each `await()` invocation. If the host process crashes or the VM recycles, the orchestration will automatically resume from the last completed step rather than starting over.
 
 ---
 
@@ -679,7 +670,7 @@ ctx -> {
 
 ::: zone-end
 
-### Orchestrator-workers
+### Orchestrator-workers pattern
 
 In this pattern, a central orchestrator first calls an LLM (via an activity) to plan the work. Based on the LLM's output, the orchestrator then determines what subtasks are needed. The orchestrator then dispatches those subtasks to specialized worker orchestrations. The key difference from parallelization is that the set of subtasks isn't fixed at design time; the orchestrator determines them dynamically at runtime.
 
@@ -913,7 +904,7 @@ ctx -> {
 
 ::: zone-end
 
-### Evaluator-optimizer
+### Evaluator-optimizer pattern
 
 The _evaluator-optimizer_ pattern pairs a generator agent with an evaluator agent in a refinement loop. The generator produces output, the evaluator scores it against quality criteria and provides feedback, and the loop repeats until the output passes or a maximum iteration count is reached. Because each loop iteration is checkpointed, a crash after three successful rounds of refinement won't lose that progress.
 
@@ -1195,8 +1186,8 @@ There are two recommended approaches to implementing agent loops with the Durabl
 
 | Approach | Description | When to use |
 | -------- | ----------- | ----------- |
-| **Orchestration-based** | Write the agent loop as a durable orchestration. Tool calls are implemented as activities, and human input uses external events. The orchestration controls the loop structure while the LLM controls the decisions within it. | You need fine-grained control over the loop, per-tool retry policies, distributed load balancing of tool calls, or the ability to debug the loop in your IDE with breakpoints. |
-| **Entity-based** | Each agent instance is a durable entity. The agent framework manages the loop internally, and the entity provides durable state and session persistence. | You're using an agent framework (like [Microsoft Agent Framework](/agent-framework/overview)) that already implements the agent loop and you want to add durability with minimal code changes. |
+| **Orchestration-based** | The agent loop is a durable orchestration. Tool calls are activities; human input uses external events. | Fine-grained control, per-tool retry policies, distributed tool execution, IDE debugging. |
+| **Entity-based** | Each agent instance is a durable entity. The agent framework manages the loop; the entity provides session persistence. | You're using a framework (like [Microsoft Agent Framework](/agent-framework/overview)) that already has an agent loop and you want to add durability with minimal changes. |
 
 ### Orchestration-based agent loops
 

@@ -203,10 +203,14 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 
 ### Qualifications
 
-- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](#create-a-support-request).
-- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.
-- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date.
-- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving Azure Storage data out of Azure are eligible for credits.
+- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](/azure/cost-management-billing/manage/cancel-azure-subscription).  For customers with billing address in the UK that transfer data from UK datacenters, your notice to leave may be for any number of single Azure services.
+
+- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.  For customers with billing address in the UK transferring data from UK datacenters, you must finish all service consumption for any single Azure services for which you are requesting your invoice-level credit.
+
+- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date. For customers with billing address in the UK transferring data from UK datacenters, you receive credit for a maximum of 180 days of egress.
+
+- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving data out of Azure are eligible for credits.
+
 - Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.

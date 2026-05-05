@@ -2,8 +2,8 @@
 title: Configure a credential in Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: Configure a credential in your Azure Device Registry namespace to enable Microsoft-backed X.509 certificate management for IoT devices.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to

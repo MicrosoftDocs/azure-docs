@@ -1,7 +1,7 @@
 ---
 author: hhunter-ms
 title: Durable Functions settings in host.json - Azure Functions
-description: Learn about the Durable Functions configuration properties in the host.json file for Azure Functions.
+description: "Explore Durable Functions configuration properties in host.json for Azure Functions. Discover how to customize task hub, storage, and performance settings for your durable orchestrations."
 ms.topic: reference
 ms.service: azure-functions
 ms.subservice: durable
@@ -11,7 +11,7 @@ ms.author: hannahhunter
 
 # Durable Functions settings in host.json
 
-This section provides information about the Durable Functions configuration properties in *host.json*. For information about general settings in *host.json*, see [host.json reference for Azure Functions 1.x](../functions-host-json-v1.md) or [host.json reference for Azure Functions 2.x and later](../functions-host-json.md).
+Configure Durable Functions settings in the *host.json* file to control task hub behavior, storage providers, and performance options for your Azure Functions app. For information about general settings in *host.json*, see [host.json reference for Azure Functions 1.x](../functions-host-json-v1.md) or [host.json reference for Azure Functions 2.x and later](../functions-host-json.md).
 
 [!INCLUDE [durabletask](../../../includes/functions-host-json-durabletask.md)]
 

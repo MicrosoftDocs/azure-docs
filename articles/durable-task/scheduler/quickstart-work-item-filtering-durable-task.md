@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Use work item filtering with the .NET Durable Task SDK"
-description: Learn how to run a .NET Durable Task SDK sample that uses work item filtering with Durable Task Scheduler and deploy it to Azure Container Apps.
+title: "Quickstart: Work Item Filtering With .NET Durable Task SDK"
+description: Learn how to use work item filtering with the .NET Durable Task SDK to route orchestrations to dedicated workers. Deploy the sample to Azure Container Apps with Azure Developer CLI.
 ms.subservice: durable-task-scheduler
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
 ms.topic: quickstart
-ms.date: 03/05/2026
+ms.date: 05/04/2026
 ms.custom:
   - build-2025
 ---
@@ -14,6 +14,8 @@ ms.custom:
 # Quickstart: Use work item filtering with the .NET Durable Task SDK
 
 In this quickstart, you learn how to run a .NET Durable Task SDK sample that uses work item filtering to route orchestrations and activities to dedicated workers.
+
+Without work item filtering, Durable Task Scheduler delivers all work items to every connected worker — regardless of what each worker actually implements. This causes errors or silent hangs in multi-service deployments and rolling upgrades. With work item filtering, each worker declares the orchestrations and activities it hosts, and the scheduler routes work items only to matching workers.
 
 > [!div class="checklist"]
 >
@@ -44,13 +46,13 @@ cd samples/scenarios/WorkItemFilteringSplitActivities
 1. Pull the emulator image:
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:latest
+   docker pull mcr.microsoft.com/durable-task/emulator:latest
    ```
 
 1. Run the emulator:
 
    ```bash
-   docker run -d --name dts-emulator -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
+   docker run -d --name dts-emulator -p 8080:8080 -p 8082:8082 mcr.microsoft.com/durable-task/emulator:latest
    ```
 
 1. Build the sample:
@@ -87,7 +89,16 @@ cd samples/scenarios/WorkItemFilteringSplitActivities
 
 1. Open the emulator dashboard at `http://localhost:8082` to monitor orchestration activity.
 
-### Expected output
+> [!TIP]
+> As an alternative to opening four terminals manually, you can run the included convenience script:
+>
+> ```bash
+> ./run-local.sh
+> ```
+>
+> It starts the emulator, builds the solution, and launches all workers and the client.
+
+### Expected output from work item filtering
 
 You should see:
 
@@ -98,7 +109,28 @@ You should see:
 
 This behavior confirms that work item filtering routes items only to workers that registered matching task types.
 
+### Try it: Strict routing experiment
+
+To see that routing is strict (no fallback to other workers):
+
+1. Stop the Shipper worker (Ctrl+C in Terminal 3).
+1. Run the client again to schedule new orchestrations.
+1. Observe that:
+   - The Orchestrator worker picks up and starts orchestrations.
+   - The Validator worker completes `ValidateOrder` for each order.
+   - `ShipOrder` work items remain **pending** — they aren't delivered to the Validator or Orchestrator worker.
+   - The orchestrations stay in "Running" status, waiting for `ShipOrder` to complete.
+1. Restart the Shipper worker — the pending `ShipOrder` work items are delivered immediately and the orchestrations complete.
+
+This demonstrates that work items are routed only to workers with matching filters. There is no fallback.
+
 ## Deploy using Azure Developer CLI
+
+1. Authenticate with Azure (if you haven't already):
+
+   ```azdeveloper
+   azd auth login
+   ```
 
 1. From `samples/scenarios/WorkItemFilteringSplitActivities`, run:
 
@@ -127,7 +159,10 @@ The `azd up` command provisions Azure resources and deploys four containerized s
    - `validator-worker`: `ValidateOrder` activity.
    - `shipper-worker`: `ShipOrder` activity.
 
-## Understanding the code
+> [!NOTE]
+> Each Container App is configured with a KEDA scale rule (`azure-durabletask-scheduler`) that automatically scales workers from 0 to 10 replicas based on the pending work item backlog. When the client finishes its loop and no work items remain, workers scale back to zero. For more information, see [Durable Task Scheduler autoscale on Azure Container Apps](../sdks/durable-task-scheduler-auto-scaling.md).
+
+## Understand the work item filtering code
 
 The orchestration calls two activities in sequence. The scheduler routes each activity work item to the worker that registered it.
 
@@ -162,7 +197,7 @@ For example:
 - `ValidatorWorker` registers `ValidateOrder`.
 - `ShipperWorker` registers `ShipOrder`.
 
-Because filters are derived from registration, workers don't receive unmatched work item types.
+When a worker connects to Durable Task Scheduler, the SDK sends its filter list. The scheduler creates per-filter queues and routes each work item to the matching queue. Workers never receive work item types they didn't register.
 
 ## Clean up resources
 

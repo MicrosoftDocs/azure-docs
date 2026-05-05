@@ -39,11 +39,11 @@ When attacking cloud infrastructure, adversaries often attack multiple resources
 When targeting Azure environments, ransomware attackers often exploit:
 
 - **Misconfigured Azure resources**: Publicly exposed storage accounts, databases, or virtual machines with weak access controls
-- **Compromised Azure credentials**: Stolen Azure AD accounts, service principals, or managed identities that provide access to Azure resources
+- **Compromised Azure credentials**: Stolen Microsoft Entra ID accounts, service principals, or managed identities that provide access to Azure resources
 - **Vulnerable Azure VMs**: Unpatched virtual machines accessible via Remote Desktop Protocol (RDP) or SSH
 - **Weak network security**: Improperly configured Network Security Groups (NSGs) or Azure Firewall rules
 - **Inadequate backup protection**: Azure Backup configurations that lack immutability or MFA protection
-- **Poor identity security**: Azure AD accounts without multifactor authentication or Conditional Access policies
+- **Poor identity security**: Microsoft Entra ID accounts without multifactor authentication or Conditional Access policies
 
 Microsoft Defender for Cloud continuously monitors for these vulnerabilities in your Azure environment. For comprehensive guidance on attack techniques and defense strategies, see [What is ransomware?](/security/ransomware/human-operated-ransomware)
 

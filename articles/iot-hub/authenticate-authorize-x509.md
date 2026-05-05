@@ -2,10 +2,10 @@
 title: Authenticate with X.509 certificates
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses X.509 certificates to authenticate IoT hubs and devices. 
-author: cwatson-cat
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
-ms.author: cwatson
+ms.author: sethm
 ms.topic: concept-article
 ms.date: 01/31/2025
 ms.custom:

@@ -634,6 +634,8 @@ items:
                 items:
                   - name: Best practices
                     href: access-tiers-best-practices.md
+                  - name: Cost optimization comparison
+                    href: blob-cost-optimization-services.md
                   - name: Smart tiering
                     href: access-tiers-smart.md
                   - name: Change a blob's access tier

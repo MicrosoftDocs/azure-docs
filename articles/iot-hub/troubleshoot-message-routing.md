@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure IoT message routing
 description: How to perform troubleshooting for Azure IoT Hub message routing
-author: cwatson-cat
+author: sethmanheim
 
-ms.author: cwatson
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 05/06/2020

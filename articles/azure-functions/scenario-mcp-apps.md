@@ -92,7 +92,7 @@ Use the Azure Developer CLI to create an Azure Functions code project from a tem
     azd init --template remote-mcp-functions-dotnet -e mcpweather-dotnet
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The -e flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript" 
 2. Press <kbd>F1</kbd> to open the command palette. Search for and run `Azure Developer CLI (azd): init`.
@@ -265,25 +265,25 @@ The `get_weather_widget` function serves the bundled HTML file at that URI using
 You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"
-The function code for the MCP Apps weather tool is defined in the `src/functions/weatherMcpApp.ts` file. In this function, the `metadata` property on `app.mcpTool()` adds UI metadata to the `getWeather` tool when it's registered.
+The function code for the MCP Apps weather tool is defined in the `mcp-weather-app/src/functions/weatherMcpApp.ts` file. In this function, the `metadata` property on `app.mcpTool()` adds UI metadata to the `getWeather` tool when it's registered.
 
-<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/weatherMcpApp.ts" range="102-110" ::: -->
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="97-106" :::
 
 The `getWeather` handler fetches weather data for a location and returns it as JSON.
 
-<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/weatherMcpApp.ts" range="54-87" ::: -->
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="53-85" :::
 
 The `app.mcpResource()` function registers the `getWeatherWidget` handler, which serves the HTML widget.
 
-<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/weatherMcpApp.ts" range="89-97" ::: -->
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="87-95" :::
 
 The `getWeatherWidget` handler reads and returns the bundled HTML file.
 
-<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/weatherMcpApp.ts" range="29-52" ::: -->
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="29-51" :::
 
 The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host to fetch the interactive UI from `ui://weather/index.html` after the tool runs.
 
-<!-- :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/weatherMcpApp.ts" range="13-17" ::: -->
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="12-17" :::
 
 You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) GitHub repository.  
 ::: zone-end  

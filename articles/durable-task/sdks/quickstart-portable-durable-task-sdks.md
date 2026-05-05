@@ -1,13 +1,13 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler"
+title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task
-description: Learn how to configure an app for the Durable Task Scheduler using the Durable Task SDKs.
+description: Create orchestrations using Durable Task SDKs and the Durable Task Scheduler emulator with the fan-out/fan-in pattern for parallel processing. Get started now.
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 02/25/2026
+ms.date: 05/05/2026
 zone_pivot_groups: df-languages
 ms.custom:
   - build-2025
@@ -15,11 +15,16 @@ ms.custom:
 
 # Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler
 
-The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../common/durable-task-fan-in-fan-out.md) to perform parallel processing. 
+The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you create a sample app that uses [the fan-out/fan-in application pattern](../common/durable-task-fan-in-fan-out.md) to process multiple work items in parallel, then aggregate the results.
+
+By the end of this quickstart, you'll have a working orchestration that fans out tasks to parallel workers and fans in the results — all running locally with the Durable Task Scheduler emulator.
 
 ::: zone pivot="powershell"
 
 [!INCLUDE [preview-sample-limitations](../scheduler/includes/preview-sample-limitations.md)]
+
+> [!NOTE]
+> PowerShell support for the Durable Task SDKs is in preview. For a full quickstart experience, select a different language tab above (C#, Python, Java, or JavaScript).
 
 ::: zone-end
 
@@ -39,7 +44,7 @@ Before you begin:
 
 ::: zone pivot="csharp"
 
-- Make sure you have [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later.
+- Make sure you have [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later.
 - Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -74,7 +79,7 @@ Before you begin:
 
 ## Set up the Durable Task Scheduler emulator
 
-The application code looks for a deployed scheduler and task hub resource. If none is found, the code falls back to the emulator. The emulator simulates a scheduler and task hub in a Docker container, making it ideal for the local development required in this quickstart.
+The emulator simulates the Durable Task Scheduler and a task hub inside a Docker container, making it ideal for local development. The sample code connects to the emulator by default when no environment variables are set.
 
 ::: zone-end
 
@@ -497,7 +502,7 @@ Result: {"totalItems":10,"sum":385,"average":38.5,"results":[...]}
 
 ::: zone pivot="csharp,python,java,javascript"
 
-Now that you ran the project locally, you can now learn how to [deploy to Azure hosted in Azure Container Apps](#next-steps). 
+Now that you've run the project locally, learn how to [deploy to Azure hosted in Azure Container Apps](#next-steps).
 
 ## View orchestration status and history
 
@@ -672,7 +677,7 @@ To demonstrate [the fan-out/fan-in pattern](../common/durable-task-fan-in-fan-ou
 
 Using fan-out/fan-in, the orchestration creates parallel activity tasks and waits for all to complete. 
 
-```csharp
+```python
 # Orchestrator function
 def fan_out_fan_in_orchestrator(ctx, work_items: list) -> dict:
     logger.info(f"Starting fan out/fan in orchestration with {len(work_items)} items")
@@ -733,10 +738,10 @@ result = client.wait_for_orchestration_completion(
 To demonstrate [the fan-out/fan-in pattern](../common/durable-task-fan-in-fan-out.md), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
-1. Fans out by creating a separate task for each work item using ``.
+1. Fans out by creating a separate task for each work item using `callActivity`.
 1. Executes all tasks in parallel.
-1. Waits for all tasks to complete using ``.
-1. Fans in by aggregating all individual results using ``.
+1. Waits for all tasks to complete using `allOf`.
+1. Fans in by aggregating all individual results using `stream().mapToInt().sum()`.
 1. Returns the final aggregated result to the client.
 
 The project contains:

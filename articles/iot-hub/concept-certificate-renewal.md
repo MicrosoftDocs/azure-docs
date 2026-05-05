@@ -2,8 +2,8 @@
 title: Certificate Renewal in Azure IoT Hub Certificate Management (Preview)
 titleSuffix: Azure IoT Hub
 description: Learn how certificate renewal works in Azure IoT Hub certificate management, including when to renew, how the renewal flow works, and how devices can track certificate expiration.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: concept-article

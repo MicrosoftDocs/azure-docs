@@ -2,8 +2,8 @@
 title: Revoke Certificates and Delete Policies in Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: Learn how to revoke device and policy certificates, and delete policies and credential resources in Azure Device Registry for IoT Hub.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
