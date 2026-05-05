@@ -648,6 +648,167 @@ Site update strategy configuration isn't currently supported in Visual Studio Co
 
 ---
 
+## Configure site-scoped certificates
+
+Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. Managed certificates, App Service certificates, certificates imported from Key Vault, and uploaded certificates (both private and public) are all supported in preview with site-scoped storage.
+
+This feature requires the `siteScopedCertificatesEnabled` site property to be set to `true` on your function app. For more information, see [The siteScopedCertificatesEnabled property](#the-sitescopedcertificatesenabled-property).
+
+> [!IMPORTANT]
+> Newly created Flex Consumption apps have `siteScopedCertificatesEnabled` set to `true` by default. Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
+
+> [!NOTE]
+> Azure CLI and ARM template support for managing site-scoped certificates will be announced soon. Currently, use the Azure portal to add and configure certificates.
+
+### Limits
+
+The following limits apply to site-scoped certificates in the Flex Consumption plan:
+
+| Certificate type | Maximum per app |
+|---|---|
+| Private certificates (.pfx) | 3 |
+| Public certificates (.cer) | 3 |
+
+These limits include all certificate sources: uploaded certificates, certificates imported from Key Vault, managed certificates, and App Service certificates.
+
+### Private certificate requirements
+
+If you choose to upload or import a private certificate, your certificate must meet the following requirements:
+
+- Be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)
+- Contain all intermediate certificates and the root certificate in the certificate chain
+
+> [!NOTE]
+> Elliptic Curve Cryptography (ECC) certificates work with Flex Consumption when uploaded as a PFX.
+
+### Upload a private certificate
+
+After you get a certificate from your certificate provider, make it ready for your function app by exporting it as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that includes all intermediate certificates in the chain.
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the left menu, expand **Settings** and select **Certificates**.
+1. Select **Bring your own certificates (.pfx)** > **+ Add certificate**.
+1. Under **Source**, select **Upload certificate (.pfx)**.
+1. Select your .pfx file and enter the certificate password.
+1. Provide a **Certificate friendly name** for identification.
+1. Select **Validate**, then **Add**.
+
+After the operation finishes, the certificate appears in the **Bring your own certificates (.pfx)** list.
+
+### Import a certificate from Key Vault
+
+If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app. We recommend using a managed identity to authenticate to Key Vault, which provides better security than service principals.
+
+#### Grant Key Vault access using managed identity
+
+1. [Enable a managed identity](../app-service/overview-managed-identity.md) for your function app if you haven't already:
+
+    ```azurecli
+    az functionapp identity assign \
+        --resource-group <RESOURCE_GROUP> \
+        --name <APP_NAME>
+    ```
+
+1. Grant the managed identity the **Key Vault Certificate User** role on your key vault using RBAC. This approach is recommended over access policies:
+
+    ```azurecli
+    # Get the principal ID of the managed identity
+    principalId=$(az functionapp identity show \
+        --resource-group <RESOURCE_GROUP> \
+        --name <APP_NAME> \
+        --query principalId -o tsv)
+
+    # Assign Key Vault Certificate User role
+    az role assignment create \
+        --role "Key Vault Certificate User" \
+        --assignee "$principalId" \
+        --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT_NAME>"
+    ```
+
+    > [!NOTE]
+    > If your key vault is configured to disable public access, make sure to select **Allow trusted Microsoft services to bypass this firewall** so that the Azure Functions platform can access the vault. For more information, see [Key Vault firewall-enabled trusted services only](/azure/key-vault/general/network-security#key-vault-firewall-enabled-trusted-services-only).
+
+#### Import the certificate from your vault
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the left menu, expand **Settings** and select **Certificates**.
+1. Select **Bring your own certificates (.pfx)** > **+ Add certificate**.
+1. Under **Source**, select **Import from Key Vault**.
+1. Select **Select key vault certificate**, then choose the **Subscription**, **Key Vault**, and **Certificate**.
+1. After you finish with your selection, choose **Select** > **Validate**, and then select **Add**.
+
+After the operation finishes, the certificate appears in the **Bring your own certificates (.pfx)** list.
+
+> [!NOTE]
+> If you update your certificate in Key Vault with a new certificate, the platform background job automatically syncs the updated certificate to your function app within 24 hours.
+
+### Upload a public certificate
+
+Public certificates are supported in the `.cer` format. Upload a public certificate to your function app when your code needs to access remote services that require certificate authentication.
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the left menu, expand **Settings** and select **Certificates**.
+1. Select **Public key certificates (.cer)** > **+ Add certificate**.
+1. Select your `.cer` file and provide a **Certificate friendly name**.
+1. Select **Add**.
+
+### Make a certificate accessible to your code
+
+After adding a certificate, you must explicitly make it accessible to your function code. Site-scoped certificates use a per-certificate toggle instead of the `WEBSITE_LOAD_CERTIFICATES` app setting.
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the left menu, expand **Settings** and select **Certificates**.
+1. Select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
+1. Select **...** (ellipsis) next to the certificate you want to make accessible, and then choose **Make accessible to app code**.
+
+When **Accessible to app code** is enabled for a certificate, the platform loads it into the runtime environment on all instances. No additional app settings are needed.
+
+> [!TIP]
+> The `WEBSITE_LOAD_CERTIFICATES` app setting isn't required for site-scoped certificates. Access is controlled per certificate by using the **Accessible to app code** toggle.
+
+### Certificate file locations
+
+In Flex Consumption (Linux), accessible certificates are made available as files in these directories:
+
+| Certificate type | Path |
+|---|---|
+| Public certificates (.cer) | `/var/ssl/certs` |
+| Private certificates (.pfx) | `/var/ssl/private` |
+
+The certificate file names are the certificate thumbprints. For information about loading certificates in your code across different languages, see [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md). Note that for Flex Consumption you should load the certificate from the file paths shown above rather than from the Windows certificate store.
+
+### Renew or update a certificate
+
+How you update an expiring certificate depends on the certificate source:
+
+- **Certificates imported from Key Vault**: When you renew a certificate in Key Vault, the platform background job automatically syncs the updated certificate to your function app within 24 hours. The new certificate version is loaded to all instances without any manual steps.
+
+- **Uploaded certificates**: Upload the new certificate, then make it accessible to your app code. If your code references the certificate by thumbprint, you also need to update any thumbprint references in your code or app settings.
+
+### The `siteScopedCertificatesEnabled` property
+
+The `siteScopedCertificatesEnabled` property is a site-level property on the `Microsoft.Web/sites` resource, not an app setting. Newly created apps have it set to `true` by default. Without this property enabled, certificates can't be loaded into the runtime environment.
+
+To check the current value of this property:
+
+```azurecli
+az rest --method get \
+    --url "https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>?api-version=2024-04-01" \
+    --query "properties.siteScopedCertificatesEnabled"
+```
+
+### Site-scoped vs. webspace-scoped certificates
+
+If you've used certificates with other App Service hosting plans (Premium, Dedicated), be aware of these differences with site-scoped certificates in Flex Consumption:
+
+| Behavior | Site-scoped (Flex Consumption) | Webspace-scoped (other plans) |
+|---|---|---|
+| Certificate scope | Bound to the individual app | Shared across apps in the same resource group, region, and OS |
+| Making accessible to code | Per-certificate toggle (**Accessible to app code**) | `WEBSITE_LOAD_CERTIFICATES` app setting with thumbprints |
+| Max private certificates | 3 per app | 1,000 per webspace |
+| Max public certificates | 3 per app | 1,000 per App Service plan |
+| Key Vault sync | Automatic within 24 hours | Automatic within 24 hours |
+
 ## View currently supported regions
 
 To view the list of regions that currently support Flex Consumption plans: 
