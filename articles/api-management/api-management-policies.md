@@ -38,7 +38,6 @@ More information about policies:
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
-| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 
 ## Authentication and authorization
@@ -84,8 +83,6 @@ More information about policies:
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieves a cached item by key. | Yes | Yes | Yes | Yes | Yes |
 |  [Store value in cache](cache-store-value-policy.md) | Stores an item in the cache by key. | Yes | Yes | Yes | Yes | Yes |
 |  [Remove value from cache](cache-remove-value-policy.md) | Removes an item in the cache by key. | Yes | Yes | Yes | Yes | Yes |
-|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs lookup in Azure OpenAI API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
-|  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes | No |
 |  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs lookup in large language model API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
 |  [Store responses of large language model API requests to cache](llm-semantic-cache-store-policy.md) | Caches response according to the large language model API cache configuration. | Yes | Yes | Yes | Yes | No |
 
@@ -137,7 +134,6 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|----------|
 |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes<sup>1</sup> | Yes | Yes | Yes |
 |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes | Yes | Yes |
-|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | Yes | Yes |
 |  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | Yes | Yes |
 
 
@@ -156,13 +152,9 @@ More information about policies:
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
 |---------|---------|---------|---------|---------|--------|----------|
-| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
-|  [Emit Azure OpenAI token metrics](azure-openai-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model tokens through Azure OpenAI service APIs. | Yes | Yes | No | Yes | Yes |
 |  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | Yes | Yes |
-|  [Get cached responses of Azure OpenAI API requests](azure-openai-semantic-cache-lookup-policy.md) | Performs lookup in Azure OpenAI API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
 |  [Get cached responses of large language model API requests](llm-semantic-cache-lookup-policy.md) | Performs lookup in large language model API cache using semantic search and returns a valid cached response when available. | Yes | Yes | Yes | Yes | No |
-|  [Store responses of Azure OpenAI API requests to cache](azure-openai-semantic-cache-store-policy.md) | Caches response according to the Azure OpenAI API cache configuration. | Yes | Yes | Yes | Yes | No |
 |  [Store responses of large language model API requests to cache](llm-semantic-cache-store-policy.md) | Caches response according to the large language model API cache configuration. | Yes | Yes | Yes | Yes | No |
 | [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) | Enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. | Yes | Yes | Yes | Yes | Yes |
 

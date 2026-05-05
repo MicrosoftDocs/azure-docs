@@ -1,20 +1,20 @@
 ---
-title: Use Managed Identities with Azure Service Bus
+title: Use Managed Identities to access Azure Service Bus
 description: Learn how to authenticate and access Azure Service Bus queues, topics, and subscriptions by using managed identities for Azure resources.
 ms.topic: how-to
-ms.date: 02/11/2025
-
+ms.date: 05/02/2026
+ms.custom: subject-msia
 #customer intent: As a developer, I want to use managed identities to authenticate my application to Azure Service Bus so that I can avoid storing credentials in my code.
 
 ---
 
-# Use managed identities with Azure Service Bus
+# Use managed identities to access Azure Service Bus resources
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to Azure Service Bus without storing credentials in your code.
+Managed identities for Azure resources let your application authenticate to Azure Service Bus without storing credentials in your code. Azure automatically handles the identity and its credentials for you.
 
-This article walks you through enabling a managed identity, assigning the appropriate Service Bus role, and connecting to Service Bus from your application code.
+Storing credentials in code creates security risks and maintenance overhead. Managed identities eliminate these concerns by providing automatic credential management through Microsoft Entra ID.
 
-If you're not familiar with managed identities, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This article shows you how to configure managed identity authentication for Service Bus so your application can securely send and receive messages without hardcoded credentials.
 
 ## Prerequisites
 
@@ -42,16 +42,16 @@ The following table lists the Azure built-in roles for authorizing access to a S
 | [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender) | Ability to send messages to Service Bus queues and topics |
 | [Azure Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver) | Ability to receive messages from Service Bus queues and subscriptions |
 
-### Choose the resource scope
+### Understand Service Bus RBAC scope levels
 
 Before you assign an Azure role, determine the scope of access that the managed identity needs. Grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Service Bus resources, starting with the narrowest scope:
 
-- **Queue, topic, or subscription**: Role assignment applies to the specific Service Bus entity.
+- **Queue, topic, or topic subscription**: Role assignment applies to that specific messaging entity only.
 - **Service Bus namespace**: Role assignment spans the entire topology of Service Bus under the namespace.
 - **Resource group**: Role assignment applies to all the Service Bus resources under the resource group.
-- **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
+- **Azure subscription**: Role assignment applies to all the Service Bus resources across all resource groups in the Azure subscription.
 
 Azure role assignments might take up to five minutes to propagate.
 
@@ -101,9 +101,9 @@ In .NET, the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebu
 var client = new ServiceBusClient("contoso.servicebus.windows.net", new DefaultAzureCredential());
 ```
 
-You send and receive messages as usual by using [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) or [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor).
+Send and receive messages as usual by using [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) or [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor).
 
-For step-by-step instructions to send and receive messages by using a managed identity, see the following quickstarts. These quickstarts have the code to use a service principal to send and receive messages, but the code is the same for using a managed identity.  
+For step-by-step instructions to send and receive messages by using a managed identity, see the following quickstarts. These quickstarts have code to use a service principal to send and receive messages, but the code is the same for using a managed identity.  
 
 - [.NET](service-bus-dotnet-get-started-with-queues.md)
 - [Java](service-bus-java-how-to-use-queues.md)
@@ -111,9 +111,7 @@ For step-by-step instructions to send and receive messages by using a managed id
 - [Python](service-bus-python-how-to-use-queues.md)
 
 > [!NOTE]
-> Managed identities work only inside the Azure environment, on Azure App Service, Azure virtual machines, and scale sets. For .NET applications, the `Microsoft.Azure.Services.AppAuthentication` library provides an abstraction over this protocol and supports a local development experience. The Service Bus NuGet package uses this library.
->
-> You can also use this library to test your code locally on your development machine by using your user account from Visual Studio, the Azure CLI, or Microsoft Entra integrated authentication. For more information on local development options with this library, see [App Authentication client library for .NET - version 1.6.0](/dotnet/api/overview/azure/service-to-service-authentication).  
+> Managed identities work only inside the Azure environment, on Azure App Service, Azure virtual machines, and scale sets. For .NET applications, the `Microsoft.Azure.Services.AppAuthentication` library (used by the Service Bus NuGet package) provides an abstraction over this protocol and supports local development. You can test your code locally using your user account from Visual Studio, the Azure CLI, or Microsoft Entra integrated authentication. For more information, see [App Authentication client library for .NET](/dotnet/api/overview/azure/service-to-service-authentication).  
 
 ## Related content
 

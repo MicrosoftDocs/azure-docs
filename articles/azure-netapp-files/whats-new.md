@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## April 2026 
 
+* [Backup enabled by default](protect-volumes.md) (preview)
+    
+    Azure NetApp Files now enables backup by default when creating new volumes, delivering a more seamless and secure data protection experience. Backups are automatically provisioned during volume creation, reducing setup effort while still allowing customers to opt out when needed. This enhancement improves usability and strengthens data resilience. This feature is available in all Azure NetApp Files supported regions.
+
 * Azure NetApp Files supports [one Active Directory connection per NetApp account](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) as the new default (GA)
 
     One Active Directory connection per NetApp account is now the default in Azure NetApp Files. Registration is no longer required to take advantage of this feature which became generally available (GA) in May 2025. Each NetApp account maintains its own Active Directory connection and allows connecting to its own Active Directory forest and domain, except those that were created as part of the preview of shared Active Directory connection. For more information, see the [Active Directory field in NetApp accounts](create-active-directory-connections.md#netapp-accounts-and-active-directory-type).

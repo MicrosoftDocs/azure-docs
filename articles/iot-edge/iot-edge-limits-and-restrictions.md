@@ -3,7 +3,7 @@ title: Azure IoT Edge limits and restrictions
 description: Understand the limits and restrictions when using Azure IoT Edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 04/22/2026
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -35,11 +35,11 @@ then the parent IoT Edge device in layer L5 has **202 total incoming connections
 You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
 > [!IMPORTANT]
-> Increasing the maximum number of connected clients can cause IoT Edge to have issues reporting its state in twin reported properties if the number of clients exceeds a few hundred, due to IoT Hub twin size limits.
+> [Module twin for edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties) holds information about connected clients in its reported properties, where size is limited. When it reaches the maximum size of the twin's reported properties for increasing the number of connected clients, IoT Edge becomes unable to report its state correctly. This can happen if the number of clients exceeds a few hundred. Before setting `MaxConnectedClients`, consider testing with production scenarios.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
-### Size of desired properties
+### Size of module twin properties
 
 IoT Hub enforces these restrictions:
 

@@ -218,6 +218,7 @@ To enable secure integration between your IoT hub and ADR namespace,  assign rol
 1. In the **Role** field, select the **Privileged administrator roles** tab.
 1. Search for and select **Contributor**.
 1. Select **Next**.
+1. In **Assign access to**, choose **User, group, or service principal**.
 1. Select **Select members**, then paste in the ADR namespace principal ID you copied in a previous step. Select the matching identity.
 1. Select **Review + assign** to finish.
 
@@ -226,7 +227,7 @@ Repeat these steps to assign the **IoT Hub Registry Contributor** role:
 1. Select **+ Add** > **Add role assignment** again.
 1. In the **Role** field, search for and select **IoT Hub Registry Contributor**.
 1. Select **Next**.
-1. In **Assign access to**, choose **Managed identity**.
+1. In **Assign access to**, choose **User, group, or service principal**.
 1. Select **Select members**, then paste in the ADR namespace principal ID you copied in a previous step. Select the matching identity.
 1. Select **Review + assign** to finish.
 
