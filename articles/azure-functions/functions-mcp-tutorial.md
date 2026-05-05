@@ -364,6 +364,10 @@ Now you can deploy the server project:
 
 When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ## Enable built-in server authorization and authentication
 
 The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 

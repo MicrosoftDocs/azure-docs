@@ -495,6 +495,10 @@ These articles show how to trigger from an Azure Service Bus queue or topic.
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Next step
 
 > [!div class="nextstepaction"]

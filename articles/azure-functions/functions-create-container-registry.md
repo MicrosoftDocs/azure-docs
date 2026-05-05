@@ -20,6 +20,11 @@ You can also create a function app in the Azure portal by using an existing cont
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]  

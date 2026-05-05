@@ -288,6 +288,10 @@ You can review the code that defines the Event Grid blob trigger in the [Process
 - Process and copy files to the destination container using Azure PowerShell modules
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 After you review and verify your function code locally, it's time to publish the project to Azure.
 
 ## Create Azure resources and deploy

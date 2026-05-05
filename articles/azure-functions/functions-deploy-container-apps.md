@@ -178,6 +178,10 @@ The request URL should look something like this:
 `https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample`
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Clean up resources
 
 If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. 

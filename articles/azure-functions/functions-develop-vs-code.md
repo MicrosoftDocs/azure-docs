@@ -614,6 +614,10 @@ By default, all C# projects are created as [C# compiled class library projects](
 After you complete these steps, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. When you specify this default language, all projects that you create default to C# script projects. You're not prompted to choose a project language when a default is set. To create projects in other languages, you must change this setting or remove it from the user settings.json file. After you remove this setting, you're again prompted to choose your language when you create a project.
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Command palette reference
 
 The Azure Functions extension provides a useful graphical interface for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). These Azure Functions commands are available:

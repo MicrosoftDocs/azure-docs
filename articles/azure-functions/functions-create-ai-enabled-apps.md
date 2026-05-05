@@ -195,6 +195,10 @@ Here are some reference samples for RAG-based scenarios:
 > Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## AI tools and frameworks for Azure Functions
 
 Functions lets you build apps in your preferred language and use your favorite libraries. Because of this flexibility, you can use a wide range of AI libraries and frameworks in your AI-enabled function apps. 

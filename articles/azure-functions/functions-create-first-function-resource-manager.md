@@ -163,6 +163,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ---
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.

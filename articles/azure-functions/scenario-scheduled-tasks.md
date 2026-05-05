@@ -346,6 +346,10 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 > The `runOnStartup` option is useful during development and testing because the function runs immediately when the host starts. In production, you should set this to `false` to avoid unexpected executions during deployments or restarts.
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 After you verify your function locally, it's time to publish it to Azure. 
 
 ## Deploy to Azure

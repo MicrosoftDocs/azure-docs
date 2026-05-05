@@ -89,6 +89,10 @@ Use these resources to better understand and plan for language support-related c
 
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Frequently asked questions
 
 This section provides you with answers to questions that are frequently asked about language support policies.

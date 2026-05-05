@@ -546,6 +546,10 @@ To update your project to Azure Functions 4.x:
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Behavior changes after version 1.x
 
 This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.

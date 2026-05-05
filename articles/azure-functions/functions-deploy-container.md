@@ -197,6 +197,11 @@ To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group 
 az group delete --name AzureFunctionsContainers-rg
 ```
 
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]

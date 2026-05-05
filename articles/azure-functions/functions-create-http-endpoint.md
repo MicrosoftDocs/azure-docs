@@ -118,6 +118,10 @@ If you aren't able to create your function code in the portal, you can instead c
     >[!TIP]
     >When publishing your new project, make sure to use the function app and related resources you just created. 
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ## Test the function
 
 [!INCLUDE [functions-test-function-portal](../../includes/functions-test-function-portal.md)]

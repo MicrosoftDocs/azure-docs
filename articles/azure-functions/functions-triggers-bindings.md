@@ -256,6 +256,10 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 >[!IMPORTANT]  
 >SDK types aren't currently supported for PowerShell apps.
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.

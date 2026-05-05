@@ -302,6 +302,10 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventhub).
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 After you verify your function locally, it's time to publish it to Azure. 
 
 ## Deploy to Azure

@@ -430,6 +430,10 @@ You can use the Core Tools to get the URL endpoints of your functions running in
     ---
 
     ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
     The `azd env get-value` command gets your function app name from the local environment. When you use the `--show-keys` option with `func azure functionapp list-functions`, the returned **Invoke URL:** value for each endpoint includes a function-level access key.
 
 1. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 

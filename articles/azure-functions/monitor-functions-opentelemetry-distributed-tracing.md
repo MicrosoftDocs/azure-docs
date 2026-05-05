@@ -1025,6 +1025,10 @@ azd down --no-prompt
 >
 >This command doesn't affect your local code project. 
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ## Related content
 
 + [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md)

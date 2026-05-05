@@ -196,3 +196,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 [previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end

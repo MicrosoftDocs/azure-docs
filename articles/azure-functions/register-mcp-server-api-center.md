@@ -97,6 +97,11 @@ Register your remote MCP server by adding it as an API:
 
     ![Server information in API Center portal](./media/functions-mcp/server-info-api-center-portal.png)
 
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Related articles
 
 [About MCP servers in Azure API Management](../api-management/mcp-server-overview.md)

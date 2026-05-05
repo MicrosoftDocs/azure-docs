@@ -425,6 +425,10 @@ When you export your data by using OpenTelemetry, keep these considerations in m
 * You don't need to manually register middleware; the Java worker autodiscovers `OpenTelemetryInvocationMiddleware`.
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Resource detectors and semantic conventions
 
 In Azure Functions, resource attributes describe the function app process and its environment. Span attributes describe a single invocation.

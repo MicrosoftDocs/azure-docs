@@ -282,3 +282,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 
 * [Azure Functions PowerShell developer guide](functions-reference-powershell.md)
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end

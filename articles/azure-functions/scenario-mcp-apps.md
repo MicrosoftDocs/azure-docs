@@ -359,6 +359,10 @@ You can now have GitHub Copilot use your remote MCP tools just as you did locall
 
 [!INCLUDE [cleanup](../../includes/functions-mcp-cleanup.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ## Next steps
 
 > [!div class="nextstepaction"]

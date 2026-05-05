@@ -237,6 +237,10 @@ azd down
 ```
 
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 <!--- Re-add this when the new tutorial gets published
 ## Next steps
 

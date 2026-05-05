@@ -96,6 +96,10 @@ Considerations for the Event Grid extension:
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

@@ -177,6 +177,10 @@ The ability to host your own SDK-based MCP servers in Functions is currently in 
 Not yet available.
 ::: zone-end 
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Related articles
 
 [Azure Functions custom handlers](functions-custom-handlers.md)

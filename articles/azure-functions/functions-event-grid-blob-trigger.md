@@ -265,6 +265,10 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Prepare local storage emulation
 
 Visual Studio Code uses Azurite to emulate Azure Storage services when running locally. Use Azurite to emulate the Azure Blob Storage service during local development and testing. 

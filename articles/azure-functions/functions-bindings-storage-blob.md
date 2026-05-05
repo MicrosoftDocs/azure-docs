@@ -122,6 +122,10 @@ Functions version 1.x doesn't support isolated worker process.
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

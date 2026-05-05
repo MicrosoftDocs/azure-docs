@@ -108,6 +108,10 @@ This deployment file creates these Azure resources needed by a function app that
     ``` 
     ::: zone-end 
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
     ---
 
     In this example, replace `<SUPPORTED_REGION>` with a region that [supports the Flex Consumption plan](./flex-consumption-how-to.md#view-currently-supported-regions). 

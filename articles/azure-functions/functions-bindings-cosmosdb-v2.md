@@ -97,6 +97,10 @@ Add the extension to your project by installing the [NuGet package](https://www.
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

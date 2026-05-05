@@ -578,6 +578,10 @@ The following considerations apply to Core Tools installations:
 + Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Related content
 
 - [Create and deploy function code to Azure using Visual Studio Code](/training/modules/develop-test-deploy-azure-functions-with-core-tools/)

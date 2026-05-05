@@ -305,6 +305,10 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. Should these resources already exist, the code is deployed to your function app, overwriting any existing code.
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Enable virtual network integration
 
 You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet). You can enable virtual network integration when you create your app or at a later time.

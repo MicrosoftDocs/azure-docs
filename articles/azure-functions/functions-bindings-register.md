@@ -63,6 +63,10 @@ To manually install binding extensions:
 As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#define-an-extension-bundle-reference).
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Related content
 
 - [Azure Functions trigger and binding example](functions-triggers-bindings.md#trigger-and-binding-definitions)

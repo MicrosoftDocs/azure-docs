@@ -253,6 +253,11 @@ You created resources to complete these quickstarts. You could be billed for the
 
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Related content
 
 + [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md)

@@ -525,6 +525,10 @@ If you don't see your programming language, go select it from the [top of the pa
 - Default thread count has been updated. Functions that aren't thread-safe or have high memory usage could be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]

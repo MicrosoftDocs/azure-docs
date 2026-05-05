@@ -66,6 +66,10 @@ Functions 1.x doesn't support running in an isolated worker process.
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]

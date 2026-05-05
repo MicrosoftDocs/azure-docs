@@ -472,3 +472,7 @@ If you need to revert to the previous language version:
 > [PowerShell developer guide](./functions-reference-powershell.md)
 
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end

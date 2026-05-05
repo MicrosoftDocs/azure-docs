@@ -92,6 +92,10 @@ terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=2
 ```
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 Make sure that `runtime_version` matches the language stack version you verified locally. Select your preferred language stack at the [top](#top) of the article.
 
 [!INCLUDE [terraform-plan-notes.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-notes.md)]
