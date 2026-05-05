@@ -119,6 +119,10 @@ PowerShell isn't currently supported for this feature.
 TypeScript isn't currently supported for this feature.
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+Python isn't currently supported for this feature.
+::: zone-end
+
 ::: zone pivot="programming-language-go"
 Go isn't currently supported for this feature.
 ::: zone-end
