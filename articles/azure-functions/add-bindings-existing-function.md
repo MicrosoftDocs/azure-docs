@@ -39,7 +39,32 @@ You need to update the function code and add a definition to the function.json c
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+In Go, you add triggers and bindings by using the fluent registration API in your `main()` function. Each trigger type has a dedicated registration method with functional options for configuration. No separate binding configuration file is needed.
+
+The following example adds a [Queue Storage output binding](functions-bindings-storage-queue-output.md) alongside an [HTTP trigger](functions-bindings-http-webhook-trigger.md):
+
+```go
+app := sdk.FunctionApp()
+app.HTTP("myFunction", myHandler,
+    sdk.WithMethods("GET", "POST"),
+    sdk.WithAuth("anonymous"),
+)
+```
+
+The Go worker currently supports the following trigger types:
+
+| Trigger type | Registration method | Examples |
+|---|---|---|
+| [HTTP](functions-bindings-http-webhook-trigger.md) | `app.HTTP()` | [HTTP samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Timer](functions-bindings-timer.md) | `app.Timer()` | [Timer samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2-trigger.md) | `app.CosmosDB()` | [Cosmos DB samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Azure Service Bus (Queue)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusQueue()` | [Service Bus samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Azure Service Bus (Topic)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusTopic()` | [Service Bus samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Event Hubs](functions-bindings-event-hubs-trigger.md) | `app.EventHub()` | [Event Hubs samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Event Grid](functions-bindings-event-grid-trigger.md) | `app.EventGrid()` | [Event Grid samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [Blob Storage](functions-bindings-storage-blob-trigger.md) | `app.Blob()` | [Blob samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+
+For more information, see the [Go developer reference](functions-reference-go.md).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
