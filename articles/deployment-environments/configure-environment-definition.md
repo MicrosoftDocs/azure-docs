@@ -77,7 +77,7 @@ To add an environment definition:
 
       To learn more about the options and data types you can use, see [What is environment.yaml?](concept-environment-yaml.md#what-is-environmentyaml)
 
-1. In your dev center, under **Environment configuration** in the sidebar menu, select **Catalogs**. Select the repository, and then select **Sync**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your dev center. Under **Environment configuration** in the sidebar menu, select **Catalogs**. Select the repository, and then choose **Sync**.
 
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to synchronize a catalog." lightbox="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png":::
 
@@ -99,8 +99,8 @@ In the *environment.yaml* file, the `runner` property specifies the location of 
 
 | IaC framework | `runner` value |
 |---------------|--------------|
-| ARM           | ARM |
-| Bicep         | Bicep |
+| ARM           | `ARM` |
+| Bicep         | `Bicep` |
 | Terraform     | No sample image. Use a custom container image instead. |
 
 The following example shows a `runner` property that references the sample Bicep container image:
