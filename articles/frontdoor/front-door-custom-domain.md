@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/25/2025
+ms.date: 05/04/2026
 
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
@@ -14,11 +14,7 @@ ms.date: 09/25/2025
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-> [!IMPORTANT]
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [Front Door Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [Front Door Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠Front Door Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
-
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This article shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you want your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
@@ -45,93 +41,94 @@ A custom domain can only be associated with one Front Door profile at a time. Ho
 
 ## Map the temporary afdverify subdomain
 
-When you map an existing domain that is in production, there are things consider. While you're registering your custom domain in the Azure portal, a brief period of downtime for the domain might occur. To avoid interruption of web traffic, map your custom domain to your Front Door default frontend host with the Azure afdverify subdomain first to create a temporary CNAME mapping. Your users can access your domain without interruption when the DNS mapping occurs.
+When you map an existing domain that's in production, consider the impact. While you're registering your custom domain in the Azure portal, a brief period of downtime for the domain might occur. To avoid interruption of web traffic, map your custom domain to your Front Door default frontend host by using the Azure afdverify subdomain first to create a temporary CNAME mapping. Your users can access your domain without interruption when the DNS mapping occurs.
 
 If you're using your custom domain for the first time with no production traffic, you can directly map your custom domain to your Front Door. You can skip ahead to [Map the permanent custom domain](#map-the-permanent-custom-domain).
 
-To create a CNAME record with the afdverify subdomain:
+To create a CNAME record by using the afdverify subdomain:
 
-1. Sign in to the web site of the domain provider for your custom domain.
+1. Sign in to the website of the domain provider for your custom domain.
 
-2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name server management**. 
+1. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the website labeled **Domain Name**, **DNS**, or **Name server management**. 
 
-3. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names might vary):
+1. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names might vary):
 
     | Source                    | Type  | Destination                     |
     |---------------------------|-------|---------------------------------|
     | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Source: Enter your custom domain name, including the afdverify subdomain, in the following format: afdverify._&lt;custom domain name&gt;_. For example, afdverify.www.contoso.com. If you're mapping a wildcard domain, like \*.contoso.com, the source value is the same as it would be without the wildcard: afdverify.contoso.com.
+        
+    - **Source:** Enter your custom domain name, including the `afdverify` subdomain, in the following format: `afdverify.<custom domain name>`. For example, `afdverify.www.contoso.com`. If you're mapping a wildcard domain, like `*.contoso.com`, the source value is the same as it would be without the wildcard: `afdverify.contoso.com`.
 
-    - Type: Enter *CNAME*.
+    - **Type:** Enter *CNAME*.
 
-    - Destination: Enter your default Front Door frontend host, including the afdverify subdomain, in the following format: afdverify._&lt;endpoint name&gt;_.azurefd.net. For example, afdverify.contoso-frontend.azurefd.net.
+    - **Destination:** Enter your default Front Door frontend host, including the afdverify subdomain, in the following format: `afdverify.<endpoint name>.azurefd.net`. For example, `afdverify.contoso-frontend.azurefd.net`.
 
-4. Save your changes.
+1. Save your changes.
 
 For example, the procedure for the GoDaddy domain registrar is as follows:
 
 1. Sign in and select the custom domain you want to use.
 
-2. In the Domains section, select **Manage All**, then select **DNS** | **Manage Zones**.
+1. In the **Domains** section, select **Manage All**, and then select **DNS** | **Manage Zones**.
 
-3. For **Domain Name**, enter your custom domain, then select **Search**.
+1. For **Domain Name**, enter your custom domain, and then select **Search**.
 
-4. From the **DNS Management** page, select **Add**, then select **CNAME** in the **Type** list.
+1. From the **DNS Management** page, select **Add**, and then select **CNAME** in the **Type** list.
 
-5. Complete the following fields of the CNAME entry:
+1. Complete the following fields of the CNAME entry:
 
     - Type: Leave *CNAME* selected.
 
-    - Host: Enter the subdomain of your custom domain for use, including the afdverify subdomain name. For example, afdverify.www.
+    - Host: Enter the subdomain of your custom domain for use, including the afdverify subdomain name. For example, `afdverify.www`.
 
-    - Points to: Enter the host name of your default Front Door frontend host, including the afdverify subdomain name. For example, afdverify.contoso-frontend.azurefd.net. 
+    - Points to: Enter the host name of your default Front Door frontend host, including the afdverify subdomain name. For example, `afdverify.contoso-frontend.azurefd.net`. 
 
     - TTL: Leave *one Hour* selected.
 
-6. Select **Save**.
+1. Select **Save**.
  
     The CNAME entry is added to the DNS records table.
 
 ## Associate the custom domain with your Front Door
 
-After you register your custom domain, you can then add it to your Front Door.
+After you register your custom domain, add it to your Front Door.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the Front Door containing the frontend host that you want to map to a custom domain.
     
-2. On the **Front Door designer** page, select '+' to add a custom domain.
+1. On the **Front Door designer** page, select **+** to add a custom domain.
     
 3. Specify **Custom domain**. 
 
-4. For **Frontend host**, the frontend host to use as the destination domain of your CNAME record is predetermined and is derived from your Front Door: *&lt;default hostname&gt;*.azurefd.net. It can't be changed.
+1. For **Frontend host**, the frontend host to use as the destination domain of your CNAME record is predetermined and is derived from your Front Door: *&lt;default hostname&gt;*.azurefd.net. You can't change it.
 
-5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www\.contoso.com or cdn.contoso.com. Don't use the afdverify subdomain name.
+1. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www\.contoso.com or cdn.contoso.com. Don't use the afdverify subdomain name.
 
-6. Select **Add**.
+1. Select **Add**.
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
 > [!WARNING]
-> You **must** ensure that each of the frontend hosts (including custom domains) in your Front Door has a routing rule with a default path ('/\*') associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path ('/\*'). Failing to do so, may result in your end-user traffic not getting routed correctly.
+> You **must** ensure that each of the frontend hosts (including custom domains) in your Front Door has a routing rule with a default path ('/\*') associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path ('/\*'). If you don't configure this setting, your end-user traffic might not route correctly.
 
 ## Verify the custom domain
 
 After you complete the registration of your custom domain, verify that the custom domain references your default Front Door frontend host.
  
-In your browser, navigate to the address of the file by using the custom domain. For example, if your custom domain is robotics.contoso.com, the URL to the cached file should be similar to the following URL: http:\//robotics.contoso.com/my-public-container/my-file.jpg. Verify that the result is that same as when you access the Front Door directly at *&lt;Front Door host&gt;*.azurefd.net.
+In your browser, go to the address of the file by using the custom domain. For example, if your custom domain is robotics.contoso.com, the URL to the cached file should be similar to the following URL: `http://robotics.contoso.com/my-public-container/my-file.jpg`. Verify that the result is the same as when you access the Front Door directly at *&lt;Front Door host&gt;*.azurefd.net.
 
 
 ## Map the permanent custom domain
 
-To proceed with mapping the custom domain directly to your default Front Door frontend host, you need to ensure that the afdverify subdomain was successfully mapped to your Front Door. Once verified, you can proceed with mapping the custom domain.
+To map the custom domain directly to your default Front Door frontend host, first make sure that the afdverify subdomain is successfully mapped to your Front Door. Once verified, you can proceed with mapping the custom domain.
 
 To create a CNAME record for your custom domain:
 
-1. Sign in to the web site of the domain provider for your custom domain.
+1. Sign in to the website of the domain provider for your custom domain.
 
-2. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
+1. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the website labeled **Domain Name**, **DNS**, or **Name Server Management**. 
 
-3. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names might vary):
+1. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names might vary):
 
     | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
@@ -143,23 +140,23 @@ To create a CNAME record for your custom domain:
 
    - Destination: Enter your default Front Door frontend host. It must be in the following format:_&lt;hostname&gt;_.azurefd.net. For example, contoso-frontend.azurefd.net.
 
-4. Save your changes.
+1. Save your changes.
 
-5. If you previously created a temporary afdverify subdomain CNAME record, delete it. 
+1. If you previously created a temporary afdverify subdomain CNAME record, delete it. 
 
-6. If you're using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your Front Door](#associate-the-custom-domain-with-your-front-door) and [Verify the custom domain](#verify-the-custom-domain).
+1. If you're using this custom domain in production for the first time, follow the steps for [Associate the custom domain with your Front Door](#associate-the-custom-domain-with-your-front-door) and [Verify the custom domain](#verify-the-custom-domain).
 
 For example, the procedure for the GoDaddy domain registrar is as follows:
 
 1. Sign in and select the custom domain you want to use.
 
-2. In the Domains section, select **Manage All**, then select **DNS** | **Manage Zones**.
+1. In the **Domains** section, select **Manage All**, and then select **DNS** | **Manage Zones**.
 
-3. For **Domain Name**, enter your custom domain, then select **Search**.
+1. For **Domain Name**, enter your custom domain, and then select **Search**.
 
-4. From the **DNS Management** page, select **Add**, then select **CNAME** in the **Type** list.
+1. From the **DNS Management** page, select **Add**, and then select **CNAME** in the **Type** list.
 
-5. Complete the fields of the CNAME entry:
+1. Complete the fields of the CNAME entry:
 
     - Type: Leave *CNAME* selected.
 
@@ -169,26 +166,26 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
     - TTL: Leave *one Hour* selected.
 
-6. Select **Save**.
+1. Select **Save**.
  
     The CNAME entry is added to the DNS records table.
 
-7. If you have an afdverify CNAME record, select the pencil icon next to it, then select the trash can icon.
+1. If you have an afdverify CNAME record, select the pencil icon next to it, and then select the trash can icon.
 
-8. Select **Delete** to delete the CNAME record.
+1. Select **Delete** to delete the CNAME record.
 
 ## Clean up resources
 
-In the preceding steps, you added a custom domain to a Front Door. If you no longer want to associate your Front Door with a custom domain, you can remove the custom domain by doing these steps:
+In the preceding steps, you added a custom domain to a Front Door. If you no longer want to associate your Front Door with a custom domain, remove the custom domain by following these steps:
  
-1. Go to your DNS provider, delete the CNAME record for the custom domain, or update the CNAME record for the custom domain to a non Front Door endpoint.
+1. Go to your DNS provider, and either delete the CNAME record for the custom domain or update the CNAME record for the custom domain to a non-Front Door endpoint.
 
     > [!Important]
-    > To prevent dangling DNS entries and the security risks they create, starting from April 9th 2021, Azure Front Door requires removal of the CNAME records to Front Door endpoints before the resources can be deleted. Resources include Front Door custom domains, Front Door endpoints or Azure resource groups that has Front Door custom domain(s) enabled.
+    > To prevent dangling DNS entries and the security risks they create, starting from April 9, 2021, Azure Front Door requires removal of the CNAME records to Front Door endpoints before you can delete the resources. Resources include Front Door custom domains, Front Door endpoints, or Azure resource groups that have Front Door custom domains enabled.
 
-2. In your Front Door designer, select the custom domain that you want to remove.
+1. In your Front Door designer, select the custom domain that you want to remove.
 
-3. Select **Delete** from the context menu for the custom domain. The custom domain is removed from your endpoint.
+1. Select **Delete** from the context menu for the custom domain. The custom domain is removed from your endpoint.
 
 ## Next step
 

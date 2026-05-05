@@ -1,12 +1,12 @@
 ---
 title: Introduction to file APIs in Azure Synapse Analytics
 description: This tutorial describes how to use the file mount and file unmount APIs in Azure Synapse Analytics, for both Azure Data Lake Storage Gen2 and Azure Blob Storage.
-author: JeneZhang 
+author: pimorano 
 ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
-ms.author: jingzh
+ms.author: pimorano
 ms.custom:
   - subject-rbac-steps
   - sfi-image-nochange

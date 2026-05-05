@@ -21,12 +21,8 @@ This article describes how to prepare machines running Windows Server 2003 for m
 > [!NOTE]
 > [Windows Server 2003 extended support](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) ended on July 14, 2015.  The Azure support team continues to help in troubleshooting issues that concern running Windows Server 2003 on Azure. However, this support is limited to issues that don't require OS-level troubleshooting or patches. Migrating your applications to Azure instances running a newer version of Windows Server is the recommended approach to ensure that you are effectively leveraging the flexibility and reliability of the Azure cloud. However, if you still choose to migrate your Windows Server 2003 to Azure, you can use the Migration and modernization tool if your Windows Server is a VM running on VMware or Hyper-V.
 
-> [!CAUTION]
-> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
-> - Windows Server 2003
-> - Windows Server 2008 (including SP2 and R2 SP1)
-> - Windows Server 2012
-> - Windows Server 2012 R2
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 - You can use agentless migration to migrate [Hyper-V VMs](tutorial-migrate-hyper-v.md) and [VMware VMs](tutorial-migrate-vmware.md) to Azure.

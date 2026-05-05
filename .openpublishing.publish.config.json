@@ -291,6 +291,24 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-azd-timer-java",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-java-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-javascript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-powershell",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-event-hub-azd-dotnet",
             "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub",
             "branch": "main",
@@ -305,6 +323,24 @@
         {
             "path_to_root": "functions-event-hub-azd-python",
             "url": "https://github.com/Azure-Samples/functions-quickstart-python-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-java",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-javascript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-powershell",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub",
             "branch": "main",
             "branch_mapping": {}
         },

@@ -3,11 +3,11 @@ author: hhunter-ms
 ms.author: hannahhunter
 title: Develop with Durable Task Scheduler
 titleSuffix: Durable Task
-description: Learn how to develop with the Durable Task Scheduler using the Azure CLI for both Durable Functions and Durable Task SDKs.
+description: "Learn how to develop with Durable Task Scheduler: run the emulator, create and manage schedulers and task hubs using Azure CLI or Azure portal."
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 11/05/2025
+ms.date: 05/01/2026
 zone_pivot_groups: dts-devexp
 ---
 
@@ -27,7 +27,7 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
 
 The Durable Task Scheduler emulator is only available as a Docker image today. 
 
-1. Pull the docker image containing the emulator. 
+1. Pull the Docker image containing the emulator. 
 
    ```bash
    docker pull mcr.microsoft.com/dts/dts-emulator:latest
@@ -53,7 +53,7 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
 ## Set up the CLI
 
-1. Log in to the Azure CLI and make sure you have the latest installed.
+1. Sign in to Azure and ensure you have the latest CLI version.
 
     ```azurecli
     az login
@@ -78,7 +78,7 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
    az extension show --name durabletask
    ```
 
-[Learn more about the various `az durabletask` commands you can use.](https://github.com/Azure/azure-cli-extensions/tree/main/src/durabletask)   
+[Learn more about the `az durabletask` commands.](/cli/azure/durabletask)   
 
 ::: zone-end 
 
@@ -208,13 +208,13 @@ The Durable Task Scheduler emulator is only available as a Docker image today.
 
     :::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the Durable Task Scheduler in the portal.":::
 
-1. Click **Create** to open the **Durable Task Scheduler** pane.
+1. Select **Create** to open the **Durable Task Scheduler** pane.
 
     :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
 
-1. Fill out the fields in the **Basics** tab. Click **Review + create**.
+1. Fill out the fields in the **Basics** tab. Select **Review + create**.
 
-1. Once the validation passes, click **Create**.
+1. Once the validation passes, select **Create**.
 
     Deployment may take around 15 to 20 minutes. 
 
@@ -266,51 +266,50 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ::: zone-end
 
-## Delete the scheduler and task hub
+## Delete a scheduler and task hub
 
 ::: zone pivot="az-cli" 
+
+1. Delete the task hub first:
+
+    ```azurecli
+    az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
+    ```
 
 1. Delete the scheduler:
 
     ```azurecli
-    az durabletask scheduler --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER
-    ```
-
-1. Delete a task hub:
-
-    ```azurecli
-    az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
+    az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER
     ```
 ::: zone-end
 
 ::: zone pivot="az-portal"
 
-1. Open the scheduler resource on Azure portal and click **Delete**: 
+1. Open the scheduler resource in the Azure portal and select **Delete**: 
 
     :::image type="content" source="media/create-durable-task-scheduler/durable-task-scheduler-delete-portal.png" alt-text="Screenshot of scheduler resource in the portal highlighting delete button.":::
 
-1. Find the scheduler with the task hub you want to delete, then click into that task hub. Click **Delete**:
+1. Find the scheduler with the task hub you want to delete, then select that task hub. Select **Delete**:
 
     :::image type="content" source="media/create-durable-task-scheduler/task-hub-delete-portal.png" alt-text="Screenshot of task hub resource in the portal highlighting delete button.":::
 
 ::: zone-end
 
 
-## Configure identity-based authentication for app to access Durable Task Scheduler
+## Configure identity-based authentication for your app to access Durable Task Scheduler
 
-Durable Task Scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
+Durable Task Scheduler **only** supports managed identity authentication using either *user-assigned* or *system-assigned* identities. User-assigned identities are recommended because they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
 
-Learn more about [identity-based access in Durable Task Scheduler](./durable-task-scheduler-identity.md). 
+To grant your app access, assign the **Durable Task Data Contributor** role to the managed identity. For full setup steps, see [Configure identity-based access in Durable Task Scheduler](./durable-task-scheduler-identity.md).
 
 ## Access the Durable Task Scheduler dashboard
 
-[Assign the required role to your *developer identity (email)*](./durable-task-scheduler-dashboard.md) to gain access to the Durable Task Scheduler dashboard. 
+To access the Durable Task Scheduler dashboard, assign the **Durable Task Dashboard Viewer** role to your developer identity. For details, see [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
 
-## Next steps
+## Related content
 
-For using Durable Task Scheduler with Durable Functions:
 - [Quickstart: Configure a Durable Functions app to use Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
-
-For using Durable Task Scheduler with the Durable Task SDKs:
 - [Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler](../sdks/quickstart-portable-durable-task-sdks.md)
 - [Quickstart: Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
+- [Durable Task Scheduler billing](./durable-task-scheduler-billing.md)
+- [Durable Task Scheduler features and limitations](./durable-task-scheduler.md)

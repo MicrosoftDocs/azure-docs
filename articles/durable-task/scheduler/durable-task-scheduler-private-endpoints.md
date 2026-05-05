@@ -69,7 +69,7 @@ After you set up a private endpoint, you can optionally disable public network a
 Keep the following considerations in mind when using private endpoints with Durable Task Scheduler:
 
 - **Region**: The private endpoint must be deployed in the same region as the virtual network. The scheduler resource can be in a different region, though placing them in the same region is recommended for optimal latency.
-- **SKU availability**: Private endpoints are supported on schedulers using both the [Dedicated SKU](./durable-task-scheduler-billing.md#dedicated-sku) and [Consumption SKU](./durable-task-scheduler-billing.md#consumption-sku).
+- **SKU availability**: Private endpoints are supported on schedulers using both the [Dedicated SKU](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) and [Consumption SKU](./durable-task-scheduler-billing.md#consumption-sku).
 - **Multiple private endpoints**: You can create multiple private endpoints for the same scheduler resource in different virtual networks to enable access from multiple networks.
 - **Identity and RBAC**: Private endpoints secure the *network path* to the scheduler. You still need to configure [identity-based access control](./durable-task-scheduler-identity.md) to authenticate and authorize your apps.
 - **Task hubs**: A private endpoint connection on the scheduler applies to all task hubs within that scheduler. You can't create private endpoint connections for individual task hubs.

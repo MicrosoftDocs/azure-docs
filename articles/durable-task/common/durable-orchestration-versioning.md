@@ -1,9 +1,9 @@
 ---
-title: Orchestration versioning
-description: Learn how to version orchestrations for safe deployments with Durable Functions and Durable Task SDKs.
+title: "Orchestration Versioning: Safe Deployments for Durable Orchestrations"
+description: Learn how to use orchestration versioning for safe deployments with Durable Functions and Durable Task SDKs. Prevent nondeterminism errors and maintain backward compatibility during updates.
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 02/25/2026
+ms.date: 05/01/2026
 author: AnatoliB
 ms.author: azfuncdf
 ms.reviewer: hannahhunter
@@ -26,7 +26,7 @@ This built-in feature provides automatic version isolation with minimal configur
 
 Durable Task SDKs support two styles of versioning, which you can use separately or together:
 
-- [Client/context-based conditional versioning](#setting-the-default-version)—set a version on the client and branch logic in the orchestrator.
+- [Client/context-based conditional versioning](#set-the-default-version)—set a version on the client and branch logic in the orchestrator.
 - [Worker-based versioning](#version-matching)—let the worker decide which orchestration versions it can process.
 
 ::: zone-end
@@ -49,6 +49,8 @@ Orchestration versioning operates on these core principles:
 - **Version-aware execution**: Orchestrator code examines the version value associated with the current orchestration instance and branches execution accordingly.
 - **Backward compatibility**: Workers running newer orchestrator versions continue to execute orchestration instances created by older versions.
 - **Forward protection**: The runtime prevents workers running older orchestrator versions from executing orchestrations started by newer versions.
+
+In practice, you set a default version string on the client (or in `host.json` for Durable Functions), and your orchestrator code uses `context.Version` to branch between old and new logic.
 
 ::: zone pivot="durable-functions"
 
@@ -96,7 +98,7 @@ Use `durabletask-azure-functions` version [1.6.3](https://mvnrepository.com/arti
 
 ::: zone-end
 
-## Setting the default version
+## Set the default version
 
 To use orchestration versioning, first configure a default version for new orchestration instances.
 
@@ -199,7 +201,7 @@ After you set the default version on the client, any orchestration started by th
 
 ::: zone-end
 
-### Version comparison rules
+## Version comparison rules
 
 ::: zone pivot="durable-functions"
 
@@ -595,7 +597,7 @@ public static async Task<string> ProcessOrder(
 
 ```javascript
 const df = require("durable-functions");
-const semver = require('semver');
+const semver = require('semver'); // Requires: npm install semver
 
 df.app.orchestrator(function* (context) {
     const orderId = context.df.getInput();
@@ -700,7 +702,7 @@ function Compare-Version([string]$version1, [string]$version2) {
 # [Java](#tab/java)
 
 ```java
-import org.apache.maven.artifact.versioning.ComparableVersion;
+import org.apache.maven.artifact.versioning.ComparableVersion; // Requires: org.apache.maven:maven-artifact dependency
 
 @FunctionName("ProcessOrderOrchestrator")
 public String processOrder(
@@ -897,11 +899,14 @@ The process repeats until a worker that can handle the orchestration is availabl
 
 **Fail**: Use this strategy when no other version of the worker is expected to process the orchestration. The orchestration fails and enters a terminal state.
 
+> [!NOTE]
+> Configure the failure strategy through the `FailureStrategy` property in the versioning options, as shown in the [version matching](#version-matching) code samples.
+
 ::: zone-end
 
 ::: zone pivot="durable-functions"
 
-## Starting orchestrations with specific versions
+## Start orchestrations with specific versions
 
 By default, all new orchestration instances use the current `defaultVersion` specified in your `host.json` configuration. However, you might have scenarios where you need to create orchestrations with a specific version that differs from the current default.
 
@@ -1078,6 +1083,18 @@ Over time, you might want to remove legacy code paths from your orchestrator fun
 - You checked through monitoring or querying that no instances are running with the legacy version.
 - A sufficient time period passed since the old version was last deployed.
 
+::: zone pivot="durable-functions"
+
+To check for running instances, use the [instance management APIs](durable-task-instance-management.md) to query orchestrations by status and verify none are still in progress with the old version.
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+To check for running instances, use the `DurableTaskClient` to list orchestration instances filtered by status and verify none are still in progress with the old version.
+
+::: zone-end
+
 > [!WARNING]
 > Removing legacy code paths while orchestration instances are still running those versions can cause deterministic replay failures. Always check that no instances are using the legacy version before removing the code.
 
@@ -1123,30 +1140,43 @@ Over time, you might want to remove legacy code paths from your orchestrator fun
 
 ::: zone-end
 
-## Next steps
+::: zone pivot="durable-task-sdks"
+
+## Troubleshooting
+
+### Common issues
+
+- **Issue**: Orchestrations are stuck or making no progress after deploying a new version
+   - **Solution**: Verify that `MatchStrategy` and `FailureStrategy` are configured correctly in your worker's versioning options. If you use `Strict` matching, only workers with the exact same version can process those orchestrations. Switch to `CurrentOrOlder` if you need backward compatibility.
+
+- **Issue**: Orchestrations fail immediately with a version mismatch error
+   - **Solution**: Check whether your `FailureStrategy` is set to `Fail`. If so, orchestrations that don't match any available worker version enter a terminal failure state. Use `Reject` instead to allow the orchestration to remain in the queue until a compatible worker is available.
+
+- **Issue**: `context.Version` returns `None`/`null`/`undefined` for orchestration instances
+   - **Solution**: Orchestrations created before you configured a default version don't have a version assigned. Ensure your orchestrator logic handles `null` or empty version values as a legacy code path.
+
+::: zone-end
+
+## Related content
 
 ::: zone pivot="durable-functions"
 
-> [!div class="nextstepaction"]
-> [Learn about zero-downtime deployment strategies](../../azure-functions/durable-functions/durable-functions-zero-downtime-deployment.md)
-
-> [!div class="nextstepaction"]
-> [Learn about versioning strategies](../../azure-functions/durable-functions/durable-functions-versioning.md)
+- [Zero-downtime deployment strategies](../../azure-functions/durable-functions/durable-functions-zero-downtime-deployment.md)
+- [Versioning strategies in Durable Functions](../../azure-functions/durable-functions/durable-functions-versioning.md)
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
+- [Instance management](durable-task-instance-management.md)
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-> [!div class="nextstepaction"]
-> [See .NET SDK examples](https://github.com/microsoft/durabletask-dotnet/tree/main)
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
+- [Durable Task SDK for .NET](https://github.com/microsoft/durabletask-dotnet/tree/main)
+- [Durable Task SDK for JavaScript](https://github.com/microsoft/durabletask-js/tree/main)
+- [Durable Task SDK for Python](https://github.com/microsoft/durabletask-python/tree/main)
+- [Durable Task SDK for Java](https://github.com/microsoft/durabletask-java/tree/main)
+- [Troubleshoot Durable Task SDK issues](../sdks/durable-task-sdk-troubleshooting.md)
 
-> [!div class="nextstepaction"]
-> [See JavaScript SDK examples](https://github.com/microsoft/durabletask-js/tree/main)
-
-> [!div class="nextstepaction"]
-> [See Python SDK examples](https://github.com/microsoft/durabletask-python/tree/main)
-
-> [!div class="nextstepaction"]
-> [See Java SDK examples](https://github.com/microsoft/durabletask-java/tree/main)
+::: zone-end
 
 ::: zone-end

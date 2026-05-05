@@ -6,7 +6,7 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/03/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -52,7 +52,7 @@ The [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introd
 
 **Implementation recommendations**:
 - **Monitor compliance**: Use the [Microsoft Defender for Cloud regulatory compliance dashboard](/azure/defender-for-cloud/update-regulatory-compliance-packages) to track Microsoft Cloud Security Benchmark compliance and identify security gaps
-- **Enforce baselines**: Implement [Azure Policy](/azure/governance/policy/tutorials/create-and-manage) to audit and enforce secure configuration baselines based on Microsoft Cloud Security Benchmark v2 (preview) recommendations
+- **Enforce baselines**: Implement [Azure Policy](../../governance/policy/tutorials/create-and-manage.md) to audit and enforce secure configuration baselines based on Microsoft Cloud Security Benchmark v2 (preview) recommendations
 - **Assess AI workloads**: Review the new Artificial Intelligence Security controls in Microsoft Cloud Security Benchmark v2 (preview) if deploying AI/ML workloads to ensure proper platform, application, and monitoring security
 
 For a complete collection of high-impact security recommendations, see the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).

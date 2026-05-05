@@ -33,7 +33,7 @@ To maximize performance, we recommend using an operating system that supports MA
 For information about using DPDK on MANA hardware, see [Microsoft Azure Network Adapter and DPDK on Linux](setup-dpdk-mana.md).
 
 > [!NOTE]
-> A 6.2 or later kernel is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an earlier Linux image from Azure Marketplace, you need to update the kernel.
+> Running DPDK on MANA hardware requires the Linux kernel 6.14 or later or a backport of the Ethernet and InfiniBand drivers from the Linux kernel 6.14 or later. If you use an earlier Linux image from Azure Marketplace, you need to update the kernel.
 
 ## Evaluating performance
 

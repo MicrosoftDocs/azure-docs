@@ -8,7 +8,7 @@ ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -34,7 +34,7 @@ Learn more:
 
 * [Azure Monitor overview](/azure/azure-monitor/overview)
 * [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs)
-* [Threat detection overview](/azure/security/fundamentals/threat-detection)
+* [Threat detection overview](threat-detection.md)
 
 ## Azure role-based access control
 
@@ -50,13 +50,13 @@ Azure RBAC enables you to:
 
 Learn more:
 
-* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
-* [Identity management security overview](/azure/security/fundamentals/identity-management-overview)
+* [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+* [Identity management security overview](identity-management-overview.md)
 
 ## Azure Policy
 
-[Azure Policy](/azure/governance/policy/overview) helps you enforce organizational standards and assess compliance at scale. Azure Policy evaluates resources in Azure by comparing their properties to defined rules.
+[Azure Policy](../../governance/policy/overview.md) helps you enforce organizational standards and assess compliance at scale. Azure Policy evaluates resources in Azure by comparing their properties to defined rules.
 
 Azure Policy capabilities include:
 
@@ -76,12 +76,12 @@ Common security use cases:
 
 Learn more:
 
-* [What is Azure Policy?](/azure/governance/policy/overview)
-* [Azure Policy regulatory compliance](/azure/governance/policy/concepts/regulatory-compliance)
+* [What is Azure Policy?](../../governance/policy/overview.md)
+* [Azure Policy regulatory compliance](../../governance/policy/concepts/regulatory-compliance.md)
 
 ## Azure Update Manager
 
-[Azure Update Manager](/azure/update-manager/overview) is a unified service that helps you manage and govern operating system updates for Windows and Linux virtual machines across Azure, on-premises, and multicloud environments.
+[Azure Update Manager](../../update-manager/overview.md) is a unified service that helps you manage and govern operating system updates for Windows and Linux virtual machines across Azure, on-premises, and multicloud environments.
 
 Azure Update Manager provides:
 
@@ -102,8 +102,8 @@ Update Manager features include:
 
 Learn more:
 
-* [About Azure Update Manager](/azure/update-manager/overview)
-* [Scheduled patching in Update Manager](/azure/update-manager/scheduled-patching)
+* [About Azure Update Manager](../../update-manager/overview.md)
+* [Scheduled patching in Update Manager](../../update-manager/scheduled-patching.md)
 
 ## Activity logging and auditing
 
@@ -126,7 +126,7 @@ Learn more:
 
 ## Microsoft Cost Management
 
-[Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) helps you monitor, allocate, and optimize your Azure spending. Understanding costs is essential for security management as unauthorized resource deployments can indicate security incidents.
+[Microsoft Cost Management](../../cost-management-billing/costs/overview-cost-management.md) helps you monitor, allocate, and optimize your Azure spending. Understanding costs is essential for security management as unauthorized resource deployments can indicate security incidents.
 
 Cost Management provides:
 
@@ -138,12 +138,12 @@ Cost Management provides:
 
 Learn more:
 
-* [What is Microsoft Cost Management?](/azure/cost-management-billing/costs/overview-cost-management)
-* [Create and manage budgets](/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
+* [What is Microsoft Cost Management?](../../cost-management-billing/costs/overview-cost-management.md)
+* [Create and manage budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md)
 
 ## Azure Resource Graph
 
-[Azure Resource Graph](/azure/governance/resource-graph/overview) provides efficient resource exploration with the ability to query at scale across subscriptions. Resource Graph enables security teams to quickly identify resources with specific configurations or security postures.
+[Azure Resource Graph](../../governance/resource-graph/overview.md) provides efficient resource exploration with the ability to query at scale across subscriptions. Resource Graph enables security teams to quickly identify resources with specific configurations or security postures.
 
 Resource Graph capabilities:
 
@@ -155,12 +155,12 @@ Resource Graph capabilities:
 
 Learn more:
 
-* [What is Azure Resource Graph?](/azure/governance/resource-graph/overview)
-* [Starter Resource Graph queries](/azure/governance/resource-graph/samples/starter)
+* [What is Azure Resource Graph?](../../governance/resource-graph/overview.md)
+* [Starter Resource Graph queries](../../governance/resource-graph/samples/starter.md)
 
 ## Azure Automation
 
-[Azure Automation](/azure/automation/overview) delivers cloud-based automation and configuration management supporting consistent governance across Azure and non-Azure environments.
+[Azure Automation](../../automation/overview.md) delivers cloud-based automation and configuration management supporting consistent governance across Azure and non-Azure environments.
 
 Azure Automation provides:
 
@@ -179,7 +179,7 @@ Common security automation scenarios:
 
 Learn more:
 
-* [Azure Automation overview](/azure/automation/overview)
+* [Azure Automation overview](../../automation/overview.md)
 * [Change Tracking and Inventory overview](/azure/automation/change-tracking/overview)
 
 ## Azure Advisor
@@ -217,7 +217,7 @@ Learn more:
 
 ## Next steps
 
-* [Threat detection and protection](/azure/security/fundamentals/threat-detection)
-* [Identity management security overview](/azure/security/fundamentals/identity-management-overview)
-* [Network security overview](/azure/security/fundamentals/network-overview)
-* [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)
+* [Threat detection and protection](threat-detection.md)
+* [Identity management security overview](identity-management-overview.md)
+* [Network security overview](network-overview.md)
+* [Azure security best practices and patterns](best-practices-and-patterns.md)

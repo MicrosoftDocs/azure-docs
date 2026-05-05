@@ -1,13 +1,13 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: "Quickstart: Host a Durable Task SDK app on Azure Container Apps"
+title: "Quickstart: Host a Durable Task SDK App on Azure Container Apps"
 titleSuffix: Durable Task
-description: Learn how to configure a container app for the Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
+description: Learn how to configure and deploy a Durable Task SDK app on Azure Container Apps using Azure Developer CLI. Follow this quickstart to get started.
 ms.subservice: durable-task-sdks
 ms.topic: quickstart
 ms.service: durable-task
-ms.date: 02/25/2026
+ms.date: 04/30/2026
 zone_pivot_groups: df-languages
 ms.custom:
   - build-2025
@@ -27,9 +27,9 @@ In this quickstart, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Set up and run the Durable Task Scheduler emulator for local development. 
-> - Run the worker and client projects.
-> - Check the Azure Container Apps logs.
+> - Clone and prepare the Durable Task Scheduler sample project.
+> - Deploy the worker and client apps to Azure Container Apps using Azure Developer CLI.
+> - Verify the deployment using Azure Container Apps log streams.
 > - Review orchestration status and history via the Durable Task Scheduler dashboard.
 
 ## Prerequisites
@@ -41,7 +41,7 @@ Before you begin:
 ::: zone pivot="csharp"
 
 - Make sure you have [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later.
-- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Install [Docker](https://www.docker.com/products/docker-desktop/). Docker is required for building container images during deployment.
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -51,7 +51,7 @@ Before you begin:
 ::: zone pivot="python"
 
 - Make sure you have [Python 3.9+](https://www.python.org/downloads/) or later.
-- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Install [Docker](https://www.docker.com/products/docker-desktop/). Docker is required for building container images during deployment.
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -60,7 +60,7 @@ Before you begin:
 ::: zone pivot="java"
 
 - Make sure you have [Java 8 or 11](https://www.java.com/en/download/).
-- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Install [Docker](https://www.docker.com/products/docker-desktop/). Docker is required for building container images during deployment.
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -69,7 +69,7 @@ Before you begin:
 ::: zone pivot="javascript"
 
 - Make sure you have [Node.js 22](https://nodejs.org/) or later.
-- Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Install [Docker](https://www.docker.com/products/docker-desktop/). Docker is required for building container images during deployment.
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -79,7 +79,7 @@ Before you begin:
 
 ## Prepare the project
 
-In a new terminal window, from the `Azure-Samples/Durable-Task-Scheduler` directory, navigate into the sample directory.
+In a new terminal window, from the cloned `Azure-Samples/Durable-Task-Scheduler` directory, navigate to the function chaining sample:
 
 ::: zone-end
 
@@ -118,6 +118,8 @@ cd /samples/durable-task-sdks/javascript/function-chaining
 ::: zone pivot="csharp,python,java,javascript"
 
 ## Deploy using Azure Developer CLI
+
+The Azure Developer CLI (`azd`) provisions all required Azure infrastructure and deploys both the worker and client apps in a single command.
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
@@ -199,7 +201,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for that resource group name.
 
-1. From the resource group overview page, click on the client container app resource.
+1. From the resource group overview page, select the client container app resource.
 
 1. Select **Monitoring** > **Log stream**.
 
@@ -215,7 +217,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for that resource group name.
 
-1. From the resource group overview page, click on the client container app resource.
+1. From the resource group overview page, select the client container app resource.
 
 1. Select **Monitoring** > **Log stream**.
 
@@ -235,19 +237,13 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 ::: zone pivot="csharp,python,java,javascript"
 
-## Clean up resources
-
-When you're done testing, remove the deployed resources:
-
-```azdeveloper
-azd down
-```
+You can also review orchestration status and history using the Durable Task Scheduler dashboard. For more information, see [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md).
 
 ::: zone-end
 
 ::: zone pivot="csharp,python,java,javascript"
 
-## Understanding the code
+## Understand the code
 
 ::: zone-end
 
@@ -648,7 +644,20 @@ await worker.start();
 
 ::: zone-end
 
-## Next steps
+::: zone pivot="csharp,python,java,javascript"
 
-> [!div class="nextstepaction"]
-> [Configure autoscaling](./durable-task-scheduler-auto-scaling.md)
+## Clean up resources
+
+When you're done testing, remove the deployed resources:
+
+```azdeveloper
+azd down
+```
+
+## Related content
+
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Configure autoscaling for Durable Task Scheduler](./durable-task-scheduler-auto-scaling.md)
+- [Troubleshoot Durable Task SDK issues](./durable-task-sdk-troubleshooting.md)
+
+::: zone-end

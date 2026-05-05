@@ -8,7 +8,7 @@ ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/20/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -97,7 +97,7 @@ Azure confidential computing can help you:
 - Ensure secure and untrusted collaboration: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
 - Isolate processing: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
 
-Learn more about [Confidential computing](/azure/confidential-computing/).
+Learn more about [Confidential computing](../../confidential-computing/index.yml).
 
 ## Secure email, documents, and sensitive data
 

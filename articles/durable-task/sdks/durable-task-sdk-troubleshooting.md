@@ -2,7 +2,7 @@
 title: "Troubleshoot Durable Task SDKs: Common Issues and Fixes"
 description: Diagnose and resolve common issues with the portable Durable Task SDKs for .NET, Java, JavaScript, and Python. Fix connection errors, orchestration failures, and activity issues.
 ms.topic: troubleshooting
-ms.date: 02/25/2026
+ms.date: 04/30/2026
 ms.author: azfuncdf
 author: torosent
 ms.reviewer: hhunter-ms
@@ -13,7 +13,53 @@ ms.devlang: csharp
 
 # Troubleshoot common Durable Task SDK issues
 
-This article helps you diagnose and fix common issues when building applications with the portable Durable Task SDKs. These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs. For issues specific to the Durable Task Scheduler service, see [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md). For Durable Functions issues, see [Durable Functions troubleshooting guide](../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md).
+This article helps you diagnose and fix common issues when building applications with the portable Durable Task SDKs. Find your scenario in the following list and follow the linked steps to diagnose and resolve the issue.
+
+## Common scenarios
+
+**Connection and setup**
+
+- [Emulator isn't running or is unreachable](#emulator-isnt-running-or-is-unreachable)
+- [Connection string format is incorrect](#connection-string-format-is-incorrect)
+- [Client or worker fails to connect](#client-or-worker-fails-to-connect)
+- [Task hub doesn't exist](#task-hub-doesnt-exist)
+- [Identity-based authentication failures on Azure](#identity-based-authentication-failures-on-azure)
+
+**Orchestrations**
+
+- [Orchestration is stuck in the Pending state](#orchestration-is-stuck-in-the-pending-state)
+- [Orchestration is stuck in the Running state](#orchestration-is-stuck-in-the-running-state)
+- [Nondeterministic orchestrator code](#nondeterministic-orchestrator-code)
+- [Serialization and deserialization errors](#serialization-and-deserialization-errors)
+
+**Activities**
+
+- [Activity not found](#activity-not-found)
+- [Activity failure handling](#activity-failure-handling)
+
+**gRPC**
+
+- [gRPC message size limit exceeded](#grpc-message-size-limit-exceeded)
+- [Stream cancellation errors during shutdown](#stream-cancellation-errors-during-shutdown)
+
+**Logging and diagnostics**
+
+- [Verbose logging configuration](#verbose-logging-configuration)
+- [Application Insights integration](#application-insights-integration)
+
+**Language-specific**
+
+- [C#: Source generator warnings break builds](#source-generator-warnings-break-builds)
+- [C#: Roslyn analyzer throws in foreach loops](#roslyn-analyzer-throws-in-foreach-loops)
+- [Java: Gradle permission denied error](#gradle-permission-denied-error)
+- [Java: OrchestratorBlockedException](#orchestratorblockedexception)
+- [Python: Retry policy requires max_retry_interval](#retry-policy-requires-max_retry_interval)
+- [Python: WhenAllTask exception behavior](#whenalltask-exception-behavior)
+
+These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs.
+
+> [!NOTE]
+> This guide covers the **portable Durable Task SDKs**. For issues specific to the Durable Task Scheduler service, see [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md). For issues specific to the Durable Functions extension, see [Durable Functions troubleshooting guide](../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md).
 
 > [!TIP]
 > The [Durable Task Scheduler monitoring dashboard](../scheduler/durable-task-scheduler-dashboard.md) is useful for inspecting orchestration status, viewing execution history, and identifying failures. Use it alongside this guide to speed up troubleshooting.
@@ -49,13 +95,13 @@ If your app fails at startup with a connection error like "connection refused" o
    docker ps | grep durabletask
    ```
 
-2. Check the correct port mappings. The emulator exposes two ports:
+1. Verify the port mappings are correct. The emulator exposes two ports:
    - **8080**—gRPC endpoint (used by your app)
    - **8082**—Dashboard UI
 
    If you're using a custom port mapping, update your connection string to match the host port mapped to container port `8080`.
 
-3. Test connectivity to the gRPC endpoint:
+1. Test connectivity to the gRPC endpoint:
 
    ```bash
    curl -v http://localhost:8080
@@ -93,13 +139,93 @@ Common mistakes:
 
 ### Client or worker fails to connect
 
-If your client or worker fails to connect, verify the following:
+Check that your client and worker are configured with the correct connection string and task hub name.
 
-- **Connection string** matches the expected format shown in [Connection string format is incorrect](#connection-string-format-is-incorrect).
-- **Task hub name** is the same for both the client and worker.
-- **Endpoint URL** uses `http` for the local emulator and `https` for Azure.
+# [C#](#tab/csharp)
 
-For full setup examples in each language, see [Create an app with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md).
+```csharp
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.DurableTask.Worker.AzureManaged;
+
+var connectionString = "Endpoint=http://localhost:8080;Authentication=None";
+
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
+    {
+        registry.AddOrchestrator<MyOrchestrator>();
+        registry.AddActivity<MyActivity>();
+    })
+    .UseDurableTaskScheduler(connectionString);
+
+builder.Services.AddDurableTaskClient()
+    .UseDurableTaskScheduler(connectionString);
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+import {
+  createAzureManagedClient,
+  createAzureManagedWorkerBuilder,
+} from "@microsoft/durabletask-js-azuremanaged";
+
+const connectionString = "Endpoint=http://localhost:8080;Authentication=None";
+
+const client = createAzureManagedClient(connectionString);
+const worker = createAzureManagedWorkerBuilder(connectionString)
+  .addOrchestrator(myOrchestrator)
+  .addActivity(myActivity)
+  .build();
+```
+
+# [Python](#tab/python)
+
+```python
+from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.azuremanaged.worker import DurableTaskSchedulerWorker
+
+endpoint = "http://localhost:8080"
+task_hub_name = "my-taskhub"
+
+# Use token_credential=None for the local emulator
+worker = DurableTaskSchedulerWorker(
+    host_address=endpoint,
+    taskhub=task_hub_name,
+    token_credential=None,
+    secure_channel=False,
+)
+client = DurableTaskSchedulerClient(
+    host_address=endpoint,
+    taskhub=task_hub_name,
+    token_credential=None,
+    secure_channel=False,
+)
+```
+
+# [Java](#tab/java)
+
+Use the `DurableTaskSchedulerWorkerExtensions` and `DurableTaskSchedulerClientExtensions` helper classes from the `durabletask-azuremanaged` package:
+
+```java
+import com.microsoft.durabletask.azuremanaged.DurableTaskSchedulerClientExtensions;
+import com.microsoft.durabletask.azuremanaged.DurableTaskSchedulerWorkerExtensions;
+
+String connectionString = "Endpoint=http://localhost:8080;Authentication=None";
+
+DurableTaskClient client = DurableTaskSchedulerClientExtensions
+    .createClientBuilder(connectionString)
+    .build();
+
+DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions
+    .createWorkerBuilder(connectionString)
+    .addOrchestration(/* ... */)
+    .addActivity(/* ... */)
+    .build();
+```
+
+---
 
 ### Task hub doesn't exist
 
@@ -131,7 +257,7 @@ If your app runs locally but fails when deployed to Azure, the issue is likely r
 1. Make sure the connection string uses the correct `Authentication` value (`ManagedIdentity`). In Python, pass a `DefaultAzureCredential()` instance as the `token_credential` parameter instead of using a connection string.
 1. For user-assigned identities, check that the `ClientID` in the connection string matches the identity's client ID.
 
-For detailed instructions, see [Identity-based access for Durable Task Scheduler](../scheduler/durable-task-scheduler-identity.md).
+For detailed instructions, see [Configure managed identity for Durable Task Scheduler](../scheduler/durable-task-scheduler-identity.md).
 
 ## Orchestration issues
 
@@ -148,14 +274,13 @@ An orchestration in "Pending" status indicates it was scheduled but a worker has
 Check that the orchestrator class is registered with the worker during startup. If you use source generators (`[DurableTask]` attribute), the registration is automatic. Otherwise, register manually:
 
 ```csharp
-builder.Services.AddDurableTaskWorker(builder =>
-{
-    builder.AddTasks(tasks =>
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
     {
-        tasks.AddOrchestrator<MyOrchestrator>();
-        tasks.AddActivity<MyActivity>();
-    });
-});
+        registry.AddOrchestrator<MyOrchestrator>();
+        registry.AddActivity<MyActivity>();
+    })
+    .UseDurableTaskScheduler(connectionString);
 ```
 
 # [JavaScript](#tab/javascript)
@@ -295,13 +420,12 @@ If an orchestration fails with an "activity not found" error, the activity name 
 In .NET, activities can be registered by class name or by using the `[DurableTask]` attribute with source generators. Verify that the activity class is included in the worker registration:
 
 ```csharp
-builder.Services.AddDurableTaskWorker(builder =>
-{
-    builder.AddTasks(tasks =>
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
     {
-        tasks.AddActivity<SayHello>();
-    });
-});
+        registry.AddActivity<SayHello>();
+    })
+    .UseDurableTaskScheduler(connectionString);
 ```
 
 When calling the activity from an orchestrator, use the class name:
@@ -600,10 +724,10 @@ For questions and reporting bugs, open an issue in the GitHub repo for the relev
 | JavaScript | [microsoft/durabletask-js](https://github.com/microsoft/durabletask-js/issues) |
 | Python | [microsoft/durabletask-python](https://github.com/microsoft/durabletask-python/issues) |
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
-
-> [!div class="nextstepaction"]
-> [Explore the Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md)
+- [Configure autoscaling for Durable Task SDK apps](./durable-task-scheduler-auto-scaling.md)
+- [OpenTelemetry tracing for Durable Task SDKs](./durable-task-scheduler-opentelemetry-tracing.md)

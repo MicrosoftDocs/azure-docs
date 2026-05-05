@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 10/15/2024
+ms.date: 04/28/2026
 ms.service: azure-virtual-wan
 ms.topic: include
 ms.custom: sfi-image-nochange
@@ -13,18 +13,18 @@ ms.custom: sfi-image-nochange
 
 The following sections explain the common terms and values used for server configuration.
 
-### User Groups (policy groups)
+### User Groups (Policy Groups)
 
-A **User Group** or policy group is a logical representation of a group of users that should be assigned IP addresses from the same address pool.
+A **User Group** or **Policy Group** is a logical representation of a group of users that should be assigned IP addresses from the same address pool. In the articles, you may see **User Group** referred to as **Policy Group**. These are the same thing, just different terminology.
 
-### Group members (policy members)
+### Group Members (Policy Members)
 
 User groups consist of members. Members don't correspond to individual users but rather define the criteria used to determine which group a connecting user is a part of. A single group can have multiple members. If a connecting user matches the criteria specified for one of the group's members, the user is considered to be part of that group and can be assigned an appropriate IP address.
-The types of member parameters that are available depend on the authentication methods specified in the VPN server configuration. For a full list of available criteria, see the [Available group settings](#available-group-settings) section of this article.
+The types of member parameters that are available depend on the authentication methods specified in the VPN server configuration. For a full list of available criteria, see the [Available group settings](#available-group-settings) section of this article. In the articles, you may see **Group Members** referred to as **Policy Members**. These are the same thing, just different terminology.
 
-### Default user/policy group
+### <a name="default-policy-group"></a> Default User Group
 
-For every P2S VPN server configuration, one group must be selected as default. Users who present credentials that don't match any group settings are considered to be part of the default group. Once a group is created, the default setting of that group can't be changed.
+Also know as the **Default Policy Group**. For every P2S VPN server configuration, one group must be selected as default. Users who present credentials that don't match any group settings are considered to be part of the default group. Once a group is created, the default setting of that group can't be changed.
 
 ### Group priority
 
@@ -72,7 +72,7 @@ After your RADIUS server has successfully verified the user's credentials, the R
 Therefore, RADIUS servers should be configured to send a VSA with the same value for all users that are part of the same group.
 
 > [!NOTE]
-> The value of the VSA must be an octet hexadecimal string on the RADIUS server and the Azure. This octet string must begin with **6ad1bd**. The last two hexadecimal digits may be configured freely. For example, 6ad1bd98 is valid but 6ad12323 and 6a1bd2 would not be valid.
+> The value of the VSA must be an octet hexadecimal string on the RADIUS server and the Azure. This octet string must begin with **6ad1bd**. The last two hexadecimal digits can be configured freely. For example, 6ad1bd98 is valid but 6ad12323 and 6a1bd2 wouldn't be valid.
 >
 
 The new VSA is **MS-Azure-Policy-ID**.

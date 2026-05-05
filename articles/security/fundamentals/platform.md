@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 11/04/2025
+ms.date: 05/05/2026
 ---
 
 # Platform integrity and security overview
@@ -15,16 +15,16 @@ The Azure fleet is composed of millions of servers (hosts) with thousands more a
 ## Securing Azure hardware and firmware
 This series of articles describe how Microsoft ensures integrity and security of hosts through various stages in their lifecycle, from manufacturing to sunset. The articles address:
  
-- [Firmware security](/azure/security/fundamentals/firmware)
-- [Platform code integrity](/azure/security/fundamentals/code-integrity)
-- [UEFI Secure Boot](/azure/security/fundamentals/secure-boot)
-- [Measured boot and host attestation](/azure/security/fundamentals/measured-boot-host-attestation)
-- [Project Cerberus](/azure/security/fundamentals/project-cerberus)
-- [Encryption at rest](/azure/security/fundamentals/encryption-atrest)
-- [Hypervisor security](/azure/security/fundamentals/hypervisor)
+- [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
+- [UEFI Secure Boot](secure-boot.md)
+- [Measured boot and host attestation](measured-boot-host-attestation.md)
+- [Project Cerberus](project-cerberus.md)
+- [Encryption at rest](encryption-atrest.md)
+- [Hypervisor security](hypervisor.md)
  
 ## Next steps
 
-- Learn how Microsoft actively partners within the cloud hardware ecosystem to drive continuous [firmware security improvements](/azure/security/fundamentals/firmware).
+- Learn how Microsoft actively partners within the cloud hardware ecosystem to drive continuous [firmware security improvements](firmware.md).
 
-- Understand your [shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
+- Understand your [shared responsibility in the cloud](shared-responsibility.md).

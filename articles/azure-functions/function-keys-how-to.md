@@ -64,7 +64,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 | [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 | File system  | `files` | Keys are persisted on the local file system, which is the default in Functions v1.x. File system storage isn't recommended. |
 | Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported. |
-| Azure Container Apps secrets | `ContainerApps` | Keys are stored in the Azure Container Apps secrets store. Supported only when your function app is deployed to Azure Container Apps. |
+| Azure Container Apps secrets | `ContainerApps` | Keys are stored in the Azure Container Apps secrets store. Supported only when your function app is deployed to Azure Container Apps. For detailed setup steps, see [Configure Functions access key storage on Container Apps](/azure/container-apps/functions-secrets-host-keys). |
 
 When you use Key Vault for key storage, the app settings you need depend on the managed identity type, either system-assigned or user-assigned. 
 

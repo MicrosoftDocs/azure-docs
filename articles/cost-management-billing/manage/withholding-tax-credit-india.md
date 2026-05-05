@@ -8,34 +8,70 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/29/2026
 ms.author: jkinma
+ms.custom: references_regions
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
-# Request a credit for Withholding Tax on your account (India customers)
+# Request a credit for Withholding Tax on your account (Global customers)
+
+Some customers receive Web Direct (Azure and Microsoft 365) invoices billed by a Microsoft entity located in a foreign country/region. If your organization makes cross-border payments to that entity, the Tax Authority in your country/region might require you to withhold part of the cross-border payment as withholding tax (WHT). If you withheld taxes as required by your Tax Authority when remitting payments to Microsoft, this article explains the process for claiming a credit for the tax withheld.
 
 Customers in India receive Web Direct (Azure and Microsoft 365) invoices billed by Microsoft Regional Sales Pte Ltd. Singapore (MRS) and make cross-border payments to Singapore to settle the invoice. If you withheld taxes when remitting the payment, this article explains the process for claiming a credit for the Withholding Tax (WHT) in your account with MRS.
 
-## Invoice payment by wire
+## For invoice pay customers who pay by wire transfer
 
-If you withheld tax when remitting payment to MRS and deposited the withheld tax with the Income Tax Department, you must submit a WHT request to settle the tax amount withheld in your account.
+If you withheld tax when remitting payment and deposited the withheld tax with the relevant Tax Authority, you must submit a WHT request to clear the outstanding balance in your account.
 
-Your WHT request must include the following items:
-
-- A completed copy of the [Withholding Tax Credit Form](https://download.microsoft.com/download/a/2/a/a2a35969-2d54-4faa-ba41-6a50525eba70/WHT%20Credit%20Form%20-%20India.docx) (filled out by the customer)
-- A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
-
-Submit the WHT request by opening a ticket with Microsoft support.
-
-## Credit card payment
-
-If your payment method is a credit card and you made a full payment to MRS, and paid WHT to the Income Tax Department, you must submit a WHT request to claim the refund of the tax amount.
+For customers in India, if you withheld tax when remitting payment to MRS and deposited the withheld tax with the Income Tax Department, you must submit a WHT request to settle the tax amount withheld in your account.
 
 Your WHT request must include the following items:
 
-- A completed copy of the [Withholding Tax Credit Form](https://download.microsoft.com/download/a/2/a/a2a35969-2d54-4faa-ba41-6a50525eba70/WHT%20Credit%20Form%20-%20India.docx) (filled out by the customer)
-- A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
+- A completed copy of the [Withholding Tax Credit Form](https://download.microsoft.com/download/a/a/f/aaf8306b-79d4-455b-975f-41ce9e67b9cb/wht%20credit%20form%20-%20global.docx) (filled out by the customer)
 
-Submit the WHT request by opening a ticket with Microsoft support
+- Customers in India: A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
+
+- All other customers: A signed or scanned copy of the Withholding Tax Certificate or Receipt
+
+
+When the above details are available, please submit them to the email address below based on your country/region:  
+
+|Country/Region| Email address|
+| -------- | -------- |
+|Europe, Middle East, and Africa| wocsemea@microsoft.com|
+|North America|wocs-na@microsoft.com|
+|Asia-Pacific|wocsapac@microsoft.com|
+|India|wocs-in@microsoft.com |
+|Japan|wocsjpncoll@microsoft.com |
+|Mexico|msccmx@microsoft.com |
+|Brazil|msftccbz@microsoft.com |
+|Central America, Caribbean, and Colombia|mscnm@microsoft.com |
+|Cono Sur|msccarg@microsoft.com |
+
+## For customers who pay by credit card
+
+If your payment method is a credit card and you made a full payment to Microsoft, and also paid WHT to the relevant Tax authority, or Income Tax Department in India, you must submit a WHT request to claim the refund of the tax amount.
+
+Your WHT request must include the following items:
+
+- A completed copy of the [Withholding Tax Credit Form](https://download.microsoft.com/download/a/a/f/aaf8306b-79d4-455b-975f-41ce9e67b9cb/wht%20credit%20form%20-%20global.docx) (filled out by the customer)
+
+- Customers in India: A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
+
+- All other customers: A signed or scanned copy of the Withholding Tax Certificate or Receipt
+
+When the above details are available, please submit them to the email address below based on your country/region: 
+
+|Country/Region| Email address|
+| -------- | -------- |
+|Europe, Middle East, and Africa| wocsemea@microsoft.com|
+|North America|wocs-na@microsoft.com|
+|Asia-Pacific|wocsapac@microsoft.com|
+|India|wocs-in@microsoft.com |
+|Japan|wocsjpncoll@microsoft.com |
+|Mexico|msccmx@microsoft.com |
+|Brazil|msftccbz@microsoft.com |
+|Central America, Caribbean, and Colombia|mscnm@microsoft.com |
+|Cono Sur|msccarg@microsoft.com |
 
 ## Timelines to send TDS Certificate with Withholding Tax Credit form
 

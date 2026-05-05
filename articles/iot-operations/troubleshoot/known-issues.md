@@ -79,7 +79,7 @@ az k8s-extension list \
 
 This section lists current known issues for the Azure Device Registry.
 
-### ADR asset resources don't sync
+### ADR namespace asset healthstate resources don't sync from edge to cloud
 
 ---
 
@@ -91,8 +91,9 @@ Log signature: N/A
 
 ---
 
-Azure Device Registry asset resources don't synchronize back if they were created with an older API version.
+Azure Device Registry namespace asset healthstate resources don't synchronize back to the cloud if they were created with an API version older than 2026-04-01. This failure occurs because a required Kubernetes resource annotation is missing.
 
+Workaround: Use the [arc proxy](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) to connect to your Kubernetes cluster and then run the [remediation script](https://github.com/Azure/azure-iot-operations/tree/main/scripts/known-issues/asset-health-status-reporting) for the shell you're using (PowerShell or bash). The scripts list all outdated namespace assets and request confirmation before they add the missing annotations.
 
 
 ## MQTT broker issues

@@ -8,7 +8,7 @@ ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: best-practice
-ms.date: 05/28/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -293,7 +293,7 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
 
 ## Use Microsoft Entra ID for storage authentication
-[Azure Storage](/azure/storage/blobs/authorize-access-azure-active-directory) supports authentication and authorization with Microsoft Entra ID for Blob storage and Queue storage. With Microsoft Entra authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md) supports authentication and authorization with Microsoft Entra ID for Blob storage and Queue storage. With Microsoft Entra authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
 
 We recommend that you use [Microsoft Entra ID for authenticating access to storage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

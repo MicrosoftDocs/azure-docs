@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 02/12/2026
+ms.date: 05/05/2026
 ---
 
 # Prepare for a ransomware attack
@@ -50,15 +50,15 @@ Azure provides a wide variety of native technical controls to protect, detect, a
 - **[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** - Unified security management providing threat protection for Azure workloads including VMs, containers, databases, and storage
 - **[Azure Firewall Premium](../../firewall/premium-features.md)** - Next-generation firewall with IDPS capabilities to detect and block ransomware C&C communications
 - **[Microsoft Sentinel](/azure/sentinel/)** - Cloud-native SIEM/SOAR platform with built-in ransomware detection analytics and automated response
-- **[Azure Network Watcher](/azure/network-watcher/)** - Network monitoring and diagnostics to detect anomalous traffic patterns
+- **[Azure Network Watcher](../../network-watcher/index.yml)** - Network monitoring and diagnostics to detect anomalous traffic patterns
 - **[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/)** - For Azure VMs running Windows or Linux
 
 ### Data protection for Azure resources
 
-- **[Azure Backup](/azure/backup/)** with immutability and soft delete for Azure VMs, SQL databases, and file shares
-- **[Azure Storage immutable blobs](/azure/storage/blobs/immutable-storage-overview)** - WORM (Write Once, Read Many) storage that cannot be modified or deleted
-- **[Azure role-based access control (RBAC)](/azure/role-based-access-control/)** - Principle of least privilege for Azure resource access
-- **[Azure Policy](/azure/governance/policy/)** - Enforce backup policies and security configurations across Azure subscriptions
+- **[Azure Backup](../../backup/index.yml)** with immutability and soft delete for Azure VMs, SQL databases, and file shares
+- **[Azure Storage immutable blobs](../../storage/blobs/immutable-storage-overview.md)** - WORM (Write Once, Read Many) storage that cannot be modified or deleted
+- **[Azure role-based access control (RBAC)](../../role-based-access-control/index.yml)** - Principle of least privilege for Azure resource access
+- **[Azure Policy](../../governance/policy/index.yml)** - Enforce backup policies and security configurations across Azure subscriptions
 - **Regular backup verification** using Azure Site Recovery for disaster recovery testing
 
 For comprehensive incident handling guidance, see [Prepare your ransomware recovery plan](/security/ransomware/protect-against-ransomware-phase1).
@@ -87,7 +87,7 @@ The Azure platform provides multiple backup and recovery options through Azure B
 
 Data services like Azure SQL Database, Azure Database for MySQL/MariaDB/PostgreSQL, Azure Cosmos DB, and Azure NetApp Files offer built-in backup capabilities with automated schedules.
 
-For detailed guidance, see [Backup and restore plan to protect against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware).
+For detailed guidance, see [Backup and restore plan to protect against ransomware](backup-plan-to-protect-against-ransomware.md).
 
 ## What's Next
 

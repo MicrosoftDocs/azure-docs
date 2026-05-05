@@ -2,12 +2,12 @@
 title: Configure IP firewall rules for Azure Service Bus
 description: This article describes how to use Firewall Rules to allow connections from specific IP addresses to Azure Service Bus. 
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 05/02/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
   - sfi-image-nochange
-# Customer intent: As an IT administrator, I would like to know how to configure IP firewall rules for an Azure Service Bus namespace. 
+#customer intent: As an IT administrator, I want to configure IP firewall rules for an Azure Service Bus namespace so that I can restrict access to specific IP addresses.
 ---
 
 # Allow access to Azure Service Bus namespace from specific IP addresses or ranges
@@ -15,11 +15,16 @@ By default, the internet can access Service Bus namespaces as long as the reques
 
 This feature is helpful in scenarios where Azure Service Bus should be accessible only from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Service Bus with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses or addresses of a corporate NAT gateway. 
 
+This article shows you how to configure IP firewall rules for a Service Bus namespace using the Azure portal, Azure CLI, PowerShell, or ARM templates. 
+
 ## IP firewall rules
-Apply the IP firewall rules at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any **supported protocol** (AMQP (5671) and HTTPS (443)). The Service Bus rejects any connection attempt from an IP address that doesn't match an allowed IP rule on the Service Bus namespace as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+
+IP firewall rules restrict inbound traffic to a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+
+IP firewall rules apply at the Service Bus namespace level. The rules apply to all connections from clients using any **supported protocol** (AMQP (5671) and HTTPS (443)). Service Bus rejects any connection attempt from an IP address that doesn't match an allowed IP rule on the Service Bus namespace as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 > [!NOTE]
-> The networking options differ between Service Bus SKUs. The **Standard SKU** supports IP filtering but does not include the "Trusted Services" option. For Premium SKU networking features, please refer to the dedicated Premium SKU networking documentation.
+> Networking options differ between Service Bus SKUs. The **Standard SKU** supports IP filtering but doesn't include the "Trusted Services" option. For Premium SKU networking features, see the dedicated Premium SKU networking documentation.
 
 ## Important points
 - Private Endpoints and Service Endpoints are supported only in the **premium** tier of Service Bus. If upgrading to the **premium** tier isn't an option, you can use IP firewall rules by using the [Azure portal](#use-azure-portal), [Azure Resource Manager templates](#use-a-template), [Azure CLI](#use-azure-cli), [PowerShell](#use-azure-powershell), or [REST API](#rest-api).

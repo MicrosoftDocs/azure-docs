@@ -1,8 +1,8 @@
 ---
 title: License SQL Server, Windows Server, and Linux in Azure VMware Solution 
 description: Learn about licensing considerations for running SQL Server, Windows Server, and Linux in VMs in Azure VMware Solution and how to utilize Azure Hybrid Benefits and register your SQL Server licenses.
-author: MikeWeiner-Microsoft
-ms.author: michwe
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 03/12/2026

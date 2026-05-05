@@ -8,7 +8,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 11/06/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -44,9 +44,9 @@ Use these controls and baselines to:
 - Establish security standards for cloud deployments
 - Assess compliance at scale using [Microsoft Defender for Cloud regulatory compliance dashboard](/azure/defender-for-cloud/regulatory-compliance-dashboard)
 - Map to industry frameworks including CIS, NIST, and PCI-DSS
-- Implement secure configurations with [Azure Policy](/azure/governance/policy/overview)
+- Implement secure configurations with [Azure Policy](../../governance/policy/overview.md)
 
-For governance and compliance capabilities, see [Azure security management and monitoring overview](/azure/security/fundamentals/management-monitoring-overview).
+For governance and compliance capabilities, see [Azure security management and monitoring overview](management-monitoring-overview.md).
 
 ## Secure and protect
 
@@ -66,11 +66,11 @@ For details, see [Azure identity management security overview](identity-manageme
 
 ### Network security
 
-- [Azure Firewall](/azure/firewall/overview) - Cloud-native network firewall with IDPS
-- [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) - Always-on DDoS mitigation
-- [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - Encrypted cross-premises connectivity
-- [Azure Front Door](/azure/frontdoor/front-door-overview) - Global load balancer with integrated WAF
-- [Azure Private Link](/azure/private-link/private-link-overview) - Private connectivity to Azure services
+- [Azure Firewall](../../firewall/overview.md) - Cloud-native network firewall with IDPS
+- [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) - Always-on DDoS mitigation
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) - Encrypted cross-premises connectivity
+- [Azure Front Door](../../frontdoor/front-door-overview.md) - Global load balancer with integrated WAF
+- [Azure Private Link](../../private-link/private-link-overview.md) - Private connectivity to Azure services
 
 For details, see [Azure network security overview](network-overview.md).
 
@@ -78,15 +78,15 @@ For details, see [Azure network security overview](network-overview.md).
 
 - [Azure Key Vault](/azure/key-vault/general/overview) - Secure key and secret storage with FIPS 140-2 Level 1 (Standard tier) and FIPS 140-3 Level 3 (Premium tier) validated HSMs
 - [Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) - Single-tenant FIPS 140-3 Level 3 HSM
-- [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) - Automatic encryption at rest
-- [Azure Backup](/azure/backup/backup-overview) - Independent and isolated backups
-- [Azure confidential computing](/azure/confidential-computing/overview) - Hardware-based data protection in use with AMD SEV-SNP, Intel TDX, and NVIDIA H100 GPU support
+- [Azure Storage Service Encryption](../../storage/common/storage-service-encryption.md) - Automatic encryption at rest
+- [Azure Backup](../../backup/backup-overview.md) - Independent and isolated backups
+- [Azure confidential computing](../../confidential-computing/overview.md) - Hardware-based data protection in use with AMD SEV-SNP, Intel TDX, and NVIDIA H100 GPU support
 
 For details, see [Azure encryption overview](encryption-overview.md) and [Key management in Azure](key-management.md).
 
 ### Governance
 
-- [Azure Policy](/azure/governance/policy/overview) - Enforce standards and assess compliance
+- [Azure Policy](../../governance/policy/overview.md) - Enforce standards and assess compliance
 
 For details, see [Azure security management and monitoring overview](management-monitoring-overview.md).
 

@@ -2,9 +2,10 @@
 title: Azure Service Bus Access Control with Shared Access Signatures
 description: Learn about the use of shared access signatures for Azure Service Bus authorization.
 ms.topic: concept-article
-ms.date: 12/11/2024
+ms.date: 05/02/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+#customer intent: As a developer, I want to understand how shared access signatures work so that I can implement token-based authorization for my Service Bus applications.
 ---
 
 # Service Bus access control with shared access signatures
@@ -15,7 +16,7 @@ A SAS guards access to Service Bus based on authorization rules that are configu
 
 ## Preferred authorization method
 
-Azure Service Bus supports authorizing access to a Service Bus namespace and its entities by using Microsoft Entra ID. Authorizing users or applications by using an OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures. SAS keys lack fine access control, are difficult to manage and rotate, and don't have the audit capabilities to associate its use with a specific user or service principal.
+Azure Service Bus supports authorizing access to a Service Bus namespace and its entities by using Microsoft Entra ID. Authorizing users or applications by using an OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures. SAS keys lack fine-grained access control, are difficult to manage and rotate, and don't provide audit capabilities to associate their use with a specific user or service principal.
 
 For these reasons, we recommend using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
 
@@ -99,7 +100,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 ## Configuration for SAS authentication
 
-You can configure the SAS policy on Service Bus namespaces, queues, or topics. Configuring it on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to help secure access to subscriptions.
+You can configure the SAS policy on Service Bus namespaces, queues, or topics. Service Bus doesn't currently support configuring SAS policies on subscriptions, but you can use rules configured on a namespace or topic to secure access to subscriptions.
 
 In the following example, the `manageRuleNS`, `sendRuleNS`, and `listenRuleNS` authorization rules apply to both queue Q1 and topic T1. The `listenRuleQ` and `sendRuleQ` rules apply only to queue Q1. The `sendRuleT` rule applies only to topic T1.
 
