@@ -21,7 +21,7 @@ This article shows you how to migrate on-premises VMware vSphere or Azure VMware
 > * Prepare Azure to work with Azure Migrate.
 > * Prepare for agent-based migration. Set up a VMware vCenter Server account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
 > * Set up the replication appliance.
-> * Start migration Execution.
+> * Start migration execution.
 > * Track and monitor migrations.
 > * Run a test migration to make sure everything's working as expected.
 > * Run a full VM migration.
@@ -114,23 +114,22 @@ This section describes how to set up the simplified appliance with a downloaded 
 
 ### Download the replication appliance OVF template or PowerShell installer script
 > [!NOTE]
-> If you're starting migrations using replication appliance directly without installing Azure Migrate appliance For discovery (VMWare), You can use the classic Azure Migrate Portal. To switch to the classic portal, Navigate to your **Azure Migrate Project > Execute > Migrations** and click the link available in the banner. Azure migrate appliance based discovery is a prerequisite to have an end-end experience in the new portal.
+> Azure migrate appliance based discovery is a prerequisite to set up replication appliance and track agent-based migrations in the new portal. To execute migrations using replication appliance directly without installing Azure Migrate appliance, You must redirect to classic Azure Migrate Portal by navigating to your **Azure Migrate Project > Execute > Migrations** and clicking on the link available in the banner.
 
 1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
 2. In **Specify intent**, > **What do you want to migrate**, select **Servers or Virtual Machines(VM)**. Under **Where do you want to migrate to**, select **Azure VM**.
 3. In **How will you select workloads**, You can either manually select servers using **From all inventory** or select an existing assessment using **From an assessment**.
-4. In **Discovery method**, select the appliance that matches your source environment (VMware Vsphere in this case). Under **Migration mode**, select **Agent-based migration**.
+4. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agent-based migration**.
 5. In **Workloads** page, Select **Set up the replication appliance** to start the appliance set up.   
-6. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMware vSphere hypervisor**.
-7. In **How do you want to migrate?**, select **Using agent-based replication**.
-8. In **Target region**, select the Azure region to which you want to migrate the machines.
-9. Select **Confirm that the target region for migration is region-name**.
-10. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
+6. Virtualization type and migration method (agentless vs agent-based) will be prepopulated and greyed out based on the source azure migrate appliance type used for discovery and the migration mode selected in the previous step.
+7. In **Target region**, select the Azure region to which you want to migrate the machines.
+8. Select **Confirm that the target region for migration is region-name**.
+9. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
     > [!NOTE]
     > You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
    
-12. Select **[Download](https://aka.ms/V2ARcmOvaDownloadLink_ecy)**. This downloads an OVF template. 
-13. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
+10. Select **[Download](https://aka.ms/V2ARcmOvaDownloadLink_ecy)**. This downloads an OVF template. 
+11. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
 
     > [!NOTE]
     > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault will also be configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance: [**Learn more**](troubleshoot-network-connectivity.md)
@@ -167,12 +166,12 @@ Finish setting up and registering the replication appliance using the steps prov
 
 3. In **How will you select workloads**, You can either manually select servers using **From all inventory** or select an existing assessment using **From an assessment**.
 
-4. In **Discovery method**, select the appliance that matches your source environment (VMware Vsphere in this case). Under **Migration mode**, select **Agent-based migration**.
+4. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agent-based migration**.
 
 5. In **Workloads**, select the machines you want to replicate and migrate and select the **Target VM security type**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. We recommend using them wherever applicable.
 6. Select the replication appliance you have set up from the drop-down menu or set up a new replication appliance by referring the steps provided in previous section.
 7. In **vCenter server/vSphere host**, select the vCenter host details from the drop-down.
-8. In **Guest credentials**, specify the VM admin account that will be used for push installation of the Mobility service. Then click **Next: Virtual machines**.
+8. In **Guest credentials**, specify the VM admin account that will be used for push installation of the Mobility service. Then click Next after selecting the VMs you want to replicate.
 9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration. Complete the below settings in the blade,
      - In **Availability options**, select:
           - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option,                 you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
@@ -216,12 +215,12 @@ Finish setting up and registering the replication appliance using the steps prov
 
 ## Track and monitor
 
-1. In Azure Migrate project, go to Execute > Migrations. Use **View by applications** or **View by workloads** to switch how items are grouped.
+1. In Azure Migrate project, go to Execute > Migrations. Use **View by applications** or **View by workloads** to switch how items     are grouped.
 
 2. Replication occurs as follows: 
       - When the Start Replication job finishes successfully, the machines begin their initial replication to Azure.
-	  - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
-	  - After initial replication finishes, delta replication begins. Incremental changes to the source disks are periodically replicated to the replica disks in Azure.
+	  - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in         Azure.
+	  - After initial replication finishes, delta replication begins. Incremental changes to the source disks are periodically              replicated to the replica disks in Azure.
 
 3. Execution progress is shown in Execution stage and Execution status:
       - **Execution stage**: Preparation, Testing, or Completion.
@@ -276,10 +275,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop replication**. This does the following:
-    - Stops replication for the source machine (on-premises or AVS).
-    - Removes the machine from the **Replicating servers** count in the Migration and modernization tool.
-    - Cleans up replication state information for the VM.
+1. After the migration is done, in the drill-down page of the server, under Completion drop-down, select Complete migration. This      stops replication for the source (on-premises or AVS) machine, and cleans up replication state information for the VM.
 1. Verify and [troubleshoot any Windows activation issues on the Azure VM.](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)
 1. Perform any post-migration app tweaks, such as host names, updating database connection strings, and web server configurations.
 1. Perform final application and migration acceptance testing on the migrated application now running in Azure.

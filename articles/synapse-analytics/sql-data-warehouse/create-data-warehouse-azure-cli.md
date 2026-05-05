@@ -12,6 +12,8 @@ ms.custom: azure-synapse, mode-api, devx-track-azurecli
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Create a Synapse SQL pool (data warehouse) in Azure Synapse Analytics using the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]

@@ -20,7 +20,7 @@ Currently, [Azure support](https://azure.microsoft.com/support/plans) is availab
 > [!NOTE]
 > With the release of 1.3.x, the supported versions become **1.3.x, 1.2.x, and 1.1.x**. The **1.0.x** series (versions 2411 through 2503) is no longer within the [supported version window](../overview-support.md).
 
-To learn about upgrades between versions, see [Upgrade to a new version](../deploy-iot-ops/howto-upgrade.md).
+For more information about upgrades between versions, see [Upgrade to a new version](../deploy-iot-ops/howto-upgrade.md).
 
 > [!IMPORTANT]
 > Previous minor versions don't receive security patches. Upgrade to the latest version to get the latest security updates and features.

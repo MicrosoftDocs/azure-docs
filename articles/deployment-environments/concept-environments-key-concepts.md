@@ -1,5 +1,5 @@
 ---
-title: Key concepts and roles
+title: Key Concepts and Roles
 titleSuffix: Azure Deployment Environments
 description: Learn the key concepts, role definitions, features, and terminology for Azure Deployment Environments.
 ms.service: azure-deployment-environments
@@ -7,7 +7,7 @@ ms.custom: build-2023
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 07/23/2025
+ms.date: 05/04/2026
 
 #customer intent: As a platform engineer, I want to understand the key concepts and roles in Azure Deployment Environments so that I can effectively deploy environments for my scenarios.
 ---
@@ -43,7 +43,7 @@ You can configure projects for Deployment Environments and projects for [Dev Box
 
 ## Environments
 
-An environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment that consists of [Azure App Service](../app-service/overview.md), [Azure Key Vault](/azure/key-vault/general/basic-concepts), [Azure Cosmos DB](/azure/cosmos-db/introduction), and a [storage account](../storage/common/storage-account-overview.md). An environment can consist of both Azure platform as a service (PaaS) and infrastructure as a service (IaaS) resources, such as an Azure Kubernetes Service (AKS) cluster, virtual machines, and databases.
+An environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment that consists of [Azure App Service](../app-service/overview.md), [Azure Key Vault](/azure/key-vault/general/basic-concepts), [Azure Cosmos DB](/azure/cosmos-db/overview), and a [storage account](../storage/common/storage-account-overview.md). An environment can consist of both Azure platform as a service (PaaS) and infrastructure as a service (IaaS) resources, such as an Azure Kubernetes Service (AKS) cluster, virtual machines, and databases.
 
 ## Identities
 
@@ -62,7 +62,7 @@ Project environment types are a subset of the environment types that you configu
 Project environment types allow you to automatically apply the right set of policies on environments and help abstract the Azure governance-related concepts from your development teams. The service also provides the flexibility to preconfigure:
 
 - The [managed identity](concept-environments-key-concepts.md#identities) that's used to perform the deployment.
-- The access levels that the development teams will get after a specific environment is created.
+- The access levels that the development teams get after a specific environment is created.
 
 ## Catalogs
 
@@ -82,21 +82,21 @@ An environment definition is a combination of an IaC template and an environment
 
 Deployment Environments uses the following [built-in roles](../role-based-access-control/built-in-roles.md):
 
-- **DevCenter Owner**. Manages Microsoft.DevCenter resources at the dev center scope (such as dev centers and their projects and catalogs), and can manage access to those resources by assigning or removing the DevCenter Project Admin and DevCenter Dev Box roles.
-- **DevCenter Project Admin**. Creates environments and manages the environment types for a project.
-- **Deployment Environments User**. Creates environments based on appropriate access.
-- **Deployment Environments Reader**. Reads environments that other users create.
+- **DevCenter Owner**: Manages Microsoft.DevCenter resources at the dev center scope (such as dev centers and their projects and catalogs), and can manage access to those resources by assigning or removing the DevCenter Project Admin and DevCenter Dev Box roles.
+- **DevCenter Project Admin**: Creates environments and manages the environment types for a project.
+- **Deployment Environments User**: Creates environments based on appropriate access.
+- **Deployment Environments Reader**: Reads environments that other users create.
 
-For more information about DevCenter Owner and other dev center roles, see [Manage a dev center for Dev Box](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users).
+For more information about DevCenter Owner and other dev center roles, see [Assign dev center permissions to users](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users).
 
 ## Resources shared with Dev Box
 
 Deployment Environments and Dev Box are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
 
-For more information, see [Components common to Dev Box and Deployment Environments](/azure/dev-box/concept-common-components).
+For more information, see [Components shared with Azure Deployment Environments](/azure/dev-box/overview-what-is-microsoft-dev-box#components-shared-with-azure-deployment-environments).
 
 ## Related content
 
-- [What is Deployment Environments?](overview-what-is-azure-deployment-environments.md)
-- [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
-- [What is Dev Box?](../dev-box/overview-what-is-microsoft-dev-box.md)
+- [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md)
+- [Quickstart: Configure Azure Deployment Environments](./quickstart-create-and-configure-devcenter.md)
+- [What is Microsoft Dev Box?](../dev-box/overview-what-is-microsoft-dev-box.md)

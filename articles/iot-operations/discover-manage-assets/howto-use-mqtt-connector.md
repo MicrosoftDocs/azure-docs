@@ -24,9 +24,9 @@ The following table summarizes the features that the connector for MQTT supports
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
+| Southbound certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
 | OpenTelemetry integration | Yes | |
 | WASM data transformation | Yes | Optionally transform incoming data using WebAssembly modules |
 | Schema generation | Yes | Registers inferred schema with the schema registry |

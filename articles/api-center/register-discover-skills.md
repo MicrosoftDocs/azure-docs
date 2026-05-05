@@ -17,9 +17,6 @@ ms.custom:
 
 This article describes how to use Azure API Center to register agent [skills](https://agentskills.io/home) as part of your API inventory. Skills are reusable capabilities that AI agents can discover and consume to extend their functionality.
 
-> [!NOTE]
-> Registering skills in API Center is currently in preview.
-
 By registering skills in your API center, you create a centralized registry that helps your organization:
 
 - Discover available skills and their capabilities
@@ -161,7 +158,7 @@ To enable automated quality assessments of skills in your inventory:
 
 1. In the [Azure portal](https://portal.azure.com), go to your API center.
 1. In the sidebar menu. go to **Governance** > **AI Assessment (preview)**.
-1. In **Assessment status, select **Enabled**.
+1. In **Assessment status**, select **Enabled**.
 1. Enter a **Description** for the assessment.
 1. In **Assessment criteria**, do one of the following:
     - Select the **Default** criteria described previously.
@@ -181,7 +178,7 @@ You can then view assessment results for each skill on the skill details page in
 :::image type="content" source="media/register-discover-skills/assessment-in-portal.png" alt-text="Screenshot of skill assessment in the API Center portal." lightbox="media/register-discover-skills/assessment-in-portal.png":::
 
 > [!NOTE]
-> API Center runs skill assessments approximately once per hour. It can take up to an hour for new or updated skills to be assessed and for the results to appear in the portal.
+> API Center runs skill assessments approximately once per hour. It can take up to an hour for new or updated skills to be assessed and for the results to appear in the API Center portal.
 
 ## Related content
 
