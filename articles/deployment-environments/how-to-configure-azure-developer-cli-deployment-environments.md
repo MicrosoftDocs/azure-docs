@@ -29,9 +29,9 @@ Microsoft provides a quick start catalog that contains a set of `azd` compatible
 
 ## Examine an `azd` compatible template
 
-You can use an existing `azd` compatible template to create a new environment, or you can add an *azure.yaml* file to your repository. In this section, you examine an existing `azd` compatible template.
+You can use an existing `azd` compatible template to create a new environment, or you can add an azure.yaml file to your repository. In this section, you examine an existing `azd` compatible template.
 
-`azd` provisioning for environments relies on curated templates from the catalog. Templates in the catalog might assign tags to provisioned Azure resources for you to associate your app services with in the *azure.yaml* file, or specify the resources explicitly. In this example, resources are specified explicitly.
+`azd` provisioning for environments relies on curated templates from the catalog. Templates in the catalog might assign tags to provisioned Azure resources for you to associate your app services with in the azure.yaml file, or specify the resources explicitly. In this example, resources are specified explicitly.
 
 For more information on tagging resources, see [Tagging resources for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration#tagging-resources-for-azure-deployment-environments).
 
@@ -45,20 +45,20 @@ For more information on tagging resources, see [Tagging resources for Azure Depl
 
 1. In the GitHub repository, navigate to the **Environment-Definitions/ARMTemplates/Function-App-with-Cosmos_AZD-template** folder.
 
-1. Open the *environment.yaml* file. At the end of the file, you see the allowed repositories that contain sample application source code.
+1. Open the environment.yaml file. At the end of the file, you see the allowed repositories that contain sample application source code.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/application-source-templates.png" alt-text="Screenshot of GitHub repository, showing the environment.yaml file with source templates highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/application-source-templates.png":::
 
 1. Copy the **https://github.com/azure-samples/todo-python-mongo-swa-func** repository URL, and then navigate to the repository in GitHub.
 
-1. In the root of the repository, open the *azure.yaml* file.
+1. In the root of the repository, open the azure.yaml file.
 
 1. In the azure.yaml file, in the **services** section, you see the **web** and **API** services that are defined in the template.
 
 > [!NOTE]
-> Not all `azd` compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the *azure.yaml* file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers.
+> Not all `azd` compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the azure.yaml file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers.
 
-If you're working with your own catalog and environment definition, you can create an *azure.yaml* file in the root of your repository. Use the *azure.yaml* file to define the services that you want to deploy to the environment.
+If you're working with your own catalog and environment definition, you can create an azure.yaml file in the root of your repository. Use the azure.yaml file to define the services that you want to deploy to the environment.
 
 ## Create an environment from an existing template
 
@@ -114,7 +114,7 @@ Sign in to Azure at the CLI using the following command:
 
 #### Enable `azd` support for ADE
 
-When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning uses dev center components. `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn't used.
+When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning uses dev center components. `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the infra folder in your local templates isn't used.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -155,7 +155,7 @@ Now you're ready to create an environment to work in. Begin with an existing tem
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt to select an environment definition." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png":::
 
-   `azd` creates the project resources, including an *azure.yaml* file in the root of your project.
+   `azd` creates the project resources, including an azure.yaml file in the root of your project.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -189,7 +189,7 @@ Now you're ready to create an environment to work in. Begin with an existing tem
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt to select an environment definition." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png":::
 
-   `azd` creates the project resources, including an *azure.yaml* file in the root of your project.
+   `azd` creates the project resources, including an azure.yaml file in the root of your project.
 
 ---
 
@@ -197,9 +197,9 @@ Now you're ready to create an environment to work in. Begin with an existing tem
 
 You can define `azd` settings for your dev centers so that you don't need to specify them each time you update an environment. In this example, you define the names of the catalog, dev center, and project that you're using for your environment.
 
-1. In Visual Studio Code, navigate to the *azure.yaml* file in the root of your project.
+1. In Visual Studio Code, navigate to the azure.yaml file in the root of your project.
 
-1. In the *azure.yaml* file, add the following settings:
+1. In the azure.yaml file, add the following settings:
 
    ```yaml
    platform:
