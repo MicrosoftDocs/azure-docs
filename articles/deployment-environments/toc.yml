@@ -82,7 +82,7 @@ items:
         href: how-to-request-quota-increase.md
   - name: Security
     items:
-      - name: Grant access to Azure Deployment Environments
+      - name: Grant and manage access
         href: how-to-manage-deployment-environments-access.md
         displayName: role-based access control, RBAC, permissions, roles, access, manage
       - name: Authenticate to REST APIs
