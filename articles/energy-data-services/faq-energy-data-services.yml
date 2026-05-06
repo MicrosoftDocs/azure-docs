@@ -115,7 +115,7 @@ sections:
           answer: >
             When you delete an ACZ, the sync stops and ACZ removes the configuration. Data already in your ADLS Gen2 storage account stays intact. You keep full ownership and control of the exported data.
 
-        - question: Can I change the entity types in an ACZ after it's created?
+        - question: Can I change the entity types in an ACZ after creation?
           answer: >
             No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
 
@@ -131,7 +131,7 @@ sections:
           answer: >
             1. During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
 
-            2. During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This may lead to data inconsistencies in ACZ data.
+            2. During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This action may lead to data inconsistencies in ACZ data.
 
             3. During preview, ACZ supports max 100 kinds.
 
