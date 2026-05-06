@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Databricks to Analytics Consumption Zone
-description: Learn how to configure Azure Databricks to query Analytics Consumption Zone (ACZ) data from Azure Data Manager for Energy using external tables and Delta Lake.
+title: Connect Analytics Consumption Zone to Azure Databricks
+description: Learn how to configure Analytics Consumption Zone (ACZ) to export Azure Data Manager for Energy data to Azure Databricks using external tables and Delta Lake.
 author: nsannala
 ms.author: nsannala
 ms.service: azure-data-manager-energy
@@ -9,9 +9,9 @@ ms.date: 5/5/2026
 ms.custom: template-how-to-pattern
 ---
 
-# Connect Azure Databricks to Analytics Consumption Zone
+# Connect Analytics Consumption Zone to Azure Databricks
 
-This article shows you how to connect Azure Databricks to Analytics Consumption Zone (ACZ) data in Azure Data Manager for Energy. After completing these steps, you can query Open Subsurface Data Universe (OSDU) data using Databricks SQL and notebooks.
+This article shows you how to connect Analytics Consumption Zone (ACZ) to Azure Databricks for querying Azure Data Manager for Energy data. After completing these steps, you can query Open Subsurface Data Universe (OSDU) data using Databricks SQL and notebooks.
 
 ## Prerequisites
 
