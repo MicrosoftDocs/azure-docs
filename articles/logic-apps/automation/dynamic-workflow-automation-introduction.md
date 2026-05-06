@@ -1,6 +1,6 @@
 ---
-title: Dynamic Workflows with Logic Apps Automation
-description: Build dynamic, agentic workflows that reason, make choices, and course-correct during runtime. Speed up development with flexible no-code, low-code tools. Include agents, model context protocol (MCP) servers, connector-based tools, and other automation components. Reduce manual work for ambiguous, high-churn, high-effort, and evolving tasks.
+title: Dynamic Agentic Workflows with Logic Apps Automation
+description: Build agentic workflow automation that runs dynamically, reasons, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
 services: azure-logic-apps
 ms.reviewers: estfan, divswa, azla
 ms.topic: overview
@@ -9,7 +9,7 @@ ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#Customer intent: As an automation developer, I want to learn about building dynamically-run, AI-first, agentic workflow automation that adapts during runtime by using Logic Apps Automation. 
+#Customer intent: As an automation developer, I want to learn about building dynamically-run, AI-powered, agentic workflow automation that adapts at runtime by using Logic Apps Automation. 
 ---
 
 # What is Logic Apps Automation (preview)
@@ -18,7 +18,7 @@ ms.custom:
 >
 > This preview capability might incur charges and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Automation teams often handle business processes where you can't predict every step in advance. Conditions change, priorities shift, exceptions surface, and data is messy. Logic Apps Automation helps you build dynamic workflows that adapt at runtime, so you spend less time reacting and more time meeting business goals.
+Automation teams often handle business processes where you can't predict every step in advance. Conditions change, priorities shift, exceptions surface, and data is messy. Logic Apps Automation helps you build dynamic agentic workflows that adapt at runtime, so you spend less time reacting and more time meeting business goals.
 
 For stable, repetitive processes with defined behavior and predictable steps, use traditional automation like [Azure Logic Apps (Standard or Consumption)](../logic-apps-overview.md). However, some business processes don't follow fixed paths. You might not know the business rules in advance. Rather than hardcode behavior up front, Logic Apps Automation lets you create workflows that understand requests, reason with context, choose the next best action, and continue with human oversight when needed. This model works well for ambiguous, fast-changing work with high cognitive load, so you stay focused on the business outcome.
 
@@ -104,4 +104,4 @@ As you work with Logic Apps Automation, you learn more about the following core 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first dynamic automation workflow](quickstart-create-dynamic-workflows.md)
+> [Create your first dynamic workflow automation](quickstart-create-dynamic-workflow-automation.md)

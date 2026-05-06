@@ -40,11 +40,11 @@ items:
       href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
-  - name: Automation dynamic workflows
+  - name: Dynamic workflow automation
     expanded: true
     items:
-    - name: Create dynamic workflows
-      href: automation/quickstart-create-dynamic-workflows.md 
+    - name: Create dynamic workflow automation
+      href: automation/quickstart-create-dynamic-workflow-automation.md
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
@@ -63,6 +63,8 @@ items:
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
+  - name: Dynamic workflow automation
+    href: automation/dynamic-workflow-automation-introduction.md
   - name: Connectors
     items:
     - name: About connectors
@@ -102,6 +104,12 @@ items:
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
+  - name: Dynamic workflow automation
+    items:
+    - name: What is Logic Apps Automation?
+      href: automation/dynamic-workflow-automation-introduction.md
+    - name: Create dynamic workflow automation
+      href: automation/quickstart-create-dynamic-workflow-automation.md
   - name: Single-tenant Azure Logic Apps
     items:
     - name: Overview
