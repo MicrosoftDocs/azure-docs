@@ -2,7 +2,7 @@
 title: Get started
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure.
+description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure (obsolete).
 ms.topic: get-started
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23

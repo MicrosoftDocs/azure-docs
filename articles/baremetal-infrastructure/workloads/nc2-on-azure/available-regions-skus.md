@@ -2,7 +2,7 @@
 title: Available Regions and SKUs for Nutanix Cloud Clusters on Azure
 author: MikeWeiner-Microsoft
 ms.author: michwe
-description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure.
+description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure (obsolete).
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: references_regions

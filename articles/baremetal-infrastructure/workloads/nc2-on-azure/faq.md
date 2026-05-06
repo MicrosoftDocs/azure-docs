@@ -2,7 +2,7 @@
 title: FAQ
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Questions frequently asked about NC2 on Azure
+description: Questions frequently asked about NC2 on Azure (obsolete).
 ms.topic: faq
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23

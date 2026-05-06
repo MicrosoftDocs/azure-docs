@@ -2,7 +2,7 @@
 title: Architecture of BareMetal Infrastructure for NC2 on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure.
+description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure (obsolete).
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.date: 04/23/2025
