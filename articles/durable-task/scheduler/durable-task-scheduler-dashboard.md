@@ -130,32 +130,58 @@ To access the dashboard for an Azure-hosted scheduler, assign the *Durable Task 
 
 ::: zone-end 
 
-## Monitor orchestration progress and execution history
+## Monitor your task hub
 
-The dashboard allows you to monitor orchestration progress and review execution history. You can filter the orchestration list using the following criteria:
+The dashboard allows you to monitor orchestration progress and review execution history. From the dashboard home page, you can find your task hub's orchestrations, entities, schedules, workers and metrics, and AI agents (currently in preview). 
 
-- **Instance ID** — Search for a specific orchestration by its unique ID.
-- **Orchestration name** — Filter by the orchestration type name.
-- **Status** — Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended).
-- **Created time range** — Narrow results to a time window.
+View orchestrations by clicking either on the task hub name or **Orchestrations** from the side menu.
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/track-orchestration-progress.png" alt-text="Screenshot of the dashboard listing orchestration history and status with filter options.":::
+:::image type="content" source="media/durable-task-scheduler-dashboard/dashboard-home.png" alt-text="Screenshot of the dashboard home page with links to task hubs, orchestration history, entities, schedules, workers, metrics, and AI agents.":::
 
-View orchestration inputs and outputs:
+In the Orchestrations overview page, you can filter the orchestration list using the following criteria.
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-input-outputs.png" alt-text="Screenshot of the dashboard listing orchestration history and status inputs and outputs.":::
+:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-filters.png" alt-text="Screenshot of the dashboard listing orchestration history and status with filter options.":::
 
-## Detailed view of orchestration execution
+| Category | Description |
+| -------- | ----------- |
+| Orchestration name | Filter by the orchestration type name. |
+| Runtime status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
+| Tag filter | Search for orchestrations by tag key *or* value. |
+| Created from/Created to | Narrow results to a time window. |
 
-You can drill into orchestration instances to view execution details and activity progress. This view helps you diagnose problems or gain visibility into the status of an orchestration.
+:::image type="content" source="media/durable-task-scheduler-dashboard/orchestrations.png" alt-text="Screenshot of the dashboard listing orchestrations.":::
 
-In the following image, the *Timeline* view of an orchestration execution. In this "ProcessDocument" orchestration, the "WriteDoc" activity retried three times (unsuccessfully) with five seconds in between retry.
+| Category | Description |
+| -------- | ----------- |
+| Instance ID | Search for a specific orchestration instance by its unique ID. |
+| Name | Filter by the orchestration type name. |
+| Status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
+| Tags | Filter by the tags applied to the orchestration instance. |
+| Created | Date and time that the orchestration was created. |
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-timeline.png" alt-text="Screenshot of the dashboard showing the orchestration execution timeline.":::
+### Detailed view of orchestration execution
 
-You can also view inputs and outputs of activities in an orchestration:
+Click an orchestration instance to view its execution details and activity progress. Use the following tabs to diagnose problems or gain visibility into the status of an orchestration. 
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/activity-input-output.png" alt-text="Screenshot of the dashboard showing activity inputs and outputs.":::
+- The *Timeline* tab shows the intervals of a running orchestration. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-details.png" alt-text="Screenshot of the orchestration execution timeline.":::
+
+   Select an activity to view its input and output.
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/view-activity.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status.":::
+
+- The *History* tab provides a feed of all events in an orchestration, complete with timestamps. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-history-details.png" alt-text="Screenshot of the dashboard showing an individual orchestration's event history.":::
+
+- The *Flow* tab visually plots out the orchestration's execution flow. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-flow.png" alt-text="Screenshot of an individual orchestration's event flow.":::
+
+   You can also view an activity's input and output by clicking **View**.
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/view-task.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status via the flow view.":::
 
 ### Other views of orchestration execution sequence
 
