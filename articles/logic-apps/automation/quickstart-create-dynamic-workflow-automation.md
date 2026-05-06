@@ -1,6 +1,7 @@
 ---
-title: Create Dynamic Workflow Automation
-description: Learn how to build dynamically-run, AI-driven automation workflows that make decisions to complete tasks autonomously or conversationally by using Logic Apps Automation.
+title: Create Dynamic Agentic Workflows
+titleSuffix: Logic Apps Automation
+description: Learn how to build dynamically-run, AI-driven workflow automation that chooses actions to take either independently or with human oversight by using Logic Apps Automation.
 services: azure-logic-apps
 ms.reviewers: estfan, divswa, azla
 ms.topic: quickstart
@@ -36,11 +37,13 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
 
   Choose an RSS feed that publishes frequently, so you can easily test your workflow. 
 
-- 
+- An email account for Office 365 Outlook or Outlook.com
 
 ## 1: Create your automation project
 
-1. Visit the [Logic Apps Automation portal](), and sign in with your Azure account.
+1. Go to the [Logic Apps Automation portal](). Sign in with your Azure account.
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
 
 1. On the home page, under **Get started**, select **Create a project**.
 
@@ -99,46 +102,83 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created app." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
 
-1. Under **Get started with your first workflow**, choose a path:
+1. Under **Get started with your first workflow**, choose an approach from the following table:
 
-   - Ask the AI assistant to build the workflow.
+   | Path | Link to steps |
+   |------|---------------|
+   | Generate the workflow by using a prompt. | [Generate your workflow from a prompt](#prompt) |
+   | Build your workflow by starting with an empty designer. | [Build your workflow with the designer](#designer) |
+   | Prepopulate a workflow by using a template. | [Create your workflow from a template](#template) |
 
-     1. In the edit box, enter the description for the process to automate.
-
-        > [!TIP]
-        >
-        > To view an example, from the **Examples** list, select a sample description that you can reuse or edit.
-
-     1. When you finish, select **Build**.
-
-     1. Continue to [Build a workflow by using a prompt](#build-workflow?tabs=prompt).
-
-   - Build the workflow manually by using the designer.
-
-     1. Select **Build from scratch**.
-
-     1. For **Workflow name**, enter a name to use.
-
-     1. Select a workflow template, and then select **Build**:
-
-        | Template | Description |
-        |----------|-------------|
-        | **Blank workflow** | Start with an empty designer. Add a trigger to run the workflow. Add actions, agents, or MCP servers as tools. <br><br>Continue with [Build a workflow by using the blank template](#build-workflow?tabs=blank). |
-        | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow by using a non-blank template](#build-workflow?tabs=non-blank). |
-        | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow using a non-blank template](#build-workflow?tabs=non-blank). |
-        | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>For this option, continue with [Build a workflow by using a non-blank template](#build-workflow?tabs=non-blank). |
-
-<a id="build-workflow"></a>
-
-## 3: Add operations to a workflow
+## 3: Build your workflow
 
 Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
 
 Based on your previous selection for building your workflow, follow the corresponding path:
 
+<a id="prompt"></a>
+
+### [Prompt](#tab/prompt)
+
+This approach generates a workflow based on your prompt that describes the workflow's behavior.
+
+1. On the **Workflows** page, in the workflow description box, enter a detailed description for the process to automate.
+
+   > [!TIP]
+   >
+   > To view an example, from the **Examples** list, select a sample description that you can reuse or edit.
+
+   For example, to create a workflow named `check-wsj-rss-feed-with-prompt`, use the following prompt:
+
+   `Check the RSS feed at 'https://feeds.content.dowjones.io/public/rss/RSSMarketsMain' by using the RSS trigger. Follow the link to each story, read the story, and create a summary. Send the story to my email account in Office 365 Outlook.`
+
+1. When you finish, select **Build**.
+
+   The following screenshot shows the example prompt:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/build-prompt.png" alt-text="Screenshot that shows the Workflows page with an entered prompt and selected option for Build." lightbox="media/quickstart-create-dynamic-workflow-automation/build-prompt.png":::
+
+   The workflow builder might need a few minutes to generate and validate the workflow. The following example shows the generated workflow, which might slightly differ from your version even if you use the same prompt:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/generated-workflow.png" alt-text="Screenshot that shows the designer with the workflow generated from the prompt and alerts for further setup." lightbox="media/quickstart-create-dynamic-workflow-automation/generated-workflow.png":::
+
+   Alert icons appear on operations that need extra setup, such as missing input values, connections, settings, and tools that you want agent loops to use.
+
+1. On the designer, select each operation that shows an alert so you can find the follow-up tasks to complete, for example:
+
+   - On the **Parameters** tab, check for values that you need to provide or change.
+   - On the **Connections** tab, create any missing connections.
+   - On the **Settings** tab, check the values to confirm whether they're set the way you want.
+   - For **Agent Loop** actions, set up any tools you want the agent loop to use, such as actions, MCP server tools, other workflows, or agents.
+
+     1. On the designer, move your mouse over the agent loop action.
+
+     1. From the pop-up box, select **+ Add Tool**, and then select an option:
+
+        | Option | Description |
+        |--------|-------------|
+        | **Action** | A connector operation or built-in operation. |
+        | **MCP Tool** | A tool from an MCP server. |
+        | **Sub-workflow** | Another workflow in the same application or an agent. |
+
 ### [Blank template](#tab/blank)
 
-The following sections show how to add an example trigger and action.
+This approach builds a workflow starting with an empty designer. The following sections show how to add an example trigger and action for a workflow.
+
+1. On the **Workflows** page, select **Build from scratch**, for example:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/select-designer.png" alt-text="Screenshot that shows the Workflows page with selected option for Build from scratch." lightbox="media/quickstart-create-dynamic-workflow-automation/select-designer.png":::
+
+1. For **Workflow name**, enter a name to use.
+
+1. Select a workflow template, and then select **Build**:
+
+   | Template | Description |
+   |----------|-------------|
+   | **Blank workflow** | Start with an empty designer. Add a trigger to run the workflow. Add actions, agents, or MCP servers as tools. <br><br>Continue with [Build a workflow by using the blank template](#build-workflow?tabs=blank). |
+   | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow by using a non-blank template](#build-workflow?tabs=non-blank). |
+   | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow using a non-blank template](#build-workflow?tabs=non-blank). |
+   | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>For this option, continue with [Build a workflow by using a non-blank template](#build-workflow?tabs=non-blank). |
 
 <a id="add-trigger"></a>
 
@@ -245,8 +285,6 @@ The following tables list only some examples from the 600+ and constantly growin
 | **Business apps** | **Asana** <br>**Jira** <br>**Salesforce** <br>**SAP** <br>**Trello** | Supports interactions with enterprise business services, systems, apps, and data. |
 | **Developer tools** group | **GitHub** <br>**Azure DevOps** <br>**Bitbucket** <br>**PagerDuty** | Supports interactions with source code repositories and work management systems. |
 | **All triggers** group | --- | All available triggers, including: <br><br>- Agent request trigger for conversational agentic workflows. |
-
-### [Prompt](#tab/prompt)
 
 ### [Non-blank template](#tab/non-blank)
 
