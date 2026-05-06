@@ -56,7 +56,7 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
    | Property | Description |
    |----------|-------------|
    | **Subscription** | Your Azure subscription. |
-   | **Resource group** | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) for organizing your project resources. Enter a unique name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
+   | **Resource group** | The [Azure resource group](../../azure-resource-manager/management/overview.md#terminology) for organizing your project resources. Enter a unique name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
    | **Name** | Enter a unique project name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
    | **Region** | The Azure region for your project. |
 
@@ -161,6 +161,8 @@ This approach generates a workflow based on your prompt that describes the workf
         | **MCP Tool** | A tool from an MCP server. |
         | **Sub-workflow** | Another workflow in the same application or an agent. |
 
+<a id="designer"></a>
+
 ### [Blank template](#tab/blank)
 
 This approach builds a workflow starting with an empty designer. The following sections show how to add an example trigger and action for a workflow.
@@ -208,7 +210,7 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
    The trigger information box appears so you can enter the trigger's inputs and configure settings.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/rss-trigger-preconfig.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer, Add a trigger pane, and selected RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/rss-trigger-preconfig.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer, Add a trigger pane, and selected RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png":::
 
 1. In the trigger information box, enter the values that the trigger needs to work.
 
@@ -218,13 +220,13 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
       `https://feeds.content.dowjones.io/public/rss/RSSMarketsMain`
 
-      :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/rss-trigger-url.png" alt-text="Screenshot that shows the information box and Parameters tab with URL for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/rss-trigger-url.png":::
+      :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-url.png" alt-text="Screenshot that shows the information box and Parameters tab with URL for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-url.png":::
 
    1. Select the **Connection** tab, and then select **Create new connection**.
 
    1. For **Name your onnection**, enter a descriptive name like `wsj-connection-example`, and select **Create connection**.
 
-      :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/rss-trigger-create-connection.png" alt-text="Screenshot that shows the information box and Connection tab with new connection name for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/rss-trigger-create-connection.png":::
+      :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-create-connection.png" alt-text="Screenshot that shows the information box and Connection tab with new connection name for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-create-connection.png":::
 
 1. When you're done, close the trigger information box.
 
@@ -232,7 +234,7 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
    The following screenshot shows the finished example RSS trigger:
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/rss-trigger-complete.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer and configured RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/rss-trigger-complete.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-complete.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer and configured RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-complete.png":::
 
 1. Continue to the next section so you can add an action to your workflow.
 
@@ -285,6 +287,8 @@ The following tables list only some examples from the 600+ and constantly growin
 | **Business apps** | **Asana** <br>**Jira** <br>**Salesforce** <br>**SAP** <br>**Trello** | Supports interactions with enterprise business services, systems, apps, and data. |
 | **Developer tools** group | **GitHub** <br>**Azure DevOps** <br>**Bitbucket** <br>**PagerDuty** | Supports interactions with source code repositories and work management systems. |
 | **All triggers** group | --- | All available triggers, including: <br><br>- Agent request trigger for conversational agentic workflows. |
+
+<a id="template"></a>
 
 ### [Non-blank template](#tab/non-blank)
 

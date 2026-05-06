@@ -6,7 +6,7 @@ items:
   - name: About Azure Logic Apps
     href: logic-apps-overview.md
   - name: About Logic Apps Automation
-    href: automation/introduction.md
+    href: automation/dynamic-workflow-automation-introduction.md
 - name: Quickstarts
   expanded: true
   items:
