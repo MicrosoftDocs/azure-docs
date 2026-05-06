@@ -43,7 +43,7 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
 
 1. Go to the [Logic Apps Automation portal](). Sign in with your Azure account.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
 
 1. On the home page, under **Get started**, select **Create a project**.
 
@@ -210,7 +210,7 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
    The trigger information box appears so you can enter the trigger's inputs and configure settings.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer, Add a trigger pane, and selected RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png" alt-text="Screenshot that shows the information box for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-preconfig.png":::
 
 1. In the trigger information box, enter the values that the trigger needs to work.
 
