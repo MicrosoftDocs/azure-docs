@@ -4,7 +4,7 @@ description: Learn how to report runtime health status to the cloud using a unif
 author: sethmanheim
 ms.author: sethm
 ms.reviewer: vakavali
-ms.date: 04/29/2026
+ms.date: 05/06/2026
 ms.topic: concept-article
 ai-usage: ai-assisted
 ---
@@ -12,6 +12,9 @@ ai-usage: ai-assisted
 # Unified health status reporting and observability
 
 Azure IoT Operations provides built-in observability to help you understand the health, performance, and behavior of your edge workloads from the cloud. This article explains how unified health status and metrics work together to give you a clear operational view of your Azure IoT Operations deployment.
+
+> [!NOTE]
+> Starting with version 1.3, every device, asset, inbound endpoint, MQTT broker, data flow, and Akri connector shows a health status in the operations experience web UI and in the Azure portal. If you upgraded from an earlier version and you now see devices and assets reporting a health status for the first time, this is expected behavior — health status is a new reporting feature, not an error indicator. Use the status value (**Available**, **Degraded**, **Unavailable**, or **Unknown**) together with the [reason code](../reference/health-status-reason-codes.md) on each resource to understand what's happening at runtime.
 
 ## Why observability matters
 
