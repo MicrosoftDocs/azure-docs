@@ -15,6 +15,8 @@ ms.topic: how-to
 
 # Use the Microsoft Dev Box developer portal
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 This article shows you how to use the Microsoft Dev Box developer portal as a central location to manage your dev boxes. As a developer, you can access your dev boxes in the developer portal instead of having to use the Azure portal.
 
 You can view information and perform many actions by using the **More actions** menu on a dev box tile in the developer portal. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.

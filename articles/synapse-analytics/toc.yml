@@ -771,6 +771,8 @@ items:
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication
         href: ./spark/how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md
+      - name: Collect Apache Spark Application Logs and Metrics to Azure Storage Account Using Certificate-Based Service Principal Authentication
+        href: ./spark/how-to-use-certificate-with-service-principal-for-log-storage.md
       - name: Manage Apache Spark configuration
         href: ./spark/apache-spark-azure-create-spark-configuration.md
       - name: Apache Spark Advisor

@@ -4,7 +4,7 @@ description: Learn how to prepare a virtual network for an S/4HANA infrastructur
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 04/22/2026
 author: sagarkeswani
 ms.author: sagarkeswani
 # Customer intent: As a network administrator, I want to configure a virtual network and its components for S/4HANA deployment, so that I can ensure proper connectivity and security for the infrastructure on Azure.
@@ -26,7 +26,7 @@ If you already have a network that's ready to use with Azure Center for SAP solu
 - The names **AzureFirewallSubnet**, **AzureFirewallManagementSubnet**, **AzureBastionSubnet**, and **GatewaySubnet** are reserved names within Azure (don't use these names as subnet names).
 - Knowledge of the SAP Application Performance Standard (SAPS) and database memory size that you need so that Azure Center for SAP solutions can size your SAP system. If you're not sure, you can also select the virtual machines (VMs). The following VM types are used:
 
-  - A single Advanced Business Application Programming Central Services (ASCS) VM or a cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
+  - A single Advanced Business Application Programming SAP Central Services (ASCS) VM or a cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
   - A single database VM or a cluster of database VMs, which make up a single database instance in the VIS.
   - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 

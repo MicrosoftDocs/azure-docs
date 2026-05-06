@@ -94,10 +94,10 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
     Write-Output $SUBID
     ```
 
-1. Retrieve the object ID of the dev center's identity by using the name of the dev center resource:
+1. Retrieve the object ID of the dev center's system-assigned managed identity:
 
     ```azurecli
-    $OID = az ad sp list --display-name <devcenterName> --query [].id -o tsv
+    $OID = az devcenter admin devcenter show -n <devcenterName> --query identity.principalId -o tsv
     Write-Output $OID
     ```
 

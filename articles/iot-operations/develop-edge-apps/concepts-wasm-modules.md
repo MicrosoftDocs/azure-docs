@@ -1,8 +1,8 @@
 ---
 title: Understand WebAssembly modules and graph definitions for data flow graphs
 description: Understand WebAssembly module architecture, operator types, host APIs, and WIT schemas for Azure IoT Operations data flow graphs.
-author: dominicbetts
-ms.author: dobett
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 Data flow graphs in Azure IoT Operations process telemetry data at the edge by routing it through a series of operators such as maps, filters, and branches. You package your custom processing logic as WebAssembly (WASM) modules and wire them together in a graph definition, so you can transform, filter, and enrich data without writing full services.
 
-This article explains the operator types, the timely dataflow model, module configuration, host APIs, and the WIT schema that underpins WASM modules. To build, test, and debug modules locally with the VS Code extension or the `aio-dataflow` CLI, see [Build WASM modules for data flows](howto-build-wasm-modules.md).
+This article explains the operator types, the timely dataflow model, module configuration, host APIs, and the WIT schema that underpins WASM modules. To build, test, and debug modules locally with the VS Code extension or the `dataflow-dev` CLI, see [Build WASM modules for data flows](howto-build-wasm-modules.md).
 
 ## Operators and modules
 

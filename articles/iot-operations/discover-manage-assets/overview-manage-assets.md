@@ -4,7 +4,7 @@ description: Understand concepts and options for managing the devices and assets
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/16/2026
+ms.date: 04/22/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -107,8 +107,7 @@ Device Registry uses namespaces to organize assets and devices. Each Azure IoT O
 
 Manage devices and assets through the operations experience or through Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
 
-> [!IMPORTANT]
-> The cloud is always the source of truth for device and asset configuration. Always create and modify devices and assets through Azure—by using the operations experience, the Azure portal, the Azure CLI, or ARM/Bicep templates. Don't create or edit Kubernetes custom resources directly on the cluster. Resources created directly on the cluster don't sync to the cloud, and direct edits to existing custom resources on the cluster can cause the cloud and edge to go out of sync.
+[!INCLUDE [cloud-source-of-truth](../includes/cloud-source-of-truth.md)]
 
 ### Akri services
 
@@ -145,6 +144,8 @@ Each connector organizes asset data using one or more of the following types:
 - **Event groups**: A logical container for related discrete events from an asset, such as state changes or alerts, routed to a destination MQTT topic.
 - **Management groups**: A logical grouping of read, write, or call actions that can be invoked against an asset.
 - **Streams**: A continuous flow of media data, such as video or audio, from an asset such as a camera.
+
+For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
 
 The following table summarizes which data types each connector supports.
 

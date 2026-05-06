@@ -134,11 +134,12 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DataFactory](./permissions/analytics.md#microsoftdatafactory) | Hybrid data integration at enterprise scale, made easy. | [Data Factory](/azure/data-factory/) |
 > | [Microsoft.DataLakeAnalytics](./permissions/analytics.md#microsoftdatalakeanalytics) | Distributed analytics service that makes big data easy. | [Data Lake Analytics](/azure/data-lake-analytics/) |
 > | [Microsoft.DataLakeStore](./permissions/analytics.md#microsoftdatalakestore) | Highly scalable and cost-effective data lake solution for big data analytics. | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) |
+> | [Microsoft.Fabric](./permissions/analytics.md#microsoftfabric) | Unified analytics platform for data engineering, data science, and business intelligence. | [Microsoft Fabric](/fabric/) |
 > | [Microsoft.HDInsight](./permissions/analytics.md#microsofthdinsight) | Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters. | [HDInsight](/azure/hdinsight/) |
 > | [Microsoft.Kusto](./permissions/analytics.md#microsoftkusto) | Service for storing and running interactive analytics over Big Data. | [Azure Data Explorer](/azure/data-explorer/) |
 > | [Microsoft.PowerBIDedicated](./permissions/analytics.md#microsoftpowerbidedicated) | Manage Power BI Premium dedicated capacities for exclusive use by an organization. | [Power BI Embedded](/azure/power-bi-embedded/) |
-> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) |  | [Microsoft Purview](/purview/) |
-> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) |  | [Azure Synapse Analytics](/azure/synapse-analytics/) |
+> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) | Unified data governance and compliance solution. | [Microsoft Purview](/purview/) |
+> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) | Limitless analytics service with enterprise data warehousing and big data analytics. | [Azure Synapse Analytics](/azure/synapse-analytics/) |
 
 <a name='microsoftsearch'></a>
 

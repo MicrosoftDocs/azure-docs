@@ -190,9 +190,10 @@ The following diagram displays the checks performed while configuring subnet pee
 
 :::image type="content" source=".\media\how-to-configure-subnet-peering\subnet-peering.png" alt-text="Diagram that shows subnet peering.":::
 
-1. The participating subnets **must be unique** and **must belong to unique address spaces**.
+1. The participating subnets **must be unique** and **must belong to unique address spaces** across all peering links.
     - For example, in the virtual network A and virtual network C peering (illustrated in the figure by black arrow headed line) virtual network A can't subnet peer over Subnet 1, Subnet 2, and Subnet 3 with any of the subnets in virtual network C, as these subnets of virtual network A belong to the 10.1.0.0/16 address space, which is also present in virtual network C.
     - However, virtual network A’s Subnet 4 (10.0.1.0/24) can subnet peer with Subnet 5 in virtual network C (10.6.1.0/24) as these subnets are unique across the virtual networks and they belong to unique address spaces across virtual networks. Subnet 4 belongs to 10.0.0.0/16 address space in virtual network A and Subnet 5 belongs to 10.6.0.0/16 address space in virtual network C.
+    - With the subnet peering configuration in the diagram above, virtual network B's subnet 3 (10.2.3.0./24) can't subnet peer over Subnet 1 in virtual network C, because the latter overlaps with subnet 1 in virtual network A that is already subnet peered with virtual network B, regardless virtual network B's subnet 3 is not parcipating in the subnet peering with virtual network A.    
 
 1. There can be **only one peering link between any two virtual networks**. If you want to add or remove subnets from the peering link, then you need to update the same peering link. **Multiple exclusive peering between set of subnets aren't possible**.<br>
 **You can't change a given peering link type**. If there's a virtual network peering between virtual network A and virtual network B, and you want to change that peering to subnet peering, you must delete the existing virtual network peering link and create a new peering with the required parameters for subnet peering and vice versa.

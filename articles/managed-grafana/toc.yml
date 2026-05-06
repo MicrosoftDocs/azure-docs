@@ -70,6 +70,8 @@ items:
         href: agent-framework-dashboard.md
       - name: Agent Framework Workflow dashboard
         href: agent-framework-workflow-dashboard.md
+    - name: Ingest data via OpenTelemetry Collector
+      href: grafana-opentelemetry-app-insights.md
     expanded: false
   - name: Alerts and notifications
     items:

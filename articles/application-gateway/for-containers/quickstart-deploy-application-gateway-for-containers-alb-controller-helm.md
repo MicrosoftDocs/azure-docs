@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 2/7/2026
+ms.date: 4/29/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster, so that I can efficiently manage load balancing rules and enhance application traffic handling.
 ---
@@ -154,7 +154,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed.
 
     # [Windows](#tab/install-helm-windows)
-    See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation. Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you may execute the following command:
+    See the [instructions for installation](https://github.com/helm/helm#install) for various options of installation. Similarly, if your version of Windows has [Windows Package Manager winget](/windows/package-manager/winget/) installed, you can execute the following command:
 
     ```powershell
     winget install helm.helm
@@ -250,7 +250,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     
     To install ALB Controller, use the `helm install` command.
 
-    When the `helm install` command is run, it deploys the helm chart to the  _default_ namespace. When alb-controller is deployed, it deploys to the `azure-alb-system` namespace. Both of these namespaces may be overridden independently as desired. To override the namespace the helm chart is deployed to, you may specify the --namespace (or -n) parameter. To override the `azure-alb-system` namespace used by alb-controller, you may set the albController.namespace property during installation (`--set albController.namespace`). If neither the `--namespace` or the `--set albController.namespace` parameters are defined, the _default_ namespace is used for the helm chart and the `azure-alb-system` namespace is used for the ALB controller components. Lastly, if the namespace for the helm chart resource isn't yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
+    When the `helm install` command is run, it deploys the helm chart to the  _default_ namespace. When alb-controller is deployed, it deploys to the `azure-alb-system` namespace. Both of these namespaces can be overridden independently as desired. To override the namespace the helm chart is deployed to, you can specify the `--namespace` (or -n) parameter. To override the `azure-alb-system` namespace used by alb-controller, you can set the albController.namespace property during installation (`--set albController.namespace`). If neither the `--namespace` or the `--set albController.namespace` parameters are defined, the _default_ namespace is used for the helm chart and the `azure-alb-system` namespace is used for the ALB controller components. Lastly, if the namespace for the helm chart resource isn't yet defined, ensure the `--create-namespace` parameter is also specified along with the `--namespace` or `-n` parameters.
     
     ALB Controller can be installed by running the following commands:
 
@@ -262,7 +262,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.9.13 \
+         --version 1.10.26 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -283,7 +283,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Install Helm chart
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.9.13 `
+        --version 1.10.26 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```
@@ -304,7 +304,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.9.13 \
+        --version 1.10.26 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -325,7 +325,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Upgrade Helm chart
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.9.13 `
+        --version 1.10.26 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```
@@ -404,9 +404,9 @@ If you wish to uninstall the ALB Controller, complete the following steps.
     Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
     ```
 
-   ---
+    ---
 
-3. Uninstall ALB Controller and its resources from your cluster run the following commands:
+2. Uninstall ALB Controller and its resources from your cluster run the following commands:
     
     ```azurecli-interactive
     helm uninstall alb-controller

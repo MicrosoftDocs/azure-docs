@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Back Up Multiple Azure Virtual Machines by Using Azure Backup
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-ms.date: 01/28/2026
+ms.date: 03/26/2026
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
 ms.service: azure-backup
@@ -69,7 +69,7 @@ To set a backup policy for your Azure VMs, follow these steps:
     :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png" alt-text="Screenshot that shows the pane for selecting virtual machines.":::
 
     > [!NOTE]
-    > All the VMs in the same region and subscription as that of the vault are available for configuring a backup. When you configure backup, you can browse to each VM's name and its resource group, even though you don't have the required permission on those VMs.
+    > All the VMs in the same region as the vault are available for configuring a backup, including eligible VMs in a different subscription when the VM and vault are in the same tenant. When you configure backup, you can browse to each VM's name and its resource group, even though you don't have the required permission on those VMs.
     >
     > If your VM is in soft-deleted state, it isn't visible in this list. If you need to protect the VM again, wait for the soft-delete period to expire or restore the VM from the soft-deleted list. For more information, see the [article about soft delete for VMs](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
 

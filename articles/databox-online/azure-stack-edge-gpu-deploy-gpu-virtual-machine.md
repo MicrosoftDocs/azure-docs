@@ -2,12 +2,12 @@
 title: Deploy GPU VMs on your Azure Stack Edge Pro GPU device
 description: Describes how to create and deploy GPU virtual machines (VMs) on Azure Stack Edge Pro GPU via the Azure portal or using templates.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/24/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I want the flexibility to deploy a single GPU virtual machine (VM) quickly in the portal or use templates to deploy and manage multiple GPU VMs efficiently on my Azure Stack Edge Pro GPU device.
 ---
