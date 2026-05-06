@@ -50,9 +50,11 @@ Follow these steps to request a limit increase:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page with the Support + Troubleshooting button and the search box highlighted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
-1. For **Which service are you having an issue with?**, select **Service and subscription limits (quotas)**, and then select **Next**.
+1. For **Which service are you having an issue with?**, select **Azure Deployment Environments**, and then select **Next**.
+1. Select your subscription. For **Resource**, select **General question**, then select **Next**.
+1. Select **Manage Projects**, then select **Next**.
 
-1. Select **Create a support request**:
+1. Under **Contact support**, select **Create a support request**:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Support + troubleshooting page with Create a support request highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
 
