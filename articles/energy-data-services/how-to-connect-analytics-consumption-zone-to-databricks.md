@@ -11,7 +11,7 @@ ms.custom: template-how-to-pattern
 
 # Connect Azure Databricks to Analytics Consumption Zone
 
-This article shows you how to connect Azure Databricks to Analytics Consumption Zone (ACZ) data in Azure Data Manager for Energy. After completing these steps, you'll be able to query OSDU data using Databricks SQL and notebooks.
+This article shows you how to connect Azure Databricks to Analytics Consumption Zone (ACZ) data in Azure Data Manager for Energy. After completing these steps, you can query Open Subsurface Data Universe (OSDU) data using Databricks SQL and notebooks.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ The Access Connector provides a managed identity that Databricks uses to authent
 
 4. Select **Review + create**, then **Create**.
 5. After deployment completes, go to the Access Connector resource.
-6. On the **Overview** page, copy the **Resource ID**. You'll use this in Step 3.
+5. On the **Overview** page, copy the **Resource ID**. You use this Resource ID in Step 3.
 
    The Resource ID has this format:
    ```text
@@ -75,22 +75,22 @@ The Access Connector requires permissions at both the storage account level and 
    - Select **Review + assign**
 
    **Required roles**:
-   - **Storage Blob Data Contributor** — Enables reading and writing blob data
-   - **Storage Queue Data Contributor** — Enables reading storage queue messages for event notifications
-   - **Storage Account Contributor** — Enables managing storage account configuration
+   - **Storage Blob Data Contributor**—Enables reading and writing blob data
+   - **Storage Queue Data Contributor**—Enables reading storage queue messages for event notifications
+   - **Storage Account Contributor**—Enables managing storage account configuration
 
 ### Grant resource group permissions
 
 5. Navigate to the **Resource Group** that contains your Azure Databricks workspace and Access Connector.
 6. In the left menu, select **Access Control (IAM)**.
-7. Assign the following two roles to the Access Connector's managed identity (using the same steps as above):
+7. Assign the following two roles to the Access Connector's managed identity (repeat the role assignment process):
 
    **Required roles**:
-   - **EventGrid EventSubscription Contributor** — Enables creating and managing Event Grid subscriptions
-   - **EventGrid Data Contributor** — Enables sending events to Event Grid topics
+   - **Event Grid EventSubscription Contributor**—Enables creating and managing Event Grid subscriptions
+   - **Event Grid Data Contributor**—Enables sending events to Event Grid topics
 
 > [!NOTE]
-> These EventGrid permissions enable Databricks to automatically detect when new Delta files are written to ACZ storage, improving query performance by avoiding full folder scans.
+> These Event Grid permissions enable Databricks to automatically detect when new Delta files are written to ACZ storage, improving query performance by avoiding full folder scans.
 
 > [!IMPORTANT]
 > Wait 2-3 minutes after assigning all roles for the permissions to propagate before proceeding to the next step.
@@ -113,7 +113,7 @@ Storage credentials securely store authentication information for cloud storage.
 External locations define storage paths that Databricks can access using the storage credential. This step validates that all required permissions are correctly configured.
 
 > [!TIP]
-> Point the external location to the ACZ root folder (not a specific dataset folder). This allows you to create multiple tables for different ACZ datasets using the same location.
+> Point the external location to the ACZ root folder (not a specific dataset folder). This configuration allows you to create multiple tables for different ACZ datasets using the same location.
 
 1. In the **Catalog** page, select **Create**, then select **Create an external location**.
 2. Configure the location:
@@ -131,11 +131,11 @@ External locations define storage paths that Databricks can access using the sto
 4. After creation, select the external location from the list, then select **Test connection** to validate that all permissions are correctly configured.
    
    The test checks for:
-   - **Read** — Access to read blob data
-   - **List** — Access to list folders and files
-   - **Path exists** — Verification that the ACZ path is accessible
-   - **Hierarchical namespace enabled** — Confirmation that ADLS Gen2 features are enabled
-   - **File events read** — Access to storage event notifications (requires EventGrid permissions)
+   - **Read**—Access to read blob data
+   - **List**—Access to list folders and files
+   - **Path exists**—Verification that the ACZ path is accessible
+   - **Hierarchical namespace enabled**—Confirmation that Azure Data Lake Storage (ADLS) Gen2 features are enabled
+   - **File events read**—Access to storage event notifications (requires Event Grid permissions)
 
    **Example configuration**:
    - **Location name**: `acz_location`
@@ -249,7 +249,7 @@ LIMIT 10;
 **Why this matters:**
 - The external location grants broad access to the ACZ root folder
 - You can create multiple tables (for example, `osducatalog`, `wellboreDDMS`) using the same location
-- This follows Unity Catalog best practices for organizing multi-dataset access
+- This configuration follows Unity Catalog best practices for organizing multi-dataset access
 
 ## Troubleshooting
 
@@ -259,7 +259,7 @@ If you see `403 Forbidden` or `Access Denied` errors:
 
 1. Verify the Access Connector has all required roles:
    - **On the storage account**: Storage Blob Data Contributor, Storage Queue Data Contributor, Storage Account Contributor
-   - **On the resource group**: EventGrid EventSubscription Contributor, EventGrid Data Contributor
+   - **On the resource group**: Event Grid EventSubscription Contributor, Event Grid Data Contributor
 2. Wait 2-3 minutes after role assignment for permissions to propagate
 3. Verify the storage credential Resource ID is correct
 4. Check that the ACZ instance ID in the path exactly matches the folder name in storage (including any suffix like `b`)
@@ -271,7 +271,7 @@ If the **Test connection** button in the External Location setup shows failures:
 1. Verify all five role assignments are in place (three on storage account, two on resource group)
 2. Check that the resource group permissions are assigned to the same resource group containing both the Databricks workspace and Access Connector
 3. Ensure hierarchical namespace is enabled on the storage account (required for ADLS Gen2)
-4. Wait a few minutes and retry — role propagation can take time
+4. Wait a few minutes and retry—role propagation can take time
 
 ### Path not found errors
 
@@ -286,7 +286,7 @@ If you see `Path does not exist` errors:
 
 If you see errors about missing `_delta_log`:
 
-1. Verify ACZ has completed at least one data sync for the dataset
+1. Verify ACZ completed at least one data sync for the dataset
 2. Check that the LOCATION path points to the Delta root folder (not a subfolder)
 3. Confirm the dataset exists in ACZ by checking the storage container
 
