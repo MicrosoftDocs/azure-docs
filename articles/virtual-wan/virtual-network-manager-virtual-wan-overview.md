@@ -25,18 +25,6 @@ Virtual Network Manager **connection configurations** also assign your network g
 * Route maps: assign which route maps are applied to Virtual Network connections.
 * Routing configuration: specify which Virtual WAN route table the Virtual Network connection learns routes from and which route tables the Virtual Network propagates to.
 
-## Known issues
-
-The following table describes known issues with the Virtual Network Manager and Virtual WAN integration.
-
-|Issue| Description| Mitigation|
-|--|--|--|
-|Connectivity configurations don't apply properly to cross-tenant network group members.| Deployed connectivity configurations do not properly apply to Virtual Networks in a different tenant than Virtual WAN hub.| Use Terraform, Azure CLI, or Azure PowerShell to manually connect and manage cross-tenant members to the Virtual WAN hub.|
-| [High-scale private endpoints](../private-link/increase-private-endpoint-vnet-limits.md)| when more than 4000 private endpoints are deployed in Virtual Networks connected to a single Virtual WAN hub, Private Link connectivity transiting the hub, either from a virtual network or on-premises, might be impacted. For more information, see [Use Private Link in Virtual WAN](howto-private-link.md).| Ensure the number of Private Endpoints across all Virtual Networks connected to a single Virtual WAN hub does not exceed 4000.|
-|Slow loading for connection policy in Azure portal.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.| Allow additional time for the Azure portal experience to load before retrying the operation. As part of a future release, optimizations will allow quicker assignment of connection policies.|
-
-In addition, reference [connection policy known issues](how-to-connection-policy.md#known-issues) for more information regarding connection policy limitations and considerations.
-
 
 ## Key Considerations about Virtual WAN and Network Manager interactions
 
@@ -48,6 +36,18 @@ In addition, reference [connection policy known issues](how-to-connection-policy
 * Virtual Network Manager allows you to enable **direct connectivity** between Virtual Networks in a Network Group connected to a Virtual WAN hub, forming a connected group or mesh. When this setting is turned **on**, Virtual Network to Virtual Network traffic within the Network Group routes directly between Virtual Networks instead of transiting the Virtual WAN hub. Connected group and mesh configurations are prioritized over any routing intent or routing configurations that send Virtual Network-to-Virtual Network traffic to a security solution deployed in the Virtual WAN hub.
 * Properties managed by connection policies override any conflicting settings configured directly on individual Virtual WAN connections. See [connection policy](how-to-connection-policy.md) for more information.
 * Virtual Network Manager connectivity configurations **don't** enforce peering or connectivity to the Virtual WAN hub. This means that any Virtual Network connections created by Virtual Network Manager to the Virtual WAN hub can be removed. Virtual Network Manager automatically attempts to reconnect the Virtual Network to the Virtual WAN the **next** time the connectivity configuration is deployed in the spoke Virtual Network's region.
+
+## Known issues
+
+The following table describes known issues with the Virtual Network Manager and Virtual WAN integration.
+
+|Issue| Description| Mitigation|
+|--|--|--|
+|Connectivity configurations don't apply properly to cross-tenant network group members.| Deployed connectivity configurations do not properly apply to Virtual Networks in a different tenant than Virtual WAN hub.| Use Terraform, Azure CLI, or Azure PowerShell to manually connect and manage cross-tenant members to the Virtual WAN hub.|
+| [High-scale private endpoints](../private-link/increase-private-endpoint-vnet-limits.md)| when more than 4000 private endpoints are deployed in Virtual Networks connected to a single Virtual WAN hub, Private Link connectivity transiting the hub, either from a virtual network or on-premises, might be impacted. For more information, see [Use Private Link in Virtual WAN](howto-private-link.md).| Ensure the number of Private Endpoints across all Virtual Networks connected to a single Virtual WAN hub does not exceed 4000.|
+|Slow loading for connection policy in Azure portal.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.| Allow additional time for the Azure portal experience to load before retrying the operation. As part of a future release, optimizations will allow quicker assignment of connection policies.|
+
+In addition, reference [connection policy known issues](how-to-connection-policy.md#known-issues) for more information regarding connection policy limitations and considerations.
 
 ## Use cases
 
