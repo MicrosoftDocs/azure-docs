@@ -9,15 +9,11 @@ ms.topic: how-to
 ms.date: 05/05/2026
 ---
 
-# Assign IP addresses from defined pools to P2S VPN users - Azure portal (Preview)
+# Assign IP addresses from defined pools to P2S VPN users - Azure portal
 
 You can assign users connecting to your Point-to-site (P2S) VPN gateway IP addresses from specific address pools based on identity or authentication credentials. This is accomplished by creating specific policies and associating them with groups. To understand the concepts and terminology for this feature, along with configuration considerations and limitations, see [About User Groups and IP address pools](point-to-site-user-groups-about.md).
 
 This article helps you configure Policy Groups, Group Members, and prioritize groups using the Azure portal.
-
-> [!IMPORTANT]
-> This feature is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

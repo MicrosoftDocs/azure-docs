@@ -1,11 +1,11 @@
 ---
 title: Quickstart for adding feature flags to Spring Boot with Azure App Configuration
-description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
+description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration.
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/16/2026
+ms.date: 05/06/2026
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -13,9 +13,9 @@ ms.custom: devx-track-java, mode-other
 
 # Quickstart: Add feature flags to a Spring Boot app
 
-In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Spring Boot apps to create an end-to-end implementation of feature management.
 
-The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
+The Spring Boot Feature Management libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
 
 ## Prerequisites
 
@@ -26,103 +26,70 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check box should be unchecked.
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+> ![Screenshot of enable feature flag named Beta.](media/add-beta-feature-flag.png)
 
-## Create a Spring Boot app
+## Create a console app
 
-To create a new Spring Boot project:
+1. Create a new Spring Boot project:
 
-1. Browse to the [Spring Initializr](https://start.spring.io).
+    1. Browse to the [Spring Initializr](https://start.spring.io).
 
-1. Specify the following options:
+    1. Specify the following options:
 
-   * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that's equal to or greater than 3.0.
-   * Specify the **Group** and **Artifact** names for your application. This article uses `com.example` and `demo`.
-   * Add the **Spring Web** dependency.
+       * Generate a **Maven** project with **Java**.
+       * Specify a **Spring Boot** version that's equal to or greater than 3.0.
+       * Specify the **Group** and **Artifact** names for your application. This article uses `com.example` and `demo`.
 
-1. After you specify the previous options, select **Generate Project**. When prompted, download the project to your local computer.
+    1. After you specify the previous options, select **Generate Project**. Download and extract the project to your local computer.
 
-## Add feature management
+1. Locate *pom.xml* in the root directory of your app and open it in a text editor.
 
-1. After you extract the files on your local system, your Spring Boot application is ready for editing. Locate *pom.xml* in the root directory of your app.
+1. Add the following to the list of `<dependencies>`:
 
-1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
-
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-</dependency>
-
-<dependencyManagement>
-    <dependencies>
-        <dependency>
+    ```xml
+    <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>7.1.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-feature-management</artifactId>
+    </dependency>
+    ```
 
-> [!NOTE]
-> * There's a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
+1. Add the following `<dependencyManagement>` section to manage the Spring Cloud Azure library versions:
 
-## Connect to an App Configuration store
+    ```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>spring-cloud-azure-dependencies</artifactId>
+                <version>7.2.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    ```
 
-1. Navigate to the `resources` directory of your app and open the `application.properties` or `application.yaml` file. If the file doesn't exist, create it.
+1. Navigate to the `resources` directory of your app and open the `application.properties` or `application.yaml` file.
 
-    You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
-    
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    1.  Update your configuration files.
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. For authorization to work, you need to grant the **App Configuration Data Reader** role to the credential that your app uses. For instructions, see [Authentication with token credentials](./concept-enable-rbac.md#authentication-with-token-credentials).Be sure to allow sufficient time for the permission to propagate before running your application.
 
-        If you're using a properties file, use the following code:
-        ```properties
-        spring.config.import=azureAppConfiguration
-        spring.cloud.azure.appconfiguration.stores[0].endpoint= ${AZURE_APPCONFIG_ENDPOINT}
-        spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
-        ```
-        
-        If you're using a yaml file, use the following code:
-        ```yaml
-        spring:
-          config:
-            import: azureAppConfiguration
-          cloud:
-            azure:
-              appconfiguration:
-                stores:
-                  - endpoint: ${AZURE_APPCONFIG_ENDPOINT}
-                    feature-flags:
-                      enabled: true
-        ```
+    ### [Properties](#tab/properties)
 
-        You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
-
-    ### [Connection string](#tab/connection-string)
-   If you are using a properties file, use the following code:
-   ```properties
+    ```properties
     spring.config.import=azureAppConfiguration
-    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIG_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${AZURE_APPCONFIG_ENDPOINT}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-    If you are using a yaml file, use the following code:
+    ### [YAML](#tab/yaml)
+
     ```yaml
     spring:
       config:
@@ -131,198 +98,91 @@ To create a new Spring Boot project:
         azure:
           appconfiguration:
             stores:
-              - connection-string: ${APP_CONFIG_CONNECTION_STRING}
+              - endpoint: ${AZURE_APPCONFIG_ENDPOINT}
                 feature-flags:
                   enabled: true
     ```
+
     ---
 
-1. Create a new Java file named *HelloController.java* in the package directory of your app.
+1. Update the `DemoApplication.java` file in the package directory of your app with the following code:
 
     ```java
-    package com.example.demo;
-
-    import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.stereotype.Controller;
-    import org.springframework.ui.Model;
-    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.boot.CommandLineRunner;
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    import org.springframework.context.annotation.Bean;
 
     import com.azure.spring.cloud.feature.management.FeatureManager;
 
+    @SpringBootApplication
+    public class DemoApplication {
 
-    @Controller
-    public class HelloController {
+        public static void main(String[] args) {
+            SpringApplication.run(DemoApplication.class, args);
+        }
 
-        @Autowired
-        private FeatureManager featureManager;
-
-        @GetMapping("/welcome")
-        public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabled("Beta"));
-            return "welcome";
+        @Bean
+        public CommandLineRunner runner(FeatureManager featureManager) {
+            return args -> {
+                System.out.println("Beta is enabled: " + featureManager.isEnabled("Beta"));
+            };
         }
     }
     ```
 
-1. Create a new HTML file named *welcome.html* in the templates directory of your app.
+1. Set an environment variable named **AZURE_APPCONFIG_ENDPOINT**, and set it to the endpoint of your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Feature Management with Spring Cloud Azure</title>
+    ### [Windows command prompt](#tab/windowscommandprompt)
 
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    </head>
-    <body>
-        <header>
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">TestFeatureFlags</a>
-            <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-bs-target="#navbarCollapse" data-bs-toggle="collapse">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item" th:if="${Beta}">
-                <a class="nav-link" href="#">Beta</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Privacy</a>
-                </li>
-            </ul>
-            </div>
-        </nav>
-        </header>
-        <div class="container body-content">
-            <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
-
-        </div>
-        <footer class="footer">
-            <div class="container">
-            <span class="text-muted">&copy; 2026 - Projects</span>
-        </div>
-
-        </footer>
-    </body>
-    </html>
+    ```console
+    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
-1. Create a new folder named CSS under `static` and inside of it a new CSS file named *main.css*.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
-    ```css
-    html {
-     position: relative;
-     min-height: 100%;
-    }
-    body {
-     margin-bottom: 60px;
-    }
-    .footer {
-     position: absolute;
-     bottom: 0;
-     width: 100%;
-     height: 60px;
-     line-height: 60px;
-     background-color: #f5f5f5;
-    }
+    ### [PowerShell](#tab/powershell)
 
-    body > .container {
-     padding: 60px 15px 0;
-    }
-
-    .footer > .container {
-     padding-right: 15px;
-     padding-left: 15px;
-    }
-
-    code {
-     font-size: 80%;
-    }
-    ```
-
-## Build and run the app locally
-
-1. Set an environment variable.
-
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
-    ```
-
-    If you use PowerShell, run the following command:
-
-    ```powershell
+    ```azurepowershell
     $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
-    If you use macOS or Linux, run the following command:
+    ### [macOS](#tab/unix)
 
-    ```bash
+    ```console
     export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
-    ### [Connection string](#tab/connection-string)
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
-    Set the environment variable named **APP_CONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
+    ### [Linux](#tab/linux)
 
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx APP_CONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```console
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
-   If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:APP_CONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export APP_CONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
-    ```
-    ---
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
 
     ---
 
-1. Build your Spring Boot application with Maven and run it.
+1. Build and run your Spring Boot application with Maven.
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
 
-1. Open a browser window, and go to the URL: `http://localhost:8080/welcome`.
-
-    ![Screenshot shows a browser window with a Welcome message.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
-
-1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**:
+1. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** feature flag to **On**, using the toggle in the **Enabled** column.
 
     | Key | State |
     |---|---|
     | Beta | On |
 
-1. Refresh the browser page to see the new configuration settings.
+1. Restart the application. The application will print the following:
 
-    ![Screenshot shows a browser window with a Welcome message and a Beta link called out.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ```console
+    Beta is enabled: true
+    ```
 
 ## Clean up resources
 
@@ -330,9 +190,7 @@ To create a new Spring Boot project:
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot web app via the [Feature Management libraries](https://azure.github.io/azure-sdk-for-java/springboot.html).
+In this quickstart, you created a new App Configuration store and used it to manage features in a Spring Boot app via the [Feature Management libraries](https://azure.github.io/azure-sdk-for-java/springboot.html).
 
-* Library [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917)
-* Learn more about [feature management](./concept-feature-management.md).
-* [Manage feature flags](./manage-feature-flags.md).
-* [Use feature flags in a Spring Boot Core app](./use-feature-flags-spring-boot.md).
+- Learn more about [feature management](./concept-feature-management.md).
+- [Manage feature flags](./manage-feature-flags.md).

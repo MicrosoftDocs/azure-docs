@@ -17,6 +17,15 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## May 2026
+### FHIR service
+
+**Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
+
+**Case change for custom headers in diagnostic logs**: Custom headers in diagnostic logs will now appear in lowercase to align with modern HTTP standards. This does not impact API functionality, but customers using case-sensitive parsing in logging or monitoring pipelines may need to update their logic. We recommend ensuring header processing is case-insensitive.
+
+**Improved error handling for unknown resource types**: Previously, an unknown or mis-cased resource type in a query would result in a 500 Internal Server Error. Error reporting is updated to return 404 Not Found.
+
 ## April 2026
 
 ### DICOM service

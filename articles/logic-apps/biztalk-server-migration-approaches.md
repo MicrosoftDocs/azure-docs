@@ -1,20 +1,21 @@
 ---
 title: Migration Approaches for BizTalk Server to Azure Logic Apps
-description: Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Logic Apps.
+description: "Learn about migration strategies, planning, and best practices for moving from BizTalk Server to Azure Logic Apps (Standard)."
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
-ms.date: 02/11/2026
-# Customer intent: As a BizTalk Server customer, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Logic Apps.
+ms.update-cycle: 365-days
+ms.date: 04/27/2026
+# Customer intent: As a developer who works with BizTalk Server, I want to learn about migration options, planning considerations, and best practices for moving from BizTalk Server to Azure Logic Apps.
 ---
 
-# Migration approaches for BizTalk Server to Azure Logic Apps
+# Migration approaches for BizTalk Server to Azure Logic Apps Standard 
 
-This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions. For more information, see [Why migrate from BizTalk Server to Azure Logic Apps?](biztalk-server-to-azure-integration-services-overview.md)
+This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions. For more information, see [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-to-azure-integration-services-overview.md)
 
 ## Strategy options
 
@@ -32,13 +33,13 @@ We recommend that you consider this approach only if you have small, low complex
 
 This approach provides the opportunity for your organization to incrementally achieve value, but sooner than they might otherwise. Your project team can learn about the technology stack early by using retrospectives. For example, you can deploy an existing BizTalk interface or project to production and then learn about the solution's needs, which include management, scalability, operations, and monitoring. After you gain this knowledge, you can plan sprints to optimize existing capabilities or introduce new patterns that you can subsequently use in future work. 
 
-Regardless of your approach, if you plan on moving to Azure Logic Apps or Azure in general, strongly consider refactoring your BizTalk Server solutions into serverless or cloud-native solutions before you decommission your server infrastructure. This choice is an excellent strategy if your organization wants to transform the business completely to the cloud.
+Regardless of your approach, we strongly recommend you consider refactoring your BizTalk Server solutions into Logic Apps before you decommission your server infrastructure. This choice is an excellent strategy if your organization wants to transform the business completely to the cloud or even on-premises using the Hybrid deployment model.
 
 BizTalk Server and Azure Logic Apps have different architectures. For a higher return on investment (ROI), we recommend that any BizTalk migration use the core native capabilities in Azure Logic Apps (Standard) as much as possible and extend with other Azure Integration Services as needed. This combination makes additional scenarios possible, for example:
 
-- Cloud native hybrid capabilities with Azure Logic Apps (Standard) with hybrid deployment
-- Stateful or stateless workflow capabilities in Azure Logic Apps (Standard)
-- Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps (Standard)
+- Cloud native hybrid capabilities with Azure Logic Apps Standard with hybrid deployment
+- Stateful or stateless workflow capabilities in Azure Logic Apps Standard
+- Native, built-in (in-app) mainframe and midranges integration with connectors in Azure Logic Apps Standard
 - Pub-sub messaging using Azure Service Bus or RabbitMQ
 - Advanced SOAP capabilities in Azure API Management
 - Converting your logic apps into AI agentic workflows 
@@ -48,6 +49,10 @@ BizTalk Server and Azure Logic Apps have different architectures. For a higher r
 To complete such a project, we recommend that you follow the iterative or wave-based approach and use the [Scrum process](https://www.scrum.org/). While Scrum doesn't include a Sprint Zero (Sprint 0) concept for pre-sprint activities, we recommend that you focus your first sprint on team alignment and technical discovery. After Sprint 0, follow the execution of multiple migration sprints and focus on releasing features towards a minimum viable product (MVP).
 
 :::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram shows migration waves." border="false":::
+
+> [!TIP]
+>
+> For each migration phase, use the [Azure Logic Apps Migration Agent extension](migration/migration-agent-overview.md) for Visual Studio Code. Built on GitHub Copilot and the Visual Studio Code Language Model API, the extension guides you through an automated and structured 5-stage migration workflow with AI-powered discovery, analysis, and conversion. The migration agent uses specialized Copilot agents and built-in parsers to automate the migration process while you stay in control at every step.
 
 ### Sprint 0
 
@@ -60,11 +65,6 @@ During this sprint, we recommend that you execute BizTalk Server Environments Di
 | Minimum viable product (MVP) definition | Define the first wave features. In other words, the processes that need support after you complete the first wave. |
 | Initial migration backlog | Define the first wave features and their work items with technical elaboration. |
 
-#### Discovery tools
-
-To help you with migration discovery, you can use the Azure Integration Migrator command-line tool, also called the [BizTalk Migration tool](https://github.com/Azure/aimbiztalk), which is a Microsoft open-source project. This tool uses a phased approach to help you uncover useful insights and strategies for migrating your solutions to the cloud. We recommend using the migrator tool only for discovery and report generation. You might also want to consider using other products for discovery from partners who provide solutions in this space.
-
-For another way to generate an inventory with BizTalk Server elements, you can use the [BizTalk Documenter](https://github.com/mbrimble/biztalkdocumenter) developed by Mark Brimble. This tool works with BizTalk Server 2020, despite stating that only BizTalk Server 2016 is supported.
 
 #### Architecture design
 
@@ -119,7 +119,7 @@ You'll also want to identify and list the various out-of-scope variables that sh
 
 #### Initial backlog
 
-The [*initial backlog*](/azure/devops/boards/backlogs/backlogs-overview?view=azure-devops&preserve-view=true) is a set of User Stories, which you group into Features to build the [in-scope processes](#in-scope-processes) for your MVP. In other words, an MVP is represented by Scrum items known as Epics, Features, and User Stories. Ideally, each Epic encompasses a group of BizTalk applications or BizTalk projects. You can use the simple rule that associates one BizTalk application or BizTalk project with a feature.
+The [*initial backlog*](/azure/devops/boards/backlogs/backlogs-overview?view=azure-devops&preserve-view=true) is a set of User Stories, which you group into Features to build the [in-scope processes](#in-scope-processes) for your MVP. In other words, an MVP is represented by Scrum items known as Epics, Features, and User Stories. Ideally, each Epic encompasses a group of BizTalk applications or BizTalk projects. You can use a rule that associates one BizTalk application or BizTalk project with a feature.
 
 For example, suppose you have a BizTalk Server project with an orchestration called "LoanRequests" that customers use to request bank loans. So, you have the following proposed Feature and User Story:
 
@@ -135,33 +135,14 @@ For example, suppose you have a BizTalk Server project with an orchestration cal
    - Map JSON to XML data using an Azure Logic Apps workflow.
    - Customize Azure Integration Services as required for messaging patterns.
 
-The following diagram shows the suggested durations for Epics, Features, User Stories, and Tasks, which subdivide User Stories. Although implementation decisions affect these durations, they assume that you are using existing BizTalk artifacts in Azure Logic Apps. Create your Standard workflows by using the [prebuilt workflow templates](/azure/logic-apps/create-single-tenant-workflows-templates) as much as possible.
-
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-triangle-mvp.png" alt-text="Diagram shows minimum viable product waves." border="false":::
 
 ### Migration waves (Sprints)
 
-After your team completes Sprint 0, you should have a clear view of the MVP to build. A *wave* is a set of sprints. Your initial backlog should include work items that follow the next diagram as much as possible:
-
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-waves.png" alt-text="Diagram shows gradual migration waves." border="false":::
-
-During a wave, your team completes the activities to migrate, test, and release to production. Let's more closely examine what happens in each wave.
+After your team completes Sprint 0, you should have a clear view of the MVP to build. A *wave* is a set of sprints. During a wave, your team completes the activities to migrate, test, and release to production. Let's more closely examine what happens in each wave.
 
 #### Migrate
 
-During each wave, migration focuses on the agreed User Stories. For the first wave, your team focuses on the initial backlog. Technology decisions must use the information in the BizTalk Server features mapping, described by [Feature matchup - Why migrate from BizTalk Server to Azure Logic Apps](/azure/logic-apps/biztalk-server-to-azure-integration-services-overview#feature-matchup)?
-
-The following diagram shows the events that should happen during migration waves:
-
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-steps.png" alt-text="Diagram shows migration steps." border="false":::
-
-| Step | Description | 
-|------|--------------|
-| 1 | Discover existing BizTalk apps and interfaces. Although introduced in Sprint 0, this activity should happen when each wave starts. Customers might continue making changes in your BizTalk environment. <br><br>Resources: <br>- [BizTalk Migration tool](https://github.com/Azure/aimtool) <br>- [BizTalk Documenter tool](https://github.com/mbrimble/biztalkdocumenter) |
-| 2 | Set up your initial migration environment. You can use the [Azure Integration Services Landing Zone Accelerator](https://github.com/Azure/Integration-Services-Landing-Zone-Accelerator), which is a cloud adoption framework for building and deploying an integration platform that has a typical enterprise landing zone design. As the workload owner, you can confidently achieve your target technical state by using the provided [architectural guidance and BizTalk migration resources](https://techcommunity.microsoft.com/blog/integrationsonazureblog/biztalk-server-migration-to-azure-integration-services-resources/3733464). <br><br>For an example architecture, see [Example migration environment](#initial-migration-environment). |
-| 3 | Create and test Standard logic app workflows that run in single-tenant Azure Logic Apps using either the Azure portal or Visual Studio Code with the Azure Logic Apps (Standard) extension. With Visual Studio Code, you can locally develop, test, and store your logic app project using any source control system. <br><br>For more information, see the following documentation: <br><br>- [Create a Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal) <br>- [Create a Standard logic app workflow using Visual Studio Code](/azure/logic-apps/create-single-tenant-workflows-visual-studio-code) <br><br>To begin a rapid migration using your BizTalk application source code and bindings, use the [BizTalk Migration Starter](https://github.com/haroldcampos/BizTalkMigrationStarter). With this tool, you can quickly build a proof of concept for your migration that helps you reduce the risks and the number of waves for your migration. This tool creates a logic app workflow definition that resembles your BizTalk orchestration. For Content Based Routing Scenarios (CBR), the tool creates a workflow as well. <br><br>For a diagram that shows an example logic app workflow and connections, see [Example migration environment](#initial-migration-environment). |
-| 4 | To get the full benefits from easily and consistently deploying your Standard logic app workflows across different environments and platforms, you must also automate your build and deployment process. The Azure Logic Apps (Standard) extension for Visual Studio Code provides tools for you to create and maintain automated build and deployment processes using Azure DevOps. <br><br>For more information, see [Automate build and deployment for Standard logic app workflows with Azure DevOps](/azure/logic-apps/automate-build-deployment-standard). | 
-| 5 | To deploy mission-critical Standard logic apps that are always available and responsive, even during updates or maintenance, enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. <br><br>For more information, see [Set up deployment slots to enable zero downtime deployment in Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots). | 
+During each wave, migration focuses on the agreed User Stories. For the first wave, your team focuses on the initial backlog. Technology decisions must use the information in the BizTalk Server features mapping as described by [Why migrate from BizTalk Server to Azure Logic Apps](biztalk-server-migration-overview.md).
 
 <a name="initial-migration-environment"></a>
 
@@ -209,7 +190,7 @@ After your team finishes and meets the "definition of done" for the user stories
 
 1. Plan for operations or production support.
 
-1. Choose "go or no go" criteria for releasing to production.
+1. Choose criteria for releasing to production.
 
 1. Celebrate your team's success.
 
@@ -317,8 +298,8 @@ When you build integration solutions, consider creating and using shared service
 
 ## Next steps
 
-You learned more about available migration approaches and best practices for moving BizTalk Server workloads to Azure Logic Apps. To provide detailed feedback about this guide, use the following form:
+You learned more about available migration approaches and best practices for moving BizTalk Server workloads to Azure Logic Apps. To provide detailed feedback about your needs, use the following form:
 
 > [!div class="nextstepaction"]
 >
-> [Give feedback about migration guidance for BizTalk Server to Azure Logic Apps](https://aka.ms/BizTalkMigrationGuidance)
+> [Tell us what features you need to migrate from BizTalk Server to Azure Logic Apps](https://aka.ms/logicappsneeds)

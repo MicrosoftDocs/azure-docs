@@ -230,6 +230,8 @@
       href: howto-timewindow-filter.md
     - name: ASP.NET Core
       href: howto-timewindow-filter-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-time-window-filter-spring-boot.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
     - name: Go Gin

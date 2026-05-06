@@ -3,7 +3,7 @@ title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/12/2026
+ms.date: 04/30/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ---
@@ -15,6 +15,17 @@ ms.service: azure-iot-edge
 Azure IoT Edge is a product built from the open-source IoT Edge project hosted on GitHub. All new releases are made available in the [Azure IoT Edge project](https://github.com/Azure/azure-iotedge) repo. Contributions and bug reports can be made on the [open-source IoT Edge project](https://github.com/Azure/iotedge) repo.
 
 Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/products/azure-iot-edge).
+
+## LTS release cadence
+
+Azure IoT Edge long-term support (LTS) releases follow the [.NET LTS cadence](https://dotnet.microsoft.com/platform/support/policy/dotnet-core). Each IoT Edge LTS release aligns its .NET components with a supported .NET LTS release, and stays supported through the same end-of-support date. For full lifecycle details, see the [Azure IoT Edge lifecycle](/lifecycle/products/azure-iot-edge).
+
+Current LTS planning guidance:
+
+* **IoT Edge 1.5 LTS** aligns with .NET 8 and is supported until .NET 8 reaches end of support on November 10, 2026. See the [.NET 8 support timeline](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#dotnet-8).
+* **IoT Edge 1.6 LTS** is planned to align with the .NET 10 LTS release, and is expected to be supported through November 14, 2028. See the [.NET 10 support timeline](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#dotnet-10).
+* Each new LTS release is planned to ship about six months before the prior LTS reaches end of support, giving customers time to upgrade.
+* Based on current plans, no major changes are expected between IoT Edge 1.5 LTS and IoT Edge 1.6 LTS, so upgrades should be straightforward.
 
 ## Documented versions
 
