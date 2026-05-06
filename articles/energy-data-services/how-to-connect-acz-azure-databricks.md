@@ -3,9 +3,9 @@ title: Connect Azure Databricks to Analytics Consumption Zone
 description: Learn how to configure Azure Databricks to query Analytics Consumption Zone (ACZ) data from Azure Data Manager for Energy using external tables and Delta Lake.
 author: nsannala
 ms.author: nsannala
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 05-05-2026
+ms.date: 5/5/2026
 ms.custom: template-how-to-pattern
 ---
 
@@ -312,13 +312,12 @@ az storage fs directory list \
 
 ## Next steps
 
-- [Monitor ACZ data refresh](how-to-monitor-acz.md)
-- [Query well data in Databricks](tutorial-query-well-data.md)
-- [Connect Power BI to Databricks SQL](how-to-connect-powerbi-databricks.md)
-- [Unity Catalog best practices](https://learn.microsoft.com/azure/databricks/data-governance/)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 
 ## Related content
 
-- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
-- [Azure Databricks Unity Catalog](https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/)
-- [Access Connector for Azure Databricks](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/access-connector)
+- [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Azure Databricks Unity Catalog](/azure/databricks/data-governance/unity-catalog/)
+- [Access Connector for Azure Databricks](/azure/databricks/security/network/classic/access-connector)
