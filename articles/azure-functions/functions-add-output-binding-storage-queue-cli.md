@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Connect Azure Functions to Azure Storage using command line tools
@@ -195,8 +195,4 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
 
 [previous-quickstart]: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
-::: zone-end
-
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
 ::: zone-end
