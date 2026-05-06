@@ -53,7 +53,6 @@ Follow these steps to request a limit increase:
 1. For **Which service are you having an issue with?**, select **Azure Deployment Environments**, and then select **Next**.
 1. Select your subscription. For **Resource**, select **General question**, then select **Next**.
 1. Select **Manage Projects**, then select **Next**.
-
 1. Under **Contact support**, select **Create a support request**:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Support + troubleshooting page with Create a support request highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
@@ -70,7 +69,7 @@ Follow these steps to request a limit increase:
  
     :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page with Enter details highlighted." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
 
-1. In **Quota details**, enter the following information, and then select **Next**.
+1. In **Quota details**, enter the following information:
  
     | Name              | Value   |
     | ----------------- | ------- |
