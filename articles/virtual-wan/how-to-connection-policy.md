@@ -20,12 +20,13 @@ The following document describes how to use connection policy in Azure Virtual W
 ## Known issues
 
 The following table contains known issues with Virtual WAN connection policy.
-|Issue|Status|
 
+|Issue|Status|
 |--|--|
-| Virtual WAN portal experience for connection policy is not available. | Currently, connection policy can be managed via [Azure Virtual Network Manager](virtual-network-manager-virtual-wan-overview.md). Virtual WAN Azure Portal support for connection policy is currently rolling out. |
+| Virtual WAN portal experience for connection policy isn't available. | Currently, connection policy can be managed via [Azure Virtual Network Manager](virtual-network-manager-virtual-wan-overview.md). Virtual WAN Azure portal support for connection policy is currently rolling out. |
 | Connection policy experience in Azure Virtual Network Manager is greyed out.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.|
 | Connection policy doesn't allow for propagated route tables to be set to a remote route table from a different Virtual WAN hub.|Reference [best practices](how-to-connection-policy.md#best-practices) for guidance.|
+
 ## Background
 
 Connection policies provide a way to group multiple Virtual WAN connections and apply common configuration to them. Connection policies are designed to make bulk-management easier by allowing you to apply configurations to a group of Virtual Network connections as one atomic operation. Connection policies also provide enforcement. Properties configured through connection policies override connection-specific configurations, ensuring that the correct configuration is applied to all connections under the policy and prevent accidental misconfiguration of individual connections.
@@ -40,7 +41,7 @@ Connection policies can manage the following properties of Virtual Network conne
 
 * **Enable internet security**: Controls whether or not Virtual WAN advertises the default route (0.0.0.0/0) to the Virtual Network connection.
 * **Associated route table**: Specifies which Virtual WAN route table is associated with the Virtual Network connection.
-* **Propagated route table**: Specifies which Virtual WAN route table is associated with the Virtual Network connection and propagates routes to. In connection policy, this property can only reference **local** route tables. Refrence remote route tables using **labels**.
+* **Propagated route table**: Specifies which Virtual WAN route table is associated with the Virtual Network connection and propagates routes to. In connection policy, this property can only reference **local** route tables. Reference remote route tables using **labels**.
 * **Propagated labels**: Specifies which labels the Virtual Network connection propagates to.
 * **Inbound/Outbound route maps**: Specifies which route maps are applied to routes learnt from or advertised to the Virtual Network connection.
 
@@ -48,14 +49,14 @@ Connection policies can manage the following properties of Virtual Network conne
 
 Virtual WAN control plane uses the following order of preference when determining which configuration to apply to Virtual Network connections with conflicting settings. Configurations higher in the list take precedence over configurations lower in the list.
 
-1. Routing-intent managed settings (associated and propoagated route tables and labels).
+1. Routing-intent managed settings (associated and propagated route tables and labels).
 1. Connection policy settings.
 1. Connection-level settings.
 
 ## Best Practices
 
-* Connection policies can't reference remote route tables. Instead, use Virtual WAN route table **labels** with connection policies to group propagated route tables across multiple Virtual WAN hubs. Reference Virtual WAN route table labels in connection policy to simplfy operations.
-* Carefully define update domains within Virtual WAN to minimize the impact of configuration changes on your network. Instead of assigning all Virtual Network connections to a single connection policy, group connections into multiple connection policies correspondign to different update domains and apply changes in an incremental fashion.
+* Connection policies can't reference remote route tables. Instead, use Virtual WAN route table **labels** with connection policies to group propagated route tables across multiple Virtual WAN hubs. Reference Virtual WAN route table labels in connection policy to simplify operations.
+* Carefully define update domains within Virtual WAN to minimize the impact of configuration changes on your network. Instead of assigning all Virtual Network connections to a single connection policy, group connections into multiple connection policies corresponding to different update domains and apply changes in an incremental fashion.
 
 ## Other Considerations
 
