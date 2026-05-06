@@ -9,10 +9,23 @@ ms.date: 03/18/2026
 ms.author: wellee
 ---
 
-# Connection policy 
+# Connection policy (Public Preview)
+
+
+> [!Important]
+> Virtual WAN connection policy id currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The following document describes how to use connection policy in Azure Virtual WAN.
 
+## Known issues
+
+The following table contains known issues with Virtual WAN connection policy.
+|Issue|Status|
+
+|--|--|
+| Virtual WAN portal experience for connection policy is not available. | Currently, connection policy can be managed via [Azure Virtual Network Manager](virtual-network-manager-virtual-wan-overview.md). Virtual WAN Azure Portal support for connection policy is currently rolling out. |
+| Connection policy experience in Azure Virtual Network Manager is greyed out.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.|
+| Connection policy doesn't allow for propagated route tables to be set to a remote route table from a different Virtual WAN hub.|Reference [best practices](how-to-connection-policy.md#best-practices) for guidance.|
 ## Background
 
 Connection policies provide a way to group multiple Virtual WAN connections and apply common configuration to them. Connection policies are designed to make bulk-management easier by allowing you to apply configurations to a group of Virtual Network connections as one atomic operation. Connection policies also provide enforcement. Properties configured through connection policies override connection-specific configurations, ensuring that the correct configuration is applied to all connections under the policy and prevent accidental misconfiguration of individual connections.
