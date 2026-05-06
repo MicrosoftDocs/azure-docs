@@ -1,6 +1,6 @@
 ---
-title: Dynamic Agentic Workflows with Logic Apps Automation
-description: Build agentic workflow automation that runs dynamically, reasons, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
+title: Dynamic Workflows with Logic Apps Automation
+description: Build workflow automation that runs dynamically, reasons with context, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
 services: azure-logic-apps
 ms.reviewers: estfan, divswa, azla
 ms.topic: overview
