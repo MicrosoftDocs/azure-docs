@@ -10,9 +10,9 @@ ms.service: azure
 
 # Understand and prioritize weaknesses data in firmware analysis
 
-Firmware analysis identifies weaknesses in firmware components that are extracted during analysis. These results can help you understand potential security risks, but you should interpret them carefully and in the appropriate context.
+Firmware analysis identifies weaknesses in firmware components. These results can help you understand potential security risks, but you should interpret them carefully and in the appropriate context.
 
-This article explains weakness-related fields you might see in firmware analysis results. It explains how these fields relate to one another and how to evaluate them together to effectively prioritize risk.
+This article explains weakness-related fields you might see in firmware analysis results. It explains how these fields relate to one another and how to collectively evaluate them to effectively prioritize risk.
 
 > [!NOTE]
 > The presence of a weakness or Common Vulnerabilities and Exposures (CVE) vulnerability in firmware analysis doesn't necessarily mean a device is vulnerable. The actual impact of a weakness depends on how the affected component is used within the system.
@@ -23,11 +23,11 @@ Firmware analysis can improve findings with multiple, industry-standard signals.
 
 ### CVEs
 
-A Common Vulnerabilities and Exposures identifier (CVE) represent a known security vulnerability that's publicly disclosed. Firmware analysis associates CVEs with extracted firmware components when a match is identified. A single firmware component might be associated with multiple CVEs, and a single CVE might appear across multiple devices or components.
+A CVE identifier represents a known security vulnerability that's publicly disclosed. Firmware analysis associates CVEs with extracted firmware components when a match is identified. A single firmware component might be associated with multiple CVEs, and a single CVE might appear across multiple devices or components.
 
 CVEs highlight an issue, but they don't solely indicate the issue's impact or exploitability.
 
-For more information about CVEs and the CVE program, see the official [Common Vulnerabilities and Exposures documentation maintained by MITRE](https://www.cve.org).
+For more information about CVEs and the CVE program, see the official [Common Vulnerabilities and Exposures documentation](https://www.cve.org) that's maintained by MITRE.
 
 ### CVSS scores and versions
 
@@ -43,7 +43,7 @@ There are multiple CVSS versions because vulnerability scoring evolved over time
 
 CVSS scores describe technical severity, not the real-world likelihood of exploitation.
 
-For more information about CVSS scoring and version differences, see the official [Common Vulnerability Scoring System (CVSS) documentation maintained by FIRST](https://www.first.org/cvss/).
+For more information about CVSS scoring and version differences, see the official [Common Vulnerability Scoring System (CVSS) documentation](https://www.first.org/cvss/) that's maintained by FIRST.
 
 ### CVSS vector
 
@@ -55,7 +55,7 @@ In addition to a numeric score, a CVSS result includes a vector string that desc
 
 The vector provides more context, like the conditions and impact factors that contribute to a CVE's severity rating.
 
-For a full explanation of CVSS vector strings and metric meanings, see the [CVSS specification published by FIRST](https://www.first.org/cvss/specification-document).
+For a full explanation of CVSS vector strings and metric meanings, see the [CVSS specification](https://www.first.org/cvss/specification-document) that's published by FIRST.
 
 For examples of how CVSS scores and vectors are published for CVEs, see the [National Institute of Standards and Technology (NIST) National Vulnerability Database (NVD)](https://nvd.nist.gov/vuln-metrics/cvss).
 
@@ -70,7 +70,7 @@ Some CVEs might be marked as part of the Cybersecurity and Infrastructure Securi
 
 KEV is a strong signal of immediate risk.
 
-For authoritative KEV status and remediation guidance, see [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).
+For authoritative KEV status and remediation guidance, see the [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).
 
 ### Exploit Prediction Scoring System (EPSS)
 
@@ -92,7 +92,7 @@ Percentile rankings are often more operationally useful, as they show how a CVE 
 
 EPSS provides a forward-looking likelihood signal, not a guarantee of exploitation.
 
-For details on how EPSS scores and percentiles are calculated, see [Exploit Prediction Scoring System documentation maintained by FIRST](https://www.first.org/epss/).
+For details on how EPSS scores and percentiles are calculated, see the [Exploit Prediction Scoring System documentation](https://www.first.org/epss/) that's maintained by FIRST.
 
 ### Common Weakness Enumeration (CWE)
 
@@ -116,7 +116,7 @@ Exploit maturity describes the current state of exploit availability for a vulne
 - Functional exploit.
 - Weaponized exploit.
 
-When present, exploit maturity information is typically found alongside CVSS v4 scoring. It's described in the [CVSS specification maintained by FIRST](https://www.first.org/cvss/v4.0/specification-document).
+When present, exploit maturity information is typically found alongside CVSS v4 scoring. It's described in the [CVSS specification](https://www.first.org/cvss/v4.0/specification-document) that's maintained by FIRST.
 
 ## Using weakness data together
 
