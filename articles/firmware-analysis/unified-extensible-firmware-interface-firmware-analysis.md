@@ -77,7 +77,7 @@ This means:
 
 ### Binary-hardening attributes for UEFI firmware (preview)
 
-Binary-hardening attributes reflect security properties detected from executable metadata.
+Binary-hardening attributes reflect security properties detected from executable metadata. 
 
 #### Currently supported
 

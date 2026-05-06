@@ -181,7 +181,7 @@ Effective prioritization requires more than severity scoring. The following stru
    - Whether the system is production or core infrastructure.
    - Potential operational, safety, or compliance impact.
 
-   Business impact influences urgency but doesn't change vulnerability mechanics.
+   Business impact influences urgency but doesn't change vulnerability mechanics. 
 
 1. Consider fix availability. Remediation feasibility affects execution planning. Evaluate:
 
