@@ -6,6 +6,7 @@ description: Learn about the available regions and SKUs for Nutanix Cloud Cluste
 ms.topic: reference
 ms.custom: references_regions
 ms.date: 04/5/2026
+ms.service: nc2-on-azure
 # Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 

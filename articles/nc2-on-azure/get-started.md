@@ -6,6 +6,7 @@ description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azu
 ms.topic: get-started
 ms.custom: engagement-fy23
 ms.date: 04/5/2026
+ms.service: nc2-on-azure
 
 # Customer intent: As an IT administrator, I want to sign up for and configure Nutanix Cloud Clusters on Azure, so that I can efficiently manage my cloud infrastructure while ensuring connectivity and compliance with my organization’s requirements.
 ---
