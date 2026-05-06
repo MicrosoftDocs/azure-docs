@@ -74,7 +74,9 @@ The following tools provide an integrated development and publishing experience 
 ::: zone pivot="programming-language-csharp"
 + [Visual Studio](./functions-develop-vs.md)
 ::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 + [Visual Studio Code](./functions-develop-vs-code.md)
+::: zone-end
 
 + [Azure Functions Core Tools](./functions-develop-local.md) (command prompt)
 ::: zone pivot="programming-language-java"

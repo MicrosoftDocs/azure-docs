@@ -5,7 +5,7 @@ ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 11/17/2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 
 #CustomerIntent: As a developer, I want to learn how to enable the export of logs and metrics from my function apps by using OpenTelemetry so I can consume and analyze my application telemetry data either in Application Insights or to any OTLP-compliant tools.
 ---
@@ -425,9 +425,6 @@ When you export your data by using OpenTelemetry, keep these considerations in m
 * You don't need to manually register middleware; the Java worker autodiscovers `OpenTelemetryInvocationMiddleware`.
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Resource detectors and semantic conventions
 

@@ -64,7 +64,7 @@ As soon as possible, you should [switch your app back to using the latest suppor
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+Go function apps don't use the extension bundle or explicit extension installation steps described in this article. Register supported triggers directly in Go code. For Blob Storage triggers, add the blank import described in the [Go developer reference](functions-reference-go.md#extension-triggers).
 ::: zone-end
 
 ## Related content

@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-js
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions-full-no-go
 #customer intent: As a developer, I want to learn how to create, test, and deploy Azure Functions using Visual Studio Code so that I can build and publish serverless apps efficiently.
 ---
 
@@ -364,12 +364,8 @@ You used [Visual Studio Code](functions-develop-vs-code.md) to create a function
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md)
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md)
-::: zone-end  
-::: zone pivot="programming-language-other"  
+::: zone-end
+::: zone pivot="programming-language-other"
 > [!div class="nextstepaction"]
 > [Azure Functions custom handlers](functions-custom-handlers.md)
-::: zone-end  
-
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
 ::: zone-end

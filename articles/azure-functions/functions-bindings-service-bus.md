@@ -95,7 +95,7 @@ Functions version 1.x doesn't support the isolated worker process.
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+You don't install a language-specific extension package for Go Service Bus triggers. Register Service Bus queue triggers with `app.ServiceBusQueue()` and topic triggers with `app.ServiceBusTopic()`. Service Bus output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to send messages.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

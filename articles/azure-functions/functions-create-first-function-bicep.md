@@ -6,7 +6,7 @@ ms.author: glenga
 ms.date: 03/17/2025
 ms.topic: quickstart
 ms.service: azure-functions
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -135,9 +135,6 @@ Get-AzResource -ResourceGroupName exampleRG
 [!INCLUDE [functions-welcome-page](../../includes/functions-welcome-page.md)]
 
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Clean up resources
 

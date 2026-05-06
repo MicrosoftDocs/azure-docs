@@ -4,7 +4,7 @@ description: Create and deploy to Azure a simple HTTP triggered serverless funct
 ms.date: 03/17/2025
 ms.topic: quickstart
 ms.service: azure-functions
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -163,9 +163,6 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ---
 

@@ -4,7 +4,7 @@ description: Get started with Azure Functions by creating a containerized functi
 ms.date: 06/23/2023
 ms.topic: how-to
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create a function app in a local Linux container 
@@ -21,9 +21,6 @@ You can also create a function app in the Azure portal by using an existing cont
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Next steps
 

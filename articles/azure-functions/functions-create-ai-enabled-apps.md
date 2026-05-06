@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I want to learn how I can leverage AI models, tools, and other resourtcers so that my function executions can take full advantage of all of the AI-related resources available to an Azure service.
 ---
 
@@ -195,9 +195,6 @@ Here are some reference samples for RAG-based scenarios:
 > Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## AI tools and frameworks for Azure Functions
 

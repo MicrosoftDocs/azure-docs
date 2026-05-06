@@ -4,7 +4,7 @@ description: Learn how to use command line tools, such as Azure Functions Core T
 ms.date: 07/22/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions-full-no-go
 ---
 
 # Quickstart: Create a function in Azure from the command line
@@ -312,10 +312,6 @@ You can now use Maven to deploy your code project to your existing app.
     In this example, again replace `<APP_NAME>` with the name of your app.
 
 1. Copy the returned endpoint URL and key, which you use to invoke the function endpoint.    
-::: zone-end
-
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
 ::: zone-end
 
 ## Invoke the function on Azure

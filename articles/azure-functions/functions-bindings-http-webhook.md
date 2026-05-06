@@ -67,7 +67,7 @@ Functions 1.x doesn't support running in an isolated worker process.
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+You don't install a language-specific extension package for Go HTTP triggers. Register HTTP functions in code by using `app.HTTP()`. For examples, see the [HTTP trigger](functions-bindings-http-webhook-trigger.md) and [HTTP output](functions-bindings-http-webhook-output.md) articles.
 ::: zone-end
 
 ## host.json settings

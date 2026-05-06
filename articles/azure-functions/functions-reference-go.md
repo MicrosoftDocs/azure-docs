@@ -14,6 +14,7 @@ ms.custom:
 
 > [!IMPORTANT]
 > Go support for Azure Functions is currently in public preview.
+> During preview, Go function apps are supported only on the Flex Consumption plan.
 
 Azure Functions is a serverless compute service that lets you run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger and binding ecosystem.
 
@@ -122,7 +123,7 @@ app.Blob("myBlobFunc", handler,
 
 ## Project structure
 
-A Go function app is a standard Go module. The following files are generated when you run `func init --worker-runtime go`:
+A Go function app is a standard Go module. The following files are generated when you run `func init --worker-runtime golang`:
 
 ```
 my-function-app/
@@ -386,7 +387,7 @@ The command produces a zip file that you can deploy by using the Azure CLI or ot
 You can run Go function apps in containers. Initialize a project with Docker support:
 
 ```console
-func init --worker-runtime go --docker
+func init --worker-runtime golang --docker
 ```
 
 The command generates a `Dockerfile` along with the standard project files.

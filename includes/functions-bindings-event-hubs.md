@@ -176,7 +176,7 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+For Go, Event Hubs trigger handlers receive `bindings.EventHubMessage`. Register Event Hubs triggers in code by using `app.EventHub()`. Event Hubs output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to send events.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

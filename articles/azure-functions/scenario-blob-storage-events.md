@@ -3,7 +3,7 @@ title: Respond to blob storage events using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure Functions. The project features a Blob Storage trigger that runs in response to blob storage events."
 ms.date: 12/02/2025
 ms.topic: quickstart
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an event-based Blob trigger function project securely to a new function app in the Flex Consumption plan in Azure Functions by using azd templates and the azd up command.
 ---
 
@@ -288,9 +288,6 @@ You can review the code that defines the Event Grid blob trigger in the [Process
 - Process and copy files to the destination container using Azure PowerShell modules
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 After you review and verify your function code locally, it's time to publish the project to Azure.
 

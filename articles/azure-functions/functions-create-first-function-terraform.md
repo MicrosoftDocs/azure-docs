@@ -8,7 +8,7 @@ ms.service: azure-functions
 #customer intent: As a Terraform user, I want to learn how to create a function app in a Flex Consumption plan along with required storage account and blob storage container used for deployments.
 content_well_notification: 
   - AI-contribution
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from Terraform
@@ -92,9 +92,6 @@ terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=2
 ```
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 Make sure that `runtime_version` matches the language stack version you verified locally. Select your preferred language stack at the [top](#top) of the article.
 

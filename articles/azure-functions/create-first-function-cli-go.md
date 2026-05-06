@@ -6,7 +6,6 @@ ms.date: 05/05/2026
 ms.devlang: golang
 ms.custom:
   - devx-track-go
-zone_pivot_groups: programming-languages-set-functions
 #customer intent: As a Go developer, I want to create a Go function app from the command line so that I can build and deploy serverless apps in Azure.
 ---
 
@@ -29,7 +28,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.7100 or later.
 
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.60.0 or later.
 
 ## Create a local function project
 
@@ -38,7 +37,7 @@ In Azure Functions, a function project is a container for one or more individual
 1. Run the `func init` command to create a Go functions project:
 
     ```console
-    func init MyGoFunctionApp --worker-runtime go
+    func init MyGoFunctionApp --worker-runtime golang
     ```
 
     This command creates a project folder named `MyGoFunctionApp` with the following files:
@@ -47,6 +46,7 @@ In Azure Functions, a function project is a container for one or more individual
     | --- | --- |
     | `host.json` | Host configuration for the function app. |
     | `local.settings.json` | Settings used when running locally. |
+    | `worker.config.json` | Go worker configuration used by the Functions host. |
     | `main.go` | Entry point with a sample HTTP-triggered function. |
     | `go.mod` | Go module file for dependency management. |
 
@@ -89,7 +89,7 @@ In Azure Functions, a function project is a container for one or more individual
     }
     ```
 
-    Go functions use the standard `net/http` types (`http.ResponseWriter` and `*http.Request`) for HTTP triggers, making the experience feel native to Go developers. Functions are registered using the fluent builder API in `main()`, and no `function.json` files are needed.
+    Go functions use the standard `net/http` types (`http.ResponseWriter` and `*http.Request`) for HTTP triggers, making the experience feel native to Go developers. Functions are registered in `main()` by using the Go worker SDK and functional options, and no `function.json` files are needed.
 
 ## Run the function locally
 
@@ -137,7 +137,13 @@ Use the following commands to create these items.
     az login
     ```
 
-1. Create a resource group:
+1. Use the `az functionapp list-flexconsumption-locations` command to review the list of regions that currently support the Flex Consumption plan:
+
+    ```azurecli
+    az functionapp list-flexconsumption-locations --query "sort_by(@, &name)[].{Region:name}" -o table
+    ```
+
+1. Create a resource group in a region that supports the Flex Consumption plan:
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus2
@@ -146,7 +152,7 @@ Use the following commands to create these items.
 1. Create a general-purpose storage account in the resource group:
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location eastus2 --resource-group MyResourceGroup --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --location eastus2 --resource-group MyResourceGroup --sku Standard_LRS --allow-blob-public-access false
     ```
 
     Replace `<STORAGE_NAME>` with a globally unique name. Names must contain 3 to 24 characters and only lowercase letters and numbers.
@@ -154,7 +160,7 @@ Use the following commands to create these items.
 1. Create the function app in Azure:
 
     ```azurecli
-    az functionapp create --resource-group MyResourceGroup --consumption-plan-location eastus2 --runtime custom --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location eastus2 --runtime custom --functions-version 4
     ```
 
     Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step.

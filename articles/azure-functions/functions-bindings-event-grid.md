@@ -97,7 +97,7 @@ Considerations for the Event Grid extension:
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+You don't install a language-specific extension package for Go Event Grid triggers. Register Event Grid triggers in code by using `app.EventGrid()`. Event Grid output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to publish events.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

@@ -8,7 +8,7 @@ author: dbandaru
 ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions.
 ms.custom:
   - build-2025
@@ -254,9 +254,6 @@ You created resources to complete these quickstarts. You could be billed for the
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Related content
 

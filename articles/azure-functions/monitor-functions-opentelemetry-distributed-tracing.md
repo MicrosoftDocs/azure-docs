@@ -5,7 +5,7 @@ ms.date: 01/26/2026
 ms.topic: tutorial
 ms.custom:
   - ignite-2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Tutorial: Monitor Azure Functions with OpenTelemetry distributed tracing
@@ -1026,9 +1026,6 @@ azd down --no-prompt
 >This command doesn't affect your local code project. 
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 ## Related content
 
 + [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md)

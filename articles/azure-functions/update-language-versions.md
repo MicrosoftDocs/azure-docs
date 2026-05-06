@@ -474,5 +474,6 @@ If you need to revert to the previous language version:
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+> [!div class="nextstepaction"]
+> [Go developer reference](./functions-reference-go.md)
 ::: zone-end

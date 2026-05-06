@@ -99,7 +99,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+You don't install a language-specific extension package for Go Azure Cosmos DB triggers. Register Azure Cosmos DB triggers in code by using `app.CosmosDB()`. Azure Cosmos DB input and output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to read or write documents outside the trigger payload.
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 

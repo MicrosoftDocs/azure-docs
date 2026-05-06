@@ -7,7 +7,7 @@ ms.topic: quickstart
 ai-usage: ai-assisted
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I want to create an MCP Apps server that returns interactive UI from my MCP tools, so AI clients can render rich visual experiences using Azure Functions.
 ---
 
@@ -360,9 +360,6 @@ You can now have GitHub Copilot use your remote MCP tools just as you did locall
 [!INCLUDE [cleanup](../../includes/functions-mcp-cleanup.md)]
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 ## Next steps
 
 > [!div class="nextstepaction"]

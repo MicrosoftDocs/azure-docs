@@ -123,7 +123,7 @@ Functions version 1.x doesn't support isolated worker process.
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+For Go, Blob Storage trigger support uses the extension trigger model. Register blob triggers in code by using `app.Blob()` and add a blank import for `github.com/azure/azure-functions-golang-worker/triggers/blob`. Blob input and output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need additional blob operations.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

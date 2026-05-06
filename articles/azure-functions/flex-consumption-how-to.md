@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you how to manage certain features of a Flex Consumption plan hosted app.
 
-Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
+Function app resources are language-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
 ## Prerequisites
 
@@ -108,6 +108,11 @@ To support your function code, you need to create three resources:
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4 
     ```
     ::: zone-end 
+    ::: zone pivot="programming-language-go"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime custom
+    ```
+    ::: zone-end
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
     This command creates a function app running in the Flex Consumption plan. 
@@ -306,7 +311,9 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+## Create and deploy your Go app
+
+Go function apps are supported only on the Flex Consumption plan. To create, run, and deploy a Go function app, see [Create a Go function from the command line](create-first-function-cli-go.md). For Go-specific project structure and deployment details, see the [Go developer reference](functions-reference-go.md).
 ::: zone-end
 
 ## Enable virtual network integration
@@ -328,9 +335,16 @@ You can enable virtual network integration by running the [`az functionapp creat
 
 1. Run the [`az functionapp create`] command, including the `--vnet` and `--subnet` parameters, as in this example:
 
+    ::: zone pivot="programming-language-go"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime custom --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+    ```
+    ::: zone-end
+    ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime <RUNTIME_NAME> --runtime-version <RUNTIME_VERSION> --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
     ```
+    ::: zone-end
 
     The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
 
@@ -549,15 +563,32 @@ Use `http`, `durable`, or `blob` as the name for the name value pair setting to 
 
 To define one or more always ready instance designations, use the `--always-ready-instances` parameter with the [`az functionapp create`] command. This example sets the always ready instance count for all HTTP triggered functions to `10`:
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
 ```
+::: zone-end
+::: zone pivot="programming-language-go"
+```azurecli
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime custom --flexconsumption-location <REGION> --always-ready-instances http=10
+```
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
 This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
 ```
+::: zone-end
+::: zone pivot="programming-language-go"
+
+This example sets the always ready instance count to `2` for a Service Bus triggered function named `function5`:
+
+```azurecli
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime custom --flexconsumption-location <REGION> --always-ready-instances function:function5=2
+```
+::: zone-end
 
 ### [Azure portal](#tab/azure-portal)
 

@@ -353,7 +353,22 @@ public void run(
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+In Go, configure retries when you register the function by using `sdk.WithRetry` and `sdk.RetryOptions`:
+
+```go
+minimumInterval := 10 * time.Second
+maximumInterval := 15 * time.Minute
+
+app.Timer("TimerTriggerGo", timerHandler,
+    sdk.WithSchedule("0 */5 * * * *"),
+    sdk.WithRetry(&sdk.RetryOptions{
+        MaxRetryCount:   5,
+        MinimumInterval: &minimumInterval,
+        MaximumInterval: &maximumInterval,
+        Strategy:        sdk.ExponentialBackoff,
+    }),
+)
+```
 ::: zone-end
 
 ## Binding error codes

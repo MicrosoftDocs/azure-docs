@@ -3,7 +3,7 @@ title: Respond to database changes in Azure SQL Database using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure SQL Database trigger function that runs in response to changes in a SQL table."
 ms.date: 12/01/2025
 ms.topic: quickstart
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure SQL Database triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
 
@@ -260,9 +260,6 @@ azd down --no-prompt
 >This command doesn't affect your local code project.
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 ## Related articles
 
 + [Azure Functions scenarios](functions-scenarios.md)

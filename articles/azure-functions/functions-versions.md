@@ -163,7 +163,7 @@ For Visual Studio Code development, you might also need to update the user setti
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+Go support is currently in public preview and requires Azure Functions runtime 4.x. For version requirements, see the [Go developer reference](functions-reference-go.md#prerequisites).
 ::: zone-end
 
 ## Related content

@@ -258,7 +258,13 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+Go supports SDK client injection for extension triggers. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` by using the Go worker extension trigger model.
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+
+For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
 ::: zone-end
 ## Code examples for bindings
 

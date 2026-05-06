@@ -90,7 +90,11 @@ Use these resources to better understand and plan for language support-related c
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+| Resource | Details |
+| --- | --- |
+| **Supported versions** | [Currently supported stack versions](supported-languages.md?pivots=programming-language-go#languages-by-runtime-version) |
+| **Language version support timelines** | [Go release policy](https://go.dev/doc/devel/release#policy) |
+| **Configuring language versions** | Go version selection is controlled by the Go toolchain you use to build your function app. |
 ::: zone-end
 
 ## Frequently asked questions

@@ -9,7 +9,7 @@ ms.collection:
   - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2024
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my custom MCP server code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
 
@@ -233,9 +233,6 @@ You can now have GitHub Copilot use your remote MCP tools just as you did locall
 [!INCLUDE [cleanup](../../includes/functions-mcp-cleanup.md)]
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -579,7 +579,7 @@ The following considerations apply to Core Tools installations:
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
+Go function apps don't use extension bundles or explicit extension installation. Supported triggers are registered in Go code by using the Go worker SDK. For Blob Storage triggers, add the blank import described in the [Go developer reference](functions-reference-go.md#extension-triggers).
 ::: zone-end
 
 ## Related content

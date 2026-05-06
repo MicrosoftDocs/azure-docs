@@ -8,7 +8,7 @@ ms.date: 11/12/2025
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I want to know how to register remote MCP servers in a registry so that they're organized and easily discoverable. 
 ---
 
@@ -123,9 +123,6 @@ TypeScript isn't currently supported for this feature.
 Python isn't currently supported for this feature.
 ::: zone-end
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Related articles
 

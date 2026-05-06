@@ -9,7 +9,7 @@ ms.date: 11/14/2025
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 
 #Customer intent: As a developer, I want to learn how to create and host remote and secured MCP servers on Azure Functions. 
 ---
@@ -365,9 +365,6 @@ Now you can deploy the server project:
 When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
 ::: zone-end  
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 ## Enable built-in server authorization and authentication
 
 The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 

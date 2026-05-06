@@ -4,7 +4,7 @@ description: Get started by deploying your first function app from a Linux image
 ms.date: 12/29/2023
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create your first containerized Azure Functions 
@@ -198,9 +198,6 @@ az group delete --name AzureFunctionsContainers-rg
 ```
 
 
-::: zone pivot="programming-language-go"
-Go isn't currently supported for this feature.
-::: zone-end
 
 ## Next steps
 

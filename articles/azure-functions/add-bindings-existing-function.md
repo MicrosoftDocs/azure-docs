@@ -39,9 +39,9 @@ You need to update the function code and add a definition to the function.json c
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-In Go, you add triggers and bindings by using the fluent registration API in your `main()` function. Each trigger type has a dedicated registration method with functional options for configuration. No separate binding configuration file is needed.
+In Go, you configure supported triggers by using the fluent registration API in your `main()` function. Each trigger type has a dedicated registration method with functional options for configuration. No separate binding configuration file is needed.
 
-The following example shows the function definition after adding a [Queue Storage output binding](functions-bindings-storage-queue-output.md) to an [HTTP triggered function](functions-bindings-http-webhook-trigger.md):
+The following example shows an [HTTP triggered function](functions-bindings-http-webhook-trigger.md). If you need to write to Queue Storage from a Go function, use the Azure SDK for Go directly because Queue Storage output bindings aren't currently supported by the Go worker:
 
 ```go
 package main

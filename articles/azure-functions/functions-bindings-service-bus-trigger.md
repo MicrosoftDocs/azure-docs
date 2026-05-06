@@ -406,7 +406,7 @@ func main() {
 
 func processMessage(ctx context.Context, msg bindings.ServiceBusMessage) error {
 	log.Printf("Service Bus queue trigger processed message: %s", msg.Body)
-	log.Printf("Message ID: %s", msg.MessageID)
+  log.Printf("Message ID: %s", msg.MessageId)
 	return nil
 }
 ```
