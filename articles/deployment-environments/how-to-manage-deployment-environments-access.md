@@ -80,21 +80,21 @@ Assign the role at the environment type scope so a team lead can manage only env
 
 1. Select the ellipsis (**...**) next to the environment type, and choose **Access control**.
 
+   :::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment type access page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
+
 1. Select **Add** > **Add role assignment**.
 
 1. Assign **DevCenter Project Admin** to the desired users or groups and select **Save**.
 
-   :::image type="content" source="media/configure-project-admin/project-environment-types.png" alt-text="Screenshot of the Environment type access page showing how to assign DevCenter Project Admin to a specific environment type." lightbox="media/configure-project-admin/project-environment-types.png":::
-
 ## Grant permissions for developers
 
-Assign the DevCenter Deployment Environments User or DevCenter Deployment Environments Reader role to a developer either at the project level or at one or more environment-type scopes. Project-level assignment grants permissions across all environment types in that project; environment-type assignment limits permissions to only the selected environment type.
+Assign the **Deployment Environments User** or **Deployment Environments Reader** role to a developer either at the project level or at one or more environment-type scopes. Project-level assignment grants permissions across all environment types in that project; environment-type assignment limits permissions to only the selected environment type.
 
 ### Assign roles at the project-level
 
-Assign **DevCenter Deployment Environments User** role to developers who need to create and manage their own environments.
+Assign **Deployment Environments User** role to developers who need to create and manage their own environments.
 
-Assign **DevCenter Deployment Environments Reader** role to developers who need to view environments of a specific environment type.
+Assign **Deployment Environments Reader** role to developers who need to view environments of a specific environment type.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
@@ -114,19 +114,19 @@ Assign **DevCenter Deployment Environments Reader** role to developers who need 
 
 ### Assign roles for a specific environment type
 
-Assign **DevCenter Deployment Environments User** role to developers who need to create and manage environments of a specific environment type.
+Assign **Deployment Environments User** role to developers who need to create and manage environments of a specific environment type.
 
-Assign **DevCenter Deployment Environments Reader** role to developers who need to view environments of a specific environment type.
+Assign **Deployment Environments Reader** role to developers who need to view environments of a specific environment type.
 
 1. In the project, under **Environment configuration**, select **Environment types**.
 
 1. Select the ellipsis (**...**) next to the environment type, and choose **Access control**.
 
+   :::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign Deployment Environments User to a specific environment type." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
+
 1. Select **Add** > **Add role assignment**.
 
 1. Assign **Deployment Environments User** to the desired users or groups and select **Save**.
-
-   :::image type="content" source="media/configure-deployment-environments-user/project-environment-types.png" alt-text="Screenshot of the Environment types page showing how to assign Deployment Environments User to a specific environment type." lightbox="media/configure-deployment-environments-user/project-environment-types.png":::
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
