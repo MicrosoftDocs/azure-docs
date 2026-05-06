@@ -33,10 +33,15 @@ This article assumes that you have an Azure subscription. If you don't have an A
 Zonal placement is supported for SSD storage accounts with LRS redundancy in the following Azure regions. If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azfilezonal@microsoft.com) for assistance.
 
 - Asia East
+- Austria East
+- Belgium Central
 - Canada Central
 - Central US
 - Chile Central
+- Denmark East
 - East US
+- East US 2
+- Europe West
 - Germany West Central
 - Indonesia Central
 - Israel Central
@@ -50,6 +55,9 @@ Zonal placement is supported for SSD storage accounts with LRS redundancy in the
 - South Africa North
 - South Central US
 - Spain Central
+- UK South
+- US Government East
+- US Government Southwest
 - West US 2
 - West US 3
 

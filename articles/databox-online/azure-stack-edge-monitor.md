@@ -2,12 +2,12 @@
 title: Monitor your Azure Stack Edge device | Microsoft Docs 
 description: Describes how to use the Azure portal and local web UI to monitor your Azure Stack Edge device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Monitor your Azure Stack Edge device
 

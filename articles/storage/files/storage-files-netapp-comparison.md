@@ -1,21 +1,20 @@
 ---
-title: Azure Files and Azure NetApp Files comparison
-description: Compare the scalability, performance, and features of Azure Files and Azure NetApp Files.
+title: Azure Files and Azure NetApp Files Comparison
+description: Compare the scalability, performance, and features of Azure Files and Azure NetApp Files, two different and distinct Azure storage services.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/11/2025
 ms.author: kendownie
-recommendations: false
-# Customer intent: "As a cloud architect, I want to compare Azure Files and Azure NetApp Files, so that I can choose the best file storage solution to meet my workload scalability and performance requirements."
+# Customer intent: "As a cloud architect, I want to compare Azure Files and Azure NetApp Files, so that I can choose the best cloud file storage solution to meet my workload scalability and performance requirements."
 ---
 
 # Compare Azure Files and Azure NetApp Files
 
-This article provides a comparison of Azure Files and Azure NetApp Files. 
+This article provides a comparison of Azure Files and Azure NetApp Files, which are two different and distinct Azure storage services.
 
-Most workloads that require cloud file storage work well on either Azure Files or Azure NetApp Files. To help determine the best fit for your workload, review the information provided in this article. For more information, see the [Azure Files](./index.yml) and [Azure NetApp Files](../../azure-netapp-files/index.yml) documentation and the [Shared storage for all enterprise file-workloads](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s) session which covers choosing between Azure Files and Azure NetApp Files.
+Most workloads that require cloud file storage work well on either Azure Files or Azure NetApp Files. To help determine the best fit for your workload, review the information provided in this article. For more information, see the [Azure Files](./index.yml) and [Azure NetApp Files](../../azure-netapp-files/index.yml) documentation. There's also a video session that can help you choose between the two solutions: [Shared storage for all enterprise file-workloads](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s).
 
 ## Features
 

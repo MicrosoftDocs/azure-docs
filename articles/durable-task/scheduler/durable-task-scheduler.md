@@ -3,11 +3,11 @@ author: hhunter-ms
 ms.author: hannahhunter
 title: Durable Task Scheduler
 titleSuffix: Durable Task
-description: Learn about the characteristics of the Durable Task Scheduler.
+description: "Discover how the Durable Task Scheduler provides durable execution in Azure with fault-tolerant orchestrations, automatic retries, and state persistence. Get started today."
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 02/06/2026
+ms.date: 05/04/2026
 ---
 
 # Durable Task Scheduler
@@ -16,7 +16,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Distributed transactions
 - Multi-agent orchestration
 - Data processing
-- Infrastructure management, and others. 
+- Infrastructure management
 
 Durable Task Scheduler is the recommended storage provider for [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). 
 
@@ -27,12 +27,12 @@ For Durable Functions, you can use the Durable Task Scheduler with [any of the F
 For the Durable Task SDKs, you can use Durable Task Scheduler with any compute.
 
 The scheduler itself offers two billing SKUs:
-- The [Dedicated SKU](./durable-task-scheduler-billing.md#dedicated-sku)
+- The [Dedicated SKU](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity)
 - The [Consumption SKU](./durable-task-scheduler-billing.md#consumption-sku)
 
 ## Supported regions
 
-You can run the following command to get a list of available regions for Durable Task Scheduler. 
+Durable Task Scheduler is available in most Azure regions. Run the following command to get the current list of available regions:
 
 ```bash
 az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
@@ -42,12 +42,7 @@ Consider using the same region for your Durable Functions app and the Durable Ta
 
 ## Orchestration frameworks
 
-Azure provides two developer-oriented orchestration frameworks you can use to build stateful apps that run on any compute environment, without the need to architect for fault tolerance. You can use the Durable Task Scheduler with the following orchestration frameworks:
-
-- Durable Functions
-- Durable Task SDKs
-
-[Learn which orchestration works better for your project.](../common/choose-orchestration-framework.md)
+Durable Task Scheduler works with both [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). [Choose which framework works best for your project.](../common/choose-orchestration-framework.md)
 
 ## Architecture
 
@@ -61,14 +56,14 @@ Unlike [the BYO storage providers](../common/durable-task-storage-providers.md),
 
 The following diagram shows the architecture of the Durable Task Scheduler backend and its interaction with connected apps.
 
-:::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Diagram of the Durable Task Scheduler architecture.":::
+:::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Screenshot of the Durable Task Scheduler architecture showing the backend service connecting to apps via gRPC.":::
 
 ### Operational separation
 
 The Durable Task Scheduler runs in Azure as a separate resource from your app. This isolation is important for several reasons:
 
 - **Reduced resource consumption**  
-    Using a managed scheduler like Durable Task Scheduler (instead of a BYO storage provider) reduces CPU and memory resource consumption caused by the overhead of managing partitions and other complex state store interactions. 
+    Offloading state management to a managed scheduler reduces CPU and memory consumption in your app compared to using a BYO storage provider. 
 
 - **Fault isolation**  
     Separating the scheduler from the app reduces the risk of cascading failures and improves overall reliability in your connected apps. 
@@ -124,28 +119,21 @@ Creating multiple task hubs isolates different workloads that can be managed ind
 - Create task hubs for different teams within your organization. 
 - Share the same scheduler instance across multiple apps. 
 
-Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create multiple task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations.
+
+> [!NOTE]
+> Although you can create multiple task hubs in one scheduler instance, they share the same resources. If one task hub is heavily loaded, it can affect the performance of other task hubs on the same scheduler.
 
 ### Emulator for local development
 
-The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-the-durable-task-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
-- Develop and test your Durable Function app without needing to deploy it to Azure. 
+The Durable Task Scheduler emulator is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
+- Develop and test your app without deploying to Azure.
 - Monitor and manage your orchestrations and entities just like you would in Azure.
 
-By default, the emulator exposes a single task hub named `default`. To expose multiple task hubs, start the emulator and specify the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
-
-```bash
-docker run -d -p 8080:8080 -p 8082:8082 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
-```
+For setup instructions, see [Run the Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator).
 
 > [!NOTE]
 > The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
-
-You can see all of the emulator versions available by running the following command:
-
-```bash
-curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
-```
 
 ### Autopurge retention policies
 
@@ -156,14 +144,14 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 - **Scheduler quota:** 
 
     You're limited in how many schedulers you can create depending on your billing SKU.
-     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) schedulers are limited to **25** per region per subscription. 
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) schedulers are limited to **25** per region per subscription. 
      - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) schedulers are limited to **10** per region per subscription. 
 
 - **Task hub quota:**
 
     You're limited in how many task hubs you can use depending on your billing SKU. 
 
-     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) task hubs are limited to **25** per region per subscription. 
+     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) task hubs are limited to **25** per region per subscription. 
      - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to **five** per region per subscription. 
 
     For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
@@ -180,7 +168,7 @@ Stale orchestration data should be purged periodically to ensure efficient stora
     | Orchestration custom status | 1 MB |
     | Entity state | 1 MB |
 
-    If you need to pass larger payloads, use [large payload support with Durable Task Scheduler](./durable-task-scheduler-large-payloads.md). That option is currently available only for C# apps in Durable Functions .NET isolated and the .NET Durable Task SDK.
+    If your data exceeds these limits, see [Large payload support](./durable-task-scheduler-large-payloads.md) for available workarounds.
 
 - **Orchestration instance ID length:**
   
@@ -192,18 +180,13 @@ Stale orchestration data should be purged periodically to ensure efficient stora
 
 - **Feature parity:** 
 
-    [Extended sessions](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#extended-sessions) are not available in the Durable Task Scheduler backend yet.
+    [Extended sessions](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#extended-sessions) aren't supported by Durable Task Scheduler.
 
-- **Task hub limits:**
+## Related content
 
-    You're limited in how many task hubs you can use depending on your billing SKU. 
-
-     - [When using the Dedicated SKU,](./durable-task-scheduler-billing.md#dedicated-sku) task hubs are limited to 25. 
-     - [When using the Consumption SKU,](./durable-task-scheduler-billing.md#consumption-sku) task hubs are limited to 5. 
-
-    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How it works](./develop-with-durable-task-scheduler.md)
+- [Develop with Durable Task Scheduler](./develop-with-durable-task-scheduler.md)
+- [Quickstart: Configure a Durable Functions app to use Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
+- [Quickstart: Create an app with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+- [Durable Task Scheduler billing](./durable-task-scheduler-billing.md)
+- [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
+- [Configure identity-based access](./durable-task-scheduler-identity.md)

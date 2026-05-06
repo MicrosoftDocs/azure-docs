@@ -1,6 +1,6 @@
 ---
 title: Secure your IoT solutions
-description: Learn how to secure IoT solutions, with best practices for cloud-based and edge-based solutions. Includes recommendations for assets, devices, data, and infrastructure
+description: Learn how to secure IoT solutions, with best practices for cloud-connected and edge-connected solutions. Includes recommendations for assets, devices, data, and infrastructure
 author: dominicbetts
 ms.service: azure-iot
 services: iot
@@ -13,18 +13,18 @@ ms.author: dobett
 
 # Secure your IoT solutions
 
-IoT solutions let you connect, monitor, and control your IoT devices and assets at scale. In a cloud-based solution, devices and assets connect directly to the cloud. In an edge-based solution, devices and assets connect to an edge runtime environment. You must secure your physical assets and devices, edge infrastructure, and cloud services to protect your IoT solution from threats. You must also secure the data that flows through your IoT solution, whether it's at the edge or in the cloud.
+IoT solutions let you connect, monitor, and control your IoT devices and assets at scale. In a cloud-connected solution, devices and assets connect directly to the cloud. In an edge-connected solution, devices and assets connect to an edge runtime environment. You must secure your physical assets and devices, edge infrastructure, and cloud services to protect your IoT solution from threats. You must also secure the data that flows through your IoT solution, whether it's at the edge or in the cloud.
 
 This article provides guidance on how to best secure your IoT solution. Each section includes links to content that provides further detail and guidance.
 
-# [Edge-based solution](#tab/edge)
+# [Edge-connected solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the security of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-connected IoT solution](iot-introduction.md#edge-connected-pattern). This article focuses on the security of an edge-connected IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
-:::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
+:::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-connected solution architecture highlighting security." border="false":::
 
-In an edge-based IoT solution, you can divide security into the following four areas:
+In an edge-connected IoT solution, you can divide security into the following four areas:
 
 - **Asset security**: Secure the IoT asset while it's deployed on premises.
 
@@ -38,10 +38,10 @@ In an edge-based IoT solution, you can divide security into the following four a
 
 Microsoft Defender for IoT is a unified security solution built specifically to identify IoT and operational technology (OT) devices, vulnerabilities, and threats. Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
-Both Defender for IoT and Defender for Containers can automatically monitor some of the recommendations included in this article. Defender for IoT and Defender for Containers should be the frontline of defense to protect your edge-based solution. To learn more, see:
+Both Defender for IoT and Defender for Containers can automatically monitor some of the recommendations included in this article. Defender for IoT and Defender for Containers should be the frontline of defense to protect your edge-connected solution. To learn more, see:
 
 - [Microsoft Defender for Containers - overview](/azure/defender-for-cloud/defender-for-containers-introduction)
-- [Microsoft Defender for IoT for organizations - overview](../defender-for-iot/organizations/overview.md).
+- [Microsoft Defender for IoT for organizations - overview](/azure/defender-for-iot/organizations/overview).
 
 ### Asset security
 
@@ -63,7 +63,7 @@ This section provides guidance on how to secure your assets, such as industrial 
 
 This section provides guidance on how to secure the connections between your assets, edge runtime environment, and cloud services. The security of the connections is crucial to ensure the integrity and confidentiality of the data transmitted.
 
-- **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-based solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
+- **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-connected solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
 
 - **Bring your own CA for production**: For production deployments, replace the default self-signed root CA with your own CA issuer and integrate with an enterprise PKI to ensure trust and compliance. To learn more, see [Certificate management for Azure IoT Operations internal communication](../iot-operations/secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer).
 
@@ -99,14 +99,14 @@ This section provides guidance on how to secure your cloud services, which are t
 
 - **Secure access to assets and asset endpoints with Azure RBAC**: Assets and asset endpoints in Azure IoT Operations have representations in both the Kubernetes cluster and the Azure portal. Use Azure RBAC to secure access to these resources. Azure RBAC is an authorization system that enables you to manage access to Azure resources. Use Azure RBAC to grant permissions to users, groups, and applications at a certain scope. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
 
-# [Cloud-based solution](#tab/cloud)
+# [Cloud-connected solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on security in a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-connected IoT solution](iot-introduction.md#cloud-connected-pattern). This article focuses on security in a cloud-connected IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
-:::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting security." border="false":::
+:::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-connected solution architecture highlighting security." border="false":::
 
-In a cloud--based IoT solution, you can divide security into the following three areas:
+In a cloud-connected IoT solution, you can divide security into the following three areas:
 
 - **Device security**: Secure the IoT device while it's deployed on premises.
 
@@ -120,9 +120,9 @@ The recommendations in this article help you meet the security obligations descr
 
 Microsoft Defender for IoT automatically monitors some of the recommendations in this article. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities and then offers recommendations on how to address them. To learn more, see:
 
-- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md)
-- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md)
-- [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
+- [What is Microsoft Defender for IoT for organizations?](/azure/defender-for-iot/organizations/overview)
+- [What is Microsoft Defender for IoT for device builders?](/azure/defender-for-iot/device-builders/overview)
+- [Enhance security posture with security recommendations](/azure/defender-for-iot/organizations/recommendations).
 
 ### Device security
 

@@ -1,7 +1,7 @@
 ---
 title: Process real-time events using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a real-time event processing project to a Flex Consumption plan on Azure."
-ms.date: 03/31/2026
+ms.date: 05/01/2026
 ms.topic: quickstart
 ai-usage: ai-assisted
 zone_pivot_groups: programming-languages-set-functions
@@ -275,34 +275,24 @@ You can review the code that defines the Event Hubs trigger function:
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-You can review the code that defines the Event Hubs trigger in the [EventHubsTriggerFunction.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub/blob/main/src/main/java/com/function/EventHubsTriggerFunction.java). The function demonstrates how to:
-
-- Use `@EventHubTrigger` annotation for processing events from an input Event Hub
-- Use `@EventHubOutput` annotation for sending processed messages to an output Event Hub
-- Parse and enrich event data with metadata
+:::code language="java" source="~/functions-event-hub-azd-java/src/main/java/com/function/EventHubsTriggerFunction.java" range="1-61" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger.js project file](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub/blob/main/src/functions/EventHubsTrigger.js). The function demonstrates how to:
-
-- Use `app.eventHub()` for processing events from an input Event Hub
-- Use Event Hub output binding for sending processed messages to an output Event Hub
-- Parse and enrich event data with metadata
+:::code language="javascript" source="~/functions-event-hub-azd-javascript/src/functions/EventHubsTrigger.js" range="1-47" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-:::code language="typescript" source="~/functions-event-hub-azd-typescript/src/functions/EventHubsTrigger.ts" range="1-43" :::
+:::code language="typescript" source="~/functions-event-hub-azd-typescript/src/functions/EventHubsTrigger.ts" range="1-53" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger/run.ps1 project file](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub/blob/main/EventHubsTrigger/run.ps1) and the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub/blob/main/EventHubsTrigger/function.json). The function demonstrates how to:
+:::code language="powershell" source="~/functions-event-hub-azd-powershell/EventHubsTrigger/run.ps1" :::
 
-- Configure Event Hub trigger bindings in function.json for processing events
-- Use Event Hub output binding for sending processed messages to an output Event Hub
-- Parse and enrich event data using PowerShell
+The trigger is defined in the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub/blob/main/EventHubsTrigger/function.json).
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub).
 ::: zone-end  

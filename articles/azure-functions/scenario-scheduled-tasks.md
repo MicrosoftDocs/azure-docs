@@ -1,7 +1,7 @@
 ---
 title: Run scheduled tasks using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a scheduled task project to a Flex Consumption plan on Azure."
-ms.date: 12/01/2025
+ms.date: 05/01/2026
 ms.topic: quickstart
 ai-usage: ai-assisted
 zone_pivot_groups: programming-languages-set-functions
@@ -22,7 +22,36 @@ This article supports version 4 of the Node.js programming model for Azure Funct
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
 
-[!INCLUDE [functions-scenario-quickstarts-prerequisites-cli](../../includes/functions-scenario-quickstarts-prerequisites-cli.md)]
+## Prerequisites
+  
+::: zone pivot="programming-language-csharp"  
++ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
+    + If you use another [supported version of Java](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project configuration. 
+    + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
++ [Apache Maven 3.8.x](https://maven.apache.org)
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ [Node.js 22](https://nodejs.org/) or later  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
+::: zone-end  
+::: zone pivot="programming-language-python" 
++ [Python 3.11](https://www.python.org/) or later
+::: zone-end  
+
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md)
+
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+
++ [Azure CLI](/cli/azure/install-azure-cli)
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Initialize the project
 
@@ -285,12 +314,12 @@ You can review the code that defines the Timer trigger function:
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-timer).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-:::code language="java" source="~/functions-azd-timer-java/src/src/main/java/com/function/TimerFunction.java" range="1-25" :::
+:::code language="java" source="~/functions-azd-timer-java/src/src/main/java/com/function/TimerFunction.java" range="1-11,26-37" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-timer).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-:::code language="javascript" source="~/functions-azd-timer-javascript/src/src/functions/timerFunction.js" :::
+:::code language="javascript" source="~/functions-azd-timer-javascript/src/src/functions/timerFunction.js" range="1,12-24" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-timer).
 ::: zone-end  
@@ -300,7 +329,9 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-timer).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-You can review the code that defines the Timer trigger in the [timerFunction/run.ps1 project file](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer/blob/main/src/timerFunction/run.ps1) and the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer/blob/main/src/timerFunction/function.json).
+:::code language="powershell" source="~/functions-azd-timer-powershell/src/timerFunction/run.ps1" :::
+
+The timer trigger is defined in the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer/blob/main/src/timerFunction/function.json).
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer).
 ::: zone-end  
@@ -310,14 +341,16 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-timer).
 ::: zone-end  
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+> [!TIP]
+> The `runOnStartup` option is useful during development and testing because the function runs immediately when the host starts. In production, you should set this to `false` to avoid unexpected executions during deployments or restarts.
+::: zone-end
+
 After you verify your function locally, it's time to publish it to Azure. 
 
 ## Deploy to Azure
  
-This project is configured to use the `azd up` command to deploy your code to a new function app in a Flex Consumption plan in Azure.
-
->[!TIP]
->This project includes a set of Bicep files that `azd` uses to create a secure deployment to a Flex consumption plan that follows best practices.
+This project uses Bicep files and the `azd up` command to create a secure deployment to a new function app in a Flex Consumption plan that follows best practices.
 
 1. Run this command to have `azd` create the required Azure resources in Azure and deploy your code project to the new function app:
 

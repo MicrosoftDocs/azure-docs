@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/13/2025
+ms.date: 04/28/2026
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -83,7 +83,7 @@ The following table shows connectivity locations and the service providers for e
 | **Doha** | [MEEZA MV2](https://www.meeza.net/services/data-centre-services/) | 3 | Qatar Central | &check; | Ooredoo Cloud Connect<br/>Vodafone |
 | **Doha2** | [Ooredoo](https://www.ooredoo.qa/) | 3 | Qatar Central | &check; | DE-CIX<br/>Ooredoo Cloud Connect |
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | &check; | Etisalat UAE |
-| **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | UAE North | &cross; | DE-CIX<br/>du datamena<br/>Equinix<br/>GBI<br/>Lightstorm<br/>Megaport<br/>Orange<br/>Orixcom |
+| **Dubai2** | [du datamena](https://datamena.com) | 3 | UAE North | &cross; | DE-CIX<br/>du datamena<br/>Equinix<br/>GBI<br/>Lightstorm<br/>Megaport<br/>Orange<br/>Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | North Europe | &check; | CenturyLink Cloud Connect<br/>Colt<br/>Console Connect (PCCW Global Limited)<br/>Deutsche Telekom AG<br/>eir<br/>Equinix<br/>GEANT<br/>euNetworks<br/>Interxion (Digital Realty)<br/>Megaport<br/>Zayo |
 | **Dublin2** | [Digital Realty(Interxion) DUB2](https://www.digitalrealty.com/data-centers/emea/dublin/dub2) | 1 | North Europe | &check; | InterCloud<br/>Interxion (Digital Realty)<br/>KPN<br/>Megaport<br/>NL-IX<br/>Orange |
 | **Frankfurt** | [Digital Realty(Interxion) FRA11](https://www.digitalrealty.com/data-centers/emea/frankfurt/fra11) | 1 | Germany West Central | &check; | AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>China Unicom Global<br/>Colt<br/>Console Connect (PCCW Global Limited)<br/>DE-CIX<br/>Deutsche Telekom AG<br/>Equinix<br/>euNetworks<br/>GBI<br/>GEANT<br/>InterCloud<br/>Interxion (Digital Realty)<br/>Megaport<br/>next layer GmbH<br/>NTT Global DataCenters EMEA<br/>Orange<br/>Arelion (Telia Carrier)<br/>T-Systems<br/>Verizon<br/>Zayo<br/>Zenlayer |
@@ -110,6 +110,7 @@ The following table shows connectivity locations and the service providers for e
 | **Madrid2** | [Equinix MD2](https://www.equinix.com/data-centers/europe-colocation/spain-colocation/madrid-data-centers/md2) | 1 | Spain Central | &check; | 1-IX.EU<br/>DE-CIX<br/>Equinix<br/>GÉANT<br/>Intercloud |
 | **Marseille** | [Digital Realty(Interxion) MRS1](https://www.digitalrealty.com/data-centers/emea/marseille/mrs1) | 1 | France South | &cross; | Colt<br/>DE-CIX<br/>GEANT<br/>Interxion (Digital Realty)<br/>Jaguar Network<br/>Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Southeast | &check; | AARNet<br/>Devoli<br/>Equinix<br/>Internet Association of Australia<br/>Megaport<br/>NETSG<br/>NEXTDC<br/>Optus<br/>Orange<br/>Telstra Corporation<br/>TPG Telecom |
+| **Melbourne2** | [Equinix M1](https://www.equinix.com/data-centers/asia-pacific-colocation/australia-colocation/melbourne-data-centers/me1) | 2 | Australia Southeast | &check; | Equinix |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | &cross; | &check; | AT&T Dynamic Exchange<br/>C3ntro<br/>Claro<br/>Equinix<br/>Flo Networks<br/>Lightpath<br/>Megaport<br/>Momentum Telecom<br/>PacketFabric<br/>PitChile |
 | **Milan** | [IRIDEOS](https://www.retelit.it/it/infrastrutture/data-center-italia) | 1 | Italy North | &check; | Colt<br/>Equinix<br/>Fastweb<br/>IRIDEOS<br/>Megaport<br/>Noovle<br/>Retelit<br/>Telecom Italia Sparkle<br/>Vodafone |
 | **Milan2** | [DATA4](https://www.data4group.com/it/data-center-a-milano-italia/) | 1 | Italy North | &check; | Retelit |
@@ -157,6 +158,7 @@ The following table shows connectivity locations and the service providers for e
 | **Singapore2** | [Global Switch Tai Seng](https://www.globalswitch.com/data-centres/singapore/) | 2 | Southeast Asia | &check; | CenturyLink Cloud Connect<br/>China Mobile International<br/>China Unicom Global<br/>Colt<br/>Console Connect (PCCW Global Limited)<br/>DE-CIX<br/>Digital Realty<br/>Epsilon Global Communications<br/>Equinix<br/>Megaport<br/>NTT DOCOMO BUSINESS - Flexible Interconnect (NTT Communications - Flexible Interconnect)<br/>SingTel<br/>TATA Communications<br/>Telehouse - KDDI<br/>Arelion (Telia Carrier)<br/>Zenlayer |
 | **Stavanger** | [Green Mountain DC1](https://greenmountain.no/dc1-stavanger/) | 1 | Norway West | &check; | GlobalConnect<br/>Megaport<br/>Telenor |
 | **Stockholm** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | Sweden Central | &check; | Cinia<br/>Elisa<br/>Equinix<br/>GlobalConnect<br/>Interxion (Digital Realty)<br/>Megaport<br/>Tata Communications<br/>Arelion (Telia Carrier) |
+| **Stockholm2** | [Digital Realty STO6](https://www.digitalrealty.com/data-centers/emea/stockholm/sto6) | 1 | Sweden Central | &check; | Digital Realty |
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australia East | &check; | AARNet<br/>AT&T NetBond<br/>British Telecom<br/>Cello<br/>CenturyLink Cloud Connect<br/>Console Connect (PCCW Global Limited)<br/>Devoli<br/>Equinix<br/>GTT<br/>Kordia<br/>Megaport<br/>NEXTDC<br/>NTT DOCOMO BUSINESS<br/>Optus<br/>Orange<br/>Spark NZ<br/>Telstra Corporation<br/>TPG Telecom<br/>Verizon<br/>Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Australia East | &check; | AARNet<br/>Digital Realty<br/>Internet Association of Australia<br/>Megaport<br/>NETSG<br/>NextDC |
 
@@ -172,7 +174,7 @@ The following table shows connectivity locations and the service providers for e
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | &check; | AT TOKYO<br/>BBIX<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>Console Connect (PCCW Global Limited)<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>Internet Initiative Japan Inc. - IIJ<br/>IPC<br/>IX Reach<br/>KDDI<br/>Megaport<br/>NTT DOCOMO BUSINESS - Flexible Interconnect (NTT Communications - Flexible Interconnect)<br/>Softbank<br/>Tokai Communications |
 | **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | BBIX<br/>NEC<br/>SCSK |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach<br/>Megaport<br/>Orange<br/>PacketFabric<br/>Tata Communications<br/>Telus<br/>Verizon<br/>Zayo |
-| **Toronto2** | [Allied REIT](https://alliedreit.com/city/toronto/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Telus<br/>Zayo |
+| **Toronto2** | [Telehouse (Allied REIT)](https://www.telehouse.ca/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Telus<br/>Zayo |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | &cross; | &check; | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
 | **Vienna** | [Digital Realty VIE1](https://www.digitalrealty.com/data-centers/emea/vienna/vie1) | 1 | &cross; | &check; | A1 Telekom Austria<br/>Conova<br/>Digital Realty<br/>next layer GmbH |
 | **Vienna2** | [NTT Data VIE1](https://services.global.ntt/en-us/services-and-products/global-data-centers/global-locations/emea/vienna-1-data-center) | 1 | &cross; | &check; | A1 Telekom Austria<br/>Conova<br/>next layer GmbH<br/>NTT Global DataCenters EMEA |

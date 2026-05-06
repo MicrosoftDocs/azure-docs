@@ -1,12 +1,12 @@
 ---
-title: AI gateway in Azure API Management
+title: AI gateway capabilities in Azure API Management
 description: Learn about Azure API Management's policies and features to manage, secure, scale, monitor, and govern LLM deployments, AI APIs, and MCP servers accessed by your AI apps and agents.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 01/27/2026
+ms.date: 04/30/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -21,11 +21,14 @@ The *AI gateway* in Azure API Management is a set of capabilities that help you 
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
-* [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) and [Azure OpenAI in Microsoft Foundry Models](/azure/ai-foundry/openai/overview) deployments
-* [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) deployments
-* Remote MCP servers and A2A agent APIs
-* OpenAI-compatible models and endpoints hosted by non-Microsoft providers
-* Self-hosted models and endpoints
+* **Lanaguage model APIs** that conform to one of the following API schemas:
+    * OpenAI Chat Completions or Responses API
+    * Anthropic Messages API (currently supported in API Management v2 tiers)
+
+    Models can be deployed in a variety of environments, including [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) or non-Microsoft providers such as Amazon Bedrock.
+
+* Remote **MCP servers** and **A2A agent APIs**
+* **Self-hosted** models and endpoints
 
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
@@ -233,6 +236,7 @@ More information:
 * [Enable AI gateway in Microsoft Foundry](/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal)
 * [Register custom agents in Foundry](/azure/ai-foundry/control-plane/register-custom-agent)
 * [Govern tools with AI gateway](/azure/ai-foundry/agents/how-to/tools/governance)
+* [Connect an AI gateway to Foundry Agent Service](/azure/foundry/agents/how-to/ai-gateway)
 
 ## Early access to AI gateway features    
 

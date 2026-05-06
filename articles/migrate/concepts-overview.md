@@ -21,6 +21,10 @@ This article provides an overview of Azure Migrate assessments. An Azure Migrate
 * **Azure resource cost**: The total resource cost for hosting all the targets on Azure.
 * **Migration tool**: The recommended tool for migrating the source to the recommended target.
 
+The following video provides an overview of Azure Migrate assessments and how they help evaluate workloads for migration to Azure.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a729f5ec-5c54-45e9-947e-2a2a807bb11e]
+
 ## Assessment types
 
 Azure Migrate supports two types of assessments:

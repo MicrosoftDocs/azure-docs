@@ -230,10 +230,6 @@ items:
     href: ../azure-resource-manager/management/relocation/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Remote work support
     href: remote-work-support.md
-- name: Troubleshooting
-  items:
-  - name: Known issues and limitations
-    href: firewall-known-issues.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -266,3 +262,5 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+- name: Support and troubleshooting
+  href: support-help.md

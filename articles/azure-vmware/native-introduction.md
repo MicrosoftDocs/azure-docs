@@ -62,7 +62,7 @@ Gen 2 is available in the following Azure public regions.
 - Canada East
 - Central US
 - Malaysia West
-
+- France Central
 - North Europe
 - North Central US
 

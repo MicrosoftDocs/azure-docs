@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/09/2026
+ms.date: 04/20/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -76,7 +76,7 @@ You can give Microsoft Entra accounts permissions to use the keys stored in Azur
 You use more than one encryption key in an encryption at rest implementation. Storing an encryption key in Azure Key Vault ensures secure key access and central management of keys. However, service local access to encryption keys is more efficient for bulk encryption and decryption than interacting with Key Vault for every data operation, allowing for stronger encryption and better performance. Limiting the use of a single encryption key decreases the risk that the key is compromised and the cost of re-encryption when a key must be replaced. Azure encryption at rest models use envelope encryption, where a key encryption key encrypts a data encryption key. This model forms a key hierarchy which is better able to address performance and security requirements:
 
 - **Data Encryption Key (DEK)** – A symmetric AES256 key used to encrypt a partition or block of data, sometimes also referred to as simply a Data Key.  A single resource can have many partitions and many Data Encryption Keys. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Keeping DEKs local to the service encrypting and decrypting data maximizes performance.
-- **Key Encryption Key (KEK)** – An encryption key used to encrypt the Data Encryption Keys by using envelope encryption, also referred to as wrapping. By using a Key Encryption Key that never leaves Key Vault, you can encrypt and control the data encryption keys. The entity that has access to the KEK can be different from the entity that requires the DEK. An entity can broker access to the DEK to limit the access of each DEK to a specific partition. Since the KEK is required to decrypt the DEKs, customers can cryptographically erase DEKs and data by disabling the KEK.
+- **Key Encryption Key (KEK)** – An encryption key used to encrypt the Data Encryption Keys by using envelope encryption, also referred to as wrapping. By using a Key Encryption Key that never leaves Key Vault, you can encrypt and control the data encryption keys. The entity that has access to the KEK can be different from the entity that requires the DEK. An entity can broker access to the DEK to limit the access of each DEK to a specific partition. Since the KEK is required to decrypt the DEKs, customers can cryptographically erase DEKs and data by disabling the KEK. Note that disabling a KEK makes all dependent services inaccessible (for example, Azure SQL TDE databases, Azure Storage accounts with customer-managed keys, and Azure Disk Encryption-protected VMs). Disabling also only affects the vault where that key resides. If the key was backed up and restored to another vault, the restored copy remains fully functional and is not affected by the disable operation (see [Backup security considerations](/azure/key-vault/general/backup#security-considerations)).
 
 Resource providers and application instances store the encrypted Data Encryption Keys as metadata. Only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. Different models of key storage are supported. For more information, see [data encryption models](encryption-models.md).
 

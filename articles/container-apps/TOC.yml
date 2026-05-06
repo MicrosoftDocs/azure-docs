@@ -215,7 +215,15 @@ items:
         - name: Create a Functions app through the portal and CLI
           href: functions-usage.md
         - name: Manage a Functions app
-          href: functions-manage.md 
+          href: functions-manage.md
+        - name: Managing Secrets in Functions on ACA
+          items:
+            - name: Overview
+              href: functions-secrets-tutorial.md
+            - name: Store app-level secrets
+              href: functions-secrets-app-level.md
+            - name: Configure host key storage
+              href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
         - name: Migrate from Functions v1 to v2
@@ -236,7 +244,7 @@ items:
           href: troubleshooting.md
         - name: Errors and failures
           items:
-            - name: Container create
+            - name: Container exits
               href: troubleshoot-container-create-failures.md
             - name: Open Container Initiative (OCI)
               href: troubleshoot-open-container-initiative-errors.md
@@ -378,6 +386,8 @@ items:
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
+    - name: Relocate to another region
+      href: relocate-region.md
 - name: Dedicated compute
   items:
     - name: Workload profiles

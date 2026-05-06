@@ -6,7 +6,7 @@ author: ankurgupta2212
 ms.author: ankug
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 03/18/2026
+ms.date: 04/15/2026
 monikerRange: migrate 
 # Customer intent: Use this article to learn how Azure Copilot migration agent helps you plan and analyze migrations by reasoning over Azure Migrate data, including supported scenarios, available capabilities, and example interactions.
 ---
@@ -24,6 +24,8 @@ The migration agent supports migration planning, analysis, and decision making, 
 - [Business case and ROI analysis](#business-case-and-roi-analysis) 
 - [Azure readiness assessment interpretation](#azure-readiness-assessment-interpretation) 
 - [Landing zone configuration reasoning](#landing-zone-configuration-reasoning) 
+
+Azure Migrate now offers Azure Copilot Migration Agent for AI‑driven migration and modernization, including automated discovery, ROI insights, landing zone setup, and modernization guidance across infrastructure, databases, and applications. For more insights, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-copilot-migration-agent---bringing-agentic-migration-and-modernization-to-/4471329).
 
 ## Prerequisites
 
@@ -211,5 +213,5 @@ Based on migration requirements such as target region, compliance needs, and con
 
 ## Related content
 
-[Learn about how to plan and analyze migration with Agent](how-to-plan-analyze-migration-with-agent.md).
+- [Learn about how to plan and analyze migration with Agent](how-to-plan-analyze-migration-with-agent.md).
  

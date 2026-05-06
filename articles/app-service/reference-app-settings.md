@@ -87,7 +87,7 @@ The following table shows environment variable prefixes that App Service uses fo
 | `SERVICEBUSCONNSTR_` | Connection string to an instance of Azure Service Bus. |
 | `EVENTHUBCONNSTR_` | Connection string to an event hub in Azure Event Hubs. |
 | `DOCDBCONNSTR_` | Connection string to a database in Azure Cosmos DB. |
-| `REDISCACHECONNSTR_` | Connection string to a cache in Azure Cache for Redis. |
+| `REDISCACHECONNSTR_` | Connection string to a Redis cache. |
 | `FILESHARESTORAGE_` | Connection string to a custom file share. |
 
 ## Deployment

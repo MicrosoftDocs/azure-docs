@@ -338,7 +338,7 @@
       href: credentials-configure-common-providers.md
     - name: Configure credential manager - Microsoft Graph API
       href: credentials-how-to-azure-ad.md
-    - name: Configure credential manager - GitHub
+    - name: Configure credential manager - GitHub API
       href: credentials-how-to-github.md
     - name: Configure credential manager - user-delegated permissions
       href: credentials-how-to-user-delegated.md
@@ -668,14 +668,6 @@
         href: trace-policy.md
     - name: AI-related policies
       items:
-      - name: azure-openai-emit-token-metric
-        href: azure-openai-emit-token-metric-policy.md
-      - name: azure-openai-semantic-cache-lookup
-        href: azure-openai-semantic-cache-lookup-policy.md
-      - name: azure-openai-semantic-cache-store
-        href: azure-openai-semantic-cache-store-policy.md
-      - name: azure-openai-token-limit
-        href: azure-openai-token-limit-policy.md
       - name: llm-content-safety
         href: llm-content-safety-policy.md
       - name: llm-emit-token-metric

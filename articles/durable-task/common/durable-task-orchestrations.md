@@ -1,10 +1,10 @@
 ---
-title: Durable orchestrations - Azure
-description: Learn about orchestrator functions in Durable Functions and Durable Task SDKs. Find code samples and information about orchestrator function features and behavior.
+title: "Durable Orchestrations Overview - Azure"
+description: Learn how durable orchestrations define reliable, long-running workflows using orchestrator functions. Explore code samples, event sourcing, and patterns in Durable Functions and Durable Task SDKs.
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 02/25/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 zone_pivot_groups: azure-durable-approach
@@ -12,27 +12,27 @@ zone_pivot_groups: azure-durable-approach
 
 # Durable orchestrations
 
-An *orchestrator function* orchestrates the execution of other functions as a code-based workflow. Orchestrator functions have the following characteristics:
+A durable orchestration uses an *orchestrator function* to coordinate the execution of other functions in a reliable, long-running workflow defined entirely in code. Orchestrator functions have the following characteristics:
 
-* They define function workflows by using procedural code. No declarative schemas or designers are needed.
-* They can call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
-* They're designed to be durable and reliable. Execution progress is automatically saved as a checkpoint when the function calls an `await` or `yield` operator. Local state isn't lost when the process recycles or the VM reboots.
-* They can be long running. The total lifespan of an *orchestration instance* can be seconds, days, or months, or you can configure the instance to never end.
+* They define workflows by using procedural code. No declarative schemas or designers are needed.
+* They call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
+* They automatically checkpoint execution progress when the function calls an `await` or `yield` operator, so local state isn't lost when the process recycles or the VM reboots.
+* They support long-running processes. The total lifespan of an *orchestration instance* can be seconds, days, or months, or you can configure the instance to never end.
 
-This article gives you an overview of orchestrator functions and how they can help you solve different app development challenges.
+This article provides an overview of durable orchestrations, including orchestration identity, event sourcing, execution history, and common workflow patterns like sub-orchestrations, durable timers, and error handling.
 
 ::: zone pivot="durable-functions"
 
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
 > [!TIP]
-> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Class-based activities and orchestrations](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md#source-generator-and-class-based-activities-and-orchestrations). The C# code examples in this article show both approaches.
+> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Source generators and class-based syntax](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md#source-generators-and-class-based-syntax-preview). The C# code examples in this article show both approaches.
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-Durable Task SDKs provide the same orchestrator capabilities as Durable Functions, but run as standalone applications backed by the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md).
+The Durable Task SDKs provide the same orchestrator capabilities as Durable Functions for building reliable, long-running workflows with parallel processing and event-driven coordination. Unlike Durable Functions, Durable Task SDK orchestrations run as standalone applications backed by the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md).
 
 ::: zone-end
 
@@ -55,7 +55,7 @@ The following rules apply to instance IDs:
 > [!NOTE]
 > The actual enforcement of character restriction rules can vary depending on the [storage provider](durable-task-storage-providers.md) that the app uses. To help ensure correct behavior and compatibility, follow the preceding instance ID rules.
 
-An orchestration's instance ID is a required parameter for most [instance management operations](durable-task-instance-management.md). Instance IDs are also important for diagnostics. For example, you use them when you [search through orchestration tracking data](../../azure-functions/durable-functions/durable-functions-diagnostics.md#application-insights) in Application Insights for troubleshooting or analytics purposes. For this reason, save generated instance IDs to an external location that makes it easy to reference them later, like a database or application logs.
+An orchestration's instance ID is a required parameter for most [instance management operations](durable-task-instance-management.md). Instance IDs are also important for diagnostics. For example, you use them when you [search through orchestration tracking data](../../azure-functions/durable-functions/durable-functions-diagnostics.md#configure-application-insights-tracking) in Application Insights for troubleshooting or analytics purposes. For this reason, save generated instance IDs to an external location that makes it easy to reference them later, like a database or application logs.
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ When an orchestration function gets more work to do (for example, a response mes
 ::: zone pivot="durable-functions"
 
 > [!NOTE]
-> If an orchestrator function emits log messages, the replay behavior can cause duplicate log messages to be emitted. To learn why this behavior occurs and how to work around it, see [App logging](../../azure-functions/durable-functions/durable-functions-diagnostics.md#app-logging).
+> If an orchestrator function emits log messages, the replay behavior can cause duplicate log messages to be emitted. To learn why this behavior occurs and how to work around it, see [Replay-safe logging](../../azure-functions/durable-functions/durable-functions-diagnostics.md#replay-safe-logging-in-orchestrator-functions).
 
 ::: zone-end
 
@@ -260,7 +260,16 @@ public class HelloCities : TaskOrchestrator<object?, List<string>>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```javascript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const helloCities: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    const result1 = yield ctx.callActivity(sayHello, "Tokyo");
+    const result2 = yield ctx.callActivity(sayHello, "Seattle");
+    const result3 = yield ctx.callActivity(sayHello, "London");
+    return [result1, result2, result3];
+};
+```
 
 # [Python](#tab/python)
 
@@ -304,7 +313,7 @@ Whenever an activity function is scheduled, the Durable Task Framework saves the
 
 ::: zone pivot="durable-functions"
 
-### History Table
+### History table
 
 Generally, the Durable Task Framework does the following at each checkpoint:
 
@@ -358,7 +367,7 @@ Every time the function resumes after waiting for a task to complete, the Durabl
 
 The following sections describe the features and patterns of orchestrator functions.
 
-### Sub-orchestrations
+### Sub-orchestrations in orchestrator functions
 
 Orchestrator functions can call activity functions, but also other orchestrator functions. For example, you can build a larger orchestration out of a library of orchestrator functions. Or, you can run multiple instances of an orchestrator function in parallel.
 
@@ -523,7 +532,7 @@ For more information and for detailed examples, see [HTTP features](../../azure-
 
 ::: zone-end
 
-### Multiple parameters
+### Pass multiple parameters to activity functions
 
 It isn't possible to pass multiple parameters to an activity function directly. The recommendation is to pass in an array of objects or composite objects.
 
@@ -689,7 +698,15 @@ public class GetWeatherOrchestration : TaskOrchestrator<object?, string>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```javascript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const getWeatherOrchestrator: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    const location = { city: "Seattle", state: "WA" };
+    const weather = yield ctx.callActivity(getWeather, location);
+    // ...
+};
+```
 
 # [Python](#tab/python)
 
@@ -704,7 +721,7 @@ def get_weather_orchestrator(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, Java, JavaScript, and Python.
 
 # [Java](#tab/java)
 
