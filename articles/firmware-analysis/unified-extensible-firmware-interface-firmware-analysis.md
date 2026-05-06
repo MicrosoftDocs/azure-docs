@@ -75,17 +75,17 @@ This means:
 - CVEs might be detected only for component versions that can confidently be identified.
 - Weakness results are signals, and don't verify exploitability.
 
-### Binary hardening attributes for UEFI firmware (preview)
+### Binary-hardening attributes for UEFI firmware (preview)
 
-Binary hardening attributes reflect security properties detected from executable metadata.
+Binary-hardening attributes reflect security properties detected from executable metadata.
 
 #### Supported today
 
-- NoExecute/Data Execution Prevention (NX/DEP) is the supported binary hardening signal for UEFI firmware.
+- NoExecute/Data Execution Prevention (NX/DEP) is the supported binary-hardening signal for UEFI firmware.
 
 #### Limitations
 
-Other binary hardening attributes such as PIE, RELRO, or stripped might appear in the results grid. These values might originate from:
+Other binary-hardening attributes such as PIE, RELRO, or stripped might appear in the results grid. These values might originate from:
 
 - Non-UEFI executables embedded in the firmware.
 - Generic executable analysis that doesn't uniformly apply to UEFI binaries.
@@ -94,9 +94,9 @@ Currently, these attributes aren't considered reliable for UEFI firmware interpr
 
 ### Extractor paths (preview)
 
-Extractor paths for UEFI firmware now include the UEFI module name, in addition to GUID based identifiers, to improve clarity when reviewing results.
+Extractor paths for UEFI firmware now include the UEFI module name, in addition to GUID-based identifiers, to improve clarity when reviewing results.
 
-### Interpreting missing or partial data in binary hardening
+### Interpreting missing or partial data in binary-hardening
 
 A single firmware image can contain multiple executable types (for example, a mix of UEFI and Linux ELF executables). UEFI firmware analysis relies on metadata that can be extracted from these binaries.
 
@@ -112,7 +112,7 @@ You should interpret missing or empty values as *unknown*, and not as absence of
 When reviewing UEFI firmware analysis results:
 
 - Detection of cryptographic certificates and keys is *generally available*.
-- SBOM, weaknesses data, binary hardening, and extractor path enhancements are currently in *preview*.
+- SBOM, weaknesses data, binary-hardening, and extractor path enhancements are currently in *preview*.
 - Preview capabilities might have limited coverage and should be interpreted as indicative signals, not guarantees of a vulnerability.
 - Rely on NX/DEP for UEFI binary-hardening interpretation.
 - Interpret other binary attributes with caution.

@@ -111,10 +111,10 @@ For more information about CWE definitions and classifications, see the official
 
 Exploit maturity describes the current state of exploit availability for a vulnerability. Categories can include labels like:
 
-- Unproven.
-- Proof of concept.
-- Functional exploit.
-- Weaponized exploit.
+- Unproven
+- Proof of concept
+- Functional exploit
+- Weaponized exploit
 
 When present, exploit maturity information is typically found alongside CVSS v4 scoring. It's described in the [CVSS specification](https://www.first.org/cvss/v4.0/specification-document) that's maintained by FIRST.
 
@@ -162,7 +162,7 @@ Effective prioritization requires more than severity scoring. The following stru
 
 1. Review attack vector and exposure. From the CVSS vector, consider:
 
-   - Network-accessible vulnerabilities vs. local or physical access.
+   - Network-accessible vulnerabilities versus local or physical access.
    - Authentication and user-interaction requirements.
    - Whether the affected component or service is exposed in the deployment.
 
@@ -170,9 +170,9 @@ Effective prioritization requires more than severity scoring. The following stru
 
 1. Assess technical impact severity (CVSS). Use CVSS to understand the impact if exploitation succeeds (not the likelihood):
 
-   - High or critical severity: Prioritize when exposure or likelihood is moderate or higher.
-   - Medium severity: Prioritize based on exploitation signals and exposure.
-   - Low severity: De-prioritize unless active exploitation or high exposure exists.
+   - **High or critical severity**: Prioritize when exposure or likelihood is moderate or higher.
+   - **Medium severity**: Prioritize based on exploitation signals and exposure.
+   - **Low severity**: De-prioritize unless active exploitation or high exposure exists.
 
    When the likelihood for two vulnerabilities is similar, address higher-impact vulnerabilities first.
 
