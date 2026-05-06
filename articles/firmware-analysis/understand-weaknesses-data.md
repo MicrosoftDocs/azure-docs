@@ -27,7 +27,7 @@ A CVE identifier represents a known security vulnerability that's publicly discl
 
 CVEs highlight an issue, but they don't solely indicate the issue's impact or exploitability.
 
-For more information about CVEs and the CVE program, see the official [Common Vulnerabilities and Exposures documentation](https://www.cve.org) that's maintained by MITRE.
+For more information about CVEs and the CVE program, see the official [Common Vulnerabilities and Exposures documentation](https://www.cve.org) that MITRE maintains.
 
 ### CVSS scores and versions
 
@@ -43,7 +43,7 @@ There are multiple CVSS versions because vulnerability scoring evolved over time
 
 CVSS scores describe technical severity, not the real-world likelihood of exploitation.
 
-For more information about CVSS scoring and version differences, see the official [Common Vulnerability Scoring System (CVSS) documentation](https://www.first.org/cvss/) that's maintained by FIRST.
+For more information about CVSS scoring and version differences, see the official [Common Vulnerability Scoring System (CVSS) documentation](https://www.first.org/cvss/) that FIRST maintains.
 
 ### CVSS vector
 
@@ -72,9 +72,9 @@ KEV is a strong signal of immediate risk.
 
 For authoritative KEV status and remediation guidance, see the [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog).
 
-### Exploit Prediction Scoring System (EPSS)
+### EPSS
 
-Firmware analysis might include EPSS data, which estimates the likelihood that a vulnerability will be exploited.
+Firmware analysis might include Exploit Prediction Scoring System (EPSS) data, which estimates the likelihood that a vulnerability will be exploited.
 
 Two related values might appear:
 
@@ -92,11 +92,11 @@ Percentile rankings are often more operationally useful, as they show how a CVE 
 
 EPSS provides a forward-looking likelihood signal, not a guarantee of exploitation.
 
-For details on how EPSS scores and percentiles are calculated, see the [Exploit Prediction Scoring System documentation](https://www.first.org/epss/) that's maintained by FIRST.
+For details on how EPSS scores and percentiles are calculated, see the [Exploit Prediction Scoring System documentation](https://www.first.org/epss/) that FIRST maintains.
 
-### Common Weakness Enumeration (CWE)
+### CWE
 
-CWE represents the class of underlying weakness (for example, buffer overflow or improper input validation) that led to a vulnerability, rather than a specific vulnerability instance.
+Common Weakness Enumeration (CWE) represents the class of underlying weakness (for example, buffer overflow or improper input validation) that led to a vulnerability, rather than a specific vulnerability instance.
 
 CWE identifiers provide more context by describing why a vulnerability exists, not just where it occurs.
 
@@ -116,7 +116,7 @@ Exploit maturity describes the current state of exploit availability for a vulne
 - Functional exploit
 - Weaponized exploit
 
-When present, exploit maturity information is typically found alongside CVSS v4 scoring. It's described in the [CVSS specification](https://www.first.org/cvss/v4.0/specification-document) that's maintained by FIRST.
+When exploit maturity information is present, it's typically found alongside CVSS v4 scoring. It's described in the [CVSS specification](https://www.first.org/cvss/v4.0/specification-document) that FIRST maintains.
 
 ## Using weakness data together
 
@@ -172,7 +172,7 @@ Effective prioritization requires more than severity scoring. The following stru
 
    - **High or critical severity**: Prioritize when exposure or likelihood is moderate or higher.
    - **Medium severity**: Prioritize based on exploitation signals and exposure.
-   - **Low severity**: De-prioritize unless active exploitation or high exposure exists.
+   - **Low severity**: Deprioritize unless active exploitation or high exposure exists.
 
    When the likelihood for two vulnerabilities is similar, address higher-impact vulnerabilities first.
 
