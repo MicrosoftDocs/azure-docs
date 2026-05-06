@@ -19,6 +19,12 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## May 2026
+### FHIR service
+
+**Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
+
+**Case change for custom headers in diagnostic logs**: Custom headers in diagnostic logs will now appear in lowercase to align with modern HTTP standards. This does not impact API functionality, but customers using case-sensitive parsing in logging or monitoring pipelines may need to update their logic. We recommend ensuring header processing is case-insensitive.
 ## April 2026
 ### FHIR service
 **Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
