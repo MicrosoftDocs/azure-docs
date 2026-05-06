@@ -83,7 +83,7 @@ To create a project in your dev center:
 
 ### Assign the Owner role to a managed identity
 
-Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
+Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
 In this quickstart, you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
 
@@ -116,7 +116,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 1. Retrieve the role ID for the owner of the subscription:
 
     ```azurecli
-    # Remove the group default scope for next the command. 
+    # Remove the group default scope for next the command.
     az configure --defaults group=
 
     $ROID = az role definition list -n "Owner" --scope /subscriptions/$SUBID --query [].name -o tsv

@@ -20,7 +20,7 @@ This article explains how to create and access an [environment](concept-environm
 
 |Category|Requirement|
 |-|-|
-|Installation| [The Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md).|
+|Installation| [Install the Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md).|
 |Procedure|Completion of [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md).|
 |Procedure|Completion of [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md).|
 |Permissions|To create an environment: The [Deployment Environments User](how-to-manage-deployment-environments-access.md) role, the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role, or a built-in role that has appropriate permissions. |
@@ -29,7 +29,7 @@ This article explains how to create and access an [environment](concept-environm
 
 Creating an environment automatically creates the required resources and a resource group to store them. The resource group name follows the pattern `{projectName}-{environmentName}`. You can view the resource group in the Azure portal.
 
-Complete the following steps in the Azure CLI to create an environment and configure resources. You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
+To create an environment and configure resources, complete the following steps in the Azure CLI . You can view the outputs as defined in the specific Azure Resource Manager template (ARM template).
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
@@ -98,7 +98,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
 ### Troubleshoot a permissions error
 
-You must have the [Deployment Environments User](how-to-manage-deployment-environments-access.md) role, the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
+You must have the [Deployment Environments User](how-to-manage-deployment-environments-access.md#grant-permissions-for-developers) role, the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md#grant-permissions-for-dev-team-leads) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has the required permissions to create an environment.
 
 If you don't have the correct permissions, the environment isn't created. An error message like the following example might appear:
 
@@ -122,7 +122,7 @@ To access an environment:
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.
 1. Access the specific resources by using the endpoints.
- 
+
 ### Deploy an environment
 
 ```azurecli
