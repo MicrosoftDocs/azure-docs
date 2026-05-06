@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 05/01/2026
 ms.author: danlep
 
 #customer intent: As an API provider, I want to create and apply quota and rate limiting so that I can protect my APIs from abuse and/or create value for different API product tiers.
@@ -29,7 +29,7 @@ For language model backends, you can set a `llm-token-limit` policy to limit the
 
 [!INCLUDE [api-management-rate-limit-accuracy](../../includes/api-management-rate-limit-accuracy.md)]
 
-#### Classic versus v2 tiers
+#### Rate limits in classic versus v2 tiers
 
 API Management implements rate limiting differently depending on whether your instance is in one of the classic or v2 service tiers:
  
@@ -38,6 +38,19 @@ API Management implements rate limiting differently depending on whether your in
 * **V2 tiers** use a token bucket algorithm that is more efficient and aligns with rate limiting in [Azure Resource Manager](/azure/azure-resource-manager/management/request-limits-and-throttling#regional-throttling-and-token-bucket-algorithm).
 
 While the overall behavior of rate limiting is similar across API Management tiers, the differences in implementation affect some usage details of rate limiting policies such as `rate-limit-by-key` and `llm-token-limit`. 
+
+In the v2 tiers, the token bucket implementation uses an initial bucket size equal to the number of calls (or tokens) specified in the policies. For `rate-limit` policies this value is assigned to the `limit-call` attribute; for the `llm-token-limit` policy it is assigned to the `tokens-per-minute` attribute.
+
+The following example describes a scenario where the number of calls is set to 6 with a renewal-period of 60 seconds on the `rate-limit-by-key` policy.
+
+```xml 
+<rate-limit-by-key calls="6" renewal-period="60" counter-key="Counter1"/>
+```
+
+In this case, the bucket size is 6 calls, meaning that the gateway will allow an initial burst of 6 calls. After that, the bucket fills at a rate of 6 calls per 60 seconds, equivalent to 0.1 calls per second. 
+
+> [!IMPORTANT]
+> In the v2 tiers, all instances of rate limit policies across scopes using the same counter key must use the same renewal period and call limit values, otherwise policy instances will behave unpredictably.
 
 ### Quotas
 

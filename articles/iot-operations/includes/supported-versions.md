@@ -3,13 +3,13 @@ title: Include file
 description: Include file with details of currently supported versions
 author: dominicbetts
 ms.topic: include
-ms.date: 02/18/2026
+ms.date: 05/06/2026
 ms.author: dobett
 ---
 
 Microsoft supports three generally available (GA) versions of Azure IoT Operations at any time: the latest version, and the two previous minor versions. Additionally, preview versions are available for testing new features.
 
-Currently, [Azure support](https://azure.microsoft.com/support/plans) is available for the following versions:
+Currently, [Azure support](https://azure.microsoft.com/support/plans) is available for the following versions. For per-patch release notes for any Azure IoT Operations version, see the [Azure IoT Operations releases](https://github.com/Azure/azure-iot-operations/releases) on GitHub:
 
 | Version | Type | Current patch <br/>release (YYMM) | Release notes | Current <br/>CLI version |
 |---------|------|---------------|---------------|-------------|

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 07/18/2025
+ms.date: 05/06/2026
 
 #CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -32,6 +32,9 @@ Azure IoT Operations supports the following upgrade scenarios:
 
 > [!NOTE]
 > Azure IoT Operations doesn't support live upgrades. Expect some downtime during the upgrade process.
+
+> [!NOTE]
+> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](../configure-observability-monitoring/health-status-reporting.md).
 
 ## Upgrade
 

@@ -13,11 +13,22 @@ ai-usage: ai-assisted
 
 # Enable and run management actions
 
-Management actions let you invoke operations on southbound assets connected to your Azure IoT Operations instance. You can call methods, write values, and read values on assets such as OPC UA servers, ONVIF cameras, and MQTT devices. Management actions use Azure Event Grid to route requests and responses between the cloud and the internal MQTT broker. The connector subscribes to a known topic on the internal MQTT broker and then executes the operation on the target asset.
+Management actions let you invoke operations on southbound assets connected to your Azure IoT Operations instance. You can call methods, write values, and read values on assets such as OPC UA servers, ONVIF cameras, and MQTT devices. Management actions use Azure Event Grid to route requests and responses between the cloud and the internal MQTT broker. The connector subscribes to a known topic on the internal MQTT broker and then executes the operation on the target asset. You can invoke management actions either locally by using MQTT or from the cloud by using Azure Resource Manager APIs. Cloud-initiated management actions let you use bicep files, ARM templates, and the CLI to send commands and configurations to your assets at scale. 
+
+Key features of management actions include: 
+- **Management groups** that bundle related actions and properties together.
+- **Azure Device Registry namespace mapping** to an Event Grid instance for consistent data routing and management operations.
+- **Event Grid–based routing** that provides reliable, event-driven messaging between Azure Resource Manager and Azure IoT Operations.
+- **Azure Resource Manager-based invocation** that lets users invoke actions on assets and deploy or replicate them through Azure Resource Manager templates or Bicep files.
+- **RBAC control and managed identity** for access  control.
+- **Activity logs** for auditing and monitoring.
 
 When you enable management actions, the Azure CLI provisions the infrastructure that connects Event Grid to the MQTT broker. This infrastructure includes an Event Grid data flow endpoint, a request data flow that uses a WebAssembly (WASM) module to process incoming messages, a response data flow that routes replies back through Event Grid, and the required topic spaces and permission bindings. After the infrastructure is in place, you can execute actions on any asset that has a management group and action defined.
 
 This article explains how to enable management actions, execute actions on assets, and how the message flow works through the system. The management actions CLI commands are protocol-agnostic. The examples in this article use an OPC UA asset, but the same commands work for any protocol that supports management actions.
+
+> ![NOTE] 
+> Cloud-initated management actions are currently only enabled through the CLI. 
 
 ## Prerequisites
 

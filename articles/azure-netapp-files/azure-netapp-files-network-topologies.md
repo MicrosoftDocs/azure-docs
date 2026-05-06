@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 03/03/2026
+ms.date: 03/17/2026
 ms.author: ramakk
 ms.custom: references_regions
 # Customer intent: "As a network architect, I want to design a network architecture for Azure NetApp Files, so that I can ensure effective connectivity and optimal performance for my workloads in both cloud-native and hybrid environments."
@@ -35,7 +35,10 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 ### Constraints
 
 >[!IMPORTANT]
->Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features. 
+>Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features.
+
+>[!IMPORTANT]
+>Starting May 31, 2026, basic networking is no longer available for new volumes and Azure NetApp Files volumes will start using Standard Networking by default. Any requests that that specify Basic Networking will be automatically upgraded to Standard Networking. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard Networking features. Existing volumes are not affected and no customer action is required.
 
 The following table describes what’s supported for each network features configuration:
 
