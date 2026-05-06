@@ -111,10 +111,10 @@ For more information about CWE definitions and classifications, see the official
 
 Exploit maturity describes the current state of exploit availability for a vulnerability. Categories can include labels like:
 
-- Unproven
-- Proof of concept
-- Functional exploit
-- Weaponized exploit
+- Unproven.
+- Proof of concept.
+- Functional exploit.
+- Weaponized exploit.
 
 When present, exploit maturity information is typically found alongside CVSS v4 scoring. It's described in the [CVSS specification maintained by FIRST](https://www.first.org/cvss/v4.0/specification-document).
 

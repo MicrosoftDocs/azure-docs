@@ -55,7 +55,7 @@ The following additional UEFI analysis capabilities are currently provided in *p
 
 ### UEFI SBOM analysis results (preview)
 
-Firmware analysis can extract information about a software bill of materials (SBOM) from UEFI firmware images. 
+Firmware analysis can extract information about a software bill of materials (SBOM) from UEFI firmware images.
 
 #### Currently supported
 
@@ -63,8 +63,8 @@ Firmware analysis can extract information about a software bill of materials (SB
 - Detection of OpenSSL version information, when available.
 - Common Vulnerabilities and Exposures (CVE) association for OpenSSL (when a version can be determined).
 
-> [!NOTE]
-> SBOM coverage for UEFI firmware is currently limited. Not all software components embedded in UEFI firmware can be detected. If a component isn't detected, that doesn't mean it's not present.
+  > [!NOTE]
+  > SBOM coverage for UEFI firmware is currently limited. Not all software components embedded in UEFI firmware can be detected. If a component isn't detected, that doesn't mean it's not present.
 
 ### UEFI weakness detection (preview)
 
