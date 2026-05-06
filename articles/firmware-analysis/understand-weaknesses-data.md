@@ -39,7 +39,7 @@ Multiple CVSS versions can appear for the same CVE:
 - **CVSS v3**: Widely adopted standard with improved metrics.
 - **CVSS v4**: Newer version that introduces extra dimensions.
 
-There are multiple CVSS versions because vulnerability scoring has evolved over time. Seeing multiple versions for one CVE doesn't mean there are multiple distinct vulnerabilities.
+There are multiple CVSS versions because vulnerability scoring evolved over time. Seeing multiple versions for one CVE doesn't mean there are multiple distinct vulnerabilities.
 
 CVSS scores describe technical severity, not the real-world likelihood of exploitation.
 
@@ -61,7 +61,7 @@ For examples of how CVSS scores and vectors are published for CVEs, see the [Nat
 
 ### CISA Known Exploited Vulnerabilities (KEV)
 
-Some CVEs might be marked as part of the CISA Known Exploited Vulnerabilities (KEV) catalog. This designation indicates that the vulnerability is known to be actively exploited in real-world scenarios. 
+Some CVEs might be marked as part of the Cybersecurity and Infrastructure Security Agency (CISA) Known Exploited Vulnerabilities (KEV) catalog. This designation indicates that the vulnerability is known to be actively exploited in real-world scenarios.
 
 > [!NOTE]
 >

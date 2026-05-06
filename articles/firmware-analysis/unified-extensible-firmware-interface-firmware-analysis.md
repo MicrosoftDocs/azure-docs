@@ -16,7 +16,7 @@ UEFI firmware differs from other firmware types in structure and content. As a r
 
 This article explains:
 
-- Which UEFI firmware analysis capabilities are GA, and which are in preview.
+- Which UEFI firmware analysis capabilities are generally available, and which are in preview.
 - How you can currently use firmware analysis to analyze UEFI firmware.
 - How to interpret the UEFI analysis results and limitations.
 
@@ -35,11 +35,11 @@ Because of this structure, firmware analysis results might include a mix of diff
 
 ## Generally available UEFI analysis capabilities
 
-The following UEFI firmware analysis capabilities are *generally available (GA)* and considered stable.
+The following UEFI firmware analysis capabilities are *generally available* and considered stable.
 
 ### Cryptographic certificates and keys
 
-Firmware analysis provides GA support for detecting and analyzing embedded cryptographic material in UEFI firmware, including:
+Firmware analysis provides generally available support for detecting and analyzing embedded cryptographic material in UEFI firmware, including:
 
 - Cryptographic certificates.
 - Cryptographic keys.
@@ -81,11 +81,11 @@ Binary hardening attributes reflect security properties detected from executable
 
 #### Supported today
 
-- NX (NoExecute/DEP) is the supported binary hardening signal for UEFI firmware.
+- NoExecute/Data Execution Prevention (NX/DEP) is the supported binary hardening signal for UEFI firmware.
 
 #### Limitations
 
-Other binary hardening attributes such as PIE, RELRO, or Stripped might appear in the results grid. These values might originate from:
+Other binary hardening attributes such as PIE, RELRO, or stripped might appear in the results grid. These values might originate from:
 
 - Non-UEFI executables embedded in the firmware.
 - Generic executable analysis that doesn't uniformly apply to UEFI binaries.
@@ -111,7 +111,7 @@ You should interpret missing or empty values as *unknown*, and not as absence of
 
 When reviewing UEFI firmware analysis results:
 
-- Detection of cryptographic certificates and keys is *generally available*
+- Detection of cryptographic certificates and keys is *generally available*.
 - SBOM, weaknesses data, binary hardening, and extractor path enhancements are currently in *preview*.
 - Preview capabilities might have limited coverage and should be interpreted as indicative signals, not guarantees of a vulnerability.
 - Rely on NX/DEP for UEFI binary-hardening interpretation.
