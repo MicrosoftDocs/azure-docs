@@ -151,7 +151,7 @@ app.mcpPrompt('GenerateDocumentation', {
     promptName: GenerateDocsPromptName,
     description: GenerateDocsPromptDescription,
     promptArguments: {
-        function_name: promptArg.describe('The function to document.').isRequired(),
+        function_name: promptArg.describe("The function to document.").isRequired(),
         style: promptArg.describe("Documentation style (e.g., 'concise', 'verbose')."),
     },
     handler: async (ctx: PromptInvocationContext, context: InvocationContext) => {
@@ -440,7 +440,6 @@ The MCP prompt trigger supports the following return types:
 | Type | Description |
 | --- | --- |
 | `string` | Returned as a single user-role text message in the MCP `GetPromptResult`. |
-| `GetPromptResult` (JSON) | When you return a JSON-serialized `GetPromptResult`, it's deserialized and returned directly. This allows you to return multiple messages with different roles. |
 
 ::: zone-end
 
