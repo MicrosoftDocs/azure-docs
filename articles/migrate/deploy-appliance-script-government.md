@@ -81,15 +81,6 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
-::: moniker range="migrate"
-After you deploy the appliance server and before you start the configuration, ensure to complete these steps to try out the new dependency analysis enhancements: 
-
-1. On the server running the appliance, open the Registry Editor.
-2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (find the one without space)
-3. Find a registry key- DepMapAutoEnable with a type of "String" and set value as "true"
-4. Restart the appliance server and start with appliance configuration. 
-::: moniker-end
-
 ### Verify access
 
 Make sure that the appliance can connect to Azure URLs for [government clouds](migrate-appliance.md#government-cloud-urls).

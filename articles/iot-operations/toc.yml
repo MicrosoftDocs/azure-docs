@@ -206,7 +206,7 @@ items:
             items:
               - name: Overview
                 href: connect-to-cloud/overview-dataflow.md
-                displayName: architecture, data processing, routing, transformation, schema registry, enrich, northbound
+                displayName: architecture, data processing, routing, transformation, schema registry, enrich, northbound, Data Processor, include-dp, IoTOperationsDataProcessor, dp parameter
               - name: Create a data flow
                 href: connect-to-cloud/howto-create-dataflow.md
                 displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich, map, serialize, schema

@@ -7,9 +7,11 @@ items:
     href: workloads/toc.yml
   - name: Azure Center for SAP solutions
     href: center-sap-solutions/toc.yml
-  - name: SAP on Azure automation framework
+  - name: SAP on Azure Automation framework
     href: automation/toc.yml
   - name: Azure Monitor for SAP solutions
     href: monitor/toc.yml
   - name: Business Process Solutions
     href: business-process-solutions/toc.yml
+  - name: SAP with Microsoft AI
+    href: microsoft-ai/toc.yml

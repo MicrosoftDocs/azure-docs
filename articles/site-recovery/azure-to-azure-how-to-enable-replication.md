@@ -4,15 +4,17 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 05/05/2026
 ms.service: azure-site-recovery
-ms.custom: sfi-image-nochange
+ms.custom: sfi-image-nochange, references_regions
 # Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
 ---
 
 # Replicate Azure VMs to another Azure region
 
 This article describes how to enable replication of Azure VMs, from one Azure region to another.
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 ## Before you start
 

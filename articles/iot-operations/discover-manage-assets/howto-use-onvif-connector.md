@@ -5,14 +5,18 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 12/11/2025
+ms.date: 05/07/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can discover and use media streams from an ONVIF compliant camera.
 ---
 
 # Configure the connector for ONVIF
 
-In Azure IoT Operations, the connector for ONVIF enables you to discover and use an [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera  connected to your Azure IoT Operations cluster.
+In Azure IoT Operations, the connector for ONVIF enables you to discover media profiles and capabilities from a known [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera connected to your Azure IoT Operations cluster.
+
+> [!NOTE]
+> The connector for ONVIF doesn't support network-level discovery of ONVIF cameras. You must manually add a device with the camera's ONVIF endpoint before the connector can discover the camera's media profiles and capabilities.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -27,13 +31,14 @@ The following table summarizes the features the connector for ONVIF supports:
 | Anonymous access | Yes | For testing purposes |
 | Southbound certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
 | OpenTelemetry integration | Yes | |
-| Device discovery | Yes | Discovers ONVIF cameras on the network |
+| Network discovery | No | Discovering ONVIF cameras on the network isn't currently supported |
+| Media profile discovery | Yes | Discovers media profiles within a known camera |
 | Capability discovery | Yes | Discovers PTZ and other device capabilities |
 | Media endpoint discovery | Yes | Discovers media streams, framerate, resolution, encoding |
 | Camera configuration | Yes | Retrieve and update camera settings |
 | PTZ control | Yes | Control pan, tilt, and zoom |
 
-The connector connects ONVIF cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. The connector then automatically discovers:
+The connector connects ONVIF cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. After you add a known camera, the connector automatically discovers the following information from that camera:
 
 - The capabilities, such as pan-tilt-zoom (PTZ), of the ONVIF device.
 - The media endpoints exposed by the ONVIF device.
@@ -79,7 +84,7 @@ The connector for ONVIF in Azure IoT Operations focuses on support for camera de
 
 The connector enables support for the following capabilities:
 
-- Discovery of device information and capabilities.
+- Discovery of device information and capabilities from a known camera.
 - Monitoring events from devices.
 - Discovery of the media URIs exposed by a device. The connector for ONVIF makes these URIs available to the media connector.
 - Imaging control such as filters and receiving motion and tampering events.

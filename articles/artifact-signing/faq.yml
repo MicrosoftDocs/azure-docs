@@ -104,6 +104,9 @@ sections:
           - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
   - name: Signing
     questions:
+      - question: What can I expect when I see SmartScreen prompts for files?
+        answer: |
+          SmartScreen reputation builds up automatically. The prompt will stop appearing once the file hash has sufficient download history. For more information, see the: [SmartScreen reputation for Windows app developers](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation) documentation.
       - question: What types of files can we sign by using Artifact Signing?
         answer: |
           You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).

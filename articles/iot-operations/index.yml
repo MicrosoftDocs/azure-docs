@@ -24,9 +24,10 @@ landingContent:
         links:
           - text: What is Azure IoT Operations?
             url: overview-iot-operations.md
-          - text: Get started with an end-to-end sample
+          - text: Quickstart (Codespaces)
             url: get-started-end-to-end-sample/quickstart-deploy.md
-  # Card
+          - text: Quickstart (Local deployment)
+            url: https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md
   - title: Common scenarios
     linkLists:
       - linkListType: how-to-guide

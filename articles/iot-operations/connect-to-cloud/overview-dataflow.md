@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 05/06/2026
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.
 ---
@@ -22,6 +22,9 @@ You can write configurations for various use cases, such as:
 - Send data to the cloud or edge without transformation.
 
 Data flows aren't limited to the region where you deploy the IoT Operations instance. You can use data flows to send data to cloud endpoints in different regions.
+
+> [!NOTE]
+> Data flows replace the preview-only **Data Processor** component from early Azure IoT Operations releases. The `--include-dp` parameter on `az iot ops init` was removed and is no longer required—the data flows components deploy automatically.
 
 ## Key features
 

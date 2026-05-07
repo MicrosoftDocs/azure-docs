@@ -69,7 +69,7 @@ uname -r
 
 ### Other Linux distributions
 
-Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that is newer than 4.19, which includes some great improvements in networking, for example support for the *BBR Congestion-Based Congestion Control*.
+Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that's newer than 4.19, which includes some great improvements in networking, for example support for the *BBR Congestion-Based Congestion Control*.
 
 ## Achieving consistent transfer speeds in Linux VMs in Azure
 
@@ -147,10 +147,10 @@ SUBSYSTEM=="net", DRIVERS=="hv_netvsc*", ACTION=="add",  RUN+="/usr/sbin/ethtool
 
 ```plaintext
 ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
-ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
+ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq" 
 ```
 
-- **Interrupt Request (IRQ) scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. When using IRQBalance, you can update `/etc/default/irqbalance` to specify which CPUs shouldn't have IRQs scheduled you will need to determine [the mask](https://manpages.debian.org/testing/irqbalance/irqbalance.1.en.html#IRQBALANCE_BANNED_CPUS) that will exclude the CPUs that need exclusion.
+- **Interrupt Request (IRQ) scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. When using IRQBalance, you can update `/etc/default/irqbalance` to specify which CPUs shouldn't have IRQs scheduled you'll need to determine [the mask](https://manpages.debian.org/testing/irqbalance/irqbalance.1.en.html#IRQBALANCE_BANNED_CPUS) that will exclude the CPUs that need exclusion.
 
 More information about how to calculate the mask available [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/7/html/tuning_guide/interrupt_and_process_binding).
 
@@ -163,7 +163,7 @@ IRQBALANCE_BANNED_CPULIST=0000ff00
 - **UDEV rules**: Add rules to optimize queue length and manage device flags efficiently. Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules`: 
 
 ```plaintext
-SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
+SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000" 
 ```
 
 ### For Packets delayed twice
