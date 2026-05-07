@@ -7,7 +7,7 @@ ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 04/17/2026
+ms.date: 05/05/2026
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
@@ -38,6 +38,8 @@ You can use the following options to configure your DNS settings for private end
 Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME record redirects the resolution to the private domain name. You can override the resolution with the private IP address of your private endpoints.
 
 Connection URLs for your existing applications don't change. Client DNS requests to a public DNS server resolve to your private endpoints. The process doesn't affect your existing applications.
+
+DNS resolution and access control are independent. The CNAME chain in the public `privatelink.<service>.<region>.<suffix>` zone is deliberately resolvable from anywhere on the internet so that hybrid and gradual-migration scenarios continue to work without breaking existing clients. A successful public DNS lookup confirms only that a resource with that exact name exists in the global Azure namespace. It doesn't confirm that a private endpoint is attached, reveal the private endpoint's IP, or grant any data-plane access. When a resource has **Public network access** set to **Disabled** (or the service firewall denies the caller), the service rejects the connection at the front door regardless of DNS resolution. Resource existence is enumerable; resource access is not.
 
 > [!IMPORTANT]
 > Azure File Shares must be remounted if connected to the public endpoint.
