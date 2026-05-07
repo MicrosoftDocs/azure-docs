@@ -14,34 +14,7 @@ ms.custom: build-2023
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version.
-
-## API versions
-
-Check the latest stable and preview API versions in the [Resource Manager API documentation](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
-
-To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
-
-### Updating API versions
-
-To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in Azure CLI or Azure PowerShell, update them to the latest version.
-
-Update Azure CLI and the Azure Container Apps extension by running the following commands:
-
-```bash
-az upgrade
-az extension add -n containerapp --upgrade
-```
-
-To update Azure PowerShell, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
-
-To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
-
-- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
-- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
-- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
-- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
-- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
+This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version. For information about API versions, see [API versions](#api-versions).
 
 ## Container Apps environment
 
@@ -778,5 +751,32 @@ properties:
       - secretRef: mysecret
         path: mysecret.txt
 ```
+
+## API versions
+
+Check the latest stable and preview API versions in the [Resource Manager API documentation](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
+
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+
+### Updating API versions
+
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in Azure CLI or Azure PowerShell, update them to the latest version.
+
+Update Azure CLI and the Azure Container Apps extension by running the following commands:
+
+```bash
+az upgrade
+az extension add -n containerapp --upgrade
+```
+
+To update Azure PowerShell, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
+
+- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
+- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
+- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
+- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
 
 ---
