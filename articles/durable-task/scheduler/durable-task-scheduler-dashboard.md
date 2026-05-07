@@ -184,7 +184,7 @@ You can create a new orchestration from the Durable Task Scheduler dashboard.
 1. From the **Orchestrations** overview pane, click **+ New Orchestration**. 
 1. Fill out the information in the **New Orchestration** form.
 
-   :::image type="content" source="media/durable-task-scheduler-dashboard/create-new-orchestration.png" alt-text="Screenshot of the "Create new orchestration" form.":::
+   :::image type="content" source="media/durable-task-scheduler-dashboard/create-new-orchestration.png" alt-text="Screenshot of the Create new orchestration form.":::
 
    | Field | Description |
    | ----- | ----------- |
