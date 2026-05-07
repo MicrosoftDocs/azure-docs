@@ -166,7 +166,7 @@ No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 ### Can I use an Azure Virtual WAN instance as the hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration?
 
-No, an Azure Virtual WAN hub isn't supported as the hub in a hub-and-spoke topology at this time.
+Yes. You can use an Azure Virtual WAN hub as the hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration. For steps, see [Use a Virtual WAN hub as the hub](how-to-create-hub-and-spoke.md#use-a-virtual-wan-hub-as-the-hub).
 
 ### My virtual network isn't receiving the configurations I'm expecting. How do I troubleshoot?
 

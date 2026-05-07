@@ -82,6 +82,8 @@
   items:
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Connect spoke VNets at scale with Virtual Network Manager
+    href: virtual-network-manager-virtual-wan-overview.md
   - name: Virtual hub routing preference
     href: about-virtual-hub-routing-preference.md
   - name: Basic routing scenarios

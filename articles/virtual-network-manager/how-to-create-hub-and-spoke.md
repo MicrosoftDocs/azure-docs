@@ -106,6 +106,62 @@ To have this configuration take effect in your environment, you need to deploy t
 
 1. To test *direct connectivity* between spoke virtual networks, deploy a virtual machine into each spoke virtual network. Then initiate an ICMP request from one virtual machine to the other.
 
+## Use a Virtual WAN hub as the hub
+
+This section shows how to create an Azure Virtual Network Manager hub-and-spoke connectivity configuration where the hub is a Virtual WAN hub.
+
+### Prerequisites
+
+* Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) topology behavior with hub virtual networks and Virtual WAN hubs.
+* Have an existing Azure Virtual Network Manager instance and at least one network group.
+* Have an existing Virtual WAN and virtual hub.
+* Have permission to create or update connectivity configurations in Azure Virtual Network Manager and create or select connection policies in Virtual WAN.
+
+### Create the connectivity configuration
+
+1. In the Azure portal, go to your **Network manager** instance.
+
+1. Select **Configurations** under *Settings*, then select **+ Create**.
+
+1. Select **Connectivity configuration**.
+
+1. On the **Basics** tab, enter a name and optional description, then select **Next: Topology >**.
+
+### Select the Virtual WAN hub and connection policy
+
+1. On the **Topology** tab, select **Hub and spoke**, then select **Select a hub**.
+
+1. In the **Select a hub** pane, select your Virtual WAN hub, then select **Select**.
+
+1. Select **Select connection policy**.
+
+1. Select an existing connection policy, or select **Create new** to create a policy that is applied to Virtual WAN virtual network connections created or updated by this connectivity configuration.
+
+1. A connection policy defines routing behavior for the virtual network connections, including route table association and propagation, route maps, and internet security behavior. For more information, see [Connection policy](../virtual-wan/how-to-connection-policy.md).
+
+### Add spoke network groups
+
+1. Select **+ Add network groups**.
+
+1. On the **Add network groups** page, select one or more network groups to use as spokes, then select **Add**.
+
+When this connectivity configuration is deployed:
+
+* For virtual networks that aren't already connected to the selected Virtual WAN hub, Azure Virtual Network Manager creates Virtual WAN virtual network connections and applies the selected connection policy.
+* For virtual networks that are already connected to the selected Virtual WAN hub, Azure Virtual Network Manager updates the existing connections to apply the selected connection policy.
+
+### Create, deploy, and validate
+
+1. Select **Review + Create > Create** to create the connectivity configuration.
+
+1. Open **Deployments** under *Settings*, then select **Deploy a configuration**.
+
+1. On the deployment page, select **Include connectivity configurations in your goal state**, select your new connectivity configuration, select the target regions, and then select **Deploy**.
+
+1. In your Virtual WAN resource, go to **Virtual network connections** and verify that the expected spoke virtual network connections are in a connected state.
+
+1. In the virtual hub, review effective routes to confirm route behavior reflects the selected connection policy.
+
 ## Next steps
 
 - [Create a secured hub-and-spoke topology in this tutorial](tutorial-create-secured-hub-and-spoke.md).
