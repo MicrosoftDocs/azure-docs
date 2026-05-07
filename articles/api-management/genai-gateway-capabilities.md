@@ -264,7 +264,7 @@ More information:
 ## Related content
 
 * [Blog: AI gateway in Azure API Management is now available in Microsoft Foundry](https://techcommunity.microsoft.com/blog/integrationsonazureblog/ai-gateway-in-azure-api-management-is-now-available-in-microsoft-foundry-preview/4470676)
-* [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
-* [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
+* [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-genai-gateway-capabilities-in-azure-api-management/4146525)
+* [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/integrating-azure-ai-content-safety-with-api-management-for-azure-openai-endpoin/4202505)
 * [Training: Manage your generative AI APIs](/training/modules/api-management)
-* [Smart load balancing for OpenAI endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
+* [Smart load balancing for OpenAI endpoints](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/%F0%9F%9A%80-smart-load-balancing-for-openai-endpoints-and-azure-api-management/3991616)
