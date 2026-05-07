@@ -67,11 +67,7 @@ Make sure to select your preferred development language at the top of the articl
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 ::: zone-end
 ::: zone pivot="programming-language-other"
-### [Go](#tab/go)
-+ [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
-### [Rust](#tab/rust)
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
----
 ::: zone-end
 
 [!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
@@ -268,38 +264,6 @@ After you verify that the function runs correctly on your local computer, use Vi
 
 In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you need to recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
-### [Go](#tab/go)
-    
-+ In the integrated terminal, compile the handler to Linux/x64. 
-
-    #### [macOS](#tab/macos)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Linux](#tab/linux)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Windows](#tab/windows)
-    
-    ```cmd
-    set GOOS=linux
-    set GOARCH=amd64
-    go build handler.go
-    ```
-    
-    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This change instructs the function app to run the Linux binary.
-    
-    ---
-
-A binary named `handler` is created in the function app root.
-
-### [Rust](#tab/rust)
-
 1. Create a file at *.cargo/config*. Add the following contents and save the file.
 
     ```
@@ -324,8 +288,6 @@ A binary named `handler` is created in the function app root.
     ```
 
     This line prevents publishing the contents of the *target* folder.
-
----
 
 ::: zone-end
 
