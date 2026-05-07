@@ -568,6 +568,7 @@ The fencing device uses either a managed identity for Azure resource or a servic
    #### [Service principal](#tab/spn)
    > [!CAUTION]
    > Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
+
    Follow these steps to create a service principal, if you aren't using managed identity.
 
    1. Go to the [Azure portal](https://portal.azure.com).

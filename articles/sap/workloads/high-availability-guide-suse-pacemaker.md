@@ -594,6 +594,7 @@ To create a managed identity (MSI), [create a system-assigned](/entra/identity/m
 #### [Service principal](#tab/spn)
 > [!CAUTION]
 > Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
+
 To create a service principal, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
