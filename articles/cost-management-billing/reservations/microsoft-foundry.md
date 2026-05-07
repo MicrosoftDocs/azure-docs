@@ -33,7 +33,28 @@ When the reservation expires, Microsoft Foundry Provisioned Throughput deploymen
 
 ## Renewal options
 
-You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Microsoft Foundry Provisioned Throughput Reservation, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings, and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation but will be set to auto-renew off by default. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal. When the reservation is set to auto-renew on same reservation order ID, the auto-renew of this reservation is set to auto-renew on until you choose to set it off. At time of purchase, if you have chosen to set auto-renewal on, for 1-month term the reservation automatically renews on same reservation order ID, while 1-year term will result in purchasing a replacement reservation.
+Enable automatic renewal in Renewal settings or at purchase. Microsoft Foundry Provisioned Throughput Reservation supports two renewal behaviors:
+
+### Renew on the same reservation order ID
+
+Renews the reservation using the same reservation order ID. No new reservation is created.
+
+### Replace with a new reservation
+
+Creates a new reservation when the current reservation expires. By default, the new reservation uses the same attributes, and it does not automatically renew (it has auto-renew turned off). You can change the name, billing frequency, term, or quantity in Renewal settings.
+
+Users with Owner access to both the reservation and the billing subscription can configure renewal.
+
+### Renewal behavior by term (auto-renew enabled at purchase)
+
+- **1-month term:** Renews on the same reservation order ID.
+- **1-year term:** Creates a replacement reservation.
+
+> [!NOTE]
+> When a reservation is set to renew on the same reservation order ID, auto-renew remains enabled for all subsequent renewals until you explicitly turn it off.
+
+>[!NOTE]
+>When you exchange a reservation, it will be set to purchase a replacement reservation at expiration instead of automatically renewing. Please review your renewal settings after completing an exchange to make sure they match your preference.
 
 ## Prerequisites
 

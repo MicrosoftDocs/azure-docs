@@ -14,7 +14,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 
 > [!NOTE]
 > - In the table, CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [processing unit](../event-hubs-scalability.md#processing-units), and TU is [throughput unit](../event-hubs-scalability.md#throughput-units).
-> - You can configure [TUs](../event-hubs-auto-inflate.md#use-azure-portal) for a Basic or Standard tier namespace or [PUs](../configure-processing-units-premium-namespace.md) for a Premium tier namespace.
+> - You can configure [TUs](../enable-auto-inflate.md) for a Basic or Standard tier namespace or [PUs](../configure-processing-units-premium-namespace.md) for a Premium tier namespace.
 > - When you [create a dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#create-an-event-hubs-dedicated-cluster), Azure Event Hubs assigns one CU to the cluster. If you enable the **Support scaling** option while creating the cluster, you can scale out by increasing CUs or scale in by decreasing CUs for the cluster. For step-by-step instructions, see [Scale dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster). For clusters that don't support the **Support scaling** feature, [submit a ticket](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to adjust CUs for the cluster.
 
 | Limit | Basic | Standard | Premium | Dedicated |

@@ -16,6 +16,8 @@ ms.custom:
 
 # Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Create an dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using Azure PowerShell.
 
 ## Prerequisites

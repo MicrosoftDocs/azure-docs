@@ -63,7 +63,7 @@ The Azure IoT Operations architecture has these core elements:
 
 * Data services that run on Azure Arc-enabled edge Kubernetes clusters:
   * An edge-native *MQTT broker* to power event-driven architectures.
-  * *Akri connectors*, like the connector for OPC UA, to simplify communication with servers and leaf devices.
+  * *Akri connectors*, like the Connector for HTTP/REST, to simplify communication with servers and leaf devices.
   * *Data flows* to transform and contextualize data. You can route messages to various locations, including cloud endpoints.
 * The *operations experience*. OT users use this web UI to manage assets and data flows in an Azure IoT Operations deployment.
 
@@ -115,7 +115,29 @@ To visualize and analyze sensor data and messages from your devices and assets, 
 * [Microsoft Fabric](/fabric/get-started/fabric-trial)
 * [Power BI](https://powerbi.microsoft.com/)
 
-## Related content
+## Getting started options
 
-* [Get started with an end-to-end sample](get-started-end-to-end-sample/quickstart-deploy.md)
-* [Deploy a production-ready cluster](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md)
+There are two quickstart options for getting started with Azure IoT Operations. Choose the approach that best fits your goals:
+
+| | Codespaces quickstart | Local deployment quickstart |
+|--|--|--|
+| **Description** | A "one-click" deployment that runs in a hosted GitHub Codespaces environment. A great first step if you want to explore the tools and see Azure IoT Operations in action. | Install Azure IoT Operations on your own hardware (Ubuntu or Windows with AKS Edge Essentials) so you can start building dataflow pipelines and get data into Microsoft Fabric quickly. |
+| **Persistence** | Temporary — lives only as long as the Codespace is active. | Lasts as long as you want to keep it. |
+| **Best for** | Exploring tools, learning the UI, validating concepts. | Building solutions, validating real workloads, preparing for production. |
+
+### Codespaces quickstart
+
+The [Codespaces quickstart](get-started-end-to-end-sample/quickstart-deploy.md) provides a clean, hosted deployment that's ideal for exploring Azure IoT Operations without any local setup. Use this approach when you want to:
+
+- See the operations experience and tools quickly.
+- Walk through an end-to-end sample without configuring local infrastructure.
+
+### Local deployment quickstart
+
+The [local deployment quickstart](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md) installs Azure IoT Operations on your own hardware so you can work directly with your dataflow pipelines and devices. The goal is to install on physical hardware so you can place the deployment in your IoT environment, validate the build, and then migrate to production.
+
+Use this approach when you want to:
+
+- Connect to real devices and signals.
+- Build and test dataflow pipelines against real data.
+- Deploy an instance that persists and that you can evolve into a production deployment.

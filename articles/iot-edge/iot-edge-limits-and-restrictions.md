@@ -3,7 +3,7 @@ title: Azure IoT Edge limits and restrictions
 description: Understand the limits and restrictions when using Azure IoT Edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/11/2025
+ms.date: 04/28/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -17,19 +17,29 @@ This article explains the limits and restrictions when you use IoT Edge.
 
 ## Limits
 
-### Number of children in gateway hierarchy
+### Number of connected clients in gateway hierarchy
 
-Each IoT Edge parent device in a gateway hierarchy can have up to 100 connected child devices by default.
+Each IoT Edge parent device in a gateway hierarchy can have up to **100 connected clients** by default.
 
-Each IoT Edge device in a nested topology opens a separate logical connection to the parent EdgeHub (or IoT Hub) for each connected client (device or module), plus one connection for itself. Connections at each layer aren't aggregated, but added.
+> [!NOTE]
+> Connected clients include both devices and modules.
 
-For example, if there are two IoT Edge child devices in layer L4, and each has 100 clients, the parent IoT Edge device in layer L5 has 202 total incoming connections from L4.
+Each IoT Edge device in a nested topology opens a separate logical connection to the parent EdgeHub (or IoT Hub) for each connected client, plus one connection for itself. Connections at each layer aren't aggregated, but added.
 
-You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module. IoT Edge can have issues reporting its state in the twin reported properties if the number of clients exceeds a few hundred because of the IoT Hub twin size limit. Be careful when increasing the limit by changing this environment variable.
+For example, if there are two IoT Edge child devices in layer L4, and each child has:
+* 1 device connection for itself, and
+* 100 connected downstream clients (including devices and modules),
+
+then the parent IoT Edge device in layer L5 has **202 total incoming connections** from layer L4.
+
+You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
+> [!IMPORTANT]
+> [Module twin for edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties) holds information about connected clients in its reported properties, where size is limited. When it reaches the maximum size of the twin's reported properties for increasing the number of connected clients, IoT Edge becomes unable to report its state correctly. This can happen if the number of clients exceeds a few hundred. Before setting `MaxConnectedClients`, consider testing with production scenarios.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
-### Size of desired properties
+### Size of module twin properties
 
 IoT Hub enforces these restrictions:
 

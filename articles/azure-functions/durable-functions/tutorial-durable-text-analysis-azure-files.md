@@ -1,9 +1,9 @@
 ---
-title: "Tutorial: Durable text analysis with a mounted Azure Files share in Azure Functions"
+title: "Tutorial: Durable Text Analysis with Azure Files in Azure Functions"
 description: Learn how to deploy a Python Azure Functions app that uses Durable Functions to orchestrate parallel text file analysis by using a mounted Azure Files share on a Flex Consumption plan.
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 03/24/2026
+ms.date: 05/04/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-azdevcli
@@ -59,6 +59,14 @@ You can find the sample code for this tutorial in the [Azure Functions Flex Cons
 ## Review the code
 
 The three key pieces that make this sample work are the infrastructure that creates the mount, the script that uploads sample files, and the function code that orchestrates the analysis.
+
+At runtime, the orchestration follows this flow:
+
+1. An HTTP POST to `/api/start-analysis` starts the Durable Functions orchestration.
+1. The orchestrator calls the `list_text_files` activity to find all `.txt` files on the mount.
+1. The orchestrator fans out, calling `analyse_text_file` for each file in parallel.
+1. Once all parallel tasks complete, the orchestrator calls `aggregate_results` to merge per-file metrics into a single summary.
+1. The aggregated result is returned as the orchestration output.
 
 ### [Mount configuration (Bicep)](#tab/mount-config)
 
@@ -141,18 +149,18 @@ This sample is an [Azure Developer CLI (azd)](/azure/developer/azure-developer-c
       -o tsv)
     ```
 
-1. Start the orchestration:
+1. Start the orchestration. You can optionally pass a JSON body with `{"mount_path": "/mounts/data/"}` to override the default mount path:
 
     ```bash
     curl -s -X POST "${FUNCTION_APP_URL}/api/start-analysis?code=${HOST_KEY}" | jq .
     ```
 
-    The response includes an instance ID and status query URIs:
+    The response includes an instance ID and management URIs you can use to check status, send events, or terminate the orchestration:
 
     ```json
     {
       "id": "abc123def456",
-      "statusQueryGetUri": "https://...",
+      "statusQueryGetUri": "https://<your-app>.azurewebsites.net/...",
       "sendEventPostUri": "https://...",
       "terminatePostUri": "https://..."
     }
@@ -160,48 +168,58 @@ This sample is an [Azure Developer CLI (azd)](/azure/developer/azure-developer-c
 
 ## Verify results
 
-1. Check orchestration status. Use the `statusQueryGetUri` from the previous response, or construct the URL manually:
+1. Check orchestration status by using the `statusQueryGetUri` from the trigger response:
 
     ```bash
-    INSTANCE_ID="<instance-id-from-trigger-response>"
+    STATUS_URL="<statusQueryGetUri-from-trigger-response>"
 
-    curl -s "${FUNCTION_APP_URL}/api/orchestrators/TextAnalysisOrchestrator/${INSTANCE_ID}?code=${HOST_KEY}" | jq .
+    curl -s "${STATUS_URL}" | jq .
     ```
 
     While the orchestration is running, the `runtimeStatus` is `Running`. When complete, the response looks like:
 
     ```json
     {
-      "name": "TextAnalysisOrchestrator",
       "instanceId": "abc123def456",
       "runtimeStatus": "Completed",
       "output": {
-        "results": [
-          {
-            "file": "sample1.txt",
-            "word_count": 15,
-            "char_count": 98,
-            "sentiment": "positive"
-          },
-          {
-            "file": "sample2.txt",
-            "word_count": 18,
-            "char_count": 120,
-            "sentiment": "positive"
-          },
-          {
-            "file": "sample3.txt",
-            "word_count": 12,
-            "char_count": 85,
-            "sentiment": "neutral"
-          }
-        ],
+        "total_files": 3,
         "total_words": 45,
+        "total_lines": 12,
         "total_chars": 303,
-        "analysis_duration_seconds": 2.34
+        "overall_avg_word_length": 4.82,
+        "overall_top_characters": [["e", 42], ["t", 38], ["a", 35]],
+        "per_file": [
+          {
+            "file_path": "/mounts/data/sample1.txt",
+            "word_count": 15,
+            "line_count": 4,
+            "char_count": 98,
+            "avg_word_length": 5.1,
+            "top_characters": [["e", 14], ["t", 12]]
+          },
+          {
+            "file_path": "/mounts/data/sample2.txt",
+            "word_count": 18,
+            "line_count": 5,
+            "char_count": 120,
+            "avg_word_length": 4.6,
+            "top_characters": [["a", 16], ["e", 15]]
+          },
+          {
+            "file_path": "/mounts/data/sample3.txt",
+            "word_count": 12,
+            "line_count": 3,
+            "char_count": 85,
+            "avg_word_length": 4.9,
+            "top_characters": [["e", 13], ["t", 11]]
+          }
+        ]
       }
     }
     ```
+
+    The app also exposes a convenience endpoint at `/api/status/{instance_id}` that returns a simplified status response.
 
 > [!TIP]
 > Your function app accesses all three files in parallel through the storage mount. The app doesn't need any per-request network calls. The function reads them directly from the mounted share by using standard file I/O. This approach demonstrates the power of storage mounts combined with Durable Functions.

@@ -2,8 +2,8 @@
 title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Guidance on using the MQTT protocol to connect a device to IoT Hub. Includes using the Azure IoT device SDKs and connecting directly using MQTT.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 03/19/2025
@@ -442,7 +442,9 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
   } 
 ```
 
-3. The service then sends a response message containing the device certificate data on topic `$iothub/credential/res/{status}/?$rid={request-id}`, using the same **request ID** as the request.
+1. The device receives a response acknowledging the receipt. This is a 202 status. 
+
+1. The service then sends a response message containing the device certificate data on topic `$iothub/credential/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
 
 The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
 
@@ -462,8 +464,11 @@ The possible status codes are:
 
 |Status | Description |
 | -------- | -------- |
-| 200 | Success |
+| 200 | Success (certificate issued)|
 | 202 | Certificate signing request (CSR) accepted. Waiting for response.|
+|400|Invalid request payload (missing/invalid field)|
+|409|Conflict - another request is active|
+|412|Precondition failed - no matching request to replace|
 | 429 | Too many requests (throttled). For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 

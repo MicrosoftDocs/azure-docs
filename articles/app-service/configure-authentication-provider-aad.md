@@ -3,7 +3,7 @@ title: Configure Microsoft Entra Authentication
 description: Learn how to configure Microsoft Entra authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 04/27/2026
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app deployment engineer, I want configure Microsoft Entra authentication for my apps in App Service and understand how to migrate older apps to Microsoft Graph.
@@ -66,7 +66,7 @@ The following situations are the most common cases for using an existing app reg
 
 You can change the name of the registration or the supported account types later if you want.
 
-A client secret is created as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update that setting later to use [Key Vault references](./app-service-key-vault-references.md). Alternatively, you can change this to [use an identity instead of a client secret][fic-config]. Support for using an identity is currently in preview.
+A client secret is created as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update that setting later to use [Key Vault references](./app-service-key-vault-references.md). Alternatively, you can change this to [use an identity instead of a client secret][fic-config].
 
 ### <a name="advanced"> </a>Option 2: Use an existing registration created separately
 
@@ -78,7 +78,7 @@ To use an existing registration, select either:
   - **Application (client) ID**.
   - **Client secret (recommended)**. A secret value that the application uses to prove its identity when it requests a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which we *don't* recommend.
 
-    You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using an identity is currently in preview.
+    You can also configure the application to [use an identity instead of a client secret][fic-config].
   - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value that's specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://login.microsoftonline.com` as its authentication endpoint.
 
       You can find this value in the Microsoft Entra admin center. Go to **App registrations**, select your app, and then select **Endpoints**. Copy the **OpenID Connect metadata document** endpoint for your tenant, and then remove `/.well-known/openid-configuration` from the end of the URL. For example, if the metadata endpoint is `https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration`, use `https://login.microsoftonline.com/<tenant-id>/v2.0` as the issuer URL.
@@ -109,7 +109,7 @@ Now, modify the app registration:
     1. Enter a description and expiration, and then select **Add**.
     1. In the **Value** field, copy the client secret value. After you move away from this page, it doesn't appear again.
 
-    You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using an identity is currently in preview.
+    You can also configure the application to [use an identity instead of a client secret][fic-config].
 
 1. (Optional) To add multiple reply URLs, select **Authentication**.
 
@@ -243,6 +243,34 @@ For **Unauthenticated requests**, choose error options:
 
 Select **Token store** (recommended). The token store collects, stores, and refreshes tokens for your application. You can disable this behavior later if your app doesn't need tokens or if you need to optimize performance.
 
+## Allowed token audiences
+
+The **Allowed token audiences** setting lets you restrict which access tokens are accepted by your App Service or Azure Functions app based on the token audience (`aud` claim).
+
+By default, App Service authentication accepts tokens that are issued for the app registration associated with this application. If your app exposes multiple APIs, uses multiple application IDs, or is accessed through custom application ID URIs, you may need to explicitly configure additional allowed audiences.
+
+When configured, only access tokens whose `aud` claim matches one of the allowed audiences are accepted.
+
+Typical values include:
+
+- The Application (client) ID of the app registration
+- The Application ID URI (for example, `api://<application-client-id>` or a custom URI such as `https://contoso.com/api`)
+
+You can configure this setting from the **Authentication** page in the Azure portal:
+
+1. Go to your App Service or Azure Functions app.
+2. Select **Settings > Authentication**.
+3. Select **Edit** for the Microsoft identity provider.
+4. Under **Allowed token audiences**, add one or more allowed audience values.
+
+This setting is useful when:
+
+- Your app is called by multiple client applications using different resource identifiers.
+- You use a custom Application ID URI for your API.
+- You want to explicitly limit which tokens are accepted by the app.
+
+If this list is configured, any token whose audience does not match one of the configured values is rejected.
+
 ## Add the identity provider
 
 If you selected workforce configuration, you can select **Next: Permissions** and add any Microsoft Graph permissions that the application needs. These permissions are added to the app registration, but you can also change them later. If you selected external configuration, you can add Microsoft Graph permissions later.
@@ -308,13 +336,13 @@ Requests that fail these built-in checks get an HTTP `403 Forbidden` response.
 
 [Payload claims]: ../active-directory/develop/access-token-claims-reference.md#payload-claims
 
-## Use a managed identity instead of a secret (preview)
+## Use a managed identity instead of a secret
 
-[fic-config]: #use-a-managed-identity-instead-of-a-secret-preview
+[fic-config]: #use-a-managed-identity-instead-of-a-secret
 
 Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret.
 
-The identity allows you to create a *federated identity credential*, which can be used instead of a client secret as a *client assertion*. This approach is available only for workforce configurations. The built-in authentication feature currently supports federated identity credentials as a preview.
+The identity allows you to create a *federated identity credential*, which can be used instead of a client secret as a *client assertion*. This approach is available only for workforce configurations.
 
 You can use the steps in this section to configure your App Service or Azure Functions resource to use this pattern. The steps here assume that you already set up an app registration by using one of the supported methods, and that you have a secret defined already.
 

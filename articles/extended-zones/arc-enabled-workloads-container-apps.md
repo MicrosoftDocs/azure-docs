@@ -5,15 +5,15 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 04/30/2026
 
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
 # Deploy Arc-enabled workloads in an Extended Zone: ContainerApps
  
-In this article, you'll learn how to deploy an Arc-enabled ContainerApp in an Extended Zone. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
-Feel free to explore [Container Apps on Azure Arc Overview | Microsoft Learn](/azure/container-apps/azure-arc-overview) to become more familiar with Container Apps on Azure Arc.
+In this article, you learn how to deploy an Arc-enabled ContainerApp in an Extended Zone. For currently supported PaaS workloads, see [Service offerings for Azure Extended Zones](overview.md#service-offerings-for-azure-extended-zones).
+To become more familiar with Container Apps on Azure Arc, explore [Azure Container Apps on Azure Arc Overview](/azure/container-apps/azure-arc-overview).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Feel free to explore [Container Apps on Azure Arc Overview | Microsoft Learn](/a
 > Use the intended Extended Location as your location variable. 
 
 ## Getting started	
-If you're already familiar with the subject, you may skip this paragraph. Here are important topics you may want read before you proceed with creation:
+If you're already familiar with the subject, you can skip this paragraph. Here are important topics you might want to read before you proceed with creation:
 - [Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
 - [Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
 - [Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
@@ -34,7 +34,7 @@ If you're already familiar with the subject, you may skip this paragraph. Here a
 
 ### Create Container Apps on Arc-enabled AKS in Extended Zones
 
-Now that the Arc-enabled AKS cluster is created, we can proceed to using the following PowerShell script to create our Container App on an AKS cluster in an Extended Zone and connect it to the Azure Arc-enabled Kubernetes. 
+After creating the Arc-enabled AKS cluster, use the following PowerShell script to create your Container App on an AKS cluster in an Extended Zone and connect it to Azure Arc-enabled Kubernetes. 
 
 > [!NOTE] 
 > Make sure to transfer the parameters from the Arc-enabled AKS steps correctly into the script.
@@ -209,7 +209,7 @@ CreateContainerAppOnArcEnabledAksEz -AKSClusterResourceGroupName "my-aks-cluster
 
 ## Clean up resources
 
-When no longer needed, delete **my-aks-cluster-group** resource group and all of the resources it contains using the [az group delete](/cli/azure/group#az-group-delete) command.
+When you no longer need the resources, delete the **my-aks-cluster-group** resource group and all of the resources it contains by using the [az group delete](/cli/azure/group#az-group-delete) command.
 
 ```powershell
 az group delete --name my-aks-cluster-group

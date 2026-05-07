@@ -158,7 +158,7 @@ The following table shows built-in roles that we recommend when you use triggers
 [Azure Service Bus Data Receiver]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver
 [Azure Service Bus Data Sender]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender
 [Azure Service Bus Data Owner]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner
-[role-assignment-scope]: ../service-bus-messaging/service-bus-managed-service-identity.md#choose-the-resource-scope
+[role-assignment-scope]: ../service-bus-messaging/service-bus-managed-service-identity.md#understand-service-bus-rbac-scope-levels
 
 #### Connection strings in version 2.*x*
 

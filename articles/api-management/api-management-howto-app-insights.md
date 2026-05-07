@@ -356,7 +356,7 @@ Application Insights receives:
 
 ## Emit custom metrics
 
-You can emit [custom metrics](/azure/azure-monitor/essentials/metrics-custom-overview) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
+You can emit [custom metrics](/azure/azure-monitor/essentials/metrics-custom-overview) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [llm-emit-token-metric](llm-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
 
 > [!NOTE]
 > Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).

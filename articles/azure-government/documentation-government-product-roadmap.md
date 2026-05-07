@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: russellkirk
 author: krussell09
 recommendations: false
-ms.date: 04/02/2026
+ms.date: 04/16/2026
 ---
 # Microsoft Azure Government Product General Availability(GA) Roadmap
 
@@ -40,7 +40,6 @@ For comprehensive information about compliance in Azure Government clouds, see [
 
 | Product | FedRAMP High | DoD IL4 | DoD IL5 | DoD IL6 (Azure Secret) |
 | :--- | :---: | :---: | :---: | :---: |
-| AI builder | n/a | n/a | Planned | n/a |
 | API Management | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | App Service | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;App Service Basic : App Service Linux | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
@@ -162,7 +161,6 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | Azure VM Image Builder | n/a | n/a | Planned | Forecasted |
 | Azure VMware Solution | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a |
 | Azure Web Application Firewall | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Planned |
-| Azure Web PubSub | n/a | Awaiting Review | Awaiting Review | n/a |
 | Backup | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | Bandwidth | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | Batch | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
@@ -177,7 +175,6 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | Customer Lockbox for Microsoft Azure | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Awaiting Review |
 | Data Factory | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | Dataverse | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Planned | Awaiting Review |
-| Dynamics 365 Athena - CDS to Azure data lake | n/a | n/a | Planned | n/a |
 | Dynamics 365 Commerce | n/a | Planned | n/a | n/a |
 | Dynamics 365 Contact Center | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Awaiting Review | Planned | n/a |
 | Dynamics 365 Customer Insights | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a | n/a |
@@ -193,7 +190,6 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Azure Event Hubs Premium SKU | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a |
 | ExpressRoute | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ExpressRoute Gateways | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
-| Fluid Relay Service | n/a | Awaiting Review | Awaiting Review | n/a |
 | Functions | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consumption Plan | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consumption Plan Linux | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | n/a |

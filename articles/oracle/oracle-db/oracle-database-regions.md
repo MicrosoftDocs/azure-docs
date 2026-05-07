@@ -27,7 +27,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | -------------- | ----------------------- | ------------|----------------- | -------------------------------- | -------- |---------|---------|---------|-----|
 | Australia East | Australia East (Sydney) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓|  Dual   |
 | Australia Southeast | Australia Southeast (Melbourne) | ✓ | ✓ | ✓ | ✓ | |  | |   Dual   |
-| Central India | India West (Mumbai) | ✓  | ✓| ✓ | ✓ | | | ✓ |   Dual   |
+| Central India | India West (Mumbai) | ✓  | ✓| ✓ | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan East | Japan East (Tokyo) | ✓  | ✓| ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓| ✓ | ✓ | ✓ | ✓ | ✓ |   Single   |
 | South India | 	India South (Chennai) | ✓ | ✓ | ✓ | ✓ | | | |   Single   |
@@ -59,7 +59,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | UAE North | UAE North (Dubai) | ✓ | ✓ | ✓ | ✓ | | | ✓ |   Dual    |
 | UK South| UK South (London)   | ✓   | ✓| ✓   | ✓ | ✓ | ✓ | ✓ | Dual |
 | UK West | UK West (Newport)	   | ✓   | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ | Single |
-| West Europe | Netherlands Northwest (Amsterdam)   | ✓   | ✓ | ✓ | ✓ | ✓ | | Dual |
+| West Europe | Netherlands Northwest (Amsterdam)   | ✓   | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 
 
 ## North America (NA)

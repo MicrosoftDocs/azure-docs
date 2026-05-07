@@ -1,33 +1,34 @@
 ---
 title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Delta Lake format
-description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
+description: Learn how to use the no code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
 author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 2/17/2023
+ms.date: 04/29/2026
 ms.custom:
   - mvc
   - sfi-image-nochange
 ---
 # Capture data from Event Hubs in Delta Lake format 
 
-This article explains how to use the no code editor to automatically capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
+This article explains how to use the no-code editor to automatically capture streaming data in Event Hubs to an Azure Data Lake Storage Gen2 account in Delta Lake format.
+
 
 ## Prerequisites
 
-- Your Azure Event Hubs and Azure Data Lake Storage Gen2 resources must be publicly accessible and can't be behind a firewall or secured in an Azure Virtual Network.
-- The data in your Event Hubs must be serialized in either JSON, CSV, or Avro format.
+- You must make your Azure Event Hubs and Azure Data Lake Storage Gen2 resources publicly accessible. Don't place them behind a firewall or secure them in an Azure Virtual Network.
+- You must serialize the data in your Event Hubs in JSON, CSV, or Avro format.
 
 ## Configure a job to capture data
 
 Use the following steps to configure a Stream Analytics job to capture data in Azure Data Lake Storage Gen2.
 
-1. In the Azure portal, navigate to your event hub. 
+1. In the Azure portal, go to your event hub. 
 1. Select **Features** > **Process Data**, and select **Start** on the **Capture data to ADLS Gen2 in Delta Lake format** card.  
     :::image type="content" source="./media/capture-event-hub-data-delta-lake/process-event-hub-data-cards.png" alt-text="Screenshot showing the Process Event Hubs data start cards." lightbox="./media/capture-event-hub-data-delta-lake/process-event-hub-data-cards.png" :::
 
-    Alternatively, select **Features** > **Capture**, and select **Delta Lake** option under "Output event serialization format", then select **Start data capture configuration**.
+    Alternatively, select **Features** > **Capture**, and select the **Delta Lake** option under **Output event serialization format**. Then, select **Start data capture configuration**.
     :::image type="content" source="./media/capture-event-hub-data-delta-lake/create-job-through-capture-blade.png" alt-text="Screenshot showing the entry point of the capture data creation." lightbox="./media/capture-event-hub-data-delta-lake/create-job-through-capture-blade.png" :::
 
 1. Enter a **name** to identify your Stream Analytics job. Select **Create**.  
@@ -41,24 +42,24 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. Select the **Azure Data Lake Storage Gen2** tile to edit the configuration. 
 1. On the **Azure Data Lake Storage Gen2** configuration page, follow these steps:     
     1. Select the subscription, storage account name, and container from the drop-down menu. 
-    1. Once the subscription is selected, the authentication method and storage account key should be automatically filled in.  
-    1. For **Delta table path**, it's used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2. You can choose to use one or more path segments to define the path to the delta table and the delta table name. To learn more, see to [Write to Delta Lake table](./write-to-delta-lake.md).  
+    1. After you select the subscription, the authentication method and storage account key are automatically filled in.  
+    1. For **Delta table path**, specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2. You can choose to use one or more path segments to define the path to the delta table and the delta table name. To learn more, see [Write to Delta Lake table](./write-to-delta-lake.md).  
     1. Select **Connect**.
     
         :::image type="content" source="./media/capture-event-hub-data-delta-lake/blob-configuration.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-delta-lake/blob-configuration.png" :::  
     
 1. When the connection is established, you see fields that are present in the output data.
 1. Select **Save** on the command bar to save your configuration.
-1. Select **Start** on the command bar to start the streaming flow to capture data. Then in the Start Stream Analytics job window:
+1. Select **Start** on the command bar to start the streaming flow to capture data. Then in the **Start Stream Analytics job** window:
     1. Choose the output start time.
     1. Select the number of Streaming Units (SU) that the job runs with. SU represents the computing resources that are allocated to execute a Stream Analytics job. For more information, see [Streaming Units in Azure Stream Analytics](stream-analytics-streaming-unit-consumption.md).  
         :::image type="content" source="./media/capture-event-hub-data-delta-lake/start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window where you set the output start time, streaming units, and error handling." lightbox="./media/capture-event-hub-data-delta-lake/start-job.png" :::
 
 
-1. After you select **Start**, the job starts running within two minutes, and the metrics will be open in tab section as shown in the following image.
+1. After you select **Start**, the job starts running within two minutes, and the metrics open in the tab section as shown in the following image.
     :::image type="content" source="./media/capture-event-hub-data-delta-lake/metrics-chart-in-tab-section.png" alt-text="Screenshot showing the metrics chart." lightbox="./media/capture-event-hub-data-delta-lake/metrics-chart-in-tab-section.png" :::
 
-1. The new job can be seen on the **Stream Analytics jobs** tab.
+1. You can see the new job on the **Stream Analytics jobs** tab.
     :::image type="content" source="./media/capture-event-hub-data-delta-lake/open-metrics-link.png" alt-text="Screenshot showing Open Metrics link selected." lightbox="./media/capture-event-hub-data-delta-lake/open-metrics-link.png" :::
 
 

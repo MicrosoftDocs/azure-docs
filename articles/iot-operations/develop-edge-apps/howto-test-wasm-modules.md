@@ -91,9 +91,9 @@ wasm-tools component wit your-module.wasm
 
 This shows the WIT interfaces your module implements. Verify you see the expected `map`, `filter`, or `branch` export.
 
-## Local testing with the aio-dataflow CLI
+## Local testing with the dataflow-dev CLI
 
-The `aio-dataflow` CLI lets you test your WASM modules locally against a graph definition without deploying to a cluster. The CLI uses Docker containers to simulate the dataflow runtime.
+The `dataflow-dev` CLI lets you test your WASM modules locally against a graph definition without deploying to a cluster. The CLI uses Docker containers to simulate the dataflow runtime.
 
 To create a test case, create a directory with the following structure:
 
@@ -122,13 +122,13 @@ The `graph` field points to the graph definition, `input` contains the test data
 Run the test:
 
 ```bash
-aio-dataflow run start
-aio-dataflow build --app .
-aio-dataflow test --app . my-test
-aio-dataflow run stop
+dataflow-dev run start
+dataflow-dev build --app .
+dataflow-dev test --app . my-test
+dataflow-dev run stop
 ```
 
-For a complete set of test examples, see the [test-runner/tests](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/test-runner/tests) directory in the samples repository.
+For a complete set of test examples, see the [tests](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/tests) directory in the samples repository.
 
 ## End-to-end testing on a cluster
 
@@ -139,7 +139,7 @@ For integration testing, deploy your module to a development cluster and use MQT
 3. Subscribe to the output topic: `mosquitto_sub -h localhost -t "output/topic" -v`
 4. Publish test messages: `mosquitto_pub -h localhost -t "input/topic" -m '{"temperature": {"value": 72}}'`
 5. Verify the output matches expectations.
-6. Check pod logs for errors: `kubectl logs -l app=aio-dataflow -n azure-iot-operations --tail=50`
+6. Check pod logs for errors: `kubectl logs -l app=dataflow-dev -n azure-iot-operations --tail=50`
 
 For more information, see [Deploy modules and graph definitions](howto-deploy-wasm-graph-definitions.md) and [Configure registry endpoints](howto-configure-registry-endpoint.md).
 

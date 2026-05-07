@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Use transactions in a SQL pool in Azure Synapse 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article includes tips for implementing transactions and developing solutions in a SQL pool.
 
 ## What to expect

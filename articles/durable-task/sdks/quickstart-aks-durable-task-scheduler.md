@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Host a .NET Durable Task SDK app on Azure Kubernetes Service"
-description: Learn how to deploy a .NET Durable Task SDK sample and Durable Task Scheduler to Azure Kubernetes Service (AKS) using Azure Developer CLI.
+title: "Quickstart: Host a .NET Durable Task SDK App on AKS"
+description: Deploy a .NET Durable Task SDK app with Durable Task Scheduler to Azure Kubernetes Service (AKS) using Azure Developer CLI. Follow this quickstart to get started.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-task-sdks
 ms.topic: quickstart
-ms.date: 02/27/2026
+ms.date: 05/05/2026
 ---
 
 # Quickstart: Host a .NET Durable Task SDK app on Azure Kubernetes Service
@@ -40,7 +40,7 @@ Before you begin:
   azd auth login
   ```
 
-## Prepare and run the sample locally
+## Prepare and run the Durable Task sample locally
 
 1. From the repository root, go to the AKS scenario sample:
 
@@ -96,7 +96,21 @@ Before you begin:
    Done.
    ```
 
+1. (Optional) View orchestration details in [the Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md) at `http://localhost:8082`. Click the **default** task hub, then click the orchestration instance ID to see execution history.
+
+    :::image type="content" source="../scheduler/media/quickstart-aks-durable-task-scheduler/orchestration-instance.png" alt-text="Screenshot of the Durable Task Scheduler dashboard showing orchestration instance execution details.":::
+
 ## Deploy to AKS with Azure Developer CLI
+
+`azd up` provisions and deploys the following Azure resources:
+
+| Resource | Purpose |
+| --- | --- |
+| AKS cluster | Hosts the client (1 replica) and worker (2 replicas) pods. |
+| Azure Container Registry (ACR) | Stores Docker images built server-side via ACR Tasks. |
+| Durable Task Scheduler (Consumption SKU) | Managed orchestration backend for state and execution. |
+| VNet | Network isolation for AKS. |
+| User-assigned managed identity + federated credentials | Workload Identity auth from pods to Durable Task Scheduler. |
 
 1. From `samples/scenarios/DocumentProcessingOnAKS`, run:
 
@@ -112,22 +126,21 @@ Before you begin:
    | Azure Subscription | Azure subscription for deployment. |
    | Azure Location | Azure region for the resources. |
 
-`azd up` provisions and deploys the full solution, including:
+   Provisioning takes approximately 5-10 minutes.
 
-- AKS cluster for the client and worker workloads.
-- Azure Container Registry (ACR) for container images.
-- Durable Task Scheduler for orchestration state and execution.
-- User-assigned managed identity and federated credentials for AKS workload identity authentication.
+## Verify the AKS deployment with kubectl
 
-## Verify the AKS deployment
+1. Get your resource group and cluster names from the `azd` environment:
+
+   ```bash
+   azd env get-values | grep -E "RESOURCE_GROUP|AKS_NAME"
+   ```
 
 1. Get AKS credentials:
 
    ```bash
    az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>
    ```
-
-   You can get these values from `azd env get-values`.
 
 1. Confirm pods are running:
 
@@ -151,18 +164,32 @@ When deployment is working, the client logs show scheduled orchestrations and co
 
 ### Verify using the Durable Task Scheduler dashboard
 
-You can also verify your task hub and orchestration status using the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md).
+You can also verify orchestration status using the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md) in the Azure portal:
 
-You can view the orchestration status and history via the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md).By default, the dashboard runs on port 8082. 
-
-1. Navigate to http://localhost:8082 in your web browser.
-1. Click the **default** task hub. The orchestration instance you created is in the list.
-1. Click the orchestration instance ID to view the execution details.
-
-    :::image type="content" source="../scheduler/media/quickstart-aks-durable-task-scheduler/orchestration-instance.png" alt-text="Screenshot showing the orchestration instance's details.":::
+1. Open the [Azure portal](https://portal.azure.com) and navigate to your Durable Task Scheduler resource.
+1. Select the task hub, then select **Open Dashboard**.
+1. Find your orchestration instances and click an instance ID to view execution details, including the parallel classification activities.
 
 
 ## Understand the code
+
+The sample implements a document-processing pipeline with two [Durable Task patterns](../common/durable-task-fan-in-fan-out.md):
+
+1. **Activity chaining** — `ValidateDocument` must pass before classification begins.
+1. **Fan-out/fan-in** — Three `ClassifyDocument` activities run in parallel (Sentiment, Topic, Priority), and the orchestration awaits all three before assembling the final result.
+
+```
+Client ──▶ DocumentProcessingOrchestration
+               │
+               ├─ 1. ValidateDocument            (activity chaining)
+               │
+               ├─ 2. ClassifyDocument × 3         (fan-out / fan-in)
+               │      ├─ Sentiment
+               │      ├─ Topic
+               │      └─ Priority
+               │
+               └─ 3. Assemble result string ──▶ return to Client
+```
 
 ### Client app
 
@@ -229,6 +256,9 @@ docker stop dts-emulator
 docker rm dts-emulator
 ```
 
-## Next step
+## Next steps
 
-- Learn more in [Durable Task SDK overview](durable-task-overview.md).
+- [Durable Task SDK overview](durable-task-overview.md)
+- [Quickstart: Deploy to Azure Container Apps](quickstart-container-apps-durable-task-sdk.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Fan-out/fan-in pattern](../common/durable-task-fan-in-fan-out.md)

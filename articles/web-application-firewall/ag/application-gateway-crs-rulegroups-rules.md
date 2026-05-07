@@ -14,6 +14,8 @@ ms.custom: build-2025
 
 # Web Application Firewall DRS and CRS rule groups and rules
 
+**Applies to:** :heavy_check_mark: Application Gateway
+
 The Azure-managed Default Rule Set (DRS) in the Application Gateway web application firewall (WAF) actively protect web applications from common vulnerabilities and exploits. These rule sets, managed by Azure, receive updates as necessary to guard against new attack signatures. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. The Microsoft Intelligence team collaborates in writing these rules, ensuring enhanced coverage, specific vulnerability patches, and improved false positive reduction.
 
 You can disable rules individually, or set specific actions for each rule. This article lists the current rules and rule sets available. If a published rule set requires an update, we'll document it here.

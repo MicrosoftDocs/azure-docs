@@ -1,19 +1,19 @@
 ---
 title: ADE CLI reference
 titleSuffix: Azure Deployment Environments
-description: Learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
+description: Learn about the commands available for building custom images using Azure Deployment Environments (ADE) base images.
 ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/13/2024
 ms.topic: reference
 
-# Customer intent: As a developer, I want to learn about the commands available for building custom images using Azure Deployment Environment (ADE) base images.
+# Customer intent: As a developer, I want to learn about the commands available for building custom images using Azure Deployment Environments (ADE) base images.
 ---
 
-# Azure Deployment Environment CLI reference
+# Azure Deployment Environments CLI reference
 
-This article describes the commands available for building custom images using Azure Deployment Environment (ADE) base images.
+This article describes the commands available for building custom images using Azure Deployment Environments (ADE) base images.
 
 By using the ADE CLI, you can interact with information about your environment and specified environment definition, upload, and access previously uploaded files related to the environment, record more logging regarding their executing operation, and upload and access outputs of an environment deployment.
 
@@ -82,7 +82,7 @@ This command returns a JSON object describing the environment definition. Here's
 #### Utilizing returned property values
 
 You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (preinstalled on ADE-authored images), using the following format:\
-```environment_name=$(echo $definitionValue | jq -r ".Name")```
+```environment_name=$(echo $definitionValue | jq -r ".name")```
 
 You can learn more about advanced filtering and other uses for the JQ library [here](https://devdocs.io/jq/).
 
@@ -139,7 +139,7 @@ This command returns a JSON object describing the environment. Here's an example
 ### Utilizing returned property values
 
 You can assign environment variables to certain properties of the returned definition JSON object by utilizing the JQ library (preinstalled on ADE-authored images), using the following format:\
-```environment_name=$(echo $environment | jq -r ".Name")```
+```environment_name=$(echo $environment | jq -r ".name")```
 
 You can learn more about advanced filtering and other uses for the JQ library [here](https://devdocs.io/jq/).
 
@@ -327,7 +327,7 @@ In order for, the incoming JSON file to be serialized properly and accepted as t
         "output3": {
             "type": "string",
             "value": "This is a sensitive output",
-            "sensitive" true
+            "sensitive": true
         }
     }
 }
