@@ -592,7 +592,8 @@ This section applies only if you're using Azure fence agent as a fencing device.
 To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity is already enabled, then it would be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and higher.  
 
 #### [Service principal](#tab/spn)
-
+> [!CAUTION]
+> Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
 To create a service principal, do the following:
 
 1. In the [Azure portal](https://portal.azure.com), select **Microsoft Entra ID** > **Properties**, and then write down the Directory ID. This is the **tenant ID**.
