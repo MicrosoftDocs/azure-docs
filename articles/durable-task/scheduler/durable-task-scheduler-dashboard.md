@@ -130,15 +130,37 @@ To access the dashboard for an Azure-hosted scheduler, assign the *Durable Task 
 
 ::: zone-end 
 
-## Monitor your task hub
+## Monitor your task hub via the dashboard
 
 The dashboard allows you to monitor orchestration progress and review execution history. From the dashboard home page, you can find your task hub's orchestrations, entities, schedules, workers and metrics, and AI agents (currently in preview). 
+
+<details>
+<summary><h3>Orchestrations overview pane</h3></summary>
 
 View orchestrations by clicking either on the task hub name or **Orchestrations** from the side menu.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/dashboard-home.png" alt-text="Screenshot of the dashboard home page with links to task hubs, orchestration history, entities, schedules, workers, metrics, and AI agents.":::
 
-In the Orchestrations overview page, you can filter the orchestration list using the following criteria.
+From the **Orchestrations** overview pane, you can:
+- Review a list of orchestration instances. 
+- Narrow down the orchestrations via search bar or filters.
+- Create a new orchestration.
+- Copy a shareable link to the dashboard.
+- Set auto-refresh intervals of the orchestration list.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/orchestrations.png" alt-text="Screenshot of the dashboard listing orchestrations.":::
+
+Orchestration information is presented with the following default columns. 
+
+| Category | Description |
+| -------- | ----------- |
+| Instance ID | Search for a specific orchestration instance by its unique ID. |
+| Name | Filter by the orchestration type name. |
+| Status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
+| Tags | Filter by the tags applied to the orchestration instance. |
+| Created | Date and time that the orchestration was created. |
+
+You can filter the orchestration list using the following criteria.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-filters.png" alt-text="Screenshot of the dashboard listing orchestration history and status with filter options.":::
 
@@ -149,19 +171,39 @@ In the Orchestrations overview page, you can filter the orchestration list using
 | Tag filter | Search for orchestrations by tag key *or* value. |
 | Created from/Created to | Narrow results to a time window. |
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestrations.png" alt-text="Screenshot of the dashboard listing orchestrations.":::
+Trigger a refresh of the orchestration list by:
+- Clicking the refresh icon for a manual refresh.
+- Toggle **Auto** and select interval to automatically refresh the list. 
 
-| Category | Description |
-| -------- | ----------- |
-| Instance ID | Search for a specific orchestration instance by its unique ID. |
-| Name | Filter by the orchestration type name. |
-| Status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
-| Tags | Filter by the tags applied to the orchestration instance. |
-| Created | Date and time that the orchestration was created. |
+   :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestrations.png" alt-text="Screenshot of the auto-refresh toggle and manual refresh icon.":::
 
-### Detailed view of orchestration execution
+<h4>Create a new orchestration</h4>
 
-Click an orchestration instance to view its execution details and activity progress. Use the following tabs to diagnose problems or gain visibility into the status of an orchestration. 
+You can create a new orchestration from the Durable Task Scheduler dashboard. 
+
+1. From the **Orchestrations** overview pane, click **+ New Orchestration**. 
+1. Fill out the information in the **New Orchestration** form.
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/create-new-orchestration.png" alt-text="Screenshot of the "Create new orchestration" form.":::
+
+   | Field | Description |
+   | ----- | ----------- |
+   | Orchestration Name | Select an orchestration from the drop down, or type a custom orchestration name. |
+   | Instance ID | *Optional.* Instance IDs are auto-generated. Whether you create one yourself or let it auto-generate, instance IDs are in ASCII format. |
+   | Version | *Optional.* Enter applicable version number. |
+   | Input | *Optional.* Enter input in JSON format. |
+   | Scheduled start | *Optional.* Select the start date and time for the orchestration. |
+   | Tags | *Optional.* Enter key and/or value tags associated with the orchestration. |
+
+1. Click **Create**.
+
+   You can see your new orchestration in the list.
+
+<h4>Orchestration details</h4>
+
+Click an orchestration instance to diagnose problems or gain visibility into the status of an orchestration. 
+
+Use the **Timeline**, **History**, and **Flow** tabs to view its execution details and activity progress. The Timeline tab is open by default.  
 
 - The *Timeline* tab shows the intervals of a running orchestration. 
 
@@ -183,26 +225,51 @@ Click an orchestration instance to view its execution details and activity progr
 
    :::image type="content" source="media/durable-task-scheduler-dashboard/view-task.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status via the flow view.":::
 
-### Other views of orchestration execution sequence
+<h4>Manage orchestrations</h4>
 
-The *History* view shows detailed event sequence, timestamps, and payload:
+You can manage your orchestration lifecycle via the dashboard. 
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/instance-details.png" alt-text="Screenshot of the dashboard showing orchestration instance details.":::
+:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, and Raise Event buttons for managing orchestrations.":::
 
-The *Sequence* view gives another way of visualizing event sequence:
+Available actions include:
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-sequence.png" alt-text="Screenshot of the dashboard showing orchestration sequence view.":::
+- **Raise Event:** Send a named external event (with optional JSON payload) to a running or suspended orchestration.
 
-## Orchestration management 
+    :::image type="content" source="media/durable-task-scheduler-dashboard/raise-event-action.png" alt-text="Screenshot of the form for raising an event.":::
 
-The dashboard includes features for managing orchestration lifecycle on demand. Available actions include:
+- **Restart:** Restart a previously running orchestration.
 
-- **Suspend** — Pause a running orchestration. It remains in memory but stops processing events until resumed.
-- **Resume** — Continue a previously suspended orchestration.
-- **Terminate** — Immediately stop an orchestration with an optional reason string.
-- **Raise event** — Send a named external event (with optional JSON payload) to a running or suspended orchestration.
+    :::image type="content" source="media/durable-task-scheduler-dashboard/restart-orchestration.png" alt-text="Screenshot of the confirmation for restarting an orchestration.":::
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration.png" alt-text="Screenshot of the dashboard showing the Suspend, Resume, Terminate, and Raise Event buttons for managing orchestrations.":::
+- **Terminate:** Immediately stop an orchestration with an optional reason string.
+
+    :::image type="content" source="media/durable-task-scheduler-dashboard/terminate-orchestration.png" alt-text="Screenshot of the confirmation for terminating an orchestration and the option for a force terminate.":::
+
+- **Purge:** Purge the orchestration instance.
+
+    :::image type="content" source="media/durable-task-scheduler-dashboard/purge-orchestration.png" alt-text="Screenshot of the confirmation for purging an orchestration.":::
+
+</details>
+
+<details>
+<summary><h3>Entities</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>Agents (preview)</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>Schedules</h3></summary>
+
+</details>
+
+<details>
+<summary><h3>Workers & metrics</h3></summary>
+
+</details>
 
 ## Next steps
 
