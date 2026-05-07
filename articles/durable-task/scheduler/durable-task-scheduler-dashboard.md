@@ -135,7 +135,7 @@ To access the dashboard for an Azure-hosted scheduler, assign the *Durable Task 
 The dashboard allows you to monitor orchestration progress and review execution history. From the dashboard home page, you can find your task hub's orchestrations, entities, schedules, workers and metrics, and AI agents (currently in preview). 
 
 <details>
-<summary><h3>Orchestrations overview pane</h3></summary>
+<summary><b>Orchestrations overview pane</b></summary>
 
 View orchestrations by clicking either on the task hub name or **Orchestrations** from the side menu.
 
@@ -177,7 +177,7 @@ Trigger a refresh of the orchestration list by:
 
    :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestrations.png" alt-text="Screenshot of the auto-refresh toggle and manual refresh icon.":::
 
-<h4>Create a new orchestration</h4>
+**Create a new orchestration**
 
 You can create a new orchestration from the Durable Task Scheduler dashboard. 
 
@@ -199,7 +199,7 @@ You can create a new orchestration from the Durable Task Scheduler dashboard.
 
    You can see your new orchestration in the list.
 
-<h4>Orchestration details</h4>
+**Orchestration details**
 
 Click an orchestration instance to diagnose problems or gain visibility into the status of an orchestration. 
 
@@ -225,7 +225,7 @@ Use the **Timeline**, **History**, and **Flow** tabs to view its execution detai
 
    :::image type="content" source="media/durable-task-scheduler-dashboard/view-task.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status via the flow view.":::
 
-<h4>Manage orchestrations</h4>
+**Manage orchestrations**
 
 You can manage your orchestration lifecycle via the dashboard. 
 
@@ -252,22 +252,22 @@ Available actions include:
 </details>
 
 <details>
-<summary><h3>Entities</h3></summary>
+<summary><b>Entities</b></summary>
 
 </details>
 
 <details>
-<summary><h3>Agents (preview)</h3></summary>
+<summary><b>Agents (preview)</b></summary>
 
 </details>
 
 <details>
-<summary><h3>Schedules</h3></summary>
+<summary><b>Schedules</b></summary>
 
 </details>
 
 <details>
-<summary><h3>Workers & metrics</h3></summary>
+<summary><b>Workers & metrics</b></summary>
 
 </details>
 
