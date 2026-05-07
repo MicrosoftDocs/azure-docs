@@ -13,7 +13,7 @@ ms.author: wellee
 
 
 > [!Important]
-> Virtual WAN connection policy is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Virtual WAN connection policy is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The following document describes how to use connection policy in Azure Virtual WAN.
 
