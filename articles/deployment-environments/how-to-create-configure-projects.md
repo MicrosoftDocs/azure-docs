@@ -7,7 +7,7 @@ ms.author: remarcia
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
-ms.date: 03/19/2025
+ms.date: 05/08/2026
 
 #customer intent: As a platform engineer, I want to create a project in Azure Deployment Environments so that my teams can deploy applications.
 ---
@@ -32,33 +32,33 @@ To create a project in your dev center:
 
 1. Sign in to the Azure CLI:
 
-    ```azurecli
-    az login
-    ```
+   ```azurecli
+   az login
+   ```
 
 1. Install the Azure CLI *devcenter* extension:
 
-   ```azurecli
-   az extension add --name devcenter --upgrade
-   ```
+    ```azurecli
+    az extension add --name devcenter --upgrade
+    ```
 
 1. Configure the default subscription as the subscription where your dev center resides:
 
-   ```azurecli
-   az account set --subscription <subscriptionName>
-   ```
+    ```azurecli
+    az account set --subscription <subscriptionName>
+    ```
 
 1. Configure the default resource group as the resource group where your dev center resides:
 
-   ```azurecli
-   az configure --defaults group=<resourceGroupName>
-   ```
+    ```azurecli
+    az configure --defaults group=<resourceGroupName>
+    ```
 
 1. Configure the default location as the location where your dev center resides. The location of the project must match the location of the dev center.
 
-   ```azurecli
-   az configure --defaults location=eastus
-   ```
+    ```azurecli
+    az configure --defaults location=eastus
+    ```
 
 1. Retrieve the dev center resource ID:
 
@@ -85,7 +85,7 @@ To create a project in your dev center:
 
 Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types).
 
-In this quickstart, you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
+In this quickstart, you assign the Owner role to the system-assigned managed identity that you configured previously. See [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
 
 1. Retrieve the subscription ID:
 
@@ -152,7 +152,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 In this quickstart, you give access to your own ID. Optionally, you can replace the value of `--assignee` for the following commands with another member's object ID.
 
-1. Retrieve your own object ID:
+1. Retrieve your object ID:
 
     ```azurecli
     $MYOID = az ad signed-in-user show --query id -o tsv
@@ -174,7 +174,6 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     --role "Deployment Environments User" `
     --scope "/subscriptions/$SUBID"
     ```
-
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
