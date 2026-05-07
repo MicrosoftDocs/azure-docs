@@ -12,9 +12,6 @@ ms.date: 04/07/2026
 
 # MANA support for Network Virtual Appliances (NVAs)
 
-> [!IMPORTANT]
-> For timelines pertaining to VM families running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
-
 As Azure expands [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) support to [existing VM series](./accelerated-networking-mana-existing-sizes.md), Network Virtual Appliances (NVAs) running on those VM series may be placed on MANA-capable hardware. Existing VM series are supported on Microsoft Azure Network Adapter (MANA) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
 
 Newer VM series are built and optimized with MANA in mind and are designed to take full advantage of its performance, reliability, and resiliency improvements. For this reason, it is recommended to use newer VM sizes for the most optimal networking experience.

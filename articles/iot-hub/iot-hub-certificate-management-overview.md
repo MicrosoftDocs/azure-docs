@@ -29,15 +29,14 @@ The following features are supported with certificate management for IoT Hub dev
 | Create multiple certificate authorities (CA) in an ADR namespace | Create two-tier PKI hierarchy with root and issuing CA in the cloud. |
 | Create a unique root CA per ADR namespace | Create up to 1 credential resource per ADR namespace. A single credential manages one, unique, root CA in your dedicated cloud PKI. |
 | Create up to one issuing CA per ADR namespace| Create up to 1 policy per ADR namespace. A single policy manages one, unique, issuing CA, and allows you to customize the validity period for issued device certificates. You can choose to have your issuing CA be signed by your namespace-level root CA or an external root CA that your organization owns. |
-| Signing and encryption algorithms | Certificate management supports ECC (ECDSA) and the NIST P-384 curve. |
+| Signing and encryption algorithms| Certificate management supports ECC (ECDSA) and the NIST P-384 curve.|
 | Hash algorithms | Certificate management supports SHA-384. |
 | HSM keys (signing and encryption) | Keys are provisioned by using [Azure Key Vault Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 |Device certificate issuance and renewal | Device certificates, also known as leaf certificates, are signed by the issuing CA and delivered to the device via device APIs. Leaf certificates can also be renewed by the issuing CA. |
-| At-scale provisioning of device certificates | Use policies you define in your ADR namespace to link directly to Device Provisioning Service enrollments to enable certificate provisioning. |
 | Device certificate revocation | Revoke individual device certificates to block device connections until a new certificate is issued to the device. Revoked certificates are added to the parent CA's Certificate Revocation List (CRL). |
-| Policy revocation |Revoking a policy removes the associated CA certificate from IoT Hub and adds the policy to the parent CA’s Certificate Revocation List (CRL), thereby blocking all devices from connecting with a certificate issued by that CA. Once the policy is revoked, a new CA certificate is automatically created for that policy and synchronized with IoT Hub. Revocation is not supported for policies that chain to an external CA.|
-|Certificate Revocation List (CRL) distribution points|Azure hosts the CRL distribution point (CDP) for each CA. The CDP URL is embedded on the certificate. The CRL is updated with every certificate revocation.|
-|Authority Information Access (AIA) end points|Azure hosts the AIA endpoint for each Issuing CA. The AIA URL is embedded on the certificate. The AIA endpoint can be used by relying parties to retrieve parent certificates.|
+| Policy revocation |Revoke a policy to remove the associated CA certificate from IoT Hub and add the CA to the parent CA’s Certificate Revocation List (CRL). This will block all devices from connecting to IoT Hub with a certificate issued by that CA. Revocation is not supported for policies that are signed by an external CA.|
+|Certificate Revocation List (CRL) distribution points|Azure hosts the CRL distribution point (CDP) for each CA. The CDP URL is embedded on each certificate. The CRL is updated with every certificate revocation.|
+|Authority Information Access (AIA) end points|Azure hosts the AIA endpoint for each Issuing CA. The AIA URL is embedded on each certificate. The AIA endpoint can be used by relying parties to retrieve parent certificates.|
 | Sync CA certificates with IoT Hubs | Sync the CA certificate managed by your policy to the IoT Hubs linked to your namespace. This allows IoT Hub to trust device certificates that have been signed by one of your issuing CAs.|
 
 ## Onboarding vs. operational credentials
