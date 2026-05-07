@@ -13,7 +13,10 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Monitor Apache Spark applications with Azure Log Analytics
+# Legacy HTTP Data Collector API path for Azure Log Analytics
+
+> [!IMPORTANT]
+> Instead of following this article, go to [Collect logs and metrics with Azure Log Analytics](data-collector-api-to-log-ingestion-api.md) for new setups and migrations. This article is for the legacy HTTP Data Collector API path and is kept for reference only.
 
 In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
 
