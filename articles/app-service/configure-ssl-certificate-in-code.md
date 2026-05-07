@@ -3,7 +3,7 @@ title: Use TLS/SSL Certificates in App Code
 description: Understand how to use TLS/SSL certificates in your application code to secure connections in Azure App Service.
 keywords: TLS/SSL in code, secure app, HTTPS integration, Azure App Service security
 ms.topic: article
-ms.date: 02/14/2025
+ms.date: 04/16/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -17,32 +17,32 @@ ms.custom:
 
 [!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
-In your application code, you can access both [public key certificates and certificates that contain a private key that you add to Azure App Service.](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use publicly or privately signed certificates in your application code.
+In your application code, you can access both [public key certificates and certificates that contain a private key that you add to Azure App Service](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use publicly or privately signed certificates in your application code.
 
 This approach to using certificates in your code makes use of the Transport Layer Security (TLS) functionality in App Service, which requires your app to be in the Basic tier or higher. If your app is in the Free or Shared tier, you can [include the certificate file in your app repository](#load-a-certificate-from-a-file).
 
-When you let App Service manage your TLS/Secure Sockets Layer (SSL) certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
+When you let App Service manage your TLS certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
 ## Prerequisites
-
-To follow this article, see:
 
 - [Create an App Service app](./index.yml)
 - [Add a certificate to your app](configure-ssl-certificate.md)
 
 ## Find the thumbprint
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, on the left pane, select **App Services** > *\<app-name>*.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the left pane of your app, select **Certificates**. Then select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
+1. Select your App Service app.
 
-1. Find the certificate that you want to use and copy the thumbprint.
+1. Under **Settings** on the sidebar menu, select **Certificates**.
 
-![Screenshot that shows copying the certificate thumbprint.](./media/configure-ssl-certificate/create-free-cert-finished.png)
+1. Select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
+
+1. Find the certificate that you want to use, and copy the thumbprint.
 
 ## Make the certificate accessible
 
-To access a certificate in your app code, add its thumbprint to the `WEBSITE_LOAD_CERTIFICATES` app setting. Run the following command in <a target="_blank" href="https://shell.azure.com" >Azure Cloud Shell</a>:
+To access a certificate in your app code, add its thumbprint to the `WEBSITE_LOAD_CERTIFICATES` app setting. You can run the following command in [Azure Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -56,14 +56,14 @@ When `WEBSITE_LOAD_CERTIFICATES` is set to `*`, all previously added certificate
 
 The `WEBSITE_LOAD_CERTIFICATES` app setting makes the specified certificates accessible to your Windows hosted app in the Windows certificate store, in [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-In C# code, you access the certificate by using the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+In C# code, you access the certificate by using the certificate thumbprint. The following code loads a certificate with the thumbprint `<your-cert-thumbprint>`.
 
 ```csharp
 using System;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-string certThumbprint = "E661583E8FABEF4C0BEF694CBC41C28FB81CD870";
+string certThumbprint = "<your-cert-thumbprint>";
 bool validOnly = false;
 
 using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUser))
@@ -113,7 +113,7 @@ For languages that don't support or offer insufficient support for the Windows c
 
 If you need to load a certificate file that you upload manually, it's better to upload the certificate by using [File Transfer Protocol Secure (FTPS)](deploy-ftp.md) instead of [Git](deploy-local-git.md), for example. Keep sensitive data like certificate private keys out of source control.
 
-ASP.NET and ASP.NET Core on Windows must access the certificate store even if you load a certificate from a file. To load a certificate file in a Windows .NET app, load the current user profile with the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+ASP.NET and ASP.NET Core on Windows must access the certificate store even if you load a certificate from a file. To load a certificate file in a Windows .NET app, load the current user profile with the following command:
 
  ```azurecli-interactive
  az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
@@ -134,7 +134,7 @@ var cert = X509CertificateLoader.LoadCertificateFromFile("~/<relative-path-to-ce
 
 // Use the loaded certificate
 ```
-To see how to load a TLS/SSL certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
+To see how to load a TLS certificate from a file in Node.js, PHP, Python, or Java, see the documentation for the respective language or web platform.
 
 ## Load certificates in Linux/Windows containers
 
@@ -250,15 +250,15 @@ If you manually upload the [public](configure-ssl-certificate.md#upload-a-public
 - If you list thumbprints explicitly in `WEBSITE_LOAD_CERTIFICATES`, add the new thumbprint to the app setting.
 - If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, restart the app to make the new certificate accessible.
 
-If you renew a certificate [in Azure Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when your app synchronizes with the renewed certificate.
+If you renew a certificate in [Azure Key Vault](configure-ssl-certificate.md#renew-a-certificate-imported-from-key-vault), such as with an [App Service certificate](configure-ssl-app-service-certificate.md#renew-an-app-service-certificate), the daily sync from Key Vault makes the necessary update automatically when your app synchronizes with the renewed certificate.
 
 - If `WEBSITE_LOAD_CERTIFICATES` contains the old thumbprint of your renewed certificate, the daily sync updates the old thumbprint to the new thumbprint automatically.
 - If `WEBSITE_LOAD_CERTIFICATES` is set to `*`, the daily sync makes the new certificate accessible automatically.
 
 ## Related content
 
-* [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
+* [Enable HTTPS for a custom domain in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
-* [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ: App Service certificates](./faq-configuration-and-management.yml)
+* [Enforce TLS 1.2](configure-ssl-bindings.md#enforce-tls-versions)
+* [FAQ: Creating or deleting resources in Azure App Service](/troubleshoot/azure/app-service/create-delete-resources-faq-new)
 * [Environment variables and app settings reference](reference-app-settings.md)

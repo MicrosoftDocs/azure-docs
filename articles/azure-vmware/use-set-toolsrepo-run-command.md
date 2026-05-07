@@ -12,9 +12,9 @@ ms.date: 3/17/2026
 In this article, learn how to use the Set-ToolsRepo Run Command from end-to-end, how to download and host the correct GuestStore version of the VMware Tools zip file, how we run the AVS Run Command, and how you can validate success.
 
 ## When to use Set-ToolsRepo Run Command
-This Run Command should be used to make a specific VMware Tolls version available for VM guest tools installation and upgrades in an Azure VMware Solution private cloud. When you want to centrally publish the GuestStore version of the VMware tools ZIP file to the vSAN central Tools location so that all relevant hosts can reference the package. 
+This Run Command should be used to make a specific VMware Tools version available for VM guest tools installation and upgrades in an Azure VMware Solution private cloud. When you want to centrally publish the GuestStore version of the VMware tools ZIP file to the vSAN central Tools location so that all relevant hosts can reference the package. 
 
-## Prerequisutes 
+## Prerequisites 
   - A publicly accessible HTTP/HTTPS URL that points to the GuestStore version of the VMware Tools zip file (provided by the customer). The URL must be reachable from the Azure VMware Solution Run Command execution environment.
   - Permission to execute Azure VMware Solution Run Command packages in the Azure portal for the target private cloud.
   - The ZIP contents must include a VMware Tools payload directory in the expected layout.
@@ -22,6 +22,26 @@ This Run Command should be used to make a specific VMware Tolls version availabl
 ### Expected ZIP Content
 The ZIP file you upload must contain the versioned folder under the following section: **vmware/apps/vmtools/windows64/vmtools-\<version>/**.
 The folder name must follow the format **vmtools-\<version>** (For example, **vmtools-12.4.0**).
+
+## Validate option
+The Validate option enables a read-only audit mode for the Tools repository. When specified, Set-ToolsRepo inspects the current datastore metadata files without making any changes to your environment.
+
+### When to use Validate option
+  - Before running Set-ToolsRepo (baseline check)
+  - After running Set-ToolsRepo (confirm everything is in sync)
+  - If you suspect a repository/sync problem and want a quick read-only check
+  
+### What Validate option checks
+  - Identifies all vSAN datastores in the SDDC
+  - Reads repository metadata (top-level-metadata.json and version-metadata.json)
+  - Verifies the metadata and datastore state are consistent and synchronized
+### Validate results
+  - **PASS**: versions match and datastores are in sync
+  - **FAIL**: mismatch/inconsistency detected
+
+### Common Validate option failures
+  - **Metadata mismatch** → Re-run Set-ToolsRepo with a valid Tools ZIP URL (without -Validate option) to redeploy/repair the repository, then run Set-ToolsRepo -Validate to confirm the metadata is in sync.
+  - **GuestStore path not found** → The repository may be missing or inaccessible; deploy/reinitialize by running Set-ToolsRepo with a valid ZIP URL (without -Validate option), then run Set-ToolsRepo -Validate to verify the repository is present and synchronized.
 
 ## Tools ZIP URL
 The Set-ToolsRepo Run command accepts a publicly accessible HTTP/HTTPS URL to the GuestStore version of the VMware Tools zip file that will be published to the vSAN central Tools location. 

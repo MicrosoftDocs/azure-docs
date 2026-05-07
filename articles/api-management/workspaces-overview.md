@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/19/2025
+ms.date: 05/05/2026
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -139,6 +139,18 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways don't support CA certificates
 * Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
 * Workspace gateways can only be created in the API Management instance's primary Azure region 
+
+### Global policy inheritance in workspace gateways
+
+Workspace gateways execute the full policy chain, including the service-level global policy (`global.policy.xml`). This means that any policies defined at the global scope are evaluated and executed for API calls processed by workspace gateways, just as they are for the default gateway. This is by design and consistent with the API Management policy evaluation model, where policies are applied hierarchically at the following [scopes](api-management-howto-policies.md#scopes): global (service) > workspace > product > API > operation.
+
+##### Recommendations for global policies with workspace gateways
+
+- Review your global policy to ensure it contains only policies intended to apply across all gateways, including workspace gateways.
+
+- If different behavior is needed per gateway, use the [choose](choose-policy.md) policy with `context.Deployment.Gateway.Id` to conditionally execute policies based on the gateway processing the request.
+
+- If an [authentication-managed-identity](authentication-managed-identity-policy.md) is defined at the global scope but the token should not be available to workspace-scoped APIs, move the policy to a narrower scope (for example, product or API level) rather than the global policy. 
 
 ## RBAC roles for workspaces
 

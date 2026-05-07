@@ -148,7 +148,7 @@
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
     - name: Encryption at rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/files/toc.json
+      href: customer-managed-keys.md
     - name: Encryption in transit for NFS shares
       href: encryption-in-transit-for-nfs-shares.md
     - name: Manage encryption keys for the storage account

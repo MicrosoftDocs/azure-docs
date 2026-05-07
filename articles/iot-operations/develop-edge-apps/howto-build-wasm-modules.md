@@ -397,7 +397,7 @@ target = "wasm32-wasip2"
 ```
 
 > [!TIP]
-> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-dataflow-dev-graphs) uses this pattern.
+> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-aio-dataflow-graphs) uses this pattern.
 
 Edit `Cargo.toml`:
 

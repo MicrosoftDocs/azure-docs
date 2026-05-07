@@ -637,7 +637,7 @@ namespace SendAndReceiveMessages
 See the following samples: 
 
 - [Managing rules](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample12_ManagingRules.md)
-- [.NET - Topic filters](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters)
+- [.NET - Topic filters](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/servicebus/topic-filters)
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

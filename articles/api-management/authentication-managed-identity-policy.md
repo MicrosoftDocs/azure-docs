@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 05/05/2026
 ms.author: danlep
 ---
 
@@ -16,12 +16,12 @@ ms.author: danlep
 
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme. API Management caches the token until it expires.
 
-Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` is not provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Microsoft Entra ID.
+Both system-assigned identity and any of the multiple user-assigned identities can be used to request a token. If `client-id` isn't provided, system-assigned identity is assumed. If the `client-id` variable is provided, token is requested for that user-assigned identity from Microsoft Entra ID.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 > [!CAUTION]
-> **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they cannot gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies may be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
+> **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they can't gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies may be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
   
 ## Policy statement  
   
@@ -33,7 +33,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |resource|String. The application ID of the target web API (secured resource) in Microsoft Entra ID. Policy expressions are allowed. |Yes|N/A|
-|client-id|String. The client ID of the user-assigned identity in Microsoft Entra ID. Policy expressions aren't allowed. |No|N/A. System-assigned identity is used if attribute is not present.|
+|client-id|String. The client ID of the user-assigned identity in Microsoft Entra ID. Policy expressions aren't allowed. |No|N/A. System-assigned identity is used if attribute isn't present.|
 |output-token-variable-name|String. Name of the context variable that will receive token value as an object of type `string`. Policy expressions aren't allowed. |No|N/A|  
 |ignore-error|Boolean. If set to `true`, the policy pipeline continues to execute even if an access token isn't obtained.|No|`false`|  
 
@@ -43,6 +43,12 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+
+### Usage notes
+
+- If this policy is defined at the global scope, the token obtained will be available in the policy execution context for all APIs, including those in workspaces. If the token should only be available to specific APIs, consider applying the policy at a narrower scope (for example, product or API level) rather than the global policy.
+
+- Token forwarding is the customer's responsibility. When evaluating this policy, API Management obtains a token from Microsoft Entra ID and forwards it to the backend as-is in the `Authorization` header. API Management doesn't validate which backend the token is sent to. It's the customer's responsibility to ensure that tokens are only forwarded to intended and trusted backend services. Configure [backend entities](backends.md) and other policies carefully to prevent tokens from being sent to unintended destinations.
 
 ## Examples
 
