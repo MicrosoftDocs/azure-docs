@@ -13,7 +13,7 @@ ms.author: wellee
 
 
 > [!Important]
-> Virtual WAN connection policy is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Virtual WAN connection policy is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The following document describes how to use connection policy in Azure Virtual WAN.
 
@@ -24,7 +24,7 @@ The following table contains known issues with Virtual WAN connection policy.
 |Issue|Status|
 |--|--|
 | Virtual WAN portal experience for connection policy isn't available. | Currently, connection policy can be managed via [Azure Virtual Network Manager](virtual-network-manager-virtual-wan-overview.md). Virtual WAN Azure portal support for connection policy is currently rolling out. |
-| Connection policy experience in Azure Virtual Network Manager is greyed out.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.|
+| Connection policy experience in Azure Virtual Network Manager is greyed out.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration.|
 | Connection policy doesn't allow for propagated route tables to be set to a remote route table from a different Virtual WAN hub.|Reference [best practices](how-to-connection-policy.md#best-practices) for guidance.|
 
 ## Background

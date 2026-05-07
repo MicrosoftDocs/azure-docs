@@ -13,7 +13,7 @@ ms.custom:
 # Virtual Network Manager and Virtual WAN (Public Preview)
 
 > [!Important]
-> Virtual WAN and Virtual Network Manager integration is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Virtual WAN and Virtual Network Manager integration is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview
 
@@ -45,7 +45,7 @@ The following table describes known issues with the Virtual Network Manager and 
 |--|--|--|
 |Connectivity configurations don't apply properly to cross-tenant network group members.| Deployed connectivity configurations do not properly apply to Virtual Networks in a different tenant than Virtual WAN hub.| Use Terraform, Azure CLI, or Azure PowerShell to manually connect and manage cross-tenant members to the Virtual WAN hub.|
 | [High-scale private endpoints](../private-link/increase-private-endpoint-vnet-limits.md)| when more than 4000 private endpoints are deployed in Virtual Networks connected to a single Virtual WAN hub, Private Link connectivity transiting the hub, either from a virtual network or on-premises, might be impacted. For more information, see [Use Private Link in Virtual WAN](howto-private-link.md).| Ensure the number of Private Endpoints across all Virtual Networks connected to a single Virtual WAN hub does not exceed 4000.|
-|Slow loading for connection policy in Azure portal.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration. As part of a future release, optimizations will allow quicker assignment of connection policies.| Allow additional time for the Azure portal experience to load before retrying the operation. As part of a future release, optimizations will allow quicker assignment of connection policies.|
+|Slow loading for connection policy in Azure portal.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration.| Allow additional time for the Azure portal experience to load before retrying the operation.|
 
 In addition, reference [connection policy known issues](how-to-connection-policy.md#known-issues) for more information regarding connection policy limitations and considerations.
 
