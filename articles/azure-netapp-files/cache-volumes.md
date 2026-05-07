@@ -76,8 +76,11 @@ Cache volumes are supported in the following regions:
 * Israel Central
 * Italy North
 * Japan East
+* Japan West
 * Korea Central
 * Korea South
+* Malaysia West
+* New Zealand North
 * North Central US
 * North Europe
 * Norway East
@@ -100,7 +103,6 @@ Cache volumes are supported in the following regions:
 * West US
 * West US 2
 * West US 3
-
 
 ## Next steps
 
