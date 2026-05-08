@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.date: 05/05/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -35,19 +35,19 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
 
 # [Entra ID authentication](#tab/entra-id)
 
-This method uses the managed identity of the Azure IoT Operations instance to authenticate with the event stream. Use the system-assigned managed identity authentication methods to configure the data flow endpoint.
+This method uses a managed identity to authenticate with the event stream. Use either system-assigned managed identity or user-assigned managed identity when you configure the data flow endpoint.
 
 1. The connection details are in the Fabric portal under the **Sources** section of your event stream. 
 1. In the details panel for the custom endpoint, select **Kafka** protocol.
 1. Select the **Entra ID Authentication** section to view the connection details.
-1. Copy the details for the values for the **Bootstrap server**, **Topic name**, and **Connection string-primary key**. You use these values to configure the data flow endpoint.
+1. Copy the details for the values for the **Bootstrap server** and **Topic name**. You use these values to configure the data flow endpoint.
 
     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-entra-id.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
     
-    | Settings              | Description                                                                           |
-    |-----------------------|---------------------------------------------------------------------------------------|
-    | Bootstrap server      | The bootstrap server address is used for the hostname property in data flow endpoint. |
-    | Topic name            | The event hub name is used as the Kafka topic and is of the the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
+    | Settings                | Description                                                                                                   |
+    | ----------------------- | ------------------------------------------------------------------------------------------------------------- |
+    | Bootstrap server        | The bootstrap server address is used for the hostname property in data flow endpoint.                         |
+    | Topic name              | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
 
 
 # [SASL authentication](#tab/sasl)
@@ -59,17 +59,15 @@ This method uses the managed identity of the Azure IoT Operations instance to au
 
     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka-key.png" alt-text="Screenshot in Microsoft Fabric that has the custom endpoint connection details.":::
     
-    | Settings              | Description                                                                           |
-    |-----------------------|---------------------------------------------------------------------------------------|
-    | Bootstrap server      | The bootstrap server address is used for the hostname property in data flow endpoint. |
-    | Topic name            | The event hub name is used as the Kafka topic and is of the the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
-    | Connection string-primary key | The connection string with the primary key. |
+    | Settings                      | Description                                                                                                   |
+    | ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
+    | Bootstrap server              | The bootstrap server address is used for the hostname property in data flow endpoint.                         |
+    | Topic name                    | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
+    | Connection string-primary key | The connection string with the primary key.                                                                   |
 
 ---
 
 ## Create a Microsoft Fabric Real-Time Intelligence data flow endpoint
-
-Microsoft Fabric Real-Time Intelligence supports Simple Authentication and Security Layer (SASL), System-assigned managed identity, and User-assigned managed identity authentication methods. For details on the available authentication methods, see [Available authentication methods](#available-authentication-methods).
 
 # [Operations experience](#tab/portal)
 
@@ -79,29 +77,17 @@ Microsoft Fabric Real-Time Intelligence supports Simple Authentication and Secur
 
     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric Real-Time Intelligence data flow endpoint.":::
 
-    | Setting               | Description                                                       |
-    | --------------------- | ----------------------------------------------------------------- |
-    | Name                  | The name of the data flow endpoint. |
-    | Host                  | The hostname of the event stream custom endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
-    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity) for Entra ID, [*User assigned managed identity*](#user-assigned-managed-identity), or [*SASL*](#sasl). |
+    | Setting               | Description                                                                                                                                                                                                               |
+    | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the data flow endpoint.                                                                                                                                                                                       |
+    | Host                  | The hostname of the event stream custom endpoint in the format `<bootstrap-server>.servicebus.windows.net:9093`. Use the bootstrap server address noted previously.                                                       |
+    | Authentication method | The method used for authentication. Choose [*System assigned managed identity*](#system-assigned-managed-identity), [*User assigned managed identity*](#user-assigned-managed-identity), or [*SASL*](#sasl).              |
 
+    Use the authentication method that matches how you want Azure IoT Operations to connect to the Fabric event stream custom endpoint:
 
-    If you choose the SASL authentication method, you must also enter the following settings:
-
-    | Setting               | Description                                                       |
-    | --------------------- | ----------------------------------------------------------------- |
-    | SASL type             | Choose *Plain*. |
-    | Synced secret name    | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
-
-    Select **Add reference** to create a new or choose an existing Key Vault reference for the username and password references.
-
-    For **Username reference of token secret**, the secret value must be exactly the literal string **$ConnectionString** not an environmentent variable reference.
-
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/username-reference.png" alt-text="Screenshot to create a username reference in Azure Key Vault.":::
-
-    For **Password reference of token secret**, the secret value must be the connection string with the primary key from the event stream custom endpoint.
-
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/password-reference.png" alt-text="Screenshot to create a password reference in Azure Key Vault.":::
+    - **System-assigned managed identity**: Use the Azure IoT Operations Arc extension identity to authenticate with the event stream. Before you create the endpoint, add the extension identity to the Fabric workspace with **Contributor** or higher permissions. To learn more, see [System-assigned managed identity](#system-assigned-managed-identity).
+    - **User-assigned managed identity**: Use a user-assigned managed identity configured for Azure IoT Operations cloud connections. Before you create the endpoint, add the user-assigned managed identity to the Fabric workspace with **Contributor** or higher permissions. To learn more, see [User-assigned managed identity](#user-assigned-managed-identity).
+    - **SASL**: Use the Fabric event stream custom endpoint connection string. This method requires SASL settings and a synced Kubernetes secret with the username and password values. To learn more, see [SASL](#sasl).
 
 1. Select **Apply** to provision the endpoint.
 
@@ -109,7 +95,7 @@ Microsoft Fabric Real-Time Intelligence supports Simple Authentication and Secur
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint.
+Use the [az iot ops dataflow endpoint create fabric-realtime](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command to create or replace a Microsoft Fabric Real-Time Intelligence data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create fabric-realtime --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
@@ -131,12 +117,13 @@ az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instan
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
-In this example, assume a configuration file named `fabric-endpoint.json` with the following content stored in the user's home directory:
+In this example, assume a configuration file named `fabric-realtime-endpoint.json` with the following content stored in the user's home directory:
 
 ```json
 {
-  "endpointType": "FabricRealTimeIntelligence",
-  "fabricRealTimeIntelligenceSettings": {
+  "endpointType": "Kafka",
+  "kafkaSettings": {
+    "host": "<BootstrapServerAddress>",
     "authentication": {
       "method": "Sasl",
       "saslSettings": {
@@ -144,11 +131,8 @@ In this example, assume a configuration file named `fabric-endpoint.json` with t
         "secretRef": "<SecretName>"
       }
     },
-    "host": "<BootstrapServerAddress>",
-    "topic": "<TopicName>",
-    "names": {
-      "workspaceName": "<WorkspaceName>",
-      "eventStreamName": "<EventStreamName>"
+    "tls": {
+      "mode": "Enabled"
     }
   }
 }
@@ -165,12 +149,41 @@ az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instan
 Create a Bicep `.bicep` file with the following content.
 
 ```bicep
-kafkaSettings: {
-  authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
-    saslSettings: {
-      saslType: 'Plain' // Or ScramSha256, ScramSha512
-      secretRef: '<SECRET_NAME>'
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param hostName string = '<BOOTSTRAP_SERVER_ADDRESS>'
+param secretName string = '<SECRET_NAME>'
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+resource fabricRealtimeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+  parent: aioInstance
+  name: endpointName
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Kafka'
+    kafkaSettings: {
+      host: hostName
+      authentication: {
+        method: 'Sasl'
+        saslSettings: {
+          saslType: 'Plain' // Or ScramSha256, ScramSha512
+          secretRef: secretName
+        }
+      }
+      tls: {
+        mode: 'Enabled'
+      }
     }
   }
 }
@@ -187,19 +200,30 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
-kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='<YOUR_SASL_TOKEN>'
+kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+  --from-literal=username='$ConnectionString' \
+  --from-literal=password='<ConnectionStringPrimaryKey>'
 ```
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
 ```yaml
-kafkaSettings:
-  authentication:
-    method: Sasl
-    saslSettings:
-      saslType: Plain # Or ScramSha256, ScramSha512
-      secretRef: <SECRET_NAME>
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowEndpoint
+metadata:
+  name: <ENDPOINT_NAME>
+  namespace: azure-iot-operations
+spec:
+  endpointType: Kafka
+  kafkaSettings:
+    host: <BOOTSTRAP_SERVER_ADDRESS>
+    authentication:
+      method: Sasl
+      saslSettings:
+        saslType: Plain # Or ScramSha256, ScramSha512
+        secretRef: <SECRET_NAME>
+    tls:
+      mode: Enabled
 ```
 
 Then apply the manifest file to the Kubernetes cluster.
@@ -216,13 +240,16 @@ The following authentication methods are available for Fabric Real-Time Intellig
 
 ### System-assigned managed identity
 
-Before you configure the data flow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to connect to the Kafka broker:
+Before you configure the data flow endpoint, give the Azure IoT Operations managed identity access to the Fabric workspace that contains your event stream. Fabric event stream custom endpoints authorize managed identities through Fabric workspace access, not through Azure portal IAM on an Azure resource.
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
-1. Go to the cloud resource you need to grant permissions. For example, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
-1. On the **Role** tab, select an appropriate role.
-1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
+1. In Microsoft Fabric, go to the workspace that contains your event stream.
+1. Select **Manage access** > **Add people or groups**.
+1. Search for the Azure IoT Operations Arc extension identity that you copied. For example, *azure-iot-operations-xxxx7*.
+1. Assign **Contributor** or higher workspace permission to the identity.
+
+For more information, see [Assign Fabric Workspace Permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
@@ -234,10 +261,10 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
+Use the [az iot ops dataflow endpoint create fabric-realtime](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication. In most cases, you don't need to specify `--audience`. The default audience matches the endpoint host in the form `https://<NAMESPACE>.servicebus.windows.net`.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create fabric-realtime --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
 ```
 
 #### Create or change
@@ -291,11 +318,14 @@ kafkaSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the Kafka broker:
+Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your event stream. Fabric event stream custom endpoints authorize managed identities through Fabric workspace access, not through Azure portal IAM on an Azure resource.
 
-1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**.
-1. On the **Role** tab, select an appropriate role.
-1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
+1. In Microsoft Fabric, go to the workspace that contains your event stream.
+1. Select **Manage access** > **Add people or groups**.
+1. Search for your user-assigned managed identity.
+1. Assign **Contributor** or higher workspace permission to the identity.
+
+For more information, see [Assign Fabric Workspace Permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
@@ -310,7 +340,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create fabric-realtime --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
 ```
 
 #### Create or change
@@ -323,18 +353,22 @@ In this example, assume a configuration file with the following content:
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
+        "host": "<BootstrapServerAddress>",
         "authentication": {
           "method": "UserAssignedManagedIdentity",
           "userAssignedManagedIdentitySettings": {
             "clientId": "<ID>",
-            "tenantId": "<ID>",
-            // Optional
-            "scope": "https://<Scope_Url>"
+            "tenantId": "<ID>"
           }
+        },
+        "tls": {
+            "mode": "Enabled"
         }
     }
 }
 ```
+
+The `scope` property is optional. If needed, set it to the audience for the Kafka broker, such as `https://<BootstrapServerAddress>`.
 
 # [Bicep](#tab/bicep)
 
@@ -342,7 +376,7 @@ In this example, assume a configuration file with the following content:
 kafkaSettings: {
   authentication: {
     method: 'UserAssignedManagedIdentity'
-    UserAssignedManagedIdentitySettings: {
+    userAssignedManagedIdentitySettings: {
       clientId: '<CLIENT_ID>'
       tenantId: '<TENANT_ID>'
       // Optional
@@ -372,7 +406,7 @@ kafkaSettings:
 
 ### SASL
 
-To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
+To use SASL for authentication, specify the SASL authentication method and configure the SASL type and a secret reference with the name of the secret that contains the SASL credentials.
 
 Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience web UI.
 
@@ -382,12 +416,22 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 Enter the following settings for the endpoint:
 
-| Setting                        | Description                                                                                       |
-| ------------------------------ | ------------------------------------------------------------------------------------------------- |
-| SASL type                      | The type of SASL authentication to use. Supported types are `Plain`, `ScramSha256`, and `ScramSha512`. |
-| Synced secret name             | The name of the Kubernetes secret that contains the SASL token.                                   |
-| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
-| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
+| Setting                            | Description                                                                                       |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+| SASL type                          | The type of SASL authentication to use. For Fabric custom endpoints, choose `Plain`.              |
+| Synced secret name                 | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
+| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                       |
+| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                       |
+
+Select **Add reference** to create a new or choose an existing Key Vault reference for the username and password references.
+
+For **Username reference of token secret**, store a Key Vault secret whose value is the literal string `$ConnectionString` (including the leading `$`).
+
+:::image type="content" source="media/howto-configure-fabric-real-time-intelligence/username-reference.png" alt-text="Screenshot to create a username reference in Azure Key Vault.":::
+
+For **Password reference of token secret**, the secret value must be the connection string with the primary key from the event stream custom endpoint.
+
+:::image type="content" source="media/howto-configure-fabric-real-time-intelligence/password-reference.png" alt-text="Screenshot to create a password reference in Azure Key Vault.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -396,7 +440,7 @@ Enter the following settings for the endpoint:
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create fabric-realtime --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
 ```
 
 #### Create or change
@@ -409,12 +453,16 @@ In this example, assume a configuration file with the following content:
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
+        "host": "<BootstrapServerAddress>",
         "authentication": {
           "method": "Sasl",
           "saslSettings": {
             "saslType": "<SaslType>",
             "secretRef": "<SecretName>"
           }
+        },
+        "tls": {
+            "mode": "Enabled"
         }
     }
 }
@@ -425,7 +473,7 @@ In this example, assume a configuration file with the following content:
 ```bicep
 kafkaSettings: {
   authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
+    method: 'Sasl'
     saslSettings: {
       saslType: 'Plain' // Or ScramSha256, ScramSha512
       secretRef: '<SECRET_NAME>'
@@ -439,8 +487,9 @@ kafkaSettings: {
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
-kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='<YOUR_SASL_TOKEN>'
+kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+  --from-literal=username='$ConnectionString' \
+  --from-literal=password='<ConnectionStringPrimaryKey>'
 ```
 
 ```yaml
@@ -460,7 +509,7 @@ The supported SASL types are:
 - `ScramSha256`
 - `ScramSha512`
 
-The secret must be in the same namespace as the Kafka data flow endpoint. The secret must have the SASL token as a key-value pair.
+The secret must be in the same namespace as the Kafka data flow endpoint. The secret must have both the username and password as key-value pairs.
 
 ## Advanced settings
 

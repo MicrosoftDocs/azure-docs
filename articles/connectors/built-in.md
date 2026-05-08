@@ -603,7 +603,7 @@ For more information, review the following documentation:
 [smtp-doc]: /azure/logic-apps/connectors/built-in/reference/smtp/ "Connect to your SMTP server so you can send email"
 [sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
-[swift-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
+[swift-doc]: https://techcommunity.microsoft.com/blog/integrationsonazureblog/-announcement--public-preview-of-swift-message-processing-using-azure-logic-apps/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"

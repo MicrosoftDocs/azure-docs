@@ -4,18 +4,18 @@ description: This article explains how to enable network for VMware Cloud direct
 ms.topic: how-to
 author: rdutt
 ms.service: azure-vmware
-ms.date: 4/24/2025
+ms.date: 5/05/2026
 # Customer intent: "As a network administrator managing VMware Cloud Director tenants on Azure VMware Solution, I want to establish secure internet and Azure service connectivity, so that I can ensure efficient and scalable operations for our virtual data centers."
 ---
 
 # VMware Cloud Director on Azure VMware Solution network scenarios 
 
-VMware Cloud Director on Azure VMware Solution offers a robust platform for managing multitenancy, enabling organizations to create secure, isolated virtual data centers. This article provides various network connectivity scenarios for VMware Cloud Director tenants, including connecting to the internet and accessing Azure services. By leveraging the flexibility of VMware Cloud Director and Azure VMware Solution, tenants can achieve seamless integration with external networks and Azure resources, ensuring efficient and scalable operations.
+VMware Cloud Director on Azure VMware Solution offers a robust platform to manage multitenancy and enable organizations to create secure, isolated virtual data centers. This article provides various network connectivity scenarios for VMware Cloud Director tenants, including connecting to the internet and accessing Azure services. Through using the flexibility of VMware Cloud Director and Azure VMware Solution, tenants can achieve seamless integration with external networks and Azure resources to ensure efficient and scalable operations.
 
 
 ## Connect VMware Cloud Director tenants on Azure VMware Solution to internet
 
-- To achieve internet connectivity, the provider can create organization virtual data center's with an organization edge gateway (Tier-1) router and assign Public IP for NAT configuration. 
+- To achieve internet connectivity, the provider can create organization virtual data centers with an organization edge gateway (Tier-1) router and assign Public IP for NAT configuration. 
 
 -  Learn about how to [Turn on public IP addresses to an NSX Edge node for VMware NSX](enable-public-ip-nsx-edge.md).
 
@@ -23,7 +23,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 :::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-internet-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to internet in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-internet-diagram.png":::
 
-- Organization virtual data center Edge gateway has default DENY ALL firewall rule. Virtual datacenter organization administrators need to open appropriate ports to allow access through the firewall by adding a new firewall rule.
+- Organization virtual data center edge gateway has default DENY ALL firewall rule. Virtual datacenter organization administrators need to open appropriate ports to allow access through the firewall by adding a new firewall rule.
 
 > [!Note]
 >  To manage overlapping IP address, use NAT to prevent conflicts in end-to-end routing scenarios.
@@ -35,7 +35,7 @@ To enable access to Azure services in Azure virtual network, you can create a si
 
 :::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to Azure services in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-azure-services-diagram.png":::
 
-Follow the steps below to achieve this connectivity:
+Use the following steps to achieve connectivity:
 - Configure Azure virtual network with an Azure VPN gateway. 
 - Follow this document to create an [Azure virtual network gateway](tutorial-configure-networking.md)
 - A site-to-site VPN is established between tenant’s organization virtual data center and Azure virtual network. To achieve this connectivity, the tenant provides a public IP to the organization virtual datacenter. Both source and destination of the tunnel should have identical settings for IKE, SA, DPD etc.

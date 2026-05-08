@@ -16,6 +16,11 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (May 2026)
+
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+
+
 ## Update (April 2026)
  
 - Public preview: Azure Migrate now supports **Reserved tags** that help enrich discovered data with business context, such as **environment** and **migration intent**. You can use the Environment reserved tag to classify workloads as Prod, Dev, Test, and UAT. You can also use the Migration Intent reserved tag to indicate the intended action for workloads, such as Migrate, Retain, or Retire. Reserved tags influence how Azure Migrate performs assessments, calculates target SKUs, estimates pricing and sizing, and plans workloads for migration to Azure. You can apply reserved tags from:

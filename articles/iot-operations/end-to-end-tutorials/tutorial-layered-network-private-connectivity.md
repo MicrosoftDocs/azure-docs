@@ -30,7 +30,7 @@ In this article, you:
 
 ## Prerequisites
 
-- An [Azure subscription](/azure/cost-management-billing/manage/create-subscription). If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An [Azure subscription](/azure/cost-management-billing/manage/create-subscription). If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Your [tenant ID](/azure/azure-portal/get-subscription-tenant-id).
 - Sufficient permissions to create Private Endpoints, Private DNS Zones, and role assignments (typically **Owner** or **Contributor** + **User Access Administrator**). This tutorial uses custom roles defined in the [Appendix](#appendix).
 - A [Kubernetes cluster](/azure/iot-operations/deploy-iot-ops/howto-prepare-cluster) deployed at each network layer (Level 2, Level 3, and Level 4), with devices or VMs assigned static IPs.
