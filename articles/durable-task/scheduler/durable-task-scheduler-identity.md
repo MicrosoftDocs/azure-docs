@@ -22,7 +22,7 @@ This article covers two ways to configure managed identity:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A [Durable Task Scheduler and task hub](./durable-task-scheduler.md) resource already provisioned.
 - [Azure CLI](/cli/azure/install-azure-cli) with the `durabletask` extension installed (`az extension add --name durabletask`).
 - **Owner** or **User Access Administrator** role on the scheduler resource (required to create role assignments).

@@ -1,12 +1,12 @@
 ---
-title: Create a storage account for Azure Data Lake Storage
+title: Create a Storage Account for Data Lake Storage
 titleSuffix: Azure Storage
 description: Learn how to create a storage account for use with Azure Data Lake Storage.
 author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 11/15/2024
+ms.date: 05/08/2026
 ms.service: azure-data-lake-storage
 # Customer intent: As a cloud architect, I want to create a storage account with a hierarchical namespace for Data Lake Storage, so that I can leverage its capabilities for scalable data management and analytics.
 ---
@@ -34,17 +34,15 @@ To create a standard general-purpose v2 account, select **Standard**.
 
 To create a premium block blob account, select **Premium**. Then, in the **Premium account type** dropdown list, select **Block blobs**.
 
-> [!div class="mx-imgBorder"]
-> ![Premium block blob option](./media/create-data-lake-storage-account/premium-block-blob-option.png)
+:::image type="content" source="./media/create-data-lake-storage-account/premium-block-blob-option.png" alt-text="Screenshot of the Premium account type set to Block blobs on the Create a storage account page.":::
 
 ## Enable the hierarchical namespace
 
-Unlock Data Lake Storage capabilities by selecting the **enable hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
+Unlock Data Lake Storage capabilities by selecting the **Enable hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. 
 
 The following image shows this setting in the **Create storage account** page.
 
-> [!div class="mx-imgBorder"]
-> ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
+:::image type="content" source="./media/create-data-lake-storage-account/hierarchical-namespace-feature.png" alt-text="Screenshot of the Enable hierarchical namespace setting in the Advanced tab on the Create storage account page.":::
 
 To enable Data Lake Storage capabilities on an existing account, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 

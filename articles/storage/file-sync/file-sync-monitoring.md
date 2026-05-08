@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure File Sync
-description: Learn how to monitor Azure File Sync using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 01/29/2025
+description: Learn how to monitor Azure File Sync using Azure Monitor, including data collection, analysis, and recommended alerts.
+ms.date: 05/07/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: khdownie
@@ -95,7 +95,7 @@ The following metric charts are viewable in the Storage Sync Service portal:
 
 | Metric name | Description | Page name |
 |-|-|-|
-| Agent Version Expiration Information | Number of days until the agent version expires | Storage Sync Service - Metrics |
+| Agent Version Expiration Information | Installed agent version is approaching expiration (yes/no) | Storage Sync Service - Metrics |
 | Bytes synced | Size of data transferred (upload and download) | Sync Group - Status, Server endpoint - Sync status, Storage Sync Service - Metrics |
 | Cache data size by last access time | Size of data by last access time | Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
 | Cloud tiering cache hit rate | Percentage of bytes that have been served from the cache vs. recalled from the cloud. This metric is generated only when there is active I/O (such as file reads or recalls) on the server endpoint. | Sync Group - Status, Server Endpoint - Cloud Tiering Status, Storage Sync Service - Metrics |
@@ -191,6 +191,21 @@ For the list of all of the metrics data supported by Azure Monitor, see [Azure M
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
+### Set up recommended alerts
+
+Azure File Sync provides a set of pre-configured recommended alerts to help you monitor the health of your sync environment. These alerts cover the most common failure conditions that affect sync reliability, server connectivity, storage availability, and agent lifecycle.
+
+To configure recommended alerts:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your **Storage Sync Service**.
+2. Select **Alerts** from the left menu, or select **Set up recommended alerts** from the top of the overview page.
+3. A panel opens on the right side of the page listing all available alerts.
+4. The **Status** column indicates whether each alert has already been created or is available for creation.
+5. Select the alerts you want to enable and follow the prompts to complete setup.
+
+> [!NOTE]
+> Recommended alerts are pre-configured with default thresholds and evaluation periods. You can customize notification settings, such as action groups and alert recipients, during or after setup.
+
 ### Recommended Azure Monitor alert rules for Azure File Sync
 
 The following table lists common and recommended alert rules for Azure File Sync.
@@ -200,18 +215,29 @@ The following table lists common and recommended alert rules for Azure File Sync
 | Server endpoint health shows an error in the portal | Sync session result |
 | Files are failing to sync to a server or cloud endpoint | Files not syncing |
 | Registered server is failing to communicate with the Storage Sync Service | Server online status |
+| Server endpoint is in low disk space mode | Cloud tiering low disk space mode |
 | Cloud tiering recall size exceeded 500 GiB in a day  | Cloud tiering recall size |
+| Installed agent version is approaching expiration | Agent version expiration information |
+
+The following table summarizes the default thresholds and evaluation periods for each recommended alert.
+
+| Alert | Metric | Check period | Lookback period | Condition |
+|---|---|---|---|---|
+| Sync session failed | `ServerSyncSessionResult` | 1 hour | 24 hours | Value < 1 |
+| Server failed to connect to sync service | `StorageSyncServerHeartbeat` | 1 hour | 6 hours | Value < 1 |
+| Server endpoint in low disk space mode | `StorageSyncLowDiskModeCount` | 1 hour | 12 hours | Value ≥ 1 |
+| Recall size exceeded 500 GB | `StorageSyncRecallTotalSizeBytes` | 1 hour | 24 hours | Total > 500 GB |
+| Installed agent is expiring | `StorageSyncAgentVersionExpirationDays` | 1 hour | 12 hours | Value > 0 |
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-### Alert Examples
+### Alert examples
 
-This section provides some example alerts for Azure File Sync.
+This section provides some example alerts for Azure File Sync. If you create an alert and it's too noisy, adjust the threshold value and alert logic.
 
-> [!NOTE]
-> If you create an alert and it's too noisy, adjust the threshold value and alert logic.
+#### Create an alert if the server endpoint health shows an error in the portal
 
-To create an alert if the server endpoint health shows an error in the portal:
+This alert fires when a sync session fails to complete successfully, indicating that data might not be in sync between the server and the cloud endpoint.
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
@@ -233,7 +259,9 @@ To create an alert if the server endpoint health shows an error in the portal:
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.
 
-To create an alert if files are failing to sync to a server or cloud endpoint:
+#### Create an alert if files are failing to sync to a server or cloud endpoint
+
+This alert fires when individual files consistently fail to sync, which might indicate per-item errors such as unsupported characters or permission issues.
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
@@ -255,7 +283,9 @@ To create an alert if files are failing to sync to a server or cloud endpoint:
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.
 
-To create an alert if a registered server is failing to communicate with the Storage Sync Service:
+#### Create an alert if a registered server is failing to communicate with the Storage Sync Service
+
+This alert fires when a server has not sent a heartbeat to the Storage Sync Service within the expected interval, which might indicate network issues, service outages, or agent problems.
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
@@ -278,7 +308,9 @@ To create an alert if a registered server is failing to communicate with the Sto
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.
 
-To create an alert if the cloud tiering recall size exceeds 500 GiB in a day:
+#### Create an alert if the cloud tiering recall size exceeds 500 GiB in a day
+
+This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 hours, which might indicate unexpected access patterns such as antivirus scans, backup agents, or search indexers accessing tiered files.
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
@@ -296,6 +328,54 @@ To create an alert if the cloud tiering recall size exceeds 500 GiB in a day:
      - Threshold value (in bytes): **67108864000**
      - Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour**
      - Select **Done.** 
+1. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+1. Select **Create alert rule**.
+
+#### Create an alert if a server endpoint enters low disk space mode
+
+When a server enters low disk space mode, Azure File Sync adjusts its behavior to protect the server from running out of space. File recall and cloud tiering policies might be affected. Resolve the underlying disk space condition to restore normal operation.
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. Go to the **Monitoring** section and select **Alerts**.
+1. Select **+ New alert rule** to create a new alert rule.
+1. Configure condition by selecting **Select condition**.
+1. Within **Configure signal logic** section, select **Cloud tiering low disk space mode** under signal name.
+1. Select the following dimension configuration:
+     - Dimension name: **Server Endpoint Name**
+     - Operator: **=**
+     - Dimension values: **All current and future values**
+1. Navigate to **Alert Logic** and complete the following:
+     - Threshold set to **Static**
+     - Operator: **Greater than or equal to**
+     - Aggregation type: **Maximum**
+     - Threshold value: **1**
+     - Evaluated based on: Aggregation granularity = **12 hours** | Frequency of evaluation = **Every hour**
+     - Select **Done.**
+1. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+1. Select **Create alert rule**.
+
+#### Create an alert if the installed Azure File Sync agent is approaching expiration
+
+Azure File Sync agents expire on a regular cadence to ensure servers are running supported versions. An expired agent can't connect to the Storage Sync Service, which causes sync to stop. This alert gives you a 90-day advance warning to plan and execute the agent update before expiration causes an outage. Update the agent by downloading and installing the latest version from the [Azure File Sync agent download page](https://www.microsoft.com/download/details.aspx?id=57643).
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. Go to the **Monitoring** section and select **Alerts**.
+1. Select **+ New alert rule** to create a new alert rule.
+1. Configure condition by selecting **Select condition**.
+1. Within **Configure signal logic** section, select **Agent version expiration information** under signal name.
+1. Select the following dimension configuration:
+     - Dimension name: **Server name**
+     - Operator: **=**
+     - Dimension values: **All current and future values**
+1. Navigate to **Alert Logic** and complete the following:
+     - Threshold set to **Static**
+     - Operator: **Greater than**
+     - Aggregation type: **Maximum**
+     - Threshold value: **0**
+     - Evaluated based on: Aggregation granularity = **12 hours** | Frequency of evaluation = **Every hour**
+     - Select **Done.**
 1. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.

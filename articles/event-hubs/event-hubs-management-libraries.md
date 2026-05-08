@@ -58,7 +58,7 @@ namespace event_hub_dotnet_management
 
 		public static async Task Main()
 		{
-			// get a token from Azure AD 
+			// get a token from Microsoft Entra ID
 			var token = await GetToken();
 
 			// create an EventHubManagementClient 

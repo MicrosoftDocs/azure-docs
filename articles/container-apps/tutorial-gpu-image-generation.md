@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 | Requirement | Description |
 | --- | --- |
-| Azure subscription | If you don't have one, [create a free account](https://azure.microsoft.com/free/). |
+| Azure subscription | If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | GPU quota | [Request GPU quota access](https://aka.ms/aca-gpu-request). Approval typically takes one to two business days. |
 | Azure CLI | [Install the Azure CLI](/cli/azure/install-azure-cli) version 2.62.0 or later. |
 | Azure Developer CLI | [Install the Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) for streamlined deployment. |

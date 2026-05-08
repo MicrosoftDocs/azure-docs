@@ -22,7 +22,7 @@ Automation built for the previous architecture involving export, import, and upl
 
 Before beginning, check to make sure that you have the following:
 
-* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free)
+* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * A confidential VM with managed disks.
 
 ## Required Access

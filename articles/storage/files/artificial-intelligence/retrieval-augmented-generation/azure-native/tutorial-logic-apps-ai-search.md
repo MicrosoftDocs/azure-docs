@@ -25,7 +25,7 @@ You then query the index in the [Azure AI Foundry](/azure/ai-studio/what-is-ai-s
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [Azure Storage account](/azure/storage/common/storage-account-create) with an SMB Azure file share that contains the documents you want to index. The Azure File Storage connector the wizard uses is SMB-only, so [NFS isn't supported](/azure/search/search-file-storage-integration#prerequisites).
 - Permission to create role assignments in your Azure subscription. The simplest option is the [**Owner**](/azure/role-based-access-control/built-in-roles/privileged#owner) role. If you only have [**Contributor**](/azure/role-based-access-control/built-in-roles/privileged#contributor), you'll also need a role that lets you assign roles to others, such as [**User Access Administrator**](/azure/role-based-access-control/built-in-roles/privileged#user-access-administrator) or [**Role Based Access Control Administrator**](/azure/role-based-access-control/built-in-roles/privileged#role-based-access-control-administrator). To check your role, in the Azure portal go to **Subscriptions**, select your subscription, and select **Access control (IAM)** > **View my access**.
 

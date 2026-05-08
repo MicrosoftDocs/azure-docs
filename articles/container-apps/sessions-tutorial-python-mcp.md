@@ -38,7 +38,7 @@ In this tutorial, you:
 
 | Requirement | Description |
 |-------------|-------------|
-| Azure account | An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | [Install the Azure CLI](/cli/azure/install-azure-cli). |
 | curl | [curl](https://curl.se/) (preinstalled on most Linux and macOS systems). |
 | jq | [jq](https://jqlang.github.io/jq/) JSON processor, used to parse API responses. |

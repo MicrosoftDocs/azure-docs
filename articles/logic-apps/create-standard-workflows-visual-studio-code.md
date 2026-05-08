@@ -567,13 +567,13 @@ If you created your logic app project when assemblies support wasn't available f
 
 ### Enable built-in connector authoring
 
-You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-built-in-connector-extensibility/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
 
 The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
 
 1. If you haven't already, [convert your extension bundle-based (Node.js) project to a NuGet package-based (.NET) project](#convert-project-nuget).
 
-1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-built-in-connector-extensibility/1921272).
 
 <a name="run-debug-test-locally"></a>
 
@@ -1134,8 +1134,8 @@ During workflow execution, your logic app workflow emits telemetry along with ot
 
 After Application Insights opens, you can review various metrics for your logic app. For more information, see these articles:
 
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-monitor-with-application-insights-%e2%80%93-part-1/1877849)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-monitor-with-application-insights-%e2%80%93-part-2/2003332)
 
 <a name="troubleshooting"></a>
 

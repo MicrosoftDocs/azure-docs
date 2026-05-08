@@ -5,7 +5,7 @@ description: How to create an Azure storage account and Azure classic file share
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/09/2026
+ms.date: 05/08/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to create and manage Azure classic file shares using the Azure portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
@@ -74,18 +74,10 @@ The first tab to complete when creating a storage account is labeled **Basics**.
 
 ### Advanced
 
-The **Advanced** tab is optional, but it provides more granular settings for the storage account. The first section relates to **Security** settings.
+The **Advanced** tab is optional, but it provides more granular settings for the storage account. 
 
-![A screenshot of the security section of the advanced tab.](./media/storage-how-to-create-file-share/create-storage-account-2.png)
-
-| Field name  | Input type | Values | Applicable to Azure Files | Meaning |
-|-|-|-|-|-|
-| Require secure transfer for REST API operations | Checkbox | Checked/unchecked | Yes | If neither **Require Encryption in Transit for SMB** nor **Require Encryption in Transit for NFS** are selected in the **Azure Files** section of the **Advanced** tab, the **Secure transfer required** setting applies to SMB and NFS for Azure Files as well as REST/HTTPS traffic. If you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. |
-| Allow enabling anonymous access on individual containers | Checkbox | Checked/unchecked | No | This setting controls whether Azure Blob storage containers are allowed to be accessed with anonymous access. This setting doesn't apply to Azure Files. This setting is available for FileStorage storage accounts containing provisioned v1 or provisioned v2 file shares even though it isn't possible to create Azure Blob storage containers in FileStorage storage accounts. |
-| Enable storage account key access | Checkbox | Checked/unchecked | Yes | This setting controls whether the storage account keys (also referred to as shared keys) are enabled. When enabled, storage account keys can be used to mount the file share using SMB or to access the share using the FileREST API. |
-| Default to Microsoft Entra authorization in the Azure portal | Checkbox | Checked/unchecked | Yes | This setting controls whether the user's Microsoft Entra (formerly Azure AD) identity is used when browsing the file share in the Azure portal. |
-| Minimum TLS version | Drop-down list | _Supported TLS versions_ | Yes | This setting controls the minimum allowed TLS version that's used for protocols which use TLS. For Azure Files, only the FileREST protocol uses TLS (as part of HTTPS). |
-| Permitted scope for copy operations | Drop-down list | _Scopes for copy operations_ | Yes | This setting controls the scope of storage account to storage account copy operations using the FileREST API, usually facilitated through tools like AzCopy. |
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the security section of the advanced tab.](./media/storage-how-to-create-file-share/create-account-advanced-tab.png)
 
 The **Hierarchical Namespace** section applies only to Azure Blob storage, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure file shares. Azure file shares support a hierarchical namespace regardless of the value of these settings.
 
@@ -149,6 +141,22 @@ The **Access control** section applies only to Azure Blob storage use, even in F
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
 | Enable version-level immutability support | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. It's always available, even for FileStorage storage accounts that can't contain Azure Blob storage. However, selecting this option for FileStorage storage accounts results in a validation error message. For pay-as-you-go storage accounts, this setting doesn't apply to Azure Files. |
+
+### Security
+
+The **Security** tab controls settings related to security.
+
+![A screenshot of the settings in the security tab.](./media/storage-how-to-create-file-share/create-account-security-tab.png)
+
+| Field name  | Input type | Values | Applicable to Azure Files | Meaning |
+|-|-|-|-|-|
+| Require secure transfer for REST API operations | Checkbox | Checked/unchecked | Yes | If neither **Require Encryption in Transit for SMB** nor **Require Encryption in Transit for NFS** are selected in the **Azure Files** section of the **Advanced** tab, the **Secure transfer required** setting applies to SMB and NFS for Azure Files as well as REST/HTTPS traffic. If you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. |
+| Allow enabling anonymous access on individual containers | Checkbox | Checked/unchecked | No | This setting controls whether Azure Blob storage containers are allowed to be accessed with anonymous access. This setting doesn't apply to Azure Files. This setting is available for FileStorage storage accounts containing provisioned v1 or provisioned v2 file shares even though it isn't possible to create Azure Blob storage containers in FileStorage storage accounts. |
+| Enable storage account key access | Checkbox | Checked/unchecked | Yes | This setting controls whether the storage account keys (also referred to as shared keys) are enabled. When enabled, storage account keys can be used to mount the file share using SMB or to access the share using the FileREST API. |
+| Default to Microsoft Entra authorization in the Azure portal | Checkbox | Checked/unchecked | Yes | This setting controls whether the user's Microsoft Entra (formerly Azure AD) identity is used when browsing the file share in the Azure portal. |
+| Minimum TLS version | Drop-down list | _Supported TLS versions_ | Yes | This setting controls the minimum allowed TLS version that's used for protocols which use TLS. For Azure Files, only the FileREST protocol uses TLS (as part of HTTPS). |
+| Permitted scope for copy operations | Drop-down list | _Scopes for copy operations_ | Yes | This setting controls the scope of storage account to storage account copy operations using the FileREST API, usually facilitated through tools like AzCopy. |
+| Microsoft Defender for Storage | Checkbox | Checked/unchecked | Yes | When enabled, your account activates an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts.<br /><br /> For more information, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction) |
 
 ### Encryption
 

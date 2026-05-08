@@ -204,6 +204,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 ## Related content
 
+- [Choose between JMS and the native SDK for Azure Service Bus](service-bus-jms-versus-native-sdk.md)
 - [Use JMS in Spring to access Azure Service Bus](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus)
 - [Use Azure Service Bus with JMS](/azure/developer/java/spring-framework/spring-jms-support)
 

@@ -32,13 +32,13 @@ You can configure a root CA credential in your ADR namespace by using the Azure 
 
 # [Azure portal](#tab/portal)
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md).
 - Ensure that you have the privilege to perform role assignments within your target ADR namespace scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 
 # [Azure CLI](#tab/cli)
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
 - Ensure that you have the privilege to perform role assignments within your target ADR namespace scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 - [Azure CLI](/cli/azure/install-azure-cli) installed on your machine.

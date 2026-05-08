@@ -19,7 +19,7 @@ Azure Discovery Supercomputers provide dedicated, cloud-hosted high-performance 
 
 Before you begin, make sure you have the following:
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A resource group in a [supported region](#supported-regions).
 - Azure CLI installed, or another tool to make authenticated REST calls (such as `curl` or Postman).
 - The following **user-assigned managed identities** created in your subscription:

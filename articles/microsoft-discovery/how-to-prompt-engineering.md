@@ -18,7 +18,7 @@ This article covers techniques for both instruction authoring and user prompt co
 
 ## Prerequisites
 
-- An active [Azure subscription](https://azure.microsoft.com/free/).
+- An active [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure-portal.md).
 - At least one prompt agent created in your project. For details, see [Create agents in Microsoft Discovery](how-to-agent-creation.md).
 - Familiarity with [agent types in Microsoft Discovery](concept-discovery-agent-types.md).

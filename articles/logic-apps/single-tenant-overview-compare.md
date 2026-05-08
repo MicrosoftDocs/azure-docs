@@ -35,7 +35,7 @@ The **Standard** logic app introduces a resource structure that can host multipl
 
 To learn more about portability, flexibility, and performance improvements, continue reviewing the following sections. For more information about the single-tenant Azure Logic Apps runtime and Azure Functions extensibility, review the following documentation:
 
-* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-runtime-deep-dive/1835564)
 * [Introduction to Azure Functions](../azure-functions/functions-overview.md)
 * [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 
@@ -241,7 +241,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
 
-  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047)
 
 * Regenerate access keys for managed connections used by individual workflows in a **Standard** logic app. For this task, [follow the same steps for a **Consumption** logic app but at the workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 

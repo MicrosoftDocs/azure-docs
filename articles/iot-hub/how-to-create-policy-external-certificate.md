@@ -37,7 +37,7 @@ In Device Registry certificate management, a credential is the namespace-level r
 
 Before you begin, make sure you have the required setup and permissions so you can create, activate, and edit an external CA policy without deployment delays.
 
-- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
 - A configured credential in the Device Registry namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
 - Permissions to manage policies in the Device Registry namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.

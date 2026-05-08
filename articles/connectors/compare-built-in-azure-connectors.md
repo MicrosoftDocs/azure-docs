@@ -52,6 +52,6 @@ Instead, for shared managed connectors to work when VNet integration is enabled 
 
 ## Related content
 
-- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047s)
 
-- [Azure Logic Apps Running Anywhere: Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)
+- [Azure Logic Apps Running Anywhere: Built-in connector extensibility](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-built-in-connector-extensibility/1921272)

@@ -16,7 +16,7 @@ This article guides IT and cloud administrators through the process of authorizi
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [GeoCatalog resource](./deploy-geocatalog-resource.md)
 - One of the following Microsoft Entra ID roles:
   - Global Administrator

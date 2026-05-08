@@ -3,6 +3,7 @@ title: PowerShell Script Samples
 description: This article provides links to PowerShell script samples that use Azure Backup to back up and restore data.
 ms.topic: sample
 ms.date: 05/20/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc
 author: AbhishekMallick-MS
 ms.author: v-mallicka

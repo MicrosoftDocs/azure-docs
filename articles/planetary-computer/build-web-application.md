@@ -29,7 +29,7 @@ You can download and test this code from the [Microsoft Planetary Computer Pro p
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed [GeoCatalog resource](./deploy-geocatalog-resource.md) with at least one collection containing items.
 - Your user identity must have **GeoCatalog Reader** (or higher) access to the GeoCatalog resource. See [Manage access to a GeoCatalog resource](./manage-access.md).
 - [Node.js](https://nodejs.org/) version 18 or later.

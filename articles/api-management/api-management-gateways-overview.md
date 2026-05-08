@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 03/23/2026
+ms.date: 05/07/2026
 ms.author: danlep
 ---
 
@@ -113,10 +113,10 @@ The following tables compare features available in the following API Management 
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ✔️<sup>1</sup> | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Azure OpenAI in Microsoft Foundry models and LLMs](azure-ai-foundry-api.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Microsoft Foundry LLMs](azure-ai-foundry-api.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Pass-through MCP server](expose-existing-mcp-server.md) | ✔️  | ✔️ | ❌ | ✔️ | ❌ |
 | [Export REST API as MCP server](export-rest-mcp-server.md)  | ✔️ | ✔️ | ❌ | ✔️ | ❌ |
-| [A2A agent](agent-to-agent-api.md)  | ❌ | ✔️ | ❌ | ❌ | ❌ |
+| [A2A agent](agent-to-agent-api.md)  | ✔️ | ✔️ | ❌ | ❌ | ❌ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
@@ -134,7 +134,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
-| [Azure OpenAI and LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ❌ | ❌ |
+| [LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>

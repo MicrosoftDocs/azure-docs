@@ -33,7 +33,7 @@ The following destinations are supported for audit log export:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The [Azure Az PowerShell module](/powershell/azure/install-azure-powershell) installed.
 - **Monitoring Contributor** role or higher on the Discovery resource.
 - For storage account destination: **Storage Account Contributor** role or higher, and an [Azure Storage account](/azure/storage/common/storage-account-create) to receive the logs.

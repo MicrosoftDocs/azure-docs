@@ -242,7 +242,7 @@ The following list includes possible causes for these errors and steps to help t
 
   1. If you use [private Azure DNS zones](../dns/private-dns-privatednszone.md) for your storage account's private endpoint services, check that a [virtual network link](../dns/private-dns-virtual-network-links.md) was created to your logic app's integrated virtual network.
 
-For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/deploying-standard-logic-app-to-storage-account-behind-firewall/ba-p/2626286).
+For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/blog/integrationsonazureblog/deploying-standard-logic-app-to-storage-account-behind-firewall-using-service-or/2626286).
 
 ## Related content
 

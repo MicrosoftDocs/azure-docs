@@ -173,4 +173,4 @@ The following list includes more troubleshooting actions that you can take to fi
 
 ## Next steps
 
-- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047)

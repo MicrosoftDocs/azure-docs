@@ -25,7 +25,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.62.0 or later.
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later.
 - [Visual Studio Code](https://code.visualstudio.com/) with the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension.

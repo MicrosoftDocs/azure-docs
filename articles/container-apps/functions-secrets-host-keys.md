@@ -31,7 +31,7 @@ Access keys aren't the same as [app-level secrets](functions-secrets-app-level.m
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.40.0 or higher.
 - An existing [Azure Functions app in Container Apps](functions-usage.md) or permissions to create one.
 
