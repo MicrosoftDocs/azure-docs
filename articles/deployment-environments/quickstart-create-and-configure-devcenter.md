@@ -14,7 +14,7 @@ ms.date: 05/07/2026
 
 # Quickstart: Configure Azure Deployment Environments
 
-In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add an environment type, and allow developer access to the project.
+In this quickstart, you set up resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add an environment type, and allow developer access to the project.
 
 A dev center is the top-level resource for Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments to which development teams can deploy their code.
 
@@ -52,7 +52,7 @@ To create and configure a dev center in Deployment Environments by using the Azu
     |Name      |Value      |
     |----------|-----------|
     |**Subscription**|Select the subscription in which you want to create the dev center.|
-    |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
+    |**Resource group**|Select an existing resource group, or select **Create new** and enter a name for the resource group.|
     |**Name**|Enter a name for the dev center.|
     |**Location**|Select the region where you want to create the dev center.|
     |**Attach the environment definition quick start catalog**|Select the checkbox.|
@@ -89,7 +89,7 @@ The managed identity that represents your dev center requires access to the subs
 
 1. In your dev center, under **Settings** in the sidebar menu, select **Identity**.
 
-1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
+1. Under **System assigned**, select **Permissions** > **Azure role assignments**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity, with Azure role assignments highlighted." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png":::
 
@@ -97,9 +97,9 @@ The managed identity that represents your dev center requires access to the subs
 
     |Name     |Value     |
     |---------|----------|
-    |**Scope**|Subscription|
-    |**Subscription**|Select the subscription in which to use the managed identity|
-    |**Role**|Select the role you want to have access to the subscription: Contributor or User Access Administrator|
+    |**Scope**|Subscription.|
+    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Role**|Select the role that needs access to the subscription: Contributor or User Access Administrator.|
 
 ## Create an environment type
 
@@ -137,7 +137,7 @@ To create a Deployment Environments project in your dev center:
      |Name   |Value   |
      |----------|-----------|
      |**Subscription** |Select the subscription in which you want to create the project.       |
-     |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.   |
+     |**Resource group**|Select an existing resource group, or select **Create new** and enter a name for the resource group.   |
      |**Dev center**|Select a dev center to associate with the project. All settings for the dev center apply to the project.   |
      |**Name**|Enter a name for the project.  |
      |**Description** (Optional) |Enter any project-related details.  |
@@ -190,9 +190,9 @@ Before developers can create environments based on the environment types in a pr
 
     | Setting | Value |
     | --- | --- |
-    | **Elected role** | [Deployment Environments User](how-to-manage-deployment-environments-access.md) |
-    | **Assign access to** | Select **User, group, or service principal** |
-    | **Members** | Select the users or groups you want to have access to the project |
+    | **Selected role** | [Deployment Environments User](how-to-manage-deployment-environments-access.md). |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Select the users or groups you want to have access to the project. |
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
