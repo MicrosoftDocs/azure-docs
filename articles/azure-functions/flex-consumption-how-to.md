@@ -90,7 +90,6 @@ To support your function code, you need to create three resources:
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime java --runtime-version 17 
     ```     
     
-    For Java apps, Java 11 is also currently supported.
     ::: zone-end
     ::: zone pivot="programming-language-javascript,programming-language-typescript"  
     ```azurecli

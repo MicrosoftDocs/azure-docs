@@ -783,7 +783,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
 
 #### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.microsoft.com), open your Consumption logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
 1. On the logic app menu, under **Settings**, select **Authorization**.
 

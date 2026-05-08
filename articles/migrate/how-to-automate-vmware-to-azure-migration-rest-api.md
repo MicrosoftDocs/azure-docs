@@ -55,22 +55,76 @@ The `processServerId` is the machine ID of the replication appliance that handle
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics?api-version=2025-08-01
 ```
 Pick fabric with `properties.customDetails.instanceType` equal to `InMageRcm`.
+
 **Sample Response (Fabrics List)**
 ```json
 {
   "value": [
     {
-      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics/{fabricName}",
-      "name": "{fabricName}",
+      "name": "fabric-name-1",
       "type": "Microsoft.RecoveryServices/vaults/replicationFabrics",
+      "id": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name-1",
       "properties": {
-        "friendlyName": "InMageRcmFabric",
+        "friendlyName": "fabric-name-1",
+        "encryptionDetails": {
+          "kekState": "None",
+          "kekCertThumbprint": null
+        },
+        "rolloverEncryptionDetails": {
+          "kekState": "None",
+          "kekCertThumbprint": null
+        },
+        "internalIdentifier": "internal-guid-1",
+        "bcdrState": "Valid",
         "customDetails": {
-          "instanceType": "InMageRcm"
-        }
+          "instanceType": "HyperVSite",
+          "hyperVHosts": []
+        },
+        "healthErrorDetails": [],
+        "health": "Normal"
+      }
+    },
+    {
+      "name": "fabric-name-2",
+      "type": "Microsoft.RecoveryServices/vaults/replicationFabrics",
+      "id": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name-2",
+      "properties": {
+        "friendlyName": "fabric-name-2",
+        "encryptionDetails": {
+          "kekState": "None",
+          "kekCertThumbprint": null
+        },
+        "rolloverEncryptionDetails": {
+          "kekState": "None",
+          "kekCertThumbprint": null
+        },
+        "internalIdentifier": "internal-guid-2",
+        "bcdrState": "Valid",
+        "customDetails": {
+          "instanceType": "InMageRcm",
+          "vmwareSiteId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name",
+          "physicalSiteId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/ServerSites/physical-site-name",
+          "serviceEndpoint": "https://stamp-endpoint.hypervrecoverymanager.windowsazure.com",
+          "serviceResourceId": "redacted",
+          "serviceContainerId": "redacted",
+          "dataPlaneUri": "https://stamp-endpoint.backup.windowsazure.com",
+          "controlPlaneUri": "https://stamp-endpoint.hypervrecoverymanager.windowsazure.com",
+          "sourceAgentIdentityDetails": null,
+          "processServers": [],
+          "rcmProxies": [],
+          "pushInstallers": [],
+          "replicationAgents": [],
+          "reprotectAgents": [],
+          "marsAgents": [],
+          "dras": [],
+          "agentDetails": []
+        },
+        "healthErrorDetails": [],
+        "health": "Normal"
       }
     }
-  ]
+  ],
+  "nextLink": null
 }
 ```
 
@@ -87,22 +141,154 @@ The site information is present in `properties.customDetails.vmwareSiteId` and `
 
 ```json
 {
+  "name": "fabric-name",
+  "type": "Microsoft.RecoveryServices/vaults/replicationFabrics",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name",
   "properties": {
+    "friendlyName": "fabric-name",
+    "encryptionDetails": {
+      "kekState": "None",
+      "kekCertThumbprint": null
+    },
+    "rolloverEncryptionDetails": {
+      "kekState": "None",
+      "kekCertThumbprint": null
+    },
+    "internalIdentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "bcdrState": "Valid",
     "customDetails": {
       "instanceType": "InMageRcm",
-      "vmwareSiteId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}",
-      "physicalSiteId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/ServerSites/{siteName}",
+      "vmwareSiteId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name",
+      "physicalSiteId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resource-group-name/providers/Microsoft.OffAzure/ServerSites/physical-site-name",
+      "serviceEndpoint": "https://region-endpoint.hypervrecoverymanager.windowsazure.com",
+      "serviceResourceId": "redacted",
+      "serviceContainerId": "redacted",
+      "dataPlaneUri": "https://region-endpoint.backup.windowsazure.com",
+      "controlPlaneUri": "https://region-endpoint.hypervrecoverymanager.windowsazure.com",
+      "sourceAgentIdentityDetails": {
+        "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "applicationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "objectId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "audience": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "aadAuthority": "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      },
       "processServers": [
         {
-          "id": "00001111-aaaa-2222-bbbb-3333cccc4444",
-          "name": "yourappliancename",
-          "biosId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-          "fqdn": "yourappliancename.domain.com",
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "ipAddresses": [
+            "x.x.x.x"
+          ],
+          "version": "9.66.7614.1",
+          "lastHeartbeatUtc": "2026-04-21T04:24:56.3135603Z",
+          "totalMemoryInBytes": 39727841280,
+          "availableMemoryInBytes": 14194757689,
+          "usedMemoryInBytes": 25533083591,
+          "memoryUsagePercentage": 64.27,
+          "totalSpaceInBytes": 665717829632,
+          "availableSpaceInBytes": 660404075520,
+          "usedSpaceInBytes": 5313754112,
+          "freeSpacePercentage": 99.20,
+          "throughputUploadPendingDataInBytes": 0,
+          "throughputInBytes": 0,
+          "processorUsagePercentage": 0.0,
+          "throughputStatus": "Healthy",
+          "systemLoad": 0,
+          "systemLoadStatus": "Healthy",
+          "diskUsageStatus": "Healthy",
+          "memoryUsageStatus": "Healthy",
+          "processorUsageStatus": "Healthy",
+          "health": "Normal",
+          "healthErrors": [],
+          "historicHealth": "Normal"
+        }
+      ],
+      "rcmProxies": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "clientAuthenticationType": "Certificate",
+          "version": "1.44.9645.8268",
+          "lastHeartbeatUtc": "2026-04-21T04:25:34.6896754Z",
           "health": "Normal",
           "healthErrors": []
         }
-      ]
-    }
+      ],
+      "pushInstallers": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "version": "1.47.9649.18387",
+          "lastHeartbeatUtc": "2026-04-21T04:25:11.2351003Z",
+          "health": "Normal",
+          "healthErrors": []
+        }
+      ],
+      "replicationAgents": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "version": "1.45.9649.18472",
+          "lastHeartbeatUtc": "2026-04-21T04:24:53.5000477Z",
+          "health": "Normal",
+          "healthErrors": []
+        }
+      ],
+      "reprotectAgents": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "version": "1.48.9649.18457",
+          "lastHeartbeatUtc": "2026-04-21T04:25:21.4453717Z",
+          "health": "Normal",
+          "healthErrors": [],
+          "accessibleDatastores": [],
+          "vcenterId": null
+        }
+      ],
+      "marsAgents": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "fabricObjectId": null,
+          "fqdn": "appliance-fqdn",
+          "version": "2.0.9955.0",
+          "lastHeartbeatUtc": "2026-04-21T04:24:29.8514455Z",
+          "health": "Normal",
+          "healthErrors": []
+        }
+      ],
+      "dras": [
+        {
+          "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "name": "appliance-name",
+          "biosId": "XXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+          "version": "5.25.904.11",
+          "lastHeartbeatUtc": "2026-04-21T04:30:31.8387555Z",
+          "health": "Normal",
+          "healthErrors": []
+        }
+      ],
+      "agentDetails": []
+    },
+    "healthErrorDetails": [],
+    "health": "Normal"
   }
 }
 ```
@@ -120,6 +306,194 @@ The `fabricDiscoveryMachineId` is the Azure Resource Manager ID of the discovere
 
 The response returns a list of discovered machines, including their full Azure Resource Manager (ARM) IDs. Each machine entry also includes a friendly name to help identify the corresponding virtual machine.
 
+**Sample Response (Discovered machine details)**
+
+```json
+[
+  {
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/serversites/server-site-name/machines/machine-id",
+    "name": "machine-id",
+    "type": "Microsoft.OffAzure/serversites/machines",
+    "properties": {
+      "totalDiskSizeInGB": 60.0,
+      "appliancePropertiesCollection": [
+        {
+          "runAsAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/serversites/server-site-name/runasaccounts/run-as-account-id",
+          "applianceName": "appliance-name",
+          "status": "Registered"
+        }
+      ],
+      "displayName": "machine-hostname",
+      "provisioningState": "Succeeded",
+      "errors": [],
+      "arcDiscovery": {
+        "status": "Unknown",
+        "machineResourceId": null
+      },
+      "numberOfSecurityRisks": -1,
+      "numberOfSoftware": -1,
+      "hypervisor": null,
+      "discoverySource": "Appliance",
+      "processorInfo": null,
+      "autoEnableDependencyMapping": "ValidationInProgress",
+      "disks": [
+        {
+          "diskId": "disk-guid-1",
+          "usedSpaceInBytesV2": null,
+          "id": "\\\\.\\PHYSICALDRIVE0",
+          "generatedId": "disk-guid-1",
+          "maxSizeInBytes": 53687091200,
+          "usedSpaceInBytes": 0,
+          "name": "disk-guid-1",
+          "diskType": "Basic",
+          "lun": 0,
+          "path": "\\\\.\\PHYSICALDRIVE0",
+          "logicalSectorSizeInBytes": 0
+        },
+        {
+          "diskId": "disk-guid-2",
+          "usedSpaceInBytesV2": null,
+          "id": "\\\\.\\PHYSICALDRIVE1",
+          "generatedId": "disk-guid-2",
+          "maxSizeInBytes": 10737418240,
+          "usedSpaceInBytes": 0,
+          "name": "disk-guid-2",
+          "diskType": "Basic",
+          "lun": 0,
+          "path": "\\\\.\\PHYSICALDRIVE1",
+          "logicalSectorSizeInBytes": 0
+        }
+      ],
+      "totalFreeSpaceOfAllDisksInGB": 0.0,
+      "fqdn": "machine-hostname",
+      "networkAdapters": [
+        {
+          "nicId": "Intel(R) 82574L Gigabit Network Connection",
+          "macAddress": "XX:XX:XX:XX:XX:XX",
+          "ipAddressList": [],
+          "networkName": "Intel(R) 82574L Gigabit Network Connection",
+          "ipAddressType": "Dynamic"
+        }
+      ],
+      "hydratedFqdn": "machine-hostname",
+      "validationRequired": null,
+      "firmware": "UEFI",
+      "guestOSDetails": {
+        "osType": null,
+        "osName": null,
+        "osVersion": null,
+        "osArchitecture": null
+      },
+      "numberOfApplications": -1,
+      "guestDetailsDiscoveryTimestamp": null,
+      "isFileServerSupported": null,
+      "isGuestDetailsDiscoveryInProgress": true,
+      "dependencyMapping": "Disabled",
+      "dependencyMappingStartTime": null,
+      "dependencyMappingEndTime": null,
+      "runAsAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/serversites/server-site-name/runasaccounts/run-as-account-id",
+      "applianceNames": [
+        "appliance-name"
+      ],
+      "distinctErrorCount": 0,
+      "applicationDiscovery": {
+        "discoveryScopeStatus": "DiscoveryInProgress",
+        "errors": [],
+        "hydratedRunAsAccountId": null
+      },
+      "dependencyMapDiscovery": {
+        "discoveryScopeStatus": "DiscoveryInProgress",
+        "errors": [],
+        "hydratedRunAsAccountId": null
+      },
+      "staticDiscovery": {
+        "discoveryScopeStatus": "DiscoverySucceeded",
+        "errors": [],
+        "hydratedRunAsAccountId": null
+      },
+      "sqlDiscovery": {
+        "successfullyDiscoveredServerCount": -1,
+        "totalServerCount": -1,
+        "sqlMetadataHydratedRunAsAccountId": null,
+        "sqlMetadataDiscoveryPipe": "Unknown",
+        "discoveryScopeStatus": "DiscoveryInProgress"
+      },
+      "webAppDiscovery": {
+        "totalWebServerCount": 0,
+        "totalWebApplicationCount": 0,
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "oracleDiscovery": {
+        "totalInstanceCount": 0,
+        "totalDatabaseCount": 0,
+        "shallowDiscoveryStatus": "Disabled",
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "springBootDiscovery": {
+        "totalInstanceCount": 0,
+        "totalApplicationCount": 0,
+        "shallowDiscoveryStatus": "Disabled",
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "mySQLDiscovery": {
+        "totalInstanceCount": 0,
+        "totalDatabaseCount": 0,
+        "shallowDiscoveryStatus": "Disabled",
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "pgSQLDiscovery": {
+        "totalInstanceCount": 0,
+        "totalDatabaseCount": 0,
+        "shallowDiscoveryStatus": "Disabled",
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "fileShareDiscovery": {
+        "totalFileShareCount": 0,
+        "shallowDiscoveryStatus": "Disabled",
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "iisDiscovery": {
+        "totalWebServerCount": 0,
+        "totalWebApplicationCount": 0,
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "tomcatDiscovery": {
+        "totalWebServerCount": 0,
+        "totalWebApplicationCount": 0,
+        "discoveryScopeStatus": "DiscoverySucceeded"
+      },
+      "appsAndRoles": null,
+      "totalApplicationCount": 0,
+      "totalInstanceCount": -1,
+      "ipAddresses": "",
+      "productSupportStatus": {
+        "currentVersion": "6.2.9200",
+        "esuStatus": "Unknown",
+        "supportStatus": "Unknown",
+        "supportEndDate": "0001-01-01T00:00:00",
+        "esuYear": "Unknown"
+      },
+      "discoveredWorkloads": [],
+      "eTag": "redacted",
+      "numberOfProcessorCore": 2,
+      "allocatedMemoryInMB": 4095.0,
+      "operatingSystemDetails": {
+        "osType": "WindowsGuest",
+        "osName": "Windows NT 6.2Build 9200 ",
+        "osVersion": "6.2.9200",
+        "osArchitecture": "x64"
+      },
+      "biosSerialNumber": null,
+      "biosGuid": "bios-guid",
+      "isDeleted": false,
+      "createdTimestamp": "2026-03-30T12:50:24.3488832Z",
+      "tags": {},
+      "updatedTimestamp": "2026-03-30T14:34:17.2385399Z"
+    },
+    "tags": {}
+  }
+]
+```
 ### Get the Run-As Account ID (Optional)
 
 To push-install the Mobility agent, you must specify credentials:
@@ -129,6 +503,36 @@ To push-install the Mobility agent, you must specify credentials:
 ```
 For physical machines, use runasaccounts from `properties.runAsAccountId` from machine details.
 
+**Sample Response (Run as account details)**
+
+```json
+[
+  {
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/serversites/server-site-name/runasaccounts/run-as-account-id-1",
+    "name": "run-as-account-id-1",
+    "type": "Microsoft.OffAzure/serversites/runasaccounts",
+    "properties": {
+      "displayName": "Admin",
+      "credentialType": "WindowsServer",
+      "createdTimestamp": "2026-03-27T09:55:26.2199115Z",
+      "updatedTimestamp": "2026-03-27T10:03:36.9959594Z",
+      "applianceName": "appliance-name"
+    }
+  },
+  {
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/serversites/server-site-name/runasaccounts/run-as-account-id-2",
+    "name": "run-as-account-id-2",
+    "type": "Microsoft.OffAzure/serversites/runasaccounts",
+    "properties": {
+      "displayName": "credentialLessRunAsAccount",
+      "credentialType": "CredentialLessAccount",
+      "createdTimestamp": "2026-03-27T09:55:26.3762304Z",
+      "updatedTimestamp": "2026-03-27T10:03:37.2459485Z",
+      "applianceName": "appliance-name"
+    }
+  }
+]
+```
 ## Migration workflow overview
 
 The Azure Site Recovery REST API–based migration workflow includes the following steps:
@@ -171,34 +575,45 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```json
 {
   "properties": {
-    "policyId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationPolicies/{policyName}",
-    "protectableItemId": "",
+    "policyId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationPolicies/24-hour-replication-policy",
     "providerSpecificDetails": {
-      "instanceType": "InMageRcm",
-      "fabricDiscoveryMachineId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}/machines/{machineId}",
-      "processServerId": "{processServerId}",
-      "targetResourceGroupId": "/subscriptions/{subscriptionId}/resourceGroups/{targetResourceGroupName}",
-      "targetNetworkId": "/subscriptions/{subscriptionId}/resourceGroups/{networkResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}",
-      "targetSubnetName": "{subnetName}",
-      "targetVmName": "{targetVmName}",
-      "targetVmSize": "Standard_D2s_v3",
-      "licenseType": "NoLicenseType",
-      "disksToInclude": [
-        {
-          "diskId": "{diskUuid}",
-          "diskType": "Standard_LRS",
-          "logStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{cacheStorageAccountName}"
-        }
-      ],
-      "runAsAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}/runasaccounts/{runAsAccountId}",
-      "multiVmGroupName": "{multiVmGroupName}",
-      "targetAvailabilitySetId": "",
-      "targetAvailabilityZone": "1",
-      "targetProximityPlacementGroupId": "",
-      "targetBootDiagnosticsStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{bootDiagStorageAccountName}",
-      "testNetworkId": "/subscriptions/{subscriptionId}/resourceGroups/{networkResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{testVnetName}",
-      "testSubnetName": "{testSubnetName}"
-    }
+        "instanceType": "InMageRcm",
+        "fabricDiscoveryMachineId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/machines/machine-id",
+        "licenseType": "NoLicenseType",
+        "disksToInclude": [
+            {
+                "diskId": "disk-id-1",
+                "logStorageAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+                "diskType": "Standard_LRS",
+                "isFabricDiscoveryDiskId": "true",
+                "sectorSizeInBytes": 0,
+                "diskSizeInGB": 50
+            },
+            {
+                "diskId": "disk-id-2",
+                "logStorageAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+                "diskType": "Standard_LRS",
+                "isFabricDiscoveryDiskId": "true",
+                "sectorSizeInBytes": 0,
+                "diskSizeInGB": 10
+            }
+        ],
+        "processServerId": "process-server-id",
+        "runAsAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/runasaccounts/run-as-account-id",
+        "targetNetworkId": "/subscriptions/subscription-id/resourceGroups/target-resource-group/providers/Microsoft.Network/virtualNetworks/vnet-name",
+        "targetSubnetName": "default",
+        "targetResourceGroupId": "/subscriptions/subscription-id/resourceGroups/target-resource-group",
+        "targetVmSecurityProfile": {
+            "targetVmConfidentialEncryption": "Disabled",
+            "targetVmTpm": "Enabled",
+            "targetVmSecureBoot": "Enabled",
+            "targetVmSecurityType": "TrustedLaunch"
+        },
+        "targetBootDiagnosticsStorageAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+        "linuxLicenseType": "NoLicenseType",
+        "targetVmName": "target-vm-name"
+    },
+    "protectableItemId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/machines/machine-id"
   }
 }
 ```
@@ -257,17 +672,167 @@ When using `disksDefault`:
 A successful request returns HTTP 200 (OK) or 202 (Accepted) with the replication protected item details and tracks the enable replication job.
 
 ```json
-{
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{containerName}/replicationProtectedItems/{itemName}",
-  "name": "{itemName}",
-  "type": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems",
-  "properties": {
-    "friendlyName": "{vmName}",
-    "protectedItemType": "InMageRcm",
-    "protectionState": "EnablingProtection",
-    "protectionStateDescription": "Enabling protection"
-  }
-}
+    {
+                        "id": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/replication-container/replicationProtectedItems/machine-id",
+                        "name": "machine-id",
+                        "type": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems",
+                        "properties": {
+                            "friendlyName": "target-vm-name",
+                            "protectedItemType": "",
+                            "protectableItemId": null,
+                            "recoveryServicesProviderId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name/replicationRecoveryServicesProviders/process-server-id",
+                            "primaryFabricFriendlyName": "fabric-name",
+                            "primaryFabricProvider": "InMageRcmFabric",
+                            "recoveryFabricFriendlyName": "Microsoft Azure",
+                            "recoveryFabricId": "Microsoft Azure",
+                            "primaryProtectionContainerFriendlyName": "replication-container",
+                            "recoveryProtectionContainerFriendlyName": "Microsoft Azure",
+                            "protectionState": "UnplannedFailoverFailed",
+                            "protectionStateDescription": "Failover failed",
+                            "activeLocation": "Primary",
+                            "testFailoverState": "MarkedForDeletion",
+                            "testFailoverStateDescription": "Cleaning up test environment",
+                            "switchProviderState": "None",
+                            "switchProviderStateDescription": null,
+                            "allowedOperations": [
+                                "UnplannedFailover",
+                                "DisableProtection",
+                                "TestFailover"
+                            ],
+                            "replicationHealth": "Critical",
+                            "failoverHealth": "Warning",
+                            "healthErrors": [
+                                {
+                                    "innerHealthErrors": [],
+                                    "errorSource": "ReplicationUnitFailoverValidatorError",
+                                    "errorType": "15",
+                                    "errorLevel": "Warning",
+                                    "errorCategory": "TestFailover",
+                                    "errorCode": "161011",
+                                    "summaryMessage": "",
+                                    "errorMessage": "No successful test failover has been done on the virtual machine 'target-vm-name'.",
+                                    "possibleCauses": "No successful test failover has been done on the virtual machine after it was replicated.",
+                                    "recommendedAction": "Do a test failover on the virtual machine.",
+                                    "creationTimeUtc": "2026-04-20T20:53:29.879895Z",
+                                    "recoveryProviderErrorMessage": null,
+                                    "entityId": "internal-id",
+                                    "errorId": "6:15",
+                                    "customerResolvability": "NotAllowed"
+                                }
+                            ],
+                            "policyId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationPolicies/24-hour-replication-policy",
+                            "policyFriendlyName": "24-hour-replication-policy",
+                            "currentScenario": {
+                                "scenarioName": "None",
+                                "jobId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationJobs/None",
+                                "startTime": "1753-01-01T01:01:01Z"
+                            },
+                            "failoverRecoveryPointId": null,
+                            "providerSpecificDetails": {
+                                "instanceType": "InMageRcm",
+                                "internalIdentifier": "internal-id",
+                                "fabricDiscoveryMachineId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/machines/machine-id",
+                                "multiVmGroupName": null,
+                                "discoveryType": "VCenter",
+                                "processServerId": "process-server-id",
+                                "processorCoreCount": 2,
+                                "allocatedMemoryInMB": 4095.0,
+                                "processServerName": "appliance-name",
+                                "runAsAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/runasaccounts/run-as-account-id",
+                                "osType": "Windows",
+                                "firmwareType": "UEFI",
+                                "primaryNicIpAddress": "ip-address",
+                                "targetGeneration": "V2",
+                                "licenseType": "NoLicenseType",
+                                "storageAccountId": null,
+                                "targetVmName": "target-vm-name",
+                                "targetVmSize": "Standard_F2s_v2",
+                                "targetResourceGroupId": "/subscriptions/subscription-id/resourceGroups/target-resource-group",
+                                "targetLocation": "eastus2euap",
+                                "targetAvailabilitySetId": "",
+                                "targetAvailabilityZone": "",
+                                "targetProximityPlacementGroupId": "",
+                                "targetBootDiagnosticsStorageAccountId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Storage/storageAccounts/storage-account",
+                                "targetNetworkId": "/subscriptions/subscription-id/resourceGroups/target-network-rg/providers/Microsoft.Network/virtualNetworks/vnet-name",
+                                "testNetworkId": "/subscriptions/subscription-id/resourceGroups/target-network-rg/providers/Microsoft.Network/virtualNetworks/vnet-name",
+                                "failoverRecoveryPointId": null,
+                                "lastRecoveryPointReceived": "2026-04-19T13:41:58.1335596Z",
+                                "lastRpoInSeconds": 3399,
+                                "lastRpoCalculatedTime": "2026-04-19T14:38:36.6808164Z",
+                                "lastRecoveryPointId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/cloud_cloud-id/replicationProtectedItems/machine-id/recoveryPoints/recovery-point-id",
+                                "initialReplicationProgressPercentage": null,
+                                "initialReplicationProcessedBytes": null,
+                                "initialReplicationTransferredBytes": null,
+                                "initialReplicationProgressHealth": "None",
+                                "resyncProgressPercentage": null,
+                                "resyncProcessedBytes": null,
+                                "resyncTransferredBytes": null,
+                                "resyncProgressHealth": "None",
+                                "resyncRequired": "false",
+                                "resyncState": "None",
+                                "agentUpgradeState": "None",
+                                "lastAgentUpgradeType": null,
+                                "agentUpgradeJobId": null,
+                                "agentUpgradeAttemptToVersion": null,
+                                "protectedDisks": [],
+                                "unprotectedDisks": [],
+                                "isLastUpgradeSuccessful": "false",
+                                "isAgentRegistrationSuccessfulAfterFailover": null,
+                                "mobilityAgentDetails": {
+                                    "version": "9.66.7643.1",
+                                    "latestVersion": null,
+                                    "latestAgentReleaseDate": null,
+                                    "driverVersion": "9.66.7611.1",
+                                    "latestUpgradableVersionWithoutReboot": null,
+                                    "lastHeartbeatUtc": "2026-04-19T13:47:24.8791557Z",
+                                    "reasonsBlockingUpgrade": [
+                                        "AlreadyOnLatestVersion"
+                                    ],
+                                    "isUpgradeable": "false"
+                                },
+                                "lastAgentUpgradeErrorDetails": [],
+                                "agentUpgradeBlockingErrorDetails": [],
+                                "vmNics": [],
+                                "discoveredVmDetails": {
+                                    "vCenterId": "/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.OffAzure/VMwareSites/vmware-site-name/vcenters/vcenter-name",
+                                    "vCenterFqdn": "",
+                                    "datastores": [
+                                        "datastore-name"
+                                    ],
+                                    "ipAddresses": [],
+                                    "vmwareToolsStatus": "NotRunning",
+                                    "powerStatus": "OFF",
+                                    "vmFqdn": "",
+                                    "osName": "Windows Server 2019",
+                                    "createdTimestamp": "2026-04-12T17:30:44.93064+00:00",
+                                    "updatedTimestamp": "2026-04-19T13:58:29.1016242+00:00",
+                                    "isDeleted": false,
+                                    "lastDiscoveryTimeInUtc": "2026-04-19T14:48:39.4886738Z"
+                                },
+                                "targetVmTags": [],
+                                "seedManagedDiskTags": null,
+                                "targetManagedDiskTags": null,
+                                "targetNicTags": null,
+                                "sqlServerLicenseType": "NotSpecified",
+                                "supportedOSVersions": null,
+                                "osName": "Microsoft Windows Server 2022 Datacenter",
+                                "targetVmSecurityProfile": {
+                                    "targetVmSecurityType": "None",
+                                    "targetVmSecureBoot": "Disabled",
+                                    "targetVmTpm": "Disabled",
+                                    "targetVmMonitoring": "Disabled",
+                                    "targetVmConfidentialEncryption": "Disabled"
+                                }
+                            },
+                            "recoveryContainerId": "/Subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.RecoveryServices/vaults/vault-name/replicationFabrics/recovery-fabric-id/replicationProtectionContainers/recovery-container-id",
+                            "eventCorrelationId": "event-correlation-id"
+                        }
+                    }
+                ],
+                "nextLink": null
+            },
+            "contentLength": 12791
+        }
 ```
 
 ## Step 2: Update replication settings
@@ -533,49 +1098,7 @@ See [Troubleshoot](/azure/site-recovery/vmware-azure-troubleshoot-replication) f
 
 ## PowerShell automation example
 
-Here's a sample PowerShell script that automates the enable replication workflow:
-
-```powershell
-# Variables
-$subscriptionId = "<subscription-id>"
-$resourceGroupName = "<resource-group-name>"
-$vaultName = "<vault-name>"
-$fabricName = "<fabric-name>"
-$containerName = "<container-name>"
-$itemName = "<replicated-item-name>"
-$apiVersion = "{api_version}"
-
-# Get access token
-$token = (Get-AzAccessToken -ResourceUrl "https://management.azure.com").Token
-$headers = @{
-    "Authorization" = "Bearer $token"
-    "Content-Type" = "application/json"
-}
-
-# Base URI
-$baseUri = "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.RecoveryServices/vaults/$vaultName/replicationFabrics/$fabricName/replicationProtectionContainers/$containerName/replicationProtectedItems/$itemName"
-
-# Enable replication
-$enableBody = @{
-    properties = @{
-        policyId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.RecoveryServices/vaults/$vaultName/replicationPolicies/<policy-name>"
-        protectableItemId = ""
-        providerSpecificDetails = @{
-            instanceType = "InMageRcm"
-            fabricDiscoveryMachineId = "<fabric-discovery-machine-id>"
-            processServerId = "<process-server-id>"
-            targetResourceGroupId = "<target-resource-group-id>"
-            disksDefault = @{
-                diskType = "Standard_LRS"
-                logStorageAccountId = "<cache-storage-account-id>"
-            }
-        }
-    }
-} | ConvertTo-Json -Depth 10
-
-$enableUri = "$baseUri`?api-version=$apiVersion"
-$enableResponse = Invoke-RestMethod -Uri $enableUri -Method Put -Headers $headers -Body $enableBody
-```
+[Azure PowerShell](https://github.com/Azure-Samples/azure-docs-powershell-samples/tree/main/azure-migrate/migrate-at-scale-with-simplified-agent-based-setup) samples include scripts for enabling migration, running test migrations, cleaning up test migrations, performing migrations, and disabling migration. These scripts take input from a CSV file. Use these samples as a reference for integration.
 
 ## Best practices
 

@@ -150,9 +150,11 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
-    ![Specify NFS protocol](./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png)
+    :::image type="content" source="./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png" alt-text="Screenshot showing the Protocol tab of creating an NFS volume." lightbox="./media/azure-netapp-files-create-volumes/azure-netapp-files-protocol-nfs.png":::
 
-4. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
+4. [!INCLUDE [Create volume protection tab](includes/create-volume-protection.md)]
+   
+5. Select **Review + Create** to review the volume details. Select **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  

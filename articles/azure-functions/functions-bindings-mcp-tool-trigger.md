@@ -1,6 +1,6 @@
 ---
 title: MCP tool trigger for Azure Functions
-description: Learn how you can use a trigger endpoint to expose functions as a model content protocol (MCP) server tools in Azure Functions.
+description: Learn how you can use a trigger endpoint to expose functions as model context protocol (MCP) server tools in Azure Functions.
 ms.topic: reference
 ms.date: 08/29/2025
 ms.update-cycle: 180-days
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # MCP tool trigger for Azure Functions
 
-Use the MCP tool trigger to define tool endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server. Client language models and agents can use these tools to perform specific tasks, such as storing or accessing code snippets.
+Use the MCP tool trigger to define tool endpoints in a [Model Context Protocol (MCP)](https://github.com/modelcontextprotocol) server. Client language models and agents can use these tools to perform specific tasks, such as storing or accessing code snippets.
 
 For information on setup and configuration, see the [overview](functions-bindings-mcp.md).
 
@@ -81,7 +81,7 @@ builder.Build().Run();
 > [!TIP]
 > The example above uses literal strings for things like the name of the "get_snippets" tool in both `Program.cs` and the function. Consider instead using shared constant strings to keep things in sync across your project.
 
-For the complete code example, see [SnippetTool.cs](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/SnippetsTool.cs).  
+For the complete code example, see [SnippetTool.cs](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/FunctionsMcpTool/SnippetsTool.cs).  
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -167,7 +167,7 @@ public String getSnippet(
 }
 ```
 
-For the complete code example, see [Snippets.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/src/main/java/com/function/Snippets.java).  
+For the complete code example, see [Snippets.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/samples/FunctionsMcpTool/src/main/java/com/function/Snippets.java).  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 Example code for JavaScript isn't currently available. See the TypeScript examples for general guidance using Node.js.
@@ -511,7 +511,6 @@ builder.Build().Run();
 
 You can call the `WithProperty()` method multiple times to define multiple properties for the tool. Each call to `WithProperty()` includes a string representation of the MCP property type, which might not directly correspond to a CLR type. For example, use `"boolean"` to define a boolean property, even though the corresponding CLR type is `bool`. Valid types are: `"string"`, `"number"`, `"integer"`, `"boolean"`, `"object"`.
 
-For the complete example, see the [`Program.cs` file](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/Program.cs).
 
 ---
 

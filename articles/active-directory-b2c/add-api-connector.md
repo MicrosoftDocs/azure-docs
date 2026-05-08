@@ -25,7 +25,7 @@ ms.custom:
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
+As a developer or IT administrator, you can use API connectors to integrate sign-up user flows with REST APIs, enabling customization of the sign-up experience and integration with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
 
 ::: zone pivot="b2c-user-flow"
 You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connector-rest-api-samples).
@@ -515,7 +515,7 @@ Add the validation technical profile reference to the sign-up technical profile,
             <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
             <OutputClaim ClaimTypeReferenceId="displayName"/>
             <OutputClaim ClaimTypeReferenceId="givenName"/>
-            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
             <!-- Required to present the text box to collect the data from the user -->
             <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
             <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 

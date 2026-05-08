@@ -8,7 +8,7 @@ author: robece
 ms.author: robece
 ---
 
-# Stripe partner topics with Azure Event Grid (preview)
+# Stripe partner topics with Azure Event Grid
 
 Stripe, the financial infrastructure platform for businesses, provides developers and enterprises with the tools they need to accept payments, grow revenue, and accelerate business operations.
 
@@ -17,9 +17,6 @@ By using the Stripe partner topic, you can use events emitted by Stripe's system
 With this integration, you can stream your Stripe payment events with high reliability into Azure. There, you can consume the events by using your favorite Azure resources. By using this integration, you can react to events, gain insights, monitor for payment anomalies, and interact with other powerful data pipelines.
 
 For organizations that use Stripe and Azure, this integration allows you to seamlessly integrate payment data across your entire stack.
-
-> [!NOTE]
-> Stripe partner topics for Azure Event Grid are currently in **preview**.
 
 ## Available event types
 

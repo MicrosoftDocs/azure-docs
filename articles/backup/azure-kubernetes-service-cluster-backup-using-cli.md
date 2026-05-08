@@ -323,6 +323,99 @@ Now, trigger an on-demand backup for the backup instance by running the followin
 az dataprotection backup-instance adhoc-backup --rule-name "BackupDaily" --ids /subscriptions/$subscriptionId/resourceGroups/$backupvaultresourcegroup/providers/Microsoft.DataProtection/backupVaults/$backupvault/backupInstances/$backupinstanceid
 
 ```
+## Configure backup using a single Azure CLI command
+
+Azure Backup provides a simplified experience to configure backup protection for Azure Kubernetes Service (AKS) clusters using a single Azure CLI command.
+
+   >[!Note]
+   >This procedure is an alternate approach. The earlier approach for creating backup instances using `az dataprotection backup-instance initialize-backupconfig` command continues to work as usual.
+
+The backup configuration for AKS clusters requires you to complete multiple manual steps, including Backup extension installation, storage resource provision, backup vault and policy creation, set up of Trusted Access between the AKS cluster and the backup vault, and backup instance initialization.
+
+
+To simplify this backup configuration, Microsoft provides an alternate approach to enable backup protection for an AKS cluster by running the following command:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name>
+```
+
+When you run this command, Azure Backup automatically performs the following configuration workflow:
+- Validate the AKS cluster state and backup compatibility
+- Creating or reusing a region-specific backup resource group
+- Installing the Backup extension in the AKS cluster (if not already present)
+- Creating or reusing storage resources required for backup
+- Creating or reusing a backup vault and backup policy
+- Enabling Trusted Access between the backup vault and AKS cluster
+- Initialize and create the backup instance
+
+**Provide optional backup configuration parameters**
+
+You can optionally provide a configuration file to use existing backup resources or apply custom settings during backup configuration.
+
+   >[!Note]
+   >To run this command, you must be on CLI version 1.9.0 and above. Follow these steps to install or update your CLI version: 
+   >- First-time install: `az extension add -n dataprotection` 
+   >- Upgrade if already installed: `az extension add -n dataprotection --upgrade` 
+   >- Verify version (must be >= 1.9.0): `az extension show -n dataprotection --query version -o tsv`
+
+Run the following command to enable backup using a configuration file:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name> \
+--backup-strategy <Strategy>\ 
+--backup-configuration-file @config.json
+```
+
+The configuration file can include the following parameters:
+
+| **Parameter** | **Description** |
+|-----------|-------------|
+| `backupVaultId`  | Use an existing backup vault |
+| `backupPolicyId` | Use an existing backup policy |
+| `storageAccountResourceId`  | Use an existing storage account |
+| `blobContainerName`  | Specify a custom container name |
+| `backupResourceGroupId` | Use an existing resource group |
+| `tags`  | Apply tags to created resources |
+
+Example configuration file:
+
+```azurecli
+{
+     "tags": {
+     "Owner": "azure@microsoft.com",
+     "Environment": "Production"
+    }
+}
+```
+
+**Supported backup strategies**
+
+Run the following command to configure backup using a predefined strategy:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name> \
+--backup-strategy DisasterRecovery\
+
+```
+
+You can choose from the following predefined backup strategies:
+
+| **Strategy** | **Description** |
+|-----------|-------------|
+| `Week` (default)  | Retains backups in Operational store for 7 days |
+| `Month` | Retains backups in Operational store for 30 days |
+| `DisasterRecovery`  | Retains backups in Operational store for 7 days and Vault store for 90 days |
+| Custom  | Uses existing backup vault and policy |
+
+With *Custom* strategy, you will need to use the configuration file mentioned above.
+
+For more details, check the [CLI command here](/cli/azure/dataprotection/enable-backup?view=azure-cli-latest&preserve-view=true).
 
 ## Tracking jobs
 

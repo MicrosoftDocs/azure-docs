@@ -43,12 +43,12 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | |
-| X.509 client certificates | Yes | |
+| X.509 user certificates | Yes | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure, encrypted OPC UA connections |
+| Southbound certificate trust list | Yes | For secure, encrypted OPC UA connections |
 | OpenTelemetry integration | Yes | |
 | Automatic reconnection | Yes | Reconnects to OPC UA servers after failures |
-| Multiple server connections | Yes | Configured using Kubernetes `device` CRs |
+| Multiple server connections | Yes | Configured using `device` resources |
 | OPC UA PubSub format | Yes | JSON-encoded data value changes |
 | CloudEvents headers | Yes | Message headers as MQTT user properties |
 | OPC UA events | Yes | Predefined event fields |

@@ -27,6 +27,9 @@ However, in a debug or test environment you can  manage the components of Azure 
 - Unless you enable resource sync in Azure IoT Operations using `az iot ops enable-rsync` command, changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
 - Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
 
+> [!IMPORTANT]
+> In production, the cloud is always the source of truth. Always create and modify resources through Azure—by using the operations experience, the Azure portal, the Azure CLI, or ARM/Bicep templates. Creating resources directly on the cluster or editing existing Kubernetes custom resources can cause the cloud and edge to go out of sync and isn't supported in production environments.
+
 ### `kubectl`
 
 `kubectl` is the Kubernetes command-line tool for managing your cluster. It has many capabilities that you can learn about in the official [kubernetes documentation](https://kubernetes.io/docs/reference/kubectl/introduction/). This article describes the common uses for `kubectl` when you're working with Azure IoT Operations such as listing the running pods and viewing logs.
