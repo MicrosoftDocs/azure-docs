@@ -17,7 +17,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
+- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources you may be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol - if you require SMB, choose classic file shares for your deployment.
 
 ## Classic file share scale targets (Microsoft.Storage)
 There are two types of limits that apply to storage accounts and classic file shares:
@@ -140,7 +140,7 @@ File scale targets apply to individual files stored in classic file shares. Your
 \* The maximum number of concurrent handles per file and directory is a soft limit for classic file shares on the SSD media tier using the SMB protocol. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ## File share scale targets (Microsoft.FileShares)
-Two types of limits apply to file shares created with the `Microsoft.FileShares` resource provider (preview):
+Two types of limits apply to file shares created with the `Microsoft.FileShares` resource provider:
 
 - Control plane limits, which are enforced by the `Microsoft.FileShares` resource provider and apply to management requests such as creating, updating, or deleting the file share or child resources such as file share snapshots.
 

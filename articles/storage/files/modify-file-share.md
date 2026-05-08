@@ -5,7 +5,7 @@ description: Learn how to adjust the size, cost, and performance characteristics
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 05/08/2026
 ms.author: kendownie
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
@@ -15,9 +15,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
-This article explains how to adjust the size, cost, and performance characteristics of Azure file shares using the Azure portal, Azure PowerShell, and Azure CLI. The procedures are different for classic file shares, which use the Microsoft.Storage resource provider, versus file shares created with Microsoft.FileShares (preview).
+This article explains how to adjust the size, cost, and performance characteristics of Azure file shares using the Azure portal, Azure PowerShell, and Azure CLI. The procedures are different for classic file shares, which use the Microsoft.Storage resource provider, versus file shares created with Microsoft.FileShares.
 
 ## Change the cost and performance characteristics of a classic file share
 
@@ -345,23 +345,27 @@ Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 To change the size and performance of a file share (Microsoft.FileShares) using Azure CLI, use the following commands.
 
 ```bash
-az resource update \
-  --resource-type "Microsoft.FileShares/fileShares" \
-  --name <your-file-share-name> \
-  --resource-group <your-resource-group-name> \
-  --set properties.provisionedStorageGiB=<intended capacity> \
-       properties.ProvisionedIoPerSec=<intended IOPS> \
-       properties.ProvisionedThroughputMiBPerSec=<intended througphput> \
-       properties.nfsProtocolProperties.rootSquash="AllSquash"
+# Install the fileshares extension
+az extension add --name fileshares
+
+# Specify your values
+shareName="<your-file-share-name>"
+resourceGroup="<your-resource-group-name>"
+
+# Update the file share. Uncomment and set only the parameters you want to change.
+az fileshare update --name $shareName --resource-group $resourceGroup --provisioned-storage-GiB 2048
+# --provisioned-iops 3000 \
+# --provisioned-throughput-MiB 125 \
+# --root-squash RootSquash \
+# --public-network-access Disabled \
+# --allowed-subnets <subnet-resource-id> \
+# --tags tag1=value1
 ```
 
 To check file share information:
 
 ```bash
-az resource show \
-  --resource-type "Microsoft.FileShares/fileShares" \
-  --name <your-file-share-name> \
-  --resource-group <your-resource-group-name>
+az fileshare show --name $shareName --resource-group $resourceGroup
 ```
 
 ---
@@ -431,7 +435,7 @@ To delete a file share (Microsoft.FileShares) using the Azure portal, follow the
 
     ![Delete image](./media/storage-how-to-create-file-share/delete-file-share.png)
 
-3. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have, particularly if something isn't working properly for you.
+1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is non-recoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
 
 4. Enter the file share name to confirm deletion and then select **Delete**.
 
@@ -451,18 +455,19 @@ Remove-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete a file share (Microsoft.FileShares) using Azure CLI, run the following command.
+To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command.
 
 ```bash
-az resource delete \
-  --resource-type "Microsoft.FileShares/fileShares" \
-  --name <your-file-share-name> \
-  --resource-group <your-resource-group-name>
+# Install the fileshares extension
+az extension add --name fileshares
+
+# Delete the file share
+az fileshare delete --name <file-share-name> --resource-group <your-resource-group-name> -y
 ```
 
 ---
 
 ## Next steps
 
-- Learn [more about Azure Files](storage-files-introduction.md)
-- Learn how to [plan for an Azure Files deployment](storage-files-planning.md)
+- Learn [more about Azure Files](storage-files-introduction.md).
+- Learn how to [plan for an Azure Files deployment](storage-files-planning.md).
