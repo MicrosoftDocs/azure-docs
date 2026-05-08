@@ -40,10 +40,10 @@ The following diagram outlines how Azure NetApp Files uses LDAP bind/search oper
 
 The architecture involves the following components:
 
-- Linux VM client: initiates an NFS mount request to Azure NetApp Files
+- Client Linux VM: initiates an NFS mount request to Azure NetApp Files
 - Azure NetApp Files volume: receives the mount request and performs LDAP queries
 - LDAP directory server: responds to bind/search requests with user and group information
-- Access control logic: enforces access decisions based on LDAP responses
+- Access control decision: enforces access decisions based on LDAP responses
 
 ### Data flow 
 
