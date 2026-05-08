@@ -33,7 +33,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 > When you use workload profiles, inbound NSG rules apply only to traffic that goes through your virtual network. If you set your container apps to accept traffic from the public internet, incoming traffic goes through the public endpoint instead of the virtual network.
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
-| -- | -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- | --- |
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your client IPs to access Container Apps when you're using HTTP. `31080` is the port on which the Container Apps environment edge proxy responds to the HTTP traffic. It's behind the internal load balancer. |
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your client IPs to access Container Apps when you're using HTTPS. `31443` is the port on which the Container Apps environment edge proxy responds to the HTTPS traffic. It's behind the internal load balancer. |
 | TCP | Azure Load Balancer | \* | Your container app's subnet | `30000-32767`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. |
@@ -42,7 +42,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 # [Consumption-only environment](#tab/consumption-only)
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
-| -- | -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- | --- |
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your client IPs to access Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
 | TCP | Your client IPs | \* | The `staticIP` value of your Container Apps environment | `80`, `443` | Allow your client IPs to access Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
 | TCP | Azure Load Balancer | \* | Your container app's subnet | `30000-32767`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. |
@@ -59,7 +59,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 # [Workload profile environment](#tab/workload-profiles)
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
-| -- | -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- | --- |
 | TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This service tag represents Microsoft Artifact Registry for system containers. |
 | TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This service tag is a dependency of the `MicrosoftContainerRegistry` service tag. |
 | Any | Your container app's subnet | \* | Your container app's subnet | \* | This rule allows communication between IPs in your container app's subnet. |
@@ -75,7 +75,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 > When you use Consumption-only environments, your container app also needs all [outbound ports that Azure Kubernetes Service (AKS) requires](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters).
 
 | Protocol | Source | Source ports | Destination | Destination ports | Description |
-| -- | -- | -- | -- | -- | -- |
+| --- | --- | --- | --- | --- | --- |
 | TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This service tag represents Microsoft Artifact Registry for system containers. |
 | TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This service tag is a dependency of the `MicrosoftContainerRegistry` service tag. |
 | UDP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `1194` | This rule is required for an internal AKS secure connection between underlying nodes and the control plane. Replace `<REGION>` with the region where your container app is deployed. |

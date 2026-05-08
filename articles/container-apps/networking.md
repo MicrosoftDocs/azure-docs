@@ -1,5 +1,5 @@
 ---
-title: Networking in a Azure Container Apps Environment
+title: Networking in an Azure Container Apps Environment
 description: Learn about virtual networks in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -55,7 +55,7 @@ You can configure whether your container app allows public ingress or ingress on
 The setting for public network access determines whether your Container Apps environment is accessible from the public internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
 | Virtual IP | Supported public network access | Description |
-| -- | -- | -- |
+| --- | --- | --- |
 | External | `Enabled`, `Disabled` | The Container Apps environment was created with an internet-accessible endpoint. The setting for public network access determines whether traffic is accepted through the public endpoint or only through private endpoints. You can change this setting after you create the environment. |
 | Internal | `Disabled` | The Container Apps environment was created without an internet-accessible endpoint. You can't change the setting for public network access to accept traffic from the internet. |
 
@@ -147,13 +147,13 @@ A second URL is also generated for you. This location grants access to the log-s
 The following ports are exposed for inbound connections:
 
 | Protocol | Ports |
-| -- | -- |
+| --- | --- |
 | HTTP/HTTPS | 80, 443 |
 
 IP addresses have the following types:
 
 | Type | Description |
-| -- | -- |
+| --- | --- |
 | Public inbound IP | Used for application traffic in an external deployment, and for management traffic in both internal and external deployments. |
 | Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Outbound IPs might change over time. Using Azure NAT Gateway or another proxy for outbound traffic from a Container Apps environment is supported only in a [workload profile environment](workload-profiles-overview.md). |
 | Internal load balancer IP | Exists only in an [internal environment](networking.md#accessibility-level). |

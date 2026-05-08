@@ -37,7 +37,7 @@ When you use a UDR with Azure Firewall in Container Apps, add application or net
 Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules and their fully qualified domain names (FQDNs) are required based on the scenario.
 
 | Scenarios | FQDNs | Description |
-| -- | -- | -- |
+| --- | --- | --- |
 | All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | Container Apps uses these FQDNs for Microsoft Artifact Registry. When you're using Container Apps with Azure Firewall, add either these application rules or the network rules for Artifact Registry to the allow list. |
 | All scenarios | `packages.aks.azure.com`, `acs-mirror.azureedge.net` | The underlying Azure Kubernetes Service (AKS) cluster requires these FQDNs to download and install Kubernetes and Azure Container Network Interface (CNI) binaries. When you're using Container Apps with Azure Firewall, add either these application rules or the network rules for Artifact Registry to the allow list. For more information, see [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-fqdn--application-rules). |
 | Azure Container Registry | `<your-Container-Registry-address>`, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when you're using Container Apps with Container Registry and Azure Firewall. |
@@ -65,7 +65,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 Network rules allow or deny traffic based on the network and transport layer. When you use a UDR with Azure Firewall in Container Apps, add the following outbound firewall network rules based on the scenario.
 
 | Scenarios | Service tags | Description |
-| -- | -- | -- |
+| --- | --- | --- |
 | All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty` | Container Apps uses these service tags for Microsoft Artifact Registry. To allow Container Apps to use Artifact Registry, add either these network rules or the application rules for Artifact Registry to the allow list when you're using Container Apps with Azure Firewall. |
 | Azure Container Registry | `AzureContainerRegistry`, `AzureActiveDirectory` | When you use Container Registry with Container Apps, configure these network rules that Container Registry uses. |
 | Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Key Vault. |

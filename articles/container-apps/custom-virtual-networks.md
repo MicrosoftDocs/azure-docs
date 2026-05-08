@@ -62,7 +62,7 @@ Each environment type has its own subnet requirements:
 - When you make a [change to a revision](revisions.md#revision-scope-changes) in single-revision mode, the required address space is doubled for a short period to support zero-downtime deployments. This doubling affects the real, available supported replicas or nodes for a particular subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 
     | Subnet size | Available IP addresses<sup>1</sup> | Maximum nodes (Dedicated workload profile)<sup>2</sup>| Maximum replicas (Consumption workload profile)<sup>2</sup> |
-    | -- | -- | -- | -- |
+    | --- | --- | --- | --- |
     | /23 | 498 | 249 | 2,490 |
     | /24 | 242 | 121 | 1,210 |
     | /25 | 114 | 57 | 570 |
