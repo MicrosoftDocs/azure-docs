@@ -12,13 +12,13 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Networking in Azure Container Apps environment
+# Networking in an Azure Container Apps environment
 
 Azure Container Apps operates in the context of an [environment](environment.md), which runs its own virtual network. As you create an environment, a few key considerations inform the networking capabilities of your container apps: environment type, virtual network type, and accessibility level.
 
 ## Environment selection
 
-Container Apps has two [environment types](environment.md#types). They share many of the same networking characteristics with some key differences.
+Container Apps has two [environment types](environment.md#types). They share many of the same networking characteristics, with some key differences.
 
 | Environment type | Supported plan types | Description |
 | --- | --- | --- |
@@ -33,11 +33,11 @@ By default, Container Apps is integrated with the Azure network, which is public
 
 Use an existing virtual network when you need Azure networking features like:
 
-- Network security groups
-- Azure Application Gateway integration
-- Azure Firewall integration
-- Control over outbound traffic from your container app
-- Access to resources behind private endpoints in your virtual network
+- Network security groups.
+- Azure Application Gateway integration.
+- Azure Firewall integration.
+- Control over outbound traffic from your container app.
+- Access to resources behind private endpoints in your virtual network.
 
 If you use an existing virtual network, you need to provide a subnet that's dedicated exclusively to the Container Apps environment that you deploy. This subnet isn't available to other services. For more information, see [Virtual network configuration](custom-virtual-networks.md).
 
@@ -99,7 +99,7 @@ For more information about networking scenarios, see [Ingress in Azure Container
 | [Using Azure Firewall](use-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
 | [Virtual networks](custom-virtual-networks.md) | Configure the virtual network for your Container Apps environment. |
 | [Securing a existing virtual network with a network security group](firewall-integration.md) | Help secure your Container Apps environment's virtual network by using a network security group. |
-| [Azure NAT gateway integration](custom-virtual-networks.md#nat-gateway-integration) | Use Azure NAT Gateway to simplify outbound internet connectivity in your virtual network in a workload profile environment. |
+| [Azure NAT gateway integration](custom-virtual-networks.md#azure-nat-gateway-integration) | Use Azure NAT Gateway to simplify outbound internet connectivity in your virtual network in a workload profile environment. |
 
 ## How-to articles
 

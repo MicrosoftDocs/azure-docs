@@ -57,7 +57,7 @@ Each environment type has its own subnet requirements:
 
   - [Dedicated workload profile](workload-profiles-overview.md#profile-types): As your container app scales out, each node has one IP address assigned.
 
-  - [Consumption workload profile](workload-profiles-overview.md#profile-types): Each IP address can be shared among multiple replicas. When you're planning for how many IP addresses are required for your app, plan for 1 IP address per 10 replicas.
+  - [Consumption workload profile](workload-profiles-overview.md#profile-types): Each IP address can be shared among multiple replicas. When you're planning for how many IP addresses are required for your app, plan for one IP address per 10 replicas.
 
 - When you make a [change to a revision](revisions.md#revision-scope-changes) in single-revision mode, the required address space is doubled for a short period to support zero-downtime deployments. This doubling affects the real, available supported replicas or nodes for a particular subnet size. The following table shows both the maximum available addresses per CIDR block and the effect on horizontal scale.
 

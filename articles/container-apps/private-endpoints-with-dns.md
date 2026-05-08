@@ -31,7 +31,7 @@ Private endpoints incur additional charges. When you enable a private endpoint i
 
 - To use a private endpoint, you must disable [public network access](networking.md#public-network-access). By default, public network access is enabled, which means private endpoints are disabled.
 - To use a private endpoint with a custom domain and an *apex domain* as the *hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the Container Apps environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up a custom domain with an existing certificate](custom-domains-certificates.md).
-- Your private endpoint's virtual network can be separate from the virtual network you integrated with your container app.
+- Your private endpoint's virtual network can be separate from the virtual network that you integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 
 To connect to your container apps through a private endpoint, you must configure a private DNS zone.
@@ -63,7 +63,7 @@ When you're configuring your network security group or firewall, the DNS require
   For organizations that have strict DNS security requirements (such as banking and healthcare), Dedicated workload profiles provide the option to completely control DNS traffic flow through custom DNS servers without requiring Azure DNS access.
 
 > [!IMPORTANT]
-> Users of private DNS zones *must not* block or override the resolution of `*.hcp.<LOCATION>.azmk8s.io`, `mcr.microsoft.com`, and other DNS requirements that are shared with Azure Kubernetes Service and listed in [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules). Failure to ensure resolvability of required entries disrupts your Container Apps environment operation and networking.
+> Users of private DNS zones *must not* block or override the resolution of `*.hcp.<LOCATION>.azmk8s.io`, `mcr.microsoft.com`, and other DNS requirements that are shared with Azure Kubernetes Service and listed in [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules). Failure to ensure the resolvability of required entries disrupts your Container Apps environment operation and networking.
 
 ## Ingress for the virtual network scope
 
@@ -75,7 +75,7 @@ If you plan to use [ingress](ingress-overview.md) in an internal environment for
 
 - **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you're using an internal Container Apps environment, there's no validation for the DNS binding because the cluster is available only from within the virtual network.
 
-  Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+  Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a private DNS zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
 
 To get the static IP address of the Container Apps environment, you can use either of these methods:
 

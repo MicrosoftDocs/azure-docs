@@ -34,17 +34,17 @@ When you use a UDR with Azure Firewall in Container Apps, add application or net
 
 ## Application rules
 
-Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules and their fully qualified domain names (FQDNs) are required based on the scenario.
+Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules and their fully qualified domain names (FQDNs) are required, based on the scenario.
 
 | Scenarios | FQDNs | Description |
 | --- | --- | --- |
 | All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | Container Apps uses these FQDNs for Microsoft Artifact Registry. When you're using Container Apps with Azure Firewall, add either these application rules or the network rules for Artifact Registry to the allow list. |
 | All scenarios | `packages.aks.azure.com`, `acs-mirror.azureedge.net` | The underlying Azure Kubernetes Service (AKS) cluster requires these FQDNs to download and install Kubernetes and Azure Container Network Interface (CNI) binaries. When you're using Container Apps with Azure Firewall, add either these application rules or the network rules for Artifact Registry to the allow list. For more information, see [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-fqdn--application-rules). |
 | Azure Container Registry | `<your-Container-Registry-address>`, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when you're using Container Apps with Container Registry and Azure Firewall. |
-| Azure Key Vault | `<your-Azure-Key-Vault-address>`, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Key Vault. |
+| Azure Key Vault | `<your-Key-Vault-address>`, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Key Vault. |
 | Managed identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when you're using a managed identity with Azure Firewall in Container Apps. |
 | Azure Service Bus | `*.servicebus.windows.net` | These FQDNs are required when your container apps communicate with Service Bus (queues, topics, or subscriptions) through Azure Firewall. |
-| Aspire dashboard | `https://<YOUR-CONTAINERAPP-REGION>.ext.azurecontainerapps.dev` | This FQDN is required when you're using the Aspire dashboard in an environment configured with a virtual network. Update the FQDN with your container app's region. |
+| Aspire dashboard | `https://<YOUR-CONTAINER-APP-REGION>.ext.azurecontainerapps.dev` | This FQDN is required when you're using the Aspire dashboard in an environment configured with a virtual network. Update the FQDN with your container app's region. |
 | Docker Hub registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using a [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, add these FQDNs to the firewall. |
 | Azure Service Bus | `*.servicebus.windows.net` | This FQDN is required when you're using Service Bus with Container Apps and Azure Firewall. |
 | Azure operated by 21Vianet (Azure in China): Microsoft Artifact Registry | `mcr.azure.cn`, `*.data.mcr.azure.cn` | These Artifact Registry endpoints are used to pull container images in the Azure in China environment. |

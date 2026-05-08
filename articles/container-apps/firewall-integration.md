@@ -19,7 +19,7 @@ In the workload profile environment, user-defined routes (UDRs) and [securing ou
 
 When you use an external workload profile environment, inbound traffic to Container Apps routes through the public IP that exists in the [managed resource group](./networking.md#ports-and-ip-addresses) rather than through your subnet. This limitation means that locking down inbound traffic via NSG or firewall on an external workload profile environment isn't supported.
 
-In the legacy Consumption-only environment, Azure ExpressRoute isn't supported, and custom user-defined routes (UDRs) have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
+In the legacy Consumption-only environment, Azure ExpressRoute isn't supported, and custom UDRs have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
 
 ## NSG allow rules
 
@@ -46,7 +46,7 @@ The following tables describe how to configure a collection of NSG allow rules. 
 | TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your client IPs to access Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
 | TCP | Your client IPs | \* | The `staticIP` value of your Container Apps environment | `80`, `443` | Allow your client IPs to access Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
 | TCP | Azure Load Balancer | \* | Your container app's subnet | `30000-32767`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. |
-| TCP | Your container app's subnet | \* | Your container app's subnet | \* | This rule is required to allow the container app Envoy sidecar to connect to the Envoy service. |
+| TCP | Your container app's subnet | \* | Your container app's subnet | \* | This rule is required to allow the container app's Envoy sidecar to connect to the Envoy service. |
 
 ---
 
