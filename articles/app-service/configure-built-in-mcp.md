@@ -12,7 +12,7 @@ ms.custom:
 
 # Configure App Service built-in MCP (Preview)
 
-App Service built-in MCP turns an existing REST API hosted on Azure App Service into a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server without writing or deploying any MCP code. The platform reads an OpenAPI specification you provide — either by uploading it directly through the portal or by pointing to a file already in your app — generates an MCP tool for each operation, and serves the MCP endpoint over [streamable HTTP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) on a path you choose.
+App Service built-in MCP turns an existing REST API hosted on Azure App Service into a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server without writing or deploying any MCP code. The platform reads an OpenAPI specification you provide—either by uploading it directly through the portal or by pointing to a file already in your app. The platform then generates an MCP tool for each operation, and serves the MCP endpoint over [streamable HTTP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) on a path you choose.
 
 > [!IMPORTANT]
 > App Service built-in MCP is in preview.
@@ -28,7 +28,7 @@ Use built-in MCP when:
 
 Use a custom MCP server (built with an MCP SDK and deployed as your application code) instead when:
 
-- You need MCP tool behavior that doesn't map cleanly to a single REST operation — for example, multi-step workflows, in-memory aggregation, or tools that don't have an HTTP backing endpoint.
+- You need MCP tool behavior that doesn't map cleanly to a single REST operation—for example, multi-step workflows, in-memory aggregation, or tools that don't have an HTTP backing endpoint.
 - You need to expose MCP [resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) or [prompts](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts) in addition to tools.
 - You need to host more than one MCP server on a single app.
 
@@ -39,7 +39,7 @@ For a comparison of all MCP hosting options on Azure, see [Choose an Azure servi
 When you enable built-in MCP on an App Service app:
 
 1. You provide an OpenAPI specification (JSON or YAML). The platform reads it from a file on the app's file system at the path you set in `ApiSpecPath` (default `/home/data/.ai/apispec.json`). You can populate that file three ways:
-   - **Upload it through the portal.** When you create an MCP server in the **AI (preview)** blade, choose **File** as the source and upload an OpenAPI JSON or YAML file. The platform writes it to `ApiSpecPath`.
+   - **Upload it through the portal.** When you create an MCP server in the Azure portal, choose **File** as the source and upload an OpenAPI JSON or YAML file. The platform writes it to `ApiSpecPath`.
    - **Fetch it from a URL.** In the same panel, choose **URL** as the source and provide a reachable URL. The platform fetches the spec and writes it to `ApiSpecPath`.
    - **Deploy it with your app.** Place the spec on the app's content share yourself (for example, by including it in your deployment) and set `ApiSpecPath` to that location.
 1. Each OpenAPI operation becomes an MCP tool. By default, the tool name is derived from the operation's `operationId` (or from `{method}_{path}` when no `operationId` is set) and the description comes from the operation's `summary` or `description`. You can override either per tool to give the AI client clearer, more action-oriented names and descriptions without changing the underlying spec.
@@ -53,15 +53,15 @@ Built-in MCP runs in the App Service request pipeline alongside [App Service Aut
 
 - An App Service app on a dedicated pricing tier (Basic or higher). Built-in MCP isn't supported on Free, Shared, Consumption, or Flex Consumption plans.
 - An OpenAPI 3.x specification (JSON or YAML) that describes the operations you want to expose as MCP tools.
-- A way to make the spec available to the platform — either by uploading it through the portal or by deploying it as part of your app's content (referenced by `ApiSpecPath`).
+- A way to make the spec available to the platform—either by uploading it through the portal or by deploying it as part of your app's content (referenced by `ApiSpecPath`).
 
-## Step 1 — Provide your OpenAPI spec
+## Step 1—Provide your OpenAPI spec
 
 Built-in MCP needs an OpenAPI 3.x document (JSON or YAML). The platform reads it from a path on the app's file system (`ApiSpecPath`, default `/home/data/.ai/apispec.json`). You can populate that file three ways:
 
-- **Upload through the portal** — the simplest option. You don't need to redeploy or expose the spec from your app.
-- **Fetch from a URL** — useful when the spec is hosted somewhere the platform can reach (for example, a published Swagger endpoint or a public Git URL).
-- **Deploy with your app** — useful when you want the spec to live in source control alongside your code.
+- **Upload through the portal**—the simplest option. You don't need to redeploy or expose the spec from your app.
+- **Fetch from a URL**—useful when the spec is hosted somewhere the platform can reach (for example, a published Swagger endpoint or a public Git URL).
+- **Deploy with your app**—useful when you want the spec to live in source control alongside your code.
 
 A minimal spec that exposes one operation looks like:
 
@@ -87,7 +87,7 @@ A minimal spec that exposes one operation looks like:
 }
 ```
 
-The `operationId` becomes the MCP tool name. Use clear, action-oriented IDs (`list_orders`, `create_order`, `cancel_order`) — the AI client uses them to choose tools.
+The `operationId` becomes the MCP tool name. Use clear, action-oriented IDs (`list_orders`, `create_order`, `cancel_order`)—the AI client uses them to choose tools.
 
 Built-in MCP maps REST verbs to MCP [tool annotations](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#tool-annotations):
 
@@ -98,7 +98,7 @@ Built-in MCP maps REST verbs to MCP [tool annotations](https://modelcontextproto
 | `DELETE` | `false` | `true` | `true` |
 | `POST` | `false` | `false` | `false` |
 
-## Step 2 — Enable built-in MCP
+## Step 2—Enable built-in MCP
 
 Built-in MCP is configured through the `aiIntegration` property on your `Microsoft.Web/sites` resource. The preview ships with **Portal**, **Azure CLI** (using `az rest`), and **Bicep** as supported configuration paths.
 
@@ -108,18 +108,18 @@ Built-in MCP is configured through the `aiIntegration` property on your `Microso
 1. In the left menu, under **Settings**, select **AI (preview)**.
 1. Select the **MCP servers** tab.
 1. Select **+ Create MCP server**, then fill in:
-   - **Display name** — the server identifier shown to clients.
-   - **Endpoint path** — the relative URL where the MCP server is served (default `/mcp`). The full URL preview appears below the field.
-   - **Description** — optional, shown to MCP clients.
-   - **API spec path** — the path on the app's file system where the spec file is stored. Defaults to `/home/data/.ai/apispec.json`; edit it if you want the spec stored somewhere else.
-   - **OpenAPI specification › Source** — where the spec content comes from. Choose **File** to upload a JSON or YAML file from your machine, or **URL** to have the platform fetch the spec from a reachable URL. Either way, the platform writes the contents to the location you set in **API spec path**.
-   - **Auth** — optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata (`Scopes` plus either `WellKnownOpenIdConfiguration` or `Issuer`) so MCP clients can complete OAuth. See [Authentication](#authentication) for the field reference. {TODO - review this section once the portal Auth section is available.}
+   - **Display name**—the server identifier shown to clients.
+   - **Endpoint path**—the relative URL where the MCP server is served (default `/mcp`). The full URL preview appears below the field.
+   - **Description**—optional, shown to MCP clients.
+   - **API spec path**—the path on the app's file system where the spec file is stored. Defaults to `/home/data/.ai/apispec.json`; edit it if you want the spec stored somewhere else.
+   - **OpenAPI specification › Source**—where the spec content comes from. Choose **File** to upload a JSON or YAML file from your machine, or **URL** to have the platform fetch the spec from a reachable URL. Either way, the platform writes the contents to the location you set in **API spec path**.
+   - **Auth**—optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata (`Scopes` plus either `WellKnownOpenIdConfiguration` or `Issuer`) so MCP clients can complete OAuth. See [Authentication](#authentication) for the field reference. {TODO - review this section once the portal Auth section is available.}
 1. Select **Create MCP**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot placeholder: AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-mcp/portal-add-mcp-server.png)
 
-After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable/disable individual tools as well. Edit the MCP server to override tool names or descriptions — the override is what the AI client sees, the underlying OpenAPI spec is unchanged.
+After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable/disable individual tools as well. Edit the MCP server to override tool names or descriptions—the override is what the AI client sees, the underlying OpenAPI spec is unchanged.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot placeholder: MCP server expanded view showing the tool list with individual tool toggles and status of "8 of 13 tools enabled".](./media/configure-built-in-mcp/portal-server-tools.png)
@@ -180,11 +180,11 @@ Field reference for `aiIntegration`:
 | `Mcp.Servers[].ToolOverrides[].Name` | string | Optional. Replaces the tool name shown to MCP clients (1–128 characters). |
 | `Mcp.Servers[].ToolOverrides[].Description` | string | Optional. Replaces the tool description shown to MCP clients (≤ 256 characters). |
 | `SiteAuth` | object | Optional. Identity provider metadata used to publish [protected resource metadata](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#authorization-server-location) when App Service Authentication isn't enabled. See [Authentication](#authentication). |
-| `SiteAuth.Scopes` | array of strings | Required. OAuth scopes the MCP client should request — for example, `["api://my-app/user_impersonation"]`. |
-| `SiteAuth.WellKnownOpenIdConfiguration` | string (URL) | Required if `Issuer` isn't set. URL to the OpenID Connect discovery document — for example, `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration`. |
-| `SiteAuth.Issuer` | string | Required if `WellKnownOpenIdConfiguration` isn't set. Token issuer URL — for example, `https://login.microsoftonline.com/{tenant}/v2.0`. |
+| `SiteAuth.Scopes` | array of strings | Required. OAuth scopes the MCP client should request—for example, `["api://my-app/user_impersonation"]`. |
+| `SiteAuth.WellKnownOpenIdConfiguration` | string (URL) | Required if `Issuer` isn't set. URL to the OpenID Connect discovery document—for example, `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration`. |
+| `SiteAuth.Issuer` | string | Required if `WellKnownOpenIdConfiguration` isn't set. Token issuer URL—for example, `https://login.microsoftonline.com/{tenant}/v2.0`. |
 | `SiteAuth.JwksUri` | string (URL) | Optional. JWKS endpoint for token signature validation. |
-| `SiteAuth.Audience` | string | Optional. Expected `aud` claim value — for example, `api://my-app-client-id`. |
+| `SiteAuth.Audience` | string | Optional. Expected `aud` claim value—for example, `api://my-app-client-id`. |
 
 To remove built-in MCP from an app, PATCH the same property with `null`:
 
@@ -233,7 +233,7 @@ resource site 'Microsoft.Web/sites@<api-version>' = {
 
 ---
 
-## Step 3 — Connect an MCP client
+## Step 3—Connect an MCP client
 
 After you save the configuration, the MCP endpoint is available at:
 
@@ -241,7 +241,7 @@ After you save the configuration, the MCP endpoint is available at:
 https://<app-name>.azurewebsites.net/<endpoint path you provided>
 ```
 
-For the example above, that's `https://zava.azurewebsites.net/mcp/orders`.
+For this example, that's `https://zava.azurewebsites.net/mcp/orders`.
 
 Configure your MCP client with that URL. For [GitHub Copilot Chat in Visual Studio Code](configure-authentication-mcp-server-vscode.md), add an entry to your `.vscode/mcp.json`:
 
@@ -262,9 +262,9 @@ When the client connects, it calls `initialize`, then `tools/list` to discover t
 
 Built-in MCP doesn't issue tokens or implement an authorization server. Identity is enforced by App Service Authentication on the same app. Two configurations are supported:
 
-- **App Service Authentication is enabled** — MCP requests are subject to the same identity checks as any other route. The platform publishes protected resource metadata at `/.well-known/oauth-protected-resource` based on the configured identity provider, so MCP clients can complete OAuth automatically. This is the recommended configuration. See [Configure built-in MCP server authorization](configure-authentication-mcp.md).
-- **App Service Authentication isn't enabled** — provide identity provider metadata in the `SiteAuth` block. The minimum required fields are:
-  - `Scopes` — an array of OAuth scopes the client should request.
+- **App Service Authentication is enabled**—MCP requests are subject to the same identity checks as any other route. The platform publishes protected resource metadata at `/.well-known/oauth-protected-resource` based on the configured identity provider, so MCP clients can complete OAuth automatically. This option is the recommended configuration. See [Configure built-in MCP server authorization](configure-authentication-mcp.md).
+- **App Service Authentication isn't enabled**—provide identity provider metadata in the `SiteAuth` block. The minimum required fields are:
+  - `Scopes`—an array of OAuth scopes the client should request.
   - **Either** `WellKnownOpenIdConfiguration` (the OpenID Connect discovery URL) **or** `Issuer` (the token issuer URL). One of the two must be present; both URLs must be well-formed.
 
   `JwksUri` and `Audience` are optional.
@@ -280,15 +280,15 @@ Built-in MCP doesn't issue tokens or implement an authorization server. Identity
 
 The `ToolList` field on each server controls which OpenAPI operations are exposed:
 
-- `["*"]` — expose every operation in the spec.
-- `[]` — expose no operations. Useful for temporarily disabling tool discovery without removing the server.
-- `["get_order", "list_orders"]` — expose only the listed `operationId` values.
+- `["*"]`—expose every operation in the spec.
+- `[]`—expose no operations. Useful for temporarily disabling tool discovery without removing the server.
+- `["get_order", "list_orders"]`—expose only the listed `operationId` values.
 
-Use this to keep destructive or admin-only operations off the MCP surface while still serving them to your existing HTTP clients.
+Use this filtering setting to keep destructive or admin-only operations off the MCP surface while still serving them to your existing HTTP clients.
 
 ## Update the OpenAPI spec
 
-When the spec changes — either because you redeployed the file at `ApiSpecPath` or you uploaded a new version through the portal — the platform:
+When the spec changes—either because you redeployed the file at `ApiSpecPath` or you uploaded a new version through the portal—the platform:
 
 1. Detects the change.
 1. Reparses the spec and recomputes the tool list.
@@ -315,13 +315,13 @@ You don't need to restart the app or update the `aiIntegration` configuration to
 
 **The MCP client connects but `tools/list` returns an empty array.**
 
-- Confirm a spec is configured — either uploaded through the portal or available at the path set in `ApiSpecPath`.
+- Confirm a spec is configured—either uploaded through the portal or available at the path set in `ApiSpecPath`.
 - Confirm `ToolList` isn't set to `[]`.
-- Validate the spec with an OpenAPI 3.x linter — operations missing required fields (such as a response schema) are skipped.
+- Validate the spec with an OpenAPI 3.x linter—operations missing required fields (such as a response schema) are skipped.
 
 **The MCP client gets a 401 with a `WWW-Authenticate` challenge.**
 
-- This is expected when App Service Authentication is enabled and the client doesn't have a valid token. The challenge points the client at the protected resource metadata endpoint, which in turn points at your identity provider. See [Configure built-in MCP server authorization](configure-authentication-mcp.md).
+- This error is expected when App Service Authentication is enabled and the client doesn't have a valid token. The challenge points the client at the protected resource metadata endpoint, which in turn points at your identity provider. See [Configure built-in MCP server authorization](configure-authentication-mcp.md).
 
 **The MCP client gets a 403 from a tool call but `tools/list` succeeds.**
 

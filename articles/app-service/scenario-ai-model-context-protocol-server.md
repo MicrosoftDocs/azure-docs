@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 01/29/2026
+ms.date: 05/08/2026
 ms.custom:
   - build-2025
 ms.collection: ce-skilling-ai-copilot
@@ -59,7 +59,7 @@ App Service supports two patterns for hosting an MCP server. Pick the one that m
 
 ### Bring your own MCP server
 
-Add an MCP SDK to your application code, expose an MCP endpoint alongside your existing routes, and deploy the app the same way you deploy any other code to App Service. This is the right choice when you want full control over tool definitions, when your tools don't map 1:1 to REST operations, or when you want to expose MCP [resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) or [prompts](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts) in addition to tools. The language-specific tutorials below cover this pattern.
+Add an MCP SDK to your application code, expose an MCP endpoint alongside your existing routes, and deploy the app the same way you deploy any other code to App Service. This method is the right choice when you want full control over tool definitions, when your tools don't map 1:1 to REST operations, or when you want to expose MCP [resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) or [prompts](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts) in addition to tools. The following language-specific tutorials cover this pattern.
 
 ### App Service built-in MCP (Preview)
 
