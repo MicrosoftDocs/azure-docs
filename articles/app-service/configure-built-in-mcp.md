@@ -1,14 +1,13 @@
 ---
 title: Configure App Service built-in MCP (Preview)
 description: Turn an existing REST API hosted on Azure App Service into a Model Context Protocol (MCP) server without writing or deploying any MCP code.
-author: cephalin
-ms.author: cephalin
+author: seligj95
+ms.author: jordanselig
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 05/08/2026
 ms.custom:
   - build-2026
-ms.collection: ce-skilling-ai-copilot
 ---
 
 # Configure App Service built-in MCP (Preview)
@@ -16,7 +15,7 @@ ms.collection: ce-skilling-ai-copilot
 App Service built-in MCP turns an existing REST API hosted on Azure App Service into a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server without writing or deploying any MCP code. The platform reads an OpenAPI specification you publish with your app, generates an MCP tool for each operation, and serves the MCP endpoint over [streamable HTTP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) on a path you choose.
 
 > [!IMPORTANT]
-> App Service built-in MCP is in preview. Don't use it for production workloads. Features, configuration shape, and limits can change before general availability.
+> App Service built-in MCP is in preview.
 
 ## When to use built-in MCP
 
@@ -25,7 +24,7 @@ Use built-in MCP when:
 - You already have a REST API running on App Service and want to expose it to an MCP-compatible AI client (GitHub Copilot Chat, Cursor, Windsurf, Claude Desktop) without code changes.
 - You can publish an OpenAPI 3.x specification that describes the operations you want to expose.
 - You want the platform to handle MCP protocol negotiation, tool discovery, hot-reload of the spec, and client cancellation.
-- You want App Service Authentication (also known as Easy Auth) to enforce identity for MCP requests, the same way it enforces identity for your existing HTTP routes.
+- You want App Service Authentication to enforce identity for MCP requests, the same way it enforces identity for your existing HTTP routes.
 
 Use a custom MCP server (built with an MCP SDK and deployed as your application code) instead when:
 
@@ -39,7 +38,9 @@ For a comparison of all MCP hosting options on Azure, see [Choose an Azure servi
 
 When you enable built-in MCP on an App Service app:
 
-1. The platform loads your OpenAPI spec from a path you publish with your app (default `/home/data/.ai/spec.json`).
+1. You provide an OpenAPI specification one of two ways:
+   - **Point to a spec already in your site.** If your app deploys an OpenAPI document as part of its content (for example, `/home/data/.ai/spec.json` or any other path under the app), set `ApiSpecPath` to that location and the platform reads it from the app's file system.
+   - **Upload a spec directly.** Upload an OpenAPI JSON file through the portal and the platform stores it for the app — no redeploy needed and your app doesn't need to expose the spec itself.
 1. Each OpenAPI operation becomes an MCP tool. The tool name is derived from the operation's `operationId`, or from `{method}_{path}` when no `operationId` is set.
 1. The platform serves the MCP endpoint at the path you configure (default `/.ai/mcp/{serverName}`) using streamable HTTP.
 1. When an MCP client calls a tool, the platform translates the call into an HTTP request against your app's existing route, forwards the response back to the client, and returns the result as an MCP `CallToolResult`.
