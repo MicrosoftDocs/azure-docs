@@ -116,13 +116,11 @@ Built-in MCP is configured through the `aiIntegration` property on your `Microso
    - **Auth**—optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata (`Scopes` plus either `WellKnownOpenIdConfiguration` or `Issuer`) so MCP clients can complete OAuth. See [Authentication](#authentication) for the field reference. {TODO - review this section once the portal Auth section is available.}
 1. Select **Create MCP**.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot placeholder: AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-mcp/portal-add-mcp-server.png)
+<!-- TODO: Add screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open. Save to ./media/configure-built-in-mcp/portal-add-mcp-server.png and reinstate as a > [!div class="mx-imgBorder"] image. -->
 
-After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable/disable individual tools as well. Edit the MCP server to override tool names or descriptions—the override is what the AI client sees, the underlying OpenAPI spec is unchanged.
+After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable/disable individual tools as well. Edit the MCP server to override tool names or descriptions — the override is what the AI client sees, the underlying OpenAPI spec is unchanged.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot placeholder: MCP server expanded view showing the tool list with individual tool toggles and status of "8 of 13 tools enabled".](./media/configure-built-in-mcp/portal-server-tools.png)
+<!-- TODO: Add screenshot of the MCP server expanded view showing the tool list with individual tool toggles and status of "8 of 13 tools enabled". Save to ./media/configure-built-in-mcp/portal-server-tools.png and reinstate as a > [!div class="mx-imgBorder"] image. -->
 
 ### [Azure CLI](#tab/cli)
 
