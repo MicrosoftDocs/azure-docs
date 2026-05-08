@@ -98,7 +98,7 @@ builder
 builder.Build().Run();
 ```
 
-For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/FunctionsMcpPrompts).  
+For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/FunctionsMcpPrompts) sample on GitHub.  
 
 
 > [!TIP]
@@ -116,18 +116,6 @@ For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azur
 Example code for JavaScript isn't currently available. See the TypeScript examples for general guidance using Node.js.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-
-> [!NOTE]
-> MCP prompt support requires the preview extension bundle and `@azure/functions` version 4.14.0 or later. Update your `host.json` to use the preview bundle:
->
-> ```json
-> "extensionBundle": {
->   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
->   "version": "[4.41, 5.0.0)"
-> }
-> ```
->
-> And ensure your `package.json` references `"@azure/functions": "^4.14.0"`.
 
 This code creates an endpoint to expose a code review prompt: 
 
@@ -187,13 +175,10 @@ app.mcpPrompt('GenerateDocumentation', {
 });
 ```
 
-For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/src/mcp-prompts).
-
-::: zone-end  
-::: zone pivot="programming-language-python"
+For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/src/mcp-prompts) sample on GitHub.
 
 > [!NOTE]
-> MCP prompt support requires the preview extension bundle and `azure-functions` version 2.2.0b2 or later. Update your `host.json` to use the preview bundle:
+> MCP prompt support requires the preview extension bundle and `@azure/functions` version 4.14.0 or later. Update your `host.json` to use the preview bundle:
 >
 > ```json
 > "extensionBundle": {
@@ -202,7 +187,10 @@ For the complete code example, see [mcp-prompts](https://github.com/Azure-Sample
 > }
 > ```
 >
-> And ensure your `requirements.txt` includes `azure-functions>=2.2.0b2`.
+> And ensure your `package.json` references `"@azure/functions": "^4.14.0"`.
+
+::: zone-end  
+::: zone pivot="programming-language-python"
 
 This code uses the `mcp_prompt_trigger` decorator to create an endpoint to expose a prompt named `code_review_checklist`: 
 
@@ -258,7 +246,19 @@ Include the following sections:
 - **Example Usage** — A short code example showing how to call it."""
 ```
 
-For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/FunctionsMcpPrompts).  
+For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/FunctionsMcpPrompts) sample on GitHub.  
+
+> [!NOTE]
+> MCP prompt support requires the preview extension bundle and `azure-functions` version 2.2.0b2 or later. Update your `host.json` to use the preview bundle:
+>
+> ```json
+> "extensionBundle": {
+>   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+>   "version": "[4.41, 5.0.0)"
+> }
+> ```
+>
+> And ensure your `requirements.txt` includes `azure-functions>=2.2.0b2`.
 
 ::: zone-end  
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
@@ -499,8 +499,6 @@ The `SessionId` property on `PromptInvocationContext` identifies the MCP session
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
-
-For more information, see [Examples](#example).
 
 ## host.json settings
 
