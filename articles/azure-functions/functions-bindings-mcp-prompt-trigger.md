@@ -117,6 +117,18 @@ Example code for JavaScript isn't currently available. See the TypeScript exampl
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
+> [!NOTE]
+> MCP prompt support requires the preview extension bundle and `@azure/functions` version 4.14.0 or later. Update your `host.json` to use the preview bundle:
+>
+> ```json
+> "extensionBundle": {
+>   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+>   "version": "[4.41, 5.0.0)"
+> }
+> ```
+>
+> And ensure your `package.json` references `"@azure/functions": "^4.14.0"`.
+
 This code creates an endpoint to expose a code review prompt: 
 
 ```typescript
@@ -179,6 +191,18 @@ For the complete code example, see [mcp-prompts](https://github.com/Azure-Sample
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
+
+> [!NOTE]
+> MCP prompt support requires the preview extension bundle and `azure-functions` version 2.2.0b2 or later. Update your `host.json` to use the preview bundle:
+>
+> ```json
+> "extensionBundle": {
+>   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+>   "version": "[4.41, 5.0.0)"
+> }
+> ```
+>
+> And ensure your `requirements.txt` includes `azure-functions>=2.2.0b2`.
 
 This code uses the `mcp_prompt_trigger` decorator to create an endpoint to expose a prompt named `code_review_checklist`: 
 
