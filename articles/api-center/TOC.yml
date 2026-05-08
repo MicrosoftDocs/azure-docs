@@ -103,7 +103,9 @@
   - name: Discover and consume APIs - VS Code extension
     href: discover-apis-vscode-extension.md
   - name: Enable plugin marketplace
-    href: enable-api-center-plugin-marketplace.md
+    href: enable-api-center-plugin-marketplace.
+  - name: Enable API Center MCP server
+    href: discover-catalog-mcp-server.md
 - name: API center management and operations
   items:
   - name: Reliability
