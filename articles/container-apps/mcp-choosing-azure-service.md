@@ -21,7 +21,7 @@ You can use several Azure services to host Model Context Protocol (MCP) servers.
 
 ## Hosting options overview
 
-Azure provides six ways to host an MCP server. Each option targets a different mix of flexibility, simplicity, and isolation.
+Azure provides five ways to host an MCP server. Each option targets a different mix of flexibility, simplicity, and isolation.
 
 ### Azure Container Apps (standalone)
 
@@ -33,11 +33,10 @@ Use platform-managed session pools with built-in MCP tooling for sandboxed code 
 
 ### Azure App Service
 
-Add an MCP endpoint to an existing or new web app. App Service supports code-based deployment without a Dockerfile and integrates with Microsoft Entra ID for authentication.
+Host an MCP server on App Service in one of two ways:
 
-### Azure App Service built-in MCP (Preview)
-
-If your app already exposes a REST API with an OpenAPI 3.x specification, App Service can host an MCP server for you with no MCP code. The platform reads your spec, turns each operation into an MCP tool, and serves the MCP endpoint over streamable HTTP. Use this when you want to expose an existing API to MCP clients quickly without taking a code dependency on an MCP SDK.
+- **Build your own MCP server.** Add the MCP SDK to a new or existing web app and mount the MCP endpoint alongside your existing routes. App Service supports code-based deployment without a Dockerfile and integrates with Microsoft Entra ID for authentication.
+- **App Service built-in MCP (Preview).** If your app already exposes a REST API with an OpenAPI 3.x specification, App Service can host an MCP server for you with no MCP code. The platform reads your spec, turns each operation into an MCP tool, and serves the MCP endpoint over streamable HTTP. Use this when you want to expose an existing API to MCP clients quickly without taking a code dependency on an MCP SDK.
 
 ### Azure Functions
 
@@ -54,18 +53,18 @@ Deploy MCP servers as standard Kubernetes Deployments with HTTP ingress. AKS giv
 
 The following table summarizes the key differences between hosting options.
 
-| Consideration | Container Apps (standalone) | Container Apps (sessions) | App Service | App Service built-in MCP (Preview) | Azure Functions | AKS |
-|---|---|---|---|---|---|---|
-| **Custom tools** | Yes | No (platform-defined only) | Yes | Yes (every OpenAPI operation becomes a tool) | Yes | Yes |
-| **Language support** | Any (containerized) | Python and shell only | .NET, Python, Node.js, Java | Any (the platform doesn't run your tool code; it forwards to your existing HTTP routes) | .NET, Python, Node.js, Java | Any (containerized) |
-| **MCP transport** | Streamable HTTP | JSON-RPC over HTTP | Streamable HTTP | Streamable HTTP | MCP extension or self-hosted | Streamable HTTP |
-| **Authentication** | Built-in auth (Microsoft Entra ID) or custom | API key (`x-ms-apikey`) | App Service auth (Microsoft Entra ID) | App Service auth (Microsoft Entra ID); platform publishes [PRM](https://datatracker.ietf.org/doc/html/rfc9728) | Function keys or Microsoft Entra ID | Microsoft Entra Workload Identity or custom |
-| **Isolation** | Container-level | Hyper-V per session | App-level | App-level | Function-level | Pod and namespace-level |
-| **Scaling** | Revision autoscale, scale-to-zero | Per-session, pool-managed | App Service Plan | App Service Plan | Consumption or Premium plan | HPA, KEDA, Cluster Autoscaler |
-| **Cold start** | Yes (mitigate with min replicas) | Subsecond (prewarmed pool) | Depends on plan | Depends on plan | Yes (Consumption plan) | No (pods always running), or Yes with KEDA scale-to-zero |
-| **Microservices** | Native (environments, Dapr) | No | Limited | Limited | Limited | Native (Kubernetes service discovery, service mesh) |
-| **Operational overhead** | Medium (Dockerfile, registry) | Low (platform-managed) | Low (code deployment) | Lowest (no MCP code; ARM property + OpenAPI spec) | Low (function deployment) | High (cluster management, upgrades, networking) |
-| **Pricing model** | Per vCPU-second, per GiB-second | Per session (consumption) | App Service Plan | App Service Plan | Per execution | Per node (VM cost) + managed cluster fee |
+| Consideration | Container Apps (standalone) | Container Apps (sessions) | App Service | Azure Functions | AKS |
+|---|---|---|---|---|---|
+| **Custom tools** | Yes | No (platform-defined only) | Yes (build your own; or every OpenAPI operation becomes a tool with built-in MCP) | Yes | Yes |
+| **Language support** | Any (containerized) | Python and shell only | .NET, Python, Node.js, Java (built-in MCP: any language, since the platform forwards to your existing HTTP routes) | .NET, Python, Node.js, Java | Any (containerized) |
+| **MCP transport** | Streamable HTTP | JSON-RPC over HTTP | Streamable HTTP | MCP extension or self-hosted | Streamable HTTP |
+| **Authentication** | Built-in auth (Microsoft Entra ID) or custom | API key (`x-ms-apikey`) | App Service auth (Microsoft Entra ID); built-in MCP also publishes [PRM](https://datatracker.ietf.org/doc/html/rfc9728) | Function keys or Microsoft Entra ID | Microsoft Entra Workload Identity or custom |
+| **Isolation** | Container-level | Hyper-V per session | App-level | Function-level | Pod and namespace-level |
+| **Scaling** | Revision autoscale, scale-to-zero | Per-session, pool-managed | App Service Plan | Consumption or Premium plan | HPA, KEDA, Cluster Autoscaler |
+| **Cold start** | Yes (mitigate with min replicas) | Subsecond (prewarmed pool) | Depends on plan | Yes (Consumption plan) | No (pods always running), or Yes with KEDA scale-to-zero |
+| **Microservices** | Native (environments, Dapr) | No | Limited | Limited | Native (Kubernetes service discovery, service mesh) |
+| **Operational overhead** | Medium (Dockerfile, registry) | Low (platform-managed) | Low (code deployment; built-in MCP is lowest — ARM property + OpenAPI spec, no MCP code) | Low (function deployment) | High (cluster management, upgrades, networking) |
+| **Pricing model** | Per vCPU-second, per GiB-second | Per session (consumption) | App Service Plan | Per execution | Per node (VM cost) + managed cluster fee |
 
 ## Choose by scenario
 
@@ -163,8 +162,7 @@ For a hybrid scenario where you want the Container Apps managed experience on yo
 Use these questions to narrow your choice:
 
 1. **Do you need sandboxed code execution for untrusted or LLM-generated code?** Use Azure Container Apps dynamic sessions.
-1. **Do you have an existing REST API on App Service with an OpenAPI spec, and want zero MCP code?** Use Azure App Service built-in MCP (Preview).
-1. **Do you already have a web app running on App Service?** Add MCP to your existing Azure App Service app.
+1. **Do you already have a web app running on App Service?** Use Azure App Service — add the MCP SDK to your existing app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp) if your app already exposes a REST API with an OpenAPI spec.
 1. **Do you need event-driven, per-invocation tool execution?** Use Azure Functions.
 1. **Do you need full container control, custom languages, or a microservices architecture?** Use Azure Container Apps (standalone).
 1. **Do you already run workloads on AKS and need full Kubernetes API access?** Use Azure Kubernetes Service (AKS).
