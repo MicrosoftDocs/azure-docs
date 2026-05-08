@@ -1,20 +1,22 @@
 # Use requestContext().identity to return caller identity in Azure Policy
 
-If you have ever wanted Azure Policy to behave differently based on *who* (or *what*) made a request, `requestContext().identity` is the function you need.
+If you have ever wanted Azure Policy to behave differently based on *who* (or *what*) made a
+request, `requestContext().identity` is the function you need.
 
-This function lets you inspect caller identity information at policy evaluation time, so you can write policies such as:
+This function lets you inspect caller identity information at policy evaluation time, so you can
+write policies such as:
 
 - allow only user-initiated changes for sensitive resource types
 - block updates from unapproved client applications
 - require stronger sign-in context (for example, MFA indicators) before specific operations
 
-In this post, you'll learn what `requestContext().identity` returns, how to use it safely, and practical policy examples you can adapt.
-
 ## Why this function matters
 
-Most policy rules evaluate the target resource payload. That is great for enforcing configuration, but it does not tell you anything about the caller.
+Most policy rules evaluate the target resource payload. That is great for enforcing configuration,
+but it does not tell you anything about the caller.
 
-`requestContext().identity` fills that gap by exposing request identity metadata in policy rule expressions.
+`requestContext().identity` fills that gap by exposing request identity metadata in policy rule
+expressions.
 
 At a high level, you can evaluate:
 
@@ -23,17 +25,15 @@ At a high level, you can evaluate:
 - `acrs`: authentication context class references (used to inspect sign-in context, such as MFA-related values)
 - `http://schemas.microsoft.com/identity/claims/objectidentifier`: caller object ID (user or service principal object identifier)
 
-## Important behavior to understand
-
-When you use `requestContext().identity`, Azure Policy enforcement still occurs at request time (for example, `deny`, `modify`, and `deployIfNotExists`).
-
-However, compliance scans for that policy are marked as `NotApplicable`.
-
-That means this pattern is best when your goal is real-time enforcement on incoming create/update operations, not post-deployment compliance reporting.
+> [!IMPORTANT] When you use `requestContext().identity`, Azure Policy enforcement still occurs at
+> request time (for example, `deny`, `modify`, and `deployIfNotExists`). However, compliance scans
+> for that policy are marked as `NotApplicable`. This pattern is best when your goal is real-time
+> enforcement on incoming create/update operations, not post-deployment compliance reporting.
 
 ## Pattern: safely read identity fields with tryGet
 
-Identity claims may be absent for some requests. Use `tryGet()` so your expression does not fail when a key is missing.
+Identity claims may be absent for some requests. Use `tryGet()` so your expression does not fail
+when a key is missing.
 
 Example:
 
@@ -44,9 +44,10 @@ Example:
 }
 ```
 
-## Example 1: deny non-user callers
+## Example 1: deny user callers for Key Vault resource types
 
-This policy rule denies writes unless the caller identity type is `user`.
+This policy rule denies write operations when the caller identity type is `user`
+for Key Vault resource types.
 
 ```json
 {
@@ -56,14 +57,11 @@ This policy rule denies writes unless the caller identity type is `user`.
 			"allOf": [
 				{
 					"field": "type",
-					"in": [
-						"Microsoft.Storage/storageAccounts",
-						"Microsoft.KeyVault/vaults"
-					]
+					"like": "Microsoft.KeyVault/*"
 				},
 				{
 					"value": "[tryGet(requestContext().identity, 'idtyp')]",
-					"notEquals": "user"
+					"equals": "user"
 				}
 			]
 		},
@@ -74,7 +72,7 @@ This policy rule denies writes unless the caller identity type is `user`.
 }
 ```
 
-Use this pattern when you want sensitive resource changes to come from an interactive user path, not an application identity.
+Use this pattern when you want to block interactive users from changing Key Vault resources while still allowing non-user identities.
 
 ## Example 2: allow only approved client apps
 
@@ -112,7 +110,8 @@ This example restricts writes to requests coming from a known allowlist of clien
 }
 ```
 
-This is useful for guarding automation boundaries so only approved deployment tooling can modify selected resource providers.
+This is useful for guarding automation boundaries so only approved deployment tooling can modify
+selected resource providers.
 
 ## Example 3: inspect MFA-related auth context
 
@@ -170,7 +169,7 @@ This pattern is strict and explicit, but it requires good operational hygiene to
 
 - Start with `audit` or assign with enforcement disabled to validate behavior before enforcing `deny`.
 - Use `tryGet()` for every identity claim access to avoid evaluation failures from missing keys.
-- Pilot at a narrow scope (single subscription or management group branch) before broad assignment.
+- Pilot at a narrow scope (single subscription or management group branch) before broad assignment. To learn more about staged rollout best practices, see [Safe deployment of Azure Policy assignments](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/policy-safe-deployment-practices).
 - Communicate clearly with platform and security teams that compliance state will be `NotApplicable` for these policies.
 - Pair identity-based rules with resource-configuration policies for layered governance.
 
@@ -186,6 +185,8 @@ This pattern is strict and explicit, but it requires good operational hygiene to
 
 ## Wrap-up
 
-`requestContext().identity` gives Azure Policy request-time awareness of caller identity so you can govern *who* can perform changes, not just *what* the resource should look like.
+`requestContext().identity` gives Azure Policy request-time awareness of caller identity so you can
+govern *who* can perform changes, not just *what* the resource should look like.
 
-Used carefully, it is a strong control for high-impact operations, especially when combined with standard configuration policies and staged rollout practices.
+Used carefully, it is a strong control for high-impact operations, especially when combined with
+standard configuration policies and staged rollout practices.
