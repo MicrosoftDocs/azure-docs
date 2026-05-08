@@ -26,7 +26,7 @@ At any time, the secondary region can be promoted to become a primary region. Pr
 
 Event Hubs geo-replication can be used in multiple scenarios.
 
-### Ensure business continuity and disaster recovery
+### Business continuity and disaster recovery
 Geo-replication ensures disaster recovery and business continuity for all streaming data on your namespace. By replicating data across regions, organizations can safeguard against data loss and ensure that their applications remain operational even in the event of a regional outage. This feature is crucial for mission-critical applications that require high availability and minimal downtime.
 
 ### Global data distribution
@@ -139,7 +139,7 @@ You can monitor the progress of the replication job by checking the replication 
     AzureDiagnostics
       | where TimeGenerated > ago(1h)
       | where Category == "ApplicationMetricsLogs"
-      | where ActivityName_s == "ReplicationLag
+      | where ActivityName_s == "ReplicationLag"
     ```
 -	The column `count_d` shows the replication lag in seconds between the primary and secondary region.
 

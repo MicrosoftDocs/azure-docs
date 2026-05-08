@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: azure-file-storage
  ms.topic: include
- ms.date: 05/01/2026
+ ms.date: 05/04/2026
  ms.author: kendownie
  ms.custom: include file
 ---
@@ -16,4 +16,4 @@ Because data is encrypted beneath the Azure file share's file system, as it's en
 
 By default, data stored in Azure Files is encrypted with Microsoft-managed keys. With Microsoft-managed keys, Microsoft holds the keys to encrypt and decrypt the data. Microsoft is responsible for rotating these keys regularly.
 
-For Azure classic file shares, you can also choose to manage your own keys, which gives you control over the rotation process. If you choose to encrypt your file shares with customer-managed keys, Azure Files is authorized to access your keys to fulfill read and write requests from your clients. With customer-managed keys, you can revoke this authorization at any time. But without this authorization, your Azure file share is no longer accessible via SMB or the FileREST API.
+For Azure classic file shares, you can choose to encrypt your data using [customer-managed keys](../articles/storage/files/customer-managed-keys.md). If you choose customer-managed keys, Azure Files is authorized to access your keys to fulfill read and write requests from your clients. With customer-managed keys, you can revoke this authorization at any time. But without this authorization, your Azure file share is no longer accessible via SMB or the FileREST API.
