@@ -48,21 +48,15 @@ When you enable built-in MCP on an App Service app:
 
 Built-in MCP runs in the App Service request pipeline alongside [App Service Authentication](overview-authentication-authorization.md). When authentication is enabled on the app, MCP requests are subject to the same identity checks as any other request. Built-in MCP also publishes [protected resource metadata (PRM)](https://datatracker.ietf.org/doc/html/rfc9728) at `/.well-known/oauth-protected-resource` so MCP clients can discover the identity provider.
 
-The protocol versions supported by the platform are:
-
-- `2025-11-25` (default)
-- `2025-06-18`
-- `2025-03-26`
-
 ## Prerequisites
 
-- An App Service app running on a Windows or Linux app code stack. Custom containers aren't supported in this preview.
+- An App Service app on a dedicated pricing tier (Basic or higher). Built-in MCP isn't supported on Free, Shared, Consumption, or Flex Consumption plans.
 - An OpenAPI 3.x specification (JSON) that describes the operations you want to expose as MCP tools.
-- A way to publish the spec file to your app's content share — for example, by deploying it as part of your code, or by uploading it through Kudu / FTP.
+- A way to make the spec available to the platform — either by deploying it as part of your app's content (referenced by `ApiSpecPath`) or by uploading it through the portal.
 
 ## Step 1 — Publish your OpenAPI spec
 
-Place a valid OpenAPI 3.x JSON document at a path your app can read. The platform default is:
+Place a valid OpenAPI 3.x JSON or YAML document at a path your app can read. The platform default is:
 
 ```
 /home/data/.ai/spec.json
