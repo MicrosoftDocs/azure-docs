@@ -53,6 +53,22 @@ Your App Service application implements the MCP protocol by exposing a set of to
 
 App Service provides built-in support for the authentication and security features required for production MCP servers, including Microsoft Entra ID integration and managed identities.
 
+## Two ways to host an MCP server on App Service
+
+App Service supports two patterns for hosting an MCP server. Pick the one that matches your starting point.
+
+### Bring your own MCP server
+
+Add an MCP SDK to your application code, expose an MCP endpoint alongside your existing routes, and deploy the app the same way you deploy any other code to App Service. This is the right choice when you want full control over tool definitions, when your tools don't map 1:1 to REST operations, or when you want to expose MCP [resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources) or [prompts](https://modelcontextprotocol.io/specification/2025-06-18/server/prompts) in addition to tools. The language-specific tutorials below cover this pattern.
+
+### App Service built-in MCP (Preview)
+
+If your app is an existing REST API with an OpenAPI 3.x specification, App Service can host an MCP server for you with no code changes. You point the platform at your OpenAPI spec, and each operation becomes an MCP tool served over streamable HTTP. Authentication, protocol negotiation, tool discovery, and hot-reload of the spec are handled by the platform.
+
+Built-in MCP is a good fit when you want to expose an existing API to MCP clients quickly, when you want the platform to keep up with MCP protocol updates, or when you want to integrate with [App Service Authentication](overview-authentication-authorization.md) without writing OAuth code.
+
+For configuration steps, supported limits, and the management surface, see [Configure App Service built-in MCP](configure-built-in-mcp.md).
+
 ## Get started with tutorials
 
 ## [.NET](#tab/dotnet)
@@ -71,6 +87,7 @@ App Service provides built-in support for the authentication and security featur
 
 ## Related content
 
+- [Configure App Service built-in MCP (Preview)](configure-built-in-mcp.md)
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
 - [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md)
 - [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md)
