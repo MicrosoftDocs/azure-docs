@@ -44,35 +44,31 @@ Example:
 }
 ```
 
-## Example 1: deny user callers for Key Vault resource types
+## Example 1: deny any delete operations for Key Vaults
 
-This policy rule denies write operations when the caller identity type is `user`
-for Key Vault resource types.
+This policy rule blocks `DELETE` operations for Key Vault vault resources.
 
 ```json
 {
 	"mode": "All",
 	"policyRule": {
 		"if": {
-			"allOf": [
-				{
-					"field": "type",
-					"like": "Microsoft.KeyVault/*"
-				},
-				{
-					"value": "[tryGet(requestContext().identity, 'idtyp')]",
-					"equals": "user"
-				}
-			]
+			"field": "type",
+			"equals": "Microsoft.KeyVault/vaults"
 		},
 		"then": {
-			"effect": "deny"
+			"effect": "denyAction",
+			"details": {
+				"actionNames": [
+					"delete"
+				]
+			}
 		}
 	}
 }
 ```
 
-Use this pattern when you want to block interactive users from changing Key Vault resources while still allowing non-user identities.
+Use this pattern when you want to prevent deletion of Key Vaults regardless of caller identity.
 
 ## Example 2: allow only approved client apps
 
