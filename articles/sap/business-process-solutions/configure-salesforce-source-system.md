@@ -1,6 +1,6 @@
 ---
-title: Configure Salesforce source system
-description: Learn how to configure Salesforce as a source system in Business Process Solutions, including prerequisites, creating a Salesforce connection, and setting up the source system.
+title: Configure a Salesforce Source System
+description: Learn how to configure Salesforce as a source system in Business Process Solutions, which includes following prerequisites, creating a Salesforce connection, and setting up the source system.
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -9,45 +9,58 @@ ms.date: 11/07/2025
 ms.author: momakhij
 ---
 
-# Configure Salesforce source system
+# Configure a Salesforce source system
 
-In this article, we'll describe the steps required to configure Salesforce source system in Business Process Solutions. This document contains steps on prerequisites needed in your Azure environment and details on how to set up the connection in your Business Process Solution item.
+This article shows you how to configure a Salesforce source system in Business Process Solutions. To set up your Azure environment, follow the steps in the prerequisites in [Configure an SAP source system with Azure Data Factory](../business-process-solutions/configure-source-system-with-data-factory.md#prerequisites). This article also shows you how to set up the connection in your Business Process Solutions item.
 
 ## Prerequisites
 
-Before we create source system for salesforce, use the following steps to create a connection to the salesforce system from Microsoft Fabric:
+Before you create a source system for Salesforce, follow these steps to create a connection to the Salesforce system from Microsoft Fabric:
 
-1. To create a new connection, navigate to your workspace and click on the settings button on the top right of the page.
-2. Click on the **Manage connections and gateways** button.
+1. To create a new connection, go to your workspace and select the **Settings** toolbar button in the upper-right corner of the page.
+1. Select **Manage connections and gateways**.
 
-   :::image type="content" source="./media/configure-salesforce-source-system/open-settings.png" alt-text="Screenshot showing how to open the settings page." lightbox="./media/configure-salesforce-source-system/open-settings.png":::
-3. Click on **New** Button.
+   :::image type="content" source="./media/configure-salesforce-source-system/open-settings.png" alt-text="Screenshot that shows the Manage connections and gateways page." lightbox="./media/configure-salesforce-source-system/open-settings.png":::
 
-   :::image type="content" source="./media/configure-salesforce-source-system/new-connection.png" alt-text="Screenshot showing the manage connections and gateways page." lightbox="./media/configure-salesforce-source-system/new-connection.png":::
-4. In the new connection input, select the Type as **Cloud**.
-5. Enter the connection name.
-6. Select Connection type as **Salesforce**.
-7. Enter the Login Server URL.
-8. In the class info, enter '**object**'.
-9. For the authentication method, select **OAuth** and click on **Edit credentials** to Enter the user name and password for the connection.
-   :::image type="content" source="./media/configure-salesforce-source-system/create-salesforce-connection.png" alt-text="Screenshot showing how to enter Salesforce connection details." lightbox="./media/configure-salesforce-source-system/create-salesforce-connection.png":::
-10. Click on **Create** Button to create the connection.
-11. Once the connection is created, open the connection and copy the connection ID and keep it handy.
+1. Select **New**.
 
-## Configure Salesforce source system
+   :::image type="content" source="./media/configure-salesforce-source-system/new-connection.png" alt-text="Screenshot that shows the New button." lightbox="./media/configure-salesforce-source-system/new-connection.png":::
 
-Use the following steps to configure your source system:
+1. In the **New connection** input area, select the type as **Cloud**.
+1. Enter the inputs for the fields:
 
-1. On the home screen, click on **Configure source system** button.
-2. Click on the **New source system** button.
-   :::image type="content" source="./media/configure-salesforce-source-system/create-source-system.png" alt-text="Screenshot showing the new source system button." lightbox="./media/configure-salesforce-source-system/create-source-system.png":::
-3. Enter the required field inputs. In System connection, add the Fabric SQL and Salesforce connection IDs. Click **Create** to begin deployment.
-   :::image type="content" source="./media/configure-salesforce-source-system/create-salesforce-system.png" alt-text="Screenshot showing the source system details input form." lightbox="./media/configure-salesforce-source-system/create-salesforce-system.png":::
-4. You can monitor the deployment status by refreshing the page using the refresh button.
-5. Once the deployment is done, you should be able to see the resources deployed to your workspace.
+   - **Connection name**: Enter the name.
+   - **Connection type**: Select **Salesforce**.
+   - **Login server**: Enter the URL.
+   - **Class info**: Enter **object**.
+   - **Authentication method**: Select **OAuth**. Select **Edit credentials** to enter the user name and password for the connection.
 
-## Next steps
+   :::image type="content" source="./media/configure-salesforce-source-system/create-salesforce-connection.png" alt-text="Screenshot that shows how to enter Salesforce connection details." lightbox="./media/configure-salesforce-source-system/create-salesforce-connection.png":::
 
-Now that you have configured Salesforce source system in your Business Process Solution item, you can proceed to configure insights.
+1. Select **Create** to create the connection.
+1. After the connection is created, open the connection, copy the connection ID, and keep it handy.
 
-- [Configure Insights in Business Process Solutions](configure-insights.md)
+## Configure a Salesforce source system
+
+To configure your source system, follow these steps:
+
+1. On the home screen, select **Configure source system**.
+1. Select **New source system**.
+
+   :::image type="content" source="./media/configure-salesforce-source-system/create-source-system.png" alt-text="Screenshot that shows the New source system button." lightbox="./media/configure-salesforce-source-system/create-source-system.png":::
+
+1. Enter the required field inputs in **System connection**:
+
+   - **Fabric SQL database**: Enter the connection ID.
+   - **Salesforce**: Enter the connection ID.
+1. Select **Create** to begin deployment.
+
+   :::image type="content" source="./media/configure-salesforce-source-system/create-salesforce-system.png" alt-text="Screenshot that shows the source system details input form." lightbox="./media/configure-salesforce-source-system/create-salesforce-system.png":::
+
+1. Monitor the deployment status by using the refresh button to refresh the page.
+1. After the deployment is finished, you can see the resources deployed to your workspace.
+
+## Next step
+
+>[!div class="nextstepaction"]
+>[Configure insights in Business Process Solutions](configure-insights.md)

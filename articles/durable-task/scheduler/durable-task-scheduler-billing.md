@@ -2,26 +2,31 @@
 author: hhunter-ms
 title: Durable Task Scheduler billing
 titleSuffix: Durable Task
-description: Learn how billing works for applications built with the Durable Task SDKs, including compute costs and Durable Task Scheduler pricing.
+description: "Learn how Durable Task Scheduler billing works, including Dedicated and Consumption SKU pricing, actions calculation, and compute costs. Explore pricing examples to estimate your costs."
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 02/25/2026
+ms.date: 05/01/2026
 ms.author: franlanglois
 ---
 # Durable Task Scheduler billing
 
 The Durable Task Scheduler is a managed backend service that persists orchestration state. It's billed separately from the orchestration frameworks that connect to it. The Durable Task Scheduler doesn't charge for Durable Functions or the Durable Task SDKs directly. Your total cost has two components:
 
-- **Durable Task Scheduler**—billed based on the SKU you choose ([Dedicated](#dedicated-sku) or [Consumption](#consumption-sku))
+- **Durable Task Scheduler**—billed based on the SKU you choose ([Dedicated](#dedicated-sku-pricing-and-capacity) or [Consumption](#consumption-sku))
 - **Compute resources**—billed separately by the platform hosting your application, whether that's [Azure Functions](#durable-functions) (for Durable Functions) or a container/VM platform (for [Durable Task SDKs](#durable-task-sdks))
 
-## Durable Task Scheduler pricing
+The following table compares the two pricing models at a glance.
 
-The [Durable Task Scheduler](./durable-task-scheduler.md) is a purpose-built backend as a service that persists orchestration state for your Durable Task SDK applications. The Durable Task Scheduler offers two pricing models to accommodate different service requirements, usage patterns, and preferred billing models:
+| | Dedicated | Consumption |
+| --- | --- | --- |
+| **Billing model** | Fixed monthly cost per Capacity Unit (CU) | Pay per action dispatched |
+| **Max throughput** | 2,000 actions/sec per CU (up to 3 CUs) | 500 actions/sec |
+| **Data retention** | Up to 90 days | Up to 30 days |
+| **High availability** | Supported (requires 3 CUs) | Not available |
+| **Best for** | Production workloads with predictable volume | Dev/test and variable workloads |
 
-- [Dedicated](#dedicated-sku)
-- [Consumption](#consumption-sku)
+For current pricing, see the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/durable-task-scheduler/).
 
 ## What is an action?
 
@@ -32,18 +37,18 @@ An *action* is a message dispatched by the Durable Task Scheduler to your applic
 - Completing a timer
 - Triggering an external event
 - Executing an entity operation
-- Pausing, resuming, or ending an orchestration
+- Pausing, resuming, or terminating an orchestration
 - Processing the result of an activity, entity call, entity lock, or suborchestration
 
 The following diagram shows how to calculate actions in your orchestration.
 
-:::image type="content" source="media/durable-task-scheduler-dedicated-sku/actions-calculation.png" alt-text="Diagram that shows how to calculate the number of actions in an orchestration.":::
+:::image type="content" source="media/durable-task-scheduler-dedicated-sku/actions-calculation.png" alt-text="Diagram showing how to calculate the number of billing actions in a Durable Task Scheduler orchestration.":::
 
 ### Example
 
 An orchestration that calls three different activities incurs the following actions:
 
-:::image type="content" source="media/durable-task-scheduler-dedicated-sku/function-code-image.png" alt-text="Screenshot of orchestration code showing function calls and action breakdown.":::
+:::image type="content" source="media/durable-task-scheduler-dedicated-sku/function-code-image.png" alt-text="Screenshot of Durable Task Scheduler orchestration code showing three activity function calls and their corresponding action breakdown.":::
 
 In this example, Durable Task Scheduler processes each action as shown here:
 
@@ -58,11 +63,9 @@ In this example, Durable Task Scheduler processes each action as shown here:
    - Scheduling the activity
    - Processing the result
 
-## Dedicated SKU
+## Dedicated SKU pricing and capacity
 
-The Dedicated SKU provides performance and pricing through preallocated Capacity Units (CUs). Purchase up to three CUs.
-
-Currently, you're limited to 25 schedulers and task hubs each, per region per subscription, when using the Dedicated SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+The Dedicated SKU provides predictable performance through preallocated Capacity Units (CUs). Each deployment supports up to three CUs. You can create up to 25 schedulers and 25 task hubs per region per subscription with the Dedicated SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 ### Key features
 
@@ -74,13 +77,16 @@ Currently, you're limited to 25 schedulers and task hubs each, per region per su
 | Custom scaling | Configure CUs to match your workload needs. One CU required per deployment. |
 | High availability | High availability with multi-CU deployments. A minimum of three CUs is required. |
 
-### Calculating capacity units for the Dedicated SKU
+> [!NOTE]
+> For high-availability deployments, configure three CUs. Single-CU deployments don't provide redundancy.
+
+### Calculate capacity units for the Dedicated SKU
 
 #### Example 1
 
 You have an orchestration with five activities, plus error handling, and averaging 12 actions per orchestration (orchestrator and activity invocations). Let's calculate running 20 million orchestrations per month.
 
-| Activity | Calculation | Result |
+| Step | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 20,000,000 × 12 | 240,000,000 actions |
 | Actions per second | 240,000,000 ÷ 2,628,000 (seconds in a month) | ≈ 91 actions/second |
@@ -90,7 +96,7 @@ You have an orchestration with five activities, plus error handling, and averagi
 
 A large enterprise runs 500 million complex orchestrations monthly, with an average of 15 actions per orchestration (multiple activities with orchestrator coordination). 
 
-| Activity | Calculation | Result |
+| Step | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 500 million × 15 | 7.5 billion actions |
 | Actions per second | 7.5 billion ÷ 2,628,000 | ≈ 2,854 actions/second |
@@ -100,7 +106,7 @@ A large enterprise runs 500 million complex orchestrations monthly, with an aver
 
 A software as a service (SaaS) platform supports 800 million orchestrations monthly, each with an average of 15 actions (user interactions, background processing, and external API calls).
 
-| Activity | Calculation | Result |
+| Step | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 800 million × 15 | 12 billion actions |
 | Actions per second | 12 billion ÷ 2,628,000 | ≈ 4,571 actions/second |
@@ -110,7 +116,7 @@ A software as a service (SaaS) platform supports 800 million orchestrations mont
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios. 
 
-Currently, you're limited to 10 schedulers and five task hubs per region per subscription when using the Consumption SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+You can create up to 10 schedulers and 5 task hubs per region per subscription with the Consumption SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 ### Key features
 
@@ -122,9 +128,9 @@ Currently, you're limited to 10 schedulers and five task hubs per region per sub
 
 ### Example 1
 
-A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/quickstarts/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
+A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
 
-| Activity | Calculation | Result |
+| Step | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 10,000 × 3 | 30,000 actions |
 
@@ -132,7 +138,7 @@ A development team is testing simple orchestrations, each with three actions (us
 
 An e-commerce application experiences dynamic scaling during promotional sales events. It uses an orchestration that has seven total actions, which runs approximately 20,000 times per month.
 
-| Activity | Calculation | Result |
+| Step | Calculation | Result |
 | - | ----------- | ------ |
 | Monthly actions | 20,000 × 7 | 140,000 actions |
 
@@ -169,11 +175,10 @@ For detailed pricing information, see the billing documentation for each compute
 - [Understand Azure Kubernetes Service costs](/azure/aks/understand-aks-costs)
 - [Plan and manage costs for Azure App Service](../../app-service/overview-manage-costs.md)
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Quickstart: Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
-
-- [Learn about pricing for Durable Task Scheduler](https://azure.microsoft.com/pricing/details/functions/)
-- [View throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
+- [Quickstart: Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
+- [Durable Task Scheduler pricing](https://azure.microsoft.com/pricing/details/durable-task-scheduler/)
+- [Throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
 - [Choose your orchestration framework](../common/choose-orchestration-framework.md)
+- [Durable Functions billing](../../azure-functions/durable-functions/durable-functions-billing.md)

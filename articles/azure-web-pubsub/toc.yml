@@ -241,12 +241,12 @@
       href: concept-service-internals.md
     - name: Client protocol overview
       href: concept-client-protocols.md
-    - name: High availability
+    - name: Reliability
       items:
-        - name: Resiliency and disaster recovery
+        - name: Reliability in Azure Web PubSub
+          href: /azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json
+        - name: Disaster recovery
           href: concept-disaster-recovery.md
-        - name: Availability zones
-          href: concept-availability-zones.md
     - name: Performance considerations
       href: concept-performance.md
     - name: Billing model

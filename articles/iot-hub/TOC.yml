@@ -38,6 +38,8 @@
     - name: Understanding IoT hub IP address
       href: iot-hub-understand-ip-address.md
       displayName: service tags, firewall rules, IP filter
+    - name: Best practices for Azure Device Registry namespaces
+      href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Protocol support
       items:
         - name: MQTT support
@@ -105,8 +107,6 @@
       href: create-connect-device.md
     - name: Tutorial - Connect a device with MQTT
       href: tutorial-use-mqtt.md
-    - name: Test device connectivity
-      href: tutorial-connectivity.md
     - name: Connect Raspberry Pi to run samples
       href: raspberry-pi-get-started.md
 - name: Route device-to-cloud data
@@ -235,14 +235,8 @@
     - name: Schedule bulk operations with jobs
       href: schedule-jobs-cli.md
       displayName: jobs, CLI
-  - name: Queries
-    items: 
-      - name: Query language overview
-        href: iot-hub-devguide-query-language.md
-      - name: Device and module twin queries
-        href: query-twins.md
-      - name: Job queries
-        href: query-jobs.md
+  - name: Query language overview
+    href: iot-hub-devguide-query-language.md
 - name: Monitor
   items: 
     - name: Monitor IoT Hub

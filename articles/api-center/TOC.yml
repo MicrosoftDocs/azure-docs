@@ -44,12 +44,6 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Integrate API sources
-        items:
-        - name: Synchronize APIs from API Management
-          href: synchronize-api-management-apis.md
-        - name: Synchronize APIs from Amazon API Gateway
-          href: synchronize-aws-gateway-apis.md
       - name: Build and register APIs - VS Code extension
         href: build-register-apis-vscode-extension.md
       - name: Design and develop  APIs - GitHub Copilot for Azure
@@ -63,7 +57,7 @@
     - name: Agents
       items:
       - name: Overview
-        href: agent-to-agent-overview.md
+        href: agent-to-agent-overview.md 
       - name: Register and manage agents 
         href: register-manage-agents.md
     - name: MCP servers
@@ -76,6 +70,14 @@
       items:
       - name: Register and discover skills
         href: register-discover-skills.md
+    - name: Integrate API sources
+      items:
+      - name: Synchronize assets from API Management
+        href: synchronize-api-management-apis.md
+      - name: Synchronize assets from Amazon API Gateway
+        href: synchronize-aws-gateway-apis.md
+      - name: Synchronize assets from a Git repository
+        href: synchronize-assets-git.md
 - name: API governance
   items:
   - name: Use metadata for governance
@@ -100,6 +102,8 @@
     href: self-host-api-center-portal.md
   - name: Discover and consume APIs - VS Code extension
     href: discover-apis-vscode-extension.md
+  - name: Enable plugin marketplace
+    href: enable-api-center-plugin-marketplace.md
 - name: API center management and operations
   items:
   - name: Reliability

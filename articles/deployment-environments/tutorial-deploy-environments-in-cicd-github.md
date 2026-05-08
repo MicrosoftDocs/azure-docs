@@ -438,7 +438,7 @@ You can also authenticate a service principal directly by using a secret, but th
 
 ### 5.1 Generate deployment identities
 
-1. Register [Microsoft Entra applications and service principals](../active-directory/develop/howto-create-service-principal-portal.md) for each of the three environment types.
+1. Register [Microsoft Entra applications and service principals](/entra/identity-platform/howto-create-service-principal-portal) for each of the three environment types.
 
     Create the Microsoft Entra application for *Dev*:
 

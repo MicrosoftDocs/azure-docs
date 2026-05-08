@@ -1,6 +1,6 @@
 ---
-author: dominicbetts
-ms.author: dobett
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-device-registry
 ms.topic: include
 ms.date: 11/07/2025

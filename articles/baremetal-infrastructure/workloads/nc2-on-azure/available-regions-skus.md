@@ -1,7 +1,7 @@
 ---
 title: Available Regions and SKUs for Nutanix Cloud Clusters on Azure
-author: MikeWeiner-Microsoft
-ms.author: michwe
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure.
 ms.topic: reference
 ms.subservice: baremetal-nutanix
@@ -55,6 +55,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | UK South | AN36P, AN64 |
 | West Europe | AN36P |
 | West US 2 | AN36 |
+| West US 3 | AN64 |
 
 ## Next steps
 

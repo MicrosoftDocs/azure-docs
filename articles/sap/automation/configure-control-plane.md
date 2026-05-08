@@ -38,13 +38,17 @@ This table shows the Terraform parameters. Enter these parameters manually if yo
 
 This table shows the parameters that define the resource naming.
 
-| Variable                         | Description                                          | Type       | Notes                                                                                       |
-| -------------------------------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-| `environment`                    | Identifier for the control plane (maximum of five characters). | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
-| `location`                       | Azure region in which to deploy.                     | Required   | Use lowercase.                                                                              |
-| `codename`                       | Another component for naming the resources.       | Optional   |                                                                                             |
-| `name_override_file`             | Name override file.                                  | Optional   | See [Custom naming](naming-module.md).                                                      |
-| `place_delete_lock_on_resources` | Place a delete lock on the key resources.            | Optional   |                                                                                             |
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                 | Description                                          | Type       | Notes                                                                                       |
+> | ---------------------------------------- | ------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                            | Identifier for the control plane (max 5 characters).          | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                               | Azure region in which to deploy.                              | Required   | Use lowercase.                                                                              |
+> | `codename`                               | Additional component for naming the resources.                | Optional   |                                                                                             |
+> | `subscription_id`                        | Azure subscription id for the deployment.                     | Mandatory  | Will be automatically set when using the deployment scripts.                                |
+> | `name_override_file`                     | Name override file.                                           | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `place_delete_lock_on_resources`         | Place a delete lock on the key resources.                     | Optional   |                                                                                             |
+> | `prevent_deletion_if_contains_resources` | Controls resource group deletion.                             | Optional   | If set to `false` Terraform will delete the resource group even if it contains resources.   |
+                                                                          |
 
 ### Resource group
 

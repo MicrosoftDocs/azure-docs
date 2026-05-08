@@ -13,6 +13,8 @@ ms.custom:
 
 # Workload management with resource classes in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse. 
 
 ## What are resource classes?

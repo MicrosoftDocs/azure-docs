@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/07/2026
+ms.date: 05/06/2026
 ms.author: duau
 ms.custom:
   - references_regions
@@ -41,29 +41,35 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 :::image type="content" source="./media/metro/standard-versus-metro.png" alt-text="Diagram of a standard ExpressRoute circuit and a ExpressRoute Metro circuit.":::
 
 ## ExpressRoute Metro locations
-
 | Metro location | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|
-| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Megaport<br>NL-IX<br>SURF |
+| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Eurofiber<br>Megaport<br>NL-IX<br>SURF<br>GTT<sup>1</sup> |
 | Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix<br>Megaport<br>|
-| Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &cross; | Belnet<br>Colt<br>Megaport<sup>1</sup>  |
-| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport |
+| Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &cross; | Belnet<br>Colt<br>Eurofiber<br>Megaport<sup>1</sup> |
+| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Crown Castle<br>Equinix<br>Megaport<br>CenturyLink Cloud Connect<sup>1</sup><br>Digital Realty<sup>1</sup><br>Zayo<sup>1</sup> |
+| Copenhagen Metro | Digital Realty CPH1<br>Global Connect Copenhagen | 1 | Denmark East | &check; | GlobalConnect<br>Megaport<sup>1</sup> |
 | Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport |
-| Dublin Metro | Equinix DB3 <br>Digital Realty DUB02 | 1 | North Europe | &check; | Colt<sup>1</sup><br>Equinix<br>Megaport<sup>1</sup> |
-| Frankfurt Metro |  Digital Realty FRA11<br>Equinix FR7 | 1 | Germany West Central | &check; | Colt<sup>1</sup><br>DE-CIX<br>Equinix<sup>1</sup><br>Megaport |
+| Dublin Metro | Equinix DB3 <br>Digital Realty DUB02 | 1 | North Europe | &check; | Equinix<br>Megaport<br>Colt<sup>1</sup> |
+| Hong Kong Metro | Equinix HK1<br>iAdvantage MEGA-i | 2 | East Asia | &check; | Megaport<br> |
+| Frankfurt Metro |  Digital Realty FRA11<br>Equinix FR7 | 1 | Germany West Central | &check; | DE-CIX<br>Megaport<br>Colt<sup>1</sup><br>Equinix<sup>1</sup><br> |
 | Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
-| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<br>Telefonica<sup>1</sup> |
-| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>Equinix<br>Megaport<br>Telecom Italia Sparkle<sup>1</sup><br>Telia Carrier (Arelion)<sup>1</sup> |
-| Mumbai Metro |  TATA LVSB<br>Nxtra Data| 2 | West India | &check; |  |
-| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; |  Megaport<br>DE-CIX|
-| Oslo Metro |  DigiPlex Ulven <br>Bulk Data IX | 2 |  Norway East | &check; | Colt<sup>1</sup><br>GlobalConnect<sup>1</sup><br>Telenor<sup>1</sup> |
-| Silicon Valley Metro | Equinix SV10<br>CoreSite SV7 | 1 | West US | &check; | Megaport<br>Zayo<sup>1</sup> |
-| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>IX Reach<br>Megaport<br>MegaPOP (Singtel)<br>Singtel International |
-| Stockholm Metro | Equinix SK1<br>Digital Realty STO6 | 1 | Sweden Central | &check; | Megaport<sup>1</sup><br>Telia Carrier (Arelion) |
+| Johannesburg Metro |  Teraco JT1<br>Africa DAta Centres JHB1ADC | 3 | South Africa North | &check; | Equinix<sup>1</sup><br>OpenAccessDC<sup>1</sup> |
+| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>DE-CIX<br>Equinix<br>Megaport<br>1-IX.EU<sup>1</sup><br>Telefonica<sup>1</sup> |
+| Melbourne Metro | NextDC MEL01<br>Equinix ME1/2 | 2 | Australia Southeast | &check; | Megaport<br>Internet Association of Australia<sup>1</sup> |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>Equinix<br>Megaport<br>Retelit<sup>1</sup><br>Telecom Italia Sparkle<sup>1</sup><br>Telia Carrier (Arelion)<sup>1</sup> |
+| Mumbai Metro |  TATA LVSB<br>Nxtra Data | 2 | West India | &check; |  |
+| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; |  DE-CIX<br>Megaport |
+| Paris Metro | Digital Realty PAR5<br>Equinix PA4  | 1 | France Central | &check; | Megaport |
+| Phoenix Metro | EdgeConnex POR01 <br>PhoenixNAP | 1 | West US 3 | &check; | Megaport |
+| Oslo Metro |  DigiPlex Ulven <br>Bulk Data IX | 2 |  Norway East | &check; | GlobalConnect<br>Colt<sup>1</sup><br>Telenor Secure Cloud Connect<sup>1</sup> |
+| Silicon Valley Metro | Equinix SV10<br>CoreSite SV7 | 1 | West US | &check; | Megaport<br>Equinix<sup>1</sup><br>Zayo<sup>1</sup> |
+| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>DE-CIX<br>Equinix<br>IX Reach<br>MegaPOP (Singtel)<br>Megaport<br>Singtel International |
+| Stockholm Metro | Equinix SK1<br>Digital Realty STO6 | 1 | Sweden Central | &check; | Telia Carrier (Arelion)<br>GlobalConnect<sup>1</sup><br>Megaport<sup>1</sup> |
+| Sydney Metro | Equinix SY2 <br>NextDC S1 | 2 | Australia East | &check; |  |
 | Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | Chunghwa Telecom<sup>1</sup> |
 | Toronto Metro | Cologix TOR1<br>Allied King West | 1 | Canda Central | &check; | Megaport<sup>1</sup><br>Zayo<sup>1</sup> |
-| Vienna Metro |  Digital Realty VIE1<br>NTT GDC | 1 | Austria East | &check; | A1 Telekom Austria<br>Colt<br>Next Layer GMBH |
-| Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | BICS<sup>1</sup><br>Colt<br>Digital Realty<br>Swisscom |
+| Vienna Metro |  Digital Realty VIE1<br>NTT GDC | 1 | Austria East | &check; | A1 Telekom Austria<br>Colt<br>Next Layer GMBH<br>Telia Carrier (Arelion) |
+| Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | BICS<br>Colt<br>Digital Realty<br>Megaport<br>Swisscom<br>Equinix<sup>1</sup><br>Orange<sup>1</sup> |
 | Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<br>Megaport<br>Zayo<sup>1</sup> |
 
 <sup>1<sup> These service providers will be available in the future. While they are listed under the peering location, circuit creation is expected to fail until the providers become active.

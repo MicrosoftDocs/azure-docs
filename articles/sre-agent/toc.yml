@@ -1,5 +1,5 @@
 items:
-  - name: Azure SRE Agent Preview documentation
+  - name: Azure SRE Agent documentation
     href: index.yml
   - name: What is SRE Agent?
     href: overview.md
@@ -24,8 +24,12 @@ items:
         href: user-roles.md
       - name: Agent permissions
         href: permissions.md
+      - name: Subscription permission visibility
+        href: subscription-permission-visibility.md
       - name: Agent identity
         href: agent-identity.md
+      - name: Security overview
+        href: security-overview.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -42,6 +46,8 @@ items:
         href: threads.md
       - name: Tools
         href: tools.md
+      - name: Default agent override info
+        href: default-agent-override-info.md
       - name: Deep context
         href: workspace-tools.md
       - name: Agent reasoning
@@ -86,6 +92,8 @@ items:
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
+          - name: Troubleshoot Java applications on AKS
+            href: troubleshoot-java-aks.md
       - name: Act
         items:
           - name: Execute mitigations
@@ -122,12 +130,12 @@ items:
             href: kusto-tools.md
           - name: Azure Data Explorer connector
             href: kusto-cluster-grouping.md
+          - name: Log Analytics & App Insights
+            href: log-analytics-app-insights.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access
         items:
-          - name: Chat from your tools
-            href: chat-from-your-tools.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter
@@ -202,6 +210,8 @@ items:
             href: outlook-connector.md
           - name: Set up MCP connector
             href: mcp-connector.md
+          - name: Set up Log Analytics connector
+            href: setup-log-analytics-connector.md
           - name: Create a Kusto tool
             href: create-kusto-tool.md
           - name: Upload knowledge documents
@@ -216,10 +226,6 @@ items:
             href: cross-account-azdo-oauth-authorization.md
           - name: Add a web page knowledge source
             href: add-web-page.md
-      - name: Access
-        items:
-          - name: Set up Teams bot
-            href: teams-bot.md
   - name: Reference
     items:
       - name: Supported regions
@@ -232,8 +238,6 @@ items:
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
-      - name: Anthropic subprocessor
-        href: anthropic-sub-processor.md
       - name: Frequently asked questions
         items:
           - name: General

@@ -1,9 +1,9 @@
 ---
-title: Human interaction
-description: Learn how to handle human interaction and timeouts in durable orchestrations with Durable Functions or Durable Task SDKs.
+title: "Human Interaction Pattern"
+description: "Learn how to implement the human interaction pattern for approval workflows and timeouts in durable orchestrations. Build reliable workflows with Durable Functions or Durable Task SDKs."
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 02/04/2026
+ms.date: 04/23/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.devlang: csharp
@@ -15,9 +15,29 @@ zone_pivot_groups: azure-durable-approach
 
 The human interaction pattern describes workflows that pause and wait for input from a person before they continue. The pattern is useful for approval workflows, multifactor authentication, and any scenario where a person responds within a time limit.
 
+At a high level, the pattern works as follows:
+
+1. The orchestrator calls an activity to notify a person (send an SMS code, email an approver, etc.).
+1. The orchestrator starts a durable timer and simultaneously waits for an external event from the person.
+1. If the person responds before the timer fires, the orchestrator processes the response.
+1. If the timer fires first, the orchestrator handles the timeout (for example, by rejecting the request).
+
+In this article:
+
+- [Human interaction scenario overview](#human-interaction-scenario-overview) - Why this pattern matters
+- [Define the orchestrator](#define-the-orchestrator) - Implement the timer-vs-event race
+- [Define the activities](#define-the-activities) - Send notifications and process results
+- [Run the human interaction sample](#run-the-human-interaction-sample) - Test the workflow end to end
+
+> [!NOTE]
+> The Durable Functions and Durable Task SDK pivots demonstrate the same pattern with different scenarios: Durable Functions uses an **SMS phone verification** example, while the Durable Task SDKs use an **approval workflow** example.
+
 ::: zone pivot="durable-functions"
 
 This sample shows how to build a [Durable Functions](what-is-durable-task.md) orchestration that includes human interaction. The example implements an SMS based phone verification system. It's common in phone number verification and multifactor authentication (MFA) flows.
+
+> [!NOTE]
+> Full code samples are available for C#, JavaScript, and Python. PowerShell and Java samples are not currently available.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
@@ -31,7 +51,7 @@ This article shows how to implement the human interaction pattern by using the D
 
 ::: zone-end
 
-## Scenario overview
+## Human interaction scenario overview
 
 ::: zone pivot="durable-functions"
 
@@ -68,31 +88,7 @@ The Durable Task SDKs simplify this scenario with:
 
 ::: zone-end
 
-## The orchestrator and activities
-
-::: zone pivot="durable-functions"
-
-This article covers the following functions in the sample app:
-
-* `E4_SmsPhoneVerification`: An [orchestrator function](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) that runs the phone verification process and manages timeouts and retries.
-* `E4_SendSmsChallenge`: An [activity function](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) that sends a code by text message.
-
-> [!NOTE]
-> The `HttpStart` function in the [sample app and the quickstart](#prerequisites) acts as an [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) and triggers the orchestrator function.
-
-::: zone-end
-
-::: zone pivot="durable-task-sdks"
-
-This article explains the following components in the sample app:
-
-* `ApprovalOrchestration` / `approvalOrchestrator` / `human_interaction_orchestrator`: An orchestrator that submits an approval request and waits for a human response or a timeout.
-* `SubmitApprovalRequestActivity` / `submitRequest` / `submit_approval_request`: An activity that notifies a human approver, for example, by email or chat message.
-* `ProcessApprovalActivity` / `processApproval` / `process_approval`: An activity that processes the approval decision.
-
-::: zone-end
-
-## Orchestrator
+## Define the orchestrator
 
 ::: zone pivot="durable-functions"
 
@@ -430,7 +426,7 @@ This orchestrator performs the following actions:
 
 ::: zone-end
 
-## Activities
+## Define the activities
 
 ::: zone pivot="durable-functions"
 
@@ -755,7 +751,7 @@ The Java sample processes approvals inline in the orchestrator. For a production
 
 ::: zone-end
 
-## Run the sample
+## Run the human interaction sample
 
 ::: zone pivot="durable-functions"
 
@@ -771,11 +767,12 @@ Content-Type: application/json
 
 ```
 HTTP/1.1 202 Accepted
-Content-Length: 695
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{"id":"741c65651d4c40cea29acdd5bb47baf1",
+ "sendEventPostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+ "statusQueryGetUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=...&code={systemKey}",
+ "terminatePostUri":"http://{host}/runtime/webhooks/durabletask/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=...&code={systemKey}"}
 ```
 
 The orchestrator function receives the phone number and immediately sends an SMS message to that number with a randomly generated 4-digit verification code—for example, `2168`. The function then waits 90 seconds for a response.
@@ -801,7 +798,7 @@ HTTP/1.1 200 OK
 Content-Length: 144
 Content-Type: application/json; charset=utf-8
 
-{"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":true,"createdTime":"2017-06-29T19:10:49Z","lastUpdatedTime":"2017-06-29T19:12:23Z"}
+{"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":true,"createdTime":"2026-04-23T19:10:49Z","lastUpdatedTime":"2026-04-23T19:12:23Z"}
 ```
 
 If the timer expires or you enter the wrong code four times, query the status to see `output` set to `false`, which indicates that phone verification failed.
@@ -811,7 +808,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Content-Length: 145
 
-{"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
+{"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2026-04-23T19:20:49Z","lastUpdatedTime":"2026-04-23T19:22:23Z"}
 ```
 
 ::: zone-end
@@ -820,7 +817,7 @@ Content-Length: 145
 
 To run the sample:
 
-1. **Start the Durable Task Scheduler emulator** for local development.
+1. **Start the Durable Task Scheduler emulator** for local development. [Docker](https://docs.docker.com/get-docker/) must be installed.
 
    ```bash
    docker run -d -p 8080:8080 -p 8082:8082 --name dts-emulator mcr.microsoft.com/dts/dts-emulator:latest
@@ -1023,10 +1020,14 @@ System.out.println("Result: " + result.readOutputAs(WorkflowResult.class).status
 
 ::: zone pivot="durable-functions"
 
-This sample demonstrates advanced Durable Functions capabilities, including the `WaitForExternalEvent` and `CreateTimer` APIs. It shows how to combine `Task.WhenAny` (C#), `context.df.Task.any` (JavaScript and TypeScript), or `context.task_any` (Python) to implement a reliable timeout pattern for workflows that wait for people to respond. Learn more about Durable Functions in a series of articles that cover specific topics.
+This sample demonstrates advanced Durable Functions capabilities, including the `WaitForExternalEvent` and `CreateTimer` APIs. It shows how to combine `Task.WhenAny` (C#), `context.df.Task.any` (JavaScript and TypeScript), or `context.task_any` (Python) to implement a reliable timeout pattern for workflows that wait for people to respond.
 
 > [!div class="nextstepaction"]
-> [Read the first article in the series](../../azure-functions/durable-functions/durable-functions-bindings.md)
+> [Learn about Durable Functions bindings](../../azure-functions/durable-functions/durable-functions-bindings.md)
+
+- [Durable timers](durable-task-timers.md)
+- [External events and instance management](durable-task-instance-management.md)
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
 
 ::: zone-end
 
@@ -1038,9 +1039,11 @@ This sample shows how to use the Durable Task SDKs to implement workflows that w
 - **Durable timers**: Using `CreateTimer` to implement timeouts
 - **Racing tasks**: Using `WhenAny`, `when_any`, or `anyOf` to handle whichever task completes first
 
-- [Durable Task JavaScript SDK on GitHub](https://github.com/microsoft/durabletask-js)
-
 > [!div class="nextstepaction"]
 > [Get started with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+
+- [Durable timers](durable-task-timers.md)
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
+- [Durable Task JavaScript SDK on GitHub](https://github.com/microsoft/durabletask-js)
 
 ::: zone-end

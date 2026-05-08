@@ -174,6 +174,14 @@ For local use, set the Azure CLI context:
 az account set --subscription <subscription-id>
 ```
 
+If you deploy with Terraform for the first time in the subscription, run this one-time registration command:
+```azurecli
+az provider register --namespace Microsoft.KubernetesConfiguration
+
+# Wait for registration to complete (can take a few minutes)
+az provider show --namespace Microsoft.KubernetesConfiguration --query "registrationState" -o tsv
+```
+
 ## Install Azure Container Storage on a new AKS cluster
 
 > [!IMPORTANT]

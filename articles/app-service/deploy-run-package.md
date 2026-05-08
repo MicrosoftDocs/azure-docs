@@ -2,7 +2,7 @@
 title: Run Your App from a ZIP Package 
 description: Deploy your app's ZIP package with atomicity. Improve the predictability and reliability of your app's behavior during the ZIP deployment process.
 ms.topic: how-to
-ms.date: 03/11/2026
+ms.date: 04/07/2026
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
@@ -14,9 +14,9 @@ ms.service: azure-app-service
 # Run your app in Azure App Service directly from a ZIP package
 
 > [!NOTE]
-> Run from package is not supported for Python apps. When deploying a ZIP file of your Python code, you need to set a flag to enable Azure build automation. The build automation will create the Python virtual environment for your app and install any necessary requirements and package needed. See [build automation](quickstart-python.md?tabs=flask%2Cmac-linux%2Cazure-cli%2Czip-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#enable-build-automation) for more details.
+> Run from package isn't supported for Python apps. When deploying a ZIP file of your Python code, you need to set a flag to enable Azure build automation. The build automation will create the Python virtual environment for your app and install any necessary requirements and package needed. For more information, see [build automation](quickstart-python.md?tabs=flask%2Cmac-linux%2Cazure-cli%2Czip-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#enable-build-automation).
 >
-> Run from package is also not supported for Java apps on Azure App Service. Built‑in Java runtimes (Java SE, Tomcat, and JBoss EAP) require write access to the app directory at startup, while Run from package mounts the app content as a read‑only filesystem.
+> Run from package also isn't supported for Java apps on Azure App Service. Built‑in Java runtimes (Java SE, Tomcat, and JBoss EAP) require write access to the app directory at startup, while Run from package mounts the app content as a read‑only filesystem.
 
 In [Azure App Service](overview.md), you can run your apps directly from a deployment ZIP package file. This article shows how to enable this functionality in your app.
 

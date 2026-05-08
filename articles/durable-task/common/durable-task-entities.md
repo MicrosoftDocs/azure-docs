@@ -1,10 +1,10 @@
 ---
-title: Durable entities - Azure Functions
-description: Learn what durable entities are and how to use them in Durable Functions and Durable Task SDKs.
+title: "Durable Entities Overview - Azure Functions"
+description: "Discover what durable entities are and how to use them to manage stateful, distributed workloads in Durable Functions and Durable Task SDKs. Get started with examples and best practices."
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 02/04/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -20,21 +20,45 @@ zone_pivot_groups: azure-durable-approach
 Entity functions define operations that read and update small pieces of state, called *durable entities*. Like orchestrator functions, entity functions use a special trigger type called the *entity trigger*. Unlike orchestrator functions, entity functions manage entity state explicitly instead of representing state through control flow.
 Entities help you scale out apps by distributing work across many entities, each with modest state.
 
-> [!NOTE]
-> Entity functions and related features are available in [Durable Functions 2.0](../../azure-functions/durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later. They're supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java.
-
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
 Entities define operations that read and update small pieces of state, called *durable entities*. Unlike orchestrators, entities manage state explicitly instead of representing state through control flow. Entities help you scale out apps by distributing work across many entities, each with modest state.
 
-> [!NOTE]
-> Durable entities are supported in the .NET and Python Durable Task SDKs. The Java SDK doesn't support entities.
+::: zone-end
+
+## Support for durable entities
+
+::: zone pivot="durable-functions"
+
+Entity functions and related features are available in [Durable Functions 2.0](../../azure-functions/durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
+
+| Programming language | Support for durable entities |
+| -------------------- | ---------------------------- |
+| .NET isolated | ✅ |
+| .NET in-process | ✅ |
+| Java | ❌ |
+| Python | ✅ |
+| JavaScript | ✅ |
+| PowerShell | ❌ |
 
 ::: zone-end
 
-## General concepts
+::: zone pivot="durable-task-sdks"
+
+| Durable Task SDK | Support for durable entities |
+| ---------------- | ---------------------------- |
+| .NET isolated | ✅ |
+| .NET in-process | ✅ |
+| Java | ✅ |
+| Python | ✅ |
+| JavaScript | ✅ |
+| PowerShell | ❌ |
+
+::: zone-end
+
+## General concepts for durable entities
 
 Entities act like small services that communicate by using messages. Each entity has a unique identity and, if needed, internal state. Entities run operations when prompted. An operation might update state, call external services, or wait for a response. Entities communicate with other entities, orchestrations, and clients through messages that the runtime sends through reliable queues.
 
@@ -89,7 +113,8 @@ Use one of two APIs to define entities in .NET:
 
 The APIs you use depend on where your C# functions run. An _isolated worker process_ is recommended, but you can also run in the host process.
 
-**In-process function-based example:**
+<details>
+<summary><b>In-process function-based example:</b></summary>
 
 This example shows a simple `Counter` entity implemented as a durable function. It defines three operations—`add`, `reset`, and `get`—that use an integer state.
 
@@ -114,7 +139,12 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 For more information, see [Function-based syntax](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
 
-**In-process class-based example:**
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process class-based example:</b></summary>
 
 This example shows the same `Counter` entity implemented by using classes and methods.
 
@@ -139,9 +169,14 @@ public class Counter
 
 This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
 
-For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#defining-entity-classes).
+For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
 
-**Isolated worker process function-based example:**
+</details>
+
+<br>
+
+<details>
+<summary><b>Isolated worker process function-based example:</b></summary>
 
 The following example shows a function-based `Counter` entity in an isolated worker process. It supports `add`, `reset`, `get`, and `delete`.
 
@@ -178,7 +213,12 @@ public static Task Counter([EntityTrigger] TaskEntityDispatcher dispatcher)
 }
 ```
 
-**Isolated worker process class-based example:**
+</details>
+
+<br>
+
+<details>
+<summary><b>Isolated worker process class-based example:</b></summary>
 
 The following example shows the implementation of the `Counter` entity using classes and methods.
 
@@ -205,6 +245,8 @@ public class Counter : TaskEntity<int>
     }
 }
 ```
+
+</details>
 
 # [JavaScript](#tab/javascript)
 
@@ -337,7 +379,38 @@ public class EntityOrchestration : TaskOrchestrator<string, int>
 
 # [JavaScript](#tab/javascript)
 
-This sample is available for .NET and Python.
+The Durable Task SDK for JavaScript/TypeScript supports defining entities using a class-based syntax. You can extend the `TaskEntity<TState>` base class to define your entity.
+
+The following example shows a `Counter` entity implemented using the Durable Task SDK:
+
+```javascript
+import { TaskEntity } from "@microsoft/durabletask-js";
+
+class CounterEntity extends TaskEntity {
+  add(amount) {
+    this.state.value += amount;
+    return this.state.value;
+  }
+
+  get() {
+    return this.state.value;
+  }
+
+  reset() {
+    this.state.value = 0;
+  }
+
+  initializeState() {
+    return { value: 0 };
+  }
+}
+```
+
+To register the entity with the worker:
+
+```javascript
+worker.addNamedEntity("Counter", () => new CounterEntity());
+```
 
 # [Python](#tab/python)
 
@@ -379,11 +452,69 @@ with DurableTaskSchedulerWorker(
 
 # [PowerShell](#tab/powershell)
 
-This sample is available for .NET and Python.
+PowerShell support for durable entities is not yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
-Entities aren't currently supported in the Java Durable Task SDK.
+The Durable Task SDK for Java supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+
+The following example shows a `Counter` entity implemented using the Durable Task SDK:
+
+```java
+import com.microsoft.durabletask.AbstractTaskEntity;
+import com.microsoft.durabletask.TaskEntityOperation;
+
+public class CounterEntity extends AbstractTaskEntity<Integer> {
+
+    public void add(int amount) {
+        this.state += amount;
+    }
+
+    public void reset() {
+        this.state = 0;
+    }
+
+    public int get() {
+        return this.state;
+    }
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+```
+
+To register the entity with the worker:
+
+```java
+DurableTaskGrpcWorker worker = new DurableTaskGrpcWorkerBuilder()
+        .addEntity("Counter", CounterEntity::new)
+        .build();
+
+worker.start();
+```
+
+To signal or call an entity from an orchestrator:
+
+```java
+return ctx -> {
+    EntityInstanceId counterId = new EntityInstanceId("Counter", "myCounter");
+
+    // Signal the entity (fire-and-forget)
+    ctx.signalEntity(counterId, "add", 5);
+
+    // Call the entity and wait for response
+    int currentValue = ctx.callEntity(counterId, "get", Integer.class).await();
+
+    ctx.complete(currentValue);
+};
+```
 
 ---
 
@@ -431,7 +562,7 @@ To access entities from an ordinary Azure Function, which is also known as a cli
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because they provide more type checking.
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
 
 **In-process:**
 
@@ -520,7 +651,11 @@ await client.Entities.SignalEntityAsync(entityId, nameof(Counter.Add), 1);
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET and Python.
+```javascript
+// Signal an entity
+const counterId = new EntityInstanceId("Counter", "myCounter");
+await client.signalEntity(counterId, "add", 1);
+```
 
 # [Python](#tab/python)
 
@@ -532,11 +667,15 @@ client.signal_entity(entity_id, "add", 1)
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET and Python.
+PowerShell support for durable entities is not yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
-Entities aren't currently supported in the Java Durable Task SDK.
+```java
+// Signal an entity
+EntityInstanceId counterId = new EntityInstanceId("Counter", "myCounter");
+client.getEntities().signalEntity(counterId, "add", 1);
+```
 
 ---
 
@@ -647,7 +786,14 @@ if (entity != null)
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET and Python.
+```javascript
+const counterId = new EntityInstanceId("Counter", "myCounter");
+const metadata = await client.getEntity(counterId);
+
+if (metadata.exists) {
+  console.log(`Current value: ${metadata.state?.value}`);
+}
+```
 
 # [Python](#tab/python)
 
@@ -660,11 +806,19 @@ if state is not None:
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET and Python.
+PowerShell support for durable entities is not yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
-Entities aren't currently supported in the Java Durable Task SDK.
+```java
+EntityInstanceId counterId = new EntityInstanceId("Counter", "myCounter");
+EntityMetadata entityMetadata = client.getEntities().getEntityMetadata(counterId, true);
+
+if (entityMetadata != null) {
+    Integer state = entityMetadata.readStateAs(Integer.class);
+    System.out.printf("Current value: %d%n", state);
+}
+```
 
 ---
 
@@ -789,7 +943,21 @@ public class CounterOrchestration : TaskOrchestrator<string, int>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET and Python.
+```javascript
+const counterOrchestration = async function* (ctx, entityKey) {
+  const counterId = new EntityInstanceId("Counter", entityKey);
+
+  // Two-way call to the entity which returns a value - awaits the response
+  const currentValue = yield* ctx.entities.callEntity(counterId, "get");
+
+  if (currentValue < 10) {
+    // One-way signal to the entity - does not await a response
+    ctx.entities.signalEntity(counterId, "add", 1);
+  }
+
+  return currentValue;
+};
+```
 
 # [Python](#tab/python)
 
@@ -809,11 +977,25 @@ def counter_orchestration(ctx: task.OrchestrationContext, entity_key: str):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET and Python.
+PowerShell support for durable entities is not yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
-Entities aren't currently supported in the Java Durable Task SDK.
+```java
+return ctx -> {
+    EntityInstanceId counterId = new EntityInstanceId("Counter", entityKey);
+
+    // Two-way call to the entity which returns a value - awaits the response
+    int currentValue = ctx.callEntity(counterId, "get", Integer.class).await();
+
+    if (currentValue < 10) {
+        // One-way signal to the entity - does not await a response
+        ctx.signalEntity(counterId, "add", 1);
+    }
+
+    ctx.complete(currentValue);
+};
+```
 
 ---
 
@@ -980,7 +1162,7 @@ Any violations of these rules cause a runtime error, such as `LockingRulesViolat
 
 ::: zone-end
 
-## Comparison with virtual actors
+## Comparison of durable entities with virtual actors
 
 Durable entities use many ideas from the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you're familiar with actors, you might recognize several concepts in this article. Durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/), also called grains, from the [Orleans project](http://dotnet.github.io/orleans/). For example:
 

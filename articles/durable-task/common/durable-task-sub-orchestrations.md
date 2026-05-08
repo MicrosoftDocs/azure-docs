@@ -1,21 +1,33 @@
 ---
 author: hhunter-ms
-title: Sub-orchestrations - Azure
-description: Learn how to call orchestrations from orchestrations in Durable Functions and Durable Task SDKs.
+title: "Sub-orchestrations in Durable Task"
+description: Learn how to use sub-orchestrations to call orchestrator functions from parent orchestrators in Durable Functions and Durable Task SDKs. Get started now.
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 02/25/2026
+ms.date: 04/23/2026
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach
 ---
 
 # Sub-orchestrations
 
-In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of smaller orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
+Orchestrator functions can call other orchestrator functions as *sub-orchestrations*. A sub-orchestration runs as a child of the calling (parent) orchestrator and behaves like an activity from the caller's perspective: it can return a value, throw exceptions caught by the parent, and support [automatic retry](durable-task-error-handling.md#automatic-retry-on-failure).
 
-An orchestrator function calls another orchestrator function using the *call-sub-orchestrator* API. For more information on automatic retry, see [Error Handling & Compensation](durable-task-error-handling.md#automatic-retry-on-failure).
+## When to use sub-orchestrations
 
-Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, and the parent orchestrator function catches any exception they throw.
+Use sub-orchestrations when you need to:
+
+- **Compose reusable workflow building blocks:** Extract a multi-step workflow into its own orchestrator so multiple parent orchestrations can call it.
+- **Fan out orchestrations in parallel:** Schedule many instances of the same orchestrator concurrently and wait for all of them to finish.
+- **Organize complex workflows:** Break a large orchestration into named, testable pieces instead of a single long function.
+
+> [!NOTE]
+> Sub-orchestrations must be defined in the same app as the parent orchestration. To call orchestrations in a different app, use the HTTP 202 polling pattern instead. For more information, see [HTTP features](../../azure-functions/durable-functions/durable-functions-http-features.md).
+
+In this article:
+
+- [Define a sub-orchestration](#define-a-sub-orchestration) — Single-device provisioning example
+- [Run sub-orchestrations in parallel](#run-sub-orchestrations-in-parallel) — Fan-out pattern with deterministic instance IDs
 
 ::: zone pivot="durable-functions"
 
@@ -24,9 +36,9 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 
 ::: zone-end
 
-## Example
+## Define a sub-orchestration
 
-The following example illustrates an IoT ("Internet of Things") scenario where multiple devices need to be set up. The following function represents the setup workflow that runs for each device:
+The following example illustrates an IoT scenario where multiple devices need to be set up. The function represents the setup workflow that runs for each device:
 
 ::: zone pivot="durable-functions"
 
@@ -253,9 +265,11 @@ public class DeviceProvisioningOrchestration implements TaskOrchestration {
 
 ::: zone-end
 
-This orchestrator function can be used as-is for one-off device setup, or it can be part of a larger orchestration. In the latter case, the parent orchestrator function schedules instances of `DeviceProvisioningOrchestration` by using the *"call-sub-orchestrator"* API.
+This orchestrator function can run standalone for one-off device setup, or a parent orchestrator can schedule it as a sub-orchestration using the *call-sub-orchestrator* API.
 
-The following example shows how to run multiple orchestrator functions in parallel.
+## Run sub-orchestrations in parallel
+
+The following example shows a parent orchestrator that fans out multiple sub-orchestrations in parallel. Some languages use a deterministic child instance ID (derived from the parent's instance ID plus an index) to prevent duplicate sub-orchestrations on replay.
 
 ::: zone pivot="durable-functions"
 
@@ -411,13 +425,14 @@ public void provisionNewDevices(
 
 ---
 
-> [!NOTE]
-> Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see [HTTP features](../../azure-functions/durable-functions/durable-functions-http-features.md).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn how to set a custom orchestration status](durable-task-custom-orchestration-status.md)
+
+- [Error handling and compensation](durable-task-error-handling.md)
+- [Orchestrations overview](durable-task-orchestrations.md)
+- [Get started with Durable Task Scheduler](../scheduler/quickstart-durable-task-scheduler.md)
 
 ::: zone-end
 
@@ -501,5 +516,9 @@ public class ProvisionNewDevices implements TaskOrchestration {
 
 > [!div class="nextstepaction"]
 > [Get started with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+
+- [Error handling and compensation](durable-task-error-handling.md)
+- [Orchestrations overview](durable-task-orchestrations.md)
+- [Get started with Durable Task Scheduler](../scheduler/quickstart-durable-task-scheduler.md)
 
 ::: zone-end

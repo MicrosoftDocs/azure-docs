@@ -11,9 +11,9 @@ ms.topic: release-notes
 The machine configuration agent receives improvements on an ongoing basis. To stay up to date with
 the most recent developments by platform, see the following articles:
 
-- [Azure machine configuration agent for Linux release notes][01]
+- [Azure machine configuration agent for Windows release notes][01]
   (`Microsoft.GuestConfiguration.ConfigurationforWindows`)
-- [Azure machine configuration agent for Windows release notes][02]
+- [Azure machine configuration agent for Linux release notes][02]
   (`Microsoft.GuestConfiguration.ConfigurationforLinux`)
 
 Each article provides you with information about:

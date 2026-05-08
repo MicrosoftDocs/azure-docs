@@ -79,7 +79,7 @@ sections:
   - name: Configuration and setup
     questions:
       - question: How long does it take to provision the initial three hosts in a cluster?
-        answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
+        answer: Provisioning depends on configuration, initial cluster size and times can vary. Adding a new single node in existing/same cluster can vary based on data sync required due to vSAN traffic. 
 
       - question: Can I use the folder name "AVS-vendor-folders" for vCenter Server VM folders in Azure VMware Solution?
         answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
@@ -100,7 +100,7 @@ sections:
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. 
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
-        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully supported method.
+        answer: Yes. This is possible and recommended via VMware HCX or using storage migration such as ANF SnapMirror. HCX is the only supported method for extending L2 networks for hybridity between on-prem and cloud or cloud to cloud.
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
@@ -160,10 +160,7 @@ sections:
     questions:
 
       - question: What are the CPU specifications in each type of host?
-        answer: The AV36 SKU servers have dual 18 core 2.3 GHz Intel CPUs. AV36P SKU servers have dual 18 core 2.6 GHz Intel CPUs and AV52 SKU servers have dual 26 core 2.7 GHz Intel CPUs.
-
-      - question: How much memory is in each host?
-        answer: The AV36 SKU servers have 576 GB of RAM. AV36P SKU servers have 768 GB of RAM and AV52 SKU servers have 1,536 GB of RAM.
+        answer: See Azure pricing in your region for more information on the various host types and technical specs.
 
       - question: Does Azure VMware Solution support running ESXi as a nested virtualization solution?
         answer:  No. VMware doesn't officially support nested virtualization. 
@@ -372,9 +369,6 @@ sections:
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
         answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product isn't a standard VM and have added substantial intellectual property embedded in the VM as an application.
-
-      - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
-        answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).
 
       - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
         answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.

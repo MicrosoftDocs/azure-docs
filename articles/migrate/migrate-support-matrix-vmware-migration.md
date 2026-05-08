@@ -21,12 +21,8 @@ This article summarizes support settings and limitations for migrating VMware vS
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 
-> [!CAUTION]
-> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
-> - Windows Server 2003
-> - Windows Server 2008 (including SP2 and R2 SP1)
-> - Windows Server 2012
-> - Windows Server 2012 R2
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 ## Migration options
@@ -198,9 +194,9 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 ### Appliance requirements (agent-based)
 The Azure Site Recovery Replication appliance is used to replicate machines to Azure in agent-based migration. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. If your organization has restrictions, you can manually set up the replication appliance using PowerShell.
- 
-Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance-using-the-ova-template-for-vmware-agent-based-migration) on how to set up the appliance.
+Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. 
+
+If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) on how to set up the appliance.
 
 > [!NOTE]
 > The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
