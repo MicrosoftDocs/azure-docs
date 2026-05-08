@@ -122,7 +122,7 @@ Built-in MCP is configured through the `aiIntegration` property on your `Microso
 > [!div class="mx-imgBorder"]
 > ![Screenshot placeholder: AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-mcp/portal-add-mcp-server.png)
 
-After you save, the **MCP servers** tab shows each configured server with its endpoint, tool count, and an enable/disable toggle. Expand a row to see the tool list and toggle individual tools.
+After you save, the **MCP servers** tab shows each configured server with its endpoint, tool count, and an enable/disable toggle. Expand a row to see the tool list and toggle individual tools. Select a tool to override its name or description — the override is what the AI client sees, the underlying OpenAPI spec is unchanged.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot placeholder: MCP server expanded view showing the tool list with individual tool toggles and status of "8 of 13 tools enabled".](./media/configure-built-in-mcp/portal-server-tools.png)
@@ -151,7 +151,14 @@ az rest \
               "Description": "Contoso Orders MCP server",
               "Enabled": true,
               "Endpoint": "/mcp/orders",
-              "ToolList": ["*"]
+              "ToolList": ["*"],
+              "ToolOverrides": [
+                {
+                  "OperationId": "get_order",
+                  "Name": "lookup_order",
+                  "Description": "Look up a Contoso order by its ID and return status, line items, and shipping info."
+                }
+              ]
             }
           ]
         }
@@ -171,6 +178,10 @@ Field reference for `aiIntegration`:
 | `Mcp.Servers[].Enabled` | bool | When `false`, the server isn't registered. Defaults to `true`. |
 | `Mcp.Servers[].Endpoint` | string | Relative URL where the MCP endpoint is served. |
 | `Mcp.Servers[].ToolList` | array of strings | `["*"]` exposes every operation in the spec, `[]` exposes none, or list specific tool names to filter. |
+| `Mcp.Servers[].ToolOverrides[]` | array | Optional. Per-tool overrides for the name and description shown to MCP clients. The underlying OpenAPI spec is unchanged. <!-- TODO: confirm the public preview property name. --> |
+| `Mcp.Servers[].ToolOverrides[].OperationId` | string | The OpenAPI `operationId` (or `{method}_{path}`) of the tool to override. |
+| `Mcp.Servers[].ToolOverrides[].Name` | string | Optional. Replaces the tool name shown to MCP clients (1–128 characters). |
+| `Mcp.Servers[].ToolOverrides[].Description` | string | Optional. Replaces the tool description shown to MCP clients (≤ 256 characters). |
 | `SiteAuth` | object | Optional. Identity provider metadata used to publish protected resource metadata when App Service Authentication isn't enabled. See [Authentication](#authentication). |
 
 To remove built-in MCP from an app, PATCH the same property with `null`:
@@ -203,6 +214,13 @@ resource site 'Microsoft.Web/sites@<api-version>' = {
             Enabled: true
             Endpoint: '/mcp/orders'
             ToolList: [ '*' ]
+            ToolOverrides: [
+              {
+                OperationId: 'get_order'
+                Name: 'lookup_order'
+                Description: 'Look up a Contoso order by its ID and return status, line items, and shipping info.'
+              }
+            ]
           }
         ]
       }
