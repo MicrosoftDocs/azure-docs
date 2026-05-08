@@ -109,5 +109,5 @@ For more information about installing plugins from the marketplace in Claude Cod
 
 * [Set up and customize your API Center portal](set-up-api-center-portal.md)
 * [Discover and consume APIs - VS Code extension](discover-apis-vscode-extension.md)
-
+* [Discover APIs with the Azure API Center MCP server](discover-catalog-mcp-server.md)
 
