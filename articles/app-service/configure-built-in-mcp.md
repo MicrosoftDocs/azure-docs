@@ -40,8 +40,8 @@ When you enable built-in MCP on an App Service app:
 
 1. You provide an OpenAPI specification one of two ways:
    - **Point to a spec already in your site.** If your app deploys an OpenAPI document as part of its content (for example, `/home/data/.ai/spec.json` or any other path under the app), set `ApiSpecPath` to that location and the platform reads it from the app's file system.
-   - **Upload a spec directly.** Upload an OpenAPI JSON file through the portal and the platform stores it for the app — no redeploy needed and your app doesn't need to expose the spec itself.
-1. Each OpenAPI operation becomes an MCP tool. The tool name is derived from the operation's `operationId`, or from `{method}_{path}` when no `operationId` is set.
+   - **Upload a spec directly.** Upload an OpenAPI JSON or YAML file through the portal and the platform stores it for the app — no redeploy needed and your app doesn't need to expose the spec itself.
+1. Each OpenAPI operation becomes an MCP tool. By default, the tool name is derived from the operation's `operationId` (or from `{method}_{path}` when no `operationId` is set) and the description comes from the operation's `summary` or `description`. You can override either per tool to give the AI client clearer, more action-oriented names and descriptions without changing the underlying spec.
 1. The platform serves the MCP endpoint at the path you configure (default `/.ai/mcp/{serverName}`) using streamable HTTP.
 1. When an MCP client calls a tool, the platform translates the call into an HTTP request against your app's existing route, forwards the response back to the client, and returns the result as an MCP `CallToolResult`.
 1. When you update the OpenAPI spec, the platform detects the change, recomputes the tool list, and notifies connected clients with a `tools/list_changed` notification.
