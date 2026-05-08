@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 05/06/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -62,7 +62,7 @@ By using the AI gateway, you can:
 * Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock
 * Govern chat completions, responses, and real-time APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
-* Import and manage A2A agent APIs (preview)
+* Import and manage A2A agent APIs
 
 For example, to onboard a model deployed in Microsoft Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 

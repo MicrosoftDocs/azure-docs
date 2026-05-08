@@ -18,7 +18,7 @@ A Bookshelf knowledgebase enables customers to convert unstructured private data
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Access to the Azure Discovery resource provider (`Microsoft.Discovery`) in your subscription.
 - Microsoft Discovery Platform Administrator role.
 
