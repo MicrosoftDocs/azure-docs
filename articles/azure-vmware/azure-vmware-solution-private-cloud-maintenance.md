@@ -3,7 +3,7 @@ title: Private Cloud Maintenance
 description: Ensuring seamless, reliably maintaintenance of Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 03/25/2025
+ms.date: 05/08/2026
 # Customer intent: "As an IT administrator managing Azure VMware Solution, I want to ensure optimal performance and minimize downtime during updates."
 ---
 
