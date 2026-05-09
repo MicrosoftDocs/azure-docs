@@ -21,7 +21,7 @@ This article walks through the steps in the Azure portal to create a Power Platf
 
 ## Prerequisites
 
-- Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+- Complete the following quickstart: [Create an Azure API Management Instance](get-started-create-service-instance.md)
 - Make sure there's an API in your API Management instance that you'd like to export to the Power Platform
 - Make sure you have a Power Apps or Power Automate [environment](/powerapps/powerapps-overview#power-apps-for-admins) 
 
@@ -69,5 +69,3 @@ From API Management, you can update a connector to target a different API or Pow
 - [Learn more about the Power Platform](https://powerplatform.microsoft.com/) and [licensing](/power-platform/admin/pricing-billing-skus)
 - [Learn more about creating and using custom connectors](/connectors/custom-connectors/)
 - [Learn common tasks in API Management by following the tutorials](./import-and-publish.md)
-
-
