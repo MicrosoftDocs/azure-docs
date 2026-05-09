@@ -152,8 +152,8 @@ To configure Spark, create an Apache Spark Configuration in Azure Synapse Analyt
 
 An Apache Spark Configuration in Azure Synapse Analytics stores Spark settings and libraries that notebooks and Spark job definitions use at runtime. For steps to create one, see [Manage Apache Spark configuration](./apache-spark-azure-create-spark-configuration.md).
 
-Choose Option 1 if you want a simpler setup by using a client secret.
-Choose Option 2 if your organization requires certificate-based authentication and centralized certificate management in Azure Key Vault.
+- Choose Option 1 if you want a simpler setup by using a client secret.
+- Choose Option 2 if your organization requires certificate-based authentication and centralized certificate management in Azure Key Vault.
 
 In both options, you can select Add from .yml in the environment to import a .yml configuration file.
 
@@ -396,9 +396,7 @@ You can follow below steps to create a managed private endpoint connection to Az
 
 ## Related content
 
-- [Create Apache Spark job definition](../data-engineering/create-spark-job-definition.md)
-- [Create, configure, and use an environment in Microsoft Fabric](../data-engineering/create-and-use-environment.md)
-- [Develop, execute, and manage Microsoft Fabric notebooks](../data-engineering/author-execute-notebook.md)
-- [Monitor Spark Applications](../data-engineering/spark-monitoring-overview.md)
-- [Collect Apache Spark diagnostics using Azure Event Hubs](azure-fabric-diagnostic-emitters-azure-event-hub.md)
-- [Collect Apache Spark diagnostics using Azure Storage Account](azure-fabric-diagnostic-emitters-azure-storage.md)
+- [Legacy HTTP Data Collector API path for Azure Log Analytics](./apache-spark-azure-log-analytics.md)
+- [Run a Spark application in notebook](./apache-spark-development-using-notebooks.md).
+- [Collect Apache Spark applications logs and metrics with Azure Storage account](./azure-synapse-diagnostic-emitters-azure-storage.md).
+- [Collect Apache Spark applications logs and metrics with Azure Event Hubs](./azure-synapse-diagnostic-emitters-azure-eventhub.md).
