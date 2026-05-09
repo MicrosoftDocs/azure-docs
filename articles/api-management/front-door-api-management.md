@@ -11,7 +11,7 @@ ms.date: 05/30/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
-# Configure Front Door Standard/Premium in front of Azure API Management
+# Configure Front Door Standard/Premium in front of Azure API Management.
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -39,7 +39,7 @@ This article shows how to:
 
 For steps to create an Azure Front Door Standard/Premium profile, see [Quickstart: Create an Azure Front Door profile - Azure portal](../frontdoor/create-front-door-portal.md). For this article, you may choose a Front Door Standard profile. For a comparison of Front Door Standard and Front Door Premium, see [Tier comparison](../frontdoor/standard-premium/tier-comparison.md).
 
-Configure the following Front Door settings that are specific to using the gateway endpoint of your API Management instance as a Front Door origin. For an explanation of other settings, see the Front Door quickstart. 
+Configure the following Front Door settings that are specific to using the gateway endpoint of your API Management instance as a Front Door origin. For an explanation of other settings, see the Front Door quickstart . 
 
 |Setting     |Value  |
 |---------|---------|
