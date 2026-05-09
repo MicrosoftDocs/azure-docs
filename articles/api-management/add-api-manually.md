@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
 
 
-#customer intent: As an API developer, I want to use API Management to manually add an API. 
+#customer intent: As an API developer , I want to use API Management to manually add an API. 
 ---
 
 # Manually add an API 
