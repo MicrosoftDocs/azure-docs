@@ -33,7 +33,7 @@ API Management exports API definitions to Postman collections that can be import
 
 ## Prerequisites
 
-Before you begin, complete the following requirements:
+Before you begin, complete the following requirements :
 
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
 - Make sure your API Management instance already contains an API that you want to export.
@@ -98,7 +98,7 @@ Common Postman capabilities include:
 
 Postman enables collaborative API development workflows across teams.
 
-You can:
+You can :
 
 - Share collections across workspaces
 - Version API definitions
