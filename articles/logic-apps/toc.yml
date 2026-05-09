@@ -108,6 +108,8 @@ items:
     items:
     - name: What is Logic Apps Automation?
       href: automation/dynamic-workflow-automation-introduction.md
+    - name: Compare automation tools
+      href: compare-capabilities-models.md
     - name: Create dynamic workflow automation
       href: automation/quickstart-create-dynamic-workflow-automation.md
   - name: Single-tenant Azure Logic Apps

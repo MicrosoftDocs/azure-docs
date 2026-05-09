@@ -167,6 +167,8 @@ This approach generates a workflow based on your prompt that describes the workf
 
 This approach builds a workflow starting with an empty designer. The following sections show how to add an example trigger and action for a workflow.
 
+#### 3a: Select the blank workflow
+
 1. On the **Workflows** page, select **Build from scratch**, for example:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/select-designer.png" alt-text="Screenshot that shows the Workflows page with selected option for Build from scratch." lightbox="media/quickstart-create-dynamic-workflow-automation/select-designer.png":::
@@ -177,14 +179,14 @@ This approach builds a workflow starting with an empty designer. The following s
 
    | Template | Description |
    |----------|-------------|
-   | **Blank workflow** | Start with an empty designer. Add a trigger to run the workflow. Add actions, agents, or MCP servers as tools. <br><br>Continue with [Build a workflow by using the blank template](#designer). |
-   | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow by using a non-blank template](#template). |
-   | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow using a non-blank template](#template). |
-   | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>For this option, continue with [Build a workflow by using a non-blank template](#template). |
+   | **Blank workflow** | Start with an empty designer. Add a trigger to run the workflow. Add actions, agents, or MCP servers as tools. <br><br>Continue with [Build a workflow with the blank template](#designer). |
+   | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
+   | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow with a non-blank template](#template). |
+   | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
 
 <a id="add-trigger"></a>
 
-#### 3a: Add the trigger to start the workflow
+#### 3b: Add the trigger to start the workflow
 
 The trigger runs a workflow after a specific condition or criteria is met. As an example, this section uses the **RSS** trigger named **When a feed item is published**. The trigger checks the URL for an RSS feed at the Wall Street Journal.
 
@@ -240,7 +242,7 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
 <a id="add-action"></a>
 
-#### 3b: Add an action to perform a task
+#### 3c: Add an action to perform a task
 
 An action completes a specific task in the workflow.
 
