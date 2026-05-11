@@ -14,6 +14,12 @@ appliesto:
 
 Find out what's new in Azure Managed Redis.
 
+## May 2026
+
+### Custom data access permissions (preview)
+
+You can now assign per-user Redis ACL permissions using custom access strings on access policy assignments. Control which commands and keys each user can access, enabling fine-grained data access control for your cache. For more information, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
+
 ## April 2026
 
 ### Dashboards with Grafana
