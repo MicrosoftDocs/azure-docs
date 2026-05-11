@@ -2,7 +2,7 @@
 title: Use API Management as a case-insensitive proxy for Azure Blob Storage
 description: Learn how to configure Azure API Management policies to normalize URL casing (toLower) when proxying requests to Azure Blob Storage, using managed identity for authentication.
 author: sheppduck
-ms.author: jsheppard
+ms.author: ssheppard
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/08/2026
@@ -40,25 +40,25 @@ The following policy performs three operations on every inbound request:
 
 ```xml
 <policies>
-    <inbound>
-        <base />
-        <set-variable name="loweredPath" value="@(context.Request.Url.Path.ToLower())" />
-        <set-variable name="finalPath" value="@{
-            var p = (string)context.Variables["loweredPath"];
-            return p.EndsWith("/") ? p + "index.html" : p;
-        }" />
-        <authentication-managed-identity resource="https://storage.azure.com/" />
-        <rewrite-uri template="@("$web" + (string)context.Variables["finalPath"])" />
-    </inbound>
-    <backend>
-        <base />
-    </backend>
-    <outbound>
-        <base />
-    </outbound>
-    <on-error>
-        <base />
-    </on-error>
+  <inbound>
+    <base />
+    <set-variable name="loweredPath" value="@(context.Request.Url.Path.ToLower())" />
+    <set-variable name="finalPath" value="@{
+      var p = (string)context.Variables["loweredPath"];
+      return p.EndsWith("/") ? p + "index.html" : p;
+    }" />
+    <authentication-managed-identity resource="https://storage.azure.com/" />
+    <rewrite-uri template="@("$web" + (string)context.Variables["finalPath"])" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
 </policies>
 ```
 
