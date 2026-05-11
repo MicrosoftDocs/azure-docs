@@ -124,14 +124,14 @@ After allocating a session, you can call this API to manually terminate it at an
 #### Request
 
 ```http
-POST {PoolManagementEndpoint}/.management/stopSession?api-version=2025-10-02-preview&identifier={SessionIdentifier}
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/stopSession?api-version=2025-02-02-preview&identifier=<SESSION_ID>
 ```
 
 #### Parameters
 
 | Parameter | Type | Required | Description |
 | --- | --- | --- | --- |
-| `api-version` | string | Yes | The API version to use (for example, `2025-10-02-preview`). |
+| `api-version` | string | Yes | The API version to use (for example, `2025-02-02-preview`). |
 | `identifier` | string | Yes | The unique identifier of the session to stop. |
 
 ### Examples
@@ -139,7 +139,7 @@ POST {PoolManagementEndpoint}/.management/stopSession?api-version=2025-10-02-pre
 #### Request
 
 ```http
-POST https://{PoolManagementEndpoint}/.management/stopSession?api-version=2025-10-02-preview&identifier=testSessionIdentifier
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/stopSession?api-version=2025-02-02-preview&identifier=testSessionIdentifier
 ```
 
 #### Response
@@ -149,6 +149,117 @@ HTTP/1.1 200 OK
 Content-Type: text/plain
 
 Session testSessionIdentifier in session pool testSessionPool stopped.
+```
+
+## Retrieve session information
+
+You can query your session pool to check session status, get expiration details, and list all active sessions. This capability is useful for monitoring session health, tracking resource usage, and implementing custom cleanup workflows.
+
+### Get a single session
+
+To retrieve details about a specific session, use the `getSession` endpoint:
+
+```http
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/getSession?identifier=<SESSION_ID>&api-version=2025-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+The `getSession` endpoint returns session metadata including the session identifier, current expiration time, and creation timestamp.
+
+#### SessionView response schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identifier` | string | Yes | The session identifier you provided |
+| `etag` | string | Yes | Opaque version identifier for the session. You can use this identifier for change detection. |
+| `expiresAt` | DateTime | Yes | UTC timestamp when the session will be terminated |
+| `createdAt` | DateTime | No | Session creation timestamp |
+| `lastAccessedAt` | DateTime | No | Timestamp of the last request to this session |
+
+#### Example request and response
+
+```bash
+curl -X POST "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/getSession?identifier=user-123&api-version=2025-02-02-preview" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+Success response (HTTP 200):
+
+```json
+{
+  "identifier": "user-123",
+  "etag": "a1b2c3d4",
+  "expiresAt": "2026-04-30T14:30:00Z",
+  "createdAt": "2026-04-30T13:30:00Z",
+  "lastAccessedAt": "2026-04-30T14:29:00Z"
+}
+```
+
+### List all sessions in a pool
+
+To retrieve a list of all sessions in your session pool, use the `listSessions` endpoint:
+
+```text
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/listSessions?skip=0&api-version=2025-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+#### Pagination
+
+The list endpoint supports skip-based pagination. By default, each page returns up to 300 sessions. Use the `skip` query parameter to navigate through results.
+
+| Parameter | Description |
+|-----------|-------------|
+| `skip` | Number of sessions to skip from the beginning (default: 0) |
+| `nextLink` | Full URL for the next page of results (included in response when more results exist) |
+
+#### ApiCollectionEnvelope response schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | SessionView[] | Array of session objects |
+| `count` | integer | Number of sessions in the current page |
+| `nextLink` | string | URL for the next page (null if no more results) |
+
+#### Example pagination loop
+
+```bash
+POOL_URL="https://my-pool.env-id.westus2.azurecontainerapps.io"
+next_url="$POOL_URL/.management/listSessions?skip=0&api-version=2025-02-02-preview"
+
+while [ -n "$next_url" ]; do
+  response=$(curl -s -X POST "$next_url" \
+    -H "Authorization: Bearer $TOKEN")
+
+  echo "$response" | jq '.value[] | {identifier, expiresAt}'
+
+  next_url=$(echo "$response" | jq -r '.nextLink // empty')
+done
+```
+
+Example response (HTTP 200):
+
+```json
+{
+  "value": [
+    {
+      "identifier": "user-123",
+      "etag": "a1b2c3d4",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    },
+    {
+      "identifier": "user-456",
+      "etag": "e5f6a7b8",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    }
+  ],
+  "count": 2,
+  "nextLink": "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/listSessions?skip=300"
+}
 ```
 
 ## Logging

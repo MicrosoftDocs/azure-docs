@@ -170,9 +170,7 @@ Used by the Avere vFXT cluster to manage the cluster
 
 ## Azure File Sync Administrator
 
-Provides full access to manage all Azure File Sync (Storage Sync Service) resources.
-
-Includes an ABAC condition to constrain role assignments.
+Provides full access to manage all Azure File Sync (Storage Sync Service) resources. Also allows read/write access to all data contained in a storage account via access to storage account keys. Includes an ABAC condition to constrain role assignments.
 
 [Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
 
@@ -201,7 +199,7 @@ Includes an ABAC condition to constrain role assignments.
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab})) | Add role assignments for the following roles:<br/>Reader and Data Access<br/>Storage File Data Privileged Contributor<br/>Storage Account Contributor |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR ((@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab}) AND (@Request[Microsoft.Authorization/roleAssignments:PrincipalType] StringEqualsIgnoreCase 'ServicePrincipal'))) | Add role assignments to service principals for the following roles:<br/>Reader and Data Access<br/>Storage File Data Privileged Contributor<br/>Storage Account Contributor |
 
 ```json
 {
@@ -234,7 +232,7 @@ Includes an ABAC condition to constrain role assignments.
       "dataActions": [],
       "notDataActions": [],
       "conditionVersion": "2.0",
-      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab}))"
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR ((@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab}) AND (@Request[Microsoft.Authorization/roleAssignments:PrincipalType] StringEqualsIgnoreCase 'ServicePrincipal')))"
     }
   ],
   "roleName": "Azure File Sync Administrator",
