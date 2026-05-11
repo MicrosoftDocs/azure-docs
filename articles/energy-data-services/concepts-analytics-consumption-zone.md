@@ -71,6 +71,12 @@ ACZ synchronizes two categories of ADME entity types:
 | **Catalog kinds** | Primary data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:reference-data--UnitOfMeasure:*` |
 | **Wellbore DDMS kinds** | Entities from the Wellbore Domain Data Management Service | `osdu:wks:work-product-component--WellLog:*` |
 
+When you create an ACZ, you specify which entity types to synchronize by providing:
+- **catalogKinds**: A list of catalog kind patterns (for example, `osdu:wks:master-data--Well:*`)
+- **wellboreDDMSKinds**: A list of Wellbore DDMS kind patterns (for example, `osdu:wks:work-product-component--WellLog:*`)
+
+These kind patterns act as filters that determine which ADME records ACZ exports and keeps synchronized.
+
 ### Version types
 
 When you create an ACZ, you choose how to handle entity versions:
@@ -92,7 +98,7 @@ Each ACZ goes through these states:
 
 ### Historical snapshot
 
-When you create a new ACZ, the service takes a historical snapshot. This snapshot exports all existing records that match your entity filters. The snapshot progresses through these states:
+When you create a new ACZ, the service takes a historical snapshot. This snapshot exports all existing records that match the configured entity types (catalogKinds and wellboreDDMSKinds). The snapshot progresses through these states:
 
 | Status | Description |
 |---|---|
