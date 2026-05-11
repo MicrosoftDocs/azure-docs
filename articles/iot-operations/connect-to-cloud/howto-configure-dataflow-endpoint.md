@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/08/2026
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -18,7 +18,7 @@ To get started with data flows, first create data flow endpoints. A data flow en
 Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination | Data flow graphs support |
-|---------------|-------------|-------------------------|------------------------------|---------------------------|
+| --- | --- | --- | --- | --- |
 | [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
 | [OpenTelemetry](open-telemetry.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
@@ -33,7 +33,7 @@ Use the following table to choose the endpoint type to configure:
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 > 
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 ## Data flows must use local MQTT broker endpoint
 
@@ -46,12 +46,14 @@ Each data flow must have either the source or destination configured with an MQT
 The following table shows the supported scenarios:
 
 | Scenario | Supported |
-|----------|-----------|
+| --- | --- |
 | Default endpoint as source | Yes |
 | Default endpoint as destination | Yes |
 | Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as source and destination | No, unless one of them is an MQTT endpoint with host `aio-broker` |
+
+For information about how the local MQTT broker buffers data when a destination endpoint is unavailable, see [Configure data buffering and disk persistence for data flows](howto-configure-disk-persistence.md).
 
 ## Reuse endpoints
 

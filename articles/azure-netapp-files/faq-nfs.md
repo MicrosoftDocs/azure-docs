@@ -36,6 +36,17 @@ Many clients can experience problems if they don’t fully support NFSv4.2 or th
 
 For more information, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs).
 
+## Why do NFS mounts hang or fail when TCP timestamps are enabled?
+
+TCP timestamps (PAWS, RFC 7323) protect against stale packets. If a network device (for example, NAT, NVA, firewall, or load balancer) modifies or strips TCP timestamp values, valid packets can be dropped preventing the NFS mount from completing.
+
+The common symptoms are:
+
+* NFSv3 or NFSv4.1 mount commands hang or time out.
+* TCP connection establishes (SYN/SYN-ACK completes) connection, but the mount does not complete.
+* Mount succeeds when TCP timestamps are disabled on the client.
+
+
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.

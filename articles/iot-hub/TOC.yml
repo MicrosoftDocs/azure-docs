@@ -107,8 +107,6 @@
       href: create-connect-device.md
     - name: Tutorial - Connect a device with MQTT
       href: tutorial-use-mqtt.md
-    - name: Test device connectivity
-      href: tutorial-connectivity.md
     - name: Connect Raspberry Pi to run samples
       href: raspberry-pi-get-started.md
 - name: Route device-to-cloud data
@@ -237,14 +235,8 @@
     - name: Schedule bulk operations with jobs
       href: schedule-jobs-cli.md
       displayName: jobs, CLI
-  - name: Queries
-    items: 
-      - name: Query language overview
-        href: iot-hub-devguide-query-language.md
-      - name: Device and module twin queries
-        href: query-twins.md
-      - name: Job queries
-        href: query-jobs.md
+  - name: Query language overview
+    href: iot-hub-devguide-query-language.md
 - name: Monitor
   items: 
     - name: Monitor IoT Hub

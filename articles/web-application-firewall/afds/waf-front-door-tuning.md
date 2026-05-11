@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 # Tune Azure Web Application Firewall for Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
+
 The Microsoft-managed default rule set is based on the [OWASP Core Rule Set](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and includes Microsoft Threat Intelligence collection rules.
 
 It's often expected that web application firewall (WAF) rules must be tuned to suit the specific needs of the application or organization that's using the WAF. Organizations commonly achieve tuning by taking one of the following actions:

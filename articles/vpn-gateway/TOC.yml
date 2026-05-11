@@ -286,12 +286,16 @@
                   href: point-to-site-vpn-client-configuration-radius-password.md
                 - name: Other authentication protocols
                   href: point-to-site-vpn-client-configuration-radius-other.md
-    - name: Assign IP addresses to specific user groups
+    - name: Assign IP addresses to specific User Groups
       items:
-        - name: About user groups and client address pools
+        - name: About User Groups and client address pools
           href: point-to-site-user-groups-about.md
-        - name: Configure user groups for address pools
-          href: point-to-site-user-groups-create.md
+        - name: Configure groups and client address pools
+          items:
+          - name: Azure portal
+            href: point-to-site-user-groups-create-portal.md
+          - name: PowerShell
+            href: point-to-site-user-groups-create.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels

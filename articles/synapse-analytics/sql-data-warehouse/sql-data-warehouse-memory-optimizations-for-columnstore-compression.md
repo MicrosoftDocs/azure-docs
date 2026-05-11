@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Maximizing rowgroup quality for columnstore indexes in dedicated SQL pool 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Rowgroup quality is determined by the number of rows in a rowgroup. Increasing the available memory can maximize the number of rows a columnstore index compresses into each rowgroup.  Use these methods to improve compression rates and query performance for columnstore indexes.
 
 ## Why the rowgroup size matters

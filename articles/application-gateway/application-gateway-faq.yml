@@ -6,7 +6,7 @@ metadata:
   author: mbender-ms
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 4/30/2025
+  ms.date: 04/30/2026
   ms.author: mbender
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
@@ -42,8 +42,7 @@ sections:
 
       - question: In what regions is Application Gateway available?
         answer: |
-          Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
-
+          Application Gateway v1 (Standard and WAF) is retired and not supported as of April 28, 2026.
           For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [Supported regions for Application Gateway v2](./overview-v2.md#unsupported-regions).
 
       - question: Is this deployment dedicated for my subscription, or is it shared across customers?
@@ -117,8 +116,6 @@ sections:
 
       - question: How long does it take to deploy an instance of Application Gateway? Will my application gateway work while it's being updated?
         answer: |
-          New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
-
           Most deployments that use the v2 SKU take around 6 minutes to provision. However, the process can take longer depending on the type of deployment. For example, deployments across multiple availability zones with many instances can take more than 6 minutes.
 
       - question: Can I use Exchange Server as a backend with Application Gateway?
@@ -134,7 +131,7 @@ sections:
 
       - question: Is Application Gateway v1 SKU supported?
         answer: |
-          Yes. The Application Gateway v1 SKU continues to be supported. We strongly recommend moving to v2 to take advantage of the feature updates in that SKU. For more information on the differences between v1 and v2 features, see [Autoscaling and zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md). You can manually migrate Application Gateway v1 SKU deployments to v2 by following our [v1-v2 migration document](migrate-v1-v2.md).
+         No. The Application Gateway v1 SKU has been retired on 28th April 2026 and is no longer supported. We strongly recommend moving to v2 at the earliest as we will start decommissioning process for the remaining V1 gateways.
 
       - question: Does Application Gateway v2 support proxying requests with NTLM or Kerberos authentication?
         answer: Yes. Application Gateway v2 now supports proxying requests with NTLM or Kerberos authentication. For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
@@ -148,7 +145,7 @@ sections:
 
           To support this scenario, Application Gateway injects another cookie called `ApplicationGatewayAffinityCORS` in addition to the existing `ApplicationGatewayAffinity` cookie. These cookies are similar, but the `ApplicationGatewayAffinityCORS` cookie has two more attributes added to it: `SameSite=None` and `Secure`. These attributes maintain sticky sessions even for cross-origin requests. For more information, see the [Cookie-based affinity section](configuration-http-settings.md#cookie-based-affinity).
 
-      - question: What is considered an active listener versus an inactive listener?
+      - question: What is an active listener versus an inactive listener?
         answer: |
           An active listener is a listener that's associated to a rule *and* sending traffic to a backend pool. Any listener that *only* redirects traffic isn't an active listener. Listeners associated with redirect rules aren't considered active. If the redirect rule is a path-based rule, all the paths in that redirect rule must be redirecting traffic or else the listener is considered active. For individual component limit details, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
@@ -156,8 +153,6 @@ sections:
     questions:
       - question: How does Application Gateway support high availability and scalability?
         answer: |
-          The Application Gateway v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
-
           The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency.
 
       - question: How do I achieve a disaster recovery scenario across datacenters by using Application Gateway?
@@ -621,7 +616,7 @@ sections:
 
   - name: Diagnostics and logging
     questions:
-      - question: What types of logs does Application Gateway provide?
+      - question: What type of logs does Application Gateway provide?
         answer: |
           Application Gateway provides three logs:
 

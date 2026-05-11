@@ -14,6 +14,8 @@ ms.custom:
 
 # Use Azure Functions to manage compute resources for your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This tutorial uses Azure Functions to manage compute resources for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
 To use an Azure Function App with a dedicated SQL pool (formerly SQL DW), you must create a [Service Principal Account](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The Service Principal Account needs contributor access under the same subscription as your dedicated SQL pool (formerly SQL DW) instance.

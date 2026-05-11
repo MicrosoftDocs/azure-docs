@@ -9,7 +9,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/06/2026
+ms.date: 05/05/2026
 ---
 # Reference list of Azure domains (not comprehensive)
 
@@ -39,8 +39,8 @@ For firewall configurations, use the wildcard patterns shown in the **Subdomain*
 |[Azure Cosmos DB](/azure/cosmos-db/)|*.cosmos.azure.com|
 |[Azure Cosmos DB](/azure/cosmos-db/)|*.documents.azure.com|
 |[Azure Files](../../storage/files/storage-files-introduction.md)|*.file.core.windows.net|
-|[Azure Front Door](/azure/frontdoor/) (classic)|*.azurefd.net|
-|[Azure Front Door](/azure/frontdoor/) Standard/Premium|*.z01.azurefd.net|
+|[Azure Front Door](../../frontdoor/index.yml) (classic)|*.azurefd.net|
+|[Azure Front Door](../../frontdoor/index.yml) Standard/Premium|*.z01.azurefd.net|
 |[Azure Key Vault](/azure/key-vault/general/overview)| *.vault.azure.net|
 |[Azure Kubernetes Service](/azure/aks/)|*.azmk8s.io|
 |Azure Management Services|*.management.core.windows.net|
@@ -49,7 +49,7 @@ For firewall configurations, use the wildcard patterns shown in the **Subdomain*
 |[Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/)|*.queue.core.windows.net|
 |[Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md)|*.servicebus.windows.net|
 |[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)|*.database.windows.net|
-|[Azure CDN](/azure/cdn/) (migrated to [Azure Front Door](/azure/frontdoor/))|*.azureedge.net|
+|[Azure CDN](/azure/cdn/) (migrated to [Azure Front Door](../../frontdoor/index.yml))|*.azureedge.net|
 |[Azure Table Storage](../../storage/tables/table-storage-overview.md)|*.table.core.windows.net|
 |[Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)|*.trafficmanager.net|
 |Azure Websites|*.azurewebsites.net|

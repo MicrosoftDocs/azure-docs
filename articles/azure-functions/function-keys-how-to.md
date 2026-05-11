@@ -64,7 +64,7 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 | [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
 | File system  | `files` | Keys are persisted on the local file system, which is the default in Functions v1.x. File system storage isn't recommended. |
 | Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported. |
-| Azure Container Apps secrets | `ContainerApps` | Keys are stored in the Azure Container Apps secrets store. Supported only when your function app is deployed to Azure Container Apps. |
+| Azure Container Apps secrets | `ContainerApps` | Keys are stored in the Azure Container Apps secrets store, which is the internal secrets management system for Container Apps. Supported only when your function app is deployed to Azure Container Apps. For information on how to manage and retrieve function keys when using this storage type, see [Manage function keys in Azure Container Apps](/azure/container-apps/functions-manage). |
 
 When you use Key Vault for key storage, the app settings you need depend on the managed identity type, either system-assigned or user-assigned. 
 
@@ -93,6 +93,9 @@ You can get function and host keys programmatically by using these Azure Resourc
 - [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot)
 
 To learn how to call Azure Resource Manager APIs, see the [Azure REST API reference](/rest/api/azure/).
+
+> [!NOTE]
+> When your function app is deployed to Azure Container Apps and uses `AzureWebJobsSecretStorageType=ContainerApps`, you must use Container Apps-specific methods to retrieve function keys. For more information, see [Manage function keys in Azure Container Apps](/azure/container-apps/functions-manage).
 
 You can use these methods to get access keys without having to use the REST APIs. 
 

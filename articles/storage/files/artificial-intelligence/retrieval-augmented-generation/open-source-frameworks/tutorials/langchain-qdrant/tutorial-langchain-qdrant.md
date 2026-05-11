@@ -352,7 +352,7 @@ This tutorial doesn't create any new Azure resources—it uses the storage accou
 
 ## Questions
 
-Have questions about this tutorial? Email us at [files@microsoft.com](mailto:files@microsoft.com).
+Have questions about this tutorial? Email us at [azurefiles@microsoft.com](mailto:azurefiles@microsoft.com).
 
 ## Next steps
 

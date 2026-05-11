@@ -12,6 +12,8 @@ ms.date: 02/04/2026
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article contains information about how to troubleshoot the most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
 To learn more about Azure Synapse Analytics, check the topics in the [Overview](../index.yml).
