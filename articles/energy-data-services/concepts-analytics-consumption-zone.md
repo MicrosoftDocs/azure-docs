@@ -68,7 +68,7 @@ ACZ synchronizes two categories of ADME entity types:
 
 | Category | Description | Example kinds |
 |---|---|---|
-| **Catalog kinds** | Primary data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:master-data--Field:*` |
+| **Catalog kinds** | Primary data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:reference-data--UnitOfMeasure:*` |
 | **Wellbore DDMS kinds** | Entities from the Wellbore Domain Data Management Service | `osdu:wks:work-product-component--WellLog:*` |
 
 ### Version types

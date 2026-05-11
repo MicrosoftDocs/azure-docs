@@ -206,7 +206,7 @@ curl --request POST \
     "configuration": {
       "catalogKinds": [
         "osdu:wks:master-data--Well:*",
-        "osdu:wks:master-data--Field:*"
+        "osdu:wks:reference-data--UnitOfMeasure:*"
       ],
       "wellboreDDMSKinds": [
         "osdu:wks:work-product-component--WellLog:*"
@@ -243,7 +243,7 @@ A successful response returns HTTP status `201` with the ACZ details:
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
-      "osdu:wks:master-data--Field:*"
+      "osdu:wks:reference-data--UnitOfMeasure:*"
     ],
     "wellboreDDMSKinds": [
       "osdu:wks:work-product-component--WellLog:*"

@@ -81,7 +81,7 @@ curl --request POST \
     "configuration": {
       "catalogKinds": [
         "osdu:wks:master-data--Well:*",
-        "osdu:wks:master-data--Field:*"
+        "osdu:wks:reference-data--UnitOfMeasure:*"
       ],
       "wellboreDDMSKinds": [
         "osdu:wks:work-product-component--WellLog:*"
@@ -125,7 +125,7 @@ curl --request POST \
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
-      "osdu:wks:master-data--Field:*"
+      "osdu:wks:reference-data--UnitOfMeasure:*"
     ],
     "wellboreDDMSKinds": [
       "osdu:wks:work-product-component--WellLog:*"
@@ -173,7 +173,7 @@ curl --request GET \
       "configuration": {
         "catalogKinds": [
           "osdu:wks:master-data--Well:*",
-          "osdu:wks:master-data--Field:*"
+          "osdu:wks:reference-data--UnitOfMeasure:*"
         ],
         "wellboreDDMSKinds": [
           "osdu:wks:work-product-component--WellLog:*"
@@ -224,7 +224,7 @@ Replace `{acz_id}` with the ACZ identifier from the Create or List response.
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
-      "osdu:wks:master-data--Field:*"
+      "osdu:wks:reference-data--UnitOfMeasure:*"
     ],
     "wellboreDDMSKinds": [
       "osdu:wks:work-product-component--WellLog:*"
