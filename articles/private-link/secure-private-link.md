@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-private-link
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/17/2025
+ms.date: 05/11/2026
 ai-usage: ai-assisted
 ---
 
@@ -32,7 +32,7 @@ This article provides security recommendations for Azure Private Link. Following
 
 - **Use Azure Private DNS Resolver for hybrid name resolution**: In hub-and-spoke or hybrid topologies, deploy Azure Private DNS Resolver to securely forward DNS queries between on-premises networks and Azure. This approach avoids deploying custom DNS forwarder VMs and centralizes DNS management. See [Azure Private Endpoint DNS integration](private-endpoint-dns-integration.md).
 
-- **Associate resources with a Network Security Perimeter (NSP) to define a trusted network boundary**: Group PaaS resources into a perimeter that enforces inbound and outbound access rules at the network level. Use Enforced mode rather than Learning mode once you have validated your access patterns. See [Network Security Perimeter concepts](network-security-perimeter-concepts.md).
+- **Associate resources with a Network Security Perimeter (NSP) to define a trusted network boundary**: Group PaaS resources into a perimeter that enforces inbound and outbound access rules at the network level. Start in Transition mode (formerly Learning mode) to validate access patterns, then move to Enforced mode for full protection. In Enforced mode, the perimeter denies all public traffic that isn't explicitly allowed by an access rule, including traffic from Azure trusted services. See [Network Security Perimeter concepts](network-security-perimeter-concepts.md) and [Transition to a network security perimeter](network-security-perimeter-transition.md).
 
 - **Disable public network access on target resources after deploying private endpoints**: After confirming private endpoint connectivity, disable public network access on the target PaaS resource to ensure all traffic flows over the private link. See [What is Azure Private Link?](private-link-overview.md).
 
@@ -72,7 +72,7 @@ This article provides security recommendations for Azure Private Link. Following
 
 - **Use Azure Policy to block public network access on PaaS resources**: Complement private endpoint enforcement policies with policies that deny public network access on target services. This ensures that even if a private endpoint exists, the resource cannot also be reached over the public internet.
 
-- **Govern Network Security Perimeter configurations with Azure Policy**: Use Azure Policy to enforce that resources within a perimeter have consistent access rules and that perimeters operate in Enforced mode rather than Learning mode in production environments. See [Network Security Perimeter concepts](network-security-perimeter-concepts.md).
+- **Govern Network Security Perimeter configurations with Azure Policy**: Use Azure Policy to enforce that resources within a perimeter have consistent access rules and that perimeter associations operate in Enforced mode (not Transition mode, formerly called Learning mode) in production environments. See [Network Security Perimeter concepts](network-security-perimeter-concepts.md).
 
 - **Tag and track all private endpoint resources for inventory management**: Apply a consistent tagging strategy to private endpoints, private DNS zones, and Private Link Service resources. Use Azure Resource Graph queries to audit your private endpoint inventory and identify resources that lack private connectivity.
 

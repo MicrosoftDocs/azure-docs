@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-network-watcher
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/17/2025
+ms.date: 05/11/2026
 ai-usage: ai-assisted
 ---
 
@@ -32,7 +32,7 @@ Network Watcher operates as a read-only observer of your network infrastructure.
 
 Network Watcher is primarily a tool for *analyzing* network security. The following recommendations focus on securing the network paths and storage resources that Network Watcher depends on. For recommendations on securing your virtual networks themselves, see [Secure your Azure Virtual Network deployment](../virtual-network/secure-virtual-network.md).
 
-- **Use virtual network flow logs instead of NSG flow logs**: Virtual network flow logs operate at the virtual network scope, which eliminates duplicate logging from nested NSG evaluations and provides encryption status tracking. Disable NSG flow logs before enabling virtual network flow logs to avoid redundant data and cost. See [Virtual network flow logs overview](vnet-flow-logs-overview.md).
+- **Use virtual network flow logs instead of NSG flow logs**: NSG flow logs will be retired on September 30, 2027, and no new NSG flow logs can be created after June 30, 2025. Migrate existing deployments to virtual network flow logs, which operate at the virtual network scope, eliminate duplicate logging from nested NSG evaluations, and provide encryption status tracking. Disable NSG flow logs before enabling virtual network flow logs on the same scope to avoid redundant data and cost. See [Migrate from NSG flow logs to virtual network flow logs](nsg-flow-logs-migrate.md) and [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
 - **Restrict network access to flow log storage accounts**: Configure firewalls and virtual network rules on the storage accounts that receive flow logs. Allow access only from the networks and identities that need it. See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 

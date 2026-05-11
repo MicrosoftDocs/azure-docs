@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-nat-gateway
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/17/2025
+ms.date: 05/11/2026
 ai-usage: ai-assisted
 ---
 
@@ -72,7 +72,7 @@ Monitor NAT Gateway health and traffic patterns to detect SNAT exhaustion, conne
 
 Enforce consistent security configurations across NAT Gateway deployments using policy and governance controls.
 
-- **Enforce zone redundancy with Azure Policy**: Use the built-in policy definition "NAT gateway should be Zone Aligned" to audit or deny NAT Gateway deployments that lack availability zone configuration. See [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
+- **Audit availability zone configuration with Azure Policy**: Use the built-in policy definition "NAT gateway should be Zone Aligned" to audit or deny NAT Gateway deployments that don't have exactly one entry in their zones array. This policy enforces that a Standard SKU NAT gateway is pinned to a specific availability zone rather than being deployed as a no-zone resource. For zone-redundant outbound connectivity, deploy the StandardV2 SKU (zone-redundant by default) rather than relying on this policy. See [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies) and [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
 
 - **Monitor resource health history**: Review the 30-day resource health history for NAT Gateway resources to identify patterns of degradation or availability issues that may indicate underlying infrastructure problems. See [Resource health for NAT gateway](resource-health.md).
 
