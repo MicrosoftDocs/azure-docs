@@ -189,7 +189,7 @@ For Windows apps, the ZIP file contains the contents of the `D:\Home\LogFiles` d
 
 ## Send logs to Azure Monitor
 
-With [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create diagnostic settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to storage accounts, event hubs, and Log Analytics workspaces. When you add a diagnostic setting, App Service adds app settings to your app, which triggers an app restart.
+With [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create diagnostic settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to storage accounts, event hubs, and Log Analytics workspaces. When you add a diagnostic setting, App Service adds app settings to your app, which triggers a zero downtime application recycle(UpdateWebSite event in the Acitivity log).
 
 :::image type="content" source="media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png" alt-text="Screenshot that shows selections for displaying diagnostic settings and adding a diagnostic setting." lightbox="media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png":::
 
