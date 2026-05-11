@@ -30,6 +30,8 @@ Azure Government offers [Infrastructure-as-a-Service (IaaS)](https://azure.micro
 
 There are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure. To see feature variations and usage limitations between Azure Government and global Azure, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on individual service.
 
+<a name='region-pairing'></a>
+
 ## List of regions
 
 The following table shows the regions in Azure Government, including regions that support [availability zones](/azure/reliability/availability-zones-overview). The list also includes each region's [paired region](/azure/reliability/regions-paired), which helps to deliver [geo-redundant storage](../storage/common/storage-redundancy.md).
