@@ -9,7 +9,7 @@ ms.date: 05/08/2026
 
 ## Assess AI skills (preview)
 
-For skills registered in your API center, API Center can assess skill quality. API Center comes with default skill assessment criteria out of the box, assessing skills across four key dimensions, each scored on a 1–5 scale with a default threshold of 3: 
+API Center can assess the quality of skills registered in your API center.  API Center comes with default skill assessment criteria out of the box, assessing skills across four key dimensions. Each is scored on a 1–5 scale with a default threshold of 3: 
 
 | Criterion | Description |
 |-----------|-------------|
