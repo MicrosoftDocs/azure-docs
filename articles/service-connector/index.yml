@@ -58,8 +58,6 @@ landingContent:
             url: tutorial-java-spring-mysql.md
           - text: ASP.NET app with Blob Storage
             url: tutorial-csharp-webapp-storage-cli.md
-          - text: Spring Cloud app with Kafka on Confluent Cloud
-            url: tutorial-java-spring-confluent-kafka.md
           - text: Store secrets in Key Vault
             url: tutorial-portal-key-vault.md
           - text: Web app with App Configuration
