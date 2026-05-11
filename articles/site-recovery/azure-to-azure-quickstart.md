@@ -2,8 +2,8 @@
 title: Set up Azure VM disaster recovery to a secondary region with Azure Site Recovery
 description: Quickly set up disaster recovery to another Azure region for an Azure VM, using the Azure Site Recovery service.
 ms.topic: quickstart
-ms.date: 09/09/2025
-ms.custom: mvc, mode-other
+ms.date: 05/05/2026
+ms.custom: mvc, mode-other, references_regions
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.service: azure-site-recovery
@@ -17,6 +17,8 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 Azure Site Recovery has an option of *High Churn*, enabling you to configure disaster recovery for Azure VMs having data churn up to 100 MB/s. This helps you to enable disaster recovery for more IO intensive workloads. [Learn more](../site-recovery/concepts-azure-to-azure-high-churn-support.md).
 
 This quickstart describes how to set up disaster recovery for an Azure VM by replicating it to a secondary Azure region. In general, default settings are used to enable replication. [Learn more](azure-to-azure-tutorial-enable-replication.md).
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 ## Prerequisites
 

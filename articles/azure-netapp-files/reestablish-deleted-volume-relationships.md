@@ -23,9 +23,31 @@ If the destination volume remains operational and no snapshots were deleted, the
 
 The re-establish deleted volume replication relationships capability is currently in preview. If you're using this feature for the first time, you need to register the feature first.
 
+# [Azure CLI](#tab/azurecli)
+
 1.  Register the feature by running the following commands:
 
-    ```azurepowershell-interactive
+    ```azurecli
+    az account set --subscription <subscriptionId>
+    az feature register --namespace Microsoft.NetApp --name ANFReestablishReplication
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurecli
+    az feature show --namespace Microsoft.NetApp --name ANFReestablishReplication
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+# [Azure PowerShell](#tab/azurepowershell)
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell
+    Set-AzContext -SubscriptionId <subscriptionId>
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFReestablishReplication
     ```
 
@@ -34,10 +56,13 @@ The re-establish deleted volume replication relationships capability is currentl
     > [!NOTE]
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFReestablishReplication
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+---
+
 
 ## Re-establish the relationship
 

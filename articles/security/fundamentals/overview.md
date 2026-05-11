@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -75,16 +75,16 @@ You can enable trusted launch on existing VMs and Virtual Machine Scale Sets.
 
 #### Azure confidential computing
 
-[Azure confidential computing](/azure/confidential-computing/overview-azure-products) provides the final, missing piece of the data protection puzzle. It allows you to keep your data encrypted always - while at rest, when in motion through the network, and now, even while loaded in memory and in use. By making [Remote Attestation](/azure/attestation/overview) possible, it also allows you to cryptographically verify that the VM you deploy booted securely and is configured correctly, before unlocking your data.
+[Azure confidential computing](../../confidential-computing/overview-azure-products.md) provides the final, missing piece of the data protection puzzle. It allows you to keep your data encrypted always - while at rest, when in motion through the network, and now, even while loaded in memory and in use. By making [Remote Attestation](/azure/attestation/overview) possible, it also allows you to cryptographically verify that the VM you deploy booted securely and is configured correctly, before unlocking your data.
 
 The spectrum of options ranges from enabling "lift and shift" scenarios of existing applications, to full control of security features. For Infrastructure as a Service (IaaS), you can use:
 
-- **[Confidential virtual machines powered by AMD SEV-SNP](/azure/confidential-computing/confidential-vm-overview)**: Hardware-based memory encryption with up to 256 GB encrypted memory
+- **[Confidential virtual machines powered by AMD SEV-SNP](../../confidential-computing/confidential-vm-overview.md)**: Hardware-based memory encryption with up to 256 GB encrypted memory
 - **[Confidential VMs with Intel TDX](/azure/confidential-computing/tdx-confidential-vm-overview)**: Intel Trust Domain Extensions providing enhanced performance and security
-- **[Confidential VMs with NVIDIA H100 GPUs](/azure/confidential-computing/confidential-vm-overview)**: GPU-accelerated confidential computing for AI/ML workloads
-- **[Confidential application enclaves with Intel SGX](/azure/confidential-computing/application-development)**: Application-level isolation for sensitive code and data
+- **[Confidential VMs with NVIDIA H100 GPUs](../../confidential-computing/confidential-vm-overview.md)**: GPU-accelerated confidential computing for AI/ML workloads
+- **[Confidential application enclaves with Intel SGX](../../confidential-computing/application-development.md)**: Application-level isolation for sensitive code and data
 
-For Platform as a Service (PaaS), Azure offers multiple [container-based confidential computing options](/azure/confidential-computing/choose-confidential-containers-offerings), including integrations with [Azure Kubernetes Service (AKS)](/azure/confidential-computing/confidential-nodes-aks-overview).
+For Platform as a Service (PaaS), Azure offers multiple [container-based confidential computing options](../../confidential-computing/choose-confidential-containers-offerings.md), including integrations with [Azure Kubernetes Service (AKS)](../../confidential-computing/confidential-nodes-aks-overview.md).
 
 #### Antimalware and antivirus
 
@@ -101,11 +101,11 @@ For comprehensive information on key management options including Azure Key Vaul
 
 #### Virtual machine backup
 
-[Azure Backup](/azure/backup/backup-overview) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security problems. With Azure Backup, your virtual machines running Windows and Linux are protected.
+[Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security problems. With Azure Backup, your virtual machines running Windows and Linux are protected.
 
 #### Azure Site Recovery
 
-An important part of your organization's [business continuity/disaster recovery (BCDR)](/azure/reliability/cross-region-replication-azure) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) helps orchestrate replication, failover, and recovery of workloads and apps so that they're available from a secondary location if your primary location goes down.
+An important part of your organization's [business continuity/disaster recovery (BCDR)](/azure/reliability/cross-region-replication-azure) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so that they're available from a secondary location if your primary location goes down.
 
 #### SQL VM TDE
 
@@ -131,7 +131,7 @@ For more information, see [Overview of managed disk encryption options](/azure/v
 
 #### Virtual networking
 
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments isn't accessible to other Microsoft Azure customers.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. An Azure Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) is isolated from all other Azure Virtual Networks. This isolation helps ensure that network traffic in your deployments isn't accessible to other Microsoft Azure customers.
 
 #### Patch updates
 
@@ -143,7 +143,7 @@ Patch updates provide the basis for finding and fixing potential problems and si
 
 ### Application security
 
-Application security focuses on protecting your applications from threats throughout their lifecycle - from development to deployment and runtime. Azure provides comprehensive tools for secure development, testing, and protection of applications. For secure application development guidance, see [Develop secure applications on Azure](/azure/security/develop/secure-develop). For PaaS-specific security best practices, see [Securing PaaS deployments](paas-deployments.md). For IaaS deployment security, see [Security best practices for IaaS workloads in Azure](iaas.md).
+Application security focuses on protecting your applications from threats throughout their lifecycle - from development to deployment and runtime. Azure provides comprehensive tools for secure development, testing, and protection of applications. For secure application development guidance, see [Develop secure applications on Azure](../develop/secure-develop.md). For PaaS-specific security best practices, see [Securing PaaS deployments](paas-deployments.md). For IaaS deployment security, see [Security best practices for IaaS workloads in Azure](iaas.md).
 
 #### Penetration testing
 
@@ -151,17 +151,17 @@ Microsoft doesn't perform [penetration testing](pen-testing.md) of your applicat
 
 #### Web application firewall
 
-The Web Application Firewall (WAF) in [Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview) protects web applications against common web-based attacks such as SQL injection, cross-site scripting, and session hijacking. It's preconfigured to defend against the top 10 vulnerabilities identified by the [Open Web Application Security Project (OWASP)](https://owasp.org/www-project-top-ten/).
+The Web Application Firewall (WAF) in [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) protects web applications against common web-based attacks such as SQL injection, cross-site scripting, and session hijacking. It's preconfigured to defend against the top 10 vulnerabilities identified by the [Open Web Application Security Project (OWASP)](https://owasp.org/www-project-top-ten/).
 
 #### Authentication and authorization in Azure App Service
 
-[App Service Authentication / Authorization](/azure/app-service/overview-authentication-authorization) is a feature that provides a way for your application to sign in users so that you don't have to change code on the app backend. It provides an easy way to protect your application and work with per-user data.
+[App Service Authentication / Authorization](../../app-service/overview-authentication-authorization.md) is a feature that provides a way for your application to sign in users so that you don't have to change code on the app backend. It provides an easy way to protect your application and work with per-user data.
 
 #### Layered security architecture
 
-Since [App Service Environments](/azure/app-service/environment/app-service-app-service-environment-intro) provide an isolated runtime environment deployed into an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), developers can create a layered security architecture providing differing levels of network access for each application tier. It's common to hide API back-ends from general Internet access, and only permit APIs to be called by upstream web apps. You can use [Network Security groups (NSGs)](/azure/virtual-network/virtual-network-vnet-plan-design-arm) on Azure Virtual Network subnets containing App Service Environments to restrict public access to API applications.
+Since [App Service Environments](/azure/app-service/environment/app-service-app-service-environment-intro) provide an isolated runtime environment deployed into an [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), developers can create a layered security architecture providing differing levels of network access for each application tier. It's common to hide API back-ends from general Internet access, and only permit APIs to be called by upstream web apps. You can use [Network Security groups (NSGs)](../../virtual-network/virtual-network-vnet-plan-design-arm.md) on Azure Virtual Network subnets containing App Service Environments to restrict public access to API applications.
 
-[App Service web apps](/azure/app-service/troubleshoot-diagnostic-logs) offer robust diagnostic capabilities for capturing logs from both the web server and the web application. These diagnostics are categorized into web server diagnostics and application diagnostics. Web server diagnostics include significant advancements for diagnosing and troubleshooting sites and applications.
+[App Service web apps](../../app-service/troubleshoot-diagnostic-logs.md) offer robust diagnostic capabilities for capturing logs from both the web server and the web application. These diagnostics are categorized into web server diagnostics and application diagnostics. Web server diagnostics include significant advancements for diagnosing and troubleshooting sites and applications.
 
 The first new feature is real-time state information about application pools, worker processes, sites, application domains, and running requests. The second new feature is the detailed trace events that track a request throughout the complete request-and-response process.
 
@@ -218,17 +218,17 @@ Network access control is the act of limiting connectivity to and from specific 
 
 ##### Network security groups
 
-A [Network Security Group (NSG)](/azure/virtual-network/network-security-groups-overview) is a basic stateful packet filtering firewall. It enables you to control access based on a five-tuple. NSGs don't provide application layer inspection or authenticated access controls. You can use them to control traffic moving between subnets within an Azure Virtual Network and traffic between an Azure Virtual Network and the Internet.
+A [Network Security Group (NSG)](../../virtual-network/network-security-groups-overview.md) is a basic stateful packet filtering firewall. It enables you to control access based on a five-tuple. NSGs don't provide application layer inspection or authenticated access controls. You can use them to control traffic moving between subnets within an Azure Virtual Network and traffic between an Azure Virtual Network and the Internet.
 
 ##### Azure Firewall
 
-[Azure Firewall](/azure/firewall/overview) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
 Azure Firewall is offered in three SKUs: Basic, Standard, and Premium:
 
 - **[Azure Firewall Basic](/azure/firewall/basic-features)** - Designed for small and medium-sized businesses, offering essential protection at an affordable price point.
 - **[Azure Firewall Standard](/azure/firewall/features)** - Provides L3-L7 filtering, threat intelligence feeds from Microsoft Cyber Security, and can scale to 30 Gbps.
-- **[Azure Firewall Premium](/azure/firewall/premium-features)** - Advanced threat protection for highly sensitive and regulated environments with:
+- **[Azure Firewall Premium](../../firewall/premium-features.md)** - Advanced threat protection for highly sensitive and regulated environments with:
   - **TLS Inspection**: Decrypts outbound traffic, processes it for threats, then re-encrypts before sending to destination.
   - **IDPS (Intrusion Detection and Prevention System)**: Signature-based IDPS with over 67,000 signatures in more than 50 categories, updated with 20-40+ new rules daily.
   - **URL Filtering**: Extends FQDN filtering to consider the entire URL path.
@@ -240,7 +240,7 @@ Azure Firewall Premium is essential for protecting against ransomware, as it can
 
 ##### Azure DDoS Protection
 
-[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview), combined with application design best practices, offers enhanced features to defend against DDoS attacks. It is automatically tuned to protect your specific Azure resources in a virtual network. Enabling protection is simple on any new or existing virtual network and requires no changes to your applications or resources.
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md), combined with application design best practices, offers enhanced features to defend against DDoS attacks. It is automatically tuned to protect your specific Azure resources in a virtual network. Enabling protection is simple on any new or existing virtual network and requires no changes to your applications or resources.
 
 Azure DDoS Protection offers two tiers: DDoS Network Protection and DDoS IP Protection.
 
@@ -252,7 +252,7 @@ Azure DDoS Protection offers two tiers: DDoS Network Protection and DDoS IP Prot
 
 The ability to control routing behavior on your Azure Virtual Networks is a critical network security and access control capability. For example, if you want to make sure that all traffic to and from your Azure Virtual Network goes through that virtual security appliance, you need to be able to control and customize routing behavior. You can do this control and customization by configuring User-Defined Routes in Azure.
 
-[User-Defined Routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to ensure the most secure route possible. [Forced tunneling](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) is a mechanism you can use to ensure that your services aren't allowed to initiate a connection to devices on the Internet.
+[User-Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) allow you to customize inbound and outbound paths for traffic moving into and out of individual virtual machines or subnets to ensure the most secure route possible. [Forced tunneling](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm) is a mechanism you can use to ensure that your services aren't allowed to initiate a connection to devices on the Internet.
 
 This restriction is different from being able to accept incoming connections and then responding to them. Front-end web servers need to respond to requests from Internet hosts. So, Internet-sourced traffic is allowed inbound to these web servers and the web servers can respond.
 
@@ -266,21 +266,21 @@ While Network Security Groups, User-Defined Routes, and forced tunneling provide
 
 An Azure virtual network (VNet) is a representation of your own network in the cloud. It's a logical isolation of the Azure network fabric dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can segment your VNet into subnets and place Azure IaaS virtual machines (VMs) on Azure Virtual Networks.
 
-Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](/azure/vpn-gateway/) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
+Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../../vpn-gateway/index.yml) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
 Azure networking supports various secure remote access scenarios. Some of these scenarios include:
 
-- [Connect individual workstations to an Azure Virtual Network](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+- [Connect individual workstations to an Azure Virtual Network](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-- [Connect on-premises network to an Azure Virtual Network with a VPN](/azure/vpn-gateway/tutorial-site-to-site-portal)
+- [Connect on-premises network to an Azure Virtual Network with a VPN](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
-- [Connect on-premises network to an Azure Virtual Network with a dedicated WAN link](/azure/expressroute/expressroute-introduction)
+- [Connect on-premises network to an Azure Virtual Network with a dedicated WAN link](../../expressroute/expressroute-introduction.md)
 
-- [Connect Azure Virtual Networks to each other](/azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps)
+- [Connect Azure Virtual Networks to each other](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 #### Azure Virtual Network Manager
 
-[Azure Virtual Network Manager](/azure/virtual-network-manager/overview) provides a centralized solution for managing and securing your virtual networks at scale. It uses [security admin rules](/azure/virtual-network-manager/concept-security-admins) to centrally define and enforce security policies across your entire organization. Security admin rules take precedence over network security group (NSG) rules and are applied on the virtual network. This precedence allows organizations to enforce core policies with security admin rules, while still enabling downstream teams to tailor NSGs according to their specific needs at the subnet and NIC levels.
+[Azure Virtual Network Manager](../../virtual-network-manager/overview.md) provides a centralized solution for managing and securing your virtual networks at scale. It uses [security admin rules](../../virtual-network-manager/concept-security-admins.md) to centrally define and enforce security policies across your entire organization. Security admin rules take precedence over network security group (NSG) rules and are applied on the virtual network. This precedence allows organizations to enforce core policies with security admin rules, while still enabling downstream teams to tailor NSGs according to their specific needs at the subnet and NIC levels.
 
 Depending on the needs of your organization, use **Allow**, **Deny**, or **Always Allow** rule actions to enforce security policies:
 
@@ -290,23 +290,23 @@ Depending on the needs of your organization, use **Allow**, **Deny**, or **Alway
 | **Always Allow** | Always allow the specified traffic, regardless of other rules with lower priority or NSGs. Use this rule to ensure that monitoring agent, domain controller, or management traffic isn't blocked. |
 | **Deny**          | Block the specified traffic. Downstream NSGs don't evaluate this traffic after being denied by a security admin rule, ensuring your high-risk ports for existing and new virtual networks are protected by default. |
 
-In Azure Virtual Network Manager, [network groups](/azure/virtual-network-manager/concept-network-groups) allow you to group virtual networks together for centralized management and enforcement of security policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually update the virtual network membership of your network groups or you can [define conditional statements with Azure Policy](/azure/virtual-network-manager/concept-azure-policy-integration) to dynamically update network groups and automatically update your network group membership.
+In Azure Virtual Network Manager, [network groups](../../virtual-network-manager/concept-network-groups.md) allow you to group virtual networks together for centralized management and enforcement of security policies. Network groups are a logical grouping of virtual networks based on your needs from a topology and security perspective. You can manually update the virtual network membership of your network groups or you can [define conditional statements with Azure Policy](../../virtual-network-manager/concept-azure-policy-integration.md) to dynamically update network groups and automatically update your network group membership.
 
 #### Azure Private Link
 
-[Azure Private Link](https://azure.microsoft.com/services/private-link/) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services privately in your virtual network over a [private endpoint](/azure/private-link/private-endpoint-overview). Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
+[Azure Private Link](https://azure.microsoft.com/services/private-link/) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services privately in your virtual network over a [private endpoint](../../private-link/private-endpoint-overview.md). Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
 
-By using [private endpoints](/azure/private-link/private-endpoint-overview), you can secure your critical Azure service resources to only your virtual networks. Azure Private Endpoint uses a private IP address from your virtual network to connect you privately and securely to a service powered by Azure Private Link, effectively bringing the service into your virtual network. Exposing your virtual network to the public internet is no longer necessary to consume services on Azure. 
+By using [private endpoints](../../private-link/private-endpoint-overview.md), you can secure your critical Azure service resources to only your virtual networks. Azure Private Endpoint uses a private IP address from your virtual network to connect you privately and securely to a service powered by Azure Private Link, effectively bringing the service into your virtual network. Exposing your virtual network to the public internet is no longer necessary to consume services on Azure. 
 
-You can also create your own private link service in your virtual network. [Azure Private Link service](/azure/private-link/private-link-service-overview) is the reference to your own service that is powered by Azure Private Link. Your service that is running behind Azure Standard Load Balancer can be enabled for Private Link access so that consumers to your service can access it privately from their own virtual networks. Your customers can create a private endpoint inside their virtual network and map it to this service. Exposing your service to the public internet is no longer necessary to render services on Azure. 
+You can also create your own private link service in your virtual network. [Azure Private Link service](../../private-link/private-link-service-overview.md) is the reference to your own service that is powered by Azure Private Link. Your service that is running behind Azure Standard Load Balancer can be enabled for Private Link access so that consumers to your service can access it privately from their own virtual networks. Your customers can create a private endpoint inside their virtual network and map it to this service. Exposing your service to the public internet is no longer necessary to render services on Azure. 
 
 #### VPN gateway
 
-To send network traffic between your Azure Virtual Network and your on-premises site, you must create a VPN gateway for your Azure Virtual Network. A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic across a public connection. You can also use VPN gateways to send traffic between Azure Virtual Networks over the Azure network fabric.
+To send network traffic between your Azure Virtual Network and your on-premises site, you must create a VPN gateway for your Azure Virtual Network. A [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) is a type of virtual network gateway that sends encrypted traffic across a public connection. You can also use VPN gateways to send traffic between Azure Virtual Networks over the Azure network fabric.
 
 #### ExpressRoute
 
-Microsoft Azure [ExpressRoute](/azure/expressroute/expressroute-introduction) is a dedicated WAN link that lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.
+Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) is a dedicated WAN link that lets you extend your on-premises networks into the Microsoft cloud over a dedicated private connection facilitated by a connectivity provider.
 
 ![Express Route](./media/overview/azure-security-figure-1.png)
 
@@ -316,7 +316,7 @@ ExpressRoute connections don't go over the public Internet and are more secure t
 
 #### Application gateway
 
-Microsoft [Azure Application Gateway](/azure/application-gateway/overview) provides an [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) as a service, offering various layer 7 load balancing capabilities for your application.
+Microsoft [Azure Application Gateway](../../application-gateway/overview.md) provides an [Application Delivery Controller (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) as a service, offering various layer 7 load balancing capabilities for your application.
 
 ![Application Gateway](./media/overview/azure-security-figure-2.png)
 
@@ -324,11 +324,11 @@ It allows you to optimize web farm productivity by offloading CPU intensive TLS 
 
 It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 
-Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [TLS offload](/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell), custom health probes, support for multi-site, and many others.
+Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [TLS offload](../../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md), custom health probes, support for multi-site, and many others.
 
 #### Web application firewall
 
-Web Application Firewall is a feature of [Azure Application Gateway](/azure/application-gateway/overview) that protects web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall protects them against most of the OWASP top 10 common web vulnerabilities.
+Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that protects web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall protects them against most of the OWASP top 10 common web vulnerabilities.
 
 ![Web Application Firewall](./media/overview/azure-security-figure-3.png)
 
@@ -348,7 +348,7 @@ A centralized web application firewall (WAF) simplifies security management and 
 
 #### Azure Front Door
 
-[Azure Front Door](/azure/frontdoor/front-door-overview) is a global, scalable entry point that uses Microsoft's global edge network to create fast, secure, and widely scalable web applications. Front Door provides:
+[Azure Front Door](../../frontdoor/front-door-overview.md) is a global, scalable entry point that uses Microsoft's global edge network to create fast, secure, and widely scalable web applications. Front Door provides:
 
 - **Global load balancing**: Distribute traffic across multiple backends in different regions
 - **Integrated Web Application Firewall**: Protect against common web vulnerabilities and attacks
@@ -360,17 +360,17 @@ Front Door combines content delivery, application acceleration, and security int
 
 #### Traffic manager
 
-[Microsoft Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints that Traffic Manager supports include Azure VMs, Web Apps, and Cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
+[Microsoft Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints that Traffic Manager supports include Azure VMs, Web Apps, and Cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
 
-Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](/azure/traffic-manager/traffic-manager-routing-methods) and the health of the endpoints. Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](/azure/traffic-manager/traffic-manager-monitoring), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](../../traffic-manager/traffic-manager-routing-methods.md) and the health of the endpoints. Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](../../traffic-manager/traffic-manager-monitoring.md), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
 
 #### Azure Load Balancer
 
-[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) delivers high availability and network performance to your applications. It's a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. You can configure Azure Load Balancer to:
+[Azure Load Balancer](../../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. It's a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. You can configure Azure Load Balancer to:
 
-- Load balance incoming Internet traffic to virtual machines. This configuration is known as [public load balancing](/azure/load-balancer/components#frontend-ip-configurations).
+- Load balance incoming Internet traffic to virtual machines. This configuration is known as [public load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
-- Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](/azure/load-balancer/components#frontend-ip-configurations).
+- Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Forward external traffic to a specific virtual machine
 
@@ -380,7 +380,7 @@ You can manage the list of DNS servers used in a VNet in the Azure portal, or in
 
 #### Azure DNS
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. [Azure DNS](/azure/dns/dns-overview) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. DNS supports the availability aspect of the "CIA" security triad.
+The Domain Name System, or DNS, is responsible for translating (or resolving) a website or service name to its IP address. [Azure DNS](../../dns/dns-overview.md) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. DNS supports the availability aspect of the "CIA" security triad.
 
 #### Azure Monitor logs NSGs
 
@@ -396,7 +396,7 @@ You can enable the following diagnostic log categories for NSGs:
 
 #### Advanced Container Networking Services (ACNS)
 
-[Advanced Container Networking Services (ACNS)](/azure/security/fundamentals/overview#networking) is a comprehensive suite designed to elevate the operational efficiency of your Azure Kubernetes Service (AKS) clusters. It provides advanced security and observability features, addressing the complexities of managing microservices infrastructure at scale.
+[Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview) is a comprehensive suite designed to elevate the operational efficiency of your Azure Kubernetes Service (AKS) clusters. It provides advanced security and observability features, addressing the complexities of managing microservices infrastructure at scale.
 
 These features are divided into two main pillars:
 
@@ -437,7 +437,7 @@ By default, [encryption at host](/azure/virtual-machines/disk-encryption) helps 
 
 ### Azure Resource Manager
 
-[Azure Resource Manager](/azure/azure-resource-manager/management/overview) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) for deployment, and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+[Azure Resource Manager](../../azure-resource-manager/management/overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) for deployment, and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
 Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings can be integrated into standardized template-based deployments. Templates reduce the risk of security configuration errors that might take place during manual deployments.
 

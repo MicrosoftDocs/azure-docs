@@ -18,6 +18,52 @@ Azure NetApp Files cache volumes are cloud-based caches of an external origin vo
 
 Write-back allows the write to be committed to stable storage at the cache and acknowledges the client without waiting for the data to make it to the origin. This results in a globally distributed file system that enables writes to perform at near-local speeds for specific workloads and environments, offering significant performance benefits whereas write-around waits for the origin to commit the writes to the stable storage before acknowledging the client. This results in every write incurring the penalty of traversing the network between the cache and origin.  
 
+## Register the feature
+
+Cache volumes for Azure NetApp Files are currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+
+# [Azure CLI](#tab/azurecli)
+
+1. Register the feature: 
+
+    ```azurecli
+    az account set --subscription <subscriptionId>
+    az feature register --namespace Microsoft.NetApp --name ANFCacheVolumes
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurecli
+    az feature show --namespace Microsoft.NetApp --name ANFCacheVolumes
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+
+# [Azure PowerShell](#tab/azurepowershell)
+
+1. Register the feature: 
+
+    ```azurepowershell
+    Set-AzContext -SubscriptionId <subscriptionId>
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCacheVolumes 
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCacheVolumes 
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+
+---
+
 ## Before you begin
 
 You must create ExpressRoute or VPN resources to ensure network connectivity from the external NetApp ONTAP cluster to the target Azure NetApp Files cluster. The connectivity can be accomplished in many ways with the goal being that the source cluster has connectivity to the Azure NetApp Files delegated subnet. Connectivity includes this set of firewall rules (bidirectional for all):
