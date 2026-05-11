@@ -43,6 +43,7 @@ If your configuration store has [monitoring](./monitor-app-configuration.md) ena
 ## Limitations
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, a configuration store in a network security perimeter can't send events to Azure Event Grid. If a configuration store has an Azure App Configuration event subscription configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
+- Subscription-based and IP-based inbound access rules don't apply to the original caller for data plane requests made through [deployment](./quickstart-deployment-overview.md) tools such as ARM templates, Bicep, or Terraform. Because these requests are forwarded to the configuration store by Azure Resource Manager, the original caller's subscription and IP address aren't passed to the perimeter for evaluation.
 
 ## Troubleshooting
 
