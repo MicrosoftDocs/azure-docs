@@ -36,6 +36,10 @@ If your configuration store uses [customer-managed key encryption](./concept-cus
 
 If neither condition is met, the configuration store can't access the encryption key, and requests to the store will fail.
 
+## Considerations for monitoring
+
+If your configuration store has [monitoring](./monitor-app-configuration.md) enabled through diagnostic settings, log destinations (such as Log Analytics workspaces, storage accounts, and event hubs) must be in the same network security perimeter as the configuration store. FQDN outbound access rules don't apply to monitoring destinations, so any destination outside the perimeter won't receive diagnostic data.
+
 ## Limitations
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, a configuration store in a network security perimeter can't send events to Azure Event Grid. If a configuration store has an Azure App Configuration event subscription configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
