@@ -5,6 +5,7 @@ description: Learn how to enable AI skill assessments in Azure API Center to eva
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 05/08/2026
+---
 
 ## Assess AI skills (preview)
 
