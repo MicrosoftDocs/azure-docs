@@ -162,7 +162,7 @@ The Delta table has these fields:
 |---|---|---|
 | `id` | String | OSDU® record ID. |
 | `version` | String | Version number. |
-| `kind` | String | Fully qualified Open Subsurface Data Universe (OSDU) kind. |
+| `kind` | String | Fully qualified OSDU® kind. |
 | `data` | String | Data block (JSON). |
 | `meta` | String | Metadata (JSON). |
 | `acl` | String | Access control list. |

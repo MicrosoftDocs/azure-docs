@@ -102,7 +102,7 @@ curl --request POST \
 | `sink.storageId` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account. |
 | `sink.basePath` | string | No | Base path within the storage account for ACZ data output. |
 | `configuration` | object | Yes | Entity filter configuration. |
-| `configuration.catalogKinds` | string[] | No | Open Subsurface Data Universe (OSDU) catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
+| `configuration.catalogKinds` | string[] | No | OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
 | `configuration.wellboreDDMSKinds` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
 
 > [!NOTE]
