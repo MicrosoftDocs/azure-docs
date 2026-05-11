@@ -41,7 +41,7 @@ When you import an A2A agent API, API Management provides the following capabili
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 
-- An existing A2A agent with JSON-RPC operations and an agent card.
+- An existing A2A agent configured with JSON-RPC operations and an associated agent card.
 
 ## Import A2A agent API using the portal
 
