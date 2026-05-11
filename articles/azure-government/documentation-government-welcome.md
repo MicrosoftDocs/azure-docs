@@ -30,14 +30,15 @@ Azure Government offers [Infrastructure-as-a-Service (IaaS)](https://azure.micro
 
 There are some key differences that developers working on applications hosted in Azure Government must be aware of. For detailed information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you'll mostly have the same experience as in global Azure. To see feature variations and usage limitations between Azure Government and global Azure, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md) and click on individual service.
 
-## Region pairing
+## List of regions
 
-Azure relies on [paired regions](/azure/reliability/cross-region-replication-azure) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
+The following table shows the regions in Azure Government, including regions that support [availability zones](/azure/reliability/availability-zones-overview). The list also includes each region's [paired region](/azure/reliability/regions-paired), which helps to deliver [geo-redundant storage](../storage/common/storage-redundancy.md).
 
-|Geography|Regional Pair A|Regional Pair B|
-|---------|---------------|---------------|
-|US Government|US Gov Arizona|US Gov Texas|
-|US Government|US Gov Virginia|US Gov Texas|
+| Geography     | Region          | Availability zone support | Paired region |
+|---------------|-----------------|---------------------------|---------------|
+| US Government | US Gov Arizona  |                           | US Gov Texas  |
+| US Government | US Gov Texas    |                           | US Gov Arizona |
+| US Government | US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | US Gov Texas  |
 
 ## Get started
 
