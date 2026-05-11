@@ -160,7 +160,7 @@ The Delta table has these fields:
 
 | Field | Type | Description |
 |---|---|---|
-| `id` | String | ADME record ID. |
+| `id` | String | OSDU® record ID. |
 | `version` | String | Version number. |
 | `kind` | String | Fully qualified Open Subsurface Data Universe (OSDU) kind. |
 | `data` | String | Data block (JSON). |
