@@ -12,9 +12,9 @@ ms.date: 05/08/2026
 
 # Tutorial: Deploy environments in CI/CD by using Azure Pipelines
 
-In this tutorial, you learn how to integrate Azure Deployment Environments into your Azure Pipelines CI/CD pipeline.
-
 Continuous integration and continuous delivery (CI/CD) is a software development approach that helps teams automate the process of building, testing, and deploying software changes. CI/CD enables you to release software changes more frequently and with greater confidence. 
+
+In this tutorial, you learn how to integrate Azure Deployment Environments into your Azure Pipelines CI/CD pipeline.
 
 Before starting this tutorial, familiarize yourself with Deployment Environments resources and concepts by reviewing [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
 
@@ -35,7 +35,6 @@ In this tutorial, you learn how to:
     - An Azure DevOps organization and project.
 - In Azure Deployment Environments:
     - [A dev center and a project](./quickstart-create-and-configure-devcenter.md).
-    - [Sample catalog](https://github.com/Azure/deployment-environments) attached to the dev center.
 
 ## Create and configure an Azure Repos repository
 
@@ -59,7 +58,7 @@ To create dev center environment types:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In **Dev centers**, select your dev center.
+1. Navigate to Azure Deployment Environments. In **Dev centers**, select your dev center.
 
 1. Under **Environment configuration** in the sidebar menu, select **Environment types**, and then select **Create**.
 
@@ -72,7 +71,7 @@ To create dev center environment types:
        |**Name**|Enter a name for the environment type.|
        |**Tags**|Enter a tag name and a tag value.|
 
-   1. Confirm that the environment type appears in the list.
+   1. Confirm that your new environment type appears in the list.
  
 To create project environment types:
 
@@ -80,7 +79,7 @@ To create project environment types:
 
 1. In the project, under **Environment configuration**, select **Environment types**, and then select **Add**.
 
-1. Use the following steps to add the three environment types: *Sandbox*, *FunctionApp*, and *WebApp*. Add them one at a time.
+1. Use the following steps to add the three environment types: *Sandbox*, *FunctionApp*, and *WebApp*.
    1. In **Add environment type to \<project-name\>**, enter or select the following information:
 
        |Name     |Value     |
@@ -92,7 +91,7 @@ To create project environment types:
        |**Additional access** | Select the users or Microsoft Entra groups to assign to specific roles on the environment resources.|
        |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
-   1. Confirm that the environment type appears in the list.
+   1. Confirm that your new environment type appears in the list.
 
 ## Configure a service connection
 
@@ -100,7 +99,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 
 1. If you don't have a user-assigned managed identity for the project, [add one](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
    > [!NOTE] 
-   > You can use one of three options for identity: *app registration*, *user-assigned managed identity*, and *system-assigned managed identity*. App registration is the most secure option. To use app registration, you need to have appropriate permissions. For more information, see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
+   > You can use one of three options for identity: *app registration*, *user-assigned managed identity*, or *system-assigned managed identity*. App registration is the most secure option. To use app registration, you need to have appropriate permissions. For more information, see [Azure Resource Manager service connection special cases](/azure/devops/pipelines/library/azure-resource-manager-alternate-approaches).
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier.
 
@@ -221,6 +220,6 @@ az devcenter dev environment delete --dev-center-name <DevCenterName> --project-
 
 ## Related content
 
-- [Install the devcenter Azure CLI extension](how-to-install-devcenter-cli-extension.md)
+- [Install the Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md)
 - [Create and access an environment by using the Azure CLI](how-to-create-access-environments.md)
 - [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference)
