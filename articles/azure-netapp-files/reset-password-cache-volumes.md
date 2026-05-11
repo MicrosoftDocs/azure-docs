@@ -13,7 +13,7 @@ ms.author: anfdocs
 
 If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your cache volumes. A reset affects all cache volumes on the SMB server. 
 
-### Register the feature
+## Register the feature
 
 The reset Active Directory computer account password feature is currently in public preview. If you're using this feature for the first time, you need to register the feature first.
 
@@ -27,9 +27,9 @@ The reset Active Directory computer account password feature is currently in pub
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
-### Steps
+## Steps
 
-1. Run the following command to reset SMB password for Azure NetApp Files cache volumes:
+Run the following command to reset SMB password for Azure NetApp Files cache volumes:
 
     ```
     POST 

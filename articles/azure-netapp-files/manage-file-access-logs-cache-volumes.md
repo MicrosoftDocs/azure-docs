@@ -113,7 +113,7 @@ The following is an example to enable file access logs for cache volumes:
 Request:
 ```
 curl --request PUT \
---url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
+--url 'https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
 --header 'authorization: Bearer <TOKEN>' \
 --header 'content-type: application/json' \
 --data '{
@@ -140,7 +140,7 @@ curl --request PUT \
               "category": "AllMetrics"
           }
       ],
-      "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+      "workspaceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
       "logAnalyticsDestinationType": null
   }
 }
@@ -149,7 +149,7 @@ curl --request PUT \
 Response:
 ```
 {
-  "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
   "type": "Microsoft.Insights/diagnosticSettings",
   "name": "log-analytics-setting",
   "location": null,
@@ -158,7 +158,7 @@ Response:
   "properties": {
     "storageAccountId": null,
     "serviceBusRuleId": null,
-    "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+    "workspaceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
     "eventHubAuthorizationRuleId": null,
     "eventHubName": null,
     "metrics": [
@@ -189,14 +189,14 @@ Response:
 }
 ```
 
-## Fetch diagnostic settings on a cache volume:
+## Fetch diagnostic settings on a cache volume  
 
 The following is an example to fetch diagnostic settings on a cache volume:   
 
 Request:
 ```
 curl --request GET \
-  --url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings?api-version=2021-05-01-preview' \
+  --url 'https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings?api-version=2021-05-01-preview' \
   --header 'authorization: Bearer <TOKEN>' \
   --header 'content-type: application/json'
 ```
@@ -206,7 +206,7 @@ Response:
 {
   "value": [
     {
-      "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
       "type": "Microsoft.Insights/diagnosticSettings",
       "name": "log-analytics-setting",
       "location": "southcentralus",
@@ -215,7 +215,7 @@ Response:
       "properties": {
         "storageAccountId": null,
         "serviceBusRuleId": null,
-        "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+        "workspaceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [
@@ -247,14 +247,14 @@ Response:
 }    
 ```
 
-## Disable file access logs on cache volumes by removing diagnostic setting:  
+## Disable file access logs on cache volumes by removing diagnostic setting  
 
 The following is an example to disable file access logs on cache volumes by removing diagnostic setting:
 
 Request:
 ```
 curl --request DELETE \
---url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
+--url 'https://management.azure.com/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
 --header 'authorization: Bearer <TOKEN>'
 ```
 
@@ -263,7 +263,7 @@ Response:
 200 OK
 ```
 
-## Next Steps
+## Next steps
 
 * [Security FAQs](faq-security.md) 
 * [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)

@@ -38,7 +38,7 @@ The capacity pool that you want to move the cache volume to must already exist a
  
 ## Move a cache volume to another capacity pool
 
-1. Run the following command to move a cache volume to another capacity pool:
+Run the following command to move a cache volume to another capacity pool:
 
     ```
     POST
