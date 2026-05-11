@@ -81,6 +81,6 @@ Set up your [API Center portal](set-up-api-center-portal.md) so that developers 
 ## Related content
 
 * [Synchronize API assets from a Git repo](synchronize-assets-git.md)
-* [Register and discover MCP servers in your API inventory](register-discover-mcp-server.md)
+* [Register and discover MCP servers](register-discover-mcp-server.md) and [plugins](register-discover-plugins.md) in your API inventory.
 * [Set up your API Center portal](set-up-api-center-portal.md)
 * [Key concepts in Azure API Center](key-concepts.md)
