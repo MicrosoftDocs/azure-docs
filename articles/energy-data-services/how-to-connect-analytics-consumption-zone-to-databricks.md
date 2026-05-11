@@ -320,4 +320,4 @@ az storage fs directory list \
 
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Azure Databricks Unity Catalog](/azure/databricks/data-governance/unity-catalog/)
-- [Access Connector for Azure Databricks](/azure/databricks/security/access-connector)
+- [Use Azure managed identities in Unity Catalog](/azure/databricks/connect/unity-catalog/cloud-storage/azure-managed-identities)
