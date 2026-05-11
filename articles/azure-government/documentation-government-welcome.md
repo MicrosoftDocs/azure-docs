@@ -36,11 +36,11 @@ There are some key differences that developers working on applications hosted in
 
 The following table shows the regions in Azure Government, including regions that support [availability zones](/azure/reliability/availability-zones-overview). The list also includes each region's [paired region](/azure/reliability/regions-paired), which helps to deliver [geo-redundant storage](../storage/common/storage-redundancy.md).
 
-| Geography     | Region          | Availability zone support | Paired region |
-|---------------|-----------------|---------------------------|---------------|
-| US Government | US Gov Arizona  |                           | US Gov Texas  |
-| US Government | US Gov Texas    |                           | US Gov Arizona |
-| US Government | US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/check-mark.svg"  border="false"::: | US Gov Texas  |
+| Region          | Availability zone support | Paired region | Geography | Programmatic name |
+|-----------------|---------------------------|---------------|-|-|
+| US Gov Arizona  |                           | US Gov Texas  | US Government | usgovarizona |
+| US Gov Texas    |                           | US Gov Arizona | US Government | usgovtexas |
+| US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/check-mark.svg"  border="false"::: | US Gov Texas  | US Government | usgovvirginia |
 
 ## Get started
 
