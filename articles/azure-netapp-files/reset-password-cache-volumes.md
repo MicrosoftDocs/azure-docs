@@ -31,11 +31,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 Run the following command to reset SMB password for Azure NetApp Files cache volumes:
 
-    ```
-    POST 
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/resetSmbPassword?api-version=2026-01-01
+```
+POST 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/resetSmbPassword?api-version=2026-01-01
 
-    Body:
-    {}
+Body:
+{}
 
-    ```
+```

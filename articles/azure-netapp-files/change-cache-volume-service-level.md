@@ -40,16 +40,16 @@ The capacity pool that you want to move the cache volume to must already exist a
 
 Run the following command to move a cache volume to another capacity pool:
 
-    ```
-    POST
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/poolChange?api-version=2026-01-01
+```
+POST
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/poolChange?api-version=2026-01-01
 
-    Body:
-    {
-    "newPoolResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupOfNewPool}/providers/Microsoft.NetApp/netAppAccounts/{accountNameOfNewPool}/capacityPools/{targetPool}"
-    }
-    
-    ```
+Body:
+{
+"newPoolResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupOfNewPool}/providers/Microsoft.NetApp/netAppAccounts/{accountNameOfNewPool}/capacityPools/{targetPool}"
+}
+   
+```
 
 ## Next steps  
 

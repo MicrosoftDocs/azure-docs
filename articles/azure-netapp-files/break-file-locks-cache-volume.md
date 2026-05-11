@@ -23,14 +23,14 @@ You can break file locks for all files in a cache volume or break all file locks
 
 To break file locks for a specific client connected to a cache volume, use the POST call with clientIp set to the client IP address. To break file locks for all clients connected to a volume, issue the POST call with empty body. 
 
-    ```
-    POST
-    https:///management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/breakFileLocks?api-version=2026-01-01"
+```
+POST
+https:///management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/breakFileLocks?api-version=2026-01-01"
 
-    Body:
-    { "clientIp": "xx.xx.xx.xx" }
+Body:
+{ "clientIp": "xx.xx.xx.xx" }
 
-    ```
+```
 
 ## Next steps
 
