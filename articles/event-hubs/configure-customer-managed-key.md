@@ -721,6 +721,15 @@ Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
 ## Set up diagnostic logs 
 Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview). For the schema, see [Monitor data reference](monitor-event-hubs-reference.md#customer-managed-key-user-logs-schema).
 
+## Customer Lockbox for Microsoft Azure
+
+[Customer Lockbox for Microsoft Azure](/azure/security/fundamentals/customer-lockbox-overview) doesn't apply to Azure Event Hubs. Microsoft personnel don't access customer event data during support operations. Microsoft personnel only have access to the following metadata:
+
+- Names of Event Hubs entities (event hubs)
+- Configuration settings for the namespace and its entities
+
+Event data headers and event body content aren't accessible to Microsoft personnel. Additionally, event data is serialized to binary format on the client side before being sent to the Event Hubs service, so it isn't stored or viewable in a human-readable form on the server. As a result, Customer Lockbox approval isn't required for Azure Event Hubs support scenarios.
+
 ## Next steps
 See the following articles:
 - [Event Hubs overview](event-hubs-about.md)

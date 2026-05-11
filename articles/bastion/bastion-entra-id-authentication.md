@@ -39,7 +39,7 @@ Before you configure Entra ID authentication, verify the following:
   * **Linux virtual machines (SSH):** Any Linux distribution that supports the AADSSHLoginForLinux extension.
 
 * **Native client connections:** Azure CLI version 2.32 or later. Run `az extension add --name ssh` to install the SSH extension. For setup details, see [Configure Bastion for native client connections](native-client.md).
-
+* **RDP connections through the portal:** If you have a policy preventing popups, specifically allow-list this domain `cdn.bastion.azure.com`
 
 ## Entra ID authentication overview
 

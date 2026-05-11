@@ -8,7 +8,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/21/2025
+ms.date: 05/05/2026
 service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 

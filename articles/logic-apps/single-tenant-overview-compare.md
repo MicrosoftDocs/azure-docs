@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 09/03/2025
+ms.date: 05/07/2026
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -296,6 +296,8 @@ For the **Standard** logic app workflow, the following capabilities are differen
     * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+
+    * In Standard stateless workflows, triggers don't support changing the trigger concurrency.
  
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 

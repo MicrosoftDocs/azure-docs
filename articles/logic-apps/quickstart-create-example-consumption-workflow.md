@@ -6,8 +6,9 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: quickstart
 ms.collection: ce-skilling-ai-copilot
-ms.date: 05/11/2026
 ms.update-cycle: 180-days
+ai-usage: ai-assisted
+ms.date: 05/11/2026
 ms.custom:
   - mode-ui
   - sfi-image-nochange

@@ -73,7 +73,7 @@ Service endpoints provide the following benefits:
 
 - For Azure Data Lake Storage (ADLS) Gen 1, the virtual network Integration capability is only available for virtual networks within the same region. Virtual network integration for ADLS Gen1 uses the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate extra security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. The *Microsoft.AzureActiveDirectory* tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Microsoft Entra ID doesn't support service endpoints natively. For more information about Azure Data Lake Store Gen 1 virtual network integration, see [Network security in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-- A virtual network can be associated with up to 200 different subscriptions and regions by each supported service with active virtual network rules configured.
+- A virtual network can be associated with up to 500 different subscriptions and regions by each supported service with active virtual network rules configured.
 
 ## Secure Azure services to virtual networks
 

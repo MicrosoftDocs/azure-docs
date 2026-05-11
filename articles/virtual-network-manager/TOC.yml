@@ -80,6 +80,8 @@
               href: concept-enforcement.md
             - name: Network groups as source and destination
               href: concept-security-admin-rules-network-group.md
+            - name: Simulate security admin rule impact
+              href: how-to-simulate-security-admin-rules.md
         - name: User-defined routes (UDRs) management
           items:
             - name: User-defined routes (UDRs) management overview
@@ -96,6 +98,8 @@
   items:
     - name: Secure network traffic with security admin rules
       items:
+        - name: Simulate security admin rule impact
+          href: how-to-simulate-security-admin-rules.md
         - name: Using network groups as source and destination
           href: how-to-create-security-admin-rule-network-group.md
         - name: Block network traffic - Portal
