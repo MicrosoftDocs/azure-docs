@@ -1,7 +1,7 @@
 ---
 title: Track incident value in Azure SRE Agent
 description: Measure your agent's impact with interactive analytics. Drill into incidents from any chart, filter by response plan, and track quality with star ratings.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 04/24/2026
 author: craigshoemaker
