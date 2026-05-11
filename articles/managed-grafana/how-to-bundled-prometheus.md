@@ -4,7 +4,7 @@ description: Learn how to configure bundled Prometheus in Azure Managed Grafana.
 keywords: Azure Managed Grafana, Prometheus, bundled Prometheus
 author: maud-lv
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 05/11/2026
 ms.author: malev
 ms.reviewer: malev
 ms.service: azure-managed-grafana
@@ -23,6 +23,11 @@ Bundled Prometheus integrates seamlessly with Azure Monitor workspaces, enabling
 - Centralize your observability stack within Azure
 
 This article walks you through enabling bundled Prometheus, configuring recording rules, and creating dashboards to visualize your Prometheus data in Azure Managed Grafana.
+
+> [!IMPORTANT]
+> For alerting and monitoring scenarios that use Azure Monitor managed Prometheus data, Microsoft recommends using Azure Monitor native alerting capabilities. Grafana-based alerting or recording rules in bundled Prometheus aren't the primary recommended approach.
+
+While Grafana recording rules are supported through bundled Prometheus, they're best suited for advanced or Grafana-centric scenarios, such as workflows that combine Prometheus metrics with other Grafana data sources or require Grafana-native processing. For most Azure-native monitoring scenarios, Azure Monitor provides better integration with Azure Monitor workflows and governance.
 
 ## Prerequisites
 
