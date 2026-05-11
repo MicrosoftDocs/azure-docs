@@ -40,7 +40,7 @@ The following table shows the regions in Azure Government, including regions tha
 |---------------|-----------------|---------------------------|---------------|
 | US Government | US Gov Arizona  |                           | US Gov Texas  |
 | US Government | US Gov Texas    |                           | US Gov Arizona |
-| US Government | US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | US Gov Texas  |
+| US Government | US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/check-mark.svg"  border="false"::: | US Gov Texas  |
 
 ## Get started
 
