@@ -187,14 +187,47 @@ To create volumes up to 7.2 PiB, you must select **Extra-large volume 7.2 PiB** 
 
 If this is your first time using large volumes, register the feature with the [large volumes sign-up form](https://aka.ms/anflargevolumessignup).
 
-Check the status of the feature registration: 
-    
-  ```azurepowershell-interactive
-  Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes 
-  ```
-    
-You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+# [Azure CLI](#tab/azurecli)
 
+1.  Register the feature by running the following commands:
+
+    ```azurecli
+    az account set --subscription <subscriptionId>
+    az feature register --namespace Microsoft.NetApp --name ANFLargeVolumes
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurecli
+    az feature show --namespace Microsoft.NetApp --name ANFLargeVolumes
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+# [Azure PowerShell](#tab/azurepowershell)
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell
+    Set-AzContext -SubscriptionId <subscriptionId>
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+---
+  
+    
 ### Register for breakthrough mode
 
 Large volumes breakthrough mode is currently in preview. You must submit a [waitlist request](https://forms.cloud.microsoft/r/P11Zn9zHMY) to access the feature. 

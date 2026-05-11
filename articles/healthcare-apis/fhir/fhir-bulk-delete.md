@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/01/2025
+ms.date: 05/05/2026
 ms.author: kesheth
 ---
 
@@ -13,24 +13,31 @@ ms.author: kesheth
 
 [!INCLUDE [bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
 
-## End to end example: Utilizing `$bulk-delete` for data retention use cases
-The various features of `$bulk-delete` can be used together to satisfy different use cases. Following is an example of utilizing $bulk-delete for data retention. 
-
-Let’s say that you would like to delete Patient data that's older than three years old, along with all data that references to that Patient. However, as multiple Patients can map to a single Practitioner, you’d like to make sure that Practitioners aren't deleted until all their Patients are deleted. This use case can be achieved in a series of calls. 
-
-First, you can delete all Patient resources older than three years old, along with all data that references to that Patient.  
+## Use case example
 
 
-`DELETE [base] /Patient/$bulk-delete?_lastUpdated=lt{date}&_revinclude=*:* `
+You can use the various features of `$bulk-delete` together to satisfy different use cases. The following example shows how to use `$bulk-delete` for data retention.  
 
-Next, you can delete all Practitioner resources that aren't referenced by any Patient resources.
+Suppose you want to delete Patient data that's older than three years, along with all data that references that patient. You also want to delete Practitioner resources that no Patient resources reference. 
 
-`DELETE [base]/Practitioner/$bulk-delete?_not-referenced=Patient:*`
+You can achieve this use case with these two calls.  
+
+First, delete all Patient resources that are older than three years, along with all data that references that patient.    
+
+```rest
+DELETE [base] /Patient/$bulk-delete?_lastUpdated=lt{date}&_revinclude=*:* 
+```
+
+Next, delete all Practitioner resources that no Patient resources reference.
+
+```rest
+DELETE [base]/Practitioner/$bulk-delete?_not-referenced=Patient:*
+```
 
 ## Related content
 
 [Supported FHIR features](fhir-features-supported.md)
 
-[FHIR REST API capabilities for Azure Health Data Services FHIR service](rest-api-capabilities.md)
+[FHIR REST API capabilities](rest-api-capabilities.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

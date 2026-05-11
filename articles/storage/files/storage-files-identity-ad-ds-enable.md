@@ -26,7 +26,7 @@ To enable AD DS authentication over SMB for Azure file shares, register your Azu
 The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage accounts to your on-premises AD DS and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature. Because some parts of the cmdlets interact with your on-premises AD DS, review the explanation of what the cmdlets do. You can then determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. If you're unable to use the AzFilesHybrid module, you can enable the feature using [manual steps](#option-two-manually-perform-the-enablement-actions).
 
 > [!IMPORTANT]
-> The AzFilesHybrid module only supports AES-256 Kerberos encryption. If you previously enabled the feature by using an older AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method, update to AES-256 immediately. For more information, see [Troubleshoot Azure Files SMB authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+> The AzFilesHybrid module only supports AES-256 Kerberos encryption. If you previously enabled the feature by using an older AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method, update your storage account to AES-256 immediately. For more information about why you should upgrade, see [Troubleshoot Azure Files AD DS authentication support for AES-256 Kerberos encryption](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-encryption?toc=/azure/storage/files/toc.json).
 
 ### Prerequisites
 
@@ -202,10 +202,10 @@ Set-AzStorageAccount `
 
 #### Enable AES-256 encryption (recommended)
 
-To enable AES-256 encryption, follow these steps.
+To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
 
 > [!IMPORTANT]
-> To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
+> An upcoming Windows change (July 2026 Windows Server Update) will change the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. We upgrading to AES-256 now to ensure uninterrupted access to your Azure file shares.
 
 The cmdlet you run to configure AES-256 support depends on whether the domain object that represents your storage account is a computer account or service logon account (user account). Either way, you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 

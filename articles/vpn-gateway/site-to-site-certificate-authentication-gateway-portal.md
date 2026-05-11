@@ -10,7 +10,7 @@ ms.author: cherylmc
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
-# Configure a S2S VPN Gateway certificate authentication connection - Azure portal - Preview
+# Configure a S2S VPN Gateway certificate authentication connection - Azure portal
 
 In this article, you use the Azure portal to create a site-to-site (S2S) certificate authentication VPN gateway connection between your on-premises network and your virtual network. The steps for this configuration use Managed Identity, Azure Key Vault, and certificates. For more information about site-to-site certificate authentication, see [About site-to-site VPN connections with certificate authentication](site-to-site-certificate-authentication-gateway-about.md). If you need to create a site-to-site VPN connection that uses a shared key instead, see [Create a S2S VPN connection](tutorial-site-to-site-portal.md).
 
@@ -19,8 +19,7 @@ In this article, you use the Azure portal to create a site-to-site (S2S) certifi
 :::image type="content" source="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png":::
 
 > [!IMPORTANT]
-> Site-to-site certificate authentication is currently in Preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Site-to-site certificate authentication is supported only in the Azure public cloud.
 
 ## Prerequisites
 

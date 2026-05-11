@@ -36,8 +36,9 @@ For configuration details, see [Configure ingress](ingress-how-to.md).
 
 When you enable ingress, you can choose between two types of ingress:
 
-- External: Accepts traffic from both the public internet and your container app's internal environment.
-- Internal: Allows only internal access from within your container app's environment.
+- **External**: Exposes the app through the Container Apps environment's inbound IP address. If the environment uses a public inbound IP, the app can receive traffic from the public internet, and it's also reachable from other container apps in the same environment.
+
+- **Internal**: Makes the app reachable only from within the same Container Apps environment, such as from other container apps. The app isn't directly accessible from the public internet.
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
