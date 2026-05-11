@@ -652,10 +652,8 @@ Site update strategy configuration isn't currently supported in Visual Studio Co
 
 Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. Managed certificates, App Service certificates, certificates imported from Key Vault, and uploaded certificates (both private and public) are all supported in preview with site-scoped storage.
 
-This feature requires the `siteScopedCertificatesEnabled` site property to be set to `true` on your function app. For more information, see [The siteScopedCertificatesEnabled property](#the-sitescopedcertificatesenabled-property).
-
 > [!IMPORTANT]
-> Newly created Flex Consumption apps have `siteScopedCertificatesEnabled` set to `true` by default. Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
+> Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 
 > [!NOTE]
 > Azure CLI and ARM template support for managing site-scoped certificates will be announced soon. Currently, use the Azure portal to add and configure certificates.
@@ -709,7 +707,7 @@ If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your c
         --name <APP_NAME>
     ```
 
-1. Grant the managed identity the **Key Vault Certificate User** role on your key vault using RBAC. This approach is recommended over access policies:
+1. Grant the managed identity the **Key Vault Certificate User** role on your key vault using RBAC. This approach is recommended over access policies (legacy):
 
     ```azurecli
     # Get the principal ID of the managed identity
@@ -784,18 +782,6 @@ How you update an expiring certificate depends on the certificate source:
 - **Certificates imported from Key Vault**: When you renew a certificate in Key Vault, the platform background job automatically syncs the updated certificate to your function app within 24 hours. The new certificate version is loaded to all instances without any manual steps.
 
 - **Uploaded certificates**: Upload the new certificate, then make it accessible to your app code. If your code references the certificate by thumbprint, you also need to update any thumbprint references in your code or app settings.
-
-### The `siteScopedCertificatesEnabled` property
-
-The `siteScopedCertificatesEnabled` property is a site-level property on the `Microsoft.Web/sites` resource, not an app setting. Newly created apps have it set to `true` by default. Without this property enabled, certificates can't be loaded into the runtime environment.
-
-To check the current value of this property:
-
-```azurecli
-az rest --method get \
-    --url "https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME>?api-version=2024-04-01" \
-    --query "properties.siteScopedCertificatesEnabled"
-```
 
 ### Site-scoped vs. webspace-scoped certificates
 

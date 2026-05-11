@@ -930,14 +930,6 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-## siteScopedCertificatesEnabled
-
-Enables site-scoped certificates for your function app. When set to `true`, you can add TLS/SSL certificates — including managed certificates, App Service certificates, Key Vault imports, and uploaded certificates — and make them accessible to your function code by using the per-certificate **Accessible to app code** toggle in the Azure portal. The `WEBSITE_LOAD_CERTIFICATES` app setting isn't required when using site-scoped certificates. In the Flex Consumption plan, accessible certificates are made available as files at `/var/ssl/private/` (private) and `/var/ssl/certs/` (public). You can add up to 3 private and 3 public certificates per app.
-
-Newly created Flex Consumption apps have `siteScopedCertificatesEnabled` set to `true` by default. Existing apps created before this feature became available don't currently have a migration path; create a new Flex Consumption app to use this feature.
-
-This is a site-level property on the `Microsoft.Web/sites` resource, not an app setting. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
-
 ## vnetContentShareEnabled
 
 Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is required for cross-stamp scaling when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans. Without this setting, the function app can only scale within a single stamp (approximately 1-20 instances).
