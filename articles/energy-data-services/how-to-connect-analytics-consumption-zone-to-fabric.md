@@ -64,6 +64,9 @@ An ADLS Gen2 shortcut makes ACZ data available in your Fabric lakehouse without 
    | **Connection** | Select an existing connection or create a new one. |
    | **Authentication kind** | Select **Organizational account**, **Service principal**, or **Account key** as appropriate. |
 
+   > [!NOTE]
+   > If your Fabric tenant and ADLS Gen2 account are in different Microsoft Entra tenants, you must use a service principal or SAS token for authentication. See [ADLS Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
+
 6. Select **Next**.
 7. Browse to the `<aczId>/osducatalog/` folder in your container. The `aczId` is the identifier from your ACZ creation (for example, `acz-8a0aa7433085`).
 8. Select **osducatalog** to add as a shortcut for catalog data.
@@ -146,11 +149,6 @@ After ACZ data is accessible in your lakehouse, you can build Power BI reports a
 
 > [!TIP]
 > For advanced modeling in Power BI Desktop, connect to your Fabric lakehouse using DirectLake mode for best performance. DirectLake reads data directly from lakehouse files without importing a copy, so reports always reflect the latest ACZ data.
-
-## Considerations
-
-- **Data freshness**: ACZ synchronizes changes incrementally after the initial snapshot. New and updated OSDU® records appear in ADLS Gen2 and show through Fabric shortcuts with no extra steps.
-- **Cross-tenant access**: If your Fabric tenant and ADLS Gen2 account are in different Microsoft Entra tenants, use a service principal or SAS token for authentication. See [ADLS Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
 
 ## Related content
 
