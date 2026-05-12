@@ -49,8 +49,9 @@ Gather these details from your [Azure Data Manager for Energy instance](quicksta
 |---|---|---|
 | `base_url` | The URL of your Azure Data Manager for Energy instance. | `https://<instance>.energy.azure.com` |
 | `data_partition_id` | The data partition name. | `opendes` |
-| `access_token` | The Bearer token for authentication. | `eyJ0eXAi...` |
 | `storage_resource_id` | The Azure resource ID of the ADLS Gen2 storage account. | `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}` |
+
+Generate an `access_token` for authentication by following the guidance in [How to generate auth token](how-to-generate-auth-token.md).
 
 ## Create an ACZ
 
