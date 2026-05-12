@@ -76,7 +76,7 @@ Assign the user-assigned managed identity you created in Step 2 to your Azure Da
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
 > [!IMPORTANT]
-> If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
+> If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them. This operation updates the entire instance configuration, so ensure all existing properties are included in the request body.
 
 ```bash
 curl --request PUT \
@@ -116,10 +116,6 @@ curl --request PUT \
 | `{sub-id}` | Subscription ID where the user-assigned managed identity resides |
 | `{rg}` | Resource group where the user-assigned managed identity resides |
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
-
-> [!IMPORTANT]
-> - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.
-> - This operation updates the entire instance configuration. Ensure all existing properties are included in the request body.
 
 After the operation completes, verify the identity is assigned using Azure CLI:
 
