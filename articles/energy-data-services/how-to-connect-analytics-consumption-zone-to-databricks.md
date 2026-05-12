@@ -81,9 +81,9 @@ The Access Connector requires permissions at both the storage account level and 
 
 ### Grant resource group permissions
 
-5. Navigate to the **Resource Group** that contains your Azure Databricks workspace and Access Connector.
-6. In the left menu, select **Access Control (IAM)**.
-7. Assign the following two roles to the Access Connector's managed identity (repeat the role assignment process):
+1. Navigate to the **Resource Group** that contains your Azure Databricks workspace and Access Connector.
+2. In the left menu, select **Access Control (IAM)**.
+3. Assign the following two roles to the Access Connector's managed identity (repeat the role assignment process):
 
    **Required roles**:
    - **Event Grid EventSubscription Contributor**—Enables creating and managing Event Grid subscriptions
