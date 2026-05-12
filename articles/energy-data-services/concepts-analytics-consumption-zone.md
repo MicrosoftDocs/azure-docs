@@ -3,7 +3,7 @@ title: Analytics Consumption Zone concepts in Azure Data Manager for Energy
 description: Learn about the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ mirrors Azure Data Manager for Energy data to Azure Data Lake Storage.
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
-ms.date: 03/31/2026
+ms.date: 05/12/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -198,6 +198,7 @@ The Delta table has these fields:
 | ACZ name uniqueness | Must be unique within a data partition |
 | Target format | Delta Parquet only |
 | Storage type | ADLS Gen2 only |
+| Instance tier support | Developer Tier only during preview |
 
 ### Authentication and authorization
 

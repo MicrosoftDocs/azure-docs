@@ -143,6 +143,8 @@ sections:
 
             3. During preview, ACZ supports max 100 kinds.
 
+            4. During preview, ACZ is only available on Developer Tier instances. Standard Tier instances are not supported.
+
         - question: How does ACZ differ from the Geospatial Consumption Zone (GCZ)?
           answer: >
             ACZ exports ADME entity data to ADLS Gen2 in Delta Parquet format for analytics and reporting. GCZ provides geospatial map services (GIS) for ADME data by using a transformer and provider setup on Azure Kubernetes Service (AKS). Both make ADME data available outside the core platform, but they serve different use cases.
