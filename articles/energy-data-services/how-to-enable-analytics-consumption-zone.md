@@ -74,6 +74,9 @@ If you created a new user-assigned managed identity in Step 2, assign it to your
 
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
+> [!IMPORTANT]
+> If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
+
 ```bash
 curl --request PUT \
   --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
@@ -114,7 +117,6 @@ curl --request PUT \
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
 > [!IMPORTANT]
-> - If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
 > - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.
 > - This operation updates the entire instance configuration. Ensure all existing properties are included in the request body.
 
