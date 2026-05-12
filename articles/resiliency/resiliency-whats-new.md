@@ -39,7 +39,7 @@ Key capabilities include:
 
 - **Drill tracking and audit**: Tracks drill execution history with notes, attestation, and run-level status.
 
-For more information, see [Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)]().
+For more information, see [Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-about.md).
 
 ## Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager (preview)
 
