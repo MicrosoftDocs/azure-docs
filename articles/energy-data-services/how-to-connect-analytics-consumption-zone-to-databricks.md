@@ -15,7 +15,7 @@ This article shows you how to connect Analytics Consumption Zone (ACZ) to Azure 
 
 ## Prerequisites
 
-- An Azure Data Manager for Energy instance with ACZ enabled
+- An Azure subscription with an Azure Data Manager for Energy instance that has ACZ enabled
 - ACZ provisioned with at least one data kind
 - An Azure Databricks workspace in the same Azure region as your ACZ storage account
 - Contributor or Owner permissions on the ACZ storage account
