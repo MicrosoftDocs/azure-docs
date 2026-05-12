@@ -111,6 +111,10 @@ sections:
           answer: >
             No. During preview, you can't create or manage ACZ in the Azure portal. Use the REST APIs instead. You can create up to three ACZs per data partition. See [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md) for details.
 
+        - question: Can I change the entity types in an ACZ after creation?
+          answer: >
+            No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
+
         - question: Can I modify the ACZ data directly in ADLS Gen2?
           answer: >
             No. ACZ is a one-way, read-only sync from Azure Data Manager for Energy to ADLS Gen2. Do not modify, delete, or add files directly in the ACZ folders in ADLS Gen2. Manual changes to ACZ data corrupt the sync and cause data inconsistencies because ACZ manages all Delta Lake operations including transaction logs, checkpoints, and compaction. For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
@@ -122,10 +126,6 @@ sections:
         - question: What happens to the data in ADLS if I delete an ACZ?
           answer: >
             When you delete an ACZ, the sync stops and ACZ removes the configuration. Data already in your ADLS Gen2 storage account stays intact. You keep full ownership and control of the exported data.
-
-        - question: Can I change the entity types in an ACZ after creation?
-          answer: >
-            No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
 
         - question: Can ACZ sync data from Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS?
           answer: >
