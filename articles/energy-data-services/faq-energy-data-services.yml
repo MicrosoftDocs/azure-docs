@@ -109,7 +109,7 @@ sections:
 
         - question: How do I get access to ACZ during the preview?
           answer: >
-            ACZ access requires allowlisting during the preview. Follow the step-by-step guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) to set up your storage account, user-assigned managed identity, and permissions. Then contact your Microsoft representative to add your managed identity to the allow list before you can create ACZs.
+            ACZ access requires allowlisting during the preview. Follow the step-by-step guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative to get ACZ enabled on your Azure Data Manager for Energy resource.
 
         - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
           answer: >
