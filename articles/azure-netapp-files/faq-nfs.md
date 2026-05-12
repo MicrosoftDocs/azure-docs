@@ -93,6 +93,10 @@ By design, the `.snapshot` directory is never visible to NFSv4.1 clients. By def
 
 No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
+## Why can I not create files larger than 16 TiB on my Azure NetApp Files volumes? 
+
+Since May 2026, Azure NetApp Files supports files up 64 TiB on new and existing regular volumes (smaller than 100 TiB). Because NFS clients only refresh the maximum file size when mounting the volume, it is necessary to remount the volume on the NFS clients to correctly recognize the new maximum file size.
+
 ## Oracle dNFS
 
 ### Are there any Oracle patches required with dNFS?

@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 04/30/2026
+ms.date: 05/11/2026
 ms.topic: release-notes
 ---
 
@@ -26,6 +26,19 @@ You can install any tool you need in your Cloud Shell session as long as it does
 access. For installation instructions, consult the documentation for the package you require.
 
 ## May 2026
+
+Feature update
+
+There's a new button to the Cloud Shell menu bar that opens a new browser tab and transfers your
+session to a Visual Studio Code (VS Code) environment in the browser. This feature gives you access
+to a more feature rich code editor when the built-in Cloud Shell editor doesn't meet your needs.
+
+In this environment, you have the full VS Code interface, including the file explorer, editor, and
+integrated terminal. The terminal in VS Code is now your Cloud Shell terminal with the same
+built-in authentication and packages that cloud shell provides. VS Code has access to all files
+stored in your Cloud Shell session and any mounted storage account.
+
+For more information, see [How to use Azure Cloud Shell in the new user interface][18].
 
 Tool updates
 

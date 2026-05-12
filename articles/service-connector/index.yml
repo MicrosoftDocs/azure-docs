@@ -54,8 +54,6 @@ landingContent:
         links:
           - text: Python (Django) app with PostgreSQL
             url: tutorial-django-webapp-postgres-cli.md
-          - text: Spring Cloud app with MySQL
-            url: tutorial-java-spring-mysql.md
           - text: ASP.NET app with Blob Storage
             url: tutorial-csharp-webapp-storage-cli.md
           - text: Store secrets in Key Vault

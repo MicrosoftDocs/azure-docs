@@ -39,6 +39,9 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB | No |
 |  Maximum size of a single [large volume](large-volumes-requirements-considerations.md) | 1 PiB | Yes** |
 | Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
+| Maximum size of a large volume up to 7.2 PiB** | 7.2 PiB | Yes** |
+|  Maximum size of a single file on regular Azure NetApp Files volumes    |    64 TiB    |    No    | 
+|  Maximum size of a single file on Azure NetApp Files large volumes    |    16 TiB    |    No    |    
 | Maximum size of a large volume up to 7.2 PiB*** | 7.2 PiB | Yes** |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    

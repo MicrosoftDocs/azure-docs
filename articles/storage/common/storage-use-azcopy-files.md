@@ -1,6 +1,6 @@
 ---
 title: Transfer data to or from Azure Files by using AzCopy v10
-description: Transfer data with AzCopy and file storage. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
+description: Transfer data to or from file storage using AzCopy. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
@@ -740,10 +740,10 @@ AzCopy uses the `--from-to` parameter to explicitly define the source and destin
 
 ## Synchronize files
 
-You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
+You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server-to-server APIs.
 
-> [!Warning]  
-> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync supports up to 10 million files per AzCopy job and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
+> [!WARNING]  
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync supports up to 10 million files per AzCopy job, and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. To learn more, see [Migrate to SMB Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools). The current release of AzCopy doesn't support synchronizing Azure Files with Azure Blob storage. 
 
 ### Guidelines
 

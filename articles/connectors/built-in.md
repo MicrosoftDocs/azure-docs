@@ -194,7 +194,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column:::
         [![Azure File Storage icon][azure-file-storage-icon]][azure-file-storage-doc]
         <br><br>[**Azure File Storage**][azure-file-storage-doc]<br>(*Standard workflow only*)
-        <br><br>Connect to your Azure Storage account so that you can create, update, and manage files.
+        <br><br>Connect to your Azure Storage account so that you can create, update, and manage Azure classic file shares. This built-in connector for Azure Files includes triggers and actions. The triggers monitor only the specified folder and don't fire for files added to or updated in subfolders. The [Azure File Storage *managed* connector](/connectors/azurefile/) provides actions only with no triggers.
     :::column-end:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/14/2025
+ms.date: 05/12/2026
 ms.author: mbender
 # Customer intent: "As a web application administrator, I want to configure and manage an application gateway, so that I can optimize traffic distribution, enhance security, and ensure high availability for my web applications."
 ---
@@ -105,7 +105,9 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are explicitly removed from the backend pool after a configuration change by a user.
+Connection draining helps you gracefully remove Azure Application Gateway backend pool members during planned service updates, rolling deployments, scale-in events, or problems with backend health. Enable connection draining to reduce intermittent 502 errors and connection loss when backend instances are explicitly removed from the backend pool.
+
+This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are explicitly removed from the backend pool after a configuration change by a user.
 
 The connection draining is honored for WebSocket connections as well. Connection draining is invoked for every single update to the gateway. To prevent connection loss to existing members of the backend pool, make sure to enable connection draining.
 

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/08/2025
+ms.date: 05/12/2026
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
@@ -61,12 +61,21 @@ Depending on how workspace collaborators use or manage the workspace, we recomme
  
 ## Custom roles
 
-If none of the built-in roles meet your specific needs, custom roles can be created to provide more granular access management for API Management entities. For example, you can create a custom role that has read-only access to an API Management service, but only has write access to one specific API. To learn more about custom roles, see [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md). 
+If none of the built-in roles meet your specific needs, custom roles can be created to provide more granular access management for API Management entities. For example, you can create a custom role that has read-only access to an API Management service, but only has write access to one specific API. To learn more about custom roles, see [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > To be able to see an API Management instance in the Azure portal, a custom role must include the ```Microsoft.ApiManagement/service/read``` action.
 
-When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role at the scope of a specific API. Consequently, this role only has access to that API. 
+> [!WARNING]
+> Don't rely on removing `listSecrets` (or other `*/listSecrets/action`) permissions to hide credentials from a principal that already has write access to the parent entity.
+>
+> Several API Management entities — such as backends, named values, and authorization providers — can store credentials (for example, client secrets, API keys, or connection strings). To prevent the **Reader** role from reading these credentials, they're omitted from the standard `GET` response and exposed only through a dedicated `listSecrets` (or equivalent) action. Granting only `Microsoft.ApiManagement/service/<entityType>/listSecrets/action` to a principal therefore protects credentials from read-only users.
+>
+> However, any principal with **write** access on the entity can change the stored credentials through a `PUT` or `PATCH` request, and the response body of those requests contains the **full updated entity, including the credentials that were just written**. As a result, withholding the `listSecrets` action from a custom role that already grants write access does **not** prevent that principal from obtaining credentials — it only changes which API call returns them.
+>
+> When you author a custom role, design credential protection around the **write** permission on the entity, not around `listSecrets`. If a principal must not learn credentials, don't grant write access on entities that store them.
+
+When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role at the scope of a specific API. Consequently, this role only has access to that API.
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"

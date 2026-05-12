@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 08/27/2025
+ms.date: 05/11/2026
 # Customer intent: As a logic app workflow developer, I want to understand the differences between built-in and shared connectors in Azure Logic Apps (Standard).
 ---
 
@@ -14,6 +14,9 @@ ms.date: 08/27/2025
 For Standard logic app resources, the workflow designer shows the available connectors and operations using the labels named **Built-in** and **Shared**. The **Built-in** label applies to [*built-in* operations](built-in.md), which natively run in the same cluster and runtime as your Standard logic app in single-tenant Azure Logic Apps. This label also applies to connectors known as *service providers*, which are actually custom extensions that are implemented based on Azure Functions. Anyone can create their own service provider connector.
 
 The **Shared** label applies to [connectors hosted in Azure and *managed* by Microsoft](managed.md) that run in *shared connector clusters* in the multitenant Azure cloud. These shared managed connector clusters exist separately from the single-tenant Azure Logic Apps engine and runtime, which run in a different cluster. If your workflow invokes a shared connector operation, Azure Logic Apps makes a call to the connector in the managed connector clusters. In turn, the connector might then call the backend target service, which can be Office 365, Salesforce, and so on.
+
+> [!NOTE]
+> Some connectors exist in both built-in and shared (managed) forms that differ in capability. For example, the Azure File Storage **built-in** connector (Standard only) offers triggers and actions, while the Azure File Storage **shared** (managed) connector offers actions only, with no triggers. When a connector is available in both forms, check each version's reference page to confirm which operations (triggers, actions, or both) are supported.
 
 <a name="considerations-authentication"></a>
 
