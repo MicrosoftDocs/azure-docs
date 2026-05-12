@@ -43,8 +43,12 @@
     href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
-  - name: Support matrices
+  - name: Resiliency support matrix
     href: resiliency-support-matrix.md
+  - name: Zonal resiliency support metrics  
+    items:
+    - name: Availability zone down drills
+      href: availability-zone-down-drills-support-matrix.md
   - name: Security levels
     href: security-levels-concept.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
