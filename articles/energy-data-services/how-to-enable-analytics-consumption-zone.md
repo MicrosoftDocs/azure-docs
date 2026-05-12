@@ -60,7 +60,7 @@ ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a d
 > - **Clear audit trails**: Separate identity makes it easier to track ACZ-specific operations in audit logs
 > - **Independent lifecycle management**: You can rotate, update, or remove ACZ identity without affecting other services
 > - **Granular access control**: ACZ identity gets only the permissions it needs (Storage Blob Data Contributor) without inheriting unnecessary permissions
-> - **Simplified troubleshooting**: Issues with ACZ permissions don't impact CMEK, EDS, or other services
+> - **Simplified troubleshooting**: Issues with ACZ permissions don't affect CMEK, EDS, or other services
 
 To create a user-assigned managed identity:
 
