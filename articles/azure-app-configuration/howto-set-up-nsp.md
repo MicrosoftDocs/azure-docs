@@ -74,13 +74,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 1. Run the following command to associate your configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association create \
-        --perimeter-name <nsp-name> \
-        --resource-group <nsp-resource-group> \
-        --association-name <association-name> \
-        --access-mode Learning \
-        --private-link-resource "{id:<app-config-resource-id>}" \
-        --profile "{id:<nsp-profile-resource-id>}"
+    az network perimeter association create --name "app-config-association" --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}" -o None
     ```
 
     > [!div class="mx-tdBreakAll"]
@@ -88,12 +82,11 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     > |---|---|---|
     > | `<nsp-name>` | The name of your network security perimeter. | `MyNSP` |
     > | `<nsp-resource-group>` | The resource group of your network security perimeter. | `MyNSPResourceGroup` |
-    > | `<association-name>` | A name for the association. | `MyAppConfigAssociation` |
     > | `<app-config-resource-id>` | The resource ID of your App Configuration store from the previous step. | `/subscriptions/.../MyAppConfigStore` |
     > | `<nsp-profile-resource-id>` | The resource ID of the network security perimeter profile to associate with. | `/subscriptions/.../profiles/defaultProfile` |
 
     > [!TIP]
-    > The `--access-mode` parameter can be set to `Learning` or `Enforced`. In `Learning` mode, the network security perimeter logs traffic that would be denied but doesn't block it. Start with `Learning` mode to validate your access rules before switching to `Enforced` mode. For more information, see [Network security perimeter access modes](../private-link/network-security-perimeter-concepts.md).
+    > The `--access-mode` parameter can be set to `Learning` or `Enforced`. Start with `Learning` mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-nsp.md#transitioning-to-a-network-security-perimeter).
 
 ---
 
@@ -117,13 +110,11 @@ After associating the configuration store with the network security perimeter, y
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the following command to check the public network access setting of your configuration store:
+Run the following command to view the network security perimeter configuration for your configuration store. 
 
 ```azurecli-interactive
-az appconfig show --name <app-config-store-name> --resource-group <resource-group> --query publicNetworkAccess --output tsv
+az appconfig network-security-perimeter-configuration --name <app-config-store-name> --resource-group <resource-group>
 ```
-
-Verify that the output is `SecuredByPerimeter`.
 
 ---
 
