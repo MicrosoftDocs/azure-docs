@@ -193,7 +193,7 @@ ACZ requires:
 
 - **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
-- **ADME access**: The managed identity needs to be assigned to the ADME instance.
+- **Azure Data Manager for Energy  access**: The managed identity needs to be assigned to the Azure Data Manager for Energy resource.
 
 ## Related content
 
