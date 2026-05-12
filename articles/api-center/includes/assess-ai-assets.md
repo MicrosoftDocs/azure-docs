@@ -1,4 +1,3 @@
-
 ---
 title: Assess AI Skills in Your API Center
 description: Learn how to enable AI skill assessments in Azure API Center to evaluate the quality of skills in your plugins. 
@@ -9,7 +8,7 @@ ms.date: 05/08/2026
 
 ## Assess AI skills (preview)
 
-API Center can assess the quality of skills registered in your API center.  API Center comes with default skill assessment criteria out of the box, assessing skills across four key dimensions. Each is scored on a 1–5 scale with a default threshold of 3: 
+API Center can assess the quality of skills registered in your API center.  API Center comes with default assessment criteria out of the box, assessing skills across four key dimensions, as shown in the following table. Each is scored on a 1–5 scale with a default threshold of 3:
 
 | Criterion | Description |
 |-----------|-------------|

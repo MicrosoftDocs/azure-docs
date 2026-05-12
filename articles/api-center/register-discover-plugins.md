@@ -17,12 +17,7 @@ ms.custom:
 
 This article describes how to use Azure API Center to register plugins as part of your API inventory. Plugins are reusable capabilities that AI agents can discover and consume to extend their functionality.
 
-In API Center, you register a plugin by bundling together one or more skills and/or MCP servers that are already registered in your API inventory. By registering a plugin, you create a higher-level abstraction that simplifies the discovery and consumption of related skills and MCP servers.
-
-By registering plugins in your API center, you create a centralized registry that helps your organization:
-
-- Discover available plugins and their capabilities
-- Access source code and documentation for the plugins
+In API Center, you register a plugin by bundling together one or more skills and/or MCP servers that are already registered in your API inventory. By registering a plugin, you create a higher-level abstraction that simplifies the discovery and use of related skills and MCP servers by developers and AI systems.
 
 ## Prerequisites
 
