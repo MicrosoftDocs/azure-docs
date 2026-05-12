@@ -61,9 +61,23 @@ For the full list of command categories and syntax details, see the [Redis ACL d
 
 ### Azure portal
 
-<!-- TODO: Add portal steps and screenshots when the portal experience is available. -->
+1. In the Azure portal, go to your Azure Managed Redis instance.
 
-Portal support for custom access strings is coming soon. In the meantime, use the ARM template or REST API methods described in the following sections.
+1. On the Resource menu, select **Authentication**.
+
+1. On the **Microsoft Entra Authentication** tab, select **User or service principal**, then select **+ Select member**.
+
+1. In the **Select member** panel, search for and select the user or service principal.
+
+1. Under **Access policy**, select **Custom data access policy (preview)** and enter your access string (for example, `+@all -@write ~*`).
+
+   :::image type="content" source="media/configure-access-permissions/custom-access-string.png" alt-text="Screenshot showing the Select member panel with Custom data access policy selected and a custom access string entered.":::
+
+1. Select **Assign**.
+
+If the access string contains invalid Redis ACL syntax, the assignment fails. The **Redis Users** list shows a banner indicating the failure, and the user entry shows a **Failed** provisioning state with a **See error details** link.
+
+   :::image type="content" source="media/configure-access-permissions/acl-error-failed.png" alt-text="Screenshot showing the Redis Users list with a failed access policy assignment due to invalid ACL syntax and the See error details link.":::
 
 ### ARM template
 
