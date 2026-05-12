@@ -204,6 +204,8 @@
       href: howto-ai-agent-config.md
     - name: Python
       href: howto-ai-agent-config-python.md
+    - name: .NET
+      href: howto-ai-agent-config-dotnet.md
 - name: Feature management
   items:
   - name: Overview

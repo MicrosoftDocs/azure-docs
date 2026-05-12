@@ -34,9 +34,9 @@ sections:
           To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
           
           :::image type="content" source="media/artifact-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/artifact-signing-resource-provider.png":::
-      - question: What if I'm unable to register Microsoft.CodeSigning as a resource provider?
+      - question: Can I use Artifact Signing with a free, trial, or sponsored Azure subscription?
         answer: | 
-          The Microsoft.CodeSigning resource provider isn't supported on Free or Trial Azure subscriptions.. A paid Azure subscription is required to register the provider.
+          No. Artifact Signing doesn't support free, trial, or sponsored Azure subscriptions. To create an Artifact Signing account and certificate profiles, you must have a paid Azure subscription. If you attempt to create an Artifact Signing account or certificate profile with an unsupported subscription type, the Azure portal displays an error. To get started, upgrade your subscription to a pay-as-you-go or enterprise agreement, then retry creating your Artifact Signing resources.
       - question: What is the cost of using Artifact Signing?
         answer: | 
           - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
