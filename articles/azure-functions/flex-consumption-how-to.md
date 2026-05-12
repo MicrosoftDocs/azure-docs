@@ -656,7 +656,7 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 > Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 
 > [!NOTE]
-> Azure CLI and ARM template support for managing site-scoped certificates will be announced soon. Currently, use the Azure portal to add and configure certificates.
+> Azure CLI support for managing site-scoped certificates will be announced soon. You can use the Azure portal or ARM/Bicep templates to add and configure certificates.
 
 ### Limits
 
