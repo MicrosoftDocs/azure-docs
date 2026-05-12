@@ -73,7 +73,7 @@ An ADLS Gen2 shortcut makes ACZ data available in your Fabric lakehouse without 
 The shortcuts appear in your lakehouse Explorer pane. Fabric recognizes Delta Parquet data as Delta tables automatically.
 
 > [!NOTE]
-> ADLS shortcuts use delegated authorization. The credential you set during shortcut creation applies to all access. The identity must have at least **Storage Blob Data Reader** on the ADLS Gen2 account.
+> ADLS shortcuts use delegated authorization. The credential you set during shortcut creation applies to all access. The identity you use for authentication (organizational account, service principal, or account key) must have at least **Storage Blob Data Reader** permissions on the ADLS Gen2 account.
 
 ## Step 4: Query ACZ data in Fabric
 
