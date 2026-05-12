@@ -25,7 +25,7 @@ The Artifact Signing service:
 - Provides zero-touch certificate lifecycle management inside FIPS 140-2 Level 3 certified HSMs.
 - Integrates with leading developer toolsets.
 - Supports Public Trust, Private Trust, virtualization-based security (VBS) enclave, code integrity (CI) policy, and test signing scenarios.
-- Includes a timestamping service.
+- Supports integration with external timestamping services.
 - Offers content-confidential signing. Your file never leaves your endpoint, and you get digest signing that is fast and reliable.
 
 ## Resource structure

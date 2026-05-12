@@ -72,7 +72,7 @@ Both the `publicNetworkAccess` and `accessMode` properties can be set using the 
 
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-settings.png" alt-text="Screenshot of public network access settings with access mode options.":::
 
-5. To set the access mode, select **Change access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Learning** or **Enforced**.
+5. To set the access mode, select **Change access mode** from the dropdown menu, and then select the desired access mode from the two options available: **Transition** or **Enforced**.
 
     :::image type="content" source="media/network-security-perimeter-transition/network-security-perimeter-association-access-mode.png" alt-text="Screenshot of access mode settings with access mode options.":::
 
