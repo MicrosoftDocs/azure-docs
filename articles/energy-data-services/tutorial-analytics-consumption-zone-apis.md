@@ -59,7 +59,7 @@ Use the Create ACZ API to set up a new Analytics Consumption Zone for a data par
 - Maximum of three ACZs per data partition (preview limit).
 - The ACZ name must be unique within the partition.
 - The user-assigned managed identity must be:
-  - Assigned to your Azure Data Manager for Energy (ADME) instance
+  - Assigned to your Azure Data Manager for Energy resource
   - Granted **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account
 - Your user must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group.
 

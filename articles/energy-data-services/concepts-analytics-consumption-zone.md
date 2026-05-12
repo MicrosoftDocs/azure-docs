@@ -1,6 +1,6 @@
 ---
 title: Analytics Consumption Zone concepts in Azure Data Manager for Energy
-description: Learn about the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ mirrors ADME data to Azure Data Lake Storage.
+description: Learn about the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ mirrors Azure Data Manager for Energy data to Azure Data Lake Storage.
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 03/31/2026
@@ -8,14 +8,14 @@ ms.author: nsannala
 author: NSannala
 ms.reviewer: 
 
-#customer intent: As a data engineer, I want to understand the Analytics Consumption Zone so that I can export ADME data to ADLS Gen2 for analytics.
+#customer intent: As a data engineer, I want to understand the Analytics Consumption Zone so that I can export Azure Data Manager for Energy data to ADLS Gen2 for analytics.
 
 ---
 
 # Analytics Consumption Zone (ACZ) concepts
 
 
-The Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy (ADME) to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes ADME data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.
+The Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes Azure Data Manager for Energy data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -66,7 +66,7 @@ Azure Data Manager for Energy          Customer ADLS Gen2
 
 ### Supported entity types
 
-ACZ synchronizes two categories of ADME entity types:
+ACZ synchronizes two categories of Azure Data Manager for Energy entity types:
 
 | Category | Description | Example kinds |
 |---|---|---|
@@ -77,7 +77,7 @@ When you create an ACZ, you specify which entity types to synchronize by providi
 - **catalogKinds**: A list of catalog kind patterns (for example, `osdu:wks:master-data--Well:*`)
 - **wellboreDDMSKinds**: A list of Wellbore DDMS kind patterns (for example, `osdu:wks:work-product-component--WellLog:*`)
 
-These kind patterns act as filters that determine which ADME records ACZ exports and keeps synchronized.
+These kind patterns act as filters that determine which Azure Data Manager for Energy records ACZ exports and keeps synchronized.
 
 ### Version types
 
@@ -112,17 +112,17 @@ After the snapshot finishes, ACZ switches to incremental mode. It captures new a
 
 ### How ACZ handles data changes
 
-ACZ propagates created, updated, and deleted records from ADME to the Delta tables.
+ACZ propagates created, updated, and deleted records from Azure Data Manager for Energy to the Delta tables.
 
-- **Creations and updates**: When you create a record or change its data block, ADME creates a new version. ACZ detects the change and writes a new row to the Delta table.
+- **Creations and updates**: When you create a record or change its data block, Azure Data Manager for Energy creates a new version. ACZ detects the change and writes a new row to the Delta table.
 - **Metadata-only updates**: A PATCH operation can change the access control list (ACL), Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
-- **Soft deletes**: When you soft-delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. Soft deletes preserve history for auditing and time-travel queries.
-- **Purges**: When you purge a record in ADME, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
+- **Soft deletes**: When you soft-delete a record in Azure Data Manager for Energy, ACZ sets the `isActive` field to `False` on the row instead of removing it. Soft deletes preserve history for auditing and time-travel queries.
+- **Purges**: When you purge a record in Azure Data Manager for Energy, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
 
 > [!WARNING]
 > ACZ is a **one-way, read-only sync** from Azure Data Manager for Energy to ADLS Gen2.
 >
-> - Data flows only from ADME to ADLS Gen2
+> - Data flows only from Azure Data Manager for Energy to ADLS Gen2
 > - **Do not modify, delete, or add files** directly in the ACZ folders in ADLS Gen2
 > - Manual changes to ACZ data corrupt the sync and cause data inconsistencies
 > - ACZ manages all Delta Lake operations (transaction logs, checkpoints, compaction)

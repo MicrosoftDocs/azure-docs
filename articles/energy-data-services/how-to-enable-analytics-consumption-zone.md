@@ -8,20 +8,20 @@ ms.author: nsannala
 author: NSannala
 ms.reviewer: 
 
-#customer intent: As a data engineer, I want to enable the Analytics Consumption Zone so that I can export ADME data to ADLS Gen2.
+#customer intent: As a data engineer, I want to enable the Analytics Consumption Zone so that I can export Azure Data Manager for Energy data to ADLS Gen2.
 
 ---
 
 # How to enable the Analytics Consumption Zone (ACZ)
 
-This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy (ADME) instance. Enablement is a one-time setup process that configures your ADME instance, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZs to sync different ADME data sets to your Azure Data Lake Storage (ADLS) Gen2 account.
+This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZs to sync different Azure Data Manager for Energy data sets to your Azure Data Lake Storage (ADLS) Gen2 account.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Setup overview
 
-Complete the following one-time setup tasks to enable ACZ on your ADME instance. After enablement, you can create multiple ACZs using the APIs.
+Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
 | Step | Task | When to skip |
 |------|------|-------------|
@@ -56,7 +56,7 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
 
 > [!TIP]
-> If your ADME instance already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the user-assigned managed identity **Resource ID** from **Settings** > **Properties**, then skip Step 3 and proceed to Step 4.
+> If your Azure Data Manager for Energy resource already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the user-assigned managed identity **Resource ID** from **Settings** > **Properties**, then skip Step 3 and proceed to Step 4.
 
 If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
 
@@ -105,12 +105,12 @@ curl --request PUT \
 
 | Placeholder | Description |
 |---|---|
-| `{subscription-id}` | Subscription ID where ADME resides |
-| `{resource-group}` | The resource group containing your ADME instance |
-| `{adme-instance-name}` | Your ADME instance name |
+| `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
+| `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
 | `{management-api-token}` | Azure Management API access token. See [Get access token](/rest/api/azure/#acquire-an-access-token) |
-| `{location}` | Azure region of your ADME instance (for example, `southcentralus`) |
-| `{auth-app-id}` | Application ID used for ADME authentication |
+| `{location}` | Azure region of your Azure Data Manager for Energy resource (for example, `southcentralus`) |
+| `{auth-app-id}` | Application ID used for Azure Data Manager for Energy authentication |
 | `{data-partition-name}` | Name of your data partition (for example, `dp1`) |
 | `{sub-id}` | Subscription ID where the user-assigned managed identity resides |
 | `{rg}` | Resource group where the user-assigned managed identity resides |
@@ -146,7 +146,7 @@ To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-
 > [!IMPORTANT]
 > This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
 
-If you're not already a member of the users entitlement group, have an ADME administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
+If you're not already a member of the users entitlement group, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
 **To verify you have access**, use the Entitlements Service API to check your membership:
 
@@ -161,8 +161,8 @@ curl --request GET \
 
 | Placeholder | Description |
 |---|---|
-| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
-| `{access_token}` | Your personal access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Your personal access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
 | `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 
 **Sample response:**
@@ -186,7 +186,7 @@ curl --request GET \
 }
 ```
 
-The response should include your user account in the `members` array. If you're not listed, contact your ADME administrator to add you to the users group.
+The response should include your user account in the `members` array. If you're not listed, contact your Azure Data Manager for Energy administrator to add you to the users group.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 
@@ -211,14 +211,14 @@ Provide the following information to your Microsoft representative:
 
 | Information | Description |
 |---|---|
-| **Azure Data Manager for Energy instance name** | Your ADME instance name (for example, `my-adme-instance`). |
+| **Azure Data Manager for Energy resource name** | Your Azure Data Manager for Energy resource name (for example, `my-adme-instance`). |
 | **User-assigned managed identity Resource ID** | The full Azure Resource ID of the user-assigned managed identity. In the Azure portal, go to your user-assigned managed identity and select **Settings** > **Properties** to find the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
 
-After Microsoft adds your user-assigned managed identity to the allow list, ACZ is enabled on your ADME instance.
+After Microsoft adds your user-assigned managed identity to the allow list, ACZ is enabled on your Azure Data Manager for Energy resource.
 
 ## Create an Analytics Consumption Zone
 
-After completing the enablement steps, you can create one or more ACZs to sync your ADME data to ADLS Gen2. Each ACZ can be configured to sync different data types.
+After completing the enablement steps, you can create one or more ACZs to sync your Azure Data Manager for Energy data to ADLS Gen2. Each ACZ can be configured to sync different data types.
 
 ### Call the ACZ Create API
 
@@ -253,8 +253,8 @@ curl --request POST \
 
 | Placeholder | Description |
 |---|---|
-| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
-| `{access_token}` | Access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
 | `{data_partition_id}` | Your data partition ID (for example, `dp1`) |
 | `{sub-id}` | Subscription ID where the ADLS Gen2 storage account resides |
 | `{rg}` | Resource group where the ADLS Gen2 storage account resides |
