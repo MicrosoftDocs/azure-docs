@@ -27,6 +27,12 @@ When you associate a configuration store with a network security perimeter, you 
 - **Shared configuration across PaaS resources**: Share a collection of access rules across multiple PaaS resources using network security perimeter profiles.
 - **Diagnostic logging**: Monitor network traffic to and from your configuration store through network security perimeter diagnostic logs.
 
+## Transitioning to a network security perimeter
+
+A resource association supports two access modes: **Transition** and **Enforced**. Transition mode lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. We recommend starting in Transition mode, using [diagnostic logs](../private-link/network-security-perimeter-diagnostic-logs.md) to validate your perimeter rules, and then switching to Enforced mode to fully secure your configuration store.
+
+For more information, see [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md).
+
 ## Considerations for customer-managed key encryption
 
 If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store is associated with a network security perimeter, this outbound communication is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
@@ -72,3 +78,5 @@ This error occurs when the network security perimeter's configuration would prev
 - [What is Azure network security perimeter?](../private-link/network-security-perimeter-concepts.md)
 - [Network security overview for Azure App Configuration](./concept-network-security.md)
 - [Associate with a network security perimeter](./howto-set-up-nsp.md)
+- [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md).
+
