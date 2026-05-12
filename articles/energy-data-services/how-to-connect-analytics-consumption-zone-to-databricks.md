@@ -89,11 +89,11 @@ The Access Connector requires permissions at both the storage account level and 
    - **Event Grid EventSubscription Contributor**—Enables creating and managing Event Grid subscriptions
    - **Event Grid Data Contributor**—Enables sending events to Event Grid topics
 
-> [!NOTE]
-> These Event Grid permissions enable Databricks to automatically detect when new Delta files are written to ACZ storage, improving query performance by avoiding full folder scans.
+   > [!NOTE]
+   > These Event Grid permissions enable Databricks to automatically detect when new Delta files are written to ACZ storage, improving query performance by avoiding full folder scans.
 
-> [!IMPORTANT]
-> Wait 2-3 minutes after assigning all roles for the permissions to propagate before proceeding to the next step.
+   > [!IMPORTANT]
+   > Wait 2-3 minutes after assigning all roles for the permissions to propagate before proceeding to the next step.
 
 ## Step 3: Create a storage credential in Databricks
 
