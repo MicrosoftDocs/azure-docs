@@ -26,7 +26,7 @@ This article shows how to connect your ACZ data to Microsoft Fabric by using One
 - ACZ enabled with at least one ACZ in `ACTIVE` status and `historicalSnapshotStatus` set to `COMPLETED`. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 - A [Microsoft Fabric capacity](/fabric/enterprise/licenses) (F2 or higher) or a Fabric trial.
 - A [Fabric workspace](/fabric/get-started/create-workspaces).
-- At least **Storage Blob Data Reader** permissions on the ADLS Gen2 storage account.
+- You have at least **Storage Blob Data Reader** permissions on the ADLS Gen2 storage account.
 
 ## Step 1: Verify ACZ data in ADLS Gen2
 
