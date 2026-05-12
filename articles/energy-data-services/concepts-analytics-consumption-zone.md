@@ -20,6 +20,9 @@ The Analytics Consumption Zone (ACZ) exports selected entity data from Azure Dat
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!NOTE]
+> During the preview, ACZ access requires allowlisting. Follow the guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative.
+
 ## What is ACZ?
 
 ACZ is a managed sync layer. It exports entity data from your Azure Data Manager for Energy instance to an ADLS Gen2 storage account that you own. You can then connect that data to analytics, reporting, and machine learning tools. 
@@ -186,9 +189,6 @@ The Delta table has these fields:
 > Wellbore DDMS entities also have `fileDownloadTime`, `fileDownloadState`, and `fileDownloadFolder` fields for file tracking.
 
 ## Limits and access
-
-> [!IMPORTANT]
-> During the preview, ACZ access requires allowlisting. Follow the guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative.
 
 ### Preview limits
 
