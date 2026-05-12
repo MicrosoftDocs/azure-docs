@@ -126,7 +126,18 @@ After the operation completes, verify the identity is assigned using Azure CLI:
 az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
 ```
 
-The output should include your user-assigned managed identity's resource ID.
+**Sample response:**
+
+```json
+{
+  "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-acz-identity": {
+    "clientId": "abcd1234-ab12-cd34-ef56-abcdef123456",
+    "principalId": "98765432-9876-5432-1098-987654321098"
+  }
+}
+```
+
+The output should include your user-assigned managed identity's resource ID with its `clientId` and `principalId`.
 
 ## Step 4: Verify user has entitlement group access
 
