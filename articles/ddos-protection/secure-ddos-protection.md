@@ -6,23 +6,29 @@ ms.author: mbaldwin
 ms.service: azure-ddos-protection
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/17/2025
+ms.date: 05/12/2026
 ai-usage: ai-assisted
 ---
 
 # Secure your Azure DDoS Protection deployment
 
-Azure DDoS Protection provides enhanced DDoS mitigation features to defend against distributed denial-of-service (DDoS) attacks. It automatically tunes to protect your specific Azure resources in a virtual network, with always-on traffic monitoring, adaptive real-time tuning, and layer 3/layer 4 attack mitigation for all public IP resources.
+Azure DDoS Protection provides enhanced DDoS mitigation features to defend against distributed denial-of-service (DDoS) attacks. It automatically tunes to protect your specific Azure resources in a virtual network, with always-on traffic monitoring, adaptive real-time tuning, and layer 3/layer 4 attack mitigation for supported public IP resources.
 
 This article provides security recommendations for Azure DDoS Protection. Implementing these recommendations helps you fulfill your security obligations and improves the overall security posture of your deployment. For an overview of Azure's network security services and how they work together, see [What is Azure network security?](../networking/security/network-security.md).
 
 [!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
+## Service-specific security
+
+Service-specific security for Azure DDoS Protection focuses on choosing a supported tier and deployment model so protection applies to the intended resources.
+
+- **Validate supported deployment models before enabling protection**: Confirm that your resources use a supported public IP and deployment model. DDoS Protection doesn't support NAT Gateway public IPs, classic VM deployments, Azure Virtual WAN, or Azure API Management deployment modes other than API Management with virtual network integration. See [About Azure DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
+
 ## Network security
 
-Network security for Azure DDoS Protection focuses on ensuring comprehensive coverage of your public IP resources, reducing your attack surface, and layering DDoS protection with other Azure security services for defense in depth.
+Network security for Azure DDoS Protection focuses on ensuring comprehensive coverage of your supported public IP resources, reducing your attack surface, and layering DDoS protection with other Azure security services for defense in depth.
 
-- **Choose the right DDoS Protection tier for your deployment**: Evaluate whether DDoS Network Protection or DDoS IP Protection best fits your environment. DDoS Network Protection covers all public IP resources in a virtual network and includes cost protection, DDoS Rapid Response access, and WAF discounts. DDoS IP Protection is a per-IP model suited for smaller deployments with fewer public IPs. See [About Azure DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
+- **Choose the right DDoS Protection tier for your deployment**: Evaluate whether DDoS Network Protection or DDoS IP Protection best fits your environment. DDoS Network Protection covers supported public IP resources in a virtual network and includes cost protection, DDoS Rapid Response access, and WAF discounts. DDoS IP Protection is a per-IP model suited for smaller deployments with fewer public IPs. See [About Azure DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
 
 - **Enable DDoS protection on all virtual networks with public IP resources**: Associate a DDoS protection plan with every virtual network that contains public IP addresses. Unprotected virtual networks are exposed to volumetric and protocol attacks without the adaptive tuning and mitigation that DDoS Protection provides. See [Quickstart: Create and configure Azure DDoS Network Protection](manage-ddos-protection.md).
 
@@ -30,9 +36,9 @@ Network security for Azure DDoS Protection focuses on ensuring comprehensive cov
 
 - **Restrict traffic with Network Security Groups**: Apply NSGs on subnets behind DDoS-protected public IPs to allow only required ports and protocols. Use service tags and application security groups for granular filtering. This limits the traffic that reaches your resources even during an attack. See [Network security groups](../virtual-network/network-security-groups-overview.md).
 
-- **Layer DDoS Protection with Azure Firewall**: Deploy Azure Firewall behind DDoS-protected public IPs for layer 3/layer 4 stateful inspection in addition to DDoS mitigation. Azure Firewall provides threat intelligence filtering and IDPS that complement DDoS Protection's volumetric attack defense. For more on securing Azure Firewall, see [Secure your Azure Firewall deployment](../firewall/secure-firewall.md).
+- **Layer DDoS Protection with Azure Firewall**: Deploy Azure Firewall behind DDoS-protected public IPs for layer 3/layer 4 stateful inspection in addition to DDoS mitigation. Azure Firewall provides threat intelligence filtering and IDPS that complement DDoS Protection's volumetric attack defense. See [Secure your Azure Firewall deployment](../firewall/secure-firewall.md).
 
-- **Add layer 7 protection with Web Application Firewall**: DDoS Protection handles layer 3/layer 4 attacks but doesn't inspect application-layer traffic. Deploy Azure WAF on Application Gateway or Azure Front Door to protect against layer 7 attacks such as SQL injection, cross-site scripting, and HTTP floods. For more on securing WAF, see [Secure your Azure Web Application Firewall deployment](../web-application-firewall/secure-web-application-firewall.md).
+- **Add layer 7 protection with Web Application Firewall**: DDoS Protection handles layer 3/layer 4 attacks but doesn't inspect application-layer traffic. Deploy Azure WAF on Application Gateway or Azure Front Door to protect against layer 7 attacks such as SQL injection, cross-site scripting, and HTTP floods. See [Secure your Azure Web Application Firewall deployment](../web-application-firewall/secure-web-application-firewall.md).
 
 - **Protect all public IP resource types**: Ensure that all supported resource types with public IPs are covered, including virtual machines, load balancers, Application Gateways, Azure Bastion hosts, VPN Gateways, and Azure Firewall instances. Review the list of supported resources periodically as your deployment grows. See [Azure DDoS Protection features](ddos-protection-features.md).
 
@@ -42,9 +48,9 @@ Network security for Azure DDoS Protection focuses on ensuring comprehensive cov
 
 Identity and access management for Azure DDoS Protection controls who can create, modify, and associate DDoS protection plans and who can view attack telemetry.
 
-- **Assign the least privilege role for DDoS management**: Use the built-in Network Contributor role for users who need to manage DDoS protection plans. For read-only access, use the Network Reader role. Avoid assigning broader roles like Contributor or Owner when only network management is needed. See [Manage Azure DDoS Protection permissions](manage-permissions.md).
+- **Assign the least privilege role for DDoS management**: Use the built-in Network Contributor role for users who need to manage DDoS protection plans. For view-only access to DDoS plans and policy configuration, use the built-in Reader role or a custom role that includes `Microsoft.Network/ddosProtectionPlans/read`. Avoid assigning broader roles like Contributor or Owner when only network management is needed. See [Manage Azure DDoS Protection permissions](manage-permissions.md).
 
-- **Create a custom RBAC role for DDoS operations**: If Network Contributor is too broad, create a custom role that includes only the required DDoS actions: `Microsoft.Network/ddosProtectionPlans/read`, `Microsoft.Network/ddosProtectionPlans/write`, `Microsoft.Network/ddosProtectionPlans/delete`, and `Microsoft.Network/ddosProtectionPlans/join/action`. See [Azure custom roles](../role-based-access-control/custom-roles.md).
+- **Create a custom RBAC role for DDoS operations**: If Network Contributor is too broad, create a custom role that includes only the required DDoS actions: `Microsoft.Network/ddosProtectionPlans/read`, `Microsoft.Network/ddosProtectionPlans/write`, `Microsoft.Network/ddosProtectionPlans/delete`, and `Microsoft.Network/ddosProtectionPlans/join/action`. Include the appropriate `Microsoft.Network/virtualNetworks/*` actions when the role must enable or associate DDoS protection on virtual networks. See [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 - **Grant the join action for virtual network operations**: Ensure that users who manage virtual networks associated with a DDoS plan have the `Microsoft.Network/ddosProtectionPlans/join/action` permission. Without this permission, virtual network operations fail after DDoS protection is enabled on the network. See [Manage Azure DDoS Protection permissions](manage-permissions.md).
 
@@ -62,7 +68,7 @@ Data protection for Azure DDoS Protection covers securing the telemetry, mitigat
 
 - **Restrict access to mitigation flow log data**: DDoS mitigation flow logs contain per-flow details including source and destination IPs, ports, and protocols for traffic processed during an attack. Limit access to this data to your security operations team using RBAC on the diagnostic settings destination. See [View and configure DDoS diagnostic logging](ddos-view-diagnostic-logs.md).
 
-- **Secure Event Hubs used for log streaming**: If you stream DDoS logs to Event Hubs for SIEM integration (such as Splunk or Microsoft Sentinel), use managed identities for authentication and restrict the Event Hubs namespace with network rules. See [Authorize access with Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
+- **Secure Event Hubs used for log streaming**: If you stream DDoS logs to Event Hubs for SIEM integration, configure the diagnostic setting with an Event Hubs shared access policy that has Manage, Send, and Listen claims (required to create and update the diagnostic setting). When the Event Hubs namespace has network rules enabled, also enable **Allow trusted Microsoft services** so Azure Monitor can write log data. Limit who can manage that authorization rule, use a dedicated namespace when possible, and restrict the namespace with network rules. See [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ## Logging and monitoring
 
@@ -72,7 +78,7 @@ Logging and monitoring for Azure DDoS Protection ensures that you have visibilit
 
 - **Configure metric alerts for the "Under DDoS attack or not" signal**: Create an Azure Monitor metric alert on the "Under DDoS attack or not" metric for every protected public IP address. This metric transitions to 1 when an attack is detected and triggers immediate notification to your security team. See [Configure Azure DDoS Protection metric alerts](alerts.md).
 
-- **Deploy enriched alert templates**: Use the provided ARM templates to deploy alerts that include traffic analytics, attack details, and availability information. These enriched alerts provide context beyond the basic attack notification, including dropped packet counts and resource availability status. See [Configure Azure DDoS Protection diagnostic alert templates](ddos-diagnostic-alert-templates.md).
+- **Deploy enriched alert templates**: Use the provided ARM templates to deploy alerts for protected public IP addresses that have diagnostic logging enabled. The enrichment template emails details about the IP address under attack, the associated resource, the resource owner and security team, and a basic application availability test. See [Configure Azure DDoS Protection diagnostic alert templates](ddos-diagnostic-alert-templates.md).
 
 - **Enforce diagnostic logging with Azure Policy**: Assign the built-in policy "Public IP addresses should have resource logs enabled for Azure DDoS Protection" to audit or automatically deploy diagnostic settings across your environment. This prevents gaps where new public IPs are deployed without logging. See [Azure DDoS Protection policy reference](policy-reference.md).
 
@@ -92,9 +98,9 @@ Compliance and governance for Azure DDoS Protection helps ensure consistent prot
 
 - **Centralize DDoS protection under a single plan**: Use a single DDoS Network Protection plan across multiple subscriptions and regions to maintain consistent protection and simplify management. A single plan can cover up to 100 protected public IPs (with overage charges beyond that). Consolidating plans prevents configuration drift and uncontrolled costs. See [About Azure DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
 
-- **Inventory all public IP addresses and their protection status**: Maintain a current inventory of all public IP resources across your subscriptions and verify that each is associated with a DDoS protection plan. Use Azure Resource Graph queries to identify unprotected public IPs. See [Azure DDoS Protection optimization guide](ddos-optimization-guide.md).
+- **Inventory all public IP addresses and their protection status**: Maintain a current inventory of supported public IP resources across your subscriptions. For DDoS Network Protection, verify that each public IP is in a virtual network associated with a DDoS protection plan. For DDoS IP Protection, verify that protection is enabled on each public IP resource that needs per-IP coverage. Use Azure Resource Graph queries to identify protection gaps. See [Azure DDoS Protection optimization guide](ddos-optimization-guide.md).
 
-- **Enable cost protection for DDoS Network Protection**: Register for cost protection to receive data-transfer and application scale-out service credits when a documented DDoS attack causes resource scaling. This safeguards your budget against unexpected costs during attacks. See [Azure DDoS Protection features](ddos-protection-features.md).
+- **Use the cost guarantee for DDoS Network Protection**: DDoS Network Protection customers can receive data-transfer and application scale-out service credits for resource costs incurred as a result of documented DDoS attacks. This safeguards your budget against unexpected costs during attacks. See [Azure DDoS Protection features](ddos-protection-features.md).
 
 - **Conduct regular DDoS simulation testing**: Validate your DDoS protection configuration and response procedures by running simulation tests through approved testing partners. Testing reveals misconfigurations, measures actual mitigation effectiveness, and trains your response team. See [Test through simulations](test-through-simulations.md).
 
@@ -110,7 +116,7 @@ Backup and recovery for Azure DDoS Protection focuses on maintaining service ava
 
 - **Distribute workloads behind load balancers**: Place application instances behind Azure Load Balancer, Application Gateway, or Azure Front Door to distribute traffic across multiple instances and availability zones. This reduces the impact of any single point of failure during an attack. See [Azure DDoS Protection fundamental best practices](fundamental-best-practices.md).
 
-- **Plan for DDoS Protection plan recovery**: A DDoS protection plan can't be moved between subscriptions or resource groups. If you need to recover or restructure your plan, you must delete and recreate it, then reassociate your virtual networks. Document your current plan-to-VNet associations and RBAC assignments so they can be restored quickly. See [Quickstart: Create and configure Azure DDoS Network Protection](manage-ddos-protection.md).
+- **Plan for DDoS Protection plan recovery**: A DDoS protection plan can't be moved between subscriptions or resource groups. If you need to recover or restructure your plan, you must delete and recreate it, then reassociate your virtual networks. Document your current plan-to-VNet associations and RBAC assignments so they can be restored quickly. See [Azure resource types for move operations](/azure/azure-resource-manager/management/move-support-resources#microsoftnetwork).
 
 - **Include DDoS scenarios in your disaster recovery drills**: Test that your failover mechanisms work correctly when a DDoS attack targets your primary region. Verify that secondary-region virtual networks also have DDoS protection enabled and that monitoring and alerting are configured identically. See [Azure DDoS Protection response strategy](ddos-response-strategy.md).
 

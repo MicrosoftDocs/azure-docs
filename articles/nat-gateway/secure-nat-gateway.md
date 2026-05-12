@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-nat-gateway
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 05/11/2026
+ms.date: 05/12/2026
 ai-usage: ai-assisted
 ---
 
@@ -28,7 +28,7 @@ Azure NAT Gateway follows a Zero Trust network security model, blocking unsolici
 
 - **Use predictable outbound IPs for firewall allowlisting**: Assign a public IP prefix to NAT Gateway to provide a contiguous, predictable set of outbound IP addresses. Configure destination firewall rules based on this known IP range. See [What is Azure NAT Gateway?](nat-overview.md).
 
-- **Integrate with Azure Firewall for traffic inspection**: Deploy NAT Gateway on the Azure Firewall subnet in a hub-and-spoke topology to combine outbound SNAT scalability with centralized traffic inspection and threat protection. See [Tutorial: Integrate NAT gateway with Azure Firewall in a hub-and-spoke network](tutorial-hub-spoke-nat-firewall.md) and [Secure your Azure Firewall deployment](../firewall/secure-firewall.md).
+- **Integrate with Azure Firewall for traffic inspection**: Deploy NAT Gateway on the Azure Firewall subnet in a hub-and-spoke topology to combine outbound SNAT scalability with centralized traffic inspection and threat protection. For firewall-specific hardening guidance, see [Secure your Azure Firewall deployment](../firewall/secure-firewall.md). See [Tutorial: Integrate NAT gateway with Azure Firewall in a hub-and-spoke network](tutorial-hub-spoke-nat-firewall.md).
 
 - **Use Private Link to reduce internet exposure**: Connect to Azure PaaS services through [Azure Private Link](../private-link/private-link-overview.md) instead of routing through NAT Gateway. This reduces outbound internet traffic, frees SNAT ports, and eliminates public internet exposure for Azure service communication. See [Design virtual networks with Azure NAT Gateway](nat-gateway-design.md).
 
@@ -40,7 +40,7 @@ For related network-layer security guidance, see [Secure your Virtual Network de
 
 Control who can create, modify, and delete NAT Gateway resources using Azure role-based access control.
 
-- **Assign least-privilege roles for NAT Gateway management**: Use the Network Contributor built-in role for users who need to manage NAT Gateway resources, rather than granting broader roles like Contributor. See [Azure built-in roles](../role-based-access-control/built-in-roles.md#network-contributor).
+- **Assign least-privilege roles for NAT Gateway management**: Use the Network Contributor built-in role for users who need to manage NAT Gateway resources, rather than granting broader roles like Contributor. See [Azure built-in roles for Networking](../role-based-access-control/built-in-roles/networking.md#network-contributor).
 
 - **Apply resource locks to prevent accidental deletion**: Set a Delete lock on production NAT Gateway resources to prevent accidental removal, which would immediately disrupt outbound connectivity for all associated subnets. See [Lock your Azure resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md).
 
@@ -50,7 +50,7 @@ Azure NAT Gateway operates at the network layer and does not inspect, store, or 
 
 - **Use NAT Gateway for outbound IP masking**: NAT Gateway replaces private source IP addresses and ports with its public IP and translated SNAT ports, hiding internal network topology from external destinations. See [Azure NAT Gateway SNAT](nat-gateway-snat.md).
 
-- **Implement end-to-end encryption for sensitive traffic**: Because NAT Gateway operates at Layer 4, configure TLS/SSL encryption at the application layer for all sensitive outbound communication passing through the gateway.
+- **Implement end-to-end encryption for sensitive traffic**: Because NAT Gateway operates at Layer 4, configure TLS encryption at the application layer for all sensitive outbound communication passing through the gateway. See [Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md).
 
 ## Logging and monitoring
 
@@ -72,7 +72,7 @@ Monitor NAT Gateway health and traffic patterns to detect SNAT exhaustion, conne
 
 Enforce consistent security configurations across NAT Gateway deployments using policy and governance controls.
 
-- **Audit availability zone configuration with Azure Policy**: Use the built-in policy definition "NAT gateway should be Zone Aligned" to audit or deny NAT Gateway deployments that don't have exactly one entry in their zones array. This policy enforces that a Standard SKU NAT gateway is pinned to a specific availability zone rather than being deployed as a no-zone resource. For zone-redundant outbound connectivity, deploy the StandardV2 SKU (zone-redundant by default) rather than relying on this policy. See [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies) and [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
+- **Audit availability zone configuration with Azure Policy**: Use the built-in policy definition "[Preview]: NAT gateway should be Zone Aligned" to audit or deny NAT Gateway deployments that don't have exactly one entry in their zones array. Relevant NAT Gateway resilience policies are typically Preview; review the policy version and effects before enforcing them in production. For zone-redundant outbound connectivity, deploy the StandardV2 SKU (zone-redundant by default) rather than relying only on policy. See [Azure Policy built-in definitions for Azure networking services](../networking/policy-reference.md).
 
 - **Monitor resource health history**: Review the 30-day resource health history for NAT Gateway resources to identify patterns of degradation or availability issues that may indicate underlying infrastructure problems. See [Resource health for NAT gateway](resource-health.md).
 
@@ -82,7 +82,7 @@ Azure NAT Gateway is a fully managed service with built-in resilience, but desig
 
 - **Deploy StandardV2 for zone redundancy**: Use the StandardV2 SKU, which is zone-redundant by default. When an availability zone failure occurs, new connections automatically flow from the remaining healthy zones with no manual intervention. See [Design virtual networks with Azure NAT Gateway](nat-gateway-design.md).
 
-- **Plan for regional failover**: NAT Gateway is a regional resource and does not replicate across regions. For multi-region architectures, deploy separate NAT Gateway instances in each region and use DNS-based or traffic manager failover to redirect workloads. See [Azure NAT Gateway resource](nat-gateway-resource.md).
+- **Plan for regional resiliency**: NAT Gateway is a regional resource and doesn't provide native multi-region capabilities or automatic failover between regions. For multi-region architectures, deploy independent NAT Gateway instances in each region and use zone-redundant or multi-region application architecture for workload resilience. See [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
 
 ## Next steps
 
@@ -90,4 +90,4 @@ Azure NAT Gateway is a fully managed service with built-in resilience, but desig
 - [Design virtual networks with Azure NAT Gateway](nat-gateway-design.md)
 - [Azure NAT Gateway SNAT](nat-gateway-snat.md)
 - [NAT Gateway metrics and alerts](nat-metrics.md)
-- [Azure security baseline for NAT Gateway](/security/benchmark/azure/baselines/virtual-network-nat-security-baseline)
+- [Overview of Microsoft cloud security benchmark v2](/security/benchmark/azure/overview)
