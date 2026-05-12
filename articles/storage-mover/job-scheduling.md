@@ -5,18 +5,13 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 04/24/2026
+ms.date: 05/11/2026
 ms.custom: sfi-image-nochange
 ---
 
-# Job scheduling in Azure Storage Mover (Preview)
+# Job scheduling in Azure Storage Mover
 
-Job scheduling (preview) in Azure Storage Mover automates the execution of migration jobs. You can use schedules to keep data in Azure synchronized with your source environment.
-
-> [!IMPORTANT]
-> Azure Storage Mover job scheduling is currently in PREVIEW.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Job scheduling in Azure Storage Mover automates the execution of migration jobs. You can use schedules to keep data in Azure synchronized with your source environment.
 
 ## Prerequisites
 
