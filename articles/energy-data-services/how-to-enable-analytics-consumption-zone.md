@@ -30,7 +30,7 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 | 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
 | 4 | Verify user has entitlement group access |
 | 5 | Grant user-assigned managed identity storage permissions |
-| 6 | Share user-assigned managed identity and ADME instance details with Microsoft |
+| 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft |
 
 ## Prerequisites
 
@@ -56,11 +56,11 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a dedicated identity for ACZ:
 
 > [!IMPORTANT]
-> Microsoft recommends creating a dedicated user-assigned managed identity for ACZ rather than reusing identities from other services like CMEK or EDS. A dedicated identity provides:
+> Microsoft recommends creating a dedicated user-assigned managed identity for ACZ rather than reusing identities from other services like Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS). A dedicated identity provides:
 > - **Clear audit trails**: Separate identity makes it easier to track ACZ-specific operations in audit logs
 > - **Independent lifecycle management**: You can rotate, update, or remove ACZ identity without affecting other services
 > - **Granular access control**: ACZ identity gets only the permissions it needs (Storage Blob Data Contributor) without inheriting unnecessary permissions
-> - **Simplified troubleshooting**: Issues with ACZ permissions won't impact CMEK, EDS, or other services
+> - **Simplified troubleshooting**: Issues with ACZ permissions don't impact CMEK, EDS, or other services
 
 To create a user-assigned managed identity:
 
@@ -203,7 +203,7 @@ Grant the user-assigned managed identity write access to the ADLS Gen2 storage a
 8. Select the user-assigned managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
 9. Select **Review + assign** to complete the role assignment.
 
-## Step 6: Share user-assigned managed identity and ADME instance details with Microsoft (Preview requirement)
+## Step 6: Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
 > During the preview, Microsoft must add user-assigned managed identities to an allow list before they can be used for ACZ operations. Share the following details with your Microsoft contact to add the user-assigned managed identity to the allow list.
