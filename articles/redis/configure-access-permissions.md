@@ -15,8 +15,15 @@ Custom access strings let you control which commands a user can execute and whic
 
 ## Prerequisites
 
-- An Azure Managed Redis cache with Microsoft Entra ID authentication enabled. For setup instructions, see [Use Microsoft Entra ID for cache authentication](entra-for-authentication.md).
+- An Azure Managed Redis cache. To create one, see [Quickstart: Create an Azure Managed Redis instance](quickstart-create-managed-redis.md).
 - Access to the REST API with API version `2026-05-01-preview`.
+
+## Limitations
+
+- Custom access strings require API version `2026-05-01-preview` or later. Earlier API versions always assign full access.
+- Each user can have one access policy assignment per database.
+- Access string comparison is case-sensitive because Redis key patterns are case-sensitive.
+- Some Redis commands are blocked in Azure Managed Redis regardless of ACL configuration. For more information, see [Blocked commands](best-practices-client-libraries.md#blocked-commands).
 
 ## Scope of availability
 
@@ -25,6 +32,7 @@ Custom access strings let you control which commands a user can execute and whic
 | Balanced (B series) | Yes |
 | Memory Optimized (M series) | Yes |
 | Compute Optimized (X series) | Yes |
+| Flash Optimized (F series) | Yes |
 
 ## Redis ACL permissions
 
@@ -50,6 +58,12 @@ For the full list of command categories and syntax details, see the [Redis ACL d
 > Key patterns are case-sensitive. For example, `~User:*` and `~user:*` match different sets of keys.
 
 ## Assign custom access permissions
+
+### Azure portal
+
+<!-- TODO: Add portal steps and screenshots when the portal experience is available. -->
+
+Portal support for custom access strings is coming soon. In the meantime, use the ARM template or REST API methods described in the following sections.
 
 ### ARM template
 
@@ -155,13 +169,6 @@ If you provide an invalid Redis ACL string, the provisioning fails with an `Inva
 ```
 
 Existing users on the cache aren't affected when a new assignment fails.
-
-## Limitations
-
-- Custom access strings require API version `2026-05-01-preview` or later. Earlier API versions always assign full access.
-- Each user can have one access policy assignment per database.
-- Access string comparison is case-sensitive because Redis key patterns are case-sensitive.
-- Some Redis commands are blocked in Azure Managed Redis regardless of ACL configuration. For more information, see [Blocked commands](best-practices-client-libraries.md#blocked-commands).
 
 ## Related content
 
