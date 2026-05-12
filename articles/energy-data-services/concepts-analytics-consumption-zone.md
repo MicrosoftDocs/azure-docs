@@ -56,7 +56,6 @@ Azure Data Manager for Energy          Customer ADLS Gen2
                                       │  • Microsoft Fabric     │
                                       │  • Azure Databricks     │
                                       │  • Power BI             │
-                                      │  • Azure Synapse        │
                                       └─────────────────────────┘
 ```
 
