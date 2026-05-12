@@ -3,7 +3,7 @@ title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager 
 description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure user-assigned managed identity, storage, and permissions for ACZ.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 03/31/2026
+ms.date: 05/12/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -23,14 +23,14 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 
 Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
-| Step | Task | When to skip |
-|------|------|-------------|
-| 1 | Create or use existing ADLS Gen2 storage account | Required for ACZ destination |
-| 2 | Create or use existing user-assigned managed identity | Skip if reusing CMEK/EDS identity |
-| 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource | Skip if reusing CMEK/EDS identity |
-| 4 | Verify user has entitlement group access | Required to call ACZ APIs |
-| 5 | Grant user-assigned managed identity storage permissions | Required for ACZ to write data |
-| 6 | Share user-assigned managed identity details with Microsoft | Preview requirement |
+| Step | Task |
+|------|------|
+| 1 | Create or use existing ADLS Gen2 storage account |
+| 2 | Create user-assigned managed identity for ACZ |
+| 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
+| 4 | Verify user has entitlement group access |
+| 5 | Grant user-assigned managed identity storage permissions |
+| 6 | Share user-assigned managed identity and ADME instance details with Microsoft |
 
 ## Prerequisites
 
@@ -51,14 +51,18 @@ ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical n
 > [!IMPORTANT]
 > You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
-## Step 2: Create or use an existing user-assigned managed identity
+## Step 2: Create a user-assigned managed identity for ACZ
 
-ACZ uses a user-assigned managed identity to write data to ADLS Gen2.
+ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a dedicated identity for ACZ:
 
-> [!TIP]
-> If your Azure Data Manager for Energy resource already has a user-assigned managed identity (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you can reuse it for ACZ. Note the user-assigned managed identity **Resource ID** from **Settings** > **Properties**, then skip Step 3 and proceed to Step 4.
+> [!IMPORTANT]
+> Microsoft recommends creating a dedicated user-assigned managed identity for ACZ rather than reusing identities from other services like CMEK or EDS. A dedicated identity provides:
+> - **Clear audit trails**: Separate identity makes it easier to track ACZ-specific operations in audit logs
+> - **Independent lifecycle management**: You can rotate, update, or remove ACZ identity without affecting other services
+> - **Granular access control**: ACZ identity gets only the permissions it needs (Storage Blob Data Contributor) without inheriting unnecessary permissions
+> - **Simplified troubleshooting**: Issues with ACZ permissions won't impact CMEK, EDS, or other services
 
-If you don't have a user-assigned managed identity or want to use a dedicated one for ACZ, create one:
+To create a user-assigned managed identity:
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Managed Identities** and select it.
 2. Select **+ Create**.
@@ -67,10 +71,7 @@ If you don't have a user-assigned managed identity or want to use a dedicated on
 
 ## Step 3: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
 
-If you created a new user-assigned managed identity in Step 2, assign it to your Azure Data Manager for Energy resource.
-
-> [!NOTE]
-> If you reuse an existing user-assigned managed identity from CMEK or EDS, skip this step (the identity is already assigned to Azure Data Manager for Energy). Proceed to Step 4 to verify you have entitlement group access.
+Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
 
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
@@ -190,7 +191,7 @@ The response should include your user account in the `members` array. If you're 
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 
-Grant the user-assigned managed identity write access to the ADLS Gen2 storage account. This step is required even if you reuse an existing CMEK or EDS identity.
+Grant the user-assigned managed identity write access to the ADLS Gen2 storage account. The ACZ identity needs Storage Blob Data Contributor permissions to write Delta Parquet files.
 
 1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
 2. Select **Access control (IAM)** from the left menu.
@@ -202,7 +203,7 @@ Grant the user-assigned managed identity write access to the ADLS Gen2 storage a
 8. Select the user-assigned managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
 9. Select **Review + assign** to complete the role assignment.
 
-## Step 6: Share user-assigned managed identity details with Microsoft (Preview requirement)
+## Step 6: Share user-assigned managed identity and ADME instance details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
 > During the preview, Microsoft must add user-assigned managed identities to an allow list before they can be used for ACZ operations. Share the following details with your Microsoft contact to add the user-assigned managed identity to the allow list.
