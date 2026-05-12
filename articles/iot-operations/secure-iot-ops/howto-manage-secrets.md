@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 05/12/2026
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 ---
@@ -83,6 +84,52 @@ To reference the synced secret from a device inbound endpoint, use the `<synced-
 
 > [!TIP]
 > This Azure CLI flow partially duplicates the operations experience. The operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow assumes the secret already exists in Azure Key Vault.
+
+## Sync a client certificate and private key for mutual TLS
+
+Several connectors support mutual TLS (mTLS) authentication to southbound data sources. With mTLS, the connector presents a client certificate and private key to the southbound endpoint to authenticate itself, in addition to validating the server's TLS certificate. The following connectors currently support mTLS to southbound data sources:
+
+- [Connector for OPC UA](../discover-manage-assets/howto-configure-opc-ua.md#configure-a-device-to-use-an-x509-certificate)
+- [Connector for HTTP/REST](../discover-manage-assets/howto-use-http-connector.md#configure-a-device-to-use-an-x509-certificate)
+- [Connector for SSE](../discover-manage-assets/howto-use-sse-connector.md#configure-a-device-to-use-an-x509-certificate)
+- [Connector for MQTT](../discover-manage-assets/howto-use-mqtt-connector.md#configure-a-device-to-use-an-x509-certificate)
+
+Other connectors, such as the connector for media and the connector for ONVIF, don't currently support mTLS to southbound data sources.
+
+You configure mTLS on the device's inbound endpoint by referencing a synced secret on the cluster that contains the client certificate and private key. You can create the synced secret in two ways:
+
+- **Operations experience**. When you create the inbound endpoint and choose the **X509 certificate** authentication mode, you can either upload a new certificate and private key (the operations experience uploads them to Azure Key Vault and syncs them) or pick existing Key Vault secrets to sync.
+- **Azure CLI**. The Azure CLI flow assumes that the certificate and private key are already stored as secrets in Azure Key Vault. You use `az iot ops secretsync secret set` to create a single synced secret on the cluster that maps the Key Vault secrets to keys inside the synced secret.
+
+To add the certificate and private key files as secrets to Azure Key Vault before you sync them, see [Add secrets to Azure Key Vault](#add-secrets-to-azure-key-vault).
+
+The following example creates a synced secret named `my-endpoint-cert` that maps the Key Vault secrets `my-kv-client-cert` and `my-kv-client-key` to the keys `certificate` and `privateKey`:
+
+```azurecli
+az iot ops secretsync secret set \
+  --instance <your-instance-name> \
+  --resource-group <your-resource-group> \
+  --name my-endpoint-cert \
+  --secret target=certificate source=my-kv-client-cert \
+  --secret target=privateKey source=my-kv-client-key
+```
+
+If the southbound endpoint requires intermediate certificates, add a third `--secret target=intermediateCerts source=<my-kv-intermediate-certs>` mapping.
+
+To reference the synced secret from the device inbound endpoint, use the `<synced-secret-name>/<key>` form. For example:
+
+- Azure CLI: pass `--cert-ref my-endpoint-cert/certificate` and `--key-ref my-endpoint-cert/privateKey` to [az iot ops ns device endpoint inbound add](/cli/azure/iot/ops/ns/device/endpoint/inbound/add). To include intermediate certificates, also pass `--icr my-endpoint-cert/intermediateCerts`.
+- Bicep: set `method: 'Certificate'` and reference the synced secret in the `x509Credentials` block:
+
+    ```bicep
+    authentication: {
+        method: 'Certificate'
+            x509Credentials: {
+                certificateSecretName: 'my-endpoint-cert/certificate'
+                keySecretName: 'my-endpoint-cert/privateKey'
+            }
+    }
+    ```
 
 ## Manage synced secrets
 

@@ -6,6 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 04/30/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as a IP video camera.
 ---
