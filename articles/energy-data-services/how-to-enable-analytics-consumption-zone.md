@@ -165,7 +165,28 @@ curl --request GET \
 | `{access_token}` | Your personal access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
 | `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 
-The response should include your user account in the members list. If you're not listed, contact your ADME administrator to add you to the users group.
+**Sample response:**
+
+```json
+{
+  "desId": "users@dp1.dataservices.energy",
+  "name": "users@dp1.dataservices.energy",
+  "description": "Datalake users",
+  "email": "users@dp1.dataservices.energy",
+  "members": [
+    {
+      "email": "user@example.com",
+      "role": "MEMBER"
+    },
+    {
+      "email": "admin@example.com",
+      "role": "OWNER"
+    }
+  ]
+}
+```
+
+The response should include your user account in the `members` array. If you're not listed, contact your ADME administrator to add you to the users group.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 
