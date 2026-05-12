@@ -47,19 +47,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your network security perimeter.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your App Configuration store. Under **Settings**, select **Networking**.
 
-1. Select **Resources** and then select **Add** > **Associate resources with a profile**.
+1. Under **Network security perimeter**, select **Associate**.
 
-   <!-- TODO: Add screenshot of the Resources blade with the Add button highlighted -->
-   <!-- :::image type="content" source="./media/nsp/associate-resources.png" alt-text="Screenshot of the Azure portal, showing the Resources blade of a network security perimeter with the Add button."::: -->
+1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdowns, then select **Associate**.
 
-1. Select the App Configuration resource you want to associate with the network security perimeter.
-
-   <!-- TODO: Add screenshot of the resource selection dialog -->
-   <!-- :::image type="content" source="./media/nsp/select-resource.png" alt-text="Screenshot of the Azure portal, showing the resource selection dialog for associating a resource with a network security perimeter."::: -->
-
-1. Select **Associate** to complete the association.
+   :::image type="content" source="./media/nsp/associate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -99,15 +93,11 @@ After associating the configuration store with the network security perimeter, y
 
 ### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your App Configuration store.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your App Configuration store. Under **Settings**, select **Networking**.
 
-1. Under **Settings**, select **Networking**.
+1. Under **Network security perimeter**, select **Manage**.
 
-1. Verify that the public network access value is set to **Secured by perimeter**.
-
-   <!-- TODO: Add screenshot of the Networking blade showing "Secured by perimeter" -->
-   <!-- :::image type="content" source="./media/nsp/verify-association.png" alt-text="Screenshot of the Azure portal, showing the Networking blade with public network access set to Secured by perimeter."::: -->
-
+1. Review the network security perimeter configuration to confirm that your configuration store is associated with the expected perimeter and profile.
 ### [Azure CLI](#tab/azure-cli)
 
 Run the following command to view the network security perimeter configuration for your configuration store. 
