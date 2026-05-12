@@ -117,6 +117,16 @@ ACZ propagates created, updated, and deleted records from ADME to the Delta tabl
 - **Soft deletes**: When you soft-delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. Soft deletes preserve history for auditing and time-travel queries.
 - **Purges**: When you purge a record in ADME, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
 
+> [!WARNING]
+> ACZ is a **one-way, read-only sync** from Azure Data Manager for Energy to ADLS Gen2.
+>
+> - Data flows only from ADME to ADLS Gen2
+> - **Do not modify, delete, or add files** directly in the ACZ folders in ADLS Gen2
+> - Manual changes to ACZ data corrupt the sync and cause data inconsistencies
+> - ACZ manages all Delta Lake operations (transaction logs, checkpoints, compaction)
+>
+> For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
+
 ## Data output format
 
 ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded files (DELTA_PARQUET). Delta Lake supports ACID transactions, time travel, and efficient incremental reads.
@@ -180,16 +190,6 @@ The Delta table has these fields:
 
 > [!IMPORTANT]
 > During the preview, ACZ access requires allowlisting. Follow the guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative.
-
-> [!WARNING]
-> ACZ is a **one-way, read-only sync** from Azure Data Manager for Energy to ADLS Gen2.
->
-> - Data flows only from ADME to ADLS Gen2
-> - **Do not modify, delete, or add files** directly in the ACZ folders in ADLS Gen2
-> - Manual changes to ACZ data corrupt the sync and cause data inconsistencies
-> - ACZ manages all Delta Lake operations (transaction logs, checkpoints, compaction)
->
-> For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
 
 ### Preview limits
 
