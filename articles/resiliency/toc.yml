@@ -1,7 +1,12 @@
 - name: Resiliency documentation
   href: index.yml
-- name: Overview
-  href: resiliency-overview.md
+- name: About Resiliency
+  items:
+  expanded: true
+  - name: Overview
+    href: resiliency-overview.md
+  - name: What's new
+    href: resiliency-whats-new.md  
 - name: Quickstart
   items:
   - name: Understand the protection estate
