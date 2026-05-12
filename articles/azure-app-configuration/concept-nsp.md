@@ -29,10 +29,10 @@ When you associate a configuration store with a network security perimeter, you 
 
 ## Considerations for customer-managed key encryption
 
-If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store is associated with a network security perimeter, this outbound communication is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must meet one of the following requirements:
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store is associated with a network security perimeter, this outbound communication is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
-- **FQDN outbound access rule**: Add an FQDN outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault (for example, `mykeyvault.vault.azure.net`).
+- **FQDN outbound access rule**: Add an FQDN outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
 
 If neither condition is met, the configuration store can't access the encryption key, and requests to the store will fail.
 
@@ -59,8 +59,16 @@ To resolve the situation, take the following steps:
 
 For more information about registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
+**Customer-managed key access errors**
+
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), you might receive the following error when associating the store with a network security perimeter:
+
+"The requested Network Security Perimeter association cannot be applied because it would block access to the configuration store's customer-managed key. See https://aka.ms/appconfig/NSPTroubleshooting for guidance on configuring an NSP for configuration stores that use a customer-managed key."
+
+This error occurs when the network security perimeter's configuration would prevent the configuration store from reaching the Azure Key Vault that holds its customer-managed key. To resolve the situation, configure the network security perimeter to permit access to the Key Vault as described in [Considerations for customer-managed key encryption](#considerations-for-customer-managed-key-encryption), then re-attempt the association.
+
 ## Related content
 
+- [What is Azure network security perimeter?](../private-link/network-security-perimeter-concepts.md)
 - [Network security overview for Azure App Configuration](./concept-network-security.md)
 - [Associate with a network security perimeter](./howto-set-up-nsp.md)
-- [What is Azure network security perimeter?](../private-link/network-security-perimeter-concepts.md)
