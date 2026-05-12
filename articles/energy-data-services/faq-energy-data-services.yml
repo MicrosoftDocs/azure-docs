@@ -109,7 +109,7 @@ sections:
 
         - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
           answer: >
-            No. ACZ doesn't carry over ADME entitlements or access control lists (ACLs) to ADLS Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and ADLS Gen2 permissions to secure the exported data.
+            No. ACZ doesn't carry over ADME entitlements to ADLS Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and ADLS Gen2 permissions to secure the exported data.
 
         - question: What happens to the data in ADLS if I delete an ACZ?
           answer: >
