@@ -1,10 +1,10 @@
 ---
-title: Enable API Center Plugin Marketplace
-description: Enable a plugin marketplace endpoint (preview) for your Azure API center. Developers can configure it in GitHub Copilot or Claude Code to discover and install plugins from your inventory.
+title: Enable Discovery of Plugins from API Center Plugin Marketplace
+description: Enable discovery of registered plugins through the API Center plugin marketplace endpoint (preview). Developers can configure it in GitHub Copilot or Claude Code to discover and install plugins from your inventory.
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 05/12/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to create a plugin marketplace from my API center so AI developers can find and install plugins from my inventory.
@@ -13,20 +13,19 @@ ms.custom:
 # Enable discovery of API center plugins from a plugin marketplace (preview)
 
 
-This article shows how to enable a plugin marketplace endpoint in [Azure API Center](overview.md). The plugin marketplace endpoint uses the API Center data plane API to catalog the AI plugins such as MCP servers and skills available in the API center inventory. 
+This article shows how to enable discovery of plugins through a plugin marketplace endpoint in [Azure API Center](overview.md). The plugin marketplace endpoint uses the API Center data plane API to catalog the AI plugins such as MCP servers and skills available in the API center inventory. 
 
-After you enable the plugin marketplace, developers can add it to their GitHub Copilot CLI or Claude Code development environment to discover and install plugins from your API center.
+Developers can add the plugin marketplace to their GitHub Copilot CLI or Claude Code development environment to discover and install plugins from your API center.
 
 ## Prerequisites
 
 - An API center in your Azure subscription. If you don't have one, see [Quickstart: Create your API center](set-up-api-center.md).
 
-- One or more plugins registered in your API center inventory, such as [MCP servers](register-discover-mcp-server.md) or [skills](register-discover-skills.md).
+- One or more [registered plugins](register-discover-plugins.md) in your API center inventory.
 
 - The API center portal enabled and set up for your API center. For details, see [Set up and customize your API Center portal](set-up-api-center-portal.md). The access method you choose for the portal determines how developers will authenticate when they access the plugin marketplace. 
 
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) or [Claude Code](https://www.anthropic.com/claude) installed in your development environment.
-
 
 ## Confirm plugin marketplace endpoint is enabled for your API center
 

@@ -33,12 +33,12 @@ To register a plugin in your API center:
 1. Select **+ Register an asset** > **Plugin**.
 
     :::image type="content" source="media/register-discover-plugins/register-plugin.png" alt-text="Screenshot of registering a plugin in the portal.":::
-1. In the **Register a plugin** form, provide the information in the following table:
+1. In the **Register a plugin** form, enter the information described in the following table:
 
     | Field | Description |
     |-------|-------------|
     | **Title** |Enter a descriptive name for the plugin. |
-    | **Identifier** | API Center automatically generates an identifier based on the title. You can edit this if needed. |
+    | **Identifier** | API Center automatically generates an identifier based on the title. You can edit this identifier if needed. |
     | **Summary** | Optionally enter a brief summary of what the plugin does. |
     | **Description** | Optionally enter a more detailed description of the plugin's capabilities, use cases, and behavior. |
     | **Version** | Optionally enter the version of the plugin. |
@@ -70,6 +70,10 @@ Set up your [API Center portal](set-up-api-center-portal.md) so that developers 
 * View detailed information about each plugin.
 
 [!INCLUDE [assess-ai-assets](includes/assess-ai-assets.md)]
+
+## Configure plugin discovery and use through the marketplace endpoint
+
+The API Center [plugin marketplace endpoint](enable-api-center-plugin-marketplace.md) exposes the catalog of registered plugins by using the API Center data API, allowing discovery and use by developers. Developers can add the marketplace to their GitHub Copilot CLI or Claude Code development environment to browse and install plugins from your API center.
 
 ## Related content
 
