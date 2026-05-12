@@ -162,6 +162,8 @@
           href: geo-replication.md
         - name: Metadata only geo-disaster recovery
           href: event-hubs-geo-dr.md
+        - name: Configure geo-disaster recovery
+          href: configure-geo-disaster-recovery.md
     - name: Security
       items:
         - name: Authentication and authorization

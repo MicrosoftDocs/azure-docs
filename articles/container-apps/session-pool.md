@@ -183,14 +183,15 @@ The following endpoints are available for managing sessions in a pool:
 | `files/upload` | `POST` | Upload a file to a session. |
 | `files/content/{filename}` | `GET` | Download a file from a session. |
 | `files` | `GET` | List the files in a session. |
-| `.management/getSession` | `POST` | Get details about a specific session. |
-| `.management/listSessions` | `POST` | List all sessions in the pool with pagination. |
+| `session` | `GET` | Get details about a specific session. |
+| `listSessions` | `GET` | List all sessions in the pool with pagination. |
+| `session` | `DELETE` | Terminate and delete a session. |
 
 You build the full URL for each endpoint by concatenating the pool's management API endpoint with the endpoint path. The query string must include an `identifier` parameter containing the session identifier, and an `api-version` parameter with the value `2024-02-02-preview`. API versions can change, so always confirm the latest version in the REST API docs before using it in production.
 
 For example: `{sessionManagementEndpoint}/code/execute?api-version=2024-02-02-preview&identifier=<IDENTIFIER>`
 
-For the `getSession` and `listSessions` endpoints, see [Retrieve session information](./sessions-usage.md#retrieve-session-information) for request and response details.
+For the `get session`, `delete session` and `list sessions` APIs, see [Retrieve session information](./sessions-code-interpreter.md#retrieve-session-information) for request and response details.
 
 For REST API references, see [Container Apps data-plane APIs](/rest/api/containerapps/#data-plane-apis) and the [Container Apps data-plane operations overview](/rest/api/data-plane/containerapps/operation-groups).
 
@@ -215,8 +216,9 @@ Custom container pools support the same management endpoints as code interpreter
 | `*` (custom paths) | `POST`, `GET` | Custom endpoints defined by your container application. |
 | `.management/getSession` | `POST` | Get details about a specific session. |
 | `.management/listSessions` | `POST` | List all sessions in the pool with pagination. |
+| `.management/stopSession` | `POST` | Terminate a session. |
 
-For the `getSession` and `listSessions` endpoints, see [Retrieve session information](./sessions-usage.md#retrieve-session-information) for request and response details.
+For the `getSession`, `stopSession` and `listSessions` endpoints, see [Retrieve session information](./sessions-custom-container.md#retrieve-session-information) for request and response details.
 
 #### OnContainerExit
 

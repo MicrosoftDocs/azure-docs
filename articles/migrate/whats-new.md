@@ -7,7 +7,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 02/24/2025
+ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
@@ -15,6 +15,11 @@ ms.custom: mvc, engagement-fy25
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
+
+## Update (May 2026)
+
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+
 
 ## Update (April 2026)
  

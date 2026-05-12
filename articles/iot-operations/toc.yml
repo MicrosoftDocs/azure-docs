@@ -254,9 +254,9 @@ items:
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, destination, MQTT, Kafka, topic, container, table, dynamic
-          - name: Disk persistence
+          - name: Buffering and disk persistence
             href: connect-to-cloud/howto-configure-disk-persistence.md
-            displayName: data flow, persistence, disk, restart, state
+            displayName: data flow, buffering, destination outage, persistence, disk, restart, state, MQTT broker
           - name: Expressions reference
             href: connect-to-cloud/concept-dataflow-graphs-expressions.md
             displayName: data flow, expression, function, operator, metadata, variable, conversion
