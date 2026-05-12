@@ -6,6 +6,10 @@
     href: resiliency-overview.md
   - name: What's new
     href: resiliency-whats-new.md  
+  - name: Zonal resiliency
+    items:
+    - name: Availability Zone Down Drills
+      href: availability-zone-down-drills-about.md
   expanded: true
 - name: Quickstart
   items:

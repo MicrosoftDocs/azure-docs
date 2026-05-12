@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 Infrastructure Resiliency Manager allows you to assess the resiliency of Service Group resources by simulating zone outages on individual resources. You can evaluate the performance of cross-zone resiliency solutions for your applications and identify resources that require Resiliency improvements to support application continuity.
 
-An Availability Zone Down Drill templates provide Azure-recommended faults for supported resource types and allow you to override them with custom logic through Azure Runbooks. After fault injection, you can perform failover and reprotection for resources configured with active-passive solutions by using integrated Recovery Plans and measure application downtime during outages. You can also monitor Service Group and resource health in real time during drill execution through integrated metrics.
+An Availability Zone Down Drill templates provide Azure-recommended faults for supported resource types and allow you to override them with custom logic through Azure Runbooks. After fault injection, you can perform failover and reprotection for resources configured with active-passive solutions by using integrated Recovery Plans. You can also measure application downtime during outages. You can also monitor Service Group and resource health in real time during drill execution through integrated metrics.
 
 ## Key components for Availability Zone Down Drill
 

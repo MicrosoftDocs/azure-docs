@@ -19,8 +19,11 @@ You can learn more about the new releases by bookmarking this page.
 
 ## Updates summary
 
-- May 2026
-  - 
+- June 2026
+
+  - [Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](#availability-zone-down-drills-in-infrastructure-resiliency-manager-preview)
+  - [Zonal resiliency goals and recommendations for Infrastructure Resiliency Manager (preview)](#zonal-resiliency-goals-and-recommendations-for-infrastructure-resiliency-manager-preview)
+  - [Azure recovery orchestration plan for zonal failover (preview)](#azure-recovery-orchestration-plan-for-zonal-failover-preview)
 
 
 ## Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)
