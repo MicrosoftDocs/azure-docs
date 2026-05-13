@@ -65,7 +65,7 @@ Use Copilot Studio to build company-specific agents that access SAP data through
 
 ### Build enterprise AI solutions: Foundry
 
-Microsoft Foundry is the full AI platform for advanced scenarios. These scenarios include custom models, multi-agent orchestration, Model Context Protocol (MCP) tools, and deep integration with SAP APIs (OData, RFC, BAPIs). Build sophisticated agents that can reason, plan, and execute complex multistep workflows.
+Microsoft Foundry is the full AI platform for advanced scenarios. These scenarios include custom models, multi-agent orchestration, Model Context Protocol (MCP) tools, and deep integration with SAP APIs (OData, RFCs, BAPIs). Build sophisticated agents that can reason, plan, and execute complex multistep workflows.
 
 [Learn more about Foundry AI and SAP](./foundry/foundry-ai-sap.md).
 
