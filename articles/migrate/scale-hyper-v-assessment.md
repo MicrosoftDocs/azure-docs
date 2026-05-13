@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 02/06/2025
+ms.update-cycle: 1095-days
 
 # Customer intent: As a cloud architect, I want to assess a large number of Hyper-V servers for migration to Azure using a discovery and assessment tool, so that I can effectively plan and execute the migration process while ensuring optimal resource allocation.
 ---

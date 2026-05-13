@@ -1,8 +1,8 @@
 ---
 title: Configure data buffering and disk persistence for data flows
 description: Configure buffering and disk persistence for data flows when destination endpoints are unavailable in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
