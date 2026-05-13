@@ -1,63 +1,91 @@
 ---
-title: 'Copy and paste to and from a Windows virtual machine: Azure'
+title: 'Copy and paste to and from a virtual machine via Azure Bastion'
 titleSuffix: Azure Bastion
-description: Learn how copy and paste to and from a Windows VM using Bastion.
+description: Learn how to copy and paste text between your local device and a remote VM session using Azure Bastion, including browser Clipboard API support and the clipboard tool palette.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 04/28/2026
 ms.author: cherylmc
-# Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
+# Customer intent: As an administrator or developer connecting to VMs through Azure Bastion, I want to copy and paste text between my local device and the remote session, so that I can efficiently transfer commands, configuration values, and other text without manually retyping them.
 
 ---
 
-# Windows VMs - copy and paste via Bastion
+# Copy and paste to and from a VM via Bastion
 
-This article helps you copy and paste text to and from virtual machines when using Azure Bastion.
+Azure Bastion supports copying and pasting text between your local device and a remote VM session directly through the browser. This lets you transfer commands, configuration values, and other text without having to retype them manually. If your browser supports the Clipboard API (such as Microsoft Edge or Google Chrome), you can use standard keyboard shortcuts. For browsers that don't support the Clipboard API, Bastion provides a clipboard tool palette.
+
+> [!IMPORTANT]
+> Only text copy/paste is supported. You can't copy and paste files or passwords. To transfer files, use a [native client connection](vm-upload-download-native.md).
+
+These steps apply to both Windows and Linux VMs connected through the browser. If you connect using a native client, see [Configure Bastion for native client connections](native-client.md).
 
 ## Prerequisites
 
-Before you proceed, make sure you have the following items.
+Before you begin, verify that you meet the following criteria:
 
-* A virtual network with [Azure Bastion](./quickstart-host-portal.md) deployed.
-* A Windows virtual machine deployed to your virtual network.
+* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost).
 
-## <a name="configure"></a> Configure the bastion host
+* A virtual machine in the virtual network.
 
-By default, Azure Bastion is automatically enabled to allow copy and paste for all sessions connected through the bastion resource. You don't need to configure anything extra. You can disable this feature for web-based clients on the configuration page of your Bastion resource if your Bastion deployment uses the Standard SKU or higher.
+* **Required roles:**
 
-1. To view or change your configuration, in the portal, go to your Bastion resource.
-1. Go to the **Configuration** page.
-   * To enable, select the **Copy and paste** checkbox if it isn't already selected.
-   * To disable, clear the checkbox. Disable is only available with the Standard SKU or higher. You can upgrade the SKU if necessary.
-1. **Apply** changes. The bastion host updates.
+  * Reader role on the virtual machine.
+  * Reader role on the NIC with the IP of the virtual machine.
+  * Reader role on the Azure Bastion resource.
+  * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+
+* Copy and paste is enabled by default for all Bastion sessions. To disable or re-enable this setting, you need the [Standard SKU or higher](bastion-sku-comparison.md). See [Configure copy and paste](#configure).
+
+See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
+
+## <a name="configure"></a> Configure copy and paste
+
+Copy and paste is enabled by default for all Bastion sessions — you don't need to configure anything. If your organization's security policies require restricting clipboard access, you can disable copy and paste for web-based clients. Changing this setting requires the [Standard SKU or higher](bastion-sku-comparison.md). If you're using the Basic SKU, you must [upgrade your SKU](upgrade-sku.md) before you can toggle this feature.
+
+To change the setting:
+
+1. In the Azure portal, go to your Bastion resource.
+1. Select **Configuration** on the left side.
+   * To disable, clear the **Copy and paste** checkbox.
+   * To enable, select the **Copy and paste** checkbox.
+1. Select **Apply**. The bastion host updates with the new configuration.
 
 ## <a name="to"></a> Copy and paste
 
-For browsers that support the advanced Clipboard API access, you can copy and paste text between your local device and the remote session in the same way you copy and paste between applications on your local device. For other browsers, you can use the Bastion clipboard access tool palette. Note that copy and paste isn't supported for passwords.
+# [Clipboard API (Edge, Chrome)](#tab/clipboard-api)
 
-> [!NOTE]
-> Only text copy/paste is currently supported.
-
-### <a name="advanced"></a> Advanced Clipboard API browsers
+If your browser supports the Clipboard API (such as Microsoft Edge or Google Chrome), you can copy and paste text between your local device and the remote session using standard keyboard shortcuts. This is the simplest method and works the same way as copying between applications on your local device.
 
 1. Connect to your virtual machine.
-1. For direct copy and paste, your browser might prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
-1. You can now use keyboard shortcuts as usual to copy and paste. If you're working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
+1. When the Bastion session initializes, your browser prompts you for clipboard access. Select **Allow** to grant the Bastion web page access to your clipboard. Without this permission, copy and paste won't work in the session.
+1. Use keyboard shortcuts to copy and paste as usual. On macOS, the keyboard shortcut to paste is `Shift+Ctrl+V`.
+1. To copy text from the VM to your local device, select the text in the remote session, copy it (`Ctrl+C`), and paste it into any application on your local device.
 
-### <a name="other"></a>Non-advanced Clipboard API browsers
+# [Clipboard tool palette](#tab/clipboard-palette)
 
-To copy text from your local computer to a virtual machine, use the following steps.
+If your browser doesn't support the Clipboard API, use the Bastion clipboard tool palette to transfer text. The tool palette acts as an intermediary — text passes through its text area before reaching the remote session or your local clipboard.
+
+### Copy text from your local device to the VM
 
 1. Connect to your virtual machine.
-1. Copy the text/content from the local device into your local clipboard.
-1. On the virtual machine, you'll see two arrows on the left side of the session screen about halfway down. Launch the Bastion **Clipboard** access tool palette by selecting the two arrows.
-1. Copy the text from your local computer. Typically, the copied text automatically shows on the Bastion clipboard access tool palette. If it doesn't show up on the tool palette, then paste the text in the text area on the tool palette. Once the text is in the text area, you can paste it to the remote session.
+1. Copy text on your local device.
+1. Select the double-arrow icon (**>>**) on the left edge of the session window to open the clipboard tool palette.
+1. The copied text typically appears automatically in the tool palette. If it doesn't, paste the text into the text area on the tool palette. Once the text appears in the text area, you can paste it into the remote session.
 
    :::image type="content" source="./media/bastion-vm-copy-paste/clipboard-copy.png" alt-text="Screenshot shows the clipboard for text copied in Bastion." lightbox="./media/bastion-vm-copy-paste/clipboard-copy.png":::
 
-1. If you want to copy the text from the virtual machine to your local computer, copy the text to the clipboard access tool. Once your text is in the text area on the palette, paste it to your local computer.
+### Copy text from the VM to your local device
+
+1. In the remote session, copy the text you want to transfer.
+1. Open the clipboard tool palette by selecting the double-arrow icon (**>>**).
+1. The copied text appears in the text area. You can now paste it into any application on your local device.
+
+---
 
 ## Next steps
 
-For more virtual machine features, see [About VM connections and features](vm-about.md).
+* Learn about [VM connections and features](vm-about.md) when connecting using Azure Bastion.
+* Learn how to [upload or download files](vm-upload-download-native.md) using Azure Bastion and a native client.
+* Learn how to [configure Bastion for native client connections](native-client.md).
+* Learn about the different [Azure Bastion SKU tiers](bastion-sku-comparison.md) and choose the right one for your requirements.

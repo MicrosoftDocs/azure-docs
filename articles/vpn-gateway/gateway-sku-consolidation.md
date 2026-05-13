@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 03/25/2026
+ms.date: 05/13/2026
 
 ms.author: cherylmc
 
@@ -77,7 +77,7 @@ Yes. SKUs get the benefits of zone redundancy for VPN gateways in [Azure regions
 
 ### Is the VPN Gateway Basic SKU retiring?
 
-No, the VPN Gateway Basic SKU isn't retiring. You can create a gateway with this SKU by using [PowerShell](create-gateway-basic-sku-powershell.md) or the Azure CLI.
+No, the VPN Gateway Basic SKU isn't retiring.
 
 ### Can I create a new Basic SKU VPN gateway by using a Basic SKU public IP address?
 
