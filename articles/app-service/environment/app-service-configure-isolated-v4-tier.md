@@ -16,7 +16,7 @@ ms.service: azure-app-service
 
 # Configure Isolated v4 tier for App Service Environment
 
-The new Isolated v4 (Iv4) pricing tier for [App Service Environment v3](overview.md) provides faster processors, NVMe local storage, and memory-optimized options. Iv4 uses the same underlying hardware as the [Premium v4 tier](../app-service-configure-premium-v4-tier.md) for multitenant App Service, and offers up performance improvementes over previous Isolated tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Isolated v4 tier in your App Service Environment.
+The new Isolated v4 (Iv4) pricing tier for [App Service Environment v3](overview.md) provides faster processors, NVMe local storage, and memory-optimized options. Iv4 uses the same underlying hardware as the [Premium v4 tier](../app-service-configure-premium-v4-tier.md) for multitenant App Service, and offers performance improvements over previous Isolated tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Isolated v4 tier in your App Service Environment.
 
 ## Prerequisites
 
@@ -93,21 +93,26 @@ Isolated v4 is available in the following regions:
 
 ### Azure Public
 
-- Australia East
-- Canada Central
+> [!IMPORTANT]
+> Not all Isolated v4 regions offer availability zone support. Regions marked with an (*) currently support availability zones for App Service Environment v3.
+
+- Australia East<sup>*</sup>
+- Canada Central<sup>*</sup>
 - Central US
 - East US
 - East US 2
-- France Central
+- France Central<sup>*</sup>
 - North Central US
 - North Europe
-- Norway East
+- Norway East<sup>*</sup>
 - Southeast Asia
-- Switzerland North
+- Switzerland North<sup>*</sup>
 - West Central US
 - West Europe
 - West US
 - West US 3
+
+<sup>*</sup> Region supports Isolated v4 with availability zones.
 
 <a name="unsupported"></a>
 
