@@ -16,14 +16,14 @@ ms.service: azure-app-service
 
 # Configure Isolated v4 tier for App Service Environment
 
-The new Isolated v4 (Iv4) pricing tier for [App Service Environment v3](overview.md) provides faster processors, NVMe local storage, and memory-optimized options. Iv4 uses the same underlying hardware as the [Premium v4 tier](../app-service-configure-premium-v4-tier.md) for multitenant App Service, and offers up to double the memory-to-core ratio of previous Isolated tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Isolated v4 tier in your App Service Environment.
+The new Isolated v4 (Iv4) pricing tier for [App Service Environment v3](overview.md) provides faster processors, NVMe local storage, and memory-optimized options. Iv4 uses the same underlying hardware as the [Premium v4 tier](../app-service-configure-premium-v4-tier.md) for multitenant App Service, and offers up performance improvementes over previous Isolated tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Isolated v4 tier in your App Service Environment.
 
 ## Prerequisites
 
 To scale up an app to Isolated v4:
 
 - An App Service Environment v3.
-- An Azure App Service app running in an Isolated v2 tier (or lower) in your App Service Environment.
+- An Azure App Service app running in an Isolated v2 tier in your App Service Environment.
 - The App Service Environment must be in a deployment supporting Isolated v4.
 
 <a name="availability"></a>
@@ -35,7 +35,7 @@ The Isolated v4 tier is available in App Service Environment v3. It supports Win
 > [!NOTE]
 > Windows containers don't support large SKUs (`I4V4` and larger, and the memory-optimized `I1mV4`–`I5mV4` SKUs) in some regions. This behavior matches Isolated v2.
 
-Isolated v4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Isolated v4 offering, run the following Azure CLI command in [Azure Cloud Shell](../../cloud-shell/overview.md). Use Azure CLI version 2.73.0 or later. Substitute *I1V4* with the desired SKU:
+Isolated v4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Isolated v4 offering, run the following Azure CLI command in [Azure Cloud Shell](../../cloud-shell/overview.md). Substitute *I1V4* with the desired SKU:
 
 **Windows** SKU availability
 
@@ -64,7 +64,7 @@ To see all the Isolated v4 options, select **Explore pricing plans**, then selec
 
 ## Scaling out an App Service plan on the Isolated v4 tier
 
-Although Isolated v4 fully integrates with autoscale, limit individual scale-out requests to two or fewer instances per synchronous operation. For higher target counts, iterate through incremental requests. For example, to add 10 instances, loop through five separate scale-out requests of two instances each until all succeed. If a scale-out request fails, wait five minutes and retry.
+Isolated v4 capacity is constrained at launch. Large scale-out operations might fail in regions where Isolated v4 capacity isn't pre-provisioned for your subscription. If a scale-out request fails with a quota or SKU-availability error, request capacity through [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Scale up an existing app to Isolated v4 tier
 
