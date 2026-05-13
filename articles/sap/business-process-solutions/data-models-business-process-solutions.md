@@ -22,166 +22,133 @@ To gain the full value of these data models, Business Process Solutions applies 
 
 Hierarchical structures are transformed to support advanced drill-down and roll-up analysis. Dedicated logic is applied for currency conversion to ensure that financial data is consistently represented across different reporting scenarios. These steps ensure that the resulting data models are accurate, consistent, and optimized for performance and usability in downstream reporting tools.
 
+## Data models availability
+### Featured data models
+
+Featured Data Models are curated, end‑to‑end models designed to help you get results quickly for the most common business scenarios. They often span multiple functional areas and come with dedicated, prebuilt Power BI dashboards, allowing you to explore insights and start visualising your data with minimal setup.
+|Area|Dataset|Supported systems|Related content|Additional information|
+|------|---------|-----------------|-----------------|------------------------|
+|Record to Report| Finance Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report||
+|Order to Cash| Sales and Billing Insights | SAP S/4HANA 1909 or newer  <br> SAP ECC| Semantic Model <br> PowerBI Report | Consider SAP Note: <br> 3070845 - SAP S/4HANA: a CDS-view SD extractor incurs the MEM_ALLOC_FAILED dump|
+|Order to Cash| Opportunity Insights | Salesforce | Semantic Model <br> PowerBI Report | |
+|Procure to Pay| Spend Insights | SAP S/4HANA 2022 or newer | Semantic Model <br> PowerBI Report  | |
+|Record to Report| Accounts Payables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report||
+|Record to Report| Accounts Recivables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report ||
+
+### Additional data models
+Additional Data Models provide focused coverage for specific business domains or processes. They deliver the same high‑quality data structures and business semantics but are typically consumed as building blocks, allowing you to extend, customise, or combine them into tailored analytics and reporting solutions.
+|Area|Dataset|Supported systems|Related content|Additional information|
+|------|---------|-----------------|-----------------|------------------------|
+|Record to Report| Financial Planning | SAP S/4HANA 1909 or newer | Semantic Model ||
+|Order to Cash| Sales Orders | SAP S/4HANA 1909 or newer <br> SAP ECC| Semantic Model | Consider SAP Note: <br> 3070845 - SAP S/4HANA: a CDS-view SD extractor incurs the MEM_ALLOC_FAILED dump |
+|Order to Cash| Deliveries | SAP S/4HANA 1909 or newer | Semantic Model ||
+|Order to Cash| Billing | SAP S/4HANA 1909 or newer  <br> SAP ECC | Semantic Model | Consider SAP Note: <br> 3070845 - SAP S/4HANA: a CDS-view SD extractor incurs the MEM_ALLOC_FAILED dump |
+|Procure to Pay| Purchase requisitions | SAP S/4HANA 2021 or newer | Semantic Model | |
+|Procure to Pay| Purchase orders | SAP S/4HANA 2021 or newer | Semantic Model | |
+|Procure to Pay| Goods movements | SAP S/4HANA 2021 or newer | Semantic Model | Consider SAP Note: <br>3584957 - IM: Add support for Data Product InventoryMgmtConfigurationData |
+|Procure to Pay| Supplier invoices | SAP S/4HANA 2021 or newer | Semantic Model | |
+|Record to Report| Manufacturing Orders | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
+|Record to Report| Operations | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
+|Record to Report| Components | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
+|Record to Report| Confirmations | SAP S/4HANA 1909 or newer | | Consider SAP Notes: <br> 3643404 - Enable View I_MFGORDERCONFIRMATION for Change Data Capture <br> 3636672 - Enablement of Data Product - Manufacturing Codes|
+
 ## Record to report
 
 Record to report delivers a comprehensive view of financial performance. The model integrates data from key finance areas that include general ledger, assets, accounts receivable, and accounts payable.
 
-### General Ledger
+### General ledger
 
-The General Ledger data model provides a comprehensive foundation for financial reporting and performance analysis across an organization. It integrates essential transactional details and data to support core financial processes such as general ledger accounting, asset tracking, cost center management, and fiscal period control. Integration ensures consistency and accuracy across financial systems.
+The general ledger data model provides a comprehensive foundation for financial reporting and performance analysis across an organization. It integrates essential transactional details and data to support core financial processes such as general ledger accounting, asset tracking, cost center management, and fiscal period control. Integration ensures consistency and accuracy across financial systems.
 
 This model enables a wide range of analytics, which includes balance sheet, profit and loss reporting, and trend analysis across fiscal periods. It supports multidimensional views of financial performance by linking organizational structures like company codes, business areas, and segments with account hierarchies and transactional line items. It also facilitates compliance and audit readiness through transparent tracking of ledger entries and financial postings across time and entities.
 
-:::image type="content" source="./media/data-models-business-process-solutions/general-ledger.png" alt-text="Screenshot that shows the Trial Balance screen." lightbox="./media/data-models-business-process-solutions/general-ledger.png":::
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+:::image type="content" source="./media/data-models-business-process-solutions/general-ledger.png" alt-text="Screenshot that shows the General Ledger insights dashboard." lightbox="./media/data-models-business-process-solutions/general-ledger.png":::
 
 **Related resources:**
-[Finance Insights](business-templates.md#finance-insights)
+[Finance insights](business-templates.md#finance-insights)
 
-### Accounts Payable
+### Accounts payable
 
-The Accounts Payable data model provides visibility into all supplier-related obligations, which helps organizations manage outgoing cash flows effectively. It consolidates the finance view of supplier invoices to monitor whether commitments are met on time.
+The accounts payable data model provides visibility into all supplier-related obligations, which helps organizations manage outgoing cash flows effectively. It consolidates the finance view of supplier invoices to monitor whether commitments are met on time.
 
 This model enables tracking of overdue payables, identifies bottlenecks in invoice processing, and assesses the impact of payment schedules on liquidity. Over time, these insights help to reveal potential payment risks, support accurate financial statements, and reinforce compliance with contractual and regulatory requirements.
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-payables.png" alt-text="Screenshot that shows the Supplier Payments screen." lightbox="./media/data-models-business-process-solutions/account-payables.png":::
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+:::image type="content" source="./media/data-models-business-process-solutions/account-payables.png" alt-text="Screenshot that shows the Accounts payable insights dashboard." lightbox="./media/data-models-business-process-solutions/account-payables.png":::
 
 **Related resources:**
-[Accounts Payable Insights](business-templates.md#accounts-payable-insights)
+[Accounts payable insights](business-templates.md#accounts-payable-insights)
 
-### Accounts Receivable
+### Accounts receivable
 
-The Accounts Receivable data model focuses on incoming cash flows from customers and offers a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital.
+The accounts receivable data model focuses on incoming cash flows from customers and offers a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital.
 
 Advanced analytics highlight trends in customer payment patterns, flag potential credit risks, and enable proactive actions to reduce days sales outstanding. This transparency improves forecasting accuracy and strengthens financial health across the organization.
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Screenshot that shows the Aging Report." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Screenshot that shows the Accounts receivable insights dashboard." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
 
 **Related resources:**
-[Accounts Receivable Insights](business-templates.md#accounts-receivable-insights)
+[Accounts receivable insights](business-templates.md#accounts-receivable-insights)
 
-## Order to Cash
+## Order to cash
 
-Order to Cash provides a complete perspective on the customer opportunity-to-cash journey from initial opportunity through delivery, invoicing, and payments.
+Order to cash provides a complete perspective on the customer opportunity-to-cash journey from initial opportunity through delivery, invoicing, and payments.
 
 ### Opportunities
 
-The Opportunities data model provides a unified view of the sales pipeline and performance metrics. It consolidates opportunity data into a single reporting layer, which enables monitoring of pipeline health, deal progression, and revenue potential across the organization.
+The opportunities data model provides a unified view of the sales pipeline and performance metrics. It consolidates opportunity data into a single reporting layer, which enables monitoring of pipeline health, deal progression, and revenue potential across the organization.
 
-:::image type="content" source="./media/data-models-business-process-solutions/opportunity-insights.png" alt-text="Screenshot that shows the Executive Summary." lightbox="./media/data-models-business-process-solutions/opportunity-insights.png":::
-
-**Supported source systems:**
-
-- Salesforce
+:::image type="content" source="./media/data-models-business-process-solutions/opportunity-insights.png" alt-text="Screenshot that shows the Opportunity insights dashboard." lightbox="./media/data-models-business-process-solutions/opportunity-insights.png":::
 
 **Related resources:**
-[Opportunity Insights](business-templates.md#opportunity-insights)
+[Opportunity insights](business-templates.md#opportunity-insights)
 
 ### Sales
 
-The Sales data model provides insight into how sales orders are created, managed, and connected to operational and financial dimensions of the business. Within this model, organizations can trace each sales document down to the item level. They can link orders to customers, products, and the sales organization responsible for fulfillment.
+The sales data model provides insight into how sales orders are created, managed, and connected to operational and financial dimensions of the business. Within this model, organizations can trace each sales document down to the item level. They can link orders to customers, products, and the sales organization responsible for fulfillment.
 
 Delivery blocks and their status are captured directly in the data, which makes it possible to identify obstacles that prevent orders from moving forward. These operational details are then tied to financial structures, such as profit centers and controlling areas. This connection ensures that every order is visible as a commercial agreement and also as part of the organization's financial performance.
 
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC
-
 **Related resources:**
-[Sales and Billing Insights](business-templates.md#sales-and-billing-insights)
+[Sales and billing insights](business-templates.md#sales-and-billing-insights)
 
 ### Delivery
 
-With the Delivery data model, organizations can follow the creation and processing of delivery documents and examine how goods are prepared, shipped, and handed over to customers. The data also reveals where deliveries are blocked or delayed. This information makes it easier to identify the causes of interruptions and resolve them before they affect customer satisfaction.
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+With the delivery data model, organizations can follow the creation and processing of delivery documents and examine how goods are prepared, shipped, and handed over to customers. The data also reveals where deliveries are blocked or delayed. This information makes it easier to identify the causes of interruptions and resolve them before they affect customer satisfaction.
 
 ### Billing
 
-The Billing data model provides a structured view of billing documents, which shows how business activity translates into revenue. Working with this model allows organizations to monitor the timeliness and accuracy of billing. They can understand how different customers and products contribute to revenue. They can also confirm that billing activities align with contractual terms and organizational policies. Over time, this transparency supports more reliable revenue recognition and provides a stronger foundation for financial reporting and operational decision-making.
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC
+The billing data model provides a structured view of billing documents, which shows how business activity translates into revenue. Working with this model allows organizations to monitor the timeliness and accuracy of billing. They can understand how different customers and products contribute to revenue. They can also confirm that billing activities align with contractual terms and organizational policies. Over time, this transparency supports more reliable revenue recognition and provides a stronger foundation for financial reporting and operational decision-making.
 
 **Related resources:**
-[Sales and Billing Insights](business-templates.md#sales-and-billing-insights)
+[Sales and billing insights](business-templates.md#sales-and-billing-insights)
 
-### Sales and Billing Insights
+### Sales and billing insights
 
-The Sales and Billing Insights data model combines sales order and billing document data to provide a comprehensive view of the sales process. Organizations can use the data to analyze the entire sales lifecycle from initial order creation through to billing and revenue recognition. Because the model integrates these two critical areas, businesses can gain deeper insights into customer behavior, sales performance, and financial outcomes.
+The sales and billing insights data model combines sales order and billing document data to provide a comprehensive view of the sales process. Organizations can use the data to analyze the entire sales lifecycle from initial order creation through to billing and revenue recognition. Because the model integrates these two critical areas, businesses can gain deeper insights into customer behavior, sales performance, and financial outcomes.
 
-:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png" alt-text="Screenshot that shows the Sales & Performance Report." lightbox="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png":::
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC
+:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png" alt-text="Screenshot that shows the Sales and Billing insights dashboard." lightbox="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png":::
 
 **Related resources:**
-[Sales and Billing Insights](business-templates.md#sales-and-billing-insights)
+[Sales and billing insights](business-templates.md#sales-and-billing-insights)
 
-### Accounts Receivable
+## Procure to pay
 
-The Accounts Receivable data model focuses on incoming cash flows from customers and offers a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital.
+Procure to pay supports strategic procurement and supplier management. It consolidates purchase orders, goods receipts, and vendor invoicing data.
 
-Advanced analytics highlight trends in customer payment patterns, flag potential credit risks, and enable proactive actions to reduce days sales outstanding. This transparency improves forecasting accuracy and strengthens financial health across the organization.
+### Purchase requisitions
 
-**Supported source systems:**
+The purchase requisitions data model provides a structured foundation for managing internal procurement requests before formal purchase orders are created. It supports the initial stages of the procurement lifecycle by enabling organizations to capture demand, ensure budget alignment, and streamline approval workflows. By associating requisitions with purchasing groups and product categories, teams can uncover demand patterns and more accurately forecast future procurement needs.
 
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+### Purchase orders
 
-**Related resources:**
-[Accounts Receivable Insights](business-templates.md#accounts-receivable-insights)
-
-## Procure to Pay
-
-Procure to Pay supports strategic procurement and supplier management. It consolidates purchase orders, goods receipts, and vendor invoicing data.
-
-### Purchase Requisitions
-
-The Purchase Requisitions data model provides a structured foundation for managing internal procurement requests before formal purchase orders are created. It supports the initial stages of the procurement lifecycle by enabling organizations to capture demand, ensure budget alignment, and streamline approval workflows. By associating requisitions with purchasing groups and product categories, teams can uncover demand patterns and more accurately forecast future procurement needs.
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
-
-### Purchase Orders
-
-The Purchase Orders data model provides a structured framework for managing procurement operations, supplier relationships, and financial commitments within an organization. It integrates core and transactional data to support the full lifecycle of purchase orders, from creation and approval to goods receipt and invoice processing. Transactional records capture detailed purchase order activity. Core data defines organizational structures, product classifications, and supplier attributes to ensure consistency and alignment with reporting and operational needs.
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+The purchase orders data model provides a structured framework for managing procurement operations, supplier relationships, and financial commitments within an organization. It integrates core and transactional data to support the full lifecycle of purchase orders, from creation and approval to goods receipt and invoice processing. Transactional records capture detailed purchase order activity. Core data defines organizational structures, product classifications, and supplier attributes to ensure consistency and alignment with reporting and operational needs.
 
 **Related resources:**
-[Spend Insights](business-templates.md#spend-insights)
+[Spend insights](business-templates.md#spend-insights)
 
-### Goods Movements
+### Goods movements
 
-The Goods Movements data model captures how materials flow through the procurement cycle and connects these movements with financial and operational structures. With this model, organizations can trace goods from receipt through storage, transfer, and consumption. They can ensure that every movement is tied to accounting and controlling dimensions such as cost centers, profit centers, and company codes. This linkage makes it possible to assess whether deliveries arrive as expected. Organizations can understand the impact of goods movements on costs and inventory levels. They can also monitor compliance with internal processes.
+The goods movements data model captures how materials flow through the procurement cycle and connects these movements with financial and operational structures. With this model, organizations can trace goods from receipt through storage, transfer, and consumption. They can ensure that every movement is tied to accounting and controlling dimensions such as cost centers, profit centers, and company codes. This linkage makes it possible to assess whether deliveries arrive as expected. Organizations can understand the impact of goods movements on costs and inventory levels. They can also monitor compliance with internal processes.
 
 Over time, the model also helps to highlight patterns in supplier reliability, product handling efficiency, and the overall stability of procurement operations. These insights give finance and operations teams a consistent view of physical and financial outcomes.
 
@@ -190,35 +157,34 @@ Over time, the model also helps to highlight patterns in supplier reliability, p
 - SAP S/4HANA
 - SAP ECC (available through partner integration)
 
-### Supplier Invoices
+### Supplier invoices
 
-The Supplier Invoices data model is central to maintaining financial oversight and operational efficiency within the procurement process. It provides a structured way to manage invoice validation by seamlessly combining transactional and core data.
+The supplier invoices data model is central to maintaining financial oversight and operational efficiency within the procurement process. It provides a structured way to manage invoice validation by seamlessly combining transactional and core data.
 
 With this model, organizations gain a clearer view of their spending activity. They can follow how invoices progress through each stage of their lifecycle and assess whether compliance standards are being met. The model also provides a view into supplier performance.
 
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
-
 **Related resources:**
-[Spend Insights](business-templates.md#spend-insights)
+[Spend insights](business-templates.md#spend-insights)
 
-### Accounts Receivable
+## Manufacturing
 
-The Accounts Receivable data model focuses on incoming cash flows from customers. It offers a complete view of outstanding invoices, payment behavior, and credit exposure. By analyzing receivables data, finance teams can measure collection efficiency, monitor overdue items, and predict cash inflows to optimize working capital.
+Supports the management and execution of production orders by providing a comprehensive view of how production is planned, carried out, and confirmed across the manufacturing lifecycle.
 
-Advanced analytics highlight trends in customer payment patterns, flag potential credit risks, and enable proactive actions to reduce days sales outstanding. This transparency improves forecasting accuracy and strengthens financial health across the organization.
+### Manufacturing orders
 
-:::image type="content" source="./media/data-models-business-process-solutions/account-receivables.png" alt-text="Screenshot that shows the Aging Report." lightbox="./media/data-models-business-process-solutions/account-receivables.png":::
+The Manufacturing Orders data model provides visibility into production orders from a planning and execution perspective. It supports analysis of order volumes and timelines to help organisations understand capacity constraints and improve the reliability of production scheduling. By aligning planned quantities with execution data, the model helps identify risks that may impact delivery commitments and production throughput.
 
-**Supported source systems:**
+### Manufacturing operations
 
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
+The Manufacturing Operations data model focuses on how production work is executed on the shop floor. It enables insight into operational efficiency by highlighting how work progresses over time and where process constraints may arise. This supports informed decisions that help improve utilisation of production resources and address inefficiencies that affect overall manufacturing performance.
 
-**Related resources:**
-[Accounts Receivable Insights](business-templates.md#accounts-receivable-insights)
+### Manufacturing components
+
+The Manufacturing Components data model provides insight into material requirements derived from the bill of materials associated with production orders. It helps organisations understand how required materials are determined and how demand develops throughout the production lifecycle. By improving visibility into planned consumption, the model supports more proactive material planning and reduces the risk of supply disruptions that can impact production continuity.
+
+### Manufacturing confirmations
+
+The Manufacturing Confirmations data model captures production execution outcomes and provides transparency into how work is completed. It supports accurate cost tracking and performance evaluation by linking execution results with production expectations. This visibility enables continuous improvement by helping organisations understand productivity trends and optimise labour efficiency over time.
 
 ## Related content
 
