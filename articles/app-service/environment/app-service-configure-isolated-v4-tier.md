@@ -30,12 +30,12 @@ To scale up an app to Isolated v4:
 
 ## Isolated v4 availability
 
-The Isolated v4 tier is available for source code applications on Windows, source code applications and custom containers on Linux, and Windows containers in an App Service Environment v3.
+The Isolated v4 tier is available in App Service Environment v3. It supports Windows code apps, Linux code apps, Linux custom containers, and Windows containers.
 
 > [!NOTE]
-> Windows containers don't support large SKUs (`I4V4` and above, and the memory-optimized `I1mV4`–`I5mV4` SKUs) in some regions. This matches the existing Isolated v2 behavior.
+> Windows containers don't support large SKUs (`I4V4` and larger, and the memory-optimized `I1mV4`–`I5mV4` SKUs) in some regions. This behavior matches Isolated v2.
 
-Isolated v4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Isolated v4 offering, run the following Azure CLI command in [Azure Cloud Shell](../../cloud-shell/overview.md). Use Azure CLI version 2.73.0 or above. Substitute *I1V4* with the desired SKU:
+Isolated v4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Isolated v4 offering, run the following Azure CLI command in [Azure Cloud Shell](../../cloud-shell/overview.md). Use Azure CLI version 2.73.0 or later. Substitute *I1V4* with the desired SKU:
 
 **Windows** SKU availability
 
@@ -53,7 +53,7 @@ az appservice list-locations --linux-workers-enabled --sku I1V4
 
 ## Create an app in the Isolated v4 tier
 
-An App Service app's pricing tier is defined by its [App Service plan](../overview-hosting-plans.md). When you create an App Service plan inside an App Service Environment v3, you can select an Isolated v4 SKU at creation time.
+The [App Service plan](../overview-hosting-plans.md) defines an App Service app's pricing tier. When you create an App Service plan inside an App Service Environment v3, you can select an Isolated v4 SKU at creation time.
 
 When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing plan** and choose an **Isolated V4** tier.
 
@@ -68,7 +68,7 @@ Although Isolated v4 fully integrates with autoscale, limit individual scale-out
 
 ## Scale up an existing app to Isolated v4 tier
 
-Before scaling up an existing app to the Isolated v4 tier, ensure Isolated v4 is available in your App Service Environment. See [Isolated v4 availability](#availability). If Isolated v4 isn't available, see [Scale up from an unsupported resource group and region combination](#unsupported).
+Before scaling up an existing app to the Isolated v4 tier, make sure Isolated v4 is available in your App Service Environment. For details, see [Isolated v4 availability](#availability). If Isolated v4 isn't available, follow the steps in [Scale up from an unsupported resource group and region combination](#unsupported).
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open your App Service app page.
 
@@ -87,7 +87,7 @@ If the underlying App Service Environment deployment doesn't support the request
 ## Regions
 
 > [!IMPORTANT]
-> Isolated v4 has limited regional capacity at launch. If you see an error such as *"The requested SKU is not available in the selected region"* or *"Insufficient quota"* when attempting to deploy, scale, or create an App Service Environment using an Isolated v4 SKU, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request Isolated v4 capacity in your target region.
+> Isolated v4 has limited regional capacity at launch. If you see an error such as *"The requested SKU isn't available in the selected region"* or *"Insufficient quota"* when attempting to deploy, scale, or create an App Service Environment using an Isolated v4 SKU, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request Isolated v4 capacity in your target region.
 
 Isolated v4 is available in the following regions:
 
