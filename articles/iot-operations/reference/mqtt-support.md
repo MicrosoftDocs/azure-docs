@@ -1,8 +1,8 @@
 ---
 title: MQTT feature support in MQTT broker
 description: MQTT feature and control support in MQTT broker.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: reference
 ms.date: 02/26/2026

@@ -9,6 +9,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+ms.update-cycle: 180-days
 # Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 

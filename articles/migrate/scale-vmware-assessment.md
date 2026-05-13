@@ -6,6 +6,7 @@ ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.custom: engagement-fy23
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator managing a VMware environment, I want to assess a large number of on-premises servers for migration to the cloud, so that I can plan an efficient migration strategy using available tools and services.
 ---
 

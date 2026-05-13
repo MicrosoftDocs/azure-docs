@@ -1,10 +1,10 @@
 ---
 title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations"
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
-author: sethmanheim
+author: dominicbetts
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.author: sethm
+ms.author: dobett
 ms.topic: how-to
 ms.date: 11/15/2024
 ms.custom: sfi-image-nochange

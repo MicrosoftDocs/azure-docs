@@ -1,8 +1,8 @@
 ---
 title: Expressions reference for data flows
 description: Reference for the expression language used in data flow and data flow graph transforms in Azure IoT Operations. Covers operators, functions, data types, metadata, and conditionals.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference

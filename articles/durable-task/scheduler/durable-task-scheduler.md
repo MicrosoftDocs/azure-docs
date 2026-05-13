@@ -178,10 +178,6 @@ Stale orchestration data should be purged periodically to ensure efficient stora
   * Minimum length: 1 character (cannot be empty)
   * Instance IDs starting with @ are reserved for entities
 
-- **Feature parity:** 
-
-    [Extended sessions](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#extended-sessions) aren't supported by Durable Task Scheduler.
-
 ## Related content
 
 - [Develop with Durable Task Scheduler](./develop-with-durable-task-scheduler.md)

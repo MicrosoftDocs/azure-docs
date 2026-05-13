@@ -1,8 +1,8 @@
 ---
 title: Configure a data flow source
 description: Configure source endpoints and data sources for data flows and data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

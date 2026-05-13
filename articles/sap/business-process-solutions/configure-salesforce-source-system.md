@@ -45,6 +45,9 @@ Before you create a source system for Salesforce, follow these steps to create a
 To configure your source system, follow these steps:
 
 1. On the home screen, select **Configure source system**.
+
+   :::image type="content" source="./media/configure-salesforce-source-system/configure-source-system.png" alt-text="Screenshot that shows the Configure source system button." lightbox="./media/configure-salesforce-source-system/configure-source-system.png":::
+
 1. Select **New source system**.
 
    :::image type="content" source="./media/configure-salesforce-source-system/create-source-system.png" alt-text="Screenshot that shows the New source system button." lightbox="./media/configure-salesforce-source-system/create-source-system.png":::
@@ -58,6 +61,9 @@ To configure your source system, follow these steps:
    :::image type="content" source="./media/configure-salesforce-source-system/create-salesforce-system.png" alt-text="Screenshot that shows the source system details input form." lightbox="./media/configure-salesforce-source-system/create-salesforce-system.png":::
 
 1. Monitor the deployment status by using the refresh button to refresh the page.
+
+   :::image type="content" source="./media/configure-salesforce-source-system/source-system-creating.png" alt-text="Screenshot that shows the deployment status monitoring view." lightbox="./media/configure-salesforce-source-system/source-system-creating.png":::
+
 1. After the deployment is finished, you can see the resources deployed to your workspace.
 
 ## Next step

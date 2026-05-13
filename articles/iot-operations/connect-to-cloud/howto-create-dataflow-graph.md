@@ -1,8 +1,8 @@
 ---
 title: Create a data flow graph in Azure IoT Operations
 description: Learn how to create a data flow graph to process data with composable transforms in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

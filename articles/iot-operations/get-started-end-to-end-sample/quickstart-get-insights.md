@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Get insights from your processed data"
 description: "Quickstart: Use a real-time dashboard to capture insights from the OPC UA data you sent to Event Hubs."
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.topic: quickstart
 ms.date: 01/28/2025
 ms.custom:

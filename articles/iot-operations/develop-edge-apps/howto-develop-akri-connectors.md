@@ -1,6 +1,6 @@
 ---
-title: Build and deploy Akri connectors
-description: Learn how to build and deploy Akri connectors for Azure IoT Operations. This example shows how to build a REST connector.
+title: Build and deploy custom Akri connectors
+description: Learn how to build and deploy custom Akri connectors for Azure IoT Operations. This example shows how to build a REST connector.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -9,11 +9,13 @@ ms.date: 01/09/2026
 ai-usage: ai-assisted
 ---
 
-# Build and deploy Akri connectors
+# Build and deploy custom Akri connectors
 
-This article shows you how to build and deploy Akri connectors for Azure IoT Operations. The example in this article shows how to build a REST connector that polls a REST endpoint for thermostat data such as current and desired temperature values.
+This article shows you how to build and deploy custom Akri connectors for Azure IoT Operations. The example in this article shows how to build a REST connector that polls a REST endpoint for thermostat data such as current and desired temperature values.
 
 The article uses the `aiopollingtelemetryconnector` .NET project template to scaffold the connector project in Visual Studio Code.
+
+After you develop a custom Akri connector, you deploy it and make it visible in the operations experience by packaging it with a valid configuration file, pushing it to a container registry, and registering it as a connector type in the Azure portal.
 
 For more information about developing Akri connectors by using the VS Code extension, see [Build Akri connectors in VS Code](howto-build-akri-connectors-vscode.md).
 
@@ -70,7 +72,7 @@ dotnet build
 
 ## Publish the connector image
 
-After you finish the code, build and publish the connector to a container registry. To build and publish the container image to your Azure Container Registry instance, run the following commands from the project folder:
+After you finish the code, build and publish the connector to a container registry. If you don't complete these steps, the connector won't be available for use in your Azure IoT Operations instance. To build and publish the container image to your Azure Container Registry instance, run the following commands from the project folder:
 
 > [!IMPORTANT]
 > This container registry instance must be the one configured as the container registry endpoint in your Azure IoT Operations instance.

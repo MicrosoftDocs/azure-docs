@@ -1,8 +1,8 @@
 ---
 title: Understand message schemas
 description: Learn how the schema registry stores and manages message schemas for data flows in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.date: 03/19/2026
 ms.service: azure-iot-operations
