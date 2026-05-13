@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an Express Container App Using the Azure CLI'
+title: "Quickstart: Deploy an Express Container App Using the Azure CLI"
 description: Learn how to deploy your first Azure Container Apps express app using the Azure CLI, including creating an express environment and deploying a container image.
 ms.service: azure-container-apps
 author: craigshoemaker
