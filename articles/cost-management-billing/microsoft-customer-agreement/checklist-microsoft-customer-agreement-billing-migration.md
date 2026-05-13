@@ -135,8 +135,26 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 - Notify your accounts payable team.
 - Create separate records for EA and MCA invoices. 
 - Expect a final invoice from the source and new monthly MCA invoices.
-- For bank detail verification letters, e invoicing, and third party invoicing requirements,  contact your Microsoft Account team.
+- For bank detail verification letters, e-invoicing, and third-party invoicing requirements, contact your Microsoft Account team.
 
+**Pricing calculator role changes**
+
+  - After transitioning to a Microsoft Customer Agreement (MCA), access to discounted pricing in the Azure Pricing Calculator is restricted to users with specific billing roles, and the permissions required differ from those under an Enterprise Agreement (EA).
+  
+  - Under MCA, users must have permissions at the billing account or billing profile level to view negotiated pricing.
+  
+  - Supported roles include:
+  
+    - Billing Profile Owner
+    
+    - Billing Profile Contributor
+    
+    - Billing Profile Reader
+    
+    - Invoice Manager
+    
+    **Access limitation:** Users without these roles will see **retail pricing only** in the Azure Pricing Calculator.
+    
 ## Tax and compliance
 
 - Tax exemption certificates: If your account has a tax exemption certificate, create an Azure support request to associate it with your MCA account.
@@ -150,6 +168,9 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 
 ## Next steps
 
-- [Set up billing for Microsoft Customer Agreement.](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-setup-account#before-you-start-the-setup-we-recommend-you-do-the-following-actions)
-- [Onboard to the Microsoft Customer Agreement (MCA).](https://learn.microsoft.com/azure/cost-management-billing/microsoft-customer-agreement/onboard-microsoft-customer-agreement#migrate-from-an-ea-to-an-mca)
-- [Transfer Azure product billing ownership to a Microsoft Customer Agreement](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership)
+- [Set up billing for Microsoft Customer Agreement.](/azure/cost-management-billing/manage/mca-setup-account)
+
+- [Onboard to the Microsoft Customer Agreement (MCA).](/azure/cost-management-billing/microsoft-customer-agreement/onboard-microsoft-customer-agreement)
+
+- [Transfer Azure product billing ownership to a Microsoft Customer Agreement](/azure/cost-management-billing/manage/mca-request-billing-ownership)
+
