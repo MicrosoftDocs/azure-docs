@@ -6,6 +6,7 @@ ms.date: 05/04/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
+  - build-2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
@@ -20,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2026
+  - [Vaulted backups for Cosmos DB accounts with Azure Backup for Cosmos DB (preview)](#vaulted-backups-for-cosmos-db-accounts-with-azure-backup-for-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
@@ -68,6 +70,15 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Vaulted backups for Cosmos DB accounts with Azure Backup for Cosmos DB (preview)
+
+Azure Backup now supports **vaulted backups for Cosmos DB**, enabling secure, off-site protection of Cosmos DB accounts in a Backup vault. This capability helps improve **cyber-resilience and compliance** by maintaining isolated backup copies that are protected from accidental deletion, malicious activity, and ransomware scenarios.
+
+Key benefits include **policy-based scheduled backups**, and **security features such as encryption, soft delete, immutability, and role-based access control**. This preview allows customers to protect Azure Cosmos DB accounts using Azure Backup.
+
+Please refer to the documentation for [product overview](backup-azure-cosmos-db-overview.md) and details on [supported scenarios and limitations](backup-azure-cosmos-db-support-matrix.md).
+
+Billing will be enabled from 1 July 2026. Refer to Azure Backup [pricing page](https://azure.microsoft.com/en-us/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) for more details.
 
 ## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
 

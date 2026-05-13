@@ -583,7 +583,23 @@
         href: backup-azure-database-postgresql-flex-use-rest-api.md
       - name: Restore
         href: backup-azure-database-postgresql-flex-use-rest-api-restore.md
-- name: Azure Database for MySQL - Flexible Server backup retention
+- name: Azure Cosmos DB backup (preview)
+  items:
+  - name: Overview
+    href: backup-azure-cosmos-db-overview.md
+  - name: Support matrix
+    href: backup-azure-cosmos-db-support-matrix.md
+  - name: Backup scenarios
+    items:
+    - name: From the Azure portal
+      items:
+      - name: Configure backup
+        href: backup-azure-cosmos-db.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore.md
+      - name: Manage
+        href: backup-azure-cosmos-db-manage.md
+- name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
     href: backup-azure-mysql-flexible-server-about.md

@@ -1,31 +1,30 @@
 ---
-title: Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
-description: Learn about how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
+title: Configure backup for Azure Cosmos DB using Azure portal
+description: Learn about how to configure backup for Azure Cosmos DB using Azure portal. 
 ms.topic: how-to
-ms.date: 01/22/2026
+ms.date: 05/15/2026
 ms.service: azure-backup
 ms.custom:
-  - ignite-2024
+  - build-2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As a database administrator, I want to configure backup policies for Azure Database for PostgreSQL - Flexible Server using a portal, so that I can ensure data protection and manage retention effectively.
+# Customer intent: As a database administrator, I want to configure backup policies for Azure Cosmos DB using a portal, so that I can ensure data protection and manage retention effectively.
 ---
 
-# Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
+# Configure backup for Azure Cosmos DB (preview) using Azure portal
 
-This article describes how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
+This article describes how to configure backup for Azure Cosmos DB (preview) using Azure portal. 
 
 ## Prerequisites
 
-Before you configure backup for Azure Database for PostgreSQL - Flexible Server, ensure the following prerequisites are met:
+Before you configure backup for Azure Cosmos DB, ensure the following prerequisites are met:
 
-[!INCLUDE [Prerequisites for backup of Azure Database for PostgreSQL - Flexible Server.](../../includes/backup-postgresql-flexible-server-prerequisites.md)]
+- Review the [supported scenarios and known limitations](backup-azure-cosmos-db-support-matrix.md) of Azure Cosmos DB backup.
+- Identify or [create a Backup Vault](create-manage-backup-vault.md) in the same region where you want to back up the Azure Cosmos DB account.
 
-[!INCLUDE [Configure protection for Azure Database for PostgreSQL - Flexible Server.](../../includes/configure-postgresql-flexible-server-backup.md)]
+## Create a backup policy
 
-### Create a backup policy
-
-You can create a backup policy on the go during the backup configuration flow.
+A backup policy defines backup frequency and retention rules that determine lifecycle management of recovery points.
 
 To create a backup policy, follow these steps: 
 
@@ -33,33 +32,75 @@ To create a backup policy, follow these steps:
 2. On the **Backup policy** tab, select **Create new** under **Backup policy**.
 3. On the **Create Backup Policy** pane, on the **Basics** tab,  provide a name for the new policy on **Policy name**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/enter-policy-name.png" alt-text="Screenshot sows how to provide the Backup policy name.":::
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-basics.png" alt-text="Screenshot sows how to provide the Backup policy name." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-basics.png":::
 
 4. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
+   
+   >[!Note]
+   >Only weekly backup frequency is supported in preview. Daily backup frequency to provide 1-day RPO will be provided before general availability.
 
 5. Under **Retention rules**, select **Add retention rule**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png" alt-text="Screenshot shows how to define the backup schedule in the Backup policy." lightbox="./media/backup-azure-database-postgresql-flex/define-backup-schedule.png":::
-
-6. On the **Add retention** pane, define the retention period, and then select **Add**.
-
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
 
    >[!Note]
-   >The default retention period for **Weekly** backup is **10 years**. You can add retention rules for specific backups, including data store and retention duration.
+   >The default retention period is **1 year**. You can add retention rules for specific backups and set retention duration.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/add-retention-rules.png" alt-text="Screenshot shows how to define the retention for the database backups." lightbox="./media/backup-azure-database-postgresql-flex/add-retention-rules.png":::
 
 7. Once you are on the **Create Backup Policy** pane, select **Review + create**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-flex/complete-policy-creation.png" alt-text="Screenshot shows how to trigger the Backup policy creation." lightbox="./media/backup-azure-database-postgresql-flex/complete-policy-creation.png":::    
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-review-create.png" alt-text="Screenshot shows how to trigger the Backup policy creation." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-review-create.png":::    
 
     >[!Note]
     >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
-    
 
-When the backup configuration is complete, you can [run an on-demand backup](tutorial-create-first-backup-azure-database-postgresql-flex.md#run-an-on-demand-backup) and [track the progress of the backup operation](tutorial-create-first-backup-azure-database-postgresql-flex.md#track-a-backup-job).
+## Configure backup
 
+To configure backup Cosmos DB account via Resiliency, follow these steps:
+
+1. Go to **Resiliency**, and then select **Overview** > **Configure protection**.
+
+   Alternatively, for configuring backup from the **Backup vault** pane, go to the **Backup vault** > **Overview**, and then select **Backup**.
+
+2. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Cosmos DB (preview)**, and **Solution** as **Azure Backup**, and then select **Continue**.
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-landing.png" alt-text="Screenshot shows the datasource and solution selection." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-landing.png":::
+
+3. On the **Configure Backup** pane, on the **Basics** tab, check if **Datasource type** appears as **Azure Cosmos DB (preview)**, click **Select vault** under **Vault** and choose an existing Backup vault from the dropdown list, and then select **Next**.
+
+   If you don't have a Backup vault, [create a new one](../articles/backup/create-manage-backup-vault.md#create-a-backup-vault). 
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-basics.png" alt-text="Screenshot shows the Backup vault selection." lightbox="./media//backup-azure-cosmos-db/backup-cosmos-configure-backup-basics.png":::
+         
+4. On the **Backup policy** tab, select a Backup policy that defines the backup schedule and the retention duration, and then select **Next**.
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-backup-policy.png" alt-text="Screenshot shows the Backup policy selection." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-backup-policy.png":::
+
+5. On the **Datasources** tab, choose the datasource name.
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-datasources-add.png" alt-text="Screenshot shows the account selection for backup." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-datasources-add.png":::
+
+6. On the  **Select resources to backup** pane, select the Azure Cosmos DB account to back up, and then click **Select**.
+
+   >[!Note]
+   >Ensure that the primary write region of the Azure Cosmos DB account should be same as the Backup Vault region.
+
+   Once you're on the **Datasources** tab,  the Azure Backup service validates if it has all the necessary access permissions to connect to the Cosmos DB account. If one or more access permissions are missing, one of the following  error messages appears – **User cannot assign roles** or **Role assignment not done**.
+
+   - **User cannot assign roles**: This message appears when you (the backup admin) don’t have the **write access** on the Cosmos DB account as listed under **View details**. To assign the necessary permissions on the required resources, select **Download role assignment template** to fetch the ARM template,  and run the template as an administrator. Once the template is run successfully, select **Revalidate**.
+
+   - **Role assignment not done**: This message appears when you (the backup admin) have the **write access** on the Cosmos DB account to assign missing permissions as listed under **View details**. To grant permissions inline, select **Assign missing roles**. 
+
+     Once the process starts, the missing access permissions on the Cosmos DB account are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
+ 
+7. Once the role assignment validation shows **Success**,  select **Next** to proceed to last step of submitting the operation.
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-datasources-added.png" alt-text="Screenshot shows the role assignment validation is successful." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-datasources-added.png":::
+
+8. On the **Review + configure** tab, select **Configure backup**.
+
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png" alt-text="Screenshot to review and configure backup" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png":::
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL - Flexible Server using Azure portal](./restore-azure-database-postgresql-flex.md).
+[Manage backup of Azure Cosmos DB using Azure portal](backup-azure-cosmos-db-manage.md)
