@@ -30,8 +30,8 @@ There are two options for deploying dependency analysis
 **Option** | **Details** | **Public cloud** | **Azure Government**
 ----  |---- | ---- |----
 **Agentless** | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | Supported | Supported
-**Agent-based analysis** | Azure Migrate no longer supports agent-based dependency visualization. However, if you still want to use agent-based dependency visualization, install [Azure Monitor VM Insights](azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
-Please note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](pricing/details/monitor/). | Supported | Not supported.
+**Agent-based analysis** | Azure Migrate no longer supports agent-based dependency visualization. However, if you still want to use agent-based dependency visualization, install [Azure Monitor VM Insights](/azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
+Please note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](/pricing/details/monitor/). | Supported | Not supported.
 
 ## Agentless analysis
 
@@ -53,9 +53,9 @@ After discovery of dependency data begins, polling begins:
 
 ## Agent-based analysis
 
-Azure Migrate recommends the use of agentless dependency analysis and no longer provides support for agent based dependency visualization. However, if you still want to use agent-based dependency visualization, you can directly install [Azure Monitor VM Insights](azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
+Azure Migrate recommends the use of agentless dependency analysis and no longer provides support for agent based dependency visualization. However, if you still want to use agent-based dependency visualization, you can directly install [Azure Monitor VM Insights](/azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
 
-Please note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](pricing/details/monitor/).
+Please note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](/pricing/details/monitor/).
 
 ## Next steps
 
