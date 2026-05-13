@@ -66,7 +66,7 @@ Key capabilities include:
 
 - **Resource rediscovery**: Refreshes evaluation when service group membership changes.
 
-For more information, see [Infrastructure Resiliency Manager (preview)]().
+For more information, see [Goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).
 
 ## Azure recovery orchestration plan for zonal failover (preview)
 
@@ -84,7 +84,9 @@ Key benefits include:
 
 - **Manual control during failover**: Adds manual action steps that pause execution until you complete required interventions.
 
-For more information, see []().
+For more information, see [Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
 
-## Next steps
+## Related content
 
+- [About Resiliency in Azure](resiliency-overview.md).
+- [Support matrix for Resiliency](resiliency-support-matrix.md).

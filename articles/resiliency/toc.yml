@@ -10,6 +10,8 @@
     items:
     - name: Availability Zone Down Drills
       href: availability-zone-down-drills-about.md
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-about.md
   expanded: true
 - name: Quickstart
   items:
@@ -51,6 +53,8 @@
       href: availability-zone-down-drills-support-matrix.md
     - name: Goals and recommendations
       href: goals-recommendations-support-matrix.md  
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-support-matrix.md
   - name: Security levels
     href: security-levels-concept.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
