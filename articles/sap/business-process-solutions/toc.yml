@@ -29,6 +29,8 @@ items:
         href: monitor-data-extraction.md
       - name: Monitor in Fabric
         href: monitor-fabric-data-extraction-processing.md
+    - name: Post processing
+      href: post-processing.md
     - name: Manage datasets
       href: manage-datasets.md
   - name: Troubleshooting common issues

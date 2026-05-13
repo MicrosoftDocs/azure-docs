@@ -1,11 +1,11 @@
 ---
 author: hhunter-ms
-title: Automate recurring orchestrations with schedules
-description: Learn how to create, manage, and monitor recurring orchestrations using the schedules feature in the Durable Task Scheduler
+title: "Automate Recurring Orchestrations with Schedules"
+description: Learn how to create, manage, and monitor recurring orchestrations using schedules in the Durable Task Scheduler. Automate interval-based workflows with built-in pause, resume, and update support.
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 03/03/2026
+ms.date: 05/01/2026
 ms.author: torosent
 ---
 
@@ -81,9 +81,13 @@ builder.Services.AddDurableTaskClient(b =>
 
 IHost host = builder.Build();
 await host.StartAsync();
+
+// Retrieve the ScheduledTaskClient from DI
+ScheduledTaskClient scheduledTaskClient = host.Services
+    .GetRequiredService<ScheduledTaskClient>();
 ```
 
-After setup, inject `ScheduledTaskClient` to create and manage schedules.
+After setup, inject `ScheduledTaskClient` into your services to create and manage schedules. The following examples use a `scheduledTaskClient` variable obtained through dependency injection or directly from the service provider as shown.
 
 ## Create a schedule
 
@@ -102,6 +106,7 @@ ScheduleCreationOptions options = new(
     StartImmediatelyIfLate = true
 };
 
+// scheduledTaskClient is a ScheduledTaskClient obtained from DI
 ScheduleClient scheduleClient = await scheduledTaskClient.CreateScheduleAsync(options);
 ```
 
@@ -112,7 +117,8 @@ The following table describes `ScheduleCreationOptions` properties.
 | `ScheduleId` | `string` | Yes | Unique identifier for the schedule. |
 | `OrchestrationName` | `string` | Yes | Name of the orchestrator to trigger on each interval. |
 | `Interval` | `TimeSpan` | Yes | Time between each orchestration execution. |
-| `OrchestrationInput` | `object?` | No | Input data passed to the orchestration on each run. |
+| `OrchestrationInput` | `string?` | No | Input data passed to the orchestration on each run. |
+| `OrchestrationInstanceId` | `string?` | No | Custom instance ID prefix for orchestrations triggered by this schedule. |
 | `StartAt` | `DateTimeOffset?` | No | When the schedule becomes active. Defaults to immediately. |
 | `EndAt` | `DateTimeOffset?` | No | When the schedule stops triggering. No default (runs indefinitely). |
 | `StartImmediatelyIfLate` | `bool` | No | If `true`, runs the orchestration immediately when the schedule misses its trigger time. |
@@ -133,6 +139,29 @@ Console.WriteLine($"Status: {description.Status}");
 Console.WriteLine($"Interval: {description.Interval}");
 ```
 
+The following table describes key `ScheduleDescription` properties.
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `ScheduleId` | `string` | Unique identifier for the schedule. |
+| `OrchestrationName` | `string?` | Name of the orchestrator triggered by this schedule. |
+| `OrchestrationInput` | `string?` | Input data passed to each orchestration run. |
+| `OrchestrationInstanceId` | `string?` | Custom instance ID prefix for triggered orchestrations. |
+| `Interval` | `TimeSpan?` | Time between each orchestration execution. |
+| `StartAt` | `DateTimeOffset?` | When the schedule became or becomes active. |
+| `EndAt` | `DateTimeOffset?` | When the schedule stops triggering. |
+| `StartImmediatelyIfLate` | `bool?` | Whether to run immediately when a trigger is missed. |
+| `Status` | `ScheduleStatus` | Current state of the schedule (see following table). |
+| `LastRunAt` | `DateTimeOffset?` | Timestamp of the most recent orchestration trigger. |
+| `NextRunAt` | `DateTimeOffset?` | Timestamp of the next scheduled trigger. |
+
+The `Status` property returns one of the following `ScheduleStatus` values.
+
+| Value | Description |
+| ----- | ----------- |
+| `Active` | The schedule is running and triggers orchestrations on its interval. |
+| `Paused` | The schedule is suspended. No new orchestrations are triggered until you call `ResumeAsync`. |
+
 ### Pause and resume
 
 Temporarily stop a schedule from triggering new orchestrations, and then resume it later.
@@ -145,7 +174,7 @@ await scheduleClient.PauseAsync();
 await scheduleClient.ResumeAsync();
 ```
 
-Pausing a schedule doesn't affect orchestration instances that already run.
+Pausing a schedule doesn't cancel orchestration instances that are already running.
 
 ### Update a schedule
 
@@ -161,6 +190,18 @@ ScheduleUpdateOptions updateOptions = new()
 
 await scheduleClient.UpdateAsync(updateOptions);
 ```
+
+The following table describes `ScheduleUpdateOptions` properties. All properties are optional. Only the properties you set are changed; the rest remain unchanged.
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `OrchestrationName` | `string?` | New orchestrator name to trigger. |
+| `OrchestrationInput` | `string?` | New input data for each orchestration run. |
+| `OrchestrationInstanceId` | `string?` | New custom instance ID prefix. |
+| `Interval` | `TimeSpan?` | New interval between executions. Must be at least 1 second. |
+| `StartAt` | `DateTimeOffset?` | New start time for the schedule. |
+| `EndAt` | `DateTimeOffset?` | New end time for the schedule. |
+| `StartImmediatelyIfLate` | `bool?` | Whether to run immediately when a trigger is missed. |
 
 ### Delete a schedule
 
@@ -190,6 +231,17 @@ ScheduleQuery query = new() { PageSize = 50 };
 AsyncPageable<ScheduleDescription> schedules = scheduledTaskClient.ListSchedulesAsync(query);
 ```
 
+The following table describes `ScheduleQuery` properties.
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `Status` | `ScheduleStatus?` | Filter schedules by status (`Active` or `Paused`). |
+| `ScheduleIdPrefix` | `string?` | Return only schedules whose ID starts with this prefix. |
+| `CreatedFrom` | `DateTimeOffset?` | Return only schedules created on or after this time. |
+| `CreatedTo` | `DateTimeOffset?` | Return only schedules created on or before this time. |
+| `PageSize` | `int?` | Number of results per page. Default is 100. |
+| `ContinuationToken` | `string?` | Token for fetching the next page of results. |
+
 ## Get a schedule by ID
 
 Retrieve a specific schedule by its ID without the original `ScheduleClient` handle.
@@ -198,11 +250,11 @@ Retrieve a specific schedule by its ID without the original `ScheduleClient` han
 ScheduleDescription? schedule = await scheduledTaskClient.GetScheduleAsync("stock-price-check");
 ```
 
-You can also get a `ScheduleClient` handle for an existing schedule:
+`GetScheduleAsync` returns a read-only `ScheduleDescription` snapshot. If you need to perform actions like pause, resume, or update, use `GetScheduleClient` instead to get a `ScheduleClient` handle:
 
 ```csharp
 ScheduleClient existingClient = scheduledTaskClient.GetScheduleClient("stock-price-check");
-ScheduleDescription description = await existingClient.DescribeAsync();
+await existingClient.PauseAsync();
 ```
 
 ## Monitor schedules
@@ -215,7 +267,9 @@ Explore complete working examples that demonstrate schedule operations.
 
 - [Schedule console app](https://github.com/microsoft/durabletask-dotnet/tree/main/samples/ScheduleConsoleApp): Demonstrates how to create, pause, resume, delete, and list schedules in a console application.
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Get started with the Durable Task SDKs](./quickstart-portable-durable-task-sdks.md)
+- [Get started with the Durable Task SDKs](./quickstart-portable-durable-task-sdks.md)
+- [Eternal orchestrations](../common/durable-task-eternal-orchestrations.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Auto-purge retention policies](../scheduler/durable-task-scheduler-auto-purge.md)

@@ -7,7 +7,7 @@ ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/10/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -56,7 +56,7 @@ Best practices are:
 
 - **Enable port access only after workflow approval.**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-- **Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.**: [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
+- **Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.**: [Azure Bastion](../../bastion/bastion-overview.md) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
 
 - **Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 

@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 04/14/2026
+ms.date: 05/05/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -36,6 +36,8 @@ Azure Dedicated Host. | Not supported.
 Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure-to-Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
 
 ## Region support
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 With Site Recovery, you can perform global DR. You can replicate and recover VMs between any two Azure regions in the world. If you have concerns around data sovereignty, you can limit replication within your specific geographic cluster.
 
