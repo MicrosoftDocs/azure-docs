@@ -227,47 +227,61 @@ Use the **Timeline**, **History**, and **Flow** tabs to view its execution detai
 
 **Manage orchestrations**
 
-You can manage your orchestration lifecycle via the dashboard. 
+You can manage your orchestration lifecycle via the dashboard. In the **Orchestations** pane, select an instance ID to access the following actions:
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status-2.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, Suspend, and Resume buttons for managing orchestrations.":::
+
+- **Resume:** Continue a previously suspended orchestration.
+- **Suspend:** Pause a running orchestration. It remains in memory, but stops processing events until resumed.
+- **Restart:** Restart a previously running orchestration.
+- **Terminate:** Immediately stop an orchestration with an optional reason string.
+- **Purge:** Purge the orchestration instance.
+
+Drill into an individual orchestration to access the **Raise event** action. This action sends a named external event (with optional JSON payload) to a running or suspended orchestration.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, and Raise Event buttons for managing orchestrations.":::
 
-Available actions include:
-
-- **Raise Event:** Send a named external event (with optional JSON payload) to a running or suspended orchestration.
-
-    :::image type="content" source="media/durable-task-scheduler-dashboard/raise-event-action.png" alt-text="Screenshot of the form for raising an event.":::
-
-- **Restart:** Restart a previously running orchestration.
-
-    :::image type="content" source="media/durable-task-scheduler-dashboard/restart-orchestration.png" alt-text="Screenshot of the confirmation for restarting an orchestration.":::
-
-- **Terminate:** Immediately stop an orchestration with an optional reason string.
-
-    :::image type="content" source="media/durable-task-scheduler-dashboard/terminate-orchestration.png" alt-text="Screenshot of the confirmation for terminating an orchestration and the option for a force terminate.":::
-
-- **Purge:** Purge the orchestration instance.
-
-    :::image type="content" source="media/durable-task-scheduler-dashboard/purge-orchestration.png" alt-text="Screenshot of the confirmation for purging an orchestration.":::
 
 </details>
 
 <details>
 <summary><b>Entities</b></summary>
 
+Select **Entities** from the left side menu to view entities you've created.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/entities.png" alt-text="Screenshot of the entities you've created and some management tools for them.":::
+
 </details>
 
 <details>
 <summary><b>Agents (preview)</b></summary>
+
+> [!NOTE]
+> Reviewing agent sessions via the Durable Task Scheduler dashboard is currently in preview.
+
+Select **Agents** from the left side menu to monitor agent sessions triggered by your application in the scheduler.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/agent-history.png" alt-text="Screenshot of the agent sessions triggered by your application.":::
 
 </details>
 
 <details>
 <summary><b>Schedules</b></summary>
 
+Select **Schedules** from the left side menu to view schedules you've created.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/schedules-thumb.png" alt-text="Screenshot of the schedules you've created and some management tools for them." lightbox="media/durable-task-scheduler-dashboard/schedules-large.png":::
+
 </details>
 
 <details>
 <summary><b>Workers & metrics</b></summary>
+
+Select **Workers & Metrics** from the left side menu to view:
+- All of your pending, active, or stored activities, orchestrators, and entities.
+- Connected workers.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/workers-and-metrics.png" alt-text="Screenshot of an overview of the work item queues and connected workers.":::
 
 </details>
 
