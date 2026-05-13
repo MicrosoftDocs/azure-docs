@@ -81,6 +81,13 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 > [!IMPORTANT]
 > If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them. This operation updates the entire instance configuration, so ensure all existing properties are included in the request body.
 
+> [!TIP]
+> **Get the Azure Management API token:**
+> ```bash
+> TOKEN=$(az account get-access-token --resource "https://management.core.windows.net/" --query accessToken -o tsv)
+> ```
+> Then use `$TOKEN` in place of `{management-api-token}` in the command below. For more information, see [az account get-access-token](/cli/azure/account#az-account-get-access-token).
+
 ```bash
 curl --request PUT \
   --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
@@ -112,7 +119,7 @@ curl --request PUT \
 | `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
 | `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
 | `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
-| `{management-api-token}` | Azure Management API access token. See [Get access token](/rest/api/azure/#acquire-an-access-token) |
+| `{management-api-token}` | Azure Management API access token. See the TIP above for Azure CLI method, or [Get access token](/rest/api/azure/#acquire-an-access-token) for other options |
 | `{location}` | Azure region of your Azure Data Manager for Energy resource (for example, `southcentralus`) |
 | `{auth-app-id}` | Application ID used for Azure Data Manager for Energy authentication |
 | `{data-partition-name}` | Name of your data partition (for example, `dp1`) |
@@ -205,7 +212,7 @@ Grant the user-assigned managed identity write access to the ADLS Gen2 storage a
 ## Step 6: Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
-> During the preview, Microsoft must add user-assigned managed identities to an allow list before they can be used for ACZ operations. Share the following details with your Microsoft contact to add the user-assigned managed identity to the allow list.
+> During the preview, ACZ access requires allowlisting. Microsoft must enable the ACZ capability on your Azure Data Manager for Energy instance and configure it with your user-assigned managed identity. Share the following details with your Microsoft contact to complete the ACZ enablement.
 
 Provide the following information to your Microsoft representative:
 
