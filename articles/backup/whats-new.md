@@ -78,7 +78,7 @@ Key benefits include **policy-based scheduled backups**, and **security features
 
 Please refer to the documentation for [product overview](backup-azure-cosmos-db-overview.md) and details on [supported scenarios and limitations](backup-azure-cosmos-db-support-matrix.md).
 
-Billing will be enabled from 1 July 2026. Refer to Azure Backup [pricing page](https://azure.microsoft.com/en-us/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) for more details.
+Billing will be enabled from 1 July 2026. Refer to Azure Backup [pricing page](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details.
 
 ## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
 

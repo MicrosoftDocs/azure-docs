@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # About Azure Backup for Cosmos DB (preview)
 
-Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](./cosmos-db/overview.md) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](./azure/cosmos-db/online-backup-and-restore.md) by enabling off‑platform, immutable backups with retention of up to 10 years, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
+Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](./cosmos-db/overview.md) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](./cosmos-db/online-backup-and-restore.md) by enabling off‑platform, immutable backups with retention of up to 10 years, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
 
 Azure Backup for Cosmos DB is designed for customers who need: 
 
@@ -22,7 +22,7 @@ Azure Backup for Cosmos DB is designed for customers who need:
 - Centralized governance across multiple workloads 
 - Protection against accidental or malicious deletion (ransomware scenarios) 
 
-# Why use Azure Backup for Cosmos DB? 
+## Why use Azure Backup for Cosmos DB? 
 
 Azure Cosmos DB natively supports continuous (PITR) and periodic backups with a maximum retention of 35 days, optimized for operational recovery scenarios. However, many enterprises—especially in regulated industries—require longer retention, vault isolation, and immutability guarantees that go beyond native capabilities. 
 
@@ -33,7 +33,7 @@ Azure Backup for Cosmos DB addresses these gaps by providing:
 - Centralized management alongside other Azure Backup workloads
 - Enhanced security controls such as immutability, encryption, soft delete, RBAC, and multi‑user authorization (MUA) 
 
-# How Azure Backup for Cosmos DB works 
+## How Azure Backup for Cosmos DB works 
 
 Azure Backup for Cosmos DB integrates with Cosmos DB’s transactionally consistent backup streams and transfers backup data into a Backup vault based on a defined backup policy. Backups are taken at the Cosmos DB account level and include all databases and containers in the account. 
 
@@ -45,7 +45,7 @@ High‑level flow:
 - Recovery points are stored securely and isolated from the source account. 
 - Restores are performed from the vault to a target Cosmos DB account. 
 
-# Backup vaults and storage isolation 
+## Backup vaults and storage isolation 
 
 Azure Backup for Cosmos DB uses Backup vaults which provide: 
 
@@ -57,7 +57,7 @@ Azure Backup for Cosmos DB uses Backup vaults which provide:
 
 This isolation ensures that even if a Cosmos DB account is compromised or deleted, backup data remains protected and recoverable. 
 
-# Security and compliance 
+## Security and compliance 
 
 Azure Backup for Cosmos DB inherits Azure Backup’s enterprise‑grade security model: 
 
@@ -69,7 +69,7 @@ Azure Backup for Cosmos DB inherits Azure Backup’s enterprise‑grade security
 
 These controls help customers align with regulatory frameworks such as financial services, data retention mandates, and cyber‑resilience standards. 
 
-# Relationship with native Cosmos DB backups 
+## Relationship with native Cosmos DB backups 
 
 Azure Backup for Cosmos DB does not replace native Cosmos DB backups. Instead, the two work together: 
 

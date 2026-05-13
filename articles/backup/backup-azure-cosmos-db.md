@@ -68,7 +68,7 @@ To configure backup Cosmos DB account via Resiliency, follow these steps:
 
 3. On the **Configure Backup** pane, on the **Basics** tab, check if **Datasource type** appears as **Azure Cosmos DB (preview)**, click **Select vault** under **Vault** and choose an existing Backup vault from the dropdown list, and then select **Next**.
 
-   If you don't have a Backup vault, [create a new one](../articles/backup/create-manage-backup-vault.md#create-a-backup-vault). 
+   If you don't have a Backup vault, [create a new one](create-manage-backup-vault.md#create-a-backup-vault). 
 
    :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-basics.png" alt-text="Screenshot shows the Backup vault selection." lightbox="./media//backup-azure-cosmos-db/backup-cosmos-configure-backup-basics.png":::
          
