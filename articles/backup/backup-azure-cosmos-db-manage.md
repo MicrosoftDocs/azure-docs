@@ -16,16 +16,13 @@ This article describes how to manage backup of Azure Cosmos DB (preview) using A
 
 ## Change policy
 
-You can change the associated policy with a backup instance.
+You can change the associated policy with a protected item.
 
-1. Select the **Backup Instance** -> **Change Policy**.
-
-
-   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+1. Select the **Protected item** -> **Change Policy**.
    
-1. Select the new policy that you wish to apply to the database.
+2. Select the new policy that you wish to apply to the database.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+   :::image type="content" source="./media/backup-azure-cosmos-db-manage/backup-cosmos-edit-protected-item-change-policy.png" alt-text="Screenshot showing the option to reassign policy." lightbox="./media/backup-azure-cosmos-db-manage/backup-cosmos-edit-protected-item-change-policy.png":::
 
 > [!NOTE]
 >
@@ -69,7 +66,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 ## Manage operations using the Azure portal
 
-This section describes several Azure Backup supported management operations that make it easy to manage Azure PostgreSQL - Flexible servers.
+This section describes several Azure Backup supported management operations that make it easy to manage Azure Cosmos DB backups.
  
 ### Stop Protection
 
@@ -163,7 +160,7 @@ Use the following steps:
 
 If you choose to stop all scheduled backup jobs and delete all existing backups, use **Delete Backup Instance**.
 
-To delete a PostgreSQL server backup instance, follow these steps:
+To delete an Azure Cosmos DB protected item, follow these steps:
 
 1. Select **Delete** on the backup instance screen.
 
@@ -178,4 +175,4 @@ To delete a PostgreSQL server backup instance, follow these steps:
 
 ## Next step
 
-[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).
+[Restore Azure Cosmos DB account backup](backup-azure-cosmos-db-restore.md)
