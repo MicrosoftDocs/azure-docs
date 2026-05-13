@@ -10,6 +10,8 @@
     items:
     - name: Availability Zone Down Drills
       href: availability-zone-down-drills-about.md
+    - name: Goals and recommendations
+      href: goals-recommendations-about.md
     - name: Recovery orchestration plan
       href: recovery-orchestration-plan-about.md
   expanded: true
