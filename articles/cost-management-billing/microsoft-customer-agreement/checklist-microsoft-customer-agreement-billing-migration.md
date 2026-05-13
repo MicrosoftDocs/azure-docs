@@ -1,14 +1,13 @@
 ---
 title: Checklist Microsoft Customer Agreement Billing Migration
 description: This guide helps customers who sign a Microsoft Customer Agreement prepare their existing subscriptions for a billing migration.
-author: Nicholak-MS
+author: Clodwig
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: article
 ms.date: 4/14/2026
 ms.author: clodwig
 ms.reviewer: clodwig
-ms.custom:
 ---
 
 # MCA billing transition checklist
