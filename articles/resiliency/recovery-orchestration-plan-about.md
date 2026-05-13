@@ -2,6 +2,7 @@
 title: About Azure Recovery Orchestration Plan
 description: Learn about Azure Recovery Orchestration Plan (preview) and how it can help you orchestrate recovery across multiple resources within an application for zonal resiliency in Azure.
 ms.topic: overview
+ms.service: resiliency
 ms.date: 05/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka

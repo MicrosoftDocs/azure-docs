@@ -1,20 +1,20 @@
 ---
 title: Infrastructure Resiliency Manager support matrix for goals and recommendations
 description: Learn about the supported scenarios, limitations, and Azure RBAC roles for goals and recommendations in Infrastructure Resiliency Manager (preview).
-#customer intent: As an IT admin, I want to learn which Azure RBAC roles are required for goals and recommendations, so that I can grant the right permissions to my team.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
 ms.date: 06/02/2026
 ms.topic: reference
 ms.service: resiliency
+#customer intent: As an IT admin, I want to learn which Azure RBAC roles are required for goals and recommendations, so that I can grant the right permissions to my team.
 ---
 
-## Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)
+# Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)
 
 This article summarizes the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations in Infrastructure Resiliency Manager (preview).
 
-### Supported resource types and detected solutions
+## Supported resource types and detected solutions
 
 The following table lists the Azure-supported solutions recognized by the service for each resource type:
 
@@ -41,11 +41,11 @@ The following table lists the Azure-supported solutions recognized by the servic
 | Azure App Service Plan | Zone-redundant |
 | Azure App Service Environment | Zone-redundant |
 
-### Service group limits
+## Service group limits
 
 A single service group can contain a maximum of **500 resources**.
 
-### Excluded resource types
+## Excluded resource types
 
 Certain resource types are excluded from resiliency service's discovery. When resources are added to a service group via subscription or resource group membership, the following categories of resource types are automatically filtered out:
 
@@ -69,7 +69,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 
 - **Other infrastructure resources** - such as key vaults (evaluated separately), virtual network gateways, availability sets, SSH public keys, proximity placement groups, and capacity reservation groups.
 
-### RBAC requirements for Goals and Recommendations
+## RBAC requirements for Goals and Recommendations
 
 | Scenario | Required Roles |
 |----|----|
@@ -82,7 +82,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 | View resource-level recommendations | Service Group Reader + Reader on resources |
 | Postpone / Dismiss recommendations | Contributor on the target resources |
 
-### RBAC requirements for service group management
+## RBAC requirements for service group management
 
 | Scenario | Required Roles |
 |----|----|
