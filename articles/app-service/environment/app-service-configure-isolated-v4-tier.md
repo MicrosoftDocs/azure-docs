@@ -87,7 +87,7 @@ Some App Service plans can't scale up to the Isolated v4 tier if the underlying 
 ## Regions
 
 > [!IMPORTANT]
-> Isolated v4 capacity is constrained at launch. If you see an error such as *"The requested SKU isn't available in the selected region"* or *"Insufficient quota"* when you try to deploy, scale, or create an App Service Environment with an Isolated v4 SKU, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request Isolated v4 capacity in your target region.
+> Isolated v4 capacity is constrained at launch. You might see errors such as *"The requested SKU isn't available in the selected region"* or *"Insufficient quota"* when you try to deploy, scale, or create an App Service Environment with an Isolated v4 SKU. To request Isolated v4 capacity in your target region, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Isolated v4 is available in the following regions:
 
@@ -113,11 +113,11 @@ Isolated v4 is available in the following regions:
 
 ## Scale up from an unsupported resource group and region combination
 
-If your App Service Environment doesn't support Isolated v4, or if it's deployed in a region without Isolated v4, you need to redeploy your app to use Isolated v4. Two options exist:
+If your App Service Environment doesn't support Isolated v4, or if its region doesn't support Isolated v4, you need to redeploy your app. Two options exist:
 
 - **Create an app in a new resource group with a new App Service plan inside a new App Service Environment.**
 
-  Create a new App Service Environment v3 in a region where Isolated v4 is supported. Then, create an App Service plan in the desired Isolated v4 tier inside that App Service Environment. The new plan runs in a deployment unit that supports Isolated v4. Then, redeploy your application code to the new app. Even if you scale the new plan down to save costs, you can always scale back up to Isolated v4 because the deployment unit supports it.
+  Create a new App Service Environment v3 in a region that supports Isolated v4. Then, create an App Service plan in the desired Isolated v4 tier inside that App Service Environment. The new plan runs in a deployment unit that supports Isolated v4. Then, redeploy your application code to the new app. Even if you scale the new plan down to save costs, you can always return to Isolated v4 later because the deployment unit supports it.
 
 - **Use the Development tools > Clone app page to create an App Service plan in Isolated v4 in your target App Service Environment**, specifying the app settings and configuration to clone. Refer to the [current restrictions](../app-service-web-app-cloning.md#current-restrictions) for app cloning before you proceed.
 
