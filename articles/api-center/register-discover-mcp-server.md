@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 04/21/2026
+ms.date: 05/13/2026
  
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
@@ -20,10 +20,7 @@ This article describes how to use Azure API Center to maintain an inventory (or 
 As shown in this article, you can register remote or local MCP servers by using the Azure portal similar to the way you register APIs and other assets. API Center also provides links to partner MCP servers you can register in your inventory. 
 
 > [!TIP]
-> If you manage MCP servers in Azure API Management, you can enable automatic synchronization to keep your API center up to date with MCP servers and other APIs from your API Management instance. To learn more, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
-
-> [!NOTE]
-> New! MCP servers registered in your API center can now be integrated with Microsoft Foundry's tool catalogs, enabling you to govern MCP tools and make them available to AI agents. Learn more in [Tool catalog for agents in Foundry](/azure/ai-foundry/agents/concepts/tool-catalog) and [Private tool catalogs for Foundry agents](/azure/ai-foundry/agents/how-to/private-tool-catalog).
+> MCP servers registered in your API center can now be integrated with Microsoft Foundry's tool catalogs, enabling you to govern MCP tools and make them available to AI agents. Learn more in [Tool catalog for agents in Foundry](/azure/ai-foundry/agents/concepts/tool-catalog) and [Private tool catalogs for Foundry agents](/azure/ai-foundry/agents/how-to/private-tool-catalog).
 
 [!INCLUDE [about-mcp-servers](includes/about-mcp-servers.md)]
 
@@ -121,6 +118,14 @@ To build MCP servers by using Azure compute services and register them in your A
 - [Build and register a Logic Apps MCP server](../logic-apps/create-mcp-server-api-center.md)
 - [Build and register an Azure Functions MCP server](/azure/ai-foundry/mcp/build-your-own-mcp-server)
 
+## Synchronize MCP servers from API sources
+
+To automate MCP registration and keep your inventory up to date, you can integrate the following upstream sources with your API center:
+
+- **Azure API Management**: If you manage MCP servers in Azure API Management, you can enable automatic synchronization to keep your API center up to date. To learn more, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
+
+- **Git repository**: For MCP servers and other AI assets stored in a Git repository, you can enable automatic synchronization to keep your API center up to date. For more information, see [Synchronize API assets from a Git repo](synchronize-assets-git.md).
+
 ##  Discover MCP servers using API Center portal
 
 Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can browse and filter MCP servers in the inventory.
@@ -128,7 +133,7 @@ Set up your [API Center portal](set-up-api-center-portal.md) so that developers 
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-tiles.png" alt-text="Screenshot of MCP servers in API Center portal.":::
 
 * Users can view details such as the URL endpoint of the MCP server and tool schemas, and install the MCP server in their Visual Studio Code environment.
-- A built-in test console allows users to test MCP server tools and view the responses directly in the portal. On the **Documentation** tab of an MCP server details page, select a tool and then **Run tool** to access the test console.
+- A built-in *test console* allows users to test MCP server tools and view the responses directly in the portal. On the **Documentation** tab of an MCP server details page, select a tool and then **Run tool** to access the test console.
 
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP Inspector in API Center portal.":::
 
