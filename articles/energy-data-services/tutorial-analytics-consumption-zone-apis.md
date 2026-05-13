@@ -69,48 +69,47 @@ Use the Create ACZ API to set up a new Analytics Consumption Zone for a data par
 
 ```bash
 curl --request POST \
-  --url https://{base_url}/api/acz/v1/aczs \
-  --header 'Authorization: Bearer {access_token}' \
+  --url https://{base-url}/api/acz/v1/aczs \
+  --header 'Authorization: Bearer {access-token}' \
   --header 'Content-Type: application/json' \
-  --header 'data-partition-id: {data_partition_id}' \
+  --header 'data-partition-id: {data-partition-id}' \
   --data '{
-    "name": "my-acz-wells-and-logs",
-    "aczType": "LATEST_VERSION",
+    "name": "{acz-name}",
+    "aczType": "{acz-type}",
     "targetFormat": "DELTA_PARQUET",
     "sink": {
       "storageType": "microsoft.storage/storageaccounts",
-      "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
-      "basePath": "acz-output"
+      "storageId": "{storage-resource-id}",
+      "basePath": "{base-path}"
     },
     "configuration": {
-      "catalogKinds": [
-        "osdu:wks:master-data--Well:*",
-        "osdu:wks:reference-data--UnitOfMeasure:*"
-      ],
-      "wellboreDDMSKinds": [
-        "osdu:wks:work-product-component--WellLog:*"
-      ]
+      "catalogKinds": {catalog-kinds},
+      "wellboreDDMSKinds": {wellbore-ddms-kinds}
     }
   }'
 ```
+
+### Request parameters
+
+| Parameter | Location | Description |
+|---|---|---|
+| `{base-url}` | URL | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
+| `{access-token}` | Header (Authorization) | Azure Data Manager for Energy access token. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data-partition-id}` | Header | Your data partition ID (for example, `opendes`) |
 
 ### Request body parameters
 
 | Parameter | Type | Required | Description |
 |---|---|---|---|
-| `name` | string | Yes | Display name for the ACZ (1-100 characters). |
-| `aczType` | string | No | `LATEST_VERSION` (default) exports only the latest version. `ALL_VERSIONS` exports all versions. |
-| `targetFormat` | string | No | Target format. Only `DELTA_PARQUET` is supported. |
-| `sink` | object | Yes | Destination ADLS configuration. |
-| `sink.storageType` | string | No | Type of storage. Defaults to `microsoft.storage/storageaccounts`. |
-| `sink.storageId` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account. |
-| `sink.basePath` | string | No | Base path within the storage account for ACZ data output. |
-| `configuration` | object | Yes | Entity filter configuration. |
-| `configuration.catalogKinds` | string[] | No | OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
-| `configuration.wellboreDDMSKinds` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
+| `{acz-name}` | string | Yes | Display name for the ACZ (1-100 characters, for example, `my-acz-wells-and-logs`). |
+| `{acz-type}` | string | No | `LATEST_VERSION` (default) exports only the latest version. `ALL_VERSIONS` exports all versions. |
+| `{storage-resource-id}` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct`). |
+| `{base-path}` | string | No | Base path within the storage account for ACZ data output (for example, `acz-output`). |
+| `{catalog-kinds}` | string[] | No | OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*", "osdu:wks:reference-data--UnitOfMeasure:*"]`). |
+| `{wellbore-ddms-kinds}` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
 
 > [!NOTE]
-> You must provide at least one of `catalogKinds` or `wellboreDDMSKinds` in the configuration.
+> You must provide at least one of `{catalog-kinds}` or `{wellbore-ddms-kinds}` in the configuration.
 
 ### Sample response (201 Created)
 
