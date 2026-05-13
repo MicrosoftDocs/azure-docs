@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023, ignite-2024
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 05/13/2026
 # customer intent: As a developer, I want to learn how to manage my environments in Azure Deployment Environments so that I can create, redeploy, and delete my environments as needed.
 ---
 
@@ -32,9 +32,9 @@ To create a deployment environment in the developer portal, follow these steps:
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-1. On the **New** menu at the top right, select **New environment**.
+1. At the top right, select **+ New environment**.
 
-   :::image type="content" source="media/how-to-manage-environments/new-environment.png" alt-text="Screenshot showing the new menu with new environment highlighted." lightbox="media/how-to-manage-environments/new-environment.png":::
+   :::image type="content" source="media/how-to-manage-environments/new-environment.png" alt-text="Screenshot showing the '+ New Environment' button highlighted in the top right of the developer portal." lightbox="media/how-to-manage-environments/new-environment.png":::
 
 1. In the **Add an environment** pane, enter or select the following information:
 
@@ -43,9 +43,11 @@ To create a deployment environment in the developer portal, follow these steps:
    |Name     | Enter a descriptive name for your environment. |
    |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
    |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
-   |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available in the catalogs associated with your dev center. |
+   |Definition | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available in the catalogs associated with your dev center. |
 
    :::image type="content" source="media/how-to-manage-environments/add-environment.png" alt-text="Screenshot showing the Add an environment pane." lightbox="media/how-to-manage-environments/add-environment.png":::
+
+1. Select **Next**.
 
    If your environment is configured to accept parameters, you can enter them on a separate pane.
 
@@ -53,9 +55,9 @@ To create a deployment environment in the developer portal, follow these steps:
 
 1. Select **Create**. The environment tile is shown in the developer portal immediately, displaying the **Creating...** status while creation is in progress.
 
-1. To view the resources that were created for the environment, select **Environment Resources**.
+1. To view the resources that were created for the environment, select **View Resources**.
 
-   :::image type="content" source="media/how-to-manage-environments/environment-resources-link.png" alt-text="Screenshot showing an environment tile with the Environment Resources link highlighted." lightbox="media/how-to-manage-environments/environment-resources-link.png":::
+   :::image type="content" source="media/how-to-manage-environments/environment-resources-link.png" alt-text="Screenshot showing an environment tile with the View Resources link highlighted." lightbox="media/how-to-manage-environments/environment-resources-link.png":::
 
 1. You can view the resources in your environment listed in the Azure portal.
 
