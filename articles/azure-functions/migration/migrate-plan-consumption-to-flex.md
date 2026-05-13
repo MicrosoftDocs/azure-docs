@@ -872,7 +872,7 @@ You can set [inbound access restrictions](../functions-networking-options.md#inb
 
 #### [Azure CLI](#tab/azure-cli)
 
-This [`az functionapp config access-restriction show`]() command returns a list of any existing IP-based access restrictions:
+This [`az functionapp config access-restriction show`](/cli/azure/functionapp/config/access-restriction#az-functionapp-config-access-restriction-show) command returns a list of any existing IP-based access restrictions:
 
 ```azurecli
 az functionapp config access-restriction show --name <APP_NAME> --resource-group <RESOURCE_GROUP>

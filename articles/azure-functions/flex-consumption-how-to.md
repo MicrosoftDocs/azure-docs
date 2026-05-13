@@ -37,7 +37,7 @@ Function app resources are language-specific. Make sure to choose your preferred
     - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md) 
  
     ::: zone pivot="programming-language-java" 
-    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
+    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-by-using-maven)   
     ::: zone-end   
  
     Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
@@ -46,7 +46,7 @@ Function app resources are language-specific. Make sure to choose your preferred
 
 This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
 ::: zone-end  
 
 To support your function code, you need to create three resources:
@@ -144,7 +144,7 @@ To support your function code, you need to create three resources:
 
 For deployment, Flex Consumption plan apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment).
 ::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
 ::: zone-end 
 
 You can choose to deploy your project code to an existing function app using various tools:
@@ -656,7 +656,7 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 | --- | --- | --- |
 | [Free managed certificate](../app-service/configure-ssl-certificate.md#create-a-free-managed-certificate) | Created in the portal for a custom domain | Private certificate limit |
 | [App Service certificate](../app-service/configure-ssl-app-service-certificate.md) | Purchased through Azure, then imported | Private certificate limit |
-| [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-your-vault) | Imported from Azure Key Vault | Private certificate limit |
+| [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault) | Imported from Azure Key Vault | Private certificate limit |
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
 | Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
 
@@ -704,7 +704,8 @@ To upload a custom private certificate that you obtained:
 
 If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app. 
 
->[!IMPORTANT] For better security, use a managed identity to authenticate to Key Vault instead of a service principal.
+> [!IMPORTANT]
+> For better security, use a managed identity to authenticate to Key Vault instead of a service principal.
 
 To grant Key Vault access to a managed identity:
 
