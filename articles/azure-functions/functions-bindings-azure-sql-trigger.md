@@ -92,24 +92,23 @@ using Microsoft.Azure.Functions.Worker.Extensions.Sql;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
+namespace AzureSQL.ToDo;
 
-namespace AzureSQL.ToDo
+public static class ToDoTrigger
 {
-    public static class ToDoTrigger
+    [Function("ToDoTrigger")]
+    public static void Run(
+        [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
+        IReadOnlyList<SqlChange<ToDoItem>> changes,
+        FunctionContext context)
     {
-        [Function("ToDoTrigger")]
-        public static void Run(
-            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
-            IReadOnlyList<SqlChange<ToDoItem>> changes,
-            FunctionContext context)
+        var logger = context.GetLogger("ToDoTrigger");
+        foreach (SqlChange<ToDoItem> change in changes)
         {
-            var logger = context.GetLogger("ToDoTrigger");
-            foreach (SqlChange<ToDoItem> change in changes)
-            {
-                ToDoItem toDoItem = change.Item;
-                logger.LogInformation($"Change operation: {change.Operation}");
-                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
-            }
+            ToDoItem toDoItem = change.Item;
+            logger.LogInformation($"Change operation: {ChangeOperation}", change.Operation);
+            logger.LogInformation($"Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
+                todoItem.Id, todoItem.Title, todoItem.Url, todoItem.Completed);
         }
     }
 }
@@ -152,22 +151,21 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.WebJobs.Extensions.Sql;
 
-namespace AzureSQL.ToDo
+namespace AzureSQL.ToDo;
+public static class ToDoTrigger
 {
-    public static class ToDoTrigger
+    [FunctionName("ToDoTrigger")]
+    public static void Run(
+        [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
+        IReadOnlyList<SqlChange<ToDoItem>> changes,
+        ILogger logger)
     {
-        [FunctionName("ToDoTrigger")]
-        public static void Run(
-            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
-            IReadOnlyList<SqlChange<ToDoItem>> changes,
-            ILogger logger)
+        foreach (SqlChange<ToDoItem> change in changes)
         {
-            foreach (SqlChange<ToDoItem> change in changes)
-            {
-                ToDoItem toDoItem = change.Item;
-                logger.LogInformation($"Change operation: {change.Operation}");
-                logger.LogInformation($"Id: {toDoItem.Id}, Title: {toDoItem.title}, Url: {toDoItem.url}, Completed: {toDoItem.completed}");
-            }
+            ToDoItem toDoItem = change.Item;
+            logger.LogInformation($"Change operation: {ChangeOperation}", change.Operation);
+            logger.LogInformation($"Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
+                todoItem.Id, todoItem.Title, todoItem.Url, todoItem.Completed);
         }
     }
 }
@@ -194,20 +192,20 @@ import java.util.UUID;
 
 public class ToDoItem {
     public UUID Id;
-    public int order;
-    public String title;
-    public String url;
-    public boolean completed;
+    public int Order;
+    public String Title;
+    public String Url;
+    public boolean Completed;
 
     public ToDoItem() {
     }
 
-    public ToDoItem(UUID Id, int order, String title, String url, boolean completed) {
+    public ToDoItem(UUID Id, int Order, String Title, String Url, boolean Completed) {
         this.Id = Id;
-        this.order = order;
-        this.title = title;
-        this.url = url;
-        this.completed = completed;
+        this.Order = Order;
+        this.Title = Title;
+        this.Url = Url;
+        this.Completed = Completed;
     }
 }
 ```
