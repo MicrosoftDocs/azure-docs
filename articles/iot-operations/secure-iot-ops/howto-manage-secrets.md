@@ -18,7 +18,7 @@ Azure IoT Operations uses Azure Key Vault as the managed vault solution on the c
 Examples of secrets that you might store in Azure Key Vault for use by Azure IoT Operations include:
 
 - Usernames and passwords for external systems that your connectors or data flows need to authenticate against.
-- X.509 certificates and private keys for devices or services that use certificate-based authentication.
+- X.509 certificates and private keys for devices or services that use mutual TLS (mTLS).
 
 ## Prerequisites
 
@@ -37,16 +37,13 @@ Secrets management for Azure IoT Operations uses the Azure Key Vault secret stor
 
 After the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints**. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
 
-You can create a synced secret on the cluster in two ways:
+You can create a synced secret on the cluster using either the operations experience web UI or the Azure CLI. The two flows partially overlap: the operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow assumes the secret already exists in Azure Key Vault and only handles the sync:
 
-- **Operations experience**. The operations experience can either upload a new value to Azure Key Vault and sync it to the cluster in one step, or sync an existing Key Vault secret to the cluster.
-- **Azure CLI**. The Azure CLI flow assumes the secrets are already stored in Azure Key Vault. You use `az iot ops secretsync secret set` to create a synced secret on the cluster that references one or more Key Vault secrets.
+This section uses device inbound endpoints that use username and password authentication as an example. The same process applies to data flow endpoints.
 
-The two flows partially overlap: the operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow only handles the sync.
+# [Operations experience](#tab/portal)
 
-This section uses device inbound endpoints as an example. The same process applies to data flow endpoints.
-
-### Use the operations experience to create a synced secret
+The operations experience can either upload a new value for a username or password to Azure Key Vault and sync it to the cluster in one step, or sync an existing Key Vault secret to the cluster.
 
 1. Go to the **Device inbound endpoints** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -62,7 +59,7 @@ This section uses device inbound endpoints as an example. The same process appli
 
     :::image type="content" source="media/howto-manage-secrets/synced-secret-name.png" lightbox="media/howto-manage-secrets/synced-secret-name.png" alt-text="Screenshot that shows the synced secret name field when username password is selected for authentication mode in operations experience.":::
 
-### Use the Azure CLI to create a synced secret
+# [Azure CLI](#tab/cli)
 
 The Azure CLI flow assumes the values are already stored as secrets in Azure Key Vault. To learn how to add secrets to Azure Key Vault, see [Add secrets to Azure Key Vault](#add-secrets-to-azure-key-vault).
 
@@ -82,12 +79,11 @@ To reference the synced secret from a device inbound endpoint, use the `<synced-
 - Azure CLI: pass `--user-ref my-endpoint-creds/username` and `--pass-ref my-endpoint-creds/password` to [az iot ops ns device endpoint inbound add](/cli/azure/iot/ops/ns/device/endpoint/inbound/add).
 - Bicep: set `usernameSecretName: 'my-endpoint-creds/username'` and `passwordSecretName: 'my-endpoint-creds/password'` in the `usernamePasswordCredentials` block.
 
-> [!TIP]
-> This Azure CLI flow partially duplicates the operations experience. The operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow assumes the secret already exists in Azure Key Vault.
+---
 
 ## Sync a client certificate and private key for mutual TLS
 
-Several connectors support mutual TLS (mTLS) authentication to southbound data sources. With mTLS, the connector presents a client certificate and private key to the southbound endpoint to authenticate itself, in addition to validating the server's TLS certificate. The following connectors currently support mTLS to southbound data sources:
+Several connectors support mTLS authentication to southbound data sources. With mTLS, the connector presents a client certificate and private key to the southbound endpoint to authenticate itself, in addition to validating the server's TLS certificate. The following connectors currently support mTLS to southbound data sources:
 
 - [Connector for OPC UA](../discover-manage-assets/howto-configure-opc-ua.md#configure-a-device-to-use-an-x509-certificate)
 - [Connector for HTTP/REST](../discover-manage-assets/howto-use-http-connector.md#configure-a-device-to-use-an-x509-certificate)
@@ -96,10 +92,15 @@ Several connectors support mutual TLS (mTLS) authentication to southbound data s
 
 Other connectors, such as the connector for media and the connector for ONVIF, don't currently support mTLS to southbound data sources.
 
-You configure mTLS on the device's inbound endpoint by referencing a synced secret on the cluster that contains the client certificate and private key. You can create the synced secret in two ways:
+You configure mTLS on the device's inbound endpoint by referencing a synced secret on the cluster that contains the client certificate and private key. You can create the synced secret using either the operations experience or the Azure CLI. Select the tab that matches the tool you want to use.
 
-- **Operations experience**. When you create the inbound endpoint and choose the **X509 certificate** authentication mode, you can either upload a new certificate and private key (the operations experience uploads them to Azure Key Vault and syncs them) or pick existing Key Vault secrets to sync.
-- **Azure CLI**. The Azure CLI flow assumes that the certificate and private key are already stored as secrets in Azure Key Vault. You use `az iot ops secretsync secret set` to create a single synced secret on the cluster that maps the Key Vault secrets to keys inside the synced secret.
+# [Operations experience](#tab/portal)
+
+When you create the inbound endpoint and choose the **X509 certificate** authentication mode, you can either upload a new certificate and private key (the operations experience uploads them to Azure Key Vault and syncs them) or pick existing Key Vault secrets to sync.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI flow assumes that the certificate and private key are already stored as secrets in Azure Key Vault. You use `az iot ops secretsync secret set` to create a single synced secret on the cluster that maps the Key Vault secrets to keys inside the synced secret.
 
 To add the certificate and private key files as secrets to Azure Key Vault before you sync them, see [Add secrets to Azure Key Vault](#add-secrets-to-azure-key-vault).
 
@@ -131,6 +132,8 @@ To reference the synced secret from the device inbound endpoint, use the `<synce
     }
     ```
 
+---
+
 ## Manage synced secrets
 
 This section uses device inbound endpoints as an example. The same process can be applied to data flow endpoints:
@@ -144,6 +147,11 @@ This section uses device inbound endpoints as an example. The same process can b
 You can use the **Secrets** page to view synchronized secrets in your devices and data flow endpoints. Secrets page shows the list of all current synchronized secrets at the edge for the resource you're viewing. A synced secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret applies to all secret references contained within the synced secret. 
 
 You can delete synced secrets from the **Secrets** page. When you delete a synced secret, it only deletes the synced secret from the Kubernetes cluster, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
+
+You can also use the Azure CLI to view synced secrets on the cluster:
+
+- To list the synced secret resources on the cluster, use [az iot ops secretsync list](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-list).
+- To list the individual Key Vault secret references inside a synced secret, use [az iot ops secretsync secret list](/cli/azure/iot/ops/secretsync/secret#az-iot-ops-secretsync-secret-list).
 
 > [!WARNING]
 > Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can break the secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience web UI.

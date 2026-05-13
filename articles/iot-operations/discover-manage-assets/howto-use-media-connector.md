@@ -181,7 +181,7 @@ Example uses of the media connector include:
 
 [!INCLUDE [deploy-connectors](../includes/deploy-connectors.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 

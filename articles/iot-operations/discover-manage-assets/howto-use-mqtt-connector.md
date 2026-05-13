@@ -61,7 +61,7 @@ You need credentials to access the MQTT source. If the MQTT source requires auth
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 

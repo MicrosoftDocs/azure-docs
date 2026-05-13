@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 05/12/2026
 ms.author: dobett
+ai-usage: ai-assisted
 ---
 
 1. Make sure the username and password are stored as secrets in Azure Key Vault. To learn more, see [Add secrets to Azure Key Vault](../secure-iot-ops/howto-manage-secrets.md#add-secrets-to-azure-key-vault).

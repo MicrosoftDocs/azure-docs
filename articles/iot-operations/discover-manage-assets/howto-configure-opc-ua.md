@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.date: 05/12/2026
-
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
 ---

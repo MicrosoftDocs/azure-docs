@@ -59,7 +59,7 @@ Have the event identification ready for each SSE source event you want to receiv
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 

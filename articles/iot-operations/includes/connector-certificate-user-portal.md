@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 05/12/2026
 ms.author: dobett
+ai-usage: ai-assisted
 ---
 
 In the operations experience, when you add the inbound endpoint and choose the **X509 certificate** authentication mode, select **Add reference** to add the secret reference for the client certificate and private key. The operations experience offers two options:

@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 05/12/2026
 ms.author: dobett
+ai-usage: ai-assisted
 ---
 
 1. Make sure the client certificate and private key are stored as secrets in Azure Key Vault, and that a synced secret on the cluster references both Key Vault secrets. You can create the synced secret either through the operations experience or by using the Azure CLI. To learn more, see [Sync a client certificate and private key for mutual TLS](../secure-iot-ops/howto-manage-secrets.md#sync-a-client-certificate-and-private-key-for-mutual-tls).
@@ -20,6 +21,3 @@ ms.author: dobett
             }
     }
     ```
-
-> [!NOTE]
-> The Azure CLI flow for creating the synced secret partially overlaps with the operations experience. The operations experience can also upload the certificate and private key to Azure Key Vault as part of the same step, while the Azure CLI flow assumes the secrets already exist in Azure Key Vault.

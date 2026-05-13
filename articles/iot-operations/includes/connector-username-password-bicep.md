@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 05/12/2026
 ms.author: dobett
+ai-usage: ai-assisted
 ---
 
 1. Make sure the username and password are stored as secrets in Azure Key Vault, and that a synced secret on the cluster references both Key Vault secrets. You can create the synced secret either through the operations experience or by using the Azure CLI. To learn more, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md#add-and-use-secrets).
