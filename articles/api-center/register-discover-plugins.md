@@ -49,19 +49,6 @@ To register a plugin in your API center:
 
 After registration, the plugin appears in your inventory on the **Inventory** > **Assets** page.
 
-<!-- Edit form doesn't appear to allow modifying skills/MCP servers in the plugin
-
-## Update a registered plugin
-
-You can update plugin information at any time:
-
-1. In your API center, go to **Inventory** > **Assets**.
-1. Find and select the plugin you want to update.
-1. Select **Edit** to modify the plugin's properties.
-1. Make your changes and select **Save**.
-
--->
-
 ## Discover plugins in the API Center portal
 
 Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover plugins in your API inventory. From the API Center portal, users can:

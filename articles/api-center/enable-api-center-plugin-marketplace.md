@@ -29,6 +29,8 @@ Developers can add the plugin marketplace to their GitHub Copilot CLI or Claude 
 
 ## Confirm plugin marketplace endpoint is enabled for your API center
 
+
+
 After setting up the API Center portal, confirm that the plugin marketplace endpoint is enabled for your API center by cloning it locally. 
 
 > [!NOTE]
