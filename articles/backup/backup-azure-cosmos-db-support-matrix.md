@@ -24,8 +24,8 @@ Azure Backup for Cosmos DB is generally available in all public cloud regions. S
 Consider the following support scenarios for Azure Backup for Cosmos DB:
 
 - Cosmos DB accounts with either NoSQL or MongoDB API using [Request Units (RUs)](./cosmos-db/request-units.md) are supported. 
-- Only weekly backups are supported (RPO of 7 days) 
-- Azure Backup for Cosmos DB supports only those Cosmos DB accounts which are on [continuous (PITR) backup mode](./cosmos-db/continuous-backup-restore-introduction.md). 
+- Only weekly backups are supported (7-day RPO) 
+- Azure Backup for Cosmos DB supports only those Cosmos DB accounts that are on [continuous (PITR) backup mode](./cosmos-db/continuous-backup-restore-introduction.md). 
 - Cross subscription restores are supported.
 - Restore operation to an empty Cosmos DB account is supported. 
 - Cosmos DB account should have pubic access enabled.
@@ -36,14 +36,14 @@ Consider the following support scenarios for Azure Backup for Cosmos DB:
 
 Azure Backup for Cosmos DB includes the following limitations:
 
-- Cosmos DB account within a NSP is not supported yet.
-- Cross region restore of backups is not supported yet.
-- Backup and restore operations where primary write region of Cosmos DB account is different from Backup Vault region are not supported yet. 
-- Cosmos DB account with hierarchical partition keys is not supported.
-- Cosmos DB account with Per-Partition Automatic Failover (PPAF) enabled is not supported.
-- Item level backup and item level restore are not supported. 
-- Restore operation is not supported to a Serverless target Cosmos DB account. 
-- Restore operation is not supported to a target Cosmos DB account where throughput limit is set.
+- Cosmos DB account within a NSP isn't supported yet.
+- Cross region restore of backups isn't supported yet.
+- Backup and restore operations where primary write region of Cosmos DB account is different from Backup Vault region aren't supported yet. 
+- Cosmos DB account with hierarchical partition keys isn't supported.
+- Cosmos DB account with Per-Partition Automatic Failover (PPAF) enabled isn't supported.
+- Item level backup and item level restore aren't supported. 
+- Restore operation isn't supported to a Serverless target Cosmos DB account. 
+- Restore operation isn't supported to a target Cosmos DB account where throughput limit is set.
 
 
 ## Next steps
