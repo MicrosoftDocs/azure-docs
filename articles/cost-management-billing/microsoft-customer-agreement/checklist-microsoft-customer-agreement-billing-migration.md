@@ -125,7 +125,9 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 
 - Changes in billing constructs
   - Getting started with MCA billing [Learn More](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview)
-  - Organizing your invoice based on your business needs [Learn More](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-section-invoice#structure-your-account-with-billing-profiles-and-invoice-sections)
+  - Organizing your invoice based on your business needs [Learn More](/azure/cost-management-billing/manage/mca-section-invoice)
+    
+- MCA change: Next‑day invoicing applies to Microsoft Marketplace products including SaaS (per‑seat & flat rate), professional services, Azure managed app flat fees, Power BI visuals, and Dynamics 365 apps (Dataverse/Power Apps). Learn more ([Overview of billing and invoicing for Microsoft Marketplace customers - Marketplace customer docume…](/marketplace/billing-invoicing"https://learn.microsoft.com/en-us/marketplace/billing-invoicing#next-day-invoicing-for-microsoft-customer-agreement-mca-customers")) 
 
 ## Payment setup
 
