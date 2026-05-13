@@ -72,7 +72,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Vaulted backups for Cosmos DB accounts with Azure Backup for Cosmos DB (preview)
 
-Azure Backup now supports **vaulted backups for Cosmos DB**, enabling secure, off-site protection of Cosmos DB accounts in a Backup vault. This capability helps improve **cyber-resilience and compliance** by maintaining isolated backup copies that are protected from accidental deletion, malicious activity, and ransomware scenarios.
+Azure Backup now supports **vaulted backups for Cosmos DB**, enabling secure, off-site protection of Cosmos DB accounts in a Backup vault. This capability helps improve **cyber-resilience and compliance** by maintaining isolated backup copies with **long-term retention** that are protected from accidental deletion, malicious activity, and ransomware scenarios.
 
 Key benefits include **policy-based scheduled backups**, and **security features such as encryption, soft delete, immutability, and role-based access control**. This preview allows customers to protect Azure Cosmos DB accounts using Azure Backup.
 
