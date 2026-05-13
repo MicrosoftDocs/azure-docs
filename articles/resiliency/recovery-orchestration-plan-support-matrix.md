@@ -18,7 +18,7 @@ The following table lists the supported Azure resource types in the Recover
 | **Azure resource type**  | **Protection solution**  | **Failover type**  |
 |----|----|----|
 | Azure Virtual Machine (VM)  | Azure Site Recovery  | Active failover  |
-| Azure Virtual Machine Scale Set (VMSS)  | Azure Site Recovery  | Active failover  |
+| Azure Virtual Machine Scale Sets  | Azure Site Recovery  | Active failover  |
 | Azure SQL Database  | Zone-redundant configuration (HA)  | Automatic (HA)  |
 | Azure SQL Managed Instance  | Zone-redundant configuration (HA)  | Automatic (HA)  |
 | Azure Cosmos DB  | Zone-redundant configuration (HA)  | Automatic (HA)  |
@@ -45,8 +45,8 @@ The following table lists the supported protection solutions and their failov
 
 | **Protection solution**  | **Description**  | **Failover behavior**  |
 |----|----|----|
-| Azure Site Recovery  | Replicates VMs and VMSS across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
-| Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL DB, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
+| Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
+| Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL database, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
 
 ## Role requirements
 
@@ -74,8 +74,6 @@ The following table lists the supported scope for Azure Recovery Orchestration
 | Zonal recovery     | Yes                              |
 | Regional recovery  | No (not supported at this time)  |
 
-## Next steps
+## Related content
 
-- Overview of Azure Recovery Orchestration Plan
-- Create and configure a recovery plan
-- Troubleshoot Recovery Orchestration Plan
+[About Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).

@@ -6,16 +6,16 @@ ms.date: 05/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand how goals and recommendations in Infrastructure Resiliency Manager can help me define, validate, and achieve my applications' resiliency goals in Azure."
-
+---
 
 # About goals and recommendations in Infrastructure Resiliency Manager (preview)
 
-Infrastructure Resiliency Manager (preview) is a self-serve experience that helps you define, validate, and achieve your applications' resiliency goals in Azure.With this experience, you can:
+Infrastructure Resiliency Manager (preview) is a self-serve experience that helps you define, validate, and achieve your applications' resiliency goals in Azure. With this experience, you can:
 
 - Set resiliency goals for your applications.
-- Receive detailed recommendations to meet those goals.
+- Receive detailed recommendations that help to meet the goals.
 - Review resilience posture across your Azure estate from a single pane of glass.
-- Run simulated outage drills to validate outage readiness.
+- Run simulated outage drills for outage readiness validation.
 - Recover from zonal outages using recovery plans for applications.
 
 ## Goals and Recommendations capability for Infrastructure Resiliency Manager
@@ -24,7 +24,7 @@ The Goals and Recommendations capability involves the following scenarios:
 
 - Create service groups to model your applications by grouping Azure resources across subscriptions and resource groups.
 - Assign zonal resiliency goals to those service groups.
-- View your resiliency posture — a summary showing how many resources are zone-resilient, non-zone-resilient, or not evaluated.
+- View your resiliency posture - a summary showing how many resources are zone-resilient, non-zone-resilient, or not evaluated.
 - Review targeted recommendations for resources that don't meet your goals.
 - Act on recommendations by following step-by-step remediation guidance or using the Resiliency agent.
 - View resiliency at scale across all your service groups and resources from a centralized overview.

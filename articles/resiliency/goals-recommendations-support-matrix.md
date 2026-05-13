@@ -88,6 +88,6 @@ Certain resource types are excluded from resiliency service's discovery. When re
 |----|----|
 | Create service group and add/remove members | Microsoft.Relationship/ServiceGroupMember/write on resources + Service Group Contributor |
 
-## Next steps
+## Related content
 
-- [Learn how to create a service group and assign goals]()
+[About goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).

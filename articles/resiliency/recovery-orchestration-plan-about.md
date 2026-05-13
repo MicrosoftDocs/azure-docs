@@ -24,7 +24,7 @@ With Recovery Orchestration Plan, you can:
 - Reprotect resources after failover to maintain ongoing protection.
 
 >[!NOTE]
->The Recovery Orchestration Plan orchestrates recovery and doesn’t protect individual resources. To protect resources, configure Azure Site Recovery for VMs or use Highly Available (HA) solutions for other resources. This capability supports only zonal recovery and doesn’t support regional recovery.
+>The Recovery Orchestration Plan orchestrates recovery and doesn’t protect individual resources. To protect resources, configure Azure Site Recovery for Virtual Machines (VMs) or use Highly Available (HA) solutions for other resources. This capability supports only zonal recovery and doesn’t support regional recovery.
 
 ## Understand recovery plan components and actions
 
@@ -38,20 +38,20 @@ A Recovery Orchestration Plan gets created within a Service Group. A Service G
 
 The following plan states indicate the readiness for failover:
 
-- **Ready**: The plan meets all requirements for failover, no resources have **Needs Attention** status.
+- **Ready**: The plan meets all requirements for failover. No resources have **Needs Attention** status.
 - **Warning**: Some resources require attention, but you can still initiate failover if at least one included resource doesn’t have a **Needs Attention** status.
 
 ### Groups and recovery order
 
-Groups define the order of resource recovery. By default, a Default Group is created. You can create additional groups and move resources between them.
+Groups define the order of resource recovery. By default, a Default Group is created. You can create other groups and move resources between them.
 
-Resources within the same group fail over in parallel. Resources in different groups fail over sequentially - Group 2 starts only after all Group 1 resources complete failover.
+Resources within the same group failover in parallel. Resources in different groups fail over sequentially - Group 2 starts only after all Group 1 resources complete failover.
 
 ### Resource protection status and inclusion states
 
 Each resource has a protection status and an inclusion state:
 
-- **Protection status**: Azure Site Recovery (ASR), Highly Available (HA) solutions, or Not protected.
+- **Protection status**: Azure Site Recovery, Highly Available (HA) solutions, or Not protected.
 - **Included**: Resources actively part of the plan, orchestrated during failover.
 - **Excluded**: Resources not included. HA resources are automatically excluded.
 - **State not selected**: Default state for unprotected or non-HA resources. You must explicitly include or exclude the resources.
@@ -79,10 +79,10 @@ The execution operations for plan orchestration are categorized as:
 
 ### Group actions
 
-Add Azure Automation Runbooks as pre-scripts and post-scripts. You can also add manual steps.
+Add Azure Automation Runbooks as prescripts and post-scripts. You can also add manual steps.
 
-- **Pre-scripts**: Runs before group resources begin failover.
-- **Post-scripts**:Runs after group resources complete failover.
+- **Prescripts**: Runs before group resources begin failover.
+- **Post-scripts**: Runs after group resources complete failover.
 - **Manual actions**: Allows resuming the failover job when it’s paused.
 
 ## Role-based access control
@@ -92,9 +92,6 @@ To create and manage a Recovery Plan, you need one of the following roles:
 - Azure Resilience Management Recovery Contributor
 - Azure Resilience Management Recovery Administrator
 
-## Next steps
+## Related content
 
-- Create and configure a recovery plan
-- Execute failover operations
-- Support matrix for Recovery Orchestration Plan
-- Troubleshoot Recovery Orchestration Plan
+[Support matrix for Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).

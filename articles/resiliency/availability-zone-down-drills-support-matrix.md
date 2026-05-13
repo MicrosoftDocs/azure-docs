@@ -62,5 +62,6 @@ Register the following resource providers in the relevant subscriptions:
 - `Microsoft.Automation`: Required for creation of Automation Accounts for fault injection.
 
 
-## Next steps
+## Related content
 
+[About Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-about.md).

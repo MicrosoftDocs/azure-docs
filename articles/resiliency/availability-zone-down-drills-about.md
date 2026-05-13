@@ -43,3 +43,5 @@ The following sequence outlines each stage in the drill lifecycle and the action
 5. **Reprotect (Reverse)**: Re-enable replication in the original direction to restore the baseline configuration.
 
 ### Related content
+
+[Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
