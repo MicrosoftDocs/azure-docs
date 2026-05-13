@@ -1,7 +1,20 @@
 - name: Resiliency documentation
   href: index.yml
-- name: Overview
-  href: resiliency-overview.md
+- name: About Resiliency
+  items:
+  - name: Overview
+    href: resiliency-overview.md
+  - name: What's new
+    href: resiliency-whats-new.md  
+  - name: Zonal resiliency
+    items:
+    - name: Availability Zone Down Drills
+      href: availability-zone-down-drills-about.md
+    - name: Goals and recommendations
+      href: goals-recommendations-about.md
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-about.md
+  expanded: true
 - name: Quickstart
   items:
   - name: Understand the protection estate
@@ -34,8 +47,16 @@
     href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
-  - name: Support matrices
+  - name: Resiliency support matrix
     href: resiliency-support-matrix.md
+  - name: Zonal resiliency support metrics  
+    items:
+    - name: Availability zone down drills
+      href: availability-zone-down-drills-support-matrix.md
+    - name: Goals and recommendations
+      href: goals-recommendations-support-matrix.md  
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-support-matrix.md
   - name: Security levels
     href: security-levels-concept.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
