@@ -49,6 +49,8 @@
     items:
     - name: Availability zone down drills
       href: availability-zone-down-drills-support-matrix.md
+    - name: Goals and recommendations
+      href: goals-recommendations-support-matrix.md  
   - name: Security levels
     href: security-levels-concept.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
