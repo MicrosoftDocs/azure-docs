@@ -74,6 +74,10 @@ To create a user-assigned managed identity:
 
 ## Step 3: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
 
+> [!IMPORTANT]
+> **Different token required for this step!**  
+> This step uses an **Azure Resource Manager (ARM) token** (not your ADME auth token) to update the instance configuration via the ARM control plane API. The script below generates the correct ARM token automatically.
+
 Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
 
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
@@ -81,17 +85,14 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 > [!IMPORTANT]
 > If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them. This operation updates the entire instance configuration, so ensure all existing properties are included in the request body.
 
-> [!TIP]
-> **Get the Azure Management API token:**
-> ```bash
-> TOKEN=$(az account get-access-token --resource "https://management.core.windows.net/" --query accessToken -o tsv)
-> ```
-> Then use `$TOKEN` in place of `{management-api-token}` in the command below. For more information, see [az account get-access-token](/cli/azure/account#az-account-get-access-token).
-
 ```bash
+# Get Azure Resource Manager token
+TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
+
+# Update ADME instance with managed identity
 curl --request PUT \
   --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
-  --header 'Authorization: Bearer {management-api-token}' \
+  --header "Authorization: Bearer $TOKEN" \
   --header 'Content-Type: application/json' \
   --data '{
     "location": "{location}",
@@ -119,7 +120,6 @@ curl --request PUT \
 | `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
 | `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
 | `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
-| `{management-api-token}` | Azure Management API access token. See the TIP above for Azure CLI method, or [Get access token](/rest/api/azure/#acquire-an-access-token) for other options |
 | `{location}` | Azure region of your Azure Data Manager for Energy resource (for example, `southcentralus`) |
 | `{auth-app-id}` | Application ID used for Azure Data Manager for Energy authentication |
 | `{data-partition-name}` | Name of your data partition (for example, `dp1`) |
