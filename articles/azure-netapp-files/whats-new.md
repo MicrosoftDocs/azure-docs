@@ -36,6 +36,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Support for DNS server, LDAP port and User DN, Group DN and Netgroup DN are also added. You can now use the LDAP port to run your LDAP server on custom defined ports or on default and non-default ports. You can now directly provide the DNS server details, which includes the CN host name. Configuring the DNs ensures Azure NetApp Files can accurately query and integrate with customer-specific LDAP directory structures.
 
     This enhancement also supports Bind Distinguished Name (Bind DN) authentication for additional LDAP services. When you provide Bind DN credentials during the LDAP configuration, the password is stored in Azure Key Vault. Azure NetApp Files service retrieves the password from the Azure Key Vault when establishing LDAP connections. 
+    
+* [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
+
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
 
 ## April 2026 
 

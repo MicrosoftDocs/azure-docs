@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.reviewer: v-uhabiba
 ms.date: 12/02/2025
+ms.update-cycle: 365-days
 # Customer intent: As a migration owner, I want to automate the migration of my VMware virtual machines to Azure using Azure Site Recovery REST API, so that I can efficiently manage large-scale migrations with custom automation solutions.
 ---
 
