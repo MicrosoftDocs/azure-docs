@@ -5,8 +5,12 @@ items:
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Express overview
+      href: express-overview.md
     - name: Introduction to containers
       href: start-containers.md
+    - name: "Deploy an express container app"
+      href: deploy-express-cli.md
     - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts

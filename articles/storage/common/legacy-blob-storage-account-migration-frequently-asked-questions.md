@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 12/15/2025
+ms.date: 5/13/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -28,7 +28,7 @@ A legacy blob storage account is a legacy Azure storage account type designed fo
 
 ### Can I still create a new legacy blob storage account?
 
-No. Starting **March 3 2026**, creation of new legacy blob storage accounts will be disabled.
+No. Starting **June 2026**, creation of new legacy blob storage accounts will be disabled.
 
 > [!IMPORTANT]
 > Plan migrations ahead of this date to ensure policy compliance and avoid deployment blocks for new storage needs.
