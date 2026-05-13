@@ -187,9 +187,22 @@ async function main() {
 
     const poller = await emailClient.beginSend(message);
 
-    if (!poller.getOperationState().isStarted) {
-      throw "Poller was not started."
-    }
+// NOTE:
+// In @azure/communication-email version 3.1.0,
+// the `isStarted` flag was removed from `poller.getOperationState()`.
+// Instead, the poller state now exposes a `status` field with values
+// such as "running", "succeeded", etc.
+//
+// Previous check: version 3.0.0,
+// if (!poller.getOperationState().isStarted) {
+//   throw "Poller was not started."
+// }
+
+// Updated check for v3.1.0+:
+if (poller.getOperationState().status !== "running") {
+  throw "Poller failed to start.";
+}
+
 
     let timeElapsed = 0;
     while(!poller.isDone()) {
