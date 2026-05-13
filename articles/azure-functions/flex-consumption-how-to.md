@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 12/12/2025
+ms.date: 05/12/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -21,7 +21,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you how to manage certain features of a Flex Consumption plan hosted app.
 
-Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
+Function app resources are language-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
 ## Prerequisites
 
@@ -156,17 +156,17 @@ You can use the Azure CLI to upload a deployment package file to the deployment 
 This package file must contain all of the build output files and referenced libraries required for your project to run. 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-For projects with a large number of libraries, you should package the root of your project file and request a [remote build]. 
+For projects with a large number of libraries, package the root of your project file and request a [remote build]. 
 ::: zone-end
 ::: zone pivot="programming-language-python"
-For Python projects, you should package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.  
+For Python projects, package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.  
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 1. Using your preferred development tool, build the code project. 
 
 2. Create a .zip file that contains the output of the build directory. For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure). 
 
-3. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command. 
+3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -183,7 +183,7 @@ For Python projects, you should package the root of your project file and always
 
 2. Create a .zip file that contains the output of the build directory. For more information, see [Folder structure](./functions-reference-java.md#folder-structure). 
 
-3. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command. 
+3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -198,7 +198,7 @@ For Python projects, you should package the root of your project file and always
 ::: zone pivot="programming-language-powershell"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-powershell.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -213,7 +213,7 @@ For Python projects, you should package the root of your project file and always
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-node.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -230,7 +230,7 @@ For Python projects, you should package the root of your project file and always
 ::: zone pivot="programming-language-python"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-python.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -247,7 +247,7 @@ For Python projects, you should package the root of your project file and always
 
 ### [Continuous Deployment](#tab/continuous-deployment)
 
-Azure Functions has both a custom GitHub Action and a custom Azure Pipelines Task to support continuous deployment. Refer the following guides to incorporate these tools in your CI/CD pipelines:
+Azure Functions provides both a custom GitHub Action and a custom Azure Pipelines Task to support continuous deployment. To learn how to incorporate these tools into your CI/CD pipelines, see the following guides:
 
 - [Build and deploy using Azure Pipelines](./functions-how-to-azure-devops.md)
 - [Build and deploy using GitHub Actions](./functions-how-to-github-actions.md)
@@ -263,16 +263,16 @@ Azure Functions has both a custom GitHub Action and a custom Azure Pipelines Tas
 ---
 
 ::: zone pivot="programming-language-java" 
-## Create and deploy your app using Maven
+## Create and deploy your app by using Maven
 
-You can use Maven to create a Flex Consumption hosted function app and required resources during deployment by modifying the pom.xml file. 
+You can use Maven to create a Flex Consumption hosted function app and the required resources during deployment by modifying the `pom.xml` file. 
  
 1. Create a Java code project by completing the first part of one of these quickstart articles:
         
     - [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
     - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java) 
 
-1. In your Java code project, open the pom.xml file and make these changes to create your function app in the Flex Consumption plan: 
+1. In your Java code project, open the `pom.xml` file and make these changes to create your function app in the Flex Consumption plan: 
 
     - Change the value of `<properties>.<azure.functions.maven.plugin.version>` to `1.34.0`.
 
@@ -286,9 +286,9 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
     - `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-sizes) size for the function app. The default value is `2048`.  
     - `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.  
-    - `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you're charged for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
+    - `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you pay for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
 
-1. Before you can deploy, sign in to your Azure subscription using the Azure CLI. 
+1. Before you can deploy, sign in to your Azure subscription by using the Azure CLI. 
 
     ```azurecli
     az login
@@ -302,7 +302,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
     mvn azure-functions:deploy
     ```
     
-    Maven uses settings in the pom.xml template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. Should these resources already exist, the code is deployed to your function app, overwriting any existing code.
+    Maven uses settings in the `pom.xml` template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. If these resources already exist, the code is deployed to your function app, overwriting any existing code.
 ::: zone-end  
 
 ## Enable virtual network integration
@@ -354,7 +354,7 @@ You can't currently enable virtual networking when you use Visual Studio Code to
 
 ---
 
-For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
+For end-to-end examples of how to create apps in Flex Consumption with virtual network integration, see these resources:
 
 - [Flex Consumption: HTTP to Event Hubs using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
 - [Flex Consumption: triggered from Service Bus using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
@@ -408,20 +408,20 @@ When you're choosing a subnet, these considerations apply:
 
 ## Configure deployment settings
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in an Azure Blob Storage container. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string value used by the Functions runtime to maintain your app. The connection string is stored in the `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container. 
+In the Flex Consumption plan, an Azure Blob Storage container holds the deployment package with your app's code. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string that the Functions runtime uses to maintain your app. The `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting stores the connection string. However, you can designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container. 
 
-A customized deployment source should meet this criteria:
+A customized deployment source should meet these criteria:
 
 - The storage account must already exist.
 - The container to use for deployments must also exist.
-- When more than one app uses the same storage account, each should have its own deployment container. Using a unique container for each app prevents the deployment packages from being overwritten, which would happen if apps shared the same container.
+- When more than one app uses the same storage account, each app should have its own deployment container. Using a unique container for each app prevents deployment packages from being overwritten, which would happen if apps shared the same container.
 
-When configuring deployment storage authentication, keep these considerations in mind:
+When you configure deployment storage authentication, keep these considerations in mind:
 
-- As a security best practice, you should use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections). 
+- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections). 
 - When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
-- When you use a user-assigned managed identity, the provided identity gets linked to the function app. The `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
-- When you use a system-assigned managed identity, an identity gets created when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity does exists, the `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
+- When you use a user-assigned managed identity, you link the provided identity to the function app. You also assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
+- When you use a system-assigned managed identity, you create an identity when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity exists, you assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 
 To configure deployment settings when you create your function app in the Flex Consumption plan:
 
@@ -434,7 +434,7 @@ Use the [`az functionapp create`] command and supply these extra options that cu
 | `--deployment-storage-name` | The name of the deployment storage account. | 
 | `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
 | `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
-| `--deployment-storage-auth-value` | When using  `StorageAccountConnectionString`, this parameter is set to the name of the application setting that contains the connection string to the deployment storage account. When you set `UserAssignedIdentity`, this parameter is set to the name of the resource ID of the identity you want to use. |
+| `--deployment-storage-auth-value` | When using  `StorageAccountConnectionString`, set this parameter to the name of the application setting that contains the connection string to the deployment storage account. When you set `UserAssignedIdentity`, set this parameter to the name of the resource ID of the identity you want to use. |
 
 This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
@@ -444,7 +444,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 
 ### [Azure portal](#tab/azure-portal)
 
-You can't currently configure deployment storage when creating your app in the Azure portal. To configure deployment storage during app creation, instead use the Azure CLI to create your app. 
+You can't currently configure deployment storage when creating your app in the Azure portal. To configure deployment storage during app creation, use Azure CLI to create your app. 
 
 You can use the portal to modify the deployment settings of an existing app, as detailed in the next section.  
 
@@ -458,7 +458,7 @@ You can also modify the deployment storage configuration for an existing app.
 
 ### [Azure CLI](#tab/azure-cli)  
 
-Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
+Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration. 
 
 ```azurecli
 az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
@@ -468,26 +468,26 @@ az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <A
 
 1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Deployment settings**.
 
-1. Under Application package location, select an existing **Storage account** and then select an existing empty **container** in the account.
+1. Under **Application package location**, select an existing **Storage account** and then select an existing empty **container** in the account.
 
-1. Under Storage authentication, select your preferred authentication type 
+1. Under **Storage authentication**, select your preferred authentication type: 
 
-    - If you selected **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
+    - If you select **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
 
-    - If you selected **User assigned identity**, select the identity you would like to use.
+    - If you select **User assigned identity**, select the identity you want to use.
 
 1. Select **Save** to update the app.  
 
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently configure deployment storage for your app in Azure using Visual Studio Code.
+You can't currently configure deployment storage for your app in Azure by using Visual Studio Code.
 
 ---
 
 ## Configure instance memory
 
-The instance memory size used by your Flex Consumption plan can be explicitly set when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).  
+Set the instance memory size for your Flex Consumption plan when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).  
 
 To set an instance memory size that's different from the default when creating your app:
 
@@ -501,7 +501,7 @@ az functionapp create --instance-memory 4096 --resource-group <RESOURCE_GROUP> -
 
 ### [Azure portal](#tab/azure-portal)
 
-When you create your app in a Flex Consumption plan in the Azure portal, you can choose your instance memory size in the **Instance size** field in the **Basics** tab. For more information, see [Create a Flex Consumption app](#create-a-flex-consumption-app).
+When you create your app in a Flex Consumption plan in the Azure portal, choose your instance memory size in the **Instance size** field in the **Basics** tab. For more information, see [Create a Flex Consumption app](#create-a-flex-consumption-app).
 
 ### [Visual Studio Code](#tab/vs-code)
 
@@ -528,18 +528,18 @@ az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAM
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently change the instance memory size setting for your app using Visual Studio Code.
+You can't currently change the instance memory size setting for your app by using Visual Studio Code.
 
 ---
 
 ## Set always ready instance counts
 
-You can set a specific number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. There are three special groups, as in per-function scaling: 
+Set a specific number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. Three special groups exist, as in per-function scaling: 
 - `http` - All of the HTTP triggered functions in the app scale together into their own instances.  
 - `durable` - All of the Durable triggered functions (Orchestration, Activity, Entity) in the app scale together into their own instances.
 - `blob` - All of the blob (Event Grid) triggered functions in the app scale together into their own instances. 
 
-Use `http`, `durable`, or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app you need to configure always ready for each individual function using the format `function:<FUNCTION_NAME>=n`.
+Use `http`, `durable`, or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app, configure always ready for each individual function by using the format `function:<FUNCTION_NAME>=n`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -557,7 +557,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 
 ### [Azure portal](#tab/azure-portal)
 
-You can't currently define always ready instances when creating your app in the Azure portal. To define always ready instances during app creation, instead use the Azure CLI to create your app. 
+You can't currently define always ready instances when creating your app in the Azure portal. To define always ready instances during app creation, use the Azure CLI to create your app. 
 
 You can use the portal to modify always ready instances on an existing app, as detailed in the next section.  
 
@@ -587,21 +587,21 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Scale and concurrency**.
 
-1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
+1. Under **Always-ready instance minimum**, type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
 
 1. Select **Save** to update the app.
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently modify always ready instances using Visual Studio Code. 
+You can't currently modify always ready instances by using Visual Studio Code. 
 
 ---
 
 ## Set HTTP concurrency limits
 
-Unless you set specific limits, HTTP concurrency defaults for Flex Consumption plan apps are determined based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
+If you don't set specific limits, the system determines HTTP concurrency defaults for Flex Consumption plan apps based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
 
-Here's how you can set HTTP concurrency limits for an existing app:
+Here's how you set HTTP concurrency limits for an existing app:
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -611,19 +611,19 @@ Use the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#
 az functionapp scale config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --trigger-type http --trigger-settings perInstanceConcurrency=10
 ```
 
-This example sets the HTTP trigger concurrency level to `10`. After you specifically set an HTTP concurrency value, that value is maintained despite any changes in your app's instance size setting. 
+This example sets the HTTP trigger concurrency level to `10`. After you set an HTTP concurrency value, the app maintains that value despite any changes in your app's instance size setting. 
 
 ### [Azure portal](#tab/azure-portal)
 
 1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Scale and concurrency**.
 
-1. Under **Concurrency per instance** select **Assign manually** and type a specific limit.
+1. Under **Concurrency per instance**, select **Assign manually** and type a specific limit.
 
 1. Select **Save** to update the app.
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently set HTTP concurrency limits using Visual Studio Code. 
+You can't currently set HTTP concurrency limits by using Visual Studio Code. 
 
 ---
 
@@ -632,19 +632,19 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 The Flex Consumption plan uniquely supports two different site update strategies that control how your function app handles code deployments and configuration changes. By default, Flex Consumption plan apps use the `Recreate` strategy, which terminates currently executing functions during deployments. To enable zero-downtime deployments, you can configure the `RollingUpdate` strategy instead. For more information, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
 
 > [!NOTE]
-> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You can't configure this setting using the Azure CLI, Azure portal, or Visual Studio Code.
+> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You can't configure this setting by using the Azure CLI, Azure portal, or Visual Studio Code.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Site update strategy configuration isn't currently supported in the Azure CLI. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+The Azure CLI doesn't currently support site update strategy configuration. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ### [Azure portal](#tab/azure-portal)
 
-Site update strategy configuration isn't currently supported in the Azure portal. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+The Azure portal doesn't currently support site update strategy configuration. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ### [Visual Studio Code](#tab/vs-code)
 
-Site update strategy configuration isn't currently supported in Visual Studio Code. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
+Visual Studio Code doesn't currently support site update strategy configuration. Use Bicep or ARM templates as described in [Configure site update strategy](flex-consumption-site-updates.md#configure-your-update-strategy).
 
 ---
 
@@ -660,7 +660,7 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
 | Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
 
-### Considerations for site-scope certificates
+### Considerations for site-scoped certificates
 
 - Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
@@ -672,19 +672,19 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 
 ### Add a certificate
 
-There are several ways that you can add certificates to your app, depending on the certificate type. Free managed and Azure certificates are added direclty in the portal. 
+You can add certificates to your app in several ways, depending on the certificate type. Add free managed and Azure certificates directly in the portal. 
 
-Select one of the following tabs to see how add a private (.pfx), public (.cer), or Key Vault-managed certificate.
+Select one of the following tabs to see how to add a private (.pfx), public (.cer), or Key Vault-managed certificate.
 
 #### [Upload private (.pfx)](#tab/private-pfx)
 
-To upload a custom private certificate that you have obtained:
+To upload a custom private certificate that you obtained:
 
-1. Obtain a certificate from your own certificate provider.
+1. Get a certificate from your own certificate provider.
 
 1. Export the certificate as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions). Include all intermediate certificates in the chain.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
 
 1. In the left menu, expand **Settings** and select **Certificates**.
 
@@ -696,7 +696,7 @@ To upload a custom private certificate that you have obtained:
 
 1. Provide a **Certificate friendly name** for identification.
 
-1. Select **Validate**, then **Add**.
+1. Select **Validate**, and then select **Add**.
 
     After the operation finishes, the certificate appears in the **Bring your own certificates (.pfx)** list.
 
@@ -704,7 +704,7 @@ To upload a custom private certificate that you have obtained:
 
 If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app. 
 
->[!IMPORTANT] For better security, you should use a managed identity to authenticate to Key Vault instead of a service principal.
+>[!IMPORTANT] For better security, use a managed identity to authenticate to Key Vault instead of a service principal.
 
 To grant Key Vault access to a managed identity:
 
@@ -716,7 +716,7 @@ To grant Key Vault access to a managed identity:
         --name <APP_NAME>
     ```
 
-1. Grant the managed identity the **Key Vault Certificate User** role on your key vault using RBAC. This approach is recommended over access policies (legacy):
+1. Grant the managed identity the **Key Vault Certificate User** role on your key vault by using RBAC. This approach is recommended over access policies (legacy):
 
     ```azurecli
     # Get the principal ID of the managed identity
@@ -737,7 +737,7 @@ To grant Key Vault access to a managed identity:
 
 To import the certificate from your vault:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
 
 1. In the left menu, expand **Settings** and select **Certificates**.
 
@@ -745,7 +745,7 @@ To import the certificate from your vault:
 
 1. Under **Source**, select **Import from Key Vault**.
 
-1. Select **Select key vault certificate**, then choose the **Subscription**, **Key Vault**, and **Certificate**.
+1. Select **Select key vault certificate**, and then choose the **Subscription**, **Key Vault**, and **Certificate**.
 
 1. After you finish with your selection, choose **Select** > **Validate**, and then select **Add**.
 
@@ -758,7 +758,7 @@ To import the certificate from your vault:
 
 Public certificates are supported in the `.cer` format. Upload a public certificate to your function app when your code needs to access remote services that require certificate authentication.
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
 
 1. In the left menu, expand **Settings** and select **Certificates**.
 
@@ -774,7 +774,7 @@ Public certificates are supported in the `.cer` format. Upload a public certific
 
 After adding a certificate, you must explicitly make it accessible to your function code. 
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
 
 1. In the left menu, expand **Settings** and select **Certificates**.
 
@@ -782,7 +782,7 @@ After adding a certificate, you must explicitly make it accessible to your funct
 
 1. Select **...** (ellipsis) next to the certificate you want to make accessible, and then choose **Make accessible to app code**.
 
-When **Accessible to app code** is enabled, the platform loads the certificate into the runtime environment on all instances as a file. 
+When you enable **Accessible to app code**, the platform loads the certificate into the runtime environment on all instances as a file. 
 
 Certificate files are named by thumbprint and placed in these directories:
 
@@ -797,42 +797,42 @@ How you update an expiring certificate depends on the certificate source:
 
 - **Certificates imported from Key Vault**: When you renew a certificate in Key Vault, the platform background job automatically syncs the updated certificate to your function app within 24 hours. The new certificate version is loaded to all instances without any manual steps.
 
-- **Uploaded certificates**: Upload the new certificate, then make it accessible to your app code. If your code references the certificate by thumbprint, you also need to update any thumbprint references in your code or app settings.
+- **Uploaded certificates**: Upload the new certificate, and then make it accessible to your app code. If your code references the certificate by thumbprint, update any thumbprint references in your code or app settings.
 
 ## View currently supported regions
 
-To view the list of regions that currently support Flex Consumption plans: 
+To view the list of regions that currently support Flex Consumption plans, see: 
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
-When you create an app in the [Azure portal](flex-consumption-how-to.md?tabs=azure-portal#create-a-flex-consumption-app) or by using [Visual Studio Code](flex-consumption-how-to.md?tabs=vs-code#create-a-flex-consumption-app), currently unsupported regions are filtered out of the region list.
+When you create an app in the [Azure portal](flex-consumption-how-to.md?tabs=azure-portal#create-a-flex-consumption-app) or by using [Visual Studio Code](flex-consumption-how-to.md?tabs=vs-code#create-a-flex-consumption-app), the region list excludes currently unsupported regions.
 
 ## Monitor your app in Azure
 
 Azure Monitor provides these distinct sets of metrics to help you better understand how your function app runs in Azure:
 
 - Platform metrics: provides infrastructure-level insights
-- Application Insights: provides code-level insights, including traces and errors logs.
+- Application Insights: provides code-level insights, including traces and error logs.
 
-If you [enable Application Insights in your app](configure-monitoring.md#enable-application-insights-integration), you're able to:
+If you [enable Application Insights in your app](configure-monitoring.md#enable-application-insights-integration), you can:
 
 - Track detailed execution times and dependencies
 - Monitor individual function performance
 - Analyze failures and exceptions
-- Correlate platform metrics with application behavior with custom queries
+- Correlate platform metrics with application behavior by using custom queries
 
 For more information, see [Monitor Azure Functions](monitor-functions.md).
 
 ### Supported metrics
 
-Run this script to view all of the platform metrics that are currently available your app:
+Run this script to view all of the platform metrics that are currently available for your app:
 
 ```azurecli
 appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
 az monitor metrics list-definitions --resource $appId --query "[].{Name:name.localizedValue,Value:name.value}" -o table
 ```
 
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. This script gets the fully qualified app ID and returns the available platform metrics in a table.
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names. This script gets the fully qualified app ID and returns the available platform metrics in a table.
 
 ### View metrics
 
@@ -847,13 +847,11 @@ Use this script to generate a report of the current metrics for your app:
 ```azurecli
 appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
 
-appId=$(az functionapp show --name func-fuxigh6c255de --resource-group exampleRG --query id -o tsv)
-
-echo -e "\nAlways-ready and on-emand execution counts..."
+echo -e "\nAlways-ready and on-demand execution counts..."
 az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionCount" --interval PT1H --output table
 az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionCount" --interval PT1H --output table
 
-echo -e "\nExecution units (MB-ms) in always-ready and on-emand execution counts..."
+echo -e "\nExecution units (MB-ms) in always-ready and on-demand execution counts..."
 az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionUnits" --interval PT1H --output table
 az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionUnits" --interval PT1H --output table
 
@@ -871,7 +869,7 @@ az monitor metrics list --resource $appId --metric "CpuPercentage" --interval PT
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In your function app page in the [Azure portal], select **Monitoring** > **Metrics** and if the current chart is blank, select **+ Add metric**.
+1. In your function app page in the [Azure portal], select **Monitoring** > **Metrics**. If the current chart is blank, select **+ Add metric**.
 
 1. With your app as the **Scope**, choose one or more of the supported **Metric** options to add to the current chart.
 
@@ -879,11 +877,11 @@ az monitor metrics list --resource $appId --metric "CpuPercentage" --interval PT
 
 1. (Optional) Select **Save to dashboard** to add the current chart to a new or existing dashboard. Remember to include both always-ready and on-demand metrics for broad visibility. 
 
-1. (Optional) Select **New alert rue** to create an alert on a specific metric. Remember to include both always-ready and on-demand metrics for broad visibility. 
+1. (Optional) Select **New alert rule** to create an alert on a specific metric. Remember to include both always-ready and on-demand metrics for broad visibility. 
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently review and set metrics using Visual Studio Code. 
+You can't currently review and set metrics by using Visual Studio Code. 
 
 ---
 
@@ -891,12 +889,13 @@ To learn more about metrics for Azure Functions, see [Monitor Azure Functions](m
 
 ### View logs
 
-When your app is connected to Application Insights, you can better analyze your app performance and troubleshoot problems during execution.
+When you connect your app to Application Insights, you can better analyze your app performance and troubleshoot problems during execution. In the Application Insights resource for your app:
 
- 
-   - Use "Performance" to analyze response times and dependencies
-   - Use "Failures" to identify any errors occurring after migration
-   - Create custom queries in "Logs" to analyze function behavior. For example:
+- Use **Performance** to analyze response times and dependencies.
+- Use **Failures** to identify any errors that occur after migration.
+- Create custom queries in **Logs** to analyze function behavior.
+
+For example, use this query to compare success rates by instance:
 
 Use this query to compare success rates by instance:
 
@@ -907,7 +906,7 @@ requests
 | render timechart
 ```
 
-Use this query to analyze the number of instances that were actively processing your function:
+Use this query to analyze the number of instances that are actively processing your function:
 
 ```kusto
 let _startTime = ago(20m); //Adjust start time as needed
