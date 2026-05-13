@@ -12,6 +12,16 @@ ms.date: 03/30/2026
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
+## May 2026
+
+**Disaster Recovery**
+
+**VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions.
+This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime.
+Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
+
+
+
 ## March 2026
 
 **VMware NSX 4.2.3.2**
