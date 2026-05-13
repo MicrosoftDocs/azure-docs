@@ -132,18 +132,18 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 
 You need to manage certificates when you use a custom domain name with your function app, when your function code authenticates to an external service using a client certificate, or when you require mutual TLS (mTLS). The default `*.azurewebsites.net` domain already has a platform-managed certificate. The following table shows certificate support across hosting plans:
 
-| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates) | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
+| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates)<sup>3</sup> | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
 | --- | --- | --- | --- | --- | --- |
 | Managed certificates | ✅ <sup>2</sup> | ✅ | ✅ | ✅ | ✅ |
 | Private certificates (.pfx) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | [✅](../container-apps/custom-domains-certificates.md) | ✅ (unlimited<sup>1</sup>) |
 | Public certificates (.cer) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | ✅ | ✅ (unlimited<sup>1</sup>) |
 | Import from Key Vault<sup>2</sup> | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Certificate model | [Site-scoped](flex-consumption-how-to.md#configure-site-scoped-certificates) | [Webspace-scoped](../app-service/overview-tls.md) | [Webspace-scoped](../app-service/overview-tls.md) | [Per-environment](../container-apps/custom-domains-certificates.md) | [Webspace-scoped](../app-service/overview-tls.md) |
-| Access from code | Per-certificate toggle | `WEBSITE_LOAD_CERTIFICATES` | `WEBSITE_LOAD_CERTIFICATES` | Environment variables | `WEBSITE_LOAD_CERTIFICATES` |
+| Access from code | [Per-certificate toggle](flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) | [Environment variables](../container-apps/certificates-overview.md) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) |
 
 1. Subject to [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
-1. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
-1. Flex Consumption certificate support is currently in preview.
+2. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
+3. Flex Consumption certificate support is currently in preview.
 
 ## Billing
 

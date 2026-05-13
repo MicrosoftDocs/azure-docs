@@ -654,7 +654,7 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 
 | Certificate type | How to add | Counts toward |
 | --- | --- | --- |
-| [Free managed certificate](../app-service/configure-ssl-certificate.md#create-a-free-managed-certificate) | Created in the portal for a custom domain | Private certificate limit |
+| [App Service Managed Certificate](../app-service/configure-ssl-certificate.md#create-a-free-managed-certificate) | Created in the portal for a custom domain | Private certificate limit |
 | [App Service certificate](../app-service/configure-ssl-app-service-certificate.md) | Purchased through Azure, then imported | Private certificate limit |
 | [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault) | Imported from Azure Key Vault | Private certificate limit |
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
@@ -665,7 +665,7 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 - Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 - Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or ARM/Bicep templates to manage certificates.
-- Each app supports a maximum of 3 private certificates and 3 public certificates (.cer). Private certificates include uploaded .pfx files, certificates imported from Key Vault, managed certificates, and App Service certificates.
+- Each app supports a maximum of three private certificates and three public certificates.
 - Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain. 
 - Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. For more information, see [Use TLS/SSL certificates in your application code](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
@@ -794,7 +794,7 @@ Certificate files are named by thumbprint and placed in these directories:
 
 ### Renew or update a certificate
 
-How you update an expiring certificate depends on the certificate source:
+Free managed certificates are automatically renewed by the platform. For all other certificates, how you update an expiring certificate depends on the certificate source:
 
 - **Certificates imported from Key Vault**: When you renew a certificate in Key Vault, the platform background job automatically syncs the updated certificate to your function app within 24 hours. The new certificate version is loaded to all instances without any manual steps.
 
