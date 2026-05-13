@@ -317,9 +317,9 @@ Port access | Windows servers need access on port 5986 (HTTPS) or port 5985 (HTT
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.
 
 ## Agent-based dependency analysis requirements
-Azure Migrate recommends the use of agentless dependency analysis and no longer provides support for agent based dependency visualization. However, if you still want to use agent-based dependency visualization, you can directly install [Azure Monitor VM Insights](azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
+Azure Migrate recommends the use of agentless dependency analysis and no longer provides support for agent based dependency visualization. However, if you still want to use agent-based dependency visualization, you can directly install [Azure Monitor VM Insights](/azure/azure-monitor/vm/monitor-vm) on each server that you want to analyze.
 
-If you were using ServicMap for agent based dependency analysis, you should migrate from [Service Map](azure/azure-monitor/vm/vminsights-migrate-from-service-map) to VM Insights as Service Map is retired. Note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](pricing/details/monitor/).
+If you were using ServicMap for agent based dependency analysis, you should migrate from [Service Map](/azure/azure-monitor/vm/vminsights-migrate-from-service-map) to VM Insights as Service Map is retired. Note that agent-based dependency analysis is not free, and Log Analytics workspace usage charges will apply. For pricing details, see [Azure Monitor pricing](/pricing/details/monitor/).
 
 ## Next steps
 
