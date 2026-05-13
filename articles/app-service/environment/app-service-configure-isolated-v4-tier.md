@@ -82,7 +82,7 @@ Before scaling up an existing app to the Isolated v4 tier, make sure Isolated v4
 
 ### If you get an error
 
-If the underlying App Service Environment deployment doesn't support the requested Isolated v4 SKU, some App Service plans can't scale up to the Isolated v4 tier. For more information, see [Scale up from an unsupported resource group and region combination](#unsupported).
+Some App Service plans can't scale up to the Isolated v4 tier if the underlying App Service Environment deployment doesn't support the requested Isolated v4 SKU. For more information, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
 ## Regions
 
