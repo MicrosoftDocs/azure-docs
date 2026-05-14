@@ -36,7 +36,7 @@ This article explains how to enable management actions, execute actions on asset
 - The Azure CLI with the `azure-iot-ops` extension installed. To install or update the extension, run:
 
   ```azurecli
-  az extension add --upgrade -n azure-iot-ops
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 ## Enable management actions
