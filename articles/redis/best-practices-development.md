@@ -75,7 +75,10 @@ While you can connect from outside of Azure, it isn't recommended, especially wh
 
 ## Rely on hostname not public IP address
 
-The public IP address assigned to your AMR instance can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address.
+The IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public or private IP address. The configured static IP address for a cache in a virtual network isn't an immutable guarantee and might change during certain operations, although changes are rare.
+
+Hostnames in Azure Managed Redsi look like this: `<DNS name>.<Azure region>.redis.azure.net` 
+
 
 ## Use TLS encryption
 
