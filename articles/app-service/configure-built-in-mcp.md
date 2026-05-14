@@ -91,7 +91,7 @@ The platform reads the spec from a file on the app's file system. The default pa
 
 Built-in MCP is configured through the `aiIntegration` property on your `Microsoft.Web/sites` resource. The preview ships with **Portal**, **Azure CLI** (using `az rest`), and **Bicep** as supported configuration paths.
 
-The examples below show the minimal payload to expose every operation in your spec. To filter operations, rename tools, configure auth without App Service Authentication, or change where the spec lives, see [Customize built-in MCP](#customize-built-in-mcp).
+The examples below show the minimal payload to expose every operation in your spec. To filter operations, configure auth without App Service Authentication, or change where the spec lives, see [Customize built-in MCP](#customize-built-in-mcp).
 
 ### [Portal](#tab/portal)
 
@@ -122,7 +122,7 @@ After you save, the **MCP servers** tab shows the configured server with its end
 
 ### [Azure CLI](#tab/cli)
 
-Use `az rest` to PATCH the `aiIntegration` property on the site resource. This payload uses every default—it exposes every operation in the spec from `/home/data/.ai/apispec.json`, with no tool filtering or overrides.
+Use `az rest` to PATCH the `aiIntegration` property on the site resource. This payload uses every default—it exposes every operation in the spec from `/home/data/.ai/apispec.json`, with no tool filtering.
 
 ```azurecli-interactive
 RESOURCE_GROUP=<resource-group>
@@ -146,7 +146,7 @@ az rest \
   }'
 ```
 
-To change the spec path, filter operations, override tool names, or configure auth without App Service Authentication, see [Customize built-in MCP](#customize-built-in-mcp). For the full property schema, see [Reference: aiIntegration schema](#reference-aiintegration-schema).
+To change the spec path, filter operations, or configure auth without App Service Authentication, see [Customize built-in MCP](#customize-built-in-mcp). For the full property schema, see [Reference: aiIntegration schema](#reference-aiintegration-schema).
 
 To remove built-in MCP from an app, PATCH the same property with `null`:
 
@@ -159,7 +159,7 @@ az rest \
 
 ### [Bicep](#tab/bicep)
 
-Add the `aiIntegration` property to your `Microsoft.Web/sites` resource. This snippet uses every default—it exposes every operation in the spec from `/home/data/.ai/apispec.json`, with no tool filtering or overrides.
+Add the `aiIntegration` property to your `Microsoft.Web/sites` resource. This snippet uses every default—it exposes every operation in the spec from `/home/data/.ai/apispec.json`, with no tool filtering.
 
 ```bicep
 resource site 'Microsoft.Web/sites@2025-05-01' = {
@@ -181,7 +181,7 @@ resource site 'Microsoft.Web/sites@2025-05-01' = {
 }
 ```
 
-To change the spec path, filter operations, override tool names, or configure auth without App Service Authentication, see [Customize built-in MCP](#customize-built-in-mcp). For the full property schema, see [Reference: aiIntegration schema](#reference-aiintegration-schema).
+To change the spec path, filter operations, or configure auth without App Service Authentication, see [Customize built-in MCP](#customize-built-in-mcp). For the full property schema, see [Reference: aiIntegration schema](#reference-aiintegration-schema).
 
 ---
 
@@ -193,16 +193,14 @@ After you save the configuration, the MCP endpoint is available at:
 https://<app-name>.azurewebsites.net/<endpoint path you provided>
 ```
 
-For this example, that's `https://zava.azurewebsites.net/mcp/orders`. The example uses `/mcp/orders` to scope by API surface; the portal default is `/mcp`.
-
 Configure your MCP client with that URL. For [GitHub Copilot Chat in Visual Studio Code](configure-authentication-mcp-server-vscode.md), add an entry to your `.vscode/mcp.json`:
 
 ```json
 {
   "servers": {
-    "zava-orders": {
+    "my-mcp-server": {
       "type": "http",
-      "url": "https://zava.azurewebsites.net/mcp/orders"
+      "url": "https://<app-name>.azurewebsites.net/<endpoint path you provided>"
     }
   }
 }
@@ -267,30 +265,6 @@ Use this filter to keep destructive or admin-only operations off the MCP surface
 
 If you want spec-driven filtering only (no ARM-side allowlist), keep `ToolList = ["*"]` and remove operations from the spec itself.
 
-### Rename or redescribe tools
-
-`ToolOverrides[]` lets you change the name or description an MCP client sees without modifying the spec. Each override is keyed by `OperationId`:
-
-```json
-"Mcp": {
-  "Servers": [
-    {
-      "Name": "orders",
-      "Endpoint": "/mcp/orders",
-      "ToolOverrides": [
-        {
-          "OperationId": "get_order",
-          "Name": "lookup_order",
-          "Description": "Look up a Zava order by its ID and return status, line items, and shipping info."
-        }
-      ]
-    }
-  ]
-}
-```
-
-Overrides for an `OperationId` that no longer exists in the spec are silently dropped. Because overrides are keyed by `operationId` (not by the override name), they survive spec hot-reloads as long as the underlying `operationId` doesn't change.
-
 ### Disable a server without removing it
 
 Set `Enabled` to `false` to take the MCP endpoint offline without deleting the configuration:
@@ -339,8 +313,6 @@ Each OpenAPI operation becomes one MCP tool:
   | `DELETE` | `false` | `true` | `true` |
   | `POST` | `false` | `false` | `false` |
 
-You can override the name and description per tool via [`ToolOverrides[]`](#rename-or-redescribe-tools) without changing the spec.
-
 ### How does the platform handle spec updates?
 
 When the spec at `ApiSpecPath` changes—either because you redeployed the file or you uploaded a new version through the portal—the platform:
@@ -350,7 +322,7 @@ When the spec at `ApiSpecPath` changes—either because you redeployed the file 
 1. Hashes the new tool list (SHA-256) and compares it to the previous hash.
 1. If the hash changed, sends a `notifications/tools/list_changed` event to every connected MCP client.
 
-You don't need to restart the app or update the `aiIntegration` configuration to pick up spec changes. For how `ToolList` and `ToolOverrides` interact with spec updates, see [Filter which operations are exposed](#filter-which-operations-are-exposed) and [Rename or redescribe tools](#rename-or-redescribe-tools).
+You don't need to restart the app or update the `aiIntegration` configuration to pick up spec changes. For how `ToolList` interacts with spec updates, see [Filter which operations are exposed](#filter-which-operations-are-exposed).
 
 ### What's served at `/.well-known/oauth-protected-resource`?
 
@@ -402,10 +374,6 @@ If neither is configured, the endpoint isn't published and clients won't be chal
 | `Mcp.Servers[].Enabled` | bool | When `false`, the server isn't registered. Defaults to `true`. |
 | `Mcp.Servers[].Endpoint` | string | Relative URL where the MCP endpoint is served. |
 | `Mcp.Servers[].ToolList` | array of strings | `["*"]` exposes every operation in the spec, `[]` exposes none, or list specific tool names to filter. |
-| `Mcp.Servers[].ToolOverrides[]` | array | Optional. Per-tool overrides for the name and description shown to MCP clients. The underlying OpenAPI spec is unchanged. <!-- TODO: confirm the public preview property name. --> |
-| `Mcp.Servers[].ToolOverrides[].OperationId` | string | The OpenAPI `operationId` (or `{method}_{path}`) of the tool to override. |
-| `Mcp.Servers[].ToolOverrides[].Name` | string | Optional. Replaces the tool name shown to MCP clients (1–128 characters). |
-| `Mcp.Servers[].ToolOverrides[].Description` | string | Optional. Replaces the tool description shown to MCP clients (≤ 256 characters). |
 | `SiteAuth` | object | Optional. Identity provider metadata used to publish [protected resource metadata](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#authorization-server-location) when App Service Authentication isn't enabled. See [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication). |
 | `SiteAuth.Scopes` | array of strings | Required. OAuth scopes the MCP client should request—for example, `["api://my-app/user_impersonation"]`. |
 | `SiteAuth.WellKnownOpenIdConfiguration` | string (URL) | Required if `Issuer` isn't set. URL to the OpenID Connect discovery document—for example, `https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration`. |
