@@ -78,47 +78,48 @@ When deployment finishes, `azd` prints the web app URL. Open it and send 3–5 m
 
 ## 3. Look at the OpenTelemetry wiring
 
-Open `src/MultiAgentTravelPlanner/Program.cs`. Three small pieces light up the Agents tab:
+The sample wires three things to make the Agents tab work:
 
-**a. Enable GenAI telemetry emission in Microsoft Agent Framework.**
+**a. Wrap each agent with `UseOpenTelemetry`.**
 
-Microsoft Agent Framework and `Microsoft.Extensions.AI` guard a few `gen_ai.*` attributes behind feature switches so that sensitive content isn't exported by default. Turn them on at process startup:
+Microsoft Agent Framework emits `gen_ai.*` spans only when you wrap an agent with the `OpenTelemetryAgent` delegating wrapper. The easiest way is through `AsBuilder().UseOpenTelemetry(sourceName)`. See `Agents/AgentCatalog.cs`:
 
 ```csharp
-AppContext.SetSwitch("Microsoft.Extensions.AI.EmitGenAIData", true);
-AppContext.SetSwitch("Microsoft.Agents.AI.EmitTelemetry", true);
+private static AIAgent WithTelemetry(AIAgent agent) =>
+    agent.AsBuilder()
+        .UseOpenTelemetry(TelemetrySourceName, otel => otel.EnableSensitiveData = true)
+        .Build();
+
+AIAgent weather = WithTelemetry(chat.AsAIAgent(
+    instructions: "...",
+    name: "WeatherAdvisor",
+    description: "...",
+    tools: [AIFunctionFactory.Create(tools.GetWeatherForecast)]));
 ```
 
-**b. Subscribe OpenTelemetry to the agent and model activity sources.**
+The agent's `name` ends up in the `gen_ai.agent.name` attribute and is exactly what the Agents tab groups on. `EnableSensitiveData = true` opts in to including message content in spans (off by default — set to `false` in production, or control it with the `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` environment variable).
+
+**b. Send everything to Application Insights with the Azure Monitor distro and subscribe to the agent activity source.**
 
 ```csharp
 builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
     .ConfigureResource(r => r.AddService(serviceName: "multi-agent-travel-planner"))
     .WithTracing(t => t
-        .AddSource("Microsoft.Extensions.AI")
-        .AddSource("Microsoft.Extensions.AI.*")
-        .AddSource("Microsoft.Agents.AI")
-        .AddSource("Microsoft.Agents.AI.*")
-        .AddSource("OpenAI.*")
-        .AddSource("Experimental.OpenAI.*")
-        .AddSource("Azure.AI.OpenAI.*"))
+        .AddSource(AgentCatalog.TelemetrySourceName)
+        .AddSource("Microsoft.Extensions.AI*")
+        .AddSource("OpenAI*")
+        .AddSource("Experimental.OpenAI*")
+        .AddSource("Azure.AI.OpenAI*"))
     .WithMetrics(m => m
-        .AddMeter("Microsoft.Extensions.AI")
-        .AddMeter("Microsoft.Agents.AI")
-        .AddMeter("OpenAI.*"));
+        .AddMeter(AgentCatalog.TelemetrySourceName)
+        .AddMeter("Microsoft.Extensions.AI*")
+        .AddMeter("OpenAI*"));
 ```
 
-**c. Send everything to Application Insights with the Azure Monitor distro.**
+`UseAzureMonitor()` automatically reads `APPLICATIONINSIGHTS_CONNECTION_STRING` from configuration and wires traces, logs, and metrics to Application Insights. The `AddSource` and `AddMeter` calls register the activity sources and meters that Microsoft Agent Framework and the underlying OpenAI SDK emit on.
 
-```csharp
-builder.Services.AddOpenTelemetry().UseAzureMonitor(o =>
-{
-    o.ConnectionString =
-        builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
-});
-```
-
-That's it. Each agent's name and ID are emitted on every span as `gen_ai.agent.name` / `gen_ai.agent.id`, token usage flows through `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens`, and tool invocations and model calls are recorded as child spans.
+That's it. Each agent's name and ID are emitted on every span as `gen_ai.agent.name` / `gen_ai.agent.id`, token usage flows through `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens`, and tool invocations and model calls show up as `execute_tool` and chat-completion child spans.
 
 > [!IMPORTANT]
 > The Bicep template in this sample sets `ApplicationInsightsAgent_EXTENSION_VERSION=disabled` on the web app. This disables the App Service codeless attach for .NET so that the in-process Azure Monitor OpenTelemetry distro isn't competing for the same activity sources. If you instrument your app in code, always disable the codeless agent.
@@ -160,11 +161,16 @@ If the **Agents** tab is empty or incomplete, check the following.
 
 **Agents appear but tokens or calls are zero.**
 
-- Make sure the feature switches are set *before* any agent activity:
+- Make sure each agent is wrapped with `UseOpenTelemetry` on its builder:
+
   ```csharp
-  AppContext.SetSwitch("Microsoft.Extensions.AI.EmitGenAIData", true);
-  AppContext.SetSwitch("Microsoft.Agents.AI.EmitTelemetry", true);
+  AIAgent agent = chat.AsAIAgent(...)
+      .AsBuilder()
+      .UseOpenTelemetry("MyAgentSource", o => o.EnableSensitiveData = true)
+      .Build();
   ```
+
+  And that the same source name is registered in the OpenTelemetry pipeline with `.WithTracing(t => t.AddSource("MyAgentSource"))`.
 - The Agents tab relies on `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens` attributes. Verify by running this query in **Logs**:
 
   ```kusto
