@@ -108,7 +108,7 @@ The following functionalities aren't supported for WSFC on Azure VMware Solution
 
 Hot changes to virtual machine hardware might disrupt the heartbeat between the WSFC nodes.
 
-The following activities aren't supported and might cause WSFC node failover:
+The following activities aren't supported and could cause WSFC node failover:
 
 - Hot adding memory
 - Hot adding CPU
@@ -128,7 +128,7 @@ The following activities aren't supported and might cause WSFC node failover:
 6. Configure a Cluster Witness for quorum (can be a file share witness).
 7. Power off all nodes of the WSFC cluster.
 8. Add one or more Para virtual SCSI controllers (up to four) to each VM part of the WSFC. Use the settings per the previous paragraphs.
-9. On the first cluster node, add all needed shared disks using **Add New Device** > **Hard Disk**. Leave Disk sharing as **Unspecified** (default) and Disk mode as **Independent - Persistent**. Then attach it to the controller(s) created in the previous steps.
+9. On the first cluster node, add all needed shared disks using **Add New Device** > **Hard Disk**. Leave Disk sharing as **Unspecified** (default) and Disk mode as **Independent - Persistent**. Then attach it to the controllers created in the previous steps.
 10. Continue with the remaining WSFC nodes. Add the disks created in the previous step by selecting **Add New Device** > **Existing Hard Disk**. Be sure to maintain the same disk SCSI IDs on all WSFC nodes.
 11. Power on the first WSFC node, sign in, and open the disk management console (mmc). Make sure the added shared disks are manageable by the OS and are initialized. Format the disks and assign a drive letter.
 12. Power on the other WSFC nodes.
@@ -142,7 +142,7 @@ The following activities aren't supported and might cause WSFC node failover:
         
       - **Validate Network Communication**. The Cluster Validation test displays a warning indicating that only one network interface per cluster node is available. You can ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T Data Center segments. However, keep this item as part of the Cluster Validation test, as it validates other aspects of network communication.
 
-16. Create the relevant Placement Policies to situate the WSFC VMs on the correct Azure VMware Solution nodes depending upon the WSFC CIB or CAB configuration. To do so, you need a host-to-VM affinity rule. This way, cluster nodes run on the same or separate Azure VMware Solution host(s) respectively.
+16. Create the relevant Placement Policies to situate the WSFC VMs on the correct Azure VMware Solution nodes depending upon the WSFC CIB or CAB configuration. To do so, you need a host-to-VM affinity rule. This way, cluster nodes run on the same or separate Azure VMware Solution hosts respectively.
 
 ## Related information
 
