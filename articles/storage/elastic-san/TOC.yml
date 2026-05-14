@@ -33,6 +33,8 @@ items:
               href: /azure/azure-sql/virtual-machines/windows/storage-configuration-azure-elastic-san?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
             - name: Configure failover cluster instance to use an Elastic SAN volume
               href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-elastic-san-manually-configure?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+      - name: Improve performance and reliability of Azure VMware Solution Datastore connections
+        href: elastic-san-increase-private-endpoints-azure-vmware-solutions.md
       - name: Resize an Elastic SAN
         href: elastic-san-expand.md
       - name: Using volume snapshots
