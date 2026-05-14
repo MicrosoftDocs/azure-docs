@@ -100,7 +100,7 @@ When you create a relay to a DHCP server, you need to specify the DHCP IP addres
       
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges for using a DHCP server." border="true" lightbox="./media/manage-dhcp/edit-subnet.png":::
       
-1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
+1. Select **Apply**, and then **Save**. The segment gets assigned a DHCP server pool.
       
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment for using a DHCP server." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
 
@@ -154,9 +154,9 @@ When you create a relay to a DHCP server, you need to specify the DHCP IP addres
       
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true" lightbox="./media/manage-dhcp/edit-subnet.png":::
       
-1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
+1. Select **Apply**, and then **Save**. The segment gets assigned a DHCP server pool.
       
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool gets assigned to a segment." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
 
 ## Next steps
 
