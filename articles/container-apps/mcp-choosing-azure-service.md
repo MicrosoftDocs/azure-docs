@@ -162,7 +162,7 @@ For a hybrid scenario where you want the Container Apps managed experience on yo
 Use these questions to narrow your choice:
 
 1. **Do you need sandboxed code execution for untrusted or LLM-generated code?** Use Azure Container Apps dynamic sessions.
-1. **Do you already have a web app running on App Service?** Use Azure App Service add the MCP SDK to your existing app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp) if your app already exposes a REST API with an OpenAPI spec.
+1. **Do you already have a web app running on App Service?** Add the MCP SDK to your existing App Service app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp) if your app already exposes a REST API with an OpenAPI spec.
 1. **Do you need event-driven, per-invocation tool execution?** Use Azure Functions.
 1. **Do you need full container control, custom languages, or a microservices architecture?** Use Azure Container Apps (standalone).
 1. **Do you already run workloads on AKS and need full Kubernetes API access?** Use Azure Kubernetes Service (AKS).
