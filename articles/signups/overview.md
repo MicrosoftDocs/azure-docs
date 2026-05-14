@@ -62,7 +62,7 @@ To qualify for up to $5,000 in Azure credits:
 
 ## Terms and conditions
 
-By redeeming and using Azure startup credits, you agree to the [Azure Service Agreement & Terms](https://azure.microsoft.com/support/legal/) and the [Microsoft Privacy Statement](https://www.microsoft.com/privacy/privacystatement). Learn more about the [Microsoft Azure Sponsorship Offer Details](https://azure.microsoft.com/pricing/offers/ms-azr-0036p/).
+By redeeming and using Azure startup credits, you agree to the [Azure Service Agreement & Terms](https://azure.microsoft.com/support/legal/) and the [Microsoft Privacy Statement](https://www.microsoft.com/privacy/privacystatement). Learn more about the [Microsoft Azure Sponsorship Offer Details](https://azure.microsoft.com/pricing/offers/ms-azr-0036p?cid=msft_learn).
 
 Startup credits cannot be used for Microsoft Azure support plans, third-party branded products, products sold through Microsoft Azure Marketplace, or products otherwise sold separately from Microsoft Azure. Additionally, startup credits cannot be combined with other licensing, prepaid, or credit offers.
 
