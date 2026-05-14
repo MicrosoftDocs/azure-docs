@@ -75,7 +75,7 @@ App Service supports any agent framework that runs on your chosen language stack
 
 When you build your agent in code that runs on App Service (orchestration in your application), the agent metrics aren't visible in [Azure AI Foundry](/azure/ai-foundry/) because Foundry only sees fully managed Foundry agents. To close that gap, App Service surfaces an **AI (preview)** blade with an **Agents** tab that aggregates per-agent telemetry directly from your application:
 
-:::image type="content" source="media/scenario-ai-agentic-web-apps/app-service-ai-preview-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab showing per-agent calls, tokens, and error rate." lightbox="media/scenario-ai-agentic-web-apps/app-service-ai-preview-agents-tab.png":::
+:::image type="content" source="media/scenario-agentic-web-apps/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab showing per-agent calls, tokens, and error rate." lightbox="media/scenario-agentic-web-apps/app-service-agents-tab.png":::
 
 The tab lights up when your app meets three requirements:
 

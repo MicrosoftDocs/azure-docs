@@ -19,7 +19,7 @@ In this tutorial, you deploy a multi-agent travel-planner app to Azure App Servi
 
 The sample is built with [Microsoft Agent Framework](/agent-framework/overview/agent-framework-overview) and uses [Azure OpenAI](/azure/ai-services/openai/) as the model backend. A *Coordinator* agent delegates to five specialist agents (weather, currency, budget, local knowledge, and itinerary). After you deploy and exercise the app, the per-agent telemetry rolls up automatically in the portal:
 
-:::image type="content" source="media/tutorial-ai-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab showing agent names, calls, tokens, and error rate for each agent." lightbox="media/tutorial-ai-agent-monitoring-dotnet/app-service-agents-tab.png":::
+:::image type="content" source="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab showing agent names, calls, tokens, and error rate for each agent." lightbox="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png":::
 
 In this tutorial, you learn how to:
 
@@ -132,13 +132,13 @@ That's it. Each agent's name and ID are emitted on every span as `gen_ai.agent.n
 
 You should see one row per registered agent (Coordinator, WeatherAdvisor, CurrencyConverter, BudgetOptimizer, LocalKnowledge, ItineraryPlanner) with calls, tokens, and error rate over the selected date range. Use the search box, agent-name, and agent-ID filters to narrow the list. Select **View logs** on any row to open Application Insights with a query scoped to that agent.
 
-:::image type="content" source="media/tutorial-ai-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab populated with the six agents from this tutorial." lightbox="media/tutorial-ai-agent-monitoring-dotnet/app-service-agents-tab.png":::
+:::image type="content" source="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab populated with the six agents from this tutorial." lightbox="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png":::
 
 ## 5. Drill into Application Insights
 
 Select **View in Application Insights** at the top of the **Agents** tab. The **Agents (preview)** view opens in the Application Insights resource that's connected to your web app:
 
-:::image type="content" source="media/tutorial-ai-agent-monitoring-dotnet/app-insights-agents-view.png" alt-text="Screenshot of the Application Insights Agents (preview) view showing agent operational metrics, tool calls, models, and token consumption." lightbox="media/tutorial-ai-agent-monitoring-dotnet/app-insights-agents-view.png":::
+:::image type="content" source="media/tutorial-agent-monitoring-dotnet/app-insights-agents-view.png" alt-text="Screenshot of the Application Insights Agents (preview) view showing agent operational metrics, tool calls, models, and token consumption." lightbox="media/tutorial-agent-monitoring-dotnet/app-insights-agents-view.png":::
 
 From here you can:
 
