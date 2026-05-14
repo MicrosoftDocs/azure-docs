@@ -36,6 +36,17 @@ Many clients can experience problems if they don’t fully support NFSv4.2 or th
 
 For more information, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs).
 
+## Why do NFS mounts hang or fail when TCP timestamps are enabled?
+
+TCP timestamps (PAWS, RFC 7323) protect against stale packets. If a network device (for example, NAT, NVA, firewall, or load balancer) modifies or strips TCP timestamp values, valid packets can be dropped preventing the NFS mount from completing.
+
+The common symptoms are:
+
+* NFSv3 or NFSv4.1 mount commands hang or time out.
+* TCP connection establishes (SYN/SYN-ACK completes) connection, but the mount does not complete.
+* Mount succeeds when TCP timestamps are disabled on the client.
+
+
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
@@ -81,6 +92,10 @@ By design, the `.snapshot` directory is never visible to NFSv4.1 clients. By def
 ## Will the access time automatically update when reading files?
 
 No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
+
+## Why can I not create files larger than 16 TiB on my Azure NetApp Files volumes? 
+
+Since May 2026, Azure NetApp Files supports files up 64 TiB on new and existing regular volumes (smaller than 100 TiB). Because NFS clients only refresh the maximum file size when mounting the volume, it is necessary to remount the volume on the NFS clients to correctly recognize the new maximum file size.
 
 ## Oracle dNFS
 

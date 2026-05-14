@@ -1,8 +1,8 @@
 ---
 title: Configure data flow endpoints for Azure Data Explorer
 description: Learn how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
