@@ -251,6 +251,19 @@ Select **Entities** from the left side menu to view entities you created.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/entities.png" alt-text="Screenshot of the entities you created and some management tools for them.":::
 
+Click an individual entity from the list to view its details. From here, you can review:
+- When it was last modified
+- When the last operation ran
+- Whether it's locked, and who locked it
+- Its backlog size
+- The entity state in either JSON or raw code
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/individual-entity-details.png" alt-text="Screenshot of an individual entity being tracked in the Durable Task Scheduler dashboard.":::
+
+You can also send a signal to the entity. Click **Signal** in the top right corner and create the signal message.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/send-signal-to-entity.png" alt-text="Screenshot of the window for sending a signal to your individual entity.":::
+
 </details>
 
 <details>
@@ -259,9 +272,14 @@ Select **Entities** from the left side menu to view entities you created.
 > [!NOTE]
 > Reviewing agent sessions via the Durable Task Scheduler dashboard is currently in preview.
 
-Select **Agents** from the left side menu to monitor agent sessions triggered by your application in the scheduler.
+Select **Agents** from the left side menu to monitor agent sessions triggered by your application in the scheduler. Click into an agent session to view your token usage data, such as:
+- The number of prompt tokens you've used.
+- The number of completion tokens you've used.
+- The total number of tokens used during the agent session.
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/agent-history.png" alt-text="Screenshot of the agent sessions triggered by your application.":::
+You can also view the agent chat history and timeline.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/agents-history.png" alt-text="Screenshot of the agent sessions triggered by your application.":::
 
 </details>
 
