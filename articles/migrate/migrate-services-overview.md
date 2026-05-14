@@ -86,7 +86,7 @@ The Azure Migrate appliance is a virtual appliance that can be deployed on a ser
 
 **Azure Migrate Collector** 
 
-Azure Migrate Collector (preview) helps to streamline discovery. The Collector enables centralized data collection across environments and simplifies onboarding by reducing the need for multiple appliances. [Learn more](how-to-discover-using-collector?view=migrate).
+Azure Migrate Collector (preview) helps to streamline discovery. The Collector enables centralized data collection across environments and simplifies onboarding by reducing the need for multiple appliances. [Learn more](how-to-discover-using-collector.md).
 
 After you identify the inventory of workloads, you can create a *business case* to make your decision to migrate your on-premises workloads to Azure. A business case helps you estimate the costs and savings of moving to Azure. It helps you identify:
   
@@ -151,8 +151,6 @@ The following features from software development companies (SDCs) are integrated
 | [CloudRecon](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases. |
 | [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers. |
 ::: moniker-end
-
-For detailed capabilities and latest updates, see [What’s new](whats-new.md).
 
 ## Related content
 
