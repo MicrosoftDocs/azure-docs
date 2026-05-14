@@ -336,7 +336,16 @@ Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
 
-Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup # following is an example to modify the file share setting, edit command to tailor for your need: "-NfProtocolPropertyRootSquash RootSquash -ProvisionedIoPerSec 5001 -ProvisionedStorageGiB 101 -ProvisionedThroughputMiBPerSec 126 -PublicNetworkAccess Disabled -Tag @{tag1="value1"}"
+# The following is an example to modify the file share setting. Edit the command to tailor it to your needs.
+Update-AzFileShare `
+    -ResourceName $shareName `
+    -ResourceGroupName $resourceGroup `
+    -NfProtocolPropertyRootSquash RootSquash `
+    -ProvisionedIoPerSec 5001 `
+    -ProvisionedStorageGiB 101 `
+    -ProvisionedThroughputMiBPerSec 126 `
+    -PublicNetworkAccess Disabled `
+    -Tag @{tag1="value1"}
 Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 ```
 
@@ -353,7 +362,8 @@ shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"
 
 # Update the file share. Uncomment and set only the parameters you want to change.
-az fileshare update --name $shareName --resource-group $resourceGroup --provisioned-storage-GiB 2048
+az fileshare update --name $shareName --resource-group $resourceGroup 
+# --provisioned-storage-GiB 2048
 # --provisioned-iops 3000 \
 # --provisioned-throughput-MiB 125 \
 # --root-squash RootSquash \
@@ -423,7 +433,7 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
-Before deleting your file share created with the Microsoft.FileShares resource provider, make sure to delete its associated private endpoint. File share deletion will fail if the private endpoint is still present.
+Before deleting your file share created with the Microsoft.FileShares resource provider, make sure to delete or disconnect its associated private endpoint. File share deletion will fail if the private endpoint is still present.
 
 # [Portal](#tab/azure-portal)
 

@@ -93,7 +93,7 @@ The **DNS** blade contains the information for integrating your private endpoint
 
 You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
-[![Screenshot showing how to optionally tag your private endpoint with name/value pairs for easy categorization.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png)](media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png#lightbox)
+[![Screenshot showing how to optionally tag your private endpoint with name/value pairs for easy categorization.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png#lightbox)
 
 Select **Create** to create the private endpoint.
 

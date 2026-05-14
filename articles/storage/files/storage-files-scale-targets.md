@@ -151,7 +151,7 @@ The following limits apply to the file share and to child resources of the file 
 
 | Attribute | Limit |
 |-|-|
-| Maximum number of file shares per subscription per region | 1,000 file shares |
+| Maximum number of file shares per subscription per region | 10,000 file shares |
 | Maximum number of file share snapshots per file share | 200 file share snapshots |
 | Management read operations<sup>1</sup> | Maximum of 375 requests per second, refilled at a rate of 37 requests per second |
 | Management write operations<sup>1</sup> | Maximum of 300 requests per second, refilled at a rate of 15 requests per second |
