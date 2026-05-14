@@ -82,9 +82,9 @@ Assign the user-assigned managed identity you created in Step 2 to your Azure Da
 
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
-> [!IMPORTANT]
+ > [!IMPORTANT]
 > **Preserve existing managed identities!**  
-> If your Azure Data Manager for Energy instance has user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities removes them from the instance.
+> If your Azure Data Manager for Energy instance includes user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities removes them from the instance.
 >
 > To preserve existing identities, first retrieve the current configuration:
 > ```bash
