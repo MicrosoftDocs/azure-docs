@@ -38,7 +38,7 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 ## Prerequisites
 
 - An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Data Manager for Energy instance with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure Data Manager for Energy instance (Developer Tier) with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - The [Azure CLI](/cli/azure/install-azure-cli) installed on your machine, or access to [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Step 1: Create or use an existing ADLS Gen2 storage account

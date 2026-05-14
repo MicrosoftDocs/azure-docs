@@ -25,7 +25,7 @@ This article shows how to connect your ACZ data to Microsoft Fabric by using One
 
 ## Prerequisites
 
-- An Azure subscription with an [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance.
+- An Azure subscription with an Azure Data Manager for Energy (Developer Tier) instance. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled with at least one ACZ in `ACTIVE` status and `historicalSnapshotStatus` set to `COMPLETED`. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 - A [Microsoft Fabric capacity](/fabric/enterprise/licenses) (F2 or higher) or a Fabric trial.
 - A [Fabric workspace](/fabric/get-started/create-workspaces).

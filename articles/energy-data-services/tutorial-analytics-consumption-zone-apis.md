@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance in your Azure subscription.
+- An Azure Data Manager for Energy (Developer Tier) instance in your Azure subscription. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 - An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where user-assigned managed identity allow listed for ACZ operations has **Storage Blob Data Contributor** role.
 - Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
