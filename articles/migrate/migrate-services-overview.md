@@ -36,6 +36,30 @@ For more information on migrating or modernizing multi-tier applications using A
 
 Azure Migrate also integrates with the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, and review business case insights. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Note that migration execution continues to be performed through the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
 
+## Benefits of Azure Migrate 
+
+Azure Migrate offers these benefits for your cloud migration journey: 
+
+- **Unified migration platform**: You use a single portal to start, run, and track your migration to Azure. The unified platform supports discovery, assessment, and migration of variety of workloads, like servers, databases, and web applications. 
+
+- **Free service**: Azure Migrate is a free service that you can use to: 
+
+    1. Identify your inventory of workloads. 
+    1. Assess workloads for multiple infrastructure as a service (IaaS) and platform as a service (PaaS) Azure targets. 
+    1. Develop a plan for migration. 
+    1. Migrate the workloads by using in-product, Microsoft, and partner migration tools. (Partner tools might charge you for using their services.) 
+
+- **Range of tools**: Azure Migrate has tools for assessment and migration, as described  [later in this article](#integrated-tools-and-features). 
+
+- **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize: 
+
+    - **Servers**: Assess on-premises servers and migrate them to Azure. 
+    - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to a SQL server on an Azure VM, an Azure SQL managed instance, or an Azure SQL database. 
+    - **Web applications**: Assess on-premises web apps and migrate them to Azure App Service and Azure Kubernetes Service. 
+    - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively by using Azure Data Box products. 
+
+For information about Azure Migrate availability across Azure regions, see [Supported regions for Azure Migrate](migrate-support-matrix.md). 
+
 ## Migration phases
 
 Azure Migrate provides a simplified migration, modernization, and optimization service for customers who want to migrate their on-premises workloads to Azure. It gives you a one-stop solution for migrating your infrastructure, data, and web application workloads.
@@ -56,9 +80,13 @@ Watch this video to learn how Azure Migrate delivers enhanced experiences. It he
 
 ### Decide
 
-The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach) or quickly import the inventory data for your workloads.
+The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach), deploy Azure Migrate collector or quickly import the inventory data for your workloads.
 
 The Azure Migrate appliance is a virtual appliance that can be deployed on a server in your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it to the Azure Migrate service.
+
+**Azure Migrate Collector** 
+
+Azure Migrate Collector (preview) helps to streamline discovery. The Collector enables centralized data collection across environments and simplifies onboarding by reducing the need for multiple appliances. [Learn more](how-to-discover-using-collector?view=migrate).
 
 After you identify the inventory of workloads, you can create a *business case* to make your decision to migrate your on-premises workloads to Azure. A business case helps you estimate the costs and savings of moving to Azure. It helps you identify:
   
@@ -91,32 +119,7 @@ You can migrate the following workloads by using the integrated Azure Migrate an
 | On-premises physical servers or servers hosted on other clouds | Migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Azure Migrate and Modernize tool uses a replication appliance for the migration. |
 | Web apps hosted on Windows in a VMware environment | Perform agentless migration of ASP.NET web apps at scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using Azure Migrate. |
 
-## Benefits of Azure Migrate 
-
-Azure Migrate offers these benefits for your cloud migration journey: 
-
-- **Unified migration platform**: You use a single portal to start, run, and track your migration to Azure. The unified platform supports discovery, assessment, and migration of variety of workloads, like servers, databases, and web applications. 
-
-- **Free service**: Azure Migrate is a free service that you can use to: 
-
-    1. Identify your inventory of workloads. 
-    1. Assess workloads for multiple infrastructure as a service (IaaS) and platform as a service (PaaS) Azure targets. 
-    1. Develop a plan for migration. 
-    1. Migrate the workloads by using in-product, Microsoft, and partner migration tools. (Partner tools might charge you for using their services.) 
-
-- **Range of tools**: Azure Migrate has tools for assessment and migration, as described  later in this article. 
-
-Assessment, migration, and modernization: In the Azure Migrate hub, you can assess, migrate, and modernize: 
-
-Servers: Assess on-premises servers and migrate them to Azure. 
-
-Databases: Assess on-premises SQL Server instances and databases to migrate them to a SQL server on an Azure VM, an Azure SQL managed instance, or an Azure SQL database. 
-
-Web applications: Assess on-premises web apps and migrate them to Azure App Service and Azure Kubernetes Service. 
-
-Data: Migrate large amounts of data to Azure quickly and cost-effectively by using Azure Data Box products. 
-
-For information about Azure Migrate availability across Azure regions, see [Supported regions for Azure Migrate](../migrate-supported-regions.md). 
+For detailed information on how to To migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration using Azure Migrate. 
 
 ::: moniker range="migrate-classic"
 ## Integrated tools and features
@@ -148,6 +151,8 @@ The following features from software development companies (SDCs) are integrated
 | [CloudRecon](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases. |
 | [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers. |
 ::: moniker-end
+
+For detailed capabilities and latest updates, see [What’s new](whats-new.md).
 
 ## Related content
 
