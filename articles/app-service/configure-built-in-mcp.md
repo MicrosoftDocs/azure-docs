@@ -112,11 +112,13 @@ The examples below show the minimal payload to expose every operation in your sp
      Provide **Source** plus either **Well-known OpenID configuration URL** or **Issuer**. To set `JwksUri` or `Audience`, use the [Azure CLI](#tab/cli) or [Bicep](#tab/bicep) tab. For details, see [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication).
 1. Select **Create MCP**.
 
-<!-- TODO: Add screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open. Save to ./media/configure-built-in-mcp/portal-add-mcp-server.png and reinstate as a > [!div class="mx-imgBorder"] image. -->
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-mcp/portal-add-mcp-server.png)
 
-After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable or disable individual tools as well. Edit the MCP server to override tool names or descriptions—the override is what the AI client sees; the underlying OpenAPI spec is unchanged.
+After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable or disable individual tools as well.
 
-<!-- TODO: Add screenshot of the MCP server expanded view showing the tool list with individual tool toggles and status of "8 of 13 tools enabled". Save to ./media/configure-built-in-mcp/portal-server-tools.png and reinstate as a > [!div class="mx-imgBorder"] image. -->
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the MCP server expanded view showing the tool list with individual tool toggles.](./media/configure-built-in-mcp/portal-server-tools.png)
 
 ### [Azure CLI](#tab/cli)
 
