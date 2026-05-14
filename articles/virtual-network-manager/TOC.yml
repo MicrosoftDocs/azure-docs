@@ -51,7 +51,7 @@
             - name: Deploy hub and spoke topology with Azure Firewall
               href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
             - name: Configure Virtual WAN hub in Hub and Spoke Topology
-              href: configure-virtual-wan-hub-for-network-group.md
+              href: configure-virtual-wan-hub-for-network-manager.md
         - name: Mesh
           items:
             - name: Azure portal
