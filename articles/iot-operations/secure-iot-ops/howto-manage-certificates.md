@@ -15,7 +15,7 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 ## Prerequisites
 
-To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 ## Manage certificates for internal communications
 

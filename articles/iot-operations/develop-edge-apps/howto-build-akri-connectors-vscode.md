@@ -63,7 +63,7 @@ Docker configuration:
 
 To deploy and use your connector with an Azure IoT Operations instance, you also need:
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Access to a container registry, such as Azure Container Registry, to publish your connector images.
 - A container registry endpoint configured in your Azure IoT Operations instance to pull your connector images. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 

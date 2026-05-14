@@ -26,7 +26,9 @@ The connector for OPC UA must trust the OPC UA servers it connects to. The conne
 
 ## Prerequisites
 
-An Azure IoT Operations instance deployed with secure settings and the connector for OPC UA enabled. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
+
+- The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 ## Configure a self-signed application instance certificate for the connector for OPC UA
 

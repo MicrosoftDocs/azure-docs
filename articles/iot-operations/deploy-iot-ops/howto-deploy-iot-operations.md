@@ -34,7 +34,7 @@ When we talk about deploying Azure IoT Operations, we mean the full set of compo
 
 Cloud resources:
 
-* An Azure subscription.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
 

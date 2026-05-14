@@ -216,7 +216,7 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 
 To use data flow graphs, you need:
 
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - The default registry endpoint that points to `mcr.microsoft.com`, which is created automatically during deployment.
 
 ## Next steps

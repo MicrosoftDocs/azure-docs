@@ -50,7 +50,7 @@ This article explains how to use the media connector to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
