@@ -401,7 +401,6 @@ During the public preview, the following limitations apply:
 - Go function apps run on Linux only in Azure.
 - Only the triggers listed in [Triggers and bindings](#triggers-and-bindings) are supported during the preview.
 - Go packaging in Core Tools currently targets Linux x64 apps.
-- Go packaging in Core Tools currently targets Linux x64 apps.
 
 ## Next steps
 

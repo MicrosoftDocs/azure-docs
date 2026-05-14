@@ -181,7 +181,7 @@ Replace `<APP_NAME>` with the name of your function app.
 After deployment completes, open the following URL in a browser to verify that the function runs in Azure:
 
 ```
-https://<APP_NAME>.azurewebsites.net/api/hello?name=Functions
+https://<APP_NAME>.azurewebsites.net/api/hello
 ```
 
 ## Clean up resources
