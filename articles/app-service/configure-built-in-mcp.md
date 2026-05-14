@@ -113,12 +113,12 @@ The following examples show the minimal payload to expose every operation in you
 1. Select **Create MCP**.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-mcp/portal-add-mcp-server.png)
+> ![Screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open.](./media/configure-built-in-model-context-protocol/portal-add-mcp-server.png)
 
 After you save, the **MCP servers** tab shows the configured server with its endpoint, tool count, and an enable/disable toggle. You can enable or disable individual tools as well.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the MCP server expanded view showing the tool list with individual tool toggles.](./media/configure-built-in-mcp/portal-server-tools.png)
+> ![Screenshot of the MCP server expanded view showing the tool list with individual tool toggles.](./media/configure-built-in-model-context-protocol/portal-server-tools.png)
 
 ### [Azure CLI](#tab/cli)
 
@@ -352,7 +352,7 @@ The portal makes registration a one-select flow:
 1. Next to **Azure API Center**, select **+ Connect**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the MCP server detail showing the Azure API Center Connect button.](./media/configure-built-in-mcp/portal-mcp-server-connect-api-center.png)
+   > ![Screenshot of the MCP server detail showing the Azure API Center Connect button.](./media/configure-built-in-model-context-protocol/portal-mcp-server-connect-api-center.png)
 
 1. In the **Connect API Center** pane, choose a **Subscription** and an existing **API Center**, or select **Create new** to create a new one. App Service fills in default values (kind, lifecycle stage, environment, deployment) on your behalf so you don't have to set them up manually.
 
