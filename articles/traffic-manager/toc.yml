@@ -61,8 +61,8 @@
       href: traffic-manager-traffic-view-overview.md
     - name: Metrics and alerts
       href: traffic-manager-metrics-alerts.md
-    - name: Reliability and disaster recovery
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Reliability
+      href: /azure/azure/reliability/reliability-traffic-manager.md?toc=/azure/traffic-manager/toc.json
     - name: How Traffic Manager works
       href: traffic-manager-how-it-works.md
     - name: FAQs
