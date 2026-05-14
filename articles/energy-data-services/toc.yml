@@ -97,10 +97,10 @@ items:
           href: how-to-enable-reservoir-ddms.md
         - name: How to manage upgrade settings
           href: how-to-manage-upgrade-settings.md
-    - name: Analytics Consumption Zone
-      items:
         - name: How to enable Analytics Consumption Zone (ACZ)
           href: how-to-enable-analytics-consumption-zone.md
+    - name: Analytics Consumption Zone
+      items:
         - name: How to connect ACZ to Microsoft Fabric
           href: how-to-connect-analytics-consumption-zone-to-fabric.md
         - name: How to connect ACZ to Azure Databricks
