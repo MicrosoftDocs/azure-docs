@@ -20,7 +20,7 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> During the preview, ACZ access requires allowlisting. Complete the steps in this article and contact your Microsoft representative to enable ACZ on your Azure Data Manager for Energy resource.
+> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. Complete the steps in this article and contact your Microsoft representative to enable ACZ on your Azure Data Manager for Energy resource.
 
 ## Setup overview
 

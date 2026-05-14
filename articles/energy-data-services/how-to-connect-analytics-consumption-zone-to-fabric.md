@@ -20,6 +20,9 @@ This article shows how to connect your ACZ data to Microsoft Fabric by using One
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!NOTE]
+> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. Follow the guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative.
+
 ## Prerequisites
 
 - An Azure subscription with an [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance.

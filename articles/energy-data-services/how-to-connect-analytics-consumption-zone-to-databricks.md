@@ -13,6 +13,9 @@ ms.custom: template-how-to-pattern
 
 This article shows you how to connect Analytics Consumption Zone (ACZ) to Azure Databricks for querying Azure Data Manager for Energy data. After completing these steps, you can query OSDU® data using Databricks SQL and notebooks.
 
+> [!NOTE]
+> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. Follow the guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative.
+
 ## Prerequisites
 
 - An Azure subscription with an Azure Data Manager for Energy instance that has ACZ enabled
