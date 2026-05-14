@@ -6,7 +6,7 @@ manager: pmwongera
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 12/11/2025
+ms.date: 05/06/2026
 ms.author: rolyon
 ms.custom:
   - it-pro;
@@ -96,22 +96,15 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 
 ## Classic subscription administrator roles
 
-> [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role.
->
-> For more information, see [Azure classic subscription administrators](classic-administrators.md).
+[!INCLUDE [classic-administrators-retirement-note](./includes/classic-administrators-retirement-note.md)]
 
-Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
+Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators had full access to the Azure subscription. They could manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators could be added. The Service Administrator and the Co-Administrators had the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 
 | Classic subscription administrator | Limit | Permissions | Notes |
 | --- | --- | --- | --- |
 | Account Administrator | 1 per Azure account | <ul><li>Can access the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and manage billing</li><li>Manage billing for all subscriptions in the account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service Administrator</li><li>Can't cancel subscriptions unless they have the Service Administrator or subscription Owner role</li></ul> | Conceptually, the billing owner of the subscription. |
 | Service Administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Cancel the subscription</li><li>Assign users to the Co-Administrator role</li></ul> | By default, for a new subscription, the Account Administrator is also the Service Administrator.<br>The Service Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope.<br>The Service Administrator has full access to the Azure portal. |
 | Co-Administrator | 200 per subscription | <ul><li>Same access privileges as the Service Administrator, but can’t change the association of subscriptions to Microsoft Entra directories</li><li>Assign users to the Co-Administrator role, but can't change the Service Administrator</li></ul> | The Co-Administrator has the equivalent access of a user who is assigned the Owner role at the subscription scope. |
-
-In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
-
-:::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Azure classic subscription administrators in the Azure portal." lightbox="./media/shared/classic-administrators.png":::
 
 For more information, see [Azure classic subscription administrators](classic-administrators.md).
 

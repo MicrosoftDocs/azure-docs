@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/08/2025
 ms.reviewer: v-uhabiba
+ms.update-cycle: 180-days
 
 # Customer intent: As a cloud administrator, I want to ensure that all prerequisites for Azure Migrate assessments are met so that I can obtain accurate readiness and sizing evaluations for our workloads before migration.
 ---

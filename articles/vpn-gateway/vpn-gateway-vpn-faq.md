@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 09/09/2025
+ms.date: 05/13/2026
 ms.author: cherylmc
 # Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
@@ -145,19 +145,19 @@ Azure Standard SKU public IP resources must use a static allocation method. You 
 
 ### Can I request a static public IP address for my VPN gateway?
 
-Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway. This requirement applies to all gateway SKUs except the Basic SKU. The Basic SKU currently supports only Basic SKU public IP addresses. We're working on adding support for Standard SKU public IP addresses for the Basic SKU.
+Standard SKU public IP address resources use a static allocation method. Going forward, you must use a Standard SKU public IP address when you create a new VPN gateway.
 
 For non-zone-redundant and non-zonal gateways that were previously created (gateway SKUs that don't have *AZ* in the name), dynamic IP address assignment is supported but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it's assigned to your VPN gateway. The only time that the VPN gateway IP address changes is when the gateway is deleted and then re-created. The public IP address doesn't change when you upgrade (resize), reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does the retirement of Basic SKU public IP addresses affect my VPN gateways?
 
-We're taking action to ensure the continued operation of deployed VPN gateways that use Basic SKU public IP addresses until the retirement of Basic IP in September 2025. Before this retirement, we'll provide customers with a migration path from Basic to Standard IP. 
+Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address.
 
-However, Basic SKU public IP addresses are being phased out. Going forward, when you create a VPN gateway, you must use the Standard SKU public IP address. You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
+You can find details on the retirement of Basic SKU public IP addresses in the [Azure Updates announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
 
 > [!NOTE]
-> The timeline for the VPN Gateway using Azure Basic IP is subject to frequent updates.
-> For the latest migration timeline, please see [this page](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
+> The timeline for VPN Gateway using Azure Basic public IP addresses is subject to frequent updates.
+> For the latest migration timeline, please see the VPN Gateway [What's New](/azure/vpn-gateway/whats-new#upcoming-projected-changes) page.
 
 ### How is my VPN tunnel authenticated?
 
@@ -200,10 +200,6 @@ They're required for Azure infrastructure communication. Azure certificates help
 
 A virtual network gateway is fundamentally a multihomed device. One network adapter taps into the customer private network, and one network adapter faces the public network. Azure infrastructure entities can't tap into customer private networks for compliance reasons, so they need to use public endpoints for infrastructure communication. An Azure security audit periodically scans the public endpoints.
 
-### <a name="vpn-basic"></a>Can I create a VPN gateway by using the Basic SKU in the portal?
-
-No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway by using the Azure CLI or the [Azure PowerShell](create-gateway-basic-sku-powershell.md) steps.
-
 ### Where can I find information about gateway types, requirements, and throughput?
 
 See the following articles:
@@ -216,52 +212,23 @@ No. IP fragmentation is not supported for ESP packets or for any packets encapsu
 
 ## <a name="sku-deprecate"></a>Deprecation of older SKUs
 
-The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
+The Standard and High Performance SKUs are retired. You can view the announcement on the [Azure Updates site](https://go.microsoft.com/fwlink/?linkid=2255127). For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
 
- For the latest migration timeline, please see [Upcoming projected changes](/azure/vpn-gateway/whats-new#upcoming-projected-changes). 
-
+For information about timelines, see the VPN Gateway [What's New](/azure/vpn-gateway/whats-new#upcoming-projected-changes) page.
 
 [!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
 
 ## Migrating a Basic SKU public IP address to Standard SKU
 
-This section outlines important questions and considerations for migrating from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments currently using a Basic SKU public IP address. This does not pertain to deployments that are already using a Standard SKU public IP address. For more information, see [Basic SKU IP deprecation Announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
- 
-### What is the expected customer impact?
+For information about migrating from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments currently using a Basic SKU public IP address, see [About Basic SKU public IP address migration](basic-public-ip-migrate-about.md). For timelines, see the VPN Gateway [What's New](/azure/vpn-gateway/whats-new#upcoming-projected-changes) page.
 
-The expected customer impact includes new [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) changes and up to 10 minutes of downtime during customer-controlled migration. Customers will have three months to migrate after the release of the migration tool. To qualify for a successful migration, ensure you have the correct IP address space and subnet size.
- 
-### What is the anticipated timeline for the migration?
-
-Here is the anticipated timeline for the migration tool availability and Basic SKU Public IP deprecation.
-
-| Date                          | Event                                                                                              |
-|-------------------------------|----------------------------------------------------------------------------------------------------|
-| Aug 4, 2025                   | Migration tooling for Basic SKU Public IP to Standard SKU becomes available (Public Preview) for **Active-Passive VPN Gateways** in Public Cloud. |
-| Sep 2025 (tentative GA)       | Temporary GA timeline for Public and Sovereign Cloud support.                                      |
-| End of Sep 2025 (tentative GA)| Migration tooling GA for **Active-Active VPN Gateways** (Basic → Standard SKU Public IP).          |
-| Oct 2025 (planned)            | Automated capability becomes available to remove the Basic public IP from **Basic SKU Gateways**. Existing IP addresses remain unchanged and connectivity is not interrupted. |
-| Aug 4, 2025 – End of Jan 2026 | Customer-controlled migrations can be initiated after tool availability (approx. 6 months window). |
-| End of Jan 2026               | Overall migration timeline for all VPN Gateways with Basic IP is extended until this date.         |
-| Feb 2026                      | Basic SKU Public IP addresses are fully deprecated.                                                |
-
-
-
-
-
-### What are the required customer actions?
-
-Ensure you have the correct IP address space and subnet size to support the migration. If your gateway is using a Basic IP, you need to migrate it to a Standard IP to avoid service disruption. This migration is necessary because Basic IP addresses will be deprecated by September 2025. If your gateway is already using a Standard IP, no action is required.
- 
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
-
 
 ### What should I consider when selecting a VPN device?
 
 We've validated a set of standard site-to-site VPN devices in partnership with device vendors. You can find a list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specifications in the [About VPN devices](vpn-gateway-about-vpn-devices.md) article.
 
 All devices in the device families listed as known compatible should work with virtual networks. To help configure your VPN device, refer to the device configuration sample or link that corresponds to the appropriate device family.
-
 
 ### Where can I find VPN device configuration settings?
 

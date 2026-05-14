@@ -200,6 +200,8 @@
         href: java-message-service-20-entities.md
       - name: Java Message Service (JMS) Developer guide
         href: jms-developer-guide.md
+      - name: Choose between JMS and native SDK (Java)
+        href: service-bus-jms-versus-native-sdk.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message sequencing and timestamps

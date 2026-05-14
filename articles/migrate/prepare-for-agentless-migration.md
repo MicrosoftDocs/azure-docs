@@ -15,8 +15,6 @@ ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 
 This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](tutorial-migrate-vmware.md) method using the Migration and modernization tool.
 
-
-
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
@@ -45,6 +43,8 @@ You can also use this article to manually prepare the VMs for migration to Azure
 - Enable the serial console
 - Configure network settings
 - Install the VM guest agent
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 ## Hydration process
 

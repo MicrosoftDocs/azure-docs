@@ -1,4 +1,16 @@
+---
+title: CycleCloud API operations
+description: Reference for Azure CycleCloud REST API operations used to manage clusters, nodes, and related resources programmatically.
+ms.service: cyclecloud
+ms.topic: reference
+ms.date: 05/13/2026
+author: emilylo
+ms.custom: include-file
 
+# Customer intent: As a developer or operator, I want to use the CycleCloud REST API to manage clusters and nodes programmatically.
+---
+
+Azure CycleCloud provides a REST API for managing clusters, nodes, and related resources programmatically. Use these API operations to query cluster state, create and manage nodes, and track long-running operations. This reference lists the available endpoints, parameters, and response formats to help you automate and integrate CycleCloud cluster management into your workflows.
 
 <a name="clusters_getnodes"></a>
 ## Get cluster nodes
@@ -6,14 +18,13 @@
 GET /clusters/{cluster}/nodes
 ```
 
-
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to query|string|
 |**Query**|**operation**  <br>*optional*|If given, returns only the nodes for this operation ID, and includes the operation attribute on the body|string|
-|**Query**|**request_id**  <br>*optional*|If given, returns only the nodes for the operation identified by this request ID,<br> and includes the operation attribute on the body|string|
+|**Query**|**request_id**  <br>*optional*|If given, returns only the nodes for the operation identified by this request ID, and includes the operation attribute on the body|string|
 
 
 ### Responses
@@ -55,7 +66,7 @@ POST /clusters/{cluster}/nodes/create
 
 
 ### Description
-This operation adds new nodes from a node array to a cluster. It accepts multiple node definitions in a single call. It returns the URL to the operation that you can use to track the status of the operation.
+This operation adds new nodes from a nodearray to a cluster. It accepts multiple node definitions in a single call. It returns the URL to the operation that can be used to track the status of the operation.
 
 
 ### Parameters
@@ -63,14 +74,14 @@ This operation adds new nodes from a node array to a cluster. It accepts multipl
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
-|**Body**|**nodes**  <br>*required*|Sets of nodes to create|[NodeCreationRequest](#nodecreationrequest)|
+|**Body**|**nodes**  <br>*required*|Sets of nodes to be created|[NodeCreationRequest](#nodecreationrequest)|
 
 
 ### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -112,14 +123,14 @@ POST /clusters/{cluster}/nodes/deallocate
 
 
 ### Description
-This operation deallocates nodes in a cluster. You can identify the nodes by using several methods, including node name, node ID, or a filter.
+This operation deallocates nodes in a cluster. The nodes can be identified in several ways,  including node name, node ID, or by filter.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster where you want to deallocate nodes|string|
+|**Path**|**cluster**  <br>*required*|The cluster to deallocate nodes in|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to deallocate|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -127,7 +138,7 @@ This operation deallocates nodes in a cluster. You can identify the nodes by usi
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -165,6 +176,67 @@ This operation deallocates nodes in a cluster. You can identify the nodes by usi
 ```
 
 
+<a name="clusters_reimagenodes"></a>
+## Reimage cluster nodes
+```
+POST /clusters/{cluster}/nodes/reimage
+```
+
+
+### Description
+This operation reimages nodes in a cluster. The nodes can be identified in several ways,  including node name, node ID, or by filter.
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster to reimage nodes in|string|
+|**Body**|**action**  <br>*required*|Description of which nodes to reimage|[NodeManagementRequest](#nodemanagementrequest)|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**409**|Invalid input|No Content|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/CLUSTER_NAME/nodes/reimage
+```
+
+
+#### Request body
+```json
+{
+  "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
+  "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
+  "names" : [ "name1", "name2" ],
+  "requestId" : "00000000-0000-0000-0000-000000000000"
+}
+```
+
+
+### Example HTTP response
+
+#### Response 202
+```json
+{
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
+}
+```
+
+
 <a name="clusters_removenodes"></a>
 ## Terminate and remove cluster nodes
 ```
@@ -173,14 +245,14 @@ POST /clusters/{cluster}/nodes/remove
 
 
 ### Description
-This operation removes nodes in a cluster. You can identify the nodes in several ways, including node name, node ID, or by using a filter. By default, nodes are removed when terminated unless the node has the `Fixed` property set to `true`. In that case, this call acts the same as terminate.
+This operation removes nodes in a cluster. You can identify the nodes by node name, node ID, or filter. By default, CycleCloud removes nodes on termination, so this call behaves like terminate. Nodes with the Fixed attribute set to true aren't removed on termination.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster where you want to remove nodes|string|
+|**Path**|**cluster**  <br>*required*|The cluster to remove nodes in|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to remove|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -188,7 +260,7 @@ This operation removes nodes in a cluster. You can identify the nodes in several
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -226,6 +298,67 @@ This operation removes nodes in a cluster. You can identify the nodes in several
 ```
 
 
+<a name="clusters_restartnodes"></a>
+## Restart cluster nodes
+```
+POST /clusters/{cluster}/nodes/restart
+```
+
+
+### Description
+This operation restarts nodes in a cluster. The nodes can be identified in several ways,  including node name, node ID, or by filter.
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster to restart nodes in|string|
+|**Body**|**action**  <br>*required*|Description of which nodes to restart|[NodeManagementRequest](#nodemanagementrequest)|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**409**|Invalid input|No Content|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/CLUSTER_NAME/nodes/restart
+```
+
+
+#### Request body
+```json
+{
+  "filter" : "State === \"Started\"",
+  "hostnames" : [ "hostname1", "hostname2" ],
+  "ids" : [ "id1", "id2" ],
+  "ip_addresses" : [ "10.0.1.1", "10.1.1.2" ],
+  "names" : [ "name1", "name2" ],
+  "requestId" : "00000000-0000-0000-0000-000000000000"
+}
+```
+
+
+### Example HTTP response
+
+#### Response 202
+```json
+{
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
+}
+```
+
+
 <a name="clusters_shutdownnodes"></a>
 ## Terminate or deallocate cluster nodes
 ```
@@ -234,14 +367,13 @@ POST /clusters/{cluster}/nodes/shutdown
 
 
 ### Description
-This operation terminates or deallocates nodes in a cluster. The operation uses the `ShutdownPolicy` attribute on each node to determine the action. If the attribute is set to `Terminate` (the default), the operation terminates the node. If the attribute is set to `Deallocate`, the operation deallocates the node.
-
+This call shuts down nodes in a cluster. Each node's ShutdownPolicy attribute decides the action: Terminate (default) or Deallocate.
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster where you want to shut down nodes|string|
+|**Path**|**cluster**  <br>*required*|The cluster to shut down nodes in|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to shut down|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -249,7 +381,7 @@ This operation terminates or deallocates nodes in a cluster. The operation uses 
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -295,7 +427,7 @@ POST /clusters/{cluster}/nodes/start
 
 
 ### Description
-This operation starts nodes in a cluster. You can identify the nodes by node name, node ID, or by using a filter.
+This operation starts nodes in a cluster. The nodes can be identified in several ways,  including node name, node ID, or by filter.
 
 
 ### Parameters
@@ -310,7 +442,7 @@ This operation starts nodes in a cluster. You can identify the nodes by node nam
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -356,14 +488,14 @@ POST /clusters/{cluster}/nodes/terminate
 
 
 ### Description
-This operation terminates nodes in a cluster. You can identify the nodes in several ways, including node name, node ID, or by using a filter.
+This operation terminates nodes in a cluster. The nodes can be identified in several ways,  including node name, node ID, or by filter.
 
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Path**|**cluster**  <br>*required*|The cluster where you want to terminate nodes|string|
+|**Path**|**cluster**  <br>*required*|The cluster to terminate nodes in|string|
 |**Body**|**action**  <br>*required*|Description of which nodes to terminate|[NodeManagementRequest](#nodemanagementrequest)|
 
 
@@ -371,7 +503,7 @@ This operation terminates nodes in a cluster. You can identify the nodes in seve
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -409,6 +541,87 @@ This operation terminates nodes in a cluster. You can identify the nodes in seve
 ```
 
 
+<a name="clusters_ghrnode"></a>
+## Submit Guest Health Report for cluster node
+```
+POST /clusters/{cluster}/nodes/{node}/ghr
+```
+
+
+### Description
+Submit a health report for a node with a health issue
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster that contains the node to report|string|
+|**Path**|**node**  <br>*required*|The node to report|string|
+|**Query**|**category**  <br>*optional*|Guest Health Report category for the impact|string|
+|**Query**|**description**  <br>*optional*|Custom message describing the failure or context|string|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**202**|Accepted|No Content|
+|**400**|Invalid input|No Content|
+|**404**|Not Found|No Content|
+|**409**|Conflict - Guest Health Report already submitted for this node|No Content|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/CLUSTER_NAME/nodes/string/ghr
+```
+
+
+<a name="clusters_getghr"></a>
+## Get Guest Health Report for cluster node
+```
+GET /clusters/{cluster}/nodes/{node}/ghr
+```
+
+
+### Description
+Returns the workload impact of a node with a health issue, so you can submit it to the health reporting endpoint.
+
+
+### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Path**|**cluster**  <br>*required*|The cluster that contains the node to report|string|
+|**Path**|**node**  <br>*required*|The node to report|string|
+|**Query**|**category**  <br>*optional*|Guest Health Report category for the impact|string|
+|**Query**|**description**  <br>*optional*|Custom message describing the failure or context|string|
+
+
+### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|Ok|No Content|
+|**400**|Invalid input|No Content|
+|**404**|Not Found|No Content|
+
+
+
+
+### Example HTTP request
+
+#### Request path
+```
+/clusters/CLUSTER_NAME/nodes/string/ghr
+```
+
+
 <a name="clusters_scale"></a>
 ## Scale cluster to size
 ```
@@ -417,7 +630,7 @@ POST /clusters/{cluster}/scale/{nodearray}
 
 
 ### Description
-This operation adds nodes as needed to a node array to reach a total count. The cluster processes the request one time. It doesn't re-add nodes later to maintain the number. You can scale by either total cores or total nodes, but not both. The operation returns the URL to use for tracking the status of the operation.
+This operation adds nodes as needed to a nodearray to hit a total count. The request is processed one time and doesn't re-add nodes later to maintain the given number. Specify the target size using either `totalCoreCount` (total CPU cores) or `totalNodeCount` (total VMs), but not both in the same request. It returns the URL to the operation that you can use to track its status.
 
 
 ### Parameters
@@ -425,16 +638,16 @@ This operation adds nodes as needed to a node array to reach a total count. The 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to add nodes to|string|
-|**Path**|**nodearray**  <br>*required*|The node array to add nodes to|string|
-|**Query**|**totalCoreCount**  <br>*optional*|The total number of cores in this node array, including nodes you already created|integer|
-|**Query**|**totalNodeCount**  <br>*optional*|The total number of machines in this node array, including nodes you already created|integer|
+|**Path**|**nodearray**  <br>*required*|The nodearray to add nodes to|string|
+|**Query**|**totalCoreCount**  <br>*optional*|The total number of cores to have in this nodearray, including nodes already created|integer|
+|**Query**|**totalNodeCount**  <br>*optional*|The total number of machines to have in this nodearray, including nodes already created|integer|
 
 
 ### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -467,14 +680,15 @@ GET /clusters/{cluster}/status
 
 
 ### Description
-This operation returns information for the nodes and node arrays in a cluster. For each node array, it returns the status of each "bucket" of allocation that you can use. The status shows how many nodes are in the bucket and how many more nodes you can add. Each bucket is a set of possible VMs with a specific hardware profile. You can create these VMs in a specific location under a customer account. The user's cluster definition determines the valid buckets for a node array. The cloud provider determines the limits.
+This operation contains information for the nodes and nodearrays in a given cluster. For each nodearray, it returns the status of each available allocation "bucket". The status includes the current node count in the bucket and how many more nodes you can add. Each bucket is a set of possible VMs of a given hardware profile that can be created in a given location under a given customer account, etc. The user's cluster definition determines the valid buckets for a nodearray, but the cloud provider partly determines the limits.
+
 
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to query|string|
-|**Query**|**nodes**  <br>*optional*|If true, the response includes nodes and node references|boolean|
+|**Query**|**nodes**  <br>*optional*|If true, nodes and node references are returned in the response|boolean|
 
 
 ### Responses
@@ -517,7 +731,7 @@ GET /clusters/{cluster}/usage
 
 
 ### Description
-This operation returns overall usage data (core hours) and cost data, if available, for the cluster, as well as a per-nodearray breakdown. By default, it returns the current month's worth of usage.
+This operation returns overall usage data (core hours) and cost data, if available, for the cluster, and a per-nodearray breakdown. By default it returns the current month's worth of usage.
 
 
 ### Parameters
@@ -525,10 +739,10 @@ This operation returns overall usage data (core hours) and cost data, if availab
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**cluster**  <br>*required*|The cluster to return usage data for|string|
-|**Query**|**timeframe**  <br>*optional*|The time range for the query.  monthToDate returns the usage for the current month, and  lastMonth returns the usage for the previous month. weekToDate returns the usage for the current week (starting Sunday). custom requires to 'from' and 'to' query parameters. The default is MonthToDate. All times are in UTC.|enum (monthToDate, lastMonth, weekToDate, custom)|
-|**Query**|**from**  <br>*optional*|For custom timeframes, the start of the timeframe in ISO-8601 format.  The value is rounded down to the nearest hour or day.|string|
-|**Query**|**to**  <br>*optional*|For custom timeframes, use the end of the timeframe in ISO-8601 format. The value rounds up to the nearest hour or day.|string|
-|**Query**|**granularity**  <br>*optional*|Specifies how to aggregate data: by hour, by daily, or as a single number. The default is daily.|enum (total, daily, hourly)|
+|**Query**|**timeframe**  <br>*optional*|The time range to use for the query. Valid values: `monthToDate` (current month), `lastMonth` (previous month), `weekToDate` (current week, starting Sunday), or `custom` (requires the `from` and `to` query parameters). The default is `monthToDate`. All times are in UTC.|enum (monthToDate, lastMonth, weekToDate, custom)|
+|**Query**|**from**  <br>*optional*|For custom timeframes, this value is the start of the timeframe in ISO-8601 format. It is rounded down to the nearest hour or day.|string|
+|**Query**|**to**  <br>*optional*|For custom timeframes, this value is the end of the timeframe in ISO-8601 format. It is rounded up to the nearest hour or day.|string|
+|**Query**|**granularity**  <br>*optional*|Specifies how to aggregate data: hourly, daily, or as a single total. The default interval is daily.|enum (total, daily, hourly)|
 
 
 ### Responses
@@ -559,7 +773,7 @@ This operation returns overall usage data (core hours) and cost data, if availab
 
 
 <a name="operations_list"></a>
-## Lists the status of operations
+## List the status of operations
 ```
 GET /operations/
 ```
@@ -569,7 +783,7 @@ GET /operations/
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If you provide this ID, the list contains either zero or one element.|string|
+|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If this value is given, the list contains 0 or 1 element.|string|
 
 
 ### Responses

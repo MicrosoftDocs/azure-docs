@@ -92,6 +92,8 @@ items:
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
+          - name: Troubleshoot Java applications on AKS
+            href: troubleshoot-java-aks.md
       - name: Act
         items:
           - name: Execute mitigations
@@ -144,6 +146,8 @@ items:
             href: track-incident-value.md
           - name: Monitor agent usage
             href: monitor-agent-usage.md
+          - name: Review agent insights
+            href: review-agent-insights.md
           - name: Audit agent actions
             href: audit-agent-actions.md
   - name: Tutorials
@@ -236,8 +240,10 @@ items:
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
-      - name: Anthropic subprocessor
-        href: anthropic-sub-processor.md
+      - name: API reference
+        href: api-reference.md
+      - name: Deploy with Infrastructure as Code
+        href: deploy-iac.md
       - name: Frequently asked questions
         items:
           - name: General

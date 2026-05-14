@@ -1,11 +1,11 @@
 ---
-title: Import an A2A Agent API (Preview) - Azure API Management
+title: Import an A2A Agent API - Azure API Management
 description: Import and manage A2A agent APIs in Azure API Management. Follow detailed steps to configure, secure, and test your AI agent APIs.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 11/14/2025
+ms.date: 05/06/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -13,14 +13,11 @@ ms.custom:
     - ignite-2025
 ---
 
-# Import an A2A agent API (preview)
+# Import an A2A agent API
 
-[!INCLUDE [api-management-availability-basicv2-standardv2-premiumv2](../../includes/api-management-availability-basicv2-standardv2-premiumv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2=basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 API Management supports managing AI agent APIs compatible with the [Agent2Agent (A2A) protocol specification](https://a2a-protocol.org/dev/specification/). The A2A protocol is an open client-server standard that enables different AI agent systems to communicate and work together using a shared interaction model. With the A2A agent API support in API Management, you can manage and govern agent APIs alongside other API types, including AI model APIs, Model Context Protocol (MCP) tools, and traditional APIs such as REST, SOAP, and GraphQL.  
-
-> [!NOTE]
-> This feature is in preview and has some [limitations](#limitations). 
 
 Learn more about managing AI APIs in API Management:
 
@@ -101,7 +98,6 @@ To make sure your A2A agent API works as expected, call the backend through API 
 
 ## Limitations
 
-* This feature is currently available only in API Management instances in the v2 tiers.
 * Only JSON-RPC-based A2A agent APIs are supported.
 * Deserialization of outgoing response bodies isn't supported.
 

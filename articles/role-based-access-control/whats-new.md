@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 04/29/2026
+ms.date: 05/06/2026
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| May 2026 | Classic administrators | Updated documentation to reflect that classic administrator roles are fully retired as of May 2026 and the Classic Administrators tab has been removed from the Azure portal. See [Azure classic subscription administrators](classic-administrators.md). |
 | April 2026 | Limits | Updated Azure RBAC limits. See [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits) and [Azure custom roles](custom-roles.md). |
 | April 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | April 2026 | Permissions | Removed Microsoft.ClassicCompute permissions. |
