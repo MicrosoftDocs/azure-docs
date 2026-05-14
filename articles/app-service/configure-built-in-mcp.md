@@ -51,7 +51,7 @@ Built-in MCP needs an OpenAPI 3.x document (JSON or YAML). Most web frameworks c
 - **Spring Boot**—use [`springdoc-openapi`](https://springdoc.org/).
 - **Java / Quarkus**—use [SmallRye OpenAPI](https://quarkus.io/guides/openapi-swaggerui).
 
-If your API is already running and you don't want to instrument it, fetch the spec from your existing OpenAPI endpoint and check the file in.
+If your API is already running and exposes an OpenAPI endpoint, you don't need to add a new library—download the spec from that endpoint (for example, with `curl`) and save it locally so you can upload it when you enable built-in MCP.
 
 A minimal spec that exposes one operation looks like:
 
