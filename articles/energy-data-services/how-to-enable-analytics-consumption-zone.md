@@ -20,7 +20,7 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. Complete the steps in this article and contact your Microsoft representative to enable ACZ on your Azure Data Manager for Energy resource.
+> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. To enable ACZ on your Azure Data Manager for Energy resource, complete the steps in this article and contact your Microsoft representative.
 
 ## Setup overview
 
@@ -76,7 +76,7 @@ To create a user-assigned managed identity:
 
 > [!IMPORTANT]
 > **Different token required for this step!**  
-> This step uses an **Azure Resource Manager (ARM) token** (not your ADME auth token) to update the instance configuration via the ARM control plane API. The script below generates the correct ARM token automatically.
+> This step uses an **Azure Resource Manager (ARM) token** (not your Azure Data Manager for Energy auth token) to update the instance configuration via the ARM control plane API. The following script generates the correct ARM token automatically.
 
 Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
 
@@ -84,19 +84,19 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 
 > [!IMPORTANT]
 > **Preserve existing managed identities!**  
-> If your Azure Data Manager for Energy instance already has user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities will remove them from the instance.
+> If your Azure Data Manager for Energy instance has user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities removes them from the instance.
 >
 > To preserve existing identities, first retrieve the current configuration:
 > ```bash
 > az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
 > ```
-> Then include all returned identity resource IDs along with your new ACZ identity in the `userAssignedIdentities` object below.
+> Then include all returned identity resource identifiers along with your new ACZ identity in the following `userAssignedIdentities` object.
 
 ```bash
 # Get Azure Resource Manager token
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
 
-# Update ADME instance with managed identity
+# Update Azure Data Manager for Energy instance with managed identity
 curl --request PUT \
   --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
   --header "Authorization: Bearer $TOKEN" \
