@@ -356,7 +356,7 @@ The portal makes registration a one-select flow:
 
 1. In the **Connect API Center** pane, choose a **Subscription** and an existing **API Center**, or select **Create new** to create a new one. App Service fills in default values (kind, lifecycle stage, environment, deployment) on your behalf so you don't have to set them up manually.
 
-1. Select **Connect**. The server detail now links to the API Center asset:
+1. Select **Connect**. The server detail now links to the API Center asset.
 
 To change the asset metadata (kind, lifecycle stage, version, custom properties, definitions, deployments), edit the asset directly in API Center. To register an MCP server in API Center without going through App Service—or to register one that App Service built-in MCP didn't create—see [Register and discover remote MCP servers in your API inventory](/azure/api-center/register-discover-mcp-server).
 
