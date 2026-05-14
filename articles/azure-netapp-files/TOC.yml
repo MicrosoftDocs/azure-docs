@@ -599,6 +599,8 @@
     href: faq-smb.md
   - name: Performance FAQs
     href: faq-performance.md
+  - name: Cloning FAQs
+    href: faq-clone.md
   - name: Application resilience FAQs
     href: faq-application-resilience.md
   - name: Data migration and protection FAQs
