@@ -106,7 +106,12 @@ The examples below show the minimal payload to expose every operation in your sp
    - **Description**—optional, shown to MCP clients.
    - **API spec path**—the path on the app's file system where the spec file is stored. Defaults to `/home/data/.ai/apispec.json`; edit it if you want the spec stored somewhere else.
    - **OpenAPI specification › Source**—where the spec content comes from. Choose **File** to upload a JSON or YAML file from your machine, or **URL** to have the platform fetch the spec from a reachable URL. Either way, the platform writes the contents to the location you set in **API spec path**.
-   - **Auth**—optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata so MCP clients can complete OAuth. See [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication) for the field reference. <!-- TODO: review this section once the portal Auth section is available. -->
+   - **Authentication**—optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata so MCP clients can complete OAuth. The portal exposes three fields:
+     - **Source**—comma-separated OAuth scopes the MCP client should request (maps to `SiteAuth.Scopes`).
+     - **Well-known OpenID configuration URL**—the OpenID Connect discovery URL for your identity provider (maps to `SiteAuth.WellKnownOpenIdConfiguration`).
+     - **Issuer**—the token issuer URL (maps to `SiteAuth.Issuer`).
+
+     Provide **Source** plus either **Well-known OpenID configuration URL** or **Issuer**. To set `JwksUri` or `Audience`, use the [Azure CLI](#tab/cli) or [Bicep](#tab/bicep) tab. For details, see [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication).
 1. Select **Create MCP**.
 
 <!-- TODO: Add screenshot of the AI (Preview) blade in the Azure portal showing the MCP servers tab with the Add MCP server panel open. Save to ./media/configure-built-in-mcp/portal-add-mcp-server.png and reinstate as a > [!div class="mx-imgBorder"] image. -->
