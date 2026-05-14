@@ -28,6 +28,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure NetApp Files cache volumes](configure-cache-volumes.md) is now generally available (GA)
 
     Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
+ 
+* [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
+
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
 
 ## April 2026 
 

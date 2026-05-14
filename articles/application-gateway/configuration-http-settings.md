@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 05/12/2026
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -46,7 +46,7 @@ The default affinity cookie name is *ApplicationGatewayAffinity* and you can cha
 
 ### Connection draining
 
-Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool.
+Connection draining helps you gracefully remove backend pool members during planned service updates, rolling deployments, scale-in events, or gateway configuration updates. Use connection draining to reduce intermittent 502 errors and connection loss when backend instances are explicitly removed from the backend pool.
 
 You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This process is also true for WebSocket connections.
 
@@ -59,6 +59,8 @@ The only exception to this process are requests bound for deregistering instance
 
 > [!NOTE]
 > There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining timeout in the backend settings to a value higher than the max expected client download time. 
+
+To update the connection draining timeout with Azure CLI, run `az network application-gateway http-settings update` and set `--connection-draining-timeout` on the backend HTTP settings. A value of 0 disables connection draining, and values from 1 to 3,600 seconds enable it.
 
 ### Protocol
 
