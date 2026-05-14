@@ -138,21 +138,17 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 
 **Pricing calculator role changes**
 
-  - After transitioning to a Microsoft Customer Agreement (MCA), access to discounted pricing in the Azure Pricing Calculator is restricted to users with specific billing roles, and the permissions required differ from those under an Enterprise Agreement (EA).
+ - After transitioning to an MCA, access to negotiated pricing in the Azure Pricing Calculator is restricted to users with specific billing roles, and the permissions required differ from those under an EA.
   
-  - Under MCA, users must have permissions at the billing account or billing profile level to view negotiated pricing.
-  
-  - Supported roles include:
-  
+  - Under MCA, users must have permissions at the billing profile level to view negotiated pricing.
+    - Supported roles include:
     - Billing Profile Owner
-    
     - Billing Profile Contributor
-    
     - Billing Profile Reader
-    
     - Invoice Manager
     
-    **Access limitation:** Users without these roles will see **retail pricing only** in the Azure Pricing Calculator.
+    > [!IMPORTANT]
+    > Users without these roles will see **retail pricing only** in the Azure Pricing Calculator.
     
 ## Tax and compliance
 
