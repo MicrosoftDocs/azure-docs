@@ -128,7 +128,7 @@ Use `az rest` to PATCH the `aiIntegration` property on the site resource. This p
 RESOURCE_GROUP=<resource-group>
 APP_NAME=<app-name>
 SUBSCRIPTION=$(az account show --query id -o tsv)
-API_VERSION=<api-version>   # TODO: confirm the public preview api-version
+API_VERSION=2024-11-01
 
 az rest \
   --method PATCH \
@@ -162,8 +162,7 @@ az rest \
 Add the `aiIntegration` property to your `Microsoft.Web/sites` resource. This snippet uses every default—it exposes every operation in the spec from `/home/data/.ai/apispec.json`, with no tool filtering or overrides.
 
 ```bicep
-// TODO: confirm the public preview api-version
-resource site 'Microsoft.Web/sites@<api-version>' = {
+resource site 'Microsoft.Web/sites@2024-11-01' = {
   name: appName
   location: location
   properties: {
