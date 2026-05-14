@@ -403,6 +403,15 @@ mvn azure-functions:deploy
 
 When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](how-to-create-function-azure-cli.md?pivots=programming-language-java#deploy-the-function-project-to-azure).
 ::: zone-end  
+::: zone pivot="programming-language-go"
+To publish your local Go code to a function app in Azure, use the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
+
+```console
+func azure functionapp publish <FunctionAppName>
+```
+
+This command builds, packages, and deploys your Go project to `<FunctionAppName>`.
+::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"  
 The following considerations apply to this kind of deployment:
 

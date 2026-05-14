@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create a Go function in Azure from the command line"
-description: Create a Go function from the command line, then publish the local project to serverless hosting in Azure Functions.
+description: Create a Go function from the command line, then package and deploy the local project to serverless hosting in Azure Functions.
 ms.topic: quickstart
 ms.date: 05/05/2026
 ms.devlang: golang
@@ -26,7 +26,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 + [Go 1.24](https://go.dev/dl/) or later.
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.7100 or later.
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x from a release that includes Go support.
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.60.0 or later.
 
@@ -37,18 +37,18 @@ In Azure Functions, a function project is a container for one or more individual
 1. Run the `func init` command to create a Go functions project:
 
     ```console
-    func init MyGoFunctionApp --worker-runtime golang
+    func init MyGoFunctionApp --worker-runtime go
     ```
 
-    This command creates a project folder named `MyGoFunctionApp` with the following files:
+    This command creates a project folder named `MyGoFunctionApp` that includes the following files:
 
     | File | Description |
     | --- | --- |
     | `host.json` | Host configuration for the function app. |
     | `local.settings.json` | Settings used when running locally. |
-    | `worker.config.json` | Go worker configuration used by the Functions host. |
     | `main.go` | Entry point with a sample HTTP-triggered function. |
     | `go.mod` | Go module file for dependency management. |
+    | `go.sum` | Go module checksum file. |
 
 1. Navigate to the project folder:
 
@@ -62,30 +62,27 @@ In Azure Functions, a function project is a container for one or more individual
     package main
 
     import (
-        "fmt"
+        "log"
         "net/http"
 
         "github.com/azure/azure-functions-golang-worker/sdk"
         "github.com/azure/azure-functions-golang-worker/worker"
     )
 
+    // HTTPTriggerHandler handles standard HTTP requests
+    func HTTPTriggerHandler(w http.ResponseWriter, r *http.Request) {
+        log.Printf("Processing HTTP Trigger for %s", r.URL.Path)
+        w.WriteHeader(http.StatusOK)
+        w.Write([]byte("Hello from Go Worker!"))
+    }
+
     func main() {
         app := sdk.FunctionApp()
-
-        app.HTTP("hello", hello,
+        app.HTTP("hello", HTTPTriggerHandler,
             sdk.WithMethods("GET", "POST"),
             sdk.WithAuth("anonymous"),
         )
-
         worker.Start(app)
-    }
-
-    func hello(w http.ResponseWriter, r *http.Request) {
-        name := r.URL.Query().Get("name")
-        if name == "" {
-            name = "Azure"
-        }
-        fmt.Fprintf(w, "Hello, %s! Welcome to Go on Azure Functions.", name)
     }
     ```
 
@@ -110,13 +107,13 @@ In Azure Functions, a function project is a container for one or more individual
 1. With the function running locally, open a browser and navigate to the following URL:
 
     ```
-    http://localhost:7071/api/hello?name=Functions
+    http://localhost:7071/api/hello
     ```
 
     You should see the following response:
 
     ```
-    Hello, Functions! Welcome to Go on Azure Functions.
+    Hello from Go Worker!
     ```
 
 1. Press **Ctrl+C** to stop the function app.
@@ -160,32 +157,32 @@ Use the following commands to create these items.
 1. Create the function app in Azure:
 
     ```azurecli
-    az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location eastus2 --runtime custom --functions-version 4
+    az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location eastus2 --runtime go --runtime-version 1.0 --functions-version 4
     ```
 
-    Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step.
+    Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step. This command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+
+1. Disable HTTP/2 on the function app, which is required during the Go public preview:
+
+    ```azurecli
+    az resource update --resource-group MyResourceGroup --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+    ```
 
 ## Deploy the function project to Azure
 
-After you successfully create your function app in Azure, you're ready to deploy your local functions project.
-
-Use the following command to publish your project to Azure:
+After you successfully create your function app in Azure, you're ready to deploy your local functions project. Use the [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) command to deploy your project to Azure:
 
 ```console
 func azure functionapp publish <APP_NAME>
 ```
 
-Replace `<APP_NAME>` with the name of your function app. The `publish` command compiles your Go code for the target platform, packages the output, and deploys it to your function app in Azure.
+Replace `<APP_NAME>` with the name of your function app.
 
-After deployment completes, the output shows the URL for your function endpoint:
+After deployment completes, open the following URL in a browser to verify that the function runs in Azure:
 
-```output
-Functions in <APP_NAME>:
-    hello - [httpTrigger]
-        Invoke url: https://<APP_NAME>.azurewebsites.net/api/hello
 ```
-
-Open the URL with `?name=Functions` appended to verify that the function runs in Azure.
+https://<APP_NAME>.azurewebsites.net/api/hello?name=Functions
+```
 
 ## Clean up resources
 

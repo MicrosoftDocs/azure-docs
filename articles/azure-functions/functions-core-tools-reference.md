@@ -116,6 +116,8 @@ For more information, see [Create a function](functions-run-local.md#create-func
 
 Creates a deployment package that contains your project code in a runnable state. Use this method when you need to manually create a deployment package for your app on your local computer outside of the `func azure functionapp publish` command. By default, `func pack` builds your project when needed. 
 
+For Go function apps, `func pack` builds a Linux x64 deployment package that you can deploy by using the Azure CLI [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command.
+
 ```command
 func pack [<FOLDER_PATH>]
 ```
@@ -127,7 +129,7 @@ The `func pack` command supports these options:
 | Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--output`**, **`-o`** | Sets the path to the location where the deployment .zip package file is created. |
-| **`--no-build`** | Project isn't built before packing. For C# apps, use only when you already generated your binaries. For Node.js apps, both `npm install` and `npm run build` are skipped. |
+| **`--no-build`** | Project isn't built before packing. For C# apps, use only when you already generated your binaries. For Node.js apps, both `npm install` and `npm run build` are skipped. For Go apps, use only when *bin/app* already contains a Linux x64 binary. |
 | **`--skip-install`** | Skips running `npm install` when packing Node.js-based function app. Used to avoid overwriting custom npm modules. |
 | **`--build-native-deps`** | Installs Python dependencies locally by using an image that matches the environment used in Azure. When enabled, Core Tools starts a Docker container, builds the app inside that container, and creates a .zip file with all dependencies restored in `.python_packages`. Use this option when running on Windows to avoid potential library issues when you deploy to Linux in Azure. |
 

@@ -110,12 +110,15 @@ To support your function code, you need to create three resources:
     ::: zone-end 
     ::: zone pivot="programming-language-go"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime custom
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4
+    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
+
+    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
-    This command creates a function app running in the Flex Consumption plan. 
+    The `az functionapp create` command creates a function app running in the Flex Consumption plan.
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
@@ -165,6 +168,9 @@ For projects with a large number of libraries, you should package the root of yo
 ::: zone-end
 ::: zone pivot="programming-language-python"
 For Python projects, you should package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.  
+::: zone-end
+::: zone pivot="programming-language-go"
+For Go projects, use Core Tools to create a ready-to-run .zip package locally, then deploy that package with the Azure CLI. Don't request a remote build for Go packages created by `func pack`.
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 1. Using your preferred development tool, build the code project. 
@@ -248,6 +254,27 @@ For Python projects, you should package the root of your project file and always
     ```
 
     Make sure to set `--build-remote true` to perform a [remote build].
+::: zone-end
+::: zone pivot="programming-language-go"
+1. In your root project folder, run this Core Tools command to build and package your Go project:
+
+    ```console
+    func pack
+    ```
+
+    By default, the output .zip file has the same name as your project folder.
+
+2. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command.
+
+    ```azurecli
+    az login
+    ```
+
+3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the package located in `<ZIP_FILE_PATH>`.
+
+    ```azurecli
+    az functionapp deployment source config-zip --resource-group <RESOURCE_GROUP> --name <APP_NAME> --src <ZIP_FILE_PATH>
+    ```
 ::: zone-end
 
 ### [Continuous Deployment](#tab/continuous-deployment)
@@ -337,8 +364,11 @@ You can enable virtual network integration by running the [`az functionapp creat
 
     ::: zone pivot="programming-language-go"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime custom --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4 --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
+
+    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
     ```azurecli
@@ -457,7 +487,7 @@ Use the [`az functionapp create`] command and supply these extra options that cu
 This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -565,20 +595,23 @@ To define one or more always ready instance designations, use the `--always-read
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
 ```
 ::: zone-end
 ::: zone pivot="programming-language-go"
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime custom --flexconsumption-location <REGION> --always-ready-instances http=10
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances http=10
+az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
+
+The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
 This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
 ```
 ::: zone-end
 ::: zone pivot="programming-language-go"
@@ -586,8 +619,11 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 This example sets the always ready instance count to `2` for a Service Bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime custom --flexconsumption-location <REGION> --always-ready-instances function:function5=2
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances function:function5=2
+az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
+
+The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 
 ### [Azure portal](#tab/azure-portal)
