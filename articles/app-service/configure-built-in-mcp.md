@@ -83,11 +83,9 @@ Use clear, action-oriented `operationId` values (`list_orders`, `create_order`, 
 
 The platform reads the spec from a file on the app's file system. The default path is `/home/data/.ai/apispec.json`, configurable via [`ApiSpecPath`](#change-where-the-spec-lives). How you get the file there depends on the configuration path you use in [Step 2](#step-2-enable-built-in-mcp):
 
-- **Portal**—upload the JSON or YAML file directly, or have the platform fetch it from a reachable URL. Either way, the portal writes the contents to `ApiSpecPath` for you.
+- **Portal**—upload the JSON or YAML file when you create the MCP server. The portal writes the contents to `ApiSpecPath` for you. Files larger than 15 KB may be truncated unless [access to the Kudu site is enabled](resources-kudu.md) on the app.
 - **Azure CLI**—deploy the spec with your app (for example, include it in your deployment artifact), or upload it after the fact with [`az webapp deploy`](/cli/azure/webapp#az-webapp-deploy) or [`az webapp ssh`](/cli/azure/webapp#az-webapp-ssh).
 - **Bicep**—reference a path your deployment puts on the app.
-
-<!-- TODO: Confirm whether the "URL fetch" option is a portal-side action (browser downloads bytes, uploads to the site) or a platform-side action exposed through the ARM API. If the latter, document the CLI/Bicep equivalent. -->
 
 ## Step 2: Enable built-in MCP
 
@@ -105,7 +103,7 @@ The examples below show the minimal payload to expose every operation in your sp
    - **Endpoint path**—the relative URL where the MCP server is served (default `/mcp`). The full URL preview appears below the field.
    - **Description**—optional, shown to MCP clients.
    - **API spec path**—the path on the app's file system where the spec file is stored. Defaults to `/home/data/.ai/apispec.json`; edit it if you want the spec stored somewhere else.
-   - **OpenAPI specification › Source**—where the spec content comes from. Choose **File** to upload a JSON or YAML file from your machine, or **URL** to have the platform fetch the spec from a reachable URL. Either way, the platform writes the contents to the location you set in **API spec path**.
+   - **OpenAPI specification › JSON or YAML file**—select **Browse** and upload your OpenAPI JSON or YAML file. The portal writes the contents to the location you set in **API spec path**. Files larger than 15 KB may be truncated unless [access to the Kudu site is enabled](resources-kudu.md) on the app.
    - **Authentication**—optional. If App Service Authentication isn't enabled on the app, use this section to provide identity provider metadata so MCP clients can complete OAuth. The portal exposes three fields:
      - **Source**—comma-separated OAuth scopes the MCP client should request (maps to `SiteAuth.Scopes`).
      - **Well-known OpenID configuration URL**—the OpenID Connect discovery URL for your identity provider (maps to `SiteAuth.WellKnownOpenIdConfiguration`).
