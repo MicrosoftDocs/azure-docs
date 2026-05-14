@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # Support matrix for Azure Cosmos DB (preview)
 
-You can use [Azure Backup](backup-overview.md) to protect [Azure Cosmos DB](/cosmos-db/overview.md). This article summarizes supported regions, scenarios, and the limitations.
+You can use [Azure Backup](backup-overview.md) to protect [Azure Cosmos DB](/azure/cosmos-db/overview). This article summarizes supported regions, scenarios, and the limitations.
 
 ## Supported regions
 
