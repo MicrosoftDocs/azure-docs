@@ -83,7 +83,14 @@ Assign the user-assigned managed identity you created in Step 2 to your Azure Da
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
 > [!IMPORTANT]
-> If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them. This operation updates the entire instance configuration, so ensure all existing properties are included in the request body.
+> **Preserve existing managed identities!**  
+> If your Azure Data Manager for Energy instance already has user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities will remove them from the instance.
+>
+> To preserve existing identities, first retrieve the current configuration:
+> ```bash
+> az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
+> ```
+> Then include all returned identity resource IDs along with your new ACZ identity in the `userAssignedIdentities` object below.
 
 ```bash
 # Get Azure Resource Manager token
