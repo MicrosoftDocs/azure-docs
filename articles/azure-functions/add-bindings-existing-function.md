@@ -89,14 +89,14 @@ The Go worker currently supports the following trigger types:
 
 | Trigger type | Registration method | Examples |
 |---|---|---|
-| [HTTP](functions-bindings-http-webhook-trigger.md) | `app.HTTP()` | [HTTP samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Timer](functions-bindings-timer.md) | `app.Timer()` | [Timer samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Azure Cosmos DB](functions-bindings-cosmosdb-v2-trigger.md) | `app.CosmosDB()` | [Cosmos DB samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Azure Service Bus (Queue)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusQueue()` | [Service Bus samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Azure Service Bus (Topic)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusTopic()` | [Service Bus samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Event Hubs](functions-bindings-event-hubs-trigger.md) | `app.EventHub()` | [Event Hubs samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Event Grid](functions-bindings-event-grid-trigger.md) | `app.EventGrid()` | [Event Grid samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
-| [Blob Storage](functions-bindings-storage-blob-trigger.md) | `app.Blob()` | [Blob samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples) |
+| [HTTP](functions-bindings-http-webhook-trigger.md) | `app.HTTP()` | [HTTP samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/httpTrigger) |
+| [Timer](functions-bindings-timer.md) | `app.Timer()` | [Timer samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/timerTrigger) |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2-trigger.md) | `app.CosmosDB()` | [Cosmos DB samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/cosmosDBTrigger) |
+| [Azure Service Bus (Queue)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusQueue()` | [Service Bus queue samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/serviceBusQueueTrigger) |
+| [Azure Service Bus (Topic)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusTopic()` | [Service Bus topic samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/serviceBusTopicTrigger) |
+| [Event Hubs](functions-bindings-event-hubs-trigger.md) | `app.EventHub()` | [Event Hubs samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/eventHubTrigger) |
+| [Event Grid](functions-bindings-event-grid-trigger.md) | `app.EventGrid()` | [Event Grid samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/eventGridTrigger) |
+| [Blob Storage](functions-bindings-storage-blob-trigger.md) | `app.Blob()` | [Blob samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/blobTrigger) |
 
 For more information, see the [Go developer reference](functions-reference-go.md).
 ::: zone-end
