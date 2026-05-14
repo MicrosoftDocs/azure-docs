@@ -3,7 +3,7 @@ title: Configure Windows Server Failover Cluster on Azure VMware Solution vSAN
 description: Learn how to configure Windows Server Failover Cluster (WSFC) on Azure VMware Solution vSAN with native shared disks.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 1/6/2025
+ms.date: 05/14/2026
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to configure a Windows Server Failover Cluster on Azure VMware Solution with shared disks, so that I can ensure high availability for critical applications and maintain system resilience."
 ---
@@ -22,7 +22,7 @@ Windows Server Failover Cluster (WSFC), previously known as Microsoft Service Cl
   - Scale-Out File Server (SOFS), which stores files in cluster shared volumes (CSV).
   - Storage Spaces Direct (S2D); local disks used to create storage pools across different cluster nodes.
 
-You can host the WSFC cluster on different Azure VMware Solution instances, known as Cluster-Across-Box (CAB). You can also place the WSFC cluster on a single Azure VMware Solution node. This configuration is known as Cluster-in-a-Box (CIB). We don't recommend using a CIB solution for a production implementation, use CAB instead with placement policies. Were the single Azure VMware Solution node to fail, all WSFC cluster nodes would be powered off, and the application would experience downtime. Azure VMware Solution requires a minimum of three nodes in a private cloud cluster.
+You can host the WSFC cluster on different Azure VMware Solution instances, known as Cluster-Across-Box (CAB). You can also place the WSFC cluster on a single Azure VMware Solution node. This configuration is known as Cluster-in-a-Box (CIB). The recommendation is to not use a CIB solution for a production implementation. Use CAB with placement policies instead. Should the single Azure VMware Solution node fail, all WSFC cluster nodes get powered off, and the application experiences downtime. Azure VMware Solution requires a minimum of three nodes in a private cloud cluster.
 
 It's important to deploy a supported WSFC configuration. You want your solution to be supported on VMware vSphere and with Azure VMware Solution. VMware provides a detailed document about WSFC on vSphere 7.0, [Setup for Failover Clustering and Microsoft Cluster Service](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/setup-for-windows-server-failover-clustering.html).
 
@@ -39,7 +39,7 @@ First, you need to [create a WSFC](/windows-server/failover-clustering/create-fa
 
 Azure VMware Solution provides native support for virtualized WSFC. It supports SCSI-3 Persistent Reservations (SCSI3PR) on a virtual disk level. WSFC requires this support to arbitrate access to a shared disk between nodes. Support of SCSI3PRs enables configuration of WSFC with a disk resource shared between VMs natively on vSAN datastores.
 
-The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (blue box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible using Azure Virtual WAN. Both offer all the value other Azure services can bring you.
+The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (blue box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible using Azure Virtual WAN. Both offer the same value other Azure services bring you.
 
 :::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.png" alt-text="Diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.png":::
 
