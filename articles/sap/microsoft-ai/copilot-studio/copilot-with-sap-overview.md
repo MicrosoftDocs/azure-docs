@@ -163,7 +163,7 @@ For pro-code integrations via Foundry or the Agents Toolkit, you can make HTTP o
 
 #### Automation with SAP GUI in Power Automate Desktop
 
-You can use Power Automate Desktop to build end-to-end automation that ranges from simple to highly sophisticated. For more details, see [Use low-code RPA with SAP GUI in Power Automate Desktop](/power-automate/guidance/rpa-sap-playbook/action-based-sap-gui-automation-manually-overview).
+You can use Power Automate Desktop to build end-to-end automation that ranges from simple to highly sophisticated. For more information, see [Use low-code RPA with SAP GUI in Power Automate Desktop](/power-automate/guidance/rpa-sap-playbook/action-based-sap-gui-automation-manually-overview).
 
 #### MCP
 
@@ -205,7 +205,7 @@ For many SAP customers, SAP Business Technology Platform with either SAP Integra
 
 The on-premises data gateway (OPDG) has been around for many years, mainly in the context of Power Platform. You can use the OPDG to bridge the firewall protection and to translate the SAP DIAG protocol used by BAPIs and RFCs into HTTP calls that Copilot Studio and Power Platform can use.
 
-If want to use BAPIs or RFCs, you have to install the OPDG along with the SAP .NET Connector. (A SAP user ID is required.) You can then access the SAP system behind a firewall and use BAPIs or RFCs in your system.
+If you want to use BAPIs or RFCs, you have to install the OPDG along with the SAP .NET Connector. (An SAP user ID is required.) You can then access the SAP system behind a firewall and use BAPIs or RFCs in your system.
 
 If you want to connect to OData services behind a firewall, you can use the OPDG (like SAP Cloud Connector) to do that.
 

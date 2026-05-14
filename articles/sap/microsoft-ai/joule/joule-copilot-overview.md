@@ -55,7 +55,7 @@ The following SAP applications support the Joule integration with Microsoft 365 
 Before you set up the integration, ensure that you have:
 
 - A Microsoft 365 Copilot license for users and the corresponding SAP licenses for Joule.
-- A SAP Business Technology Platform (BTP) account with Identity Authentication Service (IAS) in SAP Cloud Identity Services configured.
+- An SAP Business Technology Platform (BTP) account with Identity Authentication Service (IAS) in SAP Cloud Identity Services configured.
 - SAP Joule enabled for your SAP applications.
 - A Microsoft Entra ID tenant with admin access.
 - Network connectivity between SAP BTP and Microsoft Entra ID (typically over the internet).

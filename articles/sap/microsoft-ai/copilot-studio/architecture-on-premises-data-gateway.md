@@ -27,7 +27,7 @@ You can use this setup if you want to connect to BAPIs or RFCs, or if you're usi
 
 ## Setup and configuration
 
-To enable access to the SAP back-end system, [download]((https://www.microsoft.com/en-us/download/details.aspx?id=53127&msockid=08f9467b101a6a152949535411a26b2f)) and install the on-premises data gateway on a Windows server that has access to your SAP system. This server could be your client on which the SAP GUI is also running (which isn't recommended for production use) or a dedicated machine that's connected to the SAP system.
+To enable access to the SAP back-end system, [download](https://www.microsoft.com/en-us/download/details.aspx?id=53127&msockid=08f9467b101a6a152949535411a26b2f) and install the on-premises data gateway on a Windows server that has access to your SAP system. This server could be your client on which the SAP GUI is also running (which we don't recommend for production use) or a dedicated machine that's connected to the SAP system.
 
 ![Screenshot of the on-premises data gateway installed next to the SAP GUI.](../media/on-premises-data-gateway-installed.jpg)
 

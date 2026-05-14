@@ -43,7 +43,7 @@ For more information, see:
 
 You can use the connectivity via API Management to consume any HTTP-based services from the SAP system. Most likely, these services are SAP OData services.
 
-The [SAP OData connector in Copilot Studio](/power-platform/sap/connect/sap-odata-connector) can consume these services. Pro-code solutions (for example, [Microsoft 365 Agents Toolkit]((/microsoftteams/platform/toolkit/add-resource)) in Visual Studio Code) can also consume them.
+The [SAP OData connector in Copilot Studio](/power-platform/sap/connect/sap-odata-connector) can consume these services. Pro-code solutions (for example, [Microsoft 365 Agents Toolkit](/microsoftteams/platform/toolkit/add-resource) in Visual Studio Code) can also consume them.
 
 ### Integration and connectivity infrastructure
 
