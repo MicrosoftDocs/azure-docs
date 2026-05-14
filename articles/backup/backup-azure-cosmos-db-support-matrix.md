@@ -25,7 +25,7 @@ Consider the following support scenarios for Azure Backup for Cosmos DB:
 
 - Cosmos DB accounts with either NoSQL or MongoDB API using [Request Units (RUs)](/cosmos-db/request-units.md) are supported. 
 - Only weekly backups are supported (7-day RPO) 
-- Azure Backup for Cosmos DB supports only those Cosmos DB accounts that are on [continuous (PITR) backup mode](/cosmos-db/continuous-backup-restore-introduction.md). 
+- Azure Backup for Cosmos DB supports only those Cosmos DB accounts that are on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction). 
 - Cross subscription restores are supported.
 - Restore operation to an empty Cosmos DB account is supported. 
 - Cosmos DB account should have pubic access enabled.
