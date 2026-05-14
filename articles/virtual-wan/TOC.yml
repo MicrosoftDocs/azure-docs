@@ -294,10 +294,12 @@
       href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
-    - name: User tunnel
+    - name: User tunnel - Windows clients
       href: howto-always-on-user-tunnel.md
-    - name: Device tunnel
+    - name: Device tunnel - Windows clients
       href: howto-always-on-device-tunnel.md
+    - name: Device tunnel - macOS clients
+      href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel-macos.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
 - name: ExpressRoute connections 
