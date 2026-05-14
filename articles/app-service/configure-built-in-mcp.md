@@ -346,7 +346,7 @@ If neither is configured, the platform doesn't publish the endpoint and clients 
 
 You can register your built-in MCP server as an asset in [Azure API Center](/azure/api-center/overview) to track all of your APIs in a centralized location for discovery, reuse, and governance. Registration is optional—built-in MCP works without it—but it's the recommended way to keep MCP servers visible alongside the rest of your API estate.
 
-The portal makes registration a one-click flow:
+The portal makes registration a one-select flow:
 
 1. On the **MCP servers** tab, expand your server.
 1. Next to **Azure API Center**, select **+ Connect**.
@@ -354,17 +354,11 @@ The portal makes registration a one-click flow:
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the MCP server detail showing the Azure API Center Connect button.](./media/configure-built-in-mcp/portal-mcp-server-connect-api-center.png)
 
-1. In the **Connect API Center** pane, choose a **Subscription** and an existing **API Center**, or select **Create new** to provision one. App Service fills in default values (kind, lifecycle stage, environment, deployment) on your behalf so you don't have to set them up manually.
-
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Connect API Center pane with Subscription and API Center fields.](./media/configure-built-in-mcp/portal-connect-api-center.png)
+1. In the **Connect API Center** pane, choose a **Subscription** and an existing **API Center**, or select **Create new** to create a new one. App Service fills in default values (kind, lifecycle stage, environment, deployment) on your behalf so you don't have to set them up manually.
 
 1. Select **Connect**. The server detail now links to the API Center asset:
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot of the MCP server detail with the linked Azure API Center asset.](./media/configure-built-in-mcp/portal-api-center-linked.png)
-
-To change the asset metadata (kind, lifecycle stage, version, custom properties, definitions, deployments), edit the asset directly in API Center. To register an MCP server in API Center without going through App Service—or to register one that wasn't created by App Service built-in MCP—see [Register and discover remote MCP servers in your API inventory](/azure/api-center/register-discover-mcp-server).
+To change the asset metadata (kind, lifecycle stage, version, custom properties, definitions, deployments), edit the asset directly in API Center. To register an MCP server in API Center without going through App Service—or to register one that App Service built-in MCP didn't create—see [Register and discover remote MCP servers in your API inventory](/azure/api-center/register-discover-mcp-server).
 
 To disconnect the MCP server from API Center, delete the corresponding MCP server asset in your API Center. The link on the App Service **MCP servers** tab clears once the asset is removed.
 
