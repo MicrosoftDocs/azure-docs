@@ -38,7 +38,7 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
 ::: zone pivot="programming-language-go"
-If you prefer to jump right in, you can complete a quickstart tutorial from the [command line](./create-first-function-cli-go.md).
+If you prefer to jump right in, you can complete a quickstart tutorial from the [command line](./how-to-create-function-azure-cli.md?pivots=programming-language-go).
 ::: zone-end
 
 ## Code project

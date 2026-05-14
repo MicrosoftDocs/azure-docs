@@ -25,7 +25,7 @@ Use Visual Studio Code to create a [custom handler](functions-custom-handlers.md
 Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports Rust.
 
 > [!TIP]
-> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](create-first-function-cli-go.md) to get started.
+> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
 
 ::: zone-end  
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.

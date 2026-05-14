@@ -44,7 +44,7 @@ Besides the natively supported programming languages, you can use [custom handle
 ::: zone pivot="programming-language-go"  
 Get started with Go on Azure Functions:
 
-+ [Command line quickstart](create-first-function-cli-go.md)
++ [Command line quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go)
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript" 
 ## Review end-to-end samples

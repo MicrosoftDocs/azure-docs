@@ -340,7 +340,7 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 ::: zone pivot="programming-language-go"
 ## Create and deploy your Go app
 
-Go function apps are supported only on the Flex Consumption plan. To create, run, and deploy a Go function app, see [Create a Go function from the command line](create-first-function-cli-go.md). For Go-specific project structure and deployment details, see the [Go developer reference](functions-reference-go.md).
+Go function apps are supported only on the Flex Consumption plan. To create, run, and deploy a Go function app, see [Create a Go function from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go). For Go-specific project structure and deployment details, see the [Go developer reference](functions-reference-go.md).
 ::: zone-end
 
 ## Enable virtual network integration

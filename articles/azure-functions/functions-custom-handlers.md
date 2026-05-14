@@ -12,7 +12,7 @@ ms.collection:
 # Azure Functions custom handlers
 
 > [!TIP]
-> **Looking for Go?** Go is now supported as a first-class language on Azure Functions (public preview). See the [Go developer reference](functions-reference-go.md) and [Go quickstart](create-first-function-cli-go.md) to get started.
+> **Looking for Go?** Go is now supported as a first-class language on Azure Functions (public preview). See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
 
 Azure Functions executes your app code by using language-specific handlers. These language-specific handlers allow Functions to support [most key languages](./supported-languages.md) by default. However, you might need to run code in another language or package.
 
@@ -223,7 +223,7 @@ This table shows an example of a response payload.
 ## Examples
 
 > [!IMPORTANT]
-> For new Azure Functions apps written in Go, use first-class Go support instead of custom handlers. See the [Go developer reference](functions-reference-go.md) and [Go quickstart](create-first-function-cli-go.md).
+> For new Azure Functions apps written in Go, use first-class Go support instead of custom handlers. See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go).
 
 You can implement custom handlers in any language that supports receiving HTTP events. The following examples use Go only to demonstrate the custom handler protocol for languages or runtimes that don't have built-in Azure Functions support.
 

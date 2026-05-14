@@ -64,11 +64,8 @@
       displayName: azd
       href: create-first-function-azure-developer-cli.md
     - name: Command line (Core Tools)
-      displayName: quickstart, get started, rust
+      displayName: quickstart, get started, rust, go, golang
       href: how-to-create-function-azure-cli.md
-    - name: Command line - Go (Preview)
-      displayName: quickstart, get started, go, golang
-      href: create-first-function-cli-go.md
     - name: Visual Studio Code
       displayName: quickstart, get started, rust
       href: how-to-create-function-vs-code.md

@@ -209,7 +209,7 @@ With this setting value, any Azure Storage trigger or binding that uses `AzureWe
 ::: zone-end  
 
 ::: zone pivot="programming-language-go"
-+ To create and run a Go function app locally, see [Create a Go function from the command line](create-first-function-cli-go.md).
++ To create and run a Go function app locally, see [Create a Go function from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go).
 + For Go-specific project structure and local development details, see the [Go developer reference](functions-reference-go.md).
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"

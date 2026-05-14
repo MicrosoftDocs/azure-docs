@@ -1,10 +1,10 @@
 ---
 title: Create a function in Azure from the command line
 description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
-ms.date: 07/22/2025
+ms.date: 05/14/2026
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
-zone_pivot_groups: programming-languages-set-functions-full-no-go
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet, devx-track-go
+zone_pivot_groups: programming-languages-set-functions-full
 ---
 
 # Quickstart: Create a function in Azure from the command line
@@ -15,23 +15,32 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Make sure to select your preferred development language at the top of the article.
 
+::: zone pivot="programming-language-go"
+> [!IMPORTANT]
+> Go support for Azure Functions is currently in public preview.
+::: zone-end
+
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
+::: zone pivot="programming-language-go"
++ [Go 1.24](https://go.dev/dl/) or later.
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x from a release that includes Go support.
+::: zone-end
 ::: zone pivot="programming-language-other"  
 ### [Rust](#tab/rust)
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
-
-> [!TIP]
-> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](create-first-function-cli-go.md) to get started.
 
 ---
 ::: zone-end  
 + [Azure CLI](/cli/azure/install-azure-cli)
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
+::: zone-end
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
@@ -40,6 +49,61 @@ Make sure to select your preferred development language at the top of the articl
 ## Create a local code project and function
 
 In Azure Functions, your code project is an app that contains one or more individual functions that each respond to a specific trigger. All functions in a project share the same configurations and are deployed as a unit to Azure. In this section, you create a code project that contains a single function.
+::: zone pivot="programming-language-go"
+1. Run the [`func init`](./functions-core-tools-reference.md#func-init) command to create a Go functions project:
+
+    ```console
+    func init MyGoFunctionApp --worker-runtime go
+    ```
+
+    This command creates a project folder named `MyGoFunctionApp` that includes the following files:
+
+    | File | Description |
+    | --- | --- |
+    | `host.json` | Host configuration for the function app. |
+    | `local.settings.json` | Settings used when running locally. |
+    | `main.go` | Entry point with a sample HTTP-triggered function. |
+    | `go.mod` | Go module file for dependency management. |
+    | `go.sum` | Go module checksum file. |
+
+1. Navigate to the project folder:
+
+    ```console
+    cd MyGoFunctionApp
+    ```
+
+1. Open `main.go` to review the generated code. It contains a sample HTTP-triggered function:
+
+    ```go
+    package main
+
+    import (
+        "log"
+        "net/http"
+
+        "github.com/azure/azure-functions-golang-worker/sdk"
+        "github.com/azure/azure-functions-golang-worker/worker"
+    )
+
+    // HTTPTriggerHandler handles standard HTTP requests
+    func HTTPTriggerHandler(w http.ResponseWriter, r *http.Request) {
+        log.Printf("Processing HTTP Trigger for %s", r.URL.Path)
+        w.WriteHeader(http.StatusOK)
+        w.Write([]byte("Hello from Go Worker!"))
+    }
+
+    func main() {
+        app := sdk.FunctionApp()
+        app.HTTP("hello", HTTPTriggerHandler,
+            sdk.WithMethods("GET", "POST"),
+            sdk.WithAuth("anonymous"),
+        )
+        worker.Start(app)
+    }
+    ```
+
+    Go functions use the standard `net/http` types (`http.ResponseWriter` and `*http.Request`) for HTTP triggers. Functions are registered in `main()` by using the Go worker SDK and functional options, and no `function.json` files are needed.
+::: zone-end
 ::: zone pivot="programming-language-csharp" 
 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
@@ -158,7 +222,7 @@ The project root folder contains various files for the project, including config
 Verify your new function by running the project locally and calling the function endpoint. 
 
 1. Use this command to start the local Azure Functions runtime host in the root of the project folder: 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-other"
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-go,programming-language-other"
     ```console
     func start  
     ```
@@ -176,6 +240,7 @@ Verify your new function by running the project locally and calling the function
     ```
     ::: zone-end  
 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
     Toward the end of the output, the following lines appear:
 
     <pre>
@@ -190,15 +255,41 @@ Verify your new function by running the project locally and calling the function
     ...
 
     </pre>
+    ::: zone-end
+    ::: zone pivot="programming-language-go"
+    Toward the end of the output, the HTTP endpoint for your function is displayed:
+
+    <pre>
+    Functions:
+
+            hello: [GET,POST] http://localhost:7071/api/hello
+    </pre>
+    ::: zone-end
 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL. You should receive a success response with a "hello world" message.
 
     >[!NOTE]
     > Because access key authorization isn't enforced when running locally, the function URL returned doesn't include the access key value and you don't need it to call your function. 
+::: zone-end
+::: zone pivot="programming-language-go"
+1. With the function running locally, open a browser and navigate to the following URL:
+
+    ```
+    http://localhost:7071/api/hello
+    ```
+
+    You should see the following response:
+
+    ```output
+    Hello from Go Worker!
+    ```
+::: zone-end
 
 1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-flex-cli.md)]
 
 ## Update application settings
@@ -228,6 +319,50 @@ To enable the Functions host to connect to the default storage account by using 
     In this example, replace `<APP_NAME>` with the names of your function app. 
 
 At this point, the Functions host can connect to the storage account securely by using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
+::: zone-end
+::: zone pivot="programming-language-go"
+## Create supporting Azure resources for your function
+
+Before you can deploy your function code to Azure, you need to create a resource group, a storage account, and a function app. Use the Azure CLI commands in these steps to create the required resources.
+
+1. If you haven't done so already, sign in to Azure:
+
+    ```azurecli
+    az login
+    ```
+
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Skip this step when running in Azure Cloud Shell.
+
+1. Use the [`az group create`](/cli/azure/group#az-group-create) command to create a resource group named `AzureFunctionsQuickstart-rg` in your chosen region:
+
+    ```azurecli
+    az group create --name AzureFunctionsQuickstart-rg --location <REGION>
+    ```
+
+    In this example, replace `<REGION>` with a region near you that supports the Flex Consumption plan. Use the [`az functionapp list-flexconsumption-locations`](/cli/azure/functionapp#az-functionapp-list-flexconsumption-locations) command to view the list of currently supported regions.
+
+1. Use the [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command to create a general-purpose storage account in your resource group and region:
+
+    ```azurecli
+    az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    ```
+
+    In this example, replace `<STORAGE_NAME>` with a globally unique name. Names must contain three to 24 characters and only lowercase letters and numbers.
+
+1. Create the function app in Azure:
+
+    ```azurecli
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4
+    ```
+
+    Replace `<APP_NAME>` with a globally unique name and `<STORAGE_NAME>` with the account name you used in the previous step. This command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+
+1. Disable HTTP/2 on the function app, which is required during the Go public preview:
+
+    ```azurecli
+    az resource update --resource-group AzureFunctionsQuickstart-rg --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+    ```
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
@@ -313,7 +448,19 @@ You can now use Maven to deploy your code project to your existing app.
 
 1. Copy the returned endpoint URL and key, which you use to invoke the function endpoint.    
 ::: zone-end
+::: zone pivot="programming-language-go"
+## Deploy the function project to Azure
 
+After you successfully create your function app in Azure, you're ready to deploy your local functions project. Use the [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) command to deploy your project to Azure:
+
+```console
+func azure functionapp publish <APP_NAME>
+```
+
+Replace `<APP_NAME>` with the name of your function app.
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 ## Invoke the function on Azure
 
 Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL using the function-level access key. It's easiest to execute a GET request in a browser. 
@@ -327,10 +474,49 @@ The endpoint URL should look something like this example:
 In this case, you must also provide an access key in the query string when making a GET request to the endpoint URL. Using an access key is recommended to limit access from random clients. When making a POST request using an HTTP client, you should instead provide the access key in the `x-functions-key` header.
 
 When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+::: zone-end
+::: zone pivot="programming-language-go"
+## Invoke the function on Azure
 
+After deployment completes, open the following URL in a browser to verify that the function runs in Azure:
+
+```
+https://<APP_NAME>.azurewebsites.net/api/hello
+```
+
+You should see the same `Hello from Go Worker!` response that you saw when you ran the function locally.
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
+::: zone-end
+::: zone pivot="programming-language-go"
+## Clean up resources
 
+If you continue to the [next step](#next-steps), keep all resources in place as you build on what you already created.
+
+Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
+
+```azurecli
+az group delete --name AzureFunctionsQuickstart-rg
+```
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-cli.md)
+::: zone-end
+::: zone pivot="programming-language-go"
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Go developer reference guide](functions-reference-go.md)
+
+For more information about developing Go functions, see the following resources:
+
++ [Azure Functions Go developer reference](functions-reference-go.md)
++ [Azure Functions Go worker samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples)
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+::: zone-end

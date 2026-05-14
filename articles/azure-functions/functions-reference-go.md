@@ -30,7 +30,7 @@ This guide helps you:
 
 Choose the environment that fits your workflow and get started with Azure Functions for Go:
 
-- [Command line quickstart](create-first-function-cli-go.md)
+- [Command line quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go)
 
 ## Prerequisites
 
@@ -404,7 +404,7 @@ During the public preview, the following limitations apply:
 
 ## Next steps
 
-- [Create your first Go function](create-first-function-cli-go.md)
+- [Create your first Go function](how-to-create-function-azure-cli.md?pivots=programming-language-go)
 - [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 - [Azure Functions Go worker samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples)
 - [Azure Functions developer guide](functions-reference.md)
