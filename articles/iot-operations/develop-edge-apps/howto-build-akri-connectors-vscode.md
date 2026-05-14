@@ -44,8 +44,8 @@ Docker configuration:
 - Images used by the extension must be pulled and tagged locally before you use the extension:
 
     ```bash
-    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx-runtime
+    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
+    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx-runtime
     ```
 
 - All the containers the extension launches are configured to run on a custom network named `aio_akri_network` for network isolation purpose:
@@ -57,8 +57,8 @@ Docker configuration:
 - The DevX container uses a custom volume `akri_devx_docker_volume` to store cluster configuration:
 
     ```bash
-    docker volume rm akri_devx_docker_volume # delete the volume created from any previous release
-    docker volume create akri_devx_docker_volume
+    docker volume rm akri-devx-docker-volume # delete the volume created from any previous release
+    docker volume create akri-devx-docker-volume
     ```
 
 To deploy and use your connector with an Azure IoT Operations instance, you also need:
@@ -73,28 +73,13 @@ To deploy and use your connector with an Azure IoT Operations instance, you also
 
 In this example, you create an HTTP/REST connector using the C# language, build a docker image, and then run the connector application by using the VS Code extension:
 
-1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **C#** as the language, enter a name for the connector like `rest_connector`, and select **PollingTelemetryConnector** as the connector type.
+1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **C#** as the language, enter a name for the connector like `MyConnector`, and select **PollingTelemetryConnector** as the connector type.
 
 1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a polling telemetry connector written in the C# language.
 
 [!INCLUDE [akri-connector-code](../includes/akri-connector-code.md)]
 
 Next, build the project to confirm there are no errors. Use the VS Code command **Azure IoT Operations Akri Connectors: Build an Akri Connector** and choose the **Release** mode. This command shows the build progress in the **OUTPUT** console and notifies you when the build completes. You can then see a new Docker image named `<connector_name>` with tag `release` locally in Docker Desktop.
-
-# [Rust](#tab/rust)
-
-In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
-
-> [!IMPORTANT]
-> The following example code is meant for illustrative purposes only and is not intended to be used in production. In a production connector, you should implement robust error handling and retry logic, and ensure that any credentials used to connect to the asset are stored and used securely. A production quality connector must implement the contract described in the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md) document in the SDKs repository.
-
-1. Press `Ctrl+Shift+P` to open the command palette and search for the **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **Rust** as the language, and enter a name for the connector like `rest_connector`.
-
-1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a connector written in the Rust language. There are `Implement` tags in the comments to help you write your own custom Akri connector. For testing purposes, you can try out the connector with just the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
-
-Next, build the project to confirm there are no errors. Use the VS Code command **Azure IoT Operations Akri Connectors: Build an Akri Connector** and choose the **Release** mode. This command shows the build progress in the **OUTPUT** console and notifies you when the build completes. You can then see a new Docker image named `<connector_name>` with tag `release` locally in Docker Desktop.
-
----
 
 To test the new connector locally, follow these steps:
 
@@ -115,15 +100,34 @@ To test the new connector locally, follow these steps:
 
 1. You can see the container running in Docker Desktop. The REST server is accessible at `http://restserver:3000` for containers running on `aio_akri_network`.
 
+# [Rust](#tab/rust)
+
+In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
+
+> [!IMPORTANT]
+> The following example code is meant for illustrative purposes only and is not intended to be used in production. In a production connector, you should implement robust error handling and retry logic, and ensure that any credentials used to connect to the asset are stored and used securely. A production quality connector must implement the contract described in the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md) document in the SDKs repository.
+
+1. Press `Ctrl+Shift+P` to open the command palette and search for the **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **Rust** as the language, and enter a name for the connector like `rest_connector`.
+
+1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a connector written in the Rust language. There are `Implement` tags in the comments to help you write your own custom Akri connector. For testing purposes, you can try out the connector with just the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
+
+Next, build the project to confirm there are no errors. Use the VS Code command **Azure IoT Operations Akri Connectors: Build an Akri Connector** and choose the **Release** mode. This command shows the build progress in the **OUTPUT** console and notifies you when the build completes. You can then see a new Docker image named `<connector_name>` with tag `release` locally in Docker Desktop.
+
+---
+
 1. Copy the file `rest-server-device-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Devices** folder in your connector workspace in VS Code. This device resource defines an endpoint connection to the REST server.
 
 1. Copy the file `rest-server-asset1-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS Code. This asset publishes temperature information from the device to the `mqtt/machine/asset1/status` MQTT topic.
 
 1. Copy the file `rest-server-asset2-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS Code. This asset publishes temperature information from the device to the state store.
+ 
+1. To start the local execution environment, press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations Akri Connectors: Start Development Environment**. This command launches a terminal that runs the `aio-broker` container, which is the local runtime for Akri connectors. It takes several minutes for the local execution environment to start. You can see the logs from the `aio-broker` container in the terminal window in VS Code and also in Docker Desktop.
 
-1. To test the connector with the device and asset resources, go to the **Run and Debug** panel in the VS Code workspace and select the **Run an Akri Connector** configuration. This configuration launches a terminal that runs the prelaunch tasks to start the `aio-broker` container and the REST connector you developed in another container called `<connector_name>_release`. This process takes several minutes. You can see the telemetry data flow from the REST server to the MQ broker through the REST connector in the terminal window in VS Code. The container logs are also visible in Docker Desktop.
+1. To test the connector with the device and asset resources, go to the **Run and Debug** panel in the VS Code workspace and select the **Run an Akri Connector** configuration. This configuration launches a terminal that runs a container called `<connector_name>_release` that hosts the REST connector.
 
-1. You can stop the execution anytime by using the **Stop** button on the debug command panel. This command cleans up and deletes the running containers `aio-broker` and `<connector_name>_release`.
+1. You can stop the execution anytime by using the **Stop** button on the debug command panel. This command cleans up and deletes the running container `<connector_name>_release`.
+
+1. When you've finished your testing, stop the local execution environment by using the **Azure IoT Operations Akri Connectors: Stop Development Environment** command. This command stops and cleans up the `aio-broker` container.
 
 ## Debug an Akri connector
 
@@ -134,13 +138,14 @@ To debug a .NET based Akri connector, make sure you have the **C#** VS Code exte
 1. To build the connector in **Debug** mode, use the VS Code command **Azure IoT Operations Akri Connectors: Build an Akri Connector** and select **Debug** mode. This command creates a local Docker image called `<connector_name>` with the tag `debug`. You can see the image in Docker Desktop.
 
 1. You can add a breakpoint and the execution stops when the breakpoint is hit. Try adding a breakpoint at the start of the `SampleDatasetAsync` method in `DatasetSampler.cs`.
+
+1. Before you start debugging, make sure the local execution environment is running by using the **Azure IoT Operations Akri Connectors: Start Development Environment** command. This command launches a terminal that runs the `aio-broker` container, which is the local runtime for Akri connectors. It takes several minutes for the local execution environment to start. You can see the logs from the `aio-broker` container in the terminal window in VS Code and also in Docker Desktop.
  
-1. To debug the connector, go to the **Run and Debug** panel in VS Code workspace and select the **Debug an Akri Connector** configuration. This configuration launches a terminal that runs the prelaunch tasks to start the `aio-broker` container and the REST connector you developed in another container called `<connector_name>_debug`. This process takes several minutes. You can see the telemetry data flow from the REST server to the MQ broker through the REST connector in the terminal window in VS Code. The container logs are also visible in Docker Desktop.
+1. To debug the connector, go to the **Run and Debug** panel in VS Code workspace and select the **Debug an Akri Connector** configuration. This configuration launches a terminal that runs a container called `<connector_name>_release` that hosts the REST connector.  You can see the telemetry data flow from the REST server to the MQ broker through the REST connector in the terminal window in VS Code. The container logs are also visible in Docker Desktop.
 
 1. Use the **Disconnect** button on the debug command panel to terminate the execution.
 
-> [!NOTE]
-> The Akri VS Code extension launches the DevX container in a Run/Debug scenario with a timeout period of three minutes. If the container doesn't complete the launch within the timeout period, the extension terminates the container.
+1. When you've finished your debugging, stop the local execution environment by using the **Azure IoT Operations Akri Connectors: Stop Development Environment** command. This command stops and cleans up the `aio-broker` container.
 
 # [Rust](#tab/rust)
 

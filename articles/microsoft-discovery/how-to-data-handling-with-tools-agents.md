@@ -271,9 +271,27 @@ After this mount, the tool container can read files from `/app/inputs/run1/`.
 > Provide only absolute paths in `mountPath`. Relative paths aren't supported. If the URI points to a directory, the directory contents are placed at the mount path. If the URI points to a file, the file is placed at the mount path.
 > If not specified explicitly, default value for input is /app/inputs and for output mounts, it's /app/outputs.
 
+### File vs directory URI behavior
+
+When the URI points to a **directory** (ending with `/`), the directory contents are placed inside the `mountPath` location. Files within the directory are accessible as `mountPath/filename`.
+
+When the URI points to a **file** (no trailing `/`), the file content is placed directly at the `mountPath` location — meaning `mountPath` itself becomes the file, not a directory containing the file.
+
+The following table illustrates the difference:
+
+| Mount type | URI | mountPath | Result in container |
+|---|---|---|---|
+| **Directory** | `discovery://.../writes/` | `/app/inputs` | `/app/inputs/mux2.v` (file inside directory) |
+| **File** | `discovery://.../writes/mux2.v` | `/app/inputs` | `/app/inputs` IS the file content (not a directory) |
+
+For example, if `mountPath` is `/app/inputs` and the URI points to a single file `data.csv`, then `/app/inputs` is the file itself. To access the file as `/app/inputs/data.csv`, mount the parent directory URI (with trailing `/`) instead of the individual file URI.
+
 ### Tell the agent which paths to use in tool descriptions
 
 The agent has no inherent knowledge of the internal file system layout of a tool container. It doesn't know what directories exist inside the container or which paths your tool reads from. **You must document the expected mount paths in the tool's description or in the agent's instructions**, so the agent knows what value to use for `mountPath` when invoking the tool.
+
+> [!IMPORTANT]
+> The agent must include `inputMounts` in every tool invocation that requires input data. Describing the expected paths in tool descriptions alone isn't sufficient — the agent must actually pass `inputMounts` in the tool call for the platform to mount the data into the container.
 
 For example, if your tool reads input from `/app/inputs` and writes output to `/app/outputs`, include this in the tool's action description:
 
@@ -321,7 +339,8 @@ When an agent invokes a tool with input mounts, the tool call appears in the age
 
 | Problem | Cause | Resolution |
 |---|---|---|
-| Tool can't find input file | URI point to a directory but the tool expects a file at `mountPath` | Use the specific file URI rather than the parent directory URI |
+| Tool can't find input file | URI points to a directory but the tool expects a file at `mountPath` | Use the specific file URI rather than the parent directory URI |
+| Tool reports "file not found" at `mountPath/filename` | URI points to a single file, so `mountPath` itself becomes the file content — not a directory containing the file | Mount the parent directory URI (with trailing `/`) instead of the individual file URI, so files appear as `mountPath/filename` |
 | URI not found | Resource doesn't exist in the current conversation | Call `GetResourceContext` to confirm the URI exists before invoking the tool |
 | Content not at expected path | Relative path used in `mountPath` | Use absolute paths only (for example, `/app/inputs`) |
 | Agent uses wrong `mountPath` | Tool description doesn't document expected container paths | Add explicit path guidance to the tool action description and agent instructions |

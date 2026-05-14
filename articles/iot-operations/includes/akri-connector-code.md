@@ -10,7 +10,7 @@ ms.author: dobett
 The following steps assume you created a .NET project called **MyConnector**.
 
 > [!IMPORTANT]
-> The following example code is meant for illustrative purposes only and is not intended to be used in production. In a production connector, you should implement robust error handling and retry logic, and ensure that any credentials used to connect to the asset are stored and used securely. A production quality connector must implement the contract described in the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md) document in the SDKs repository.
+> The following example code is for illustrative purposes only and is not intended to be used in production. In a production connector, you should implement robust error handling and retry logic, and ensure that any credentials used to connect to the asset are stored and used securely. A production quality connector must implement the contract described in the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md) document in the SDKs repository.
 
 To represent the thermostat status, create a file called **ThermostatStatus.cs** in the `MyConnector` folder in the workspace with the following content. This file models the JSON response from the REST endpoint:
 
@@ -27,29 +27,14 @@ namespace MyConnector
         [JsonPropertyName("currentTemperature")]
         public double? CurrentTemperature { get; set; }
     }
-}    
-```
-
-To add a data point configuration setting, create a file called **DataPointConfiguration.cs** in the `MyConnector` folder in the workspace with the following content. This file models a configuration setting for a data point that the user specifies in the operations experience UI:
-
-```c#
-using System.Text.Json.Serialization;
-
-namespace MyConnector
-{
-    public class DataPointConfiguration
-    {
-        [JsonPropertyName("HttpRequestMethod")]
-        public string? HttpRequestMethod { get; set; }
-    }
-} 
+}
 ```
 
 Implement the `SampleDatasetAsync` method in the provided `DatasetSampler` class. The method takes a `Dataset` as a parameter. A `Dataset` contains the data points for the connector to process.
 
 1. Open the file `MyConnector/DatasetSampler.cs` in your VS Code workspace.
 
-1. To pass in the required data for processing the endpoint data, add a constructor to the `DatasetSampler` class . The class uses the `HttpClient` and `EndpointProfileCredentials` to connect to and authenticate with the asset endpoint:
+1. To pass in the required data for processing the endpoint data, add a constructor to the `DatasetSampler` class. The class uses the `HttpClient` and `EndpointProfileCredentials` to connect to and authenticate with the asset endpoint. Add the JSON serializer options and the `DisposeAsync` method to clean up the `HttpClient` when the `DatasetSampler` is disposed:
 
     ```c#
     private readonly HttpClient _httpClient;
@@ -111,22 +96,7 @@ Implement the `SampleDatasetAsync` method in the provided `DatasetSampler` class
     }
     ```
 
-1. In the `try` block in the `SampleDatasetAsync` method, add the following code to retrieve each `DataPoint` from the `DataSet` and extract the data source paths. These paths are part of the URLs used to fetch the data from the REST endpoint. The `currentTemperature` and `desiredTemperature` data points were modeled previously in the `ThermostatStatus` class. The HTTP request method is extracted from the data point configuration modeled in the `DataPointConfiguration` class:
-
-    ```c#
-    AssetDatasetDataPointSchemaElement httpServerDesiredTemperatureDataPoint = dataset.DataPoints!.Where(x => x.Name!.Equals("desiredTemperature"))!.First();
-    HttpMethod httpServerDesiredTemperatureHttpMethod = HttpMethod.Parse(JsonSerializer.Deserialize<DataPointConfiguration>(httpServerDesiredTemperatureDataPoint.DataPointConfiguration!, _jsonSerializerOptions)!.HttpRequestMethod);
-    string httpServerDesiredTemperatureRequestPath = httpServerDesiredTemperatureDataPoint.DataSource!;
-
-    AssetDatasetDataPointSchemaElement httpServerCurrentTemperatureDataPoint = dataset.DataPoints!.Where(x => x.Name!.Equals("currentTemperature"))!.First();
-    HttpMethod httpServerCurrentTemperatureHttpMethod = HttpMethod.Parse(JsonSerializer.Deserialize<DataPointConfiguration>(httpServerCurrentTemperatureDataPoint.DataPointConfiguration!, _jsonSerializerOptions)!.HttpRequestMethod);
-    string httpServerCurrentTemperatureRequestPath = httpServerCurrentTemperatureDataPoint.DataSource!;
-    ```
-
-    > [!NOTE]
-    > For simplicity, this example only shows you how to retrieve the HTTP method to use from the data point configuration. The sample doesn't use this value when it makes the HTTP request.
-
-1. In the same method, set up the authentication by using the provided credentials if authenticated endpoints are in use:
+1. In the `try` block in the `SampleDatasetAsync` method, add the following code to retrieve the temperature data from the `DataSet` and extract the data source paths. These paths are part of the URLs used to fetch the data from the REST endpoint. The `currentTemperature` and `desiredTemperature` data points were modeled previously in the `ThermostatStatus` class:
 
     ```c#
     if (_credentials != null && _credentials.Username != null && _credentials.Password != null)
@@ -138,37 +108,36 @@ Implement the `SampleDatasetAsync` method in the provided `DatasetSampler` class
         var byteArray = Encoding.ASCII.GetBytes($"{httpServerUsername}:{httpServerPassword}");
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
     }
-    ```
 
-    This code extracts the credentials and adds them to the authorization header. The `DatasetSampler` implements basic authentication with username and password credentials.
+    ThermostatStatus mergedStatus = new();
 
-1. Then add code to make an HTTP request to the endpoint, deserialize the response, and extract both the `CurrentTemperature` and `DesiredTemperature` properties and place them in a `ThermostatStatus` object:
-
-    ```c#
-    var currentTemperatureHttpResponse = await _httpClient.GetAsync(httpServerCurrentTemperatureRequestPath);
-    var desiredTemperatureHttpResponse = await _httpClient.GetAsync(httpServerDesiredTemperatureRequestPath);
-
-    if (currentTemperatureHttpResponse.StatusCode == System.Net.HttpStatusCode.Unauthorized
-        || desiredTemperatureHttpResponse.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+    foreach (var dataPoint in dataset.DataPoints)
     {
-        throw new Exception("Failed to authorize request to HTTP server. Check credentials configured in rest-server-device-definition.yaml.");
+        string path = dataPoint.DataSource!;
+
+        var response = await _httpClient.GetAsync(path, cancellationToken);
+
+        if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+        {
+            throw new Exception("Failed to authorize request to HTTP server. Check credentials configured in rest-server-device-definition.yaml.");
+        }
+
+        response.EnsureSuccessStatusCode();
+
+        var bytes = await response.Content.ReadAsByteArrayAsync(cancellationToken);
+        ThermostatStatus partial = JsonSerializer.Deserialize<ThermostatStatus>(bytes, _jsonSerializerOptions)!;
+
+        if (partial.CurrentTemperature.HasValue)
+        {
+            mergedStatus.CurrentTemperature = partial.CurrentTemperature;
+        }
+        if (partial.DesiredTemperature.HasValue)
+        {
+            mergedStatus.DesiredTemperature = partial.DesiredTemperature;
+        }
     }
 
-    currentTemperatureHttpResponse.EnsureSuccessStatusCode();
-    desiredTemperatureHttpResponse.EnsureSuccessStatusCode();
-
-    ThermostatStatus thermostatStatus = new()
-    {
-        CurrentTemperature = (JsonSerializer.Deserialize<ThermostatStatus>(await currentTemperatureHttpResponse.Content.ReadAsStreamAsync(), _jsonSerializerOptions)!).CurrentTemperature,
-        DesiredTemperature = (JsonSerializer.Deserialize<ThermostatStatus>(await desiredTemperatureHttpResponse.Content.ReadAsStreamAsync(), _jsonSerializerOptions)!).DesiredTemperature
-    };
-    ```
-
-1. Next, serialize the status to JSON and return the response to the endpoint. In this example, the HTTP response payload already matches the expected message schema, so no translation is necessary:
-
-    ```c#
-    // The HTTP response payload matches the expected message schema, so return it as-is
-    return Encoding.UTF8.GetBytes(JsonSerializer.Serialize(thermostatStatus));
+    return JsonSerializer.SerializeToUtf8Bytes(mergedStatus, _jsonSerializerOptions);
     ```
 
     > [!TIP]
@@ -177,7 +146,9 @@ Implement the `SampleDatasetAsync` method in the provided `DatasetSampler` class
 1. Finally, import the necessary types:
 
     ```c#
+    using Azure.Iot.Operations.Connector;
     using Azure.Iot.Operations.Connector.Files;
+    using Azure.Iot.Operations.Services.AssetAndDeviceRegistry.Models;
     using System.Net.Http.Headers;
     using System.Text;
     using System.Text.Json;
@@ -214,3 +185,43 @@ Implement the `CreateDatasetSampler` method in the `DatasetSamplerProvider` clas
     > For simplicity, this example assumes that the dataset name is always `thermostat_status`. In a production connector, you can implement additional logic to handle multiple datasets.
 
 The final version of the code looks similar to [DatasetSamplerProvider](https://raw.githubusercontent.com/Azure/iot-operations-sdks/refs/heads/main/dotnet/samples/Connectors/PollingRestThermostatConnector/RestThermostatDatasetSamplerProvider.cs).
+
+Implement the MessageSchemaProvider class to register a message schema for the dataset. This step is optional but allows other Azure IoT Operations to understand the format of the messages from the connector:
+
+1. Open the `MyConnector/MessageSchemaProvider.cs` file in your VS Code workspace.
+
+1. Add a string  to the class that contains the JSON schema for the `thermostat_status` dataset:
+
+    ```c#
+    private static readonly string _datasetJsonSchema = """
+    {
+        "$schema": "https://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+        "desiredTemperature": {
+                "type": "number"
+            },
+            "currentTemperature": {
+                "type": "number"
+            }
+        }
+    }
+    """;
+    ```
+
+1. In the `GetMessageSchemaAsync` method, return the JSON schema for the `thermostat_status` dataset:
+
+    ```c#
+    public Task<ConnectorMessageSchema?> GetMessageSchemaAsync(Device device, Asset asset, string datasetName, AssetDataset dataset, CancellationToken cancellationToken = default)
+    {
+        if (datasetName.Equals("thermostat_status", StringComparison.OrdinalIgnoreCase))
+        {
+            ConnectorMessageSchema? schema = new ConnectorMessageSchema(_datasetJsonSchema, Azure.Iot.Operations.Services.SchemaRegistry.SchemaRegistry.Format.JsonSchemaDraft07, Azure.Iot.Operations.Services.SchemaRegistry.SchemaRegistry.SchemaType.MessageSchema, "1", null);
+            return Task.FromResult((ConnectorMessageSchema?)schema);
+        }
+
+        return Task.FromResult((ConnectorMessageSchema?)null);
+    }
+    ```
+
+The final version of the code looks similar to [MessageSchemaProvider](https://raw.githubusercontent.com/Azure/iot-operations-sdks/refs/heads/main/dotnet/samples/Connectors/PollingRestThermostatConnector/MessageSchemaProvider.cs).

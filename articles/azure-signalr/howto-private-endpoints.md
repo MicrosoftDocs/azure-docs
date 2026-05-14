@@ -167,6 +167,39 @@ For more information on configuring your own DNS server to support private endpo
     az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
     ```
 
+## Private endpoints with geo-replication
+
+Azure SignalR Service is exposed to a private endpoint as a whole. You don't create a private endpoint that points to a specific replica. Instead, one private endpoint on the parent resource is enough — it automatically routes traffic to a healthy replica, the same way as in the public network, based on health and performance metrics.
+
+The following diagram illustrates how traffic flows from a client in a virtual network to a replica through a single private endpoint:
+
+```
+            ┌──────────────────────────────────┐
+            │  Client in VNet                  │
+            └────────────────┬─────────────────┘
+                             │
+                             ▼
+            ┌──────────────────────────────────┐
+            │  Private endpoint                │
+            │  (private IP in your subnet)     │
+            └────────────────┬─────────────────┘
+                             │
+                             ▼
+            ┌──────────────────────────────────┐
+            │  Closest healthy replica         │
+            └──────────────────────────────────┘
+```
+
+
+**Example.** Assume the client VM is in *East US*, the primary Azure SignalR Service resource is in *West US*, and a replica is in *East US*. When the client connects to Azure SignalR Service through the private endpoint, the *East US* replica is selected for its better performance in routing.
+
+### Failover
+
+If the replica currently serving traffic becomes unavailable, Azure network infrastructure automatically routes new traffic to another healthy replica. The private endpoint always resolves to the same private IP inside your virtual network, so no client-side change is needed. The failover can take **several minutes** to complete.
+
+To manually trigger and validate failover, stop the connected replica, wait a few minutes, and reconnect from a test client. The client should land on a different replica.
+
+
 ## Pricing
 
 For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).

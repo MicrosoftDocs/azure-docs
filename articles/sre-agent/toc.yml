@@ -146,6 +146,8 @@ items:
             href: track-incident-value.md
           - name: Monitor agent usage
             href: monitor-agent-usage.md
+          - name: Review agent insights
+            href: review-agent-insights.md
           - name: Audit agent actions
             href: audit-agent-actions.md
   - name: Tutorials
@@ -238,6 +240,10 @@ items:
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
+      - name: API reference
+        href: api-reference.md
+      - name: Deploy with Infrastructure as Code
+        href: deploy-iac.md
       - name: Frequently asked questions
         items:
           - name: General

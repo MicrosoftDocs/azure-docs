@@ -543,7 +543,7 @@ The following screenshot shows an example event filter:
 
 # [Azure CLI](#tab/cli)
 
-The following command updates an existing event definition to include an event filter by using the `config` parameter:
+The following command updates an existing event definition to include an event filter by using the `--filter-type` and `--filter-clause` parameters:
 
 ```azurecli
 az iot ops ns asset opcua event add \
@@ -554,7 +554,11 @@ az iot ops ns asset opcua event add \
   --name serverObjectNotifier \
   --data-source "ns=0;i=2253" \
   --replace true \
-  --config "{\"eventFilter\":{\"selectClauses\":[{\"browsePath\":\"EventId\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"myEventId\"},{\"browsePath\":\"EventType\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"EventType\"},{\"browsePath\":\"SourceName\",\"typeDefinitionId\":\"\",\"fieldId\":\"mySourceName\"},{\"browsePath\":\"Severity\",\"typeDefinitionId\":\"\",\"fieldId\":\"Severity\"}]}}"
+  --filter-type "ns=0;i=2041" \
+  --filter-clause path="EventId" type="ns=0;i=2041" field="myEventId" \
+  --filter-clause path="EventType" type="ns=0;i=2041" field="EventType" \
+  --filter-clause path="SourceName" field="mySourceName" \
+  --filter-clause path="Severity" field="Severity"
 ```
 
 # [Bicep](#tab/bicep)
@@ -755,7 +759,7 @@ az iot ops ns asset opcua datapoint add \
   --data-source "ns=3;s=FastUInt100"
 ```
 
-To delete a data point, use the `az iot ops ns asset opcua dataset point remove` command.
+To delete a data point, use the `az iot ops ns asset opcua datapoint remove` command.
 
 You can manage an asset's event groups by using the `az iot ops ns asset opcua event-group` commands.
 

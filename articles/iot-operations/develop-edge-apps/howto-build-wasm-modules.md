@@ -62,8 +62,8 @@ Docker images:
 docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.5
 docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.5 host-app
 
-docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
+docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
+docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx
 
 docker pull mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2
 docker tag mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2 statestore-cli
@@ -83,8 +83,8 @@ Docker images:
 docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.5
 docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.5 host-app
 
-docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
+docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
+docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx
 
 docker pull mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2
 docker tag mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2 statestore-cli

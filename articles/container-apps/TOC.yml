@@ -664,6 +664,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

@@ -15,9 +15,13 @@ ms.custom:
 This document describes the different types of static routes in Virtual WAN, common use cases, and the main best practices and limitations to consider during network design and implementation.
 
 ## Overview of static routes
+
+>[!NOTE]
+> Static routes in Virtual WAN can't be used to direct traffic to a Network Virtual Appliance (NVA) or software-as-a-service (SaaS) solution deployed in the Virtual WAN hub. For NVA and SaaS solutions, the only supported method of directing traffic is through routing intent and policies. For more information, see [routing intent and policies documentation](how-to-routing-policies.md).
+ 
 Virtual WAN static routes are used to direct traffic to a specific next-hop. Static routes deliver two main routing use cases:
 
-* Route traffic through an Azure Firewall deployed in the Virtual WAN hub
+* Route traffic through an Azure Firewall deployed in the Virtual WAN hub.
 * Route traffic to a designated IP address (often a load balancer in front of a Network Virtual Appliance) deployed in a spoke virtual network that's connected to the Virtual WAN hub.
 
 At a high level, the following static route configurations are needed for the two main use cases mentioned above.

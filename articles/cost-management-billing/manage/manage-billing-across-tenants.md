@@ -71,7 +71,8 @@ If the Provisioning access setting is turned on, a unique link is created for yo
 Before assigning roles, make sure you [add a tenant as an associated billing tenant and enable billing management access setting](#add-an-associated-billing-tenant).
 
 > [!IMPORTANT]
-> Any user with a role in the billing account can see all users from all tenants who have access to that billing account. For example, Contoso.com is the primary billing tenant. A billing account owner adds Fabrikam.com as an associated billing tenant. Then, the billing account owner adds User1 as a billing account owner. As a result, User1 can see all users who have access to the billing account on both Contoso.com and Fabrikam.com.
+> User visibility across associated tenants - When Billing Management is enabled for an associated tenant, user visibility on the MCA-E billing account becomes cross-tenant. Specifically: Any user with a billing role on the billing account can view all other users who hold a billing role at the billing account scope. Visible attributes include user name, email address, assigned role, and home tenant. This applies regardless of which associated tenant the viewer or the viewed user belongs to.
+> Example: Contoso.com is the primary billing tenant. The billing account owner associates Fabrikam.com and grants User1 (a Fabrikam.com user) the Billing Account Owner role. User1 can now see every user with a billing role on the billing account across both Contoso.com and Fabrikam.com, including their names, email addresses, roles, and tenants.
 
 ### To assign roles and send an email invitation
 

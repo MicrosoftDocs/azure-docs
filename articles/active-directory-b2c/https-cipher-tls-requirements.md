@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 11/27/2024
+ms.date: 05/14/2026
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -29,7 +29,7 @@ Azure AD B2C must be able to connect to your endpoints using the Transport Layer
 
 ## TLS versions
 
-TLS version 1.2 is a cryptographic protocol that provides authentication and data encryption between servers and clients. Your endpoint must support secure communication over **TLS version 1.2**. Older TLS versions 1.0 and 1.1 are deprecated. 
+TLS is a cryptographic protocol that provides authentication and data encryption between servers and clients. Azure AD B2C supports **TLS version 1.3** and **TLS version 1.2**. Your endpoint must support secure communication over TLS 1.2 or TLS 1.3. Older TLS versions 1.0 and 1.1 are deprecated. 
 
 ## Cipher suites
 
