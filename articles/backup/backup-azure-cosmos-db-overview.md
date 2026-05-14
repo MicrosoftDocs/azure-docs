@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # About Azure Backup for Cosmos DB (preview)
 
-Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/cosmos-db/overview.md) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/cosmos-db/online-backup-and-restore.md) by enabling off‑platform, immutable backups with retention of up to 10 years, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
+Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/azure/cosmos-db/overview) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/azure/cosmos-db/online-backup-and-restore) by enabling off‑platform, immutable backups with retention of up to 10 years, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
 
 Azure Backup for Cosmos DB is designed for customers who need: 
 
