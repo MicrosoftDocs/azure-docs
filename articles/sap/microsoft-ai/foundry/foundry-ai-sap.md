@@ -35,11 +35,11 @@ These layers aren't mutually exclusive. Most organizations use a combination, de
 
 There are three primary patterns for connecting AI agents to SAP data, as described in the following sections.
 
-You can combine these patterns. For example, an agent might use direct API calls for real-time purchase order (PO) status checks, a Fabric data agent for spend analysis dashboards, and Model Context Protocol (MCP) tools for multistep approval workflows. Such an agent can do all of these things within the same Copilot experience.
+You can combine these patterns. For example, an agent might use direct API calls for real-time purchase order (PO) status checks, a Microsoft Fabric data agent for spend analysis dashboards, and Model Context Protocol (MCP) tools for multistep approval workflows. Such an agent can do all of these things within the same Copilot experience.
 
 ### Direct API consumption
 
-The Copilot Studio or Foundry agent calls SAP OData or REST APIs in real time via HTTP connectors or plugins. The response is displayed in Teams or Copilot.
+The Copilot Studio or Foundry agent calls SAP OData or REST APIs in real time via HTTP connectors or plugins. The response is displayed in Microsoft Teams or Copilot.
 
 - **Best for:** Simple lookups, transactional queries, real-time status checks.
 - **Pros:** Real-time data, simple setup, no data pipeline needed.
@@ -105,7 +105,7 @@ A multifunction agent for SAP operations and development teams:
 AI-enabled process automation for complex financial accounting workflows:
 
 - Conduct monthly accruals posting, bank reconciliation, and intercompany settlement.
-- Execute AI-driven procedures to replace manual job sheets
+- Execute AI-driven procedures to replace manual job sheets.
 - Conduct multi-agent orchestration: SAP agent, per-to-peer agent, data agent, and finance expert agent.
 - Integrate with SAP BAPIs for document posting and workflow completion.
 
@@ -150,13 +150,13 @@ Microsoft provides prebuilt data templates for common SAP business processes thr
 
 Data templates for manufacturing and supply-chain processes are in the planning stage.
 
-BPS provides prebuilt data mappings from SAP and non-SAP systems, integrated with Fabric open mirroring for data acquisition. BPS also provides prebuilt Power BI dashboards to deliver consistent, accurate business data to Copilot agents.
+BPS provides prebuilt data mappings from SAP and non-SAP systems. These mappings are integrated with Fabric open mirroring for data acquisition. BPS also provides prebuilt Power BI dashboards to deliver consistent, accurate business data to Copilot agents.
 
 ## Governance and security
 
 Foundry includes a control plane for governing the full AI lifecycle:
 
-- **Observability**. Complete signals management layer for monitoring agent performance and behavior.
+- **Observability**. Complete signals-management layer for monitoring agent performance and behavior.
 - **Controls**. Content safety filters, prompt injection protection, grounding validation.
 - **Evaluations**. Continuous, fleet-wide governance with automated quality checks.
 - **Security**. Enterprise-grade compliance with Microsoft Security integrations, role-based access, and data privacy controls.

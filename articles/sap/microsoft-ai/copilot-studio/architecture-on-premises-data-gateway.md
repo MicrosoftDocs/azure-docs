@@ -15,9 +15,9 @@ ms.author: hobruche
 > [!IMPORTANT]
 > When you're consuming SAP APIs and interfaces, always ensure that your usage complies with [SAP's API policy](https://help.sap.com/doc/sap-api-policy/latest/en-US/API_Policy_latest.pdf). If you have questions about permitted API usage in your specific scenario, check with your SAP contact or account team.
 
-Many customers come from the Microsoft Power Platform and SAP integration and already created Power BI reports, Power Apps flows, and Power Automate flows that connect to SAP systems.
+Many customers come from the integration of Microsoft Power Platform with SAP and already created Power BI reports, Power Apps flows, and Power Automate flows that connect to SAP systems.
 
-Often, customers use BAPIs and RFCs to fetch and update information in the SAP system. To do that, they must use the on-premises data gateway together with the SAP .NET Connector.
+Often, customers use BAPIs and RFCs to fetch and update information in the SAP system. To do that, they must use the on-premises data gateway together with SAP Connector for Microsoft .NET.
 
 Like the SAP Cloud Connector, the on-premises data gateway enables access to the SAP system from Power Platform and Microsoft Copilot Studio, even if firewalls are in place.
 
@@ -35,9 +35,9 @@ During the installation, you have to log in as a user from your Power Platform e
 
 ![Screenshot of the connectivity status of the on-premises data gateway in the Power Platform environment.](../media/registered-gateway.jpg)
 
-In addition to the on-premises data gateway, you need to install the SAP .NET Connector if you want to integrate with BAPIs and RFCs. The SAP .NET Connector translates the incoming HTTP requests in the DIAG protocol that SAP proprietary APIs use.
+In addition to the on-premises data gateway, you need to install SAP Connector for Microsoft .NET if you want to integrate with BAPIs and RFCs. SAP Connector for Microsoft .NET translates the incoming HTTP requests in the DIAG protocol that SAP proprietary APIs use.
 
-![Screenshot of the SAP .NET Connector installation.](../media/sap-net-connector.jpg)
+![Screenshot of SAP Connector for Microsoft .NET installation.](../media/sap-net-connector.jpg)
 
 ### Agent and Copilot development
 
@@ -64,7 +64,7 @@ Typically, SAP systems have BAPIs and RFCs enabled by default. You can test the 
 
 ### Proxy and connectivity
 
-As outlined earlier, you must configure the on-premises data gateway together with the SAP .NET Connector. Make sure that the gateway is connected to the correct region and environment in Power Platform.
+As outlined earlier, you must configure the on-premises data gateway together with SAP Connector for Microsoft .NET. Make sure that the gateway is connected to the correct region and environment in Power Platform.
 
 ### Back-end systems and data sources
 

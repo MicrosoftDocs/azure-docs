@@ -44,7 +44,7 @@ When you're building Copilot agents (whether they're integrated in Microsoft 365
 
 ![Diagram that shows a high-level overview of Copilot with SAP.](../media/high-level-overview.jpg)
 
-Microsoft and SAP provide a wide range of integration options to realize this end-to-end flow. The choice of which flow to use depends on the approach and available skill set. It also depends on the existing setup that you already have in place. For example:
+Microsoft and SAP provide a wide range of integration options to realize this end-to-end flow. The choice of which flow to use depends on the approach and available skill set. It also depends on the existing setup that you have in place. For example:
 
 * Are you using SAP Business Technology Platform?
 * Do you use Azure Integration Services?
@@ -69,11 +69,11 @@ Another place to use your apps is in the various Microsoft 365 applications. You
 
 #### Teams
 
-Because a lot of collaboration happens in Microsoft Teams, it's important to highlight that Copilot agents can also run in Teams. You can add them to ongoing conversations and meetings, and you can interact with them 1:1. Think of a discussion that you have with your manager and how an agent can help you receive the latest information from your SAP SuccessFactors system about the goals defined there.
+Because a lot of collaboration happens in Microsoft Teams, it's important to highlight that Copilot agents can also run in Teams. You can add them to ongoing conversations and meetings, and you can interact with them directly. Think of a discussion that you have with your manager and how an agent can help you receive the latest information from your SAP SuccessFactors system about the goals defined there.
 
 #### Websites
 
-Copilot agents can also run on websites. They can help and guide a user on where to go, or provide answers without the need to find the right site. You can also achieve this integration in an SAP Fiori launchpad or in SAP Build Work Zone. Such an agent can help you look up products in your SAP system or help a supplier (in the supplier's portal) to check the status of the latest invoice.
+Copilot agents can also run on websites. They can help and guide a user on where to go, or provide answers without the need to find the right site. You can also achieve this integration in an SAP Fiori launchpad or in SAP Build Work Zone. Such an agent can help you look up products in your SAP system or help a supplier (in the supplier's portal) check the status of the latest invoice.
 
 #### SAP Joule
 
@@ -145,13 +145,13 @@ In addition, OData supports the latest authentication protocols, like OAuth and 
 For Copilot scenarios, there's common support across all tools:
 
 * Agent Builder supports OData services via the knowledge source functionality. Users can use SAP systems as a knowledge source.
-* Copilot Studio has a dedicated SAP OData connector, which supports all create, read, update, and delete (CRUD) operations that the underlying SAP OData services support. Detailed documentation about implementing single sign-on and principal propagation to multiple SAP Systems is also available.
+* Copilot Studio has a dedicated SAP OData connector, which supports all create, read, update, and delete (CRUD) operations that the underlying SAP OData services support. Detailed documentation about implementing single sign-on and principal propagation to multiple SAP systems is also available.
 * Microsoft Foundry supports OData services both via a low-code connector and via pro-code development extensions.
 * Through the Agents Toolkit, developers can use multiple libraries to connect to OData services.
 
 #### BAPI and RFC
 
-Copilot Studio provides a proven [SAP ERP connector](/power-platform/sap/roles-guidance/power-platform-app-maker#using-sap-rfcs-and-bapis) for BAPIs and RFCs. Users can use it to connect to older systems. Support uses the on-premises data gateway (OPDG) together with the [SAP .NET Connector](https://support.sap.com/en/product/connectors/msnet.html), which has to be downloaded with a so-called S-User.  
+Copilot Studio provides a proven [SAP ERP connector](/power-platform/sap/roles-guidance/power-platform-app-maker#using-sap-rfcs-and-bapis) for BAPIs and RFCs. Users can use it to connect to older systems. Support uses the on-premises data gateway (OPDG) together with [SAP Connector for Microsoft .NET](https://support.sap.com/en/product/connectors/msnet.html), which has to be downloaded with an S-User.  
 
 The SAP ERP connector in Copilot Studio also supports single sign-on and principal propagation via Kerberos and X.509 certificates.
 
@@ -167,7 +167,7 @@ You can use Power Automate Desktop to build end-to-end automation that ranges fr
 
 #### MCP
 
-MCP, the [Model Context Protocol](https://github.com/modelcontextprotocol), is an open protocol that enables seamless integration between LLM applications, like Copilot, and external data sources and tools. In contrast to the simple API-based integration mentioned earlier, an-MCP based integration enables the Copilot to identify and create the required payload to retrieve data from the SAP system in a dynamic and efficient way.
+MCP, the [Model Context Protocol](https://github.com/modelcontextprotocol), is an open protocol that enables seamless integration between LLM applications (like Copilot) and external data sources and tools. In contrast to the simple API-based integration mentioned earlier, an MCP-based integration enables the Copilot to identify and create the required payload to retrieve data from the SAP system in a dynamic and efficient way.
 
 Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://mcp.azure.com/) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
 
@@ -205,13 +205,13 @@ For many SAP customers, SAP Business Technology Platform with either SAP Integra
 
 The on-premises data gateway (OPDG) has been around for many years, mainly in the context of Power Platform. You can use the OPDG to bridge the firewall protection and to translate the SAP DIAG protocol used by BAPIs and RFCs into HTTP calls that Copilot Studio and Power Platform can use.
 
-If you want to use BAPIs or RFCs, you have to install the OPDG along with the SAP .NET Connector. (An SAP user ID is required.) You can then access the SAP system behind a firewall and use BAPIs or RFCs in your system.
+If you want to use BAPIs or RFCs, you have to install the OPDG along with SAP Connector for Microsoft .NET. (An SAP user ID is required.) You can then access the SAP system behind a firewall and use BAPIs or RFCs in your system.
 
 If you want to connect to OData services behind a firewall, you can use the OPDG (like SAP Cloud Connector) to do that.
 
 #### Virtual network peering
 
-If you're running your SAP system on Azure (either native or on RISE), you can also benefit from peering your virtual networks with Azure. This peering allows Azure API Management to access the SAP system without the need for an extra proxy like SAP Cloud Connector or the OPDG. The SAP system doesn't have to expose any IP to the internet, but API Management (or other Azure services) can access the SAP system via internal IPs.
+If you're running your SAP system on Azure (either native or on RISE), you can also benefit from peering your virtual networks with Azure. This peering allows Azure API Management to access the SAP system without the need for an extra proxy like SAP Cloud Connector or the OPDG. The SAP system doesn't have to expose any IP to the internet, but Azure API Management (or other Azure services) can access the SAP system via internal IPs.
 
 This setup not only provides the best security, but also reduces the number of hops and latency.
 

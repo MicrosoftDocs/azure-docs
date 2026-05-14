@@ -27,16 +27,16 @@ SAP systems are the operational backbone of many organizations. Organizations us
 
 ### For users
 
-- **Stay in your flow of work**. Interact with SAP from Teams, Outlook, Excel, or Copilot Chat without switching to SAP GUI or Fiori.
-- **Natural language access**. Ask "What is the status of PO 4500001234?" instead of navigating ME23N.
+- **Stay in your flow of work**. Interact with SAP from Microsoft Teams, Outlook, Excel, or Copilot Chat without switching to SAP GUI or Fiori.
+- **Natural language access**. Ask "What is the status of PO 4500001234?" instead of using ME23N.
 - **Faster decisions**. Get insights from SAP data combined with emails, documents, and other sources in one place.
 
 ### For organizations
 
 - **Reduce training overhead**. Users interact with SAP through natural language, not complex UIs.
-- **Accelerate processes**. AI agents can automate multistep workflows that previously required manual SAP transactions
+- **Accelerate processes**. AI agents can automate multistep workflows that previously required manual SAP transactions.
 - **Enable citizen developers**. Business users can build agents with low-code tools in Copilot Studio.
-- **Maintain governance**. Enterprise-grade security, compliance, and access controls across all AI interactions with SAP.
+- **Maintain governance**. Get enterprise-grade security, compliance, and access controls across all AI interactions with SAP.
 
 ### Common business scenarios
 
@@ -45,7 +45,7 @@ SAP systems are the operational backbone of many organizations. Organizations us
 | Finance | "Show me the trial balance for cost center 1000." | Answered from SAP S/4HANA |
 | Procurement | "What purchase orders are pending approval?" | Queried from SAP Ariba or S/4HANA |
 | HR | "What is my remaining leave balance?" | Retrieved from SAP SuccessFactors |
-| Supply Chain | "What is the delivery status for sales order 800123?" | Checked in SAP |
+| Supply chain | "What is the delivery status for sales order 800123?" | Checked in SAP |
 
 ## What can you do?
 
@@ -79,14 +79,14 @@ Microsoft Foundry is the full AI platform for advanced scenarios. These scenario
 | --- | --- | --- |
 | You want quick value with minimal setup. | [Joule and Copilot](./joule/joule-copilot-overview.md) | If your organization already has Microsoft 365 Copilot licenses and SAP Joule enabled, the managed integration gets you started without custom development. Users can ask SAP questions directly in Teams or Copilot Chat. |
 | You want to build a custom agent by using low-code development for a specific process that needs information from an SAP system. | [Copilot Studio](./copilot-studio/copilot-with-sap-overview.md) | Use Copilot Studio to build agents that are tailored to your business processes. Connect to SAP via OData connectors, custom connectors, or Microsoft Power Platform connectors. Deploy to Teams, Microsoft 365 Copilot, or websites. |
-| You want advanced AI agents with multistep workflows that include SAP systems | [Foundry](./foundry/foundry-ai-sap.md) | For complex scenarios that involve multi-agent orchestration, custom models, or deep SAP integration (BAPIs, RFCs, multistep transactions), Foundry provides the full platform. |
-| You want all of the preceding items | A combination of the preceding layers | They all work together. |
+| You want advanced AI agents with multistep workflows that include SAP systems. | [Foundry](./foundry/foundry-ai-sap.md) | For complex scenarios that involve multi-agent orchestration, custom models, or deep SAP integration (BAPIs, RFCs, multistep transactions), Foundry provides the full platform. |
+| You want all of the preceding items. | A combination of the preceding layers | They all work together. |
 
 ## Key principles
 
 - **These options are complementary, not competing**. Most organizations use a combination based on the use case.
 - **Start simple, grow complex**. Begin with Joule or a simple Copilot Studio agent, and then expand to Foundry for advanced scenarios.
-- **SAP stays the system of record**. Microsoft AI adds an intelligence layer on top. It doesn't replace SAP.
+- **SAP stays as the system of record**. Microsoft AI adds an intelligence layer on top. It doesn't replace SAP.
 - **Security and governance are built in**. All integrations respect SAP authorizations, Microsoft Entra ID, and enterprise compliance requirements.
 
 ## Related content

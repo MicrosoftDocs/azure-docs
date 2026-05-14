@@ -15,16 +15,16 @@ ms.author: hobruche
 > [!IMPORTANT]
 > When you're consuming SAP APIs and interfaces, always ensure that your usage complies with [SAP's API policy](https://help.sap.com/doc/sap-api-policy/latest/en-US/API_Policy_latest.pdf). If you have questions about permitted API usage in your specific scenario, check with your SAP contact or account team.
 
-Many customers who want to build a Microsoft Copilot agent connected to SAP already have SAP Business Technology Platform (BTP) in place. The benefit of that scenario is that integrations to the SAP back-end system (often on-premises) are already established through SAP Cloud Connector.
+Many customers who want to build a Microsoft Copilot agent connected to SAP already have SAP Business Technology Platform (BTP) in place. The benefit of that scenario is that integrations with the SAP back-end system (often on-premises) are already established through SAP Cloud Connector.
 
 Whether you're using Microsoft Copilot Studio, Microsoft Foundry, or the Microsoft 365 Agents Toolkit, the connectivity to the services from your SAP back-end system are exposed via SAP BTP services. These services include SAP API Management, SAP Integration Suite, or a custom-developed SAP app proxy.
 
 This combination enables these teams to work together:
 
-* SAP team, for managing SAP BTP and the access to the SAP system
+* SAP team, for managing SAP BTP and access to the SAP system
 * Microsoft team, for building the Copilot agent
 
-In most cases, the Copilot agent calls a REST-based API (OData, REST, or SOAP). This API is exposed and protected via services on SAP BTP. The authentication can happen here, so that you can use true single sign-on (SSO) and principal propagation scenarios.
+In most cases, the Copilot agent calls a REST-based API (OData, REST, or SOAP). This API is exposed and protected via services on SAP BTP. The authentication can happen here so that you can use true single sign-on (SSO) and principal propagation scenarios.
 
 SAP BTP then forwards the request via SAP Cloud Connector to the SAP back-end system.
 
@@ -34,7 +34,7 @@ This architecture depicts only one path. You can use multiple variations for the
 
 ## Setup and configuration
 
-In this scenario, in most cases, the SAP Business Technology platform is in place and SAP Cloud Connector is already installed.
+In this scenario, in most cases, SAP BTP is in place and SAP Cloud Connector is already installed.
 
 ### Agent and Copilot development
 
@@ -59,7 +59,7 @@ For all integration scenarios via SAP BTP, principal propagation flows are docum
 
 ### Integration and connectivity infrastructure
 
-The easiest way to expose APIs from your SAP back-end system is via SAP Integration Suite. In this example, we're using SAP API Management. The policy of the API proxy can also be enhanced to support the principal propagation flow in enabling SSO from the Copilot agent to the SAP back-end system.
+The easiest way to expose APIs from your SAP back-end system is via SAP Integration Suite. The example in this article uses SAP API Management. The policy of the API proxy can also be enhanced to support the principal propagation flow in enabling SSO from the Copilot agent to the SAP back-end system.
 
 For more information, see:
 
