@@ -109,7 +109,7 @@ The following examples show the minimal payload to expose every operation in you
      - **Well-known OpenID configuration URL**—the OpenID Connect discovery URL for your identity provider (maps to `SiteAuth.WellKnownOpenIdConfiguration`).
      - **Issuer**—the token issuer URL (maps to `SiteAuth.Issuer`).
 
-     Provide **Source** plus either **Well-known OpenID configuration URL** or **Issuer**. To set `JwksUri` or `Audience`, use the [Azure CLI](#tab/cli) or [Bicep](#tab/bicep) tab. For details, see [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication).
+     Provide **Source** plus either **Well-known OpenID configuration URL** or **Issuer**. To set `JwksUri` or `Audience`, use the Azure CLI or Bicep tab instead. For details, see [Configure auth without App Service Authentication](#configure-auth-without-app-service-authentication).
 1. Select **Create MCP**.
 
 > [!div class="mx-imgBorder"]
