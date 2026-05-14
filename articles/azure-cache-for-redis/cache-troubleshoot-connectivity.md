@@ -92,7 +92,7 @@ In the Azure portal, check your private endpoint configuration by selecting **Pr
   
 ### Public IP address change
 
-If you configure any networking or security resource to use your cache's public IP address, check to see whether your cache's public IP address changed. For more information, see [Rely on hostname not public IP address](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
+If you configure any networking or security resource to use your cache's public IP address, check to see whether your cache's public IP address changed. For more information, see [Rely on hostname, not a public or private IP address](cache-best-practices-development.md#rely-on-hostname-not-a-public-or-private-ip-address).
 
 ### Virtual network configuration
 

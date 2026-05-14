@@ -32,7 +32,7 @@ In this article, you'll generate the necessary certificates, create the required
 
 To complete the steps in this article, ensure you have the following prerequisites:
 
-* An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account).
+* An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure PowerShell installed locally or Azure Cloud Shell. For more information, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 * A Windows computer running Windows 10 or later, or Windows Server 2016 or later (required for certificate generation).
 * Familiarity with IP address ranges in your on-premises network configuration.

@@ -18,6 +18,12 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
+> [!IMPORTANT]
+> - **Email functionality is not supported in Free Trial Azure Subscriptions.**<br/>
+This capability is fully blocked and cannot be enabled during the trial period.
+> - **Notification template customization is not supported in Pay‑As‑You‑Go (PAYG) or MSDN Azure Subscriptions.**<br/>
+These subscription types do not include the ability to modify or configure built‑in notification templates, and this limitation cannot be overridden.
+
 Azure API Management lets you configure email notifications for specific events, and configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This article shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
 
 ## Prerequisites

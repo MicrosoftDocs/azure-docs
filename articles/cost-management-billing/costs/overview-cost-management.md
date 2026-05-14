@@ -126,4 +126,4 @@ Microsoft offers a wide range of tools for optimizing your costs. Some of these 
 
 ## Next steps
 
-For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers/#cloud).
+For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers?cid=msft_learn).

@@ -8,6 +8,7 @@ ms.topic: include
 
 | Version | Release Date | New in this release |
 |---|---|---|
+| 3.0.100 | Apr 2026 | - Always On Feature supported<br> - Feedback Prompts Feature<br> - Accessibility bug fixes<br> - SSO Phantom screen bug fixes |
 | 2.8.100 | Oct 2025 | - macOS min version supported: 13.0<br> - Server HA feature disabled<br> - Phantom window bug fix during Entra login |
 | 2.7.101 | Aug 2024 | - Auto reconnect on unintentional disconnects<br> - Released universal build (Arm64 and x86_64)<br> - Removed the dependency on Rosetta software<br> - Performance and stability improvements |
 | 2.5.3 | May 2024 | - Rebranding of Azure Active Directory to Microsoft Entra |

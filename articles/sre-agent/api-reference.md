@@ -121,7 +121,7 @@ Append the path suffix from the operations table, then add `?api-version=2025-05
 | `outboundIpAddresses` | string[] | Outbound IPs for allow list (read-only) |
 | `actionConfiguration.mode` | string | `Review`, `Automatic`, or `ReadOnly` |
 | `actionConfiguration.accessLevel` | string | `Low` or `High` |
-| `defaultModel.provider` | string | `Anthropic`, `MicrosoftFoundry`, or `GitHubCopilot` |
+| `defaultModel.provider` | string | `Anthropic` or `MicrosoftFoundry` (Open AI) |
 | `defaultModel.name` | string | Model name (for example, `Automatic`) |
 | `upgradeChannel` | string | `Stable` or `Preview` |
 | `monthlyAgentUnitLimit` | number | Monthly active flow AAU cap (doesn't include always-on flow) |
