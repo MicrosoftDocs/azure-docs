@@ -4,7 +4,7 @@ description: Learn how to control access to Azure Files by assigning share-level
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 05/14/2026
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli
 ms.devlang: azurecli
@@ -25,13 +25,14 @@ Most users assign share-level permissions to specific Microsoft Entra users or g
 
 Use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to grant role-based access to all authenticated identities in these scenarios:
 
-- You're using Microsoft Entra Kerberos to authenticate cloud-only identities (preview).
 - You can't sync your on-premises Active Directory Domain Services (AD DS) deployment to Microsoft Entra ID. Assigning a default share-level permission works around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
   
   Identities that are tied to an Active Directory but aren't syncing to Microsoft Entra ID can also use the default share-level permission. This condition can include standalone Managed Service Accounts (sMSAs), group Managed Service Accounts (gMSAs), and computer accounts.
+
 - The on-premises AD DS deployment that you're using is synced to a Microsoft Entra ID deployment that's different from the one where the file share is deployed.
   
   This condition is typical when you're managing multitenant environments. By using a default share-level permission, you bypass the requirement for a Microsoft Entra ID [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity). You can still use Windows ACLs on your files and directories for granular permission enforcement.
+
 - You prefer to enforce authentication only by using Windows ACLs at the file and directory levels.
 
 ## Azure RBAC roles for Azure Files
@@ -55,16 +56,16 @@ Several built-in Azure role-based access control (RBAC) roles are intended for u
 
 ## Share-level permissions for specific Microsoft Entra users or groups
 
-If you intend to use a specific Microsoft Entra user or group to access Azure file share resources, that identity must be a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID. Cloud-only identities must use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+If you want to use a specific Microsoft Entra user or group to access Azure file share resources, that identity can be either a cloud-only identity, or it can be a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID. Assigning specific share-level permissions to cloud-only identities is only supported in a subset of Azure regions. If the region you want to deploy in isn't supported, you can reach out to the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
-For example, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
+For hybrid identities, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
 > Assign permissions by explicitly declaring actions and data actions instead of using a wildcard (\*) character.
 >
 > If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
 
-For share-level permissions to work, you must take the following actions:
+For share-level permissions to work for hybrid identities, you must take the following actions:
 
 - If your identity source is AD DS or Microsoft Entra Kerberos, sync the users *and* the groups from your local Active Directory deployment to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Microsoft Entra Cloud Sync is a lightweight agent that you can install from the Microsoft Entra admin center.
 - Add Active Directory-synced groups to the RBAC role so they can access your storage account.
