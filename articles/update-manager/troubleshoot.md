@@ -341,10 +341,14 @@ To allow extensions to work properly, set the property to `true`.
 
 You might see the following exception:
 
+1.
 ```
 EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
 ```
-
+2.
+```
+Error Message: Extension returned non-zero exit code for Install: 88
+```
 #### Cause
 
 Sudo privileges aren't granted to the extensions for assessment or patching operations on Linux machines.
