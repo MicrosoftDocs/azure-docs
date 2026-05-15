@@ -48,7 +48,7 @@ For a faster setup experience, use our automation scripts that handle all config
 # [PowerShell](#tab/powershell-script)
 
 **What the script does:**
-- Discovers your Azure subscriptions and ADME instances
+- Discovers your Azure subscriptions and Azure Data Manager for Energy (ADME) instances
 - Prompts for required inputs (resource names, locations)
 - Creates managed identity (or uses existing)
 - Assigns identity to ADME instance (preserving existing identities)
@@ -321,7 +321,7 @@ Save this script as `enable-acz-setup.ps1` and run it with PowerShell.
 # [Bash](#tab/bash-script)
 
 **What the script does:**
-- Discovers your Azure subscriptions and ADME instances
+- Discovers your Azure subscriptions and Azure Data Manager for Energy (ADME) instances
 - Prompts for required inputs (resource names, locations)
 - Creates managed identity (or uses existing)
 - Assigns identity to ADME instance (preserving existing identities)
@@ -591,11 +591,11 @@ Save this script as `enable-acz-setup.sh`, make it executable with `chmod +x ena
 ---
 
 > [!TIP]
-> The automation scripts above handle all setup steps automatically. If you prefer to understand each configuration step or need customization, continue with the manual step-by-step instructions below.
+> The automation scripts handle all setup steps automatically. If you prefer to understand each configuration step or need customization, continue with the manual step-by-step instructions in this section.
 
 ## Manual step-by-step setup
 
-For users who want to understand each configuration step or need customization, follow the manual setup instructions below.
+For users who want to understand each configuration step or need customization, follow the manual setup instructions in this section.
 
 ## Step 1: Create or use an existing ADLS Gen2 storage account
 
@@ -672,7 +672,7 @@ az resource show \
   --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames}" \
   --output json
 
-# Set instance properties based on the output above
+# Set instance properties based on the output
 LOCATION="<location-from-output>"  # e.g., "southcentralus"
 AUTH_APP_ID="<authAppId-from-output>"
 DATA_PARTITION_NAME="<partition-name-from-output>"  # e.g., "dp1"
@@ -721,7 +721,7 @@ az resource show `
   --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames}" `
   --output json
 
-# Set instance properties based on the output above
+# Set instance properties based on the output
 $LOCATION = "<location-from-output>"  # e.g., "southcentralus"
 $AUTH_APP_ID = "<authAppId-from-output>"
 $DATA_PARTITION_NAME = "<partition-name-from-output>"  # e.g., "dp1"
@@ -749,7 +749,7 @@ Write-Host "  Managed Identity: $IDENTITY_RESOURCE_ID"
 > ```bash
 > az resource show --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME --query identity.userAssignedIdentities
 > ```
-> Include all returned identity resource identifiers along with your new ACZ identity in the `userAssignedIdentities` object below.
+> Include all returned identity resource identifiers along with your new ACZ identity in the `userAssignedIdentities` object in the next step.
 
 ### Update the Azure Data Manager for Energy instance
 
