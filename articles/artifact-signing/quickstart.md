@@ -28,6 +28,10 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 > [!NOTE]
 > For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
 
+>[!Note]
+> For a Public Identity,the identity validation details for both individuals and organizations are automatically sourced from your Azure billing account under the subscription you are registering this resource provider. Before starting the identity validation process, ensure that all billing account information, including legal name, address, and organization details, exactly matches the information you intend to appear on your Artifact Signing Public Trust certificate profile types. Any discrepancies may result in incorrect information being reflected on the certificate.To review or update your billing account information, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+
+
 To complete this quickstart, you need:
 
 - A Microsoft Entra tenant ID.
@@ -107,7 +111,7 @@ To register an Artifact Signing resource provider by using the Azure CLI:
    az extension add --name artifact-signing
    ```
 
-# [Azure Powershell](#tab/registerrp-azpowershell)
+# [Azure PowerShell](#tab/registerrp-azpowershell)
 
 1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
 
@@ -123,7 +127,7 @@ To register an Artifact Signing resource provider by using the Azure CLI:
 
 ## Create an Artifact Signing account
 
-An Artifact Signing account is a logical container that holds identity validation and certificate profile resources. An identity validation is available at the subscription id level and can be shared across all the Artifact Signing accounts within that subscription. 
+An Artifact Signing account is a logical container that holds identity validation and certificate profile resources. An identity validation is available at the subscription ID level and can be shared across all the Artifact Signing accounts within that subscription. 
 
 ### Azure regions that support Artifact Signing
 
@@ -228,7 +232,7 @@ The following table lists *helpful commands* to use when you create an Artifact 
 | `az artifact-signing update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                                    |
 | `az artifact-signing list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
 
-# [Azure Powershell](#tab/account-azpowershell)
+# [Azure PowerShell](#tab/account-azpowershell)
 
 To create an Artifact Signing account by using the Azure CLI:
 
@@ -277,11 +281,14 @@ To create an identity validation request for an Organization or a DBA:
 
    To learn how to manage, access by using role-based access control (RBAC), see [Tutorial: Assign roles in Artifact Signing](tutorial-assign-roles.md).
 1. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
-1. Select **New identity**, and then select either **Public** or **Private**.
-
+1. Select **Organization**, select **New Identity**, and then select either **Public** or **Private**.
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
    - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
-1. On **New identity validation**, provide the following information:
+1. On **New organization validation**,  select the billing account associated to the subscription.
+
+   :::image type="content" source="media/artifact-signing-billing-account-organization.png" alt-text="Screenshot that shows the billing account dropdown for org." lightbox="media/artifact-signing-billing-account-organization.png":::
+
+1. Once a billing account is selected, the form is automatically populated with the billing account information. These fields can be edited within the form. Before proceeding, ensure the populated details meet the required criteria.
 
     | Fields       | Details     |
     | :------------------- | :------------------- |
@@ -333,10 +340,14 @@ To create an identity validation request for an Organization or a DBA:
 
      To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Artifact Signing](tutorial-assign-roles.md).
 1. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
-1. Select **Organization**, in the dropdown select **Individual** and then select **Public**.
+1. Select **Organization**, in the dropdown select **Individual** and then select **New Identity**, underneath select **Public**.
     - Public identity validation applies to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
     - Private identity validation is only for Organizations.
-1. On **New identity validation**, provide the following information:
+1. On **New identity validation**, select the billing account associated to the subscription. 
+   :::image type="content" source="media/artifact-signing-billing-account-individual.png" alt-text="Screenshot that shows the billing account dropdown for indie." lightbox="media/artifact-signing-billing-account-individual.png":::
+
+1. Once a billing account is selected, the form is automatically populated with the billing account information. These fields are read-only and cannot be edited within the form.
+Before proceeding, ensure the populated details meet the required criteria. If updates are needed, modify the information directly in the billing account.
 
    | Fields       | Details     |
    | :------------------- | :------------------- |
@@ -542,7 +553,7 @@ The following table lists *helpful commands* to use when you create a certificat
 | `az artifact-signing certificate-profile list -g MyResourceGroup --account-name MyAccount`                 | Lists all certificate profiles that are associated with an Artifact Signing account.  |
 | `az artifact-signing certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`    | Gets the details for a certificate profile.                                           |
 
-# [Azure Powershell](#tab/certificateprofile-azpowershell)
+# [Azure PowerShell](#tab/certificateprofile-azpowershell)
 
 ### Prerequisites
 
@@ -554,7 +565,7 @@ You need the identity validation ID for the entity that the certificate profile 
 
    :::image type="content" source="media/artifact-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for an Artifact Signing account." lightbox="media/artifact-signing-identity-validation-id.png":::
 
-To create a certificate profile by using the Azure Powershell:
+To create a certificate profile by using the Azure PowerShell:
 
 1. Create a certificate profile by using the following command:
 
@@ -632,9 +643,9 @@ az artifact-signing delete -n MyAccount -g MyResourceGroup
 > [!NOTE]
 > This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.
 
-# [Azure Powershell](#tab/adeleteresources-azpowershell)
+# [Azure PowerShell](#tab/adeleteresources-azpowershell)
 
-To delete Artifact Signing resources by using Azure Powershell:
+To delete Artifact Signing resources by using Azure PowerShell:
 
 ### Delete a certificate profile
 

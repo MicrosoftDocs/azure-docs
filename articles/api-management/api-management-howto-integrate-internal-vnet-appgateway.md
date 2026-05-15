@@ -243,7 +243,7 @@ The following example shows how to create an API Management instance in a virtua
         -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer" -PublicIpAddressId $apimPublicIpAddressId.Id
     ```
 
-It can take between 30 and 40 minutes to create and activate an API Management instance in this tier. After the previous command succeeds, see [DNS configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration) to confirm access to it.
+It can take between 30 and 40 minutes to create and activate an API Management instance in this tier. After the previous command succeeds, see [DNS configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration-for-internal-virtual-network-scenarios) to confirm access to it.
 
 ## Set up custom domain names in API Management
 

@@ -26,7 +26,7 @@ This article explains how to set up VNet connectivity for your API Management in
 * Git 
 
 > [!NOTE]
-> * None of the API Management endpoints are registered on the public DNS. The endpoints remain inaccessible until you [configure DNS](#dns-configuration) for the VNet.
+> * None of the API Management endpoints are registered on the public DNS. The endpoints remain inaccessible until you [configure DNS](#dns-configuration-for-internal-virtual-network-scenarios) for the VNet.
 > * To use the self-hosted gateway in this mode, also enable private connectivity to the self-hosted gateway [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies). 
 
 Use API Management in internal mode to:
@@ -77,18 +77,6 @@ After successful deployment, you should see your API Management service's **priv
 
 [!INCLUDE [api-management-recommended-nsg-rules](../../includes/api-management-recommended-nsg-rules.md)]
 
-## DNS configuration
-
-In internal VNet mode, you have to manage your own DNS to enable inbound access to your API Management endpoints. 
-
-We recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the VNet into which you've deployed your API Management service. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
-
-
 > [!NOTE]
 > The API Management service does not listen to requests on its IP addresses. It only responds to requests to the hostname configured on its endpoints. These endpoints include:
 > * API gateway
@@ -115,21 +103,72 @@ If you don't want to access the API Management service with the default host nam
 
 :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
 
-### Configure DNS records
+## DNS configuration for internal Virtual Network scenarios
 
-Create records in your DNS server to access the endpoints accessible from within your VNet. Map the endpoint records to the [private virtual IP address](#routing) for your service.
+When API Management is deployed in internal VNet mode, inbound access depends on customer‑managed DNS. The API Management service responds only to requests addressed to its configured host names and does not listen directly on its private IP address.
 
-For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
+DNS must be scoped carefully. Improper zone ownership can break resolution for other Azure services.
 
-| Internal virtual IP address | Endpoint configuration |
-| ----- | ----- |
+### Critical DNS design guidance
+
+`azure-api.net` is a publicly owned Azure domain used by multiple Azure and Microsoft services.
+
+Creating a Private DNS zone or authoritative forward lookup zone for the apex domain (`azure-api.net`) is not supported and can introduce unintended resolution failures.
+
+If a Private DNS zone is created for `azure-api.net`:
+
+- The zone becomes authoritative within the customer DNS scope
+- Public records published by Azure are no longer resolvable
+- Other Azure services that rely on `*.azure-api.net` may fail name resolution
+- Customers must implement complex DNS forwarding to public resolvers to avoid breakage
+
+**Forwarding or controlling the apex domain is strongly discouraged.**
+
+### Recommended DNS approach
+
+DNS configuration should be limited to the exact host names required for the API Management instance.
+
+Recommended approaches:
+
+- Create DNS records for the full FQDNs only, pointing directly to the API Management private virtual IP
+- If using Azure Private DNS, create a zone scoped to the specific service FQDN, not the apex public domain
+- Alternatively, use an existing corporate DNS forward lookup zone and define explicit A records for each endpoint
+
+Examples of valid scoping:
+
+- `contosointernalvnet.azure-api.net`
+- `contosointernalvnet.portal.azure-api.net`
+- `contosointernalvnet.developer.azure-api.net`
+- `contosointernalvnet.management.azure-api.net`
+- `contosointernalvnet.scm.azure-api.net`
+
+**Do not create a Private DNS zone or forward lookup zone for `azure-api.net`.**
+
+### DNS records for default host names
+
+For the default API Management host names, create explicit DNS records that map each endpoint FQDN to the service private virtual IP.
+
+Example:
+
+| Private virtual IP | Host name |
+| ------------------ | --------- |
 | 10.1.0.5 | `contosointernalvnet.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.portal.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.developer.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.management.azure-api.net` |
 | 10.1.0.5 | `contosointernalvnet.scm.azure-api.net` |
 
-You can then access all the API Management endpoints from the virtual machine you created.
+These records must be resolvable from all VNets and on‑premises networks that require access to the API Management service.
+
+### Access on custom domain names
+
+If you don't want to access the API Management service with the default host names, set up [custom domain names](configure-custom-domain.md) for all your endpoints, as shown in the following image:
+
+:::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
+
+### Testing name resolution
+
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
 
 ## Routing
 

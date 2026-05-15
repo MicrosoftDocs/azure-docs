@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:05/07/2025
-ms.date: 02/26/2026
+ms.date: 05/14/2026
 ms.service: azure-iot-operations
 
 #customer intent: As a solution architect, I want to learn about the architecture of the Azure MQTT broker so that I can design fault-tolerant and scalable IoT solutions.  
@@ -217,7 +217,7 @@ Use the Azure portal or the Azure CLI to customize the default broker resource.
 > [!IMPORTANT] 
 > You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or the disk buffer aren't allowed post-deployment.
 >
-> As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
+> As a workaround, when deploying Azure IoT Operations with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
 
 ### View default broker settings
 

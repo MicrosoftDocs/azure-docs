@@ -214,7 +214,7 @@ If ($azfw.NatRuleCollections.Count -gt 0)
 				$parsedName = ParseRuleName($rule.Name)
 				If ($rule.SourceAddresses) 
 				{
-					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceAddress  $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
 				}
         elseif ($rule.SourceIpGroups)
         {

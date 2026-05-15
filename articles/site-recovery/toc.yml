@@ -647,6 +647,8 @@
     href: /azure/well-architected
 - name: Related
   items:
+  - name: Reliability in Azure Site Recovery
+    href: /azure/reliability/reliability-site-recovery
   - name: Azure Backup
     href: ../backup/index.yml
   - name: Azure Automation
