@@ -1,12 +1,12 @@
 ---
 title: Secure your Azure Data Factory
 description: Learn how to secure Azure Data Factory, with best practices for network security, identity management, data protection, and recovery.
-author: whhender #Required; your GitHub user alias.
-ms.author: whhender #Required; Microsoft alias of author; optional team alias.
-ms.service: azure-data-factory #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: concept-article #Required
-ms.custom: horz-security #Required
-ms.date: 06/17/2025 #Required; mm/dd/yyyy format.
+author: lrtoyou1223
+ms.author: lle
+ms.service: azure-data-factory
+ms.topic: concept-article 
+ms.custom: horz-security
+ms.date: 06/17/2025
 ai-usage: ai-assisted
 ---
 

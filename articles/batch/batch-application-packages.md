@@ -144,59 +144,71 @@ You've learned how to manage application packages in the Azure portal. Now you c
 
 To install an application package on all compute nodes in a pool, specify one or more application package references for the pool. The application packages that you specify for a pool are installed on each compute node that joins the pool and on any node that is rebooted or reimaged.
 
-In Batch .NET, specify one or more [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) when you create a new pool or when you use an existing pool. The [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) class specifies an application ID and version to install on a pool's compute nodes.
+In Azure.ResourceManager.Batch, specify one or more [BatchApplicationPackageReference](/dotnet/api/azure.resourcemanager.batch.models.batchapplicationpackagereference) entries on the [BatchAccountPoolData.ApplicationPackages](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata) collection when you create a new pool or update an existing pool. The `BatchApplicationPackageReference` class specifies an application ID and version to install on a pool's compute nodes.
 
-```csharp
-// Create the unbound CloudPool
-CloudPool myCloudPool =
-    batchClient.PoolOperations.CreatePool(
-        poolId: "myPool",
-        targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "standard_d1_v2",
-        VirtualMachineConfiguration: new VirtualMachineConfiguration(
-            imageReference: new ImageReference(
-                                publisher: "MicrosoftWindowsServer",
-                                offer: "WindowsServer",
-                                sku: "2019-datacenter-core",
-                                version: "latest"),
-            nodeAgentSkuId: "batch.node.windows amd64");
+```C# Snippet:app_pkg_pool_create
+ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 
-// Specify the application and version to install on the compute nodes
-myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
+ResourceIdentifier batchAccountResourceId =
+    BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+BatchAccountResource batchAccount = armClient.GetBatchAccountResource(batchAccountResourceId);
+
+BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    new ApplicationPackageReference {
-        ApplicationId = "litware",
-        Version = "1.1001.2b" }
+    VmSize = "standard_d1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2019-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 1 }
+    }
 };
 
-// Commit the pool so that it's created in the Batch service. As the nodes join
-// the pool, the specified application package is installed on each.
-await myCloudPool.CommitAsync();
+// Specify the application and version to install on the compute nodes
+poolData.ApplicationPackages.Add(
+    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(
+        new ResourceIdentifier($"{batchAccountResourceId}/applications/litware"))
+    {
+        Version = "1.1001.2b"
+    });
+
+// Create the pool. As the nodes join the pool, the specified application package
+// is installed on each.
+ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+    WaitUntil.Completed, "myPool", poolData);
 ```
 
 > [!IMPORTANT]
-> If an application package deployment fails, the Batch service marks the node [unusable](/dotnet/api/microsoft.azure.batch.computenode.state) and no tasks are scheduled for execution on that node. If this happens, restart the node to reinitiate the package deployment. Restarting the node also enables task scheduling again on the node.
+> If an application package deployment fails, the Batch service marks the node [unusable](/dotnet/api/azure.compute.batch.batchnodestate) and no tasks are scheduled for execution on that node. If this happens, restart the node to reinitiate the package deployment. Restarting the node also enables task scheduling again on the node.
 
 ### Install task application packages
 
 Similar to a pool, you specify application package references for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line runs. If a specified package and version is already installed on the node, the package isn't downloaded and the existing package is used.
 
-To install a task application package, configure the task's [CloudTask.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudtask.applicationpackagereferences) property:
+To install a task application package, configure the task's [BatchTaskCreateOptions.ApplicationPackageReferences](/dotnet/api/azure.compute.batch.batchtaskcreateoptions) property:
 
-```csharp
-CloudTask task =
-    new CloudTask(
-        "litwaretask001",
-        "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
+```C# Snippet:app_pkg_task
+BatchTaskCreateOptions task = new BatchTaskCreateOptions(
+    "litwaretask001",
+    "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
 
-task.ApplicationPackageReferences = new List<ApplicationPackageReference>
-{
-    new ApplicationPackageReference
+task.ApplicationPackageReferences.Add(
+    new Azure.Compute.Batch.BatchApplicationPackageReference("litware")
     {
-        ApplicationId = "litware",
         Version = "1.1001.2b"
-    }
-};
+    });
 ```
 
 ## Execute the installed applications
@@ -239,11 +251,11 @@ For example, if you set "2.7" as the default version for application *blender*, 
 
 The following code snippet shows an example task command line that launches the default version of the *blender* application:
 
-```csharp
+```C# Snippet:app_pkg_blender_task
 string taskId = "blendertask01";
 string commandLine =
     @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
-CloudTask blenderTask = new CloudTask(taskId, commandLine);
+BatchTaskCreateOptions blenderTask = new BatchTaskCreateOptions(taskId, commandLine);
 ```
 
 > [!TIP]
@@ -257,36 +269,52 @@ If an existing pool has already been configured with an application package, you
 - Compute nodes that are already in the pool when you update the package references don't automatically install the new application package. These compute nodes must be rebooted or reimaged to receive the new package.
 - When a new package is deployed, the created environment variables reflect the new application package references.
 
-In this example, the existing pool has version 2.7 of the *blender* application configured as one of its [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences). To update the pool's nodes with version 2.76b, specify a new [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) with the new version, and commit the change.
+In this example, the existing pool has version 2.7 of the *blender* application configured as one of its application package references. To update the pool's nodes with version 2.76b, specify a new [BatchApplicationPackageReference](/dotnet/api/azure.resourcemanager.batch.models.batchapplicationpackagereference) with the new version, and commit the change.
 
-```csharp
+```C# Snippet:app_pkg_pool_update
+var credential = new DefaultAzureCredential();
+ArmClient armClient = new ArmClient(credential);
 string newVersion = "2.76b";
-CloudPool boundPool = await batchClient.PoolOperations.GetPoolAsync("myPool");
-boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
-{
-    new ApplicationPackageReference {
-        ApplicationId = "blender",
-        Version = newVersion }
-};
-await boundPool.CommitAsync();
+
+ResourceIdentifier batchAccountResourceId =
+    BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+BatchAccountPoolResource boundPool = await armClient
+    .GetBatchAccountPoolResource(BatchAccountPoolResource.CreateResourceIdentifier(
+        "subscriptionId", "resourceGroupName", "accountName", "myPool"))
+    .GetAsync();
+
+BatchAccountPoolData poolData = boundPool.Data;
+poolData.ApplicationPackages.Clear();
+poolData.ApplicationPackages.Add(
+    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(
+        new ResourceIdentifier($"{batchAccountResourceId}/applications/blender"))
+    {
+        Version = newVersion
+    });
+
+await boundPool.UpdateAsync(poolData);
 ```
 
 Now that the new version has been configured, the Batch service installs version 2.76b to any new node that joins the pool. To install 2.76b on the nodes that are already in the pool, reboot or reimage them. Rebooted nodes retain files from previous package deployments.
 
 ## List the applications in a Batch account
 
-You can list the applications and their packages in a Batch account by using the [ApplicationOperations.ListApplicationSummaries](/dotnet/api/microsoft.azure.batch.applicationoperations.listapplicationsummaries) method.
+You can list the applications and their packages in a Batch account by using the [BatchAccountResource.GetBatchApplications](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) collection from `Azure.ResourceManager.Batch`.
 
-```csharp
-// List the applications and their application packages in the Batch account.
-List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
-foreach (ApplicationSummary app in applications)
+```C# Snippet:app_pkg_list
+var credential = new DefaultAzureCredential();
+ArmClient armClient = new ArmClient(credential);
+ResourceIdentifier batchAccountResourceId =
+    BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+BatchAccountResource batchAccount = armClient.GetBatchAccountResource(batchAccountResourceId);
+
+await foreach (BatchApplicationResource app in batchAccount.GetBatchApplications().GetAllAsync())
 {
-    Console.WriteLine("ID: {0} | Display Name: {1}", app.Id, app.DisplayName);
+    Console.WriteLine("ID: {0} | Display Name: {1}", app.Data.Name, app.Data.DisplayName);
 
-    foreach (string version in app.Versions)
+    await foreach (BatchApplicationPackageResource package in app.GetBatchApplicationPackages().GetAllAsync())
     {
-        Console.WriteLine("  {0}", version);
+        Console.WriteLine("  {0}", package.Data.Name);
     }
 }
 ```

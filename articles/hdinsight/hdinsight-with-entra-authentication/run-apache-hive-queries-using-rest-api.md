@@ -3,8 +3,8 @@ title: Run Apache Hive Queries in HDInsight by Using the REST API
 description: Learn how to run Apache Hive queries in Azure HDInsight by using the REST API.
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---

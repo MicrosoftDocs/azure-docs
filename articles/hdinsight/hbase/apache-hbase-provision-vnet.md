@@ -4,8 +4,8 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  10/17/2024
 ---

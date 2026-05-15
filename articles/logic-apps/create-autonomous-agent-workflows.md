@@ -90,7 +90,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
     | Model source | Role |
     |--------------|------|
     | Azure OpenAI Service resource | - **Cognitive Services OpenAI User** (least privileged) <br>- **Cognitive Services OpenAI Contributor** |
-    | Foundry project | **Azure AI User** |
+    | Foundry project | **Foundry User** |
 
     For more information about managed identity setup, see:
 

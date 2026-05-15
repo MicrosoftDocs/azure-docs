@@ -4,9 +4,8 @@ description: Use the Apache Ambari web UI to configure and optimize Azure HDInsi
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-author: apurbasroy
-ms.author: apsinhar
-ms.reviewer: sairamyeturi
+author: yeturis
+ms.author: sairamyeturi
 ms.date: 01/02/2025
 ---
 

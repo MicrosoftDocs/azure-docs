@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 05/05/2026
+ms.date: 05/15/2026
 ms.author: mbaldwin
 
 ---
@@ -147,7 +147,7 @@ Application security focuses on protecting your applications from threats throug
 
 #### Penetration testing
 
-Microsoft doesn't perform [penetration testing](pen-testing.md) of your application, but it understands that you want and need to perform testing on your own applications. You no longer need to notify Microsoft of pen testing activities, but you must still comply with the [Microsoft Cloud Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
+Microsoft doesn't perform [penetration testing](pen-testing.md) of your application, but it understands that you want and need to perform testing on your own applications. You no longer need to notify Microsoft of pen testing activities, but you (or any authorized third party testing on your behalf) must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 
 #### Web application firewall
 

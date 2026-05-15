@@ -3,8 +3,8 @@ title: Troubleshoot data retention (TTL) issues with expired data not being dele
 description: Troubleshoot various data-retention (TTL) issues with expired data not being deleted from storage on Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  09/06/2024
 ---

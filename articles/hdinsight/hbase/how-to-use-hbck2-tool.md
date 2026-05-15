@@ -5,8 +5,8 @@ services: hdinsight
 ms.service: azure-hdinsight
 ms.custom: troubleshooting
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  06/15/2024
 ---
