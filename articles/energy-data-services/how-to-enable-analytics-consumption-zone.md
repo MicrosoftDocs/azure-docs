@@ -30,7 +30,7 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 |------|------|
 | 1 | Create a user-assigned managed identity for ACZ |
 | 2 | Assign the user-assigned managed identity to your Azure Data Manager for Energy resource |
-| 3 | Verify user has entitlement group access |
+| 3 | Verify the user has entitlement group access |
 | 4 | Create or use an existing ADLS Gen2 storage account |
 | 5 | Grant the user-assigned managed identity permissions on the ADLS Gen2 container |
 | 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (preview requirement) |
@@ -883,7 +883,7 @@ az resource show `
 
 The output should include your user-assigned managed identity's resource ID with its `clientId` and `principalId`.
 
-## Step 3: Verify user has entitlement group access
+## Step 3: Verify the user has entitlement group access
 
 To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
