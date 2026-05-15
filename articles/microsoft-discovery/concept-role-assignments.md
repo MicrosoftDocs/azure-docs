@@ -274,10 +274,10 @@ The following table summarizes the recommended role combinations for each user p
 | Managed Identity Operator | Storage Blob Data Contributor | |
 | Storage Account Contributor | AcrPush | |
 | Storage Blob Data Contributor | Reader (subscription level) | |
-| Network Contributor | Azure AI User (Workspace MRG level) | |
+| Network Contributor | Foundry User (Workspace MRG level) | |
 | AcrPush | Microsoft Discovery Bookshelf Index Data Reader (Preview) | |
 | Reader | | |
-| Azure AI Owner (Workspace MRG level) | | |
+| Foundry Owner (Workspace MRG level) | | |
 | Microsoft Discovery Bookshelf Index Data Reader (Preview) | | |
 
 ## Other Azure roles definition
