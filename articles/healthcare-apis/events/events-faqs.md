@@ -8,6 +8,7 @@ ms.subservice: events
 ms.topic: reference
 ms.date: 05/15/2026
 ms.author: chrupa
+ai-usage: ai-assisted
 ---
 
 # Events FAQ for Azure Health Data Services
@@ -87,6 +88,8 @@ On average, you receive your events message within one second after a successful
 
 Yes. The Event Grid guarantees at least one event message delivery with its push mode. There might be cases when the event delivery request returns with a transient failure status code. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
 
+Generally, ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate.
+
 **How to avoid AHDS Events processing lag during periods of sustained high-volume write operations, such as large-scale import or bulk ingestion scenarios?**
 
 This behavior is due to the underlying event processing architecture, where event generation and delivery operate asynchronously from data ingestion. When ingestion throughput exceeds the event system’s processing capacity, a backlog can form, resulting in delayed event delivery. In observed cases, this delay can extend to multiple days and isn't mitigated solely through compute scaling.
@@ -96,7 +99,5 @@ To ensure events remain aligned with data ingestion, consider the following appr
 - Throttle ingestion throughput to a rate that the event system can process in near real time.
 - Pause or stage bulk imports periodically to allow the event system to catch up.
 - Plan for eventual consistency in event delivery during high-volume workloads.
-
-Generally, ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate.
 
 [!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]
