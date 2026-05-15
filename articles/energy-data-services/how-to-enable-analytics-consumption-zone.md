@@ -28,10 +28,10 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 
 | Step | Task |
 |------|------|
-| 1 | Create or use existing ADLS Gen2 storage account |
-| 2 | Create user-assigned managed identity for ACZ |
-| 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
-| 4 | Verify user has entitlement group access |
+| 1 | Create user-assigned managed identity for ACZ |
+| 2 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
+| 3 | Verify user has entitlement group access |
+| 4 | Create or use existing ADLS Gen2 storage account |
 | 5 | Grant user-assigned managed identity storage permissions |
 | 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft |
 
@@ -189,43 +189,8 @@ if ($useExisting -ne 'y') {
 }
 Write-Info ""
 
-# Step 4: Storage Account
-Write-Info "Step 4: Storage Account Configuration"
-$storageAccountName = Read-Host "Enter ADLS Gen2 storage account name"
-$storageRg = Read-Host "Enter storage account resource group (default: $resourceGroup)"
-if ([string]::IsNullOrWhiteSpace($storageRg)) { $storageRg = $resourceGroup }
-
-$storageResourceId = "/subscriptions/$subscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-Write-Info "Verifying storage account exists..."
-$storageExists = az storage account show --name $storageAccountName --resource-group $storageRg --query "id" -o tsv 2>$null
-
-if (-not $storageExists) {
-    Write-ErrorMsg "Storage account not found: $storageAccountName"
-    $create = Read-Host "Create ADLS Gen2 storage account? (y/n)"
-    
-    if ($create -eq 'y') {
-        Write-Info "Creating ADLS Gen2 storage account..."
-        az storage account create `
-            --name $storageAccountName `
-            --resource-group $storageRg `
-            --location $location `
-            --sku Standard_LRS `
-            --kind StorageV2 `
-            --enable-hierarchical-namespace true
-        
-        Write-Success "Storage account created"
-    } else {
-        Write-ErrorMsg "Storage account required. Exiting."
-        exit 1
-    }
-}
-
-Write-Success "Storage account verified: $storageAccountName"
-Write-Info ""
-
-# Step 5: Assign managed identity to ADME instance
-Write-Info "Step 5: Assigning Managed Identity to ADME Instance"
+# Step 4: Assign managed identity to ADME instance
+Write-Info "Step 4: Assigning Managed Identity to ADME Instance"
 Write-Info "Getting Azure Resource Manager token..."
 
 $token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
@@ -267,6 +232,41 @@ $response = Invoke-RestMethod `
     -Body $body
 
 Write-Success "Managed identity assigned to ADME instance"
+Write-Info ""
+
+# Step 5: Storage Account
+Write-Info "Step 5: Storage Account Configuration"
+$storageAccountName = Read-Host "Enter ADLS Gen2 storage account name"
+$storageRg = Read-Host "Enter storage account resource group (default: $resourceGroup)"
+if ([string]::IsNullOrWhiteSpace($storageRg)) { $storageRg = $resourceGroup }
+
+$storageResourceId = "/subscriptions/$subscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+Write-Info "Verifying storage account exists..."
+$storageExists = az storage account show --name $storageAccountName --resource-group $storageRg --query "id" -o tsv 2>$null
+
+if (-not $storageExists) {
+    Write-ErrorMsg "Storage account not found: $storageAccountName"
+    $create = Read-Host "Create ADLS Gen2 storage account? (y/n)"
+    
+    if ($create -eq 'y') {
+        Write-Info "Creating ADLS Gen2 storage account..."
+        az storage account create `
+            --name $storageAccountName `
+            --resource-group $storageRg `
+            --location $location `
+            --sku Standard_LRS `
+            --kind StorageV2 `
+            --enable-hierarchical-namespace true
+        
+        Write-Success "Storage account created"
+    } else {
+        Write-ErrorMsg "Storage account required. Exiting."
+        exit 1
+    }
+}
+
+Write-Success "Storage account verified: $storageAccountName"
 Write-Info ""
 
 # Step 6: Grant storage permissions
@@ -465,8 +465,50 @@ if [ "$USE_EXISTING" != "y" ]; then
 fi
 echo ""
 
-# Step 4: Storage Account
-info "Step 4: Storage Account Configuration"
+# Step 4: Assign managed identity to ADME instance
+info "Step 4: Assigning Managed Identity to ADME Instance"
+info "Getting Azure Resource Manager token..."
+
+TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
+
+# Build identity object (preserve existing identities)
+if [ "$EXISTING_IDENTITIES" != "{}" ] && [ "$EXISTING_IDENTITIES" != "null" ]; then
+    info "Preserving existing identities..."
+    IDENTITY_OBJECT=$(echo "$EXISTING_IDENTITIES" | jq ". + {\"$IDENTITY_RESOURCE_ID\": {}}")
+else
+    IDENTITY_OBJECT=$(jq -n "{\"$IDENTITY_RESOURCE_ID\": {}}")
+fi
+
+BODY=$(jq -n \
+    --arg location "$LOCATION" \
+    --arg authAppId "$AUTH_APP_ID" \
+    --arg dataPartition "$DATA_PARTITION_NAME" \
+    --argjson identities "$IDENTITY_OBJECT" \
+    '{
+        location: $location,
+        properties: {
+            authAppId: $authAppId,
+            dataPartitionNames: [{name: $dataPartition}]
+        },
+        identity: {
+            type: "UserAssigned",
+            userAssignedIdentities: $identities
+        }
+    }')
+
+info "Updating ADME instance..."
+curl --request PUT \
+    --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
+    --header "Authorization: Bearer $TOKEN" \
+    --header "Content-Type: application/json" \
+    --data "$BODY" \
+    --silent --show-error
+
+success "Managed identity assigned to ADME instance"
+echo ""
+
+# Step 5: Storage Account
+info "Step 5: Storage Account Configuration"
 read -p "Enter ADLS Gen2 storage account name: " STORAGE_ACCOUNT_NAME
 read -p "Enter storage account resource group (default: $RESOURCE_GROUP): " STORAGE_RG
 STORAGE_RG=${STORAGE_RG:-$RESOURCE_GROUP}
@@ -498,25 +540,19 @@ fi
 success "Storage account verified: $STORAGE_ACCOUNT_NAME"
 echo ""
 
-# Step 5: Assign managed identity to ADME instance
-info "Step 5: Assigning Managed Identity to ADME Instance"
-info "Getting Azure Resource Manager token..."
+# Step 6: Grant storage permissions
+info "Step 6: Granting Storage Permissions"
+info "Assigning 'Storage Blob Data Contributor' role to managed identity..."
 
-TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
+PRINCIPAL_ID=$(az identity show --ids "$IDENTITY_RESOURCE_ID" --query principalId -o tsv)
 
-# Build identity object (preserve existing identities)
-if [ "$EXISTING_IDENTITIES" != "{}" ] && [ "$EXISTING_IDENTITIES" != "null" ]; then
-    info "Preserving existing identities..."
-    IDENTITY_OBJECT=$(echo "$EXISTING_IDENTITIES" | jq ". + {\"$IDENTITY_RESOURCE_ID\": {}}")
-else
-    IDENTITY_OBJECT=$(jq -n "{\"$IDENTITY_RESOURCE_ID\": {}}")
-fi
+az role assignment create \
+    --assignee "$PRINCIPAL_ID" \
+    --role "Storage Blob Data Contributor" \
+    --scope "$STORAGE_RESOURCE_ID"
 
-BODY=$(jq -n \
-    --arg location "$LOCATION" \
-    --arg authAppId "$AUTH_APP_ID" \
-    --arg dataPartition "$DATA_PARTITION_NAME" \
-    --argjson identities "$IDENTITY_OBJECT" \
+success "Storage permissions granted"
+echo ""
     '{
         location: $location,
         properties: {
@@ -597,20 +633,7 @@ Save this script as `enable-acz-setup.sh`, make it executable with `chmod +x ena
 
 For users who want to understand each configuration step or need customization, follow the manual setup instructions in this section.
 
-## Step 1: Create or use an existing ADLS Gen2 storage account
-
-ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
-
-1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
-2. On the **Basics** tab, select your subscription and resource group.
-3. Enter a storage account name and select your preferred region.
-4. On the **Advanced** tab, select **Enable hierarchical namespace**.
-5. Select **Review + create**, then select **Create**.
-
-> [!IMPORTANT]
-> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
-
-## Step 2: Create a user-assigned managed identity for ACZ
+## Step 1: Create a user-assigned managed identity for ACZ
 
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a dedicated identity for ACZ:
 
@@ -628,13 +651,13 @@ To create a user-assigned managed identity:
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
 
-## Step 3: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
+## Step 2: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
 
 > [!IMPORTANT]
 > **Different token required for this step!**  
 > This step uses an **Azure Resource Manager (ARM) token** (not your Azure Data Manager for Energy auth token) to update the instance configuration via the ARM control plane API. The following script generates the correct ARM token automatically.
 
-Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
+Assign the user-assigned managed identity you created in Step 1 to your Azure Data Manager for Energy resource.
 
  > [!IMPORTANT]
 > **Preserve existing managed identities!**  
@@ -860,12 +883,12 @@ az resource show `
 
 The output should include your user-assigned managed identity's resource ID with its `clientId` and `principalId`.
 
-## Step 4: Verify user has entitlement group access
+## Step 3: Verify user has entitlement group access
 
 To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
 > [!IMPORTANT]
-> This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
+> This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 1 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
 
 If you're not already a member of the users entitlement group, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
@@ -956,6 +979,19 @@ $response | ConvertTo-Json -Depth 10
 ```
 
 The response should include your user account in the `members` array. If you're not listed, contact your Azure Data Manager for Energy administrator to add you to the users group.
+
+## Step 4: Create or use an existing ADLS Gen2 storage account
+
+ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
+
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
+2. On the **Basics** tab, select your subscription and resource group.
+3. Enter a storage account name and select your preferred region.
+4. On the **Advanced** tab, select **Enable hierarchical namespace**.
+5. Select **Review + create**, then select **Create**.
+
+> [!IMPORTANT]
+> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 
