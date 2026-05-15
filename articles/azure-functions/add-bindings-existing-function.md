@@ -83,7 +83,7 @@ func httpHandler(w http.ResponseWriter, r *http.Request) {
 ```
 
 > [!NOTE]
-> The Go worker currently supports trigger bindings only. Output bindings like Queue Storage are not yet available. Use the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) to interact with other Azure services directly from your function code.
+> The Go worker currently supports triggers only. Input and output bindings, such as Queue Storage output bindings, aren't yet available. Use the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) to interact with other Azure services directly from your function code.
 
 The Go worker currently supports the following trigger types:
 
