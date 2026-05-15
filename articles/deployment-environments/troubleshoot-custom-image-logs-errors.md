@@ -9,7 +9,7 @@ ms.date: 09/28/2024
 ---
 # Troubleshoot custom image deployment errors
 
-ADE stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
+Azure Deployment Environments stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
 
 To troubleshoot a failed deployment:
 
@@ -38,4 +38,4 @@ az devcenter dev environment show-logs-by-operation --environment-name {YOUR_ENV
 
 ## Related content
 
-- [ADE CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference)
+- [Azure Deployment Environments CLI reference](https://aka.ms/deployment-environments/ade-cli-reference)
