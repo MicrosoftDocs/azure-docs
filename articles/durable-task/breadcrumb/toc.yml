@@ -7,5 +7,5 @@
     topicHref: /azure/durable-task/index
     items:
     - name: Durable Functions
-      tocHref: /azure/azure-functions/durable-functions/
-      topicHref: /azure/azure-functions/durable-functions/index
+      tocHref: /azure/durable-task/durable-functions/
+      topicHref: /azure/durable-task/durable-functions/index

@@ -30,7 +30,7 @@ highlightedContent:
       url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
     - title: Durable Functions
       itemType: overview
-      url: /azure/azure-functions/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
+      url: /azure/durable-task/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
     - title: Durable Task SDKs
       itemType: overview
       url: ./sdks/durable-task-overview.md?toc=/azure/durable-task/common/toc.json
@@ -47,20 +47,20 @@ conceptualContent:
       summary: Serverless orchestrations hosted on Azure Functions
       links:
         - text: "Quickstart: Create a Durable Functions app (C#)"
-          url: /azure/azure-functions/durable-functions/durable-functions-isolated-create-first-csharp?toc=/azure/durable-task/common/toc.json
+          url: /azure/durable-task/durable-functions/durable-functions-isolated-create-first-csharp?toc=/azure/durable-task/common/toc.json
           itemType: quickstart
         - text: "Quickstart: Create a Durable Functions app (Python)"
-          url: /azure/azure-functions/durable-functions/quickstart-python-vscode?toc=/azure/durable-task/common/toc.json
+          url: /azure/durable-task/durable-functions/quickstart-python-vscode?toc=/azure/durable-task/common/toc.json
           itemType: quickstart
         - text: "Quickstart: Create a Durable Functions app (JavaScript)"
-          url: /azure/azure-functions/durable-functions/quickstart-js-vscode?toc=/azure/durable-task/common/toc.json
+          url: /azure/durable-task/durable-functions/quickstart-js-vscode?toc=/azure/durable-task/common/toc.json
           itemType: quickstart
         - text: Storage providers
           url: ./common/durable-task-storage-providers.md?pivots=durable-functions
           itemType: concept
       # footerLink (optional)
       footerLink:
-        url: /azure/azure-functions/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
+        url: /azure/durable-task/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
         text: See more
     - title: Durable Task SDKs
       summary: Portable SDKs for hosting durable workflows on any compute platform
