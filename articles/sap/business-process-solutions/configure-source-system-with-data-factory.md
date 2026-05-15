@@ -99,22 +99,30 @@ Follow these steps:
 The first step of configuration is to set up the source system. This step deploys the common artifacts that are required to get started. Follow these steps to configure your source system:
 
 1. On the home screen, select **Configure source system**.
+
+   :::image type="content" source="./media/configure-source-system-with-data-factory/configure-source-system.png" alt-text="Screenshot that shows Configure source system button." lightbox="./media/configure-source-system-with-data-factory/configure-source-system.png":::
+
 1. Select **New source system**.
 
-   :::image type="content" source="./media/configure-source-system-with-data-factory/create-source-system.png" alt-text="Screenshot that shows New source system." lightbox="./media/configure-source-system-with-data-factory/create-source-system.png":::
+   :::image type="content" source="./media/configure-source-system-with-data-factory/create-source-system.png" alt-text="Screenshot that shows New source system button." lightbox="./media/configure-source-system-with-data-factory/create-source-system.png":::
 
 1. Enter the inputs for the fields:
    - Select **Azure Data Factory** for the connection type.
    - Select the subscription and location from the dropdown list.
-   - Enter a unique name for the resource group.
+   - Enter unique names for the resource group, Azure Data Factory, Azure Key Vault and Azure Storage account.
 
    :::image type="content" source="./media/configure-source-system-with-data-factory/create-data-factory-source-system.png" alt-text="Screenshot that shows how to create a new resource group for the data factory." lightbox="./media/configure-source-system-with-data-factory/create-data-factory-source-system.png":::
+
+   :::image type="content" source="./media/configure-source-system-with-data-factory/enter-azure-details.png" alt-text="Screenshot that shows how to create new Azure resources for the data factory." lightbox="./media/configure-source-system-with-data-factory/enter-azure-details.png":::
 
 1. In the **System Connection** section, enter the connection details for your SAP system. Enter the service principal secret that you created in [Create a service principal](#create-a-service-principal).
 
    :::image type="content" source="./media/configure-source-system-with-data-factory/enter-source-system-details.png" alt-text="Screenshot that shows the SAP system connection details input form." lightbox="./media/configure-source-system-with-data-factory/enter-source-system-details.png":::
 
 1. Select **Create**. You can monitor the deployment status by using the refresh button to refresh the page.
+
+   :::image type="content" source="./media/configure-source-system-with-data-factory/source-system-creating.png" alt-text="Screenshot that shows the deployment status monitoring view." lightbox="./media/configure-source-system-with-data-factory/source-system-creating.png":::
+
 1. After the deployment is finished, you can see the resources that are deployed to your workspace and also the resources that are deployed in your Azure resource group.
 
 ## Deploy self-hosted integration runtime on an Azure virtual machine

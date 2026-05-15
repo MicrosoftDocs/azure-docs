@@ -11,7 +11,7 @@ ms.date: 07/29/2025
 
 # Built-in RBAC roles for IoT Operations
 
-Azure IoT Operations (AIO) offers two built-in roles designed to simplify and secure access management for AIO resources: Azure IoT Operations Administrator and Azure IoT Operations Onboarding. If your scenario requires more granular access, you can [create a custom RBAC role](../reference/custom-rbac.md).
+Azure IoT Operations (AIO) offers two built-in roles designed to simplify and secure access management for AIO resources: [Azure IoT Operations Administrator](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-iot-operations-administrator) and [Azure IoT Operations Onboarding](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-iot-operations-onboarding). If your scenario requires more granular access, you can [create a custom RBAC role](../reference/custom-rbac.md).
 
 > [!IMPORTANT]
 > The built-in roles for AIO streamline access management for AIO resources, but don't automatically grant permissions for all required Azure dependencies. AIO relies on several Azure services, such as Azure Key Vault, Azure Storage, Azure Arc, and others. Always review and assign the necessary additional roles to ensure users have end-to-end access for successful AIO deployment and operation.
