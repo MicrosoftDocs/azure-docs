@@ -35,7 +35,7 @@ This article explains how to install hotpatches on compatible Arc-enabled machin
 
 ### Enroll hotpatch license
 
-To enroll hotpatch, follow these steps:
+To enroll hotpatch license, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select the specific *Arc-enabled server*.
@@ -47,7 +47,7 @@ To enroll hotpatch, follow these steps:
        
 ### Manage hotpatch updates
 
-After you enroll to hotpatch, your machine automatically receives hotpatch updates.
+After you enroll to hotpatch license, your machine automatically receives hotpatch updates.
 
 #### [At scale](#tab/manage-scale)
 
