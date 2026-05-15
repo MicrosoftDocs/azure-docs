@@ -87,6 +87,8 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 > [!NOTE]
 > Allow up to 15 minutes for any changes to network security perimeter configuration to take effect at the data plane level.
 
+If you encounter errors while associating your configuration store with a network security perimeter, see [Troubleshooting](./concept-nsp.md#troubleshooting) for guidance on resolving common issues.
+
 ## Verify the association
 
 After associating the configuration store with the network security perimeter, you can verify the association by checking the **Networking** settings of your App Configuration store.
