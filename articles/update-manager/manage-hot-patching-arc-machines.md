@@ -40,7 +40,7 @@ To enroll hotpatch, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Resources**, select **Machines** and then select the specific *Arc-enabled server*.
 1. Under the **Recommended updates** section, in **Hotpatch**, select **Change**.
-1. In the Hotpatch, select **Receive monthly Hotpatch updattes** option.
+1. In the Hotpatch, select **Receive monthly Hotpatch updates** option.
 1. Select **Enable Hotpatching** and then select **Confirm**.
        
    :::image type="content" source="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png" alt-text="Screenshot showing how to enroll hotpatch license." lightbox="./media/manage-hot-patching-arc-machines/enroll-hot-patch-license.png"::: 
