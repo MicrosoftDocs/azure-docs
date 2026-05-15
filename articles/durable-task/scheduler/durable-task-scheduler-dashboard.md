@@ -286,7 +286,7 @@ You can also view the agent chat history and timeline.
 <details>
 <summary><b>Schedules</b></summary>
 
-Select **Schedules** from the left side menu to view schedules you created.
+Select **Schedules** from the left side menu to view schedules you created. From the schedules pane, you can pause, resume, or delete a schedule. You can also click **+ Create Schedule** to create a schedule via the dashboard UI.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/schedules-thumb.png" alt-text="Screenshot of the schedules you created and some management tools for them." lightbox="media/durable-task-scheduler-dashboard/schedules-large.png":::
 
