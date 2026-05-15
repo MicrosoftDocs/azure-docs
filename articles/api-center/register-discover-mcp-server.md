@@ -4,11 +4,11 @@ description: Learn about how Azure API Center can be a centralized registry for 
 
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 05/13/2026
+ms.date: 05/14/2026
  
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-# Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
+# Customer intent: As an API program manager, I want to register and discover MCP servers as APIs in my API Center inventory.
 ms.custom:
   - build-2025
 ---
@@ -126,7 +126,7 @@ To automate MCP registration and keep your inventory up to date, you can integra
 
 - **Git repository**: For MCP servers and other AI assets stored in a Git repository, you can enable automatic synchronization to keep your API center up to date. For more information, see [Synchronize API assets from a Git repo](synchronize-assets-git.md).
 
-##  Discover MCP servers using API Center portal
+## Discover MCP servers using API Center portal
 
 Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can browse and filter MCP servers in the inventory.
 
@@ -140,6 +140,31 @@ Set up your [API Center portal](set-up-api-center-portal.md) so that developers 
 ## Manage access to MCP servers
 
 Optionally, use API Center's access management capabilities to manage who can view and access MCP servers in your inventory. For more information, see [Authorize access to APIs in your API center](authorize-api-access.md).
+
+## Configure MCP registry metadata
+
+Azure API Center exposes an MCP registry endpoint that you can configure in Visual Studio Code, GitHub Copilot, or other tools to discover and connect to the MCP servers in your inventory. 
+
+The registry endpoint URL is in the following format:
+
+```
+https://<your-api-center-name>.data.<region>.azure-apicenter.ms/default/v0.1/servers
+```
+
+Example: `https://contoso-api-center.data.eastus.azure-apicenter.ms/default/v0.1/servers`
+
+The MCP registry stores standard discovery and configuration metadata for MCP servers such as the server name, URL, and transport type. You can optionally extend the metadata by configuring custom properties that appear in the `_meta` section of MCP server responses to tool calls. You can map your API center's metadata properties into structured namespaces for MCP clients to consume. 
+
+To configure [custom metadata properties](metadata.md#custom-metadata) to appear in the `_meta` section of MCP server responses:
+
+1. In the [Azure portal](https://portal.azure.com), go to your API center.
+1. In the sidebar menu, under **Discover**, select **MCP Registry**.
+1. Select **+ Configure**.
+1. To define a namespace path, select **+ Add path**. 
+    1. To add a custom metadata property, select **+ Add property** and select a custom metadata property. Optionally repeat this step to add multiple properties.
+    1. Optionally add a subpath of the namespace. Select **+ Add subpath** and repeat the previous steps to add properties under the subpath.
+1. Confirm the configuration by reviewing the preview panel. 
+1. Select **Save**.
 
 ## Related content
 
