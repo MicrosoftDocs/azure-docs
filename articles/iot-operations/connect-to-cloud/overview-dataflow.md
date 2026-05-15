@@ -1,12 +1,12 @@
 ---
 title: Process and route data with data flows
 description: Learn about data flows and how to process and route data in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 05/08/2026
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.
 ---
@@ -22,6 +22,9 @@ You can write configurations for various use cases, such as:
 - Send data to the cloud or edge without transformation.
 
 Data flows aren't limited to the region where you deploy the IoT Operations instance. You can use data flows to send data to cloud endpoints in different regions.
+
+> [!NOTE]
+> Data flows replace the preview-only **Data Processor** component from early Azure IoT Operations releases. The `--include-dp` parameter on `az iot ops init` was removed and is no longer required—the data flows components deploy automatically.
 
 ## Key features
 
@@ -69,11 +72,11 @@ Data flows use message schemas to transform the message into the format expected
 
 For more information, see [Understand message schemas](./concept-schema-registry.md).
 
-## Local MQTT broker endpoint message storage
+## Data buffering and disk persistence
 
-When you use the local MQTT broker as a source endpoint in a data flow, the system stores messages during a loss of connectivity between the data flow and the destination endpoint. As an example scenario, assume you create a data flow by using the default local MQTT broker as the source endpoint and Azure Event Hubs as the destination endpoint. If connectivity between the data flow and Azure Event Hubs is lost, the MQTT broker subscriber message queue stores the messages. When connectivity is restored, the data flow sends the messages in the subscriber message queue to Azure Event Hubs.
+When a data flow sends messages to a destination endpoint, the destination or network might become unavailable. If delivery can't complete, the data flow doesn't acknowledge the source message. The MQTT broker keeps the message in the subscriber queue and the data flow retries delivery.
 
-The local MQTT broker message queue is stored in memory by default. You can configure the MQTT broker to store messages on disk by using the disk-backed message buffer configuration. For more information about the MQTT broker configuration, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md). For more information about the disk-backed message buffer, see [Configure disk-backed message buffer behavior](../manage-mqtt-broker/howto-disk-backed-message-buffer.md).
+For information about destination outage behavior, broker subscriber queues, disk-backed message buffer, broker persistence, and data flow `requestDiskPersistence`, see [Configure data buffering and disk persistence for data flows](howto-configure-disk-persistence.md).
 
 ## Related content
 

@@ -1,33 +1,37 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: Debug and manage orchestrations using the Durable Task Scheduler dashboard
+title: "Durable Task Scheduler Dashboard: Debug and Manage Orchestrations"
 titleSuffix: Durable Task
 description: Learn how to debug and manage your orchestrations using the Durable Task Scheduler dashboard.
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/06/2025
+ms.date: 05/04/2026
 zone_pivot_groups: dts-devexp
 ---
 
 # Debug and manage orchestrations using the Durable Task Scheduler dashboard
 
-Observe, manage, and debug your task hub or scheduler's orchestrations using the Durable Task Scheduler dashboard. The dashboard is available when you run the [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
+The Durable Task Scheduler dashboard lets you observe running orchestrations, inspect execution history and activity inputs/outputs, and manage orchestration lifecycle (pause, resume, terminate) — all from a browser.
 
-Running the emulator locally doesn't require authentication. 
+The dashboard is available in two environments:
 
-Creating a scheduler resource on Azure requires [assigning the *Durable Task Data Contributor* role to your identity](./durable-task-scheduler-identity.md). You can then access the dashboard via either:
-- The task hub's dashboard endpoint URL in the Azure portal
-- Navigate to `https://dashboard.durabletask.io/` combined with your task hub endpoint.  
+| Environment | URL | Authentication |
+| --- | --- | --- |
+| **Local emulator** | `http://localhost:8082` | None required |
+| **Azure** | `https://dashboard.durabletask.io/?endpoint=<SCHEDULER_ENDPOINT>&taskhub=<TASK_HUB_NAME>` | Requires [Durable Task Data Contributor role](./durable-task-scheduler-identity.md) |
+
+For more about the emulator, see [Emulator for local development](./durable-task-scheduler.md#emulator-for-local-development).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Assign one of the Durable Task roles to your developer identity. 
-> - Access the Durable Task Scheduler dashboard.
-> - View orchestration status and history via the Durable Task Scheduler dashboard.
+> - Access the dashboard locally or on Azure.
+> - Assign the Durable Task Data Contributor role to your developer identity.
+> - Monitor orchestration status, filter instances, and inspect execution history.
+> - Manage orchestrations (pause, resume, terminate, raise events).
 
 ## Prerequisites
 
@@ -37,9 +41,19 @@ Before you begin:
 - [Create a scheduler and task hub resource](./develop-with-durable-task-scheduler.md)
 - [Configure managed identity for your Durable Task Scheduler resource](./durable-task-scheduler-identity.md)
 
-## Access the Durable Task Scheduler dashboard
+## Access the dashboard locally
 
-Assign the required role to your *developer identity (email)* to gain access to the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
+If you're using the [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development), the dashboard is available at:
+
+```
+http://localhost:8082
+```
+
+No authentication or role assignment is needed for local development.
+
+## Assign dashboard access roles (Azure)
+
+To access the dashboard for an Azure-hosted scheduler, assign the *Durable Task Data Contributor* role to your developer identity (email). 
 
 ::: zone pivot="az-cli" 
 
@@ -98,7 +112,15 @@ Assign the required role to your *developer identity (email)* to gain access to 
     }
     ```
 
-1. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+1. After granting access, open the dashboard at:
+
+    ```
+    https://dashboard.durabletask.io/?endpoint=<SCHEDULER_ENDPOINT>&taskhub=<TASK_HUB_NAME>
+    ```
+
+    Replace `<SCHEDULER_ENDPOINT>` with your scheduler's endpoint (for example, `https://myscheduler.westus2.durabletask.io`) and `<TASK_HUB_NAME>` with the name of your task hub.
+
+    Alternatively, navigate to `https://dashboard.durabletask.io/` and enter your scheduler endpoint and task hub name in the connection form. 
  
 ::: zone-end 
 
@@ -110,9 +132,14 @@ Assign the required role to your *developer identity (email)* to gain access to 
 
 ## Monitor orchestration progress and execution history
 
-The dashboard allows you to monitor orchestration progress and review execution history. You can also filter by orchestration metadata, such as state and timestamps.
+The dashboard allows you to monitor orchestration progress and review execution history. You can filter the orchestration list using the following criteria:
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/track-orchestration-progress.png" alt-text="Screenshot of the dashboard listing orchestration history and status.":::
+- **Instance ID** — Search for a specific orchestration by its unique ID.
+- **Orchestration name** — Filter by the orchestration type name.
+- **Status** — Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended).
+- **Created time range** — Narrow results to a time window.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/track-orchestration-progress.png" alt-text="Screenshot of the dashboard listing orchestration history and status with filter options.":::
 
 View orchestration inputs and outputs:
 
@@ -142,9 +169,14 @@ The *Sequence* view gives another way of visualizing event sequence:
 
 ## Orchestration management 
 
-The dashboard includes features for managing orchestrations on demand, such as starting, pausing, resuming, and terminating.
+The dashboard includes features for managing orchestration lifecycle on demand. Available actions include:
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration.png" alt-text="Screenshot of the dashboard showing the buttons you use to manage the orchestration.":::
+- **Suspend** — Pause a running orchestration. It remains in memory but stops processing events until resumed.
+- **Resume** — Continue a previously suspended orchestration.
+- **Terminate** — Immediately stop an orchestration with an optional reason string.
+- **Raise event** — Send a named external event (with optional JSON payload) to a running or suspended orchestration.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration.png" alt-text="Screenshot of the dashboard showing the Suspend, Resume, Terminate, and Raise Event buttons for managing orchestrations.":::
 
 ## Next steps
 

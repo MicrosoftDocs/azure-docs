@@ -16,7 +16,7 @@ In this quickstart, you create and configure a multitenant Azure application tha
 
 ## Prerequisites
 
-- Azure account with an active subscription (create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio))
+- Azure account with an active subscription (create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - One of the following Microsoft Entra ID roles in your tenant:
   - Application Administrator
   - Cloud Application Administrator

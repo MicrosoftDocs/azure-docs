@@ -122,6 +122,8 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   |Endpoints (DNS) | Description |
   |-|-|
   | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+  | `global.prod.microsoftmetrics.com` | Required for usage telemetry and error reporting metrics sent from the cluster to Microsoft (Geneva Metrics). This is the primary MetricsExtension endpoint. If this endpoint is blocked, Microsoft loses visibility into service health and usage on the cluster. |
+  | `*.prod.microsoftmetrics.com` | Wildcard covering all Geneva Metrics stamp-specific endpoints. Customers who prefer a narrower allowlist can use `global.prod.microsoftmetrics.com` instead. |
 
 
 

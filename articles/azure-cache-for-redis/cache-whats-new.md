@@ -38,12 +38,20 @@ The following are the important dates to note for the Enterprise tiers:
 
 If you have existing caches in the Basic, Standard, or Premium tiers, you can continue using them until the service is fully retired on September 30, 2028. 
 
-The following are the important dates to note for Basic, Standard, and Premium tiers:
+The following are the important dates to note for Basic, Standard, and Premium tiers in **Azure Public Cloud**:
 
 | Date            | Description                                                                                |
 |-----------------|--------------------------------------------------------------------------------------------|
 | April 1, 2026   | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers.      |
 | October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
+| October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
+
+The following are important dates to note for Basic, Standard, and Premium tiers in **Azure Government** and **Microsoft Azure operated by 21Vianet (Azure in China)**:
+
+| Date            | Description                                                                                |
+|-----------------|--------------------------------------------------------------------------------------------|
+| October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers.      |
+| April 1, 2027   | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
 | October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
 
 For more information on moving your caches to Azure Managed Redis, see:
@@ -362,7 +370,7 @@ As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by D
 
 We expect that most Azure Cache for Redis customers aren't affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), known as _certificate pinning_.
 
-For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
+For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global-g2-ca-root/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
 ### Active geo-replication for Azure Cache for Redis Enterprise GA
 

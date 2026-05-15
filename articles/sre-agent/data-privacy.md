@@ -1,16 +1,29 @@
 ---
 title: Data residency and privacy in Azure SRE Agent
-description: Learn how Azure SRE Agent handles your data.
+description: Learn how Azure SRE Agent handles your data, including how Anthropic serves as a non-Microsoft provider managed by Microsoft, model selection, and data residency controls.
 author: craigshoemaker
 ms.author: cshoe
-ms.topic: tutorial
-ms.date: 04/03/2026
+ms.topic: concept-article
+ms.date: 04/07/2026
 ms.service: azure
+ms.custom: references_regions
 ---
 
 # Data residency and privacy in Azure SRE Agent
 
 This article explains how the SRE Agent handles your data, including where it stores your data, how it processes your data, and the privacy measures it uses to protect your information.
+
+Azure SRE Agent supports multiple AI model providers for investigations, incident response, and operational automation. Anthropic is one of the available providers and operates as a non-Microsoft provider managed by Microsoft.
+
+Anthropic operates under Microsoft's oversight with contractual safeguards and technical and organizational measures in place. The Microsoft [Product Terms](https://www.microsoft.com/licensing/terms) and [Microsoft Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) apply when you use Anthropic models through Azure SRE Agent.
+
+For more information about non-Microsoft data access, see [Microsoft Data Access Management](https://www.microsoft.com/trust-center/privacy/data-access). For a list of all non-Microsoft providers that Microsoft works with, see the [Service Trust Portal](https://aka.ms/subprocessor).
+
+> [!IMPORTANT]
+> Anthropic models in Azure SRE Agent aren't covered by Microsoft's [EU Data Boundary](/privacy/eudb/eu-data-boundary-learn) commitments. When you select Anthropic, your data (prompts, responses, and resource analysis) might be processed in the United States.
+
+> [!NOTE]
+> For customers in the EU, EFTA, and UK, Azure OpenAI is the default provider. Anthropic is available as an opt-in choice. Anthropic isn't available in government clouds (GCC, GCC High, DoD) or sovereign clouds.
 
 ## Data residency
 
@@ -28,19 +41,52 @@ This article explains how the SRE Agent handles your data, including where it st
 
 - The service isolates data by using tenant and Azure subscription boundaries.
 
-## Model provider data residency
+## How model selection works
 
-Where your data is processed depends on the model provider you select for your agent.
+You choose which AI provider powers your agent. The two options are:
 
-| Model provider | Data processing location | EU Data Boundary (EUDB) |
-|---------------|------------------------|------------------------|
-| **Azure OpenAI** | Processed within your agent's Azure region | Covered by EUDB commitments |
-| **Anthropic** | Processed in the United States | Excluded from EUDB |
+- **Azure OpenAI**: Covered by EU Data Boundary commitments. The default for customers in the EU, EFTA, and UK.
 
-When you select Anthropic as your model provider, prompts, responses, and resource analysis are sent to Anthropic's infrastructure in the United States. If EU Data Boundary compliance is required for your use case, select Azure OpenAI instead. You can change your model provider at any time in **Settings > Basics**.
+- **Anthropic**: The default for all other regions. Not covered by EU Data Boundary commitments.
+
+When you select Anthropic, your data (prompts, responses, and resource analysis) might be processed in the United States.
+
+## Default settings by region
+
+| Region | Anthropic | Azure OpenAI | Notes |
+|--------|-----------|--------------|-------|
+| **Most commercial regions**<br><br>(US, APAC, etc.) | Default | Available | No data residency restrictions |
+| **EU, EFTA, and UK** | Available (opt-in) | Default | Anthropic isn't covered by EU Data Boundary |
+| **Government clouds**<br><br>(GCC, GCC High, DoD) | Not available | Default | Anthropic isn't available in government or sovereign clouds |
+
+## Verify the active model provider
+
+To check which AI model provider your agent is currently using:
+
+1. Go to the [Azure SRE Agent portal](https://sre.azure.com).
+1. Select your agent, and then go to **Settings**.
+1. Under **AI Model Provider**, view the active provider.
+
+## Enable Anthropic in EU Data Boundary regions
+
+If your organization is in the EU, EFTA, or UK and you want to use Anthropic:
+
+1. Go to the [Azure SRE Agent portal](https://sre.azure.com).
+1. Select your agent, and then go to **Settings**.
+1. Under **AI Model Provider**, select **Anthropic**.
+1. Review the data residency notice and confirm.
 
 > [!NOTE]
-> Regardless of which model provider you choose, your data is never used to train models. Anthropic follows a [zero data retention](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching#zero-data-retention) policy for API usage—prompts and responses aren't stored after processing. Anthropic's data handling as a Microsoft subprocessor is governed by Microsoft's enterprise agreements. [Learn more about SRE Agent data handling](https://go.microsoft.com/fwlink/?linkid=2356387).
+> By selecting Anthropic, you acknowledge that your data might be processed outside the EU Data Boundary, including in the United States.
+
+## Data handling
+
+When you use Anthropic models in Azure SRE Agent:
+
+- Anthropic processes data under Microsoft's direction and contractual safeguards.
+- The [Microsoft DPA](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) and [Product Terms](https://www.microsoft.com/licensing/terms) apply.
+- Both Microsoft and Anthropic don't use your data to train AI models.
+- Your data is isolated by tenant and Azure subscription.
 
 ## Related content
 

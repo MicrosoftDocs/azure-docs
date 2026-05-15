@@ -14,7 +14,7 @@ This guide walks you through the process of migrating an existing Spring Boot ap
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) installed, or access to the [Azure portal](https://portal.azure.com).
 - Familiarity with Spring Boot application development and Docker containers.
 - A supported JDK version (8, 11, 17, or 21). For more information, see [Java on Azure Container Apps overview](java-overview.md).

@@ -117,9 +117,15 @@ The following table describes required configurations of supported network featu
 |Virtual network flow logs| No | Yes |
 |Connecting to ODAA instances via Private Endpoint | No | No |
 |Standard V2 NAT GW support | No | No |
+|Disable BGP route propagation | No | Yes |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 
+> [!NOTE]
+> Once the delegated network is created, its network mask cannot be altered. Thus it's essential to thoughtfully plan your virtual network (VNet) and delegated subnet sizes with an eye toward the future.
+
+> [!NOTE]
+> When two VNets are provisioned for ODAA in the same Oracle Availability Zone, with one VNet using advanced network features and the other using default networking, configuring VNet peering between them is not supported. This setup can introduce asymmetric routing, which may result in data path traffic loss toward the VNet that has advanced network features enabled.
 
 
  ### UDR requirements for routing traffic to Oracle AI Database@Azure
