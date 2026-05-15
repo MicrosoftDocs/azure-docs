@@ -280,3 +280,5 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-waf
+- name: Support and troubleshooting
+  href: support-help.md

@@ -6,7 +6,7 @@ metadata:
   author: mbender-ms
   ms.service: azure-appgw-for-containers
   ms.topic: concept-article
-  ms.date: 3/31/2025
+  ms.date: 4/22/2026
   ms.author: mbender
     
 title: Frequently asked questions about Application Gateway for Containers
@@ -30,22 +30,25 @@ sections:
       - question: Does Application Gateway for Containers support Kubenet?
         answer: No, Application Gateway for Containers doesn't support Kubenet in favor of [CNI Overlay](/azure/aks/azure-cni-overlay). [Learn more](/azure/aks/upgrade-aks-ipam-and-dataplane) about migrating from Kubenet to CNI Overlay.
 
+      - question: Does Application Gateway for Containers support AKS Automatic?
+        answer: Yes, when using the [Application Gateway for Containers ALB Controller AKS add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md), the ALB Controller can be provisioned into AKS Automatic clusters. Helm deployments of the ALB Controller aren't supported with AKS Automatic.
+
       - question: Why does the frontend resolve to an IP address with an ASN location outside the region Application Gateway for Containers is deployed to?
-        answer: Application Gateway for Containers frontends resolve to any anycast IP address. Anycast IP addresses are advertised globally, which may lead to the ASN location being different from Application Gateway for Containers. The resolved location of the IP address is cosmetic and has no bearing on availability or performance in how clients connect.
+        answer: Application Gateway for Containers frontends resolve to any anycast IP address. Anycast IP addresses are advertised globally, which can lead to the ASN location being different from Application Gateway for Containers. The resolved location of the IP address is cosmetic and has no bearing on availability or performance in how clients connect.
 
   - name: Performance
     questions:
       - question: How does Application Gateway for Containers support high availability and scalability?
         answer: |
-          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintenance and unexpected failures. 
+          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it. If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintenance and unexpected failures. 
         
           > [!WARNING] 
-          > Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
+          > Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (that is, /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
 
   - name: Configuration - AKS
     questions:
       - question: Can I upgrade an existing AKS cluster with Application Gateway for Containers from CNI to CNI Overlay?
-        answer: Yes. Upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It is recommended to schedule this during a maintenance window as it may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+        answer: Yes. Upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule this during a maintenance window as it can take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
         
   - name: Configuration - TLS
     questions:
@@ -58,13 +61,13 @@ sections:
   - name: Configuration - ALB Controller
     questions:
       - question: Is it supported to install both Application Gateway Ingress Controller (AGIC) and ALB Controller in the same Kubernetes cluster?
-        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller may run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller don't interfere with each other. 
+        answer: Yes, both Application Gateway Ingress Controller (AGIC) and ALB Controller can run at the same time in the same Kubernetes cluster. Updates to AGIC or to ALB Controller don't interfere with each other. 
         
       - question: Is it supported to install multiple ALB Controllers on the same Kubernetes cluster?
         answer: It's possible to install multiple ALB Controllers on the same cluster, however this option isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
-        answer: No, user defined replica count is not supported. ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
+        answer: No, user defined replica count isn't supported. ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
 
       - question: Is it supported to use the same managed identity with multiple ALB Controllers?
         answer: No.  Each ALB controller must use its own unique managed identity.

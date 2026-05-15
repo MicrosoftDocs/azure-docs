@@ -10,6 +10,8 @@ ms.date: 04/12/2023
 ---
 # Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 The following sections provide an overview of what's involved with migrating an existing data warehouse solution to an Azure Synapse Analytics dedicated SQL pool (formerly SQL data warehouse).
 
 ## Overview

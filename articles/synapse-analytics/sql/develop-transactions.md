@@ -12,6 +12,8 @@ ms.author: joanpo
 
 # Use transactions with dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Tips for implementing transactions with dedicated SQL pool in Azure Synapse Analytics for developing solutions.
 
 ## What to expect

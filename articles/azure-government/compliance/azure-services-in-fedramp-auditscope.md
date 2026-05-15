@@ -203,7 +203,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; |
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
-| [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
+| [Microsoft Defender for IoT](/azure/defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; |
 | [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/) | &#x2705; | &#x2705; |
 | [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) | &#x2705; | &#x2705; |
 | [Microsoft Entra ID Governance](/entra/id-governance/) | &#x2705; | &#x2705; |
@@ -214,7 +214,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Pin Reset Service](/windows/security/identity-protection/hello-for-business/pin-reset) | &#x2705; | &#x2705; |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; |
 | [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; |
-| [Microsoft Sentinel](../../sentinel/index.yml) (formerly Azure Sentinel) | &#x2705; | &#x2705; |
+| [Microsoft Sentinel](/azure/sentinel/) (formerly Azure Sentinel) | &#x2705; | &#x2705; |
 | [Microsoft Security Copilot](/copilot/security/) | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; |
@@ -426,13 +426,13 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Defender for Identity](/defender-for-identity/) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Microsoft Defender for IoT](../../defender-for-iot/index.yml) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Microsoft Defender Vulnerability Management](../../defender-for-iot/index.yml) | &#x2705; | &#x2705; | &#x2705; |  | |
+| [Microsoft Defender for IoT](/azure/defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender Vulnerability Management](/azure/defender-for-iot/) | &#x2705; | &#x2705; | &#x2705; |  | |
 | [Microsoft Graph](/graph/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Purview](../../purview/index.yml) (incl. Data Map, Data Estate Insights, and governance portal) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Microsoft Secure Score](/defender-xdr/microsoft-secure-score/) | &#x2705; | &#x2705; | &#x2705; | | |
-| [Microsoft Sentinel](../../sentinel/index.yml) (formerly Azure Sentinel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Microsoft Sentinel](/azure/sentinel/) (formerly Azure Sentinel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Stream](/stream/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Migrate](../../migrate/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Network Watcher](../../network-watcher/index.yml) (incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

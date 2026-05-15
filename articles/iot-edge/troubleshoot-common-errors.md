@@ -3,7 +3,7 @@ title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/03/2026
+ms.date: 04/13/2026
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -377,6 +377,30 @@ The client message TTL (time to live) and the **EdgeHub** `MessageCleanupInterva
 If you change the TTL value for your application to a value that's shorter than the default, also adjust the `MessageCleanupIntervalSecs` value. The `MessageCleanupIntervalSecs` value should be significantly smaller than the smallest TTL value that the client uses. For example, if the client application defines a TTL of five minutes in the message header, set the `MessageCleanupIntervalSecs` value to one minute. These settings ensure that messages are cleaned up within six (5 + 1) minutes.  
 
 To configure the *MessageCleanupIntervalSecs* value, set the environment variable in the deployment manifest for the IoT Edge hub module. For more information about setting runtime environment variables, see [Edge Agent and Edge Hub Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
+### Custom modules stop sending messages after Edge CA certificate renewal
+
+#### Symptoms
+
+Custom modules stop communicating with EdgeHub after running for a period of time, typically around 24-30 days when using the default 30-day quickstart Edge CA certificate, or at 80% of the configured certificate lifetime. The EdgeHub and EdgeAgent modules continue to run, but custom modules can no longer send or receive messages through EdgeHub.
+
+#### Cause
+
+When the Edge CA certificate auto-renews, IoT Edge stops and restarts all modules so they receive new server certificates. After the restart, modules must reestablish their connection to EdgeHub. If a custom module doesn't implement connection retry logic, the module starts but can't reconnect to EdgeHub because the new EdgeHub server certificate isn't yet available or the module doesn't retry the initial connection attempt.
+
+#### Solution
+
+Check the EdgeAgent logs for certificate renewal events:
+
+```bash
+sudo iotedge logs edgeAgent | grep -i "renewal"
+```
+
+To resolve:
+
+1. Verify that each custom module has `"restartPolicy": "always"` in the deployment manifest.
+1. Implement connection retry logic in custom modules. Use the Azure IoT device SDK's built-in retry policies, or add exponential backoff retry logic so the module automatically reconnects to EdgeHub after a restart. For more information, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-hub/iot-hub-reliability-features-in-sdks.md).
+1. To control when the renewal disruption occurs, set the `threshold` to an absolute time instead of a percentage. For example, `threshold = "10d"` triggers renewal 10 days before certificate expiry. For more information, see [Plan for Edge CA renewal](how-to-manage-device-certificates.md#plan-for-edge-ca-renewal).
 
 ### IoT Edge Hub reports System.FormatException error when using AMQP protocol
 

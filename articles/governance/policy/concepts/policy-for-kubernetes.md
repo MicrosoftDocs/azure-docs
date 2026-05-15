@@ -20,8 +20,6 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
-> [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 > [!IMPORTANT]
 > Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
@@ -616,11 +614,11 @@ Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, and CVE-2026-32280.
 Security improvements.
 - Released: May 2026
 - Kubernetes: 1.36+
-- Gatekeeper: 3.22.0
+- Gatekeeper: 3.22.1
 
-##### Gatekeeper 3.22.0
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
 
 #### 1.15.5
 Security improvements.
@@ -866,6 +864,8 @@ aligns with how the add-on was installed:
   helm uninstall azure-policy-addon
   ```
 ## Limitations
+> [!IMPORTANT]
+> Permissions to edit or delete validating webhook configurations, mutating webhook configurations, validating admission policies and bindings, and mutating admission policies and bindings should be treated as highly privileged. Kubernetes's design does not allow policies to protect these resource types, in order to avoid circular dependencies.
 
   - For general Azure Policy definitions and assignment limits, review [Azure Policy's documented limits](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-policy-limits)
   - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.

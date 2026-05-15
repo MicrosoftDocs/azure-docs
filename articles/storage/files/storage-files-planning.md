@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 05/01/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -26,7 +26,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
+- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB or need to use customer-managed keys for encryption at rest, choose classic file shares.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
@@ -67,18 +67,31 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 
 Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions. Private endpoint support for file share with Microsoft.FileShares (preview) is available in all Azure public cloud regions.
 
-- Australia East
 - Australia Central
+- Australia East
 - Australia Southeast
 - East Asia
 - East US
+- France Central
+- France South
 - Germany North
+- Italy North
+- JIO India Central
+- JIO India West
+- Korea Central
 - Korea South
-- Southeast Asia
 - North Europe
+- Norway East
+- Norway West
+- Poland Central
+- South Africa North
 - South Africa West
 - South India
+- Southeast Asia
+- Sweden Central
 - UAE Central
+- UK South
+- UK West
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
@@ -175,7 +188,7 @@ For more information, see [Azure Files networking considerations](storage-files-
 
 In addition to directly connecting to the file share using the public endpoint or using a VPN/ExpressRoute connection with a private endpoint, SMB provides an additional client access strategy: SMB over QUIC. SMB over QUIC offers zero-config "SMB VPN" for SMB access over the QUIC transport protocol. Although Azure Files does not directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
-## Encryption
+## Encryption for Azure Files
 
 Azure Files supports two different types of encryption:
 
@@ -184,9 +197,9 @@ Azure Files supports two different types of encryption:
 
 ### Encryption in transit
 
-By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files only allows the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.
+By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files only allows the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see the documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.
 
-You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files also allows SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
+You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files also allows SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
@@ -196,7 +209,7 @@ For more information about encryption in transit, see [requiring secure transfer
 
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-File shares using Microsoft.FileShares resource provider support MSFT key but does not support customer managed keys. 
+You can't use customer-managed keys for encryption at rest with Azure file shares created using the Microsoft.FileShares resource provider (preview). You have to use Microsoft-managed keys.
 
 ## Data protection
 

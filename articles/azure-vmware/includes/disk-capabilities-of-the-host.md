@@ -3,7 +3,7 @@ title: Hardware specifications of the hosts
 description: Hosts used to build or scale clusters come from an isolated pool of hosts.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 6/18/2025
+ms.date: 4/16/2026
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -28,7 +28,7 @@ All of the preceding host types have 100-Gbps network interface throughput.
 
 *Details are available via the Azure pricing calculator.
 
-**AV64 prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, or AV52 is required before adding AV64.
+**AV64 prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, AV48, or AV52 is required before adding AV64.
 
 ***Raw is based on [International Standard of Units (SI)](https://en.wikipedia.org/wiki/International_System_of_Units) reported by disk manufacturers. Example: 1 TB Raw = 1000000000000 bytes. Space calculated by a computer in binary (1 TB binary = 1099511627776 bytes binary) equals 931.3 gigabytes converted from the raw decimal.
 

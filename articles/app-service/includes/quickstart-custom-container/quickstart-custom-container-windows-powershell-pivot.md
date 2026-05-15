@@ -3,11 +3,11 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 04/20/2026
 ms.author: msangapu
 ---
 
-In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
+In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com) to Azure App Service.
 
 [Azure App Service](../../overview.md) provides predefined application stacks on Windows that run on Internet Information Services (IIS). The preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). 
 
@@ -42,7 +42,7 @@ The command returns `Login Succeeded`.
 
 Create a new App Service plan by using the [`New-AzAppServicePlan`](/powershell/module/az.websites/new-azappserviceplan) command.
 
-The following example creates an App Service plan named `myAppServicePlan` in the **PremiumV3** pricing tier (`-Tier PremiumV3`). The `-HyperV` parameter specifies Windows container.
+The following example creates an App Service plan named `myAppServicePlan` in the **PremiumV3** pricing tier (`-Tier PremiumV3`). The `-HyperV` parameter specifies a Windows container.
 
 ```azurepowershell-interactive
 New-AzAppServicePlan -Name myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -Tier PremiumV3 -HyperV
@@ -50,10 +50,10 @@ New-AzAppServicePlan -Name myAppServicePlan -Location eastus -ResourceGroupName 
 
 ## Create your web app
 
-Create a new app by using the [`New-AzWebApp`](/powershell/module/az.websites/new-azwebapp) command:
+Create a new app by using the [`New-AzWebApp`](/powershell/module/az.websites/new-azwebapp) command. Replace `<your-container-app>` with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurepowershell-interactive
-New-AzWebApp -Name myWebApp -AppServicePlan myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -ContainerImageName mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+New-AzWebApp -Name <your-container-app> -AppServicePlan myAppServicePlan -Location eastus -ResourceGroupName myResourceGroup -ContainerImageName mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
 ```
 
 - The `Name` parameter specifies the web app name.
@@ -84,11 +84,11 @@ Remove-AzResourceGroup myResourceGroup
 
 - [Configure a custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Monitor Azure App Service](../../monitor-app-service.md)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
 - [Use Azure Container Registry with Azure Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)

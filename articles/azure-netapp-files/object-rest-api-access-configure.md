@@ -15,9 +15,50 @@ Azure NetApp Files supports access to objects with the [object REST API](object-
 
 This article describes how to configure object REST API access and walks you through the two supported certificate workflows. Choose the workflow that best matches your security and operational requirements.
 
-## Register the feature 
+## Register the feature
 
-The object REST API feature in Azure NetApp Files is currently in preview. You must submit a [waitlist request](https://aka.ms/ANF-object-REST-API-signup) to use this feature. Activation takes approximately one week, and you receive an email notification once the enrollment is complete. 
+The object REST API feature in Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time.  
+
+# [Azure CLI](#tab/azurecli)
+
+1. Register the feature: 
+
+    ```azurecli
+    az account set --subscription <subscriptionId>
+    az feature register --namespace Microsoft.NetApp --name ANFObjectRestApi 
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurecli
+    az feature show --namespace Microsoft.NetApp --name ANFObjectRestApi 
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+
+# [Azure PowerShell](#tab/azurepowershell)
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell
+    Set-AzContext -SubscriptionId <subscriptionId>
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFObjectRestApi
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFObjectRestApi
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+---
 
 ## Create the self-signed certificate
 

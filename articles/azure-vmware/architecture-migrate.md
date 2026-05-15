@@ -12,13 +12,14 @@ ms.custom: engagement-fy24
 
 # VMware HCX migration considerations
 
-VMware HCX offers six options with the HCX Enterprise Edition license when migrating VMware vSphere virtual machines to the Azure VMware Solution:
+VMware HCX offers five options with the HCX Enterprise Edition license when migrating VMware vSphere virtual machines to the Azure VMware Solution:
 
 - Cold Migration
 - HCX vMotion
 - Bulk Migration
 - Replication Assisted vMotion
 - OS Assisted Migration
+
 The cost of the VMware HCX Enterprise Edition license is included in the cost of the Azure VMware Solution service.
 
 ## VMware HCX migration options

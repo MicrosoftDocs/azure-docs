@@ -15,7 +15,7 @@ On this page, you can access the download links for the Azure Data Manager for A
 ## Data-plane SDKs
 
 - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/agrifood/azure-agrifood-farming)
-- [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood/azure-verticals-agrifood-farming)
+- [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/agrifood/azure-resourcemanager-agrifood)
 - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/agrifood/agrifood-farming-rest)
 - [CSharp](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/agrifood/Azure.Verticals.AgriFood.Farming)
 

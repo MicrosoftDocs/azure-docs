@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 09/03/2025
+ms.date: 05/07/2026
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -35,7 +35,7 @@ The **Standard** logic app introduces a resource structure that can host multipl
 
 To learn more about portability, flexibility, and performance improvements, continue reviewing the following sections. For more information about the single-tenant Azure Logic Apps runtime and Azure Functions extensibility, review the following documentation:
 
-* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-runtime-deep-dive/1835564)
 * [Introduction to Azure Functions](../azure-functions/functions-overview.md)
 * [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 
@@ -241,7 +241,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
 
-  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047)
 
 * Regenerate access keys for managed connections used by individual workflows in a **Standard** logic app. For this task, [follow the same steps for a **Consumption** logic app but at the workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
@@ -296,6 +296,8 @@ For the **Standard** logic app workflow, the following capabilities are differen
     * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+
+    * In Standard stateless workflows, triggers don't support changing the trigger concurrency.
  
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
