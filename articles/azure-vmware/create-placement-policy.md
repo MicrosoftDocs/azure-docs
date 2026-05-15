@@ -119,7 +119,7 @@ You can change the state of a policy to **Enabled** or **Disabled**.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **More** (...) and then select **Edit**.
+1. For the policy you want to edit, select **More (...)** then, select **Edit**.
 
    >[!TIP]
    >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. You can't enable a policy from the Settings drop-down.
@@ -136,7 +136,7 @@ You can add new resources, such as a VM or a host, to a policy or remove existin
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **More** (...) and then **Edit**.
+1. For the policy you want to edit, select **More (...)** then, select **Edit**.
 To remove an existing resource, select one or more resources you want to remove and select **Unassign**. 
 To add a new resource, select **Edit virtual machine** or **Edit host**, select the resource you'd like to add, and then select **Save**.
 
@@ -150,7 +150,7 @@ You can delete a placement policy and its corresponding DRS rule.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **More** (...) and then select **Delete**.
+1. For the policy you want to edit, select **More (...)** then, select **Delete**.
 1. Select **Delete** on the confirmation message.
 
 ## Monitor the operation of a policy
@@ -169,8 +169,8 @@ For most workloads, it isn't necessary and can cause unintended performance impa
 
 ### Enable Restrict VM movement for specific VMs
 
-1. Navigate to Manage Placement policies and select Restrict VM movement.
-1. Select the VM or VMs you want to restrict, then select Select.
+1. Navigate to **Manage Placement policies** and select **Restrict VM movement**.
+1. Select the VM or VMs you want to restrict, then select **Select**.
 1. The VM or VMS you selected appears in the VMs with restricted movement tab.
 In the vSphere Client, a VM override is created to set DRS to *partially automated* for that VM.    
 DRS will no longer migrate the VM automatically.
