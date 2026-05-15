@@ -21,33 +21,33 @@ The following services support server-side encryption with customer managed keys
 |---|---|---|---|---|
 | [Azure AI Search](/azure/search/) | Yes | Yes | [Configure customer-managed keys for data encryption in Azure AI Search](/azure/search/search-security-manage-encryption-keys) |
 | [Foundry Tools](/azure/ai-services/) | Yes | Yes | [Customer-managed keys for encryption](/azure/ai-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Microsoft Foundry](/azure/ai-studio) | Yes | Yes | [Encryption of data at rest in Foundry Tools](/azure/ai-studio/concepts/encryption-keys-portal) |
+| [Microsoft Foundry](/azure/foundry/) | Yes | Yes | [Encryption of data at rest in Foundry Tools](/azure/foundry/concepts/encryption-keys-portal) |
 | [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/) | Yes | | [Encryption of data at rest in Content Safety](/azure/ai-services/content-safety/how-to/encrypt-data-at-rest) |
 | [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) | Yes | | [Document Intelligence encryption of data at rest](/azure/ai-services/document-intelligence/authentication/encrypt-data-at-rest) |
 | [Azure Language in Foundry Tools](/azure/ai-services/language-service/) | Yes | | [Language encryption of data at rest](/azure/ai-services/language-service/concepts/encryption-data-at-rest) |
 | [Azure Bot Service](/azure/bot-service/) | Yes | | [Encryption of bot data in Azure Bot Service](/azure/bot-service/bot-service-encryption) |
 | [Azure Health Bot](/azure/health-bot/) | Yes | | [Configure customer-managed keys (CMK) for Azure Health Bot](/azure/health-bot/cmk) |
 | [Azure Machine Learning](/azure/machine-learning/) | Yes | | [Customer-managed keys for workspace encryption in Azure Machine Learning](/azure/machine-learning/concept-customer-managed-keys) |
-| [Azure OpenAI](/azure/ai-services/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/ai-services/openai/encrypt-data-at-rest) |
+| [Azure OpenAI](/azure/foundry-classic/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/foundry-classic/openai/encrypt-data-at-rest) |
 | [Content Moderator](/azure/ai-services/content-moderator/) | Yes | Yes | [Content Moderator encryption of data at rest](/azure/ai-services/content-moderator/encrypt-data-at-rest) |
 | [Dataverse](/powerapps/maker/data-platform/) | Yes | Yes | [Customer-managed keys in Dataverse](/power-platform/admin/customer-managed-key) |
 | [Dynamics 365](/dynamics365/) | Yes | Yes | [Customer-managed keys for encryption](/dynamics365/fin-ops-core/dev-itpro/sysadmin/customer-managed-keys) |
-| [Azure AI Face](/azure/ai-services/computer-vision/overview-identity) | Yes | Yes | [Face service encryption of data at rest](/azure/ai-services/computer-vision/identity-encrypt-data-at-rest) |
+| [Azure AI Face](/azure/ai-services/face/overview-identity) | Yes | Yes | [Face service encryption of data at rest](/azure/ai-services/face/identity-encrypt-data-at-rest) |
 | [Personalizer](/azure/ai-services/personalizer/) | Yes | Yes | [Encryption of data at rest in Personalizer](/azure/ai-services/personalizer/encrypt-data-at-rest) |
 | [Power Platform](/power-platform/) | Yes | Yes | [Customer-managed keys in Power Platform](/power-platform/admin/customer-managed-key) |
 | [Custom question answering](/azure/ai-services/language-service/question-answering/overview) | Yes | | [Custom question answering encryption of data at rest](/azure/ai-services/language-service/question-answering/how-to/encrypt-data-at-rest) |
 | [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/) | Yes | Yes | [Speech service encryption of data at rest](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest) |
-| [Azure Translator in Foundry Tools Text](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/encrypt-data-at-rest) |
+| [Azure Translator in Foundry Tools Text](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/custom-translator/concepts/encrypt-data-at-rest) |
 
 ## Analytics
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure Data Explorer](/azure/data-explorer/) | Yes | Yes | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys-portal) |
+| [Azure Data Explorer](/azure/data-explorer/) | Yes | Yes | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys) |
 | [Azure Data Factory](../../data-factory/index.yml) | Yes | Yes | [Encryption with customer-managed keys for Azure Data Factory](../../data-factory/enable-customer-managed-key.md) |
 | [Azure Data Lake Store](/azure/data-lake-store/) | Yes (RSA 2048-bit) | | |
 | [Azure Data Manager for Energy](../../energy-data-services/index.yml) | Yes | Yes | [Manage data security and encryption](../../energy-data-services/how-to-manage-data-security-and-encryption.md) |
-| [Azure Databricks](/azure/databricks/) | Yes | Yes | [Customer-managed keys for managed services](/azure/databricks/security/keys/customer-managed-key-managed-services-azure) |
+| [Azure Databricks](/azure/databricks/) | Yes | Yes | [Customer-managed keys for managed services](/azure/databricks/security/keys/cmk-managed-services-azure/customer-managed-key-managed-services-azure) |
 | [Azure HDInsight](../../hdinsight/index.yml) | Yes | | [Azure HDInsight double encryption for data at rest](../../hdinsight/disk-encryption.md) |
 | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 | [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
@@ -86,10 +86,10 @@ The following services support server-side encryption with customer managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure Cosmos DB](/azure/cosmos-db/) | Yes | Yes | [Configure customer-managed keys using Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk), [Configure customer-managed keys using Azure Key Vault Managed HSM](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
+| [Azure Cosmos DB](/azure/cosmos-db/) | Yes | Yes | [Configure customer-managed keys using Azure Key Vault](/azure/cosmos-db/how-to-setup-customer-managed-keys), [Configure customer-managed keys using Azure Key Vault Managed HSM](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
 | [Azure DocumentDB (with MongoDB compatibility)](/azure/documentdb/) | Yes | | [Configure customer-managed key (CMK) for data encryption at rest for an Azure DocumentDB cluster](/azure/documentdb/how-to-data-encryption) |
-| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-customer-managed-key) |
-| [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
+| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/security-customer-managed-key) |
+| [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/security/security-data-encryption) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
 | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
@@ -142,7 +142,7 @@ The following services support server-side encryption with customer managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure Information Protection](/azure/information-protection/) | Yes | Yes | [How are the Azure Rights Management cryptographic keys managed and secured?](/azure/information-protection/how-does-it-work#how-the-azure-rms-cryptographic-keys-are-stored-and-secured) |
+| [Azure Information Protection](/azure/information-protection/) | Yes | Yes | [How are the Azure Rights Management cryptographic keys managed and secured?](/purview/rights-management-how-does-it-work#how-the-cryptographic-keys-are-stored-and-secured) |
 | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 | [Microsoft Defender for IoT](/azure/defender-for-iot/) | Yes | | |
 | [Microsoft Sentinel](/azure/sentinel/) | Yes | Yes | [Encryption at rest in Microsoft Sentinel](/azure/sentinel/customer-managed-keys) |
@@ -174,7 +174,7 @@ The following services support server-side encryption with customer managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Universal Print](/universal-print/) | Yes | Yes | [Data encryption in Universal Print](/universal-print/fundamentals/universal-print-encryption) |
+| [Universal Print](/universal-print/) | Yes | Yes | [Data encryption in Universal Print](/universal-print/data-handling) |
 
 ## Caveats
 
