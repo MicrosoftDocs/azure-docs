@@ -160,7 +160,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure Managed Lustre](/azure/azure-managed-lustre/) | Yes | | [Use customer-managed encryption keys with Azure Managed Lustre](/azure/azure-managed-lustre/customer-managed-encryption-keys) |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | Yes | Yes | [Configure customer-managed keys for Azure NetApp Files volume encryption](../../azure-netapp-files/configure-customer-managed-keys.md?tabs=azure-portal) |
 | [Blob Storage](../../storage/blobs/index.yml) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
-| [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction/) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
+| [Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
 | [Disk Storage](/azure/virtual-machines/disks-types/) | Yes | Yes | [Encryption at host for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
 | [File Storage](../../storage/files/index.yml) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
 | [File Sync](../../storage/file-sync/file-sync-introduction.md) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
