@@ -61,7 +61,7 @@ Allows for read and write access to Azure resources for SQL Server on Arc-enable
 
 ## Azure Managed Redis Contributor
 
-Lets you manage Azure Managed Redis resources, but not access the data stored in them.
+Create and manage Azure Managed Redis resources. Cannot read or write data stored in the cache.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -70,7 +70,7 @@ Lets you manage Azure Managed Redis resources, but not access the data stored in
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/checknameavailability/action | Checks if a name is available for use with a new Redis Enterprise cache |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/* |  |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/* | Create and manage Azure Managed Redis resources |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -116,7 +116,7 @@ Lets you manage Azure Managed Redis resources, but not access the data stored in
 
 ## Azure Managed Redis Reader
 
-Lets you view Azure Managed Redis resources, but not modify them or access keys or access to the data stored in them.
+Read Azure Managed Redis resources and their configuration. Cannot modify resources, retrieve access keys, or read data stored in the cache.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -124,8 +124,8 @@ Lets you view Azure Managed Redis resources, but not modify them or access keys 
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View the Redis Enterprise cache's settings and configuration in the management portal |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/*/read |  |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View Azure Managed Redis resource’s settings and configurations |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/*/read | Gets or lists Azure Managed Redis resources |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
@@ -515,14 +515,14 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
 
 ## Redis Cache Contributor
 
-Lets you manage Redis caches, but not access to them.
+Create and manage Azure Cache for Redis resources. Cannot read or write data stored in the cache.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/register/action | Registers the 'Microsoft.Cache' resource provider with a subscription |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/* | Create and manage Redis caches |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/* | Create and manage Azure Cache for Redis resources |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
