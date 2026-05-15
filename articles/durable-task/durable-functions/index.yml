@@ -45,13 +45,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Orchestrations
-            url: ../../durable-task/common/durable-task-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+            url: ../../durable-task/common/durable-task-orchestrations.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json
           - text: Sub-orchestrations
-            url: ../../durable-task/common/durable-task-sub-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+            url: ../../durable-task/common/durable-task-sub-orchestrations.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json
           - text: Durable entities
-            url: ../../durable-task/common/durable-task-entities.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+            url: ../../durable-task/common/durable-task-entities.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json
           - text: Timers and timeouts
-            url: ../../durable-task/common/durable-task-timers.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+            url: ../../durable-task/common/durable-task-timers.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json
           - text: Performance and scale
             url: durable-functions-perf-and-scale.md
           - text: Data persistence and serialization
@@ -77,7 +77,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Storage providers
-            url: ../../durable-task/common/durable-task-storage-providers.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+            url: ../../durable-task/common/durable-task-storage-providers.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json
           - text: Billing
             url: durable-functions-billing.md
       - linkListType: reference
