@@ -23,6 +23,8 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 ## Azure Event Hubs
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-apache-kafka-overview.md) and can be used with data flows with some limitations.

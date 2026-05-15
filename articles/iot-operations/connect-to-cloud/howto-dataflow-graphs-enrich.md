@@ -20,6 +20,7 @@ For an overview of data flow graphs, see [Data flow graphs overview](concept-dat
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
 ## What is enrichment

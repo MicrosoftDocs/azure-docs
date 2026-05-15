@@ -19,6 +19,9 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations, you can config
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - **Microsoft Fabric OneLake**. See the following steps to create a workspace and lakehouse.
   - [Create a workspace](/fabric/get-started/create-workspaces). The default *my workspace* isn't supported.
   - [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).

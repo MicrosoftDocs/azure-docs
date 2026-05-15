@@ -46,6 +46,8 @@ This article explains how to use the connector for SSE to perform tasks such as:
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 Your IT administrator must configure the connector for SSE template for your Azure IoT Operations instance in the Azure portal.

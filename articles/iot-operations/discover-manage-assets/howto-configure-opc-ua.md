@@ -34,6 +34,8 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]

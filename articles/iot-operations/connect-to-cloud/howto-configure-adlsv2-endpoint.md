@@ -19,7 +19,11 @@ Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
+
 - A storage container that is already created in the storage account.
 
 ## Assign permission to managed identity

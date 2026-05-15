@@ -22,6 +22,9 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - [Create a Fabric workspace](/fabric/get-started/create-workspaces). The default *my workspace* isn't supported.
 - [Create an event stream](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream#create-an-eventstream)
 - [Add a custom endpoint as a source](/fabric/real-time-intelligence/event-streams/add-source-custom-app#add-custom-endpoint-data-as-a-source)

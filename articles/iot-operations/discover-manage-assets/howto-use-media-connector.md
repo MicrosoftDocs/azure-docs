@@ -52,6 +52,8 @@ This article explains how to use the media connector to perform tasks such as:
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.

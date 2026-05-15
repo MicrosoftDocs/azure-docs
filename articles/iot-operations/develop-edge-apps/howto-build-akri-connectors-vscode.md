@@ -35,7 +35,6 @@ Development environment:
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - To debug .NET based connectors - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VSCode.cpptools)
-- [Azure CLI](/cli/azure/install-azure-cli)
 - [ORAS CLI](https://oras.land/docs/installation/)
 - Clone the [Explore Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already done so.
 

@@ -20,6 +20,9 @@ In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT O
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - **Data flow profile**. See [Configure data flow profile](howto-configure-dataflow-profile.md).
 
 ## Set environment variables

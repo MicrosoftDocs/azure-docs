@@ -28,6 +28,8 @@ The connector for OPC UA must trust the OPC UA servers it connects to. The conne
 
 [!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 ## Configure a self-signed application instance certificate for the connector for OPC UA
