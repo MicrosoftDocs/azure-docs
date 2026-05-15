@@ -4,9 +4,9 @@ description: Azure Communication Services email events integrate with Event Grid
 #customer intent: As a developer, I want to know which email events Azure Communication Services supports through Event Grid so that I can determine which events to subscribe to in my application.
 ms.topic: concept-article
 ms.date: 03/27/2026
-author: anmolbohra97
-ms.author: anmolbohra
-ms.reviewer: spelluru
+author: spelluru
+ms.author: spelluru
+ms.reviewr: osaghaso
 # Customer intent: I want to learn about what email events from Azure Communication Servics are supported through Azure Event Grid. 
 ---
 
