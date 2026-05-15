@@ -171,15 +171,15 @@ For most workloads, it isn't necessary and can cause unintended performance impa
 
 1. Navigate to **Manage Placement policies** and select **Restrict VM movement**.
 1. Select the VM or VMs you want to restrict, then select **Select**.
-1. The VM or VMS you selected appears in the VMs with restricted movement tab.
-In the vSphere Client, a VM override is created to set DRS to *partially automated* for that VM.    
-DRS will no longer migrate the VM automatically.
-Manual vMotion of the VM and automatic initial placement of the VM continues to function.
+1. The VM or VMS you selected appears in the **VMs with restricted movement** tab.
+   * In the vSphere Client, a VM override is created to set DRS to **partially automated** for that VM.    
+   * DRS no longer migrate the VM automatically.
+   * Manual vMotion of the VM and automatic initial placement of the VM continues to function.
 
 ## FAQs
 
 ### Are placement policies the same as DRS affinity rules?
-Yes, and no. While vSphere DRS implements the current set of policies, we simplified the experience. Modifying VM groups and Host groups are a cumbersome operation, especially as hosts are ephemeral in nature and could be replaced in a cloud environment. As hosts are replaced in the vSphere inventory in an on-premises environment, the vSphere admin must modify the host group to ensure that the desired VM-Host placement constraints remain in effect. Placement policies in Azure VMware Solution update the Host groups when a host is rotated or changed. Similarly, if you scale in a cluster, the Host Group is automatically updated, as applicable. The automatic update eliminates the overhead of managing the Host Groups for the customer.
+Yes, and no. While vSphere DRS implements the current set of policies, we simplified the experience. Modifying VM groups and Host groups are a cumbersome operation, especially as hosts are ephemeral in nature, and could be replaced in a cloud environment. As hosts are replaced in the vSphere inventory in an on-premises environment, the vSphere admin must modify the host group to ensure that the desired VM-Host placement constraints remain in effect. Placement policies in Azure VMware Solution update the Host groups when a host is rotated or changed. Similarly, if you scale in a cluster, the Host Group is automatically updated, as applicable. The automatic update eliminates the overhead of managing the Host Groups for the customer.
 
 ### As this is an existing functionality available in vCenter Server, why can't I use it directly? 
 
