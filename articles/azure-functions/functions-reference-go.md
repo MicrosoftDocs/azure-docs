@@ -16,12 +16,12 @@ ms.custom:
 > Go support for Azure Functions is currently in public preview.
 > During preview, Go function apps are supported only on the Flex Consumption plan.
 
-Azure Functions is a serverless compute service that lets you run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger and binding ecosystem.
+Azure Functions is a serverless compute service that lets you run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger ecosystem.
 
 This guide helps you:
 - Understand the Go programming model
 - Create and structure your function app
-- Work with triggers and bindings
+- Work with triggers
 - Deploy and run your app locally and in Azure
 
 > Looking for a conceptual overview? See the [Azure Functions developer reference](functions-reference.md).
@@ -40,7 +40,7 @@ Choose the environment that fits your workflow and get started with Azure Functi
 
 ## Programming model
 
-The Go worker uses a **code-first** programming model. You define triggers and bindings directly in Go code using a fluent builder API. No `function.json` files are needed. The worker uses worker-driven function indexing to automatically discover and register your functions with the Azure Functions host.
+The Go worker uses a code-first programming model. You define serverless functions and their triggers using idiomatic Go handlers.
 
 ### Entry point
 
@@ -143,7 +143,7 @@ The `host.json` file contains host-level configuration options. For more informa
 
 The `local.settings.json` file stores app settings and connection strings used during local development. This file isn't published to Azure. For more information, see [Local settings file](functions-develop-local.md#local-settings-file).
 
-## Triggers and bindings
+## Triggers
 
 The Go worker organizes triggers into two tiers based on their dependency requirements:
 
@@ -399,7 +399,7 @@ During the public preview, the following limitations apply:
 
 - `func new` isn't supported. Add functions by editing `main.go` directly.
 - Go function apps run on Linux only in Azure.
-- Only the triggers listed in [Triggers and bindings](#triggers-and-bindings) are supported during the preview.
+- Only the triggers listed in [Triggers](#triggers) are supported during the preview.
 - Go packaging in Core Tools currently targets Linux x64 apps.
 
 ## Next steps

@@ -326,9 +326,6 @@
     href: functions-reference-java.md
   - name: PowerShell
     href: functions-reference-powershell.md
-  - name: Go (Preview)
-    displayName: golang
-    href: functions-reference-go.md
   - name: Python
     items:
       - name: Developer reference guide
@@ -355,6 +352,9 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
+  - name: Go (Preview)
+    displayName: golang
+    href: functions-reference-go.md
 - name: How-to guides
   items:
   - name: Develop
