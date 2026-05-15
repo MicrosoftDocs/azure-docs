@@ -2,7 +2,6 @@
 title: Compare Azure IoT Hub to Azure Event Hubs
 description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
 author: sethmanheim
-
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: product-comparison
