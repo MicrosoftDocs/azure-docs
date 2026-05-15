@@ -16,6 +16,9 @@ Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure set
 
 If you deployed a [test instance](./howto-deploy-iot-test-operations.md) of Azure IoT Operations to a cluster and you want to use the same cluster for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
 
+> [!TIP]
+> For an automated deployment experience, see [Automated deployment of Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
+
 ## Before you begin
 
 This article discusses Azure IoT Operations *deployments* and *instances*, which are two different concepts:
