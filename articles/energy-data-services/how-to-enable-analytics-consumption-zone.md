@@ -89,6 +89,16 @@ function Write-ErrorMsg { param($Message) Write-Host "✗ $Message" -ForegroundC
 Write-Info "=== Azure Data Manager for Energy - ACZ Setup Automation ==="
 Write-Info ""
 
+# Check authentication
+Write-Info "Checking Azure CLI authentication..."
+$authCheck = az account show 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-ErrorMsg "Not authenticated to Azure CLI. Please run 'az login' first."
+    exit 1
+}
+Write-Success "Authenticated"
+Write-Info ""
+
 # Step 1: Discover and select subscription
 Write-Info "Step 1: Select Azure Subscription"
 Write-Info "Discovering subscriptions..."
@@ -397,6 +407,15 @@ if ! command -v jq &> /dev/null; then
     error "jq not found. Please install: https://stedolan.github.io/jq/download/"
     exit 1
 fi
+
+# Check authentication
+info "Checking Azure CLI authentication..."
+if ! az account show &> /dev/null; then
+    error "Not authenticated to Azure CLI. Please run 'az login' first."
+    exit 1
+fi
+success "Authenticated"
+echo ""
 
 # Step 1: Select subscription
 info "Step 1: Select Azure Subscription"
