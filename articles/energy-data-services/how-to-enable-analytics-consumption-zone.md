@@ -156,6 +156,33 @@ $location = $admeInstances[$selection].Location
 Write-Success "Selected: $admeInstanceName"
 Write-Info ""
 
+# Storage Account Subscription
+Write-Info "Storage Account Subscription"
+$useDifferentStorageSub = Read-Host "Use storage account in a different subscription? (y/n - default: n)"
+
+if ($useDifferentStorageSub -eq 'y') {
+    Write-Info "`nDiscovering subscriptions for storage account..."
+    Write-Info "Available subscriptions:"
+    for ($i = 0; $i -lt $subscriptions.Count; $i++) {
+        $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
+        $current = if ($subscriptions[$i].SubscriptionId -eq $subscriptionId) { " (current)" } else { "" }
+        Write-Host "  [$i] $($subscriptions[$i].Name)$state$current"
+    }
+    
+    $storageSubSelection = Read-Host "`nSelect storage subscription number"
+    $storageSubSelection = [int]$storageSubSelection
+    
+    $storageSubscriptionId = $subscriptions[$storageSubSelection].SubscriptionId
+    $storageSubscriptionName = $subscriptions[$storageSubSelection].Name
+    
+    Write-Success "Storage will use subscription: $storageSubscriptionName ($storageSubscriptionId)"
+} else {
+    $storageSubscriptionId = $subscriptionId
+    $storageSubscriptionName = $subscriptionName
+    Write-Info "Storage will use same subscription as ADME instance"
+}
+Write-Info ""
+
 # Get ADME instance details
 Write-Info "Retrieving ADME instance configuration..."
 $admeDetails = az resource show `
@@ -267,6 +294,14 @@ Write-Info ""
 
 # Step 5: Storage Account
 Write-Info "Step 5: Storage Account Configuration"
+
+# Switch to storage subscription if different
+if ($storageSubscriptionId -ne $subscriptionId) {
+    Write-Info "Switching to storage subscription: $storageSubscriptionName..."
+    az account set --subscription $storageSubscriptionId
+    Write-Success "Context switched to storage subscription"
+}
+
 $useExistingStorage = Read-Host "Use existing ADLS Gen2 storage account? (y/n - default: n)"
 
 if ($useExistingStorage -eq 'y') {
@@ -310,7 +345,14 @@ if ($useExistingStorage -ne 'y') {
     Write-Success "Storage account created: $storageAccountName"
 }
 
-$storageResourceId = "/subscriptions/$subscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+$storageResourceId = "/subscriptions/$storageSubscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+# Switch back to ADME subscription if needed
+if ($storageSubscriptionId -ne $subscriptionId) {
+    Write-Info "Switching back to ADME subscription..."
+    az account set --subscription $subscriptionId
+    Write-Success "Context switched back to ADME subscription"
+}
 Write-Info ""
 
 # Step 6: Grant storage permissions
@@ -336,6 +378,8 @@ Write-Info ""
 Write-Success "Configuration Summary:"
 Write-Info ""
 Write-Info "ADME Instance Details:"
+Write-Info "  Subscription: $subscriptionName"
+Write-Info "  Subscription ID: $subscriptionId"
 Write-Info "  Name: $admeInstanceName"
 Write-Info "  Resource Group: $resourceGroup"
 Write-Info "  Location: $location"
@@ -346,6 +390,10 @@ Write-Info "  Name: $identityName"
 Write-Info "  Resource ID: $identityResourceId"
 Write-Info ""
 Write-Info "Storage Account:"
+if ($storageSubscriptionId -ne $subscriptionId) {
+    Write-Info "  Subscription: $storageSubscriptionName"
+    Write-Info "  Subscription ID: $storageSubscriptionId"
+}
 Write-Info "  Name: $storageAccountName"
 Write-Info "  Resource ID: $storageResourceId"
 Write-Info ""
@@ -483,6 +531,30 @@ LOCATION=$(echo "$ADME_INSTANCES" | jq -r ".[$SELECTION].Location")
 success "Selected: $ADME_INSTANCE_NAME"
 echo ""
 
+# Storage Account Subscription
+info "Storage Account Subscription"
+read -p "Use storage account in a different subscription? (y/n - default: n): " USE_DIFFERENT_STORAGE_SUB
+
+if [ "$USE_DIFFERENT_STORAGE_SUB" = "y" ]; then
+    info ""
+    info "Discovering subscriptions for storage account..."
+    info "Available subscriptions:"
+    echo "$SUBSCRIPTIONS" | jq -r --arg current "$SUBSCRIPTION_ID" 'to_entries[] | "  [\(.key)] \(.value.Name)\(if .value.SubscriptionId == $current then " (current)" else "" end)"'
+    
+    echo ""
+    read -p "Select storage subscription number: " STORAGE_SUB_SELECTION
+    
+    STORAGE_SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].SubscriptionId")
+    STORAGE_SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].Name")
+    
+    success "Storage will use subscription: $STORAGE_SUBSCRIPTION_NAME ($STORAGE_SUBSCRIPTION_ID)"
+else
+    STORAGE_SUBSCRIPTION_ID="$SUBSCRIPTION_ID"
+    STORAGE_SUBSCRIPTION_NAME="$SUBSCRIPTION_NAME"
+    info "Storage will use same subscription as ADME instance"
+fi
+echo ""
+
 # Get ADME instance details
 info "Retrieving ADME instance configuration..."
 ADME_DETAILS=$(az resource show \
@@ -594,6 +666,14 @@ echo ""
 
 # Step 5: Storage Account
 info "Step 5: Storage Account Configuration"
+
+# Switch to storage subscription if different
+if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
+    info "Switching to storage subscription: $STORAGE_SUBSCRIPTION_NAME..."
+    az account set --subscription "$STORAGE_SUBSCRIPTION_ID"
+    success "Context switched to storage subscription"
+fi
+
 read -p "Use existing ADLS Gen2 storage account? (y/n - default: n): " USE_EXISTING_STORAGE
 
 if [ "$USE_EXISTING_STORAGE" = "y" ]; then
@@ -640,7 +720,14 @@ if [ "$USE_EXISTING_STORAGE" != "y" ]; then
     success "Storage account created: $STORAGE_ACCOUNT_NAME"
 fi
 
-STORAGE_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$STORAGE_RG/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
+STORAGE_RESOURCE_ID="/subscriptions/$STORAGE_SUBSCRIPTION_ID/resourceGroups/$STORAGE_RG/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
+
+# Switch back to ADME subscription if needed
+if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
+    info "Switching back to ADME subscription..."
+    az account set --subscription "$SUBSCRIPTION_ID"
+    success "Context switched back to ADME subscription"
+fi
 echo ""
 
 # Step 6: Grant storage permissions
@@ -701,6 +788,8 @@ echo ""
 success "Configuration Summary:"
 echo ""
 info "ADME Instance Details:"
+info "  Subscription: $SUBSCRIPTION_NAME"
+info "  Subscription ID: $SUBSCRIPTION_ID"
 info "  Name: $ADME_INSTANCE_NAME"
 info "  Resource Group: $RESOURCE_GROUP"
 info "  Location: $LOCATION"
@@ -711,6 +800,10 @@ info "  Name: $IDENTITY_NAME"
 info "  Resource ID: $IDENTITY_RESOURCE_ID"
 echo ""
 info "Storage Account:"
+if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
+    info "  Subscription: $STORAGE_SUBSCRIPTION_NAME"
+    info "  Subscription ID: $STORAGE_SUBSCRIPTION_ID"
+fi
 info "  Name: $STORAGE_ACCOUNT_NAME"
 info "  Resource ID: $STORAGE_RESOURCE_ID"
 echo ""
