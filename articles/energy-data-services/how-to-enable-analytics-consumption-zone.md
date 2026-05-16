@@ -387,13 +387,39 @@ fi
 
 # Step 1: Select subscription
 info "Step 1: Select Azure Subscription"
-info "Available subscriptions:"
-az account list --output table
+info "Discovering subscriptions..."
+
+SUBSCRIPTIONS=$(az account list --query '[].{Name:name, SubscriptionId:id, State:state}' -o json)
+
+if [ "$(echo "$SUBSCRIPTIONS" | jq 'length')" -eq 0 ]; then
+    error "No subscriptions found. Please run 'az login' first."
+    exit 1
+fi
+
+# Sort subscriptions by name
+SUBSCRIPTIONS=$(echo "$SUBSCRIPTIONS" | jq 'sort_by(.Name)')
 
 echo ""
-read -p "Enter your subscription ID: " SUBSCRIPTION_ID
+info "Available subscriptions:"
+for i in $(seq 0 $(($(echo "$SUBSCRIPTIONS" | jq 'length') - 1))); do
+    NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$i].Name")
+    STATE=$(echo "$SUBSCRIPTIONS" | jq -r ".[$i].State")
+    if [ "$STATE" = "Enabled" ]; then
+        echo "  [$i] $NAME"
+    else
+        echo "  [$i] $NAME [$STATE]"
+    fi
+done
+
+echo ""
+read -p "Select subscription number (or press Enter for 0): " SUB_SELECTION
+SUB_SELECTION=${SUB_SELECTION:-0}
+
+SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$SUB_SELECTION].SubscriptionId")
+SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$SUB_SELECTION].Name")
+
 az account set --subscription "$SUBSCRIPTION_ID"
-success "Subscription set to: $SUBSCRIPTION_ID"
+success "Subscription set to: $SUBSCRIPTION_NAME ($SUBSCRIPTION_ID)"
 echo ""
 
 # Step 2: Select ADME instance
@@ -407,9 +433,12 @@ if [ "$(echo "$ADME_INSTANCES" | jq 'length')" -eq 0 ]; then
     exit 1
 fi
 
+# Sort ADME instances by name
+ADME_INSTANCES=$(echo "$ADME_INSTANCES" | jq 'sort_by(.Name)')
+
 echo ""
 info "Available ADME instances:"
-echo "$ADME_INSTANCES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup), Location: \(.value.Location})"'
+echo "$ADME_INSTANCES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup), Location: \(.value.Location))"'
 
 echo ""
 read -p "Select ADME instance number (default: 0): " SELECTION
@@ -446,7 +475,7 @@ echo ""
 
 # Step 3: Managed Identity
 info "Step 3: Managed Identity Configuration"
-read -p "Use existing managed identity? (y/n, default: n): " USE_EXISTING
+read -p "Use existing managed identity? (y/n - default: n): " USE_EXISTING
 
 if [ "$USE_EXISTING" = "y" ]; then
     info ""
@@ -457,9 +486,12 @@ if [ "$USE_EXISTING" = "y" ]; then
         error "No managed identities found. Creating new identity..."
         USE_EXISTING="n"
     else
+        # Sort identities by name
+        IDENTITIES=$(echo "$IDENTITIES" | jq 'sort_by(.Name)')
+        
         info ""
         info "Available managed identities:"
-        echo "$IDENTITIES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup})"'
+        echo "$IDENTITIES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup))"'
         
         echo ""
         read -p "Select identity number: " ID_SELECTION
@@ -474,7 +506,7 @@ fi
 
 if [ "$USE_EXISTING" != "y" ]; then
     echo ""
-    read -p "Enter name for new managed identity (e.g., 'acz-identity'): " IDENTITY_NAME
+    read -p "Enter name for new managed identity (e.g. acz-identity): " IDENTITY_NAME
     read -p "Enter resource group for identity (default: $RESOURCE_GROUP): " IDENTITY_RG
     IDENTITY_RG=${IDENTITY_RG:-$RESOURCE_GROUP}
     
