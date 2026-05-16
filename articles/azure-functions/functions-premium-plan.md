@@ -121,10 +121,6 @@ $Resource | Set-AzResource -Force
 
 ---
 
-### Maximum function app instances
-
-In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. You configure the app maximum by using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale-out limit can't exceed the maximum burst instances of the plan.
-
 ## Private network connectivity
 
 Function apps deployed to a Premium plan can take advantage of [virtual network integration for web apps](../app-service/overview-vnet-integration.md). When configured, your app can communicate with resources within your virtual network or secured via service endpoints. You can also use IP restrictions on the app to restrict incoming traffic.
@@ -135,9 +131,13 @@ For more information, see [Integrate Azure Functions with a virtual network](fun
 
 ## Rapid elastic scale
 
-The same rapid scaling logic as the Flex Consumption and Consumption plans automatically adds more compute instances for your app. Apps in the same App Service Plan scale independently from one another based on the needs of an individual app. However, Functions apps in the same App Service Plan share VM resources to help reduce costs, when possible. The number of apps associated with a VM depends on the footprint of each app and the size of the VM.
+The same rapid scaling logic as the Flex Consumption and Consumption plans automatically adds more compute instances for your app. Apps in the same App Service Plan scale independently from one another based on the needs of an individual app. However, function apps in the same App Service Plan share VM resources to help reduce costs, when possible. The number of apps associated with a VM depends on the footprint of each app and the size of the VM.
 
 To learn more about how scaling works, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).
+
+### Maximum function app instances
+
+In addition to the [plan maximum burst count](#plan-and-sku-settings), you can configure a per-app maximum. You configure the app maximum by using the [app scale limit](./event-driven-scaling.md#limit-scale-out). The maximum app scale-out limit can't exceed the maximum burst instances of the plan.
 
 ## Longer run duration
 
@@ -158,13 +158,15 @@ This migration isn't supported on Linux.
 
 When you create the plan, you set two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
+### Maximum burst limit
+
 If your app needs more instances beyond the always ready instances, it can continue to scale out until the number of instances reaches the plan maximum burst limit, or the app maximum scale-out limit if you set it. You pay for instances only while they're running and allocated to you, on a per-second basis. The platform makes its best effort at scaling your app out to the defined maximum limits.
 
-### [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 You can configure the plan size in the Azure portal by selecting your **Function App** deployed to that plan, going to the **App Service plan** > **Scale Up** menu options on the left, and choosing a larger plan size. To increase the maximum burst limit, choose the **Scale Out** menu option and edit the **Plan Scale out** > **Maximum burst** option.
 
-### [Azure CLI](#tab/azurecli)
+#### [Azure CLI](#tab/azurecli)
 
 Use Azure CLI to increase the maximum burst limit:
 
@@ -172,7 +174,7 @@ Use Azure CLI to increase the maximum burst limit:
 az functionapp plan update -g <RESOURCE_GROUP> -n <PREMIUM_PLAN_NAME> --max-burst <YOUR_MAX_BURST>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 You can also increase the maximum burst limit by using Azure PowerShell:
 
@@ -182,6 +184,8 @@ Update-AzFunctionAppPlan -ResourceGroupName <RESOURCE_GROUP> -Name <PREMIUM_PLAN
 
 ---
 
+### Minimum instances
+
 The minimum for every Premium plan is at least one instance. The actual minimum number of instances is determined based on the always ready instances requested by apps in the plan. For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size is determined as five. App A runs on all five instances, and app B runs on two.
 
 > [!IMPORTANT]
@@ -189,11 +193,11 @@ The minimum for every Premium plan is at least one instance. The actual minimum 
 
 In most circumstances, this autocalculated minimum is sufficient. However, scaling beyond the minimum occurs at a best effort. It's possible, though unlikely, that at a specific time scale-out could be delayed if other instances are unavailable. By setting a minimum higher than the autocalculated minimum, you reserve instances in advance of scale-out.
 
-### [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 You can configure the minimum instances in the Azure portal by selecting your **Function App** deployed to that plan, going to the **App Service plan** > **Scale Out** menu option on the left, and editing the **Plan Scale out** > **Minimum Instances** option.
 
-### [Azure CLI](#tab/azurecli)
+#### [Azure CLI](#tab/azurecli)
 
 Increase the calculated minimum for a plan by using Azure CLI.
 
@@ -201,7 +205,7 @@ Increase the calculated minimum for a plan by using Azure CLI.
 az functionapp plan update -g <RESOURCE_GROUP> -n <PREMIUM_PLAN_NAME> --min-instances <YOUR_MIN_INSTANCES>
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+#### [Azure PowerShell](#tab/azure-powershell)
 
 Increase the calculated minimum for a plan by using Azure PowerShell.
 
@@ -231,7 +235,7 @@ For plans with more than 4 GB of memory, set the Bitness Platform Setting to `64
 
 ## Region max scale-out
 
-The following table lists currently supported maximum scale-out values for a single plan in each region and OS configuration:
+The following table lists currently supported maximum scale-out values for a single Premium plan in each region and OS configuration:
 
 |Region| Windows | Linux |
 |--| -- | -- |
