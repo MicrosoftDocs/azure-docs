@@ -3,7 +3,7 @@ title: Azure Functions Premium plan
 description: Learn about details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: concept-article
-ms.date: 12/15/2025
+ms.date: 05/15/2026
 ms.author: thalme
 ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
