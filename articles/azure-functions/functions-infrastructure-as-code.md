@@ -177,7 +177,7 @@ The function app needs a connection to this storage account. Configure this conn
 
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"  
-### Deployment container
+### Deployment storage container
 
 To deploy to an app running in the Flex Consumption plan, you need a container in Azure Blob Storage as the deployment source. You can use either the default storage account or specify a separate storage account. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings). 
 
@@ -269,7 +269,7 @@ You can use the same workspace for the Application Insights resource defined lat
 
 ## Create Application Insights
 
-Use Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
+Use Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace, which uses the format `/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
 
 In this example section, define the Application Insights resource with the type `Microsoft.Insights/components` and the kind `web`:
 
@@ -316,9 +316,20 @@ You must provide the connection to the function app by using the [`APPLICATIONIN
 
 The examples in this article get the connection string value for the created instance. Older versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. 
 
-::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan"  
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,consumption-plan"  
 ## Create the hosting plan
 
+All Functions hosting plans use a `Microsoft.Web/serverfarms` resource type. The `sku` property values depend on the hosting plan:
+
+| Property | [Flex Consumption](./flex-consumption-plan.md) | [Premium](./functions-premium-plan.md) | [Dedicated](./dedicated-plan.md) | [Consumption](consumption-plan.md) (legacy) |
+| --- | --- | --- | --- | --- |
+| `sku` name | `FC1` | `EP1`, `EP2`, or `EP3` | Varies (`B1`, `S1`, `P1v2`, etc.) | `Y1` |
+| `sku` tier | `FlexConsumption` | `ElasticPremium` | Varies | `Dynamic` |
+| `computeMode` | — | — | — | `Dynamic` |
+| Linux | `reserved: true` (required) | `reserved: true` | `reserved: true` | `reserved: true` |
+
+::: zone-end  
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan"  
 You must explicitly define the hosting plan for apps hosted in an Azure Functions [Flex Consumption plan](./flex-consumption-plan.md), [Premium plan](./functions-premium-plan.md), or [Dedicated (App Service) plan](./dedicated-plan.md). 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
@@ -546,7 +557,7 @@ For more context, see the complete [azuredeploy.json](https://github.com/Azure-S
 
 ::: zone-end
 ::: zone pivot="consumption-plan"
-## Create the hosting plan
+### Create the hosting plan (optional)
 
 You don't need to explicitly define a Consumption hosting plan resource. When you skip this resource definition, the portal automatically creates or selects a plan on a per-region basis when you create the function app resource itself.
 
@@ -1112,9 +1123,9 @@ The Flex Consumption plan maintains your project code in a zip-compressed packag
 
 You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM template or Bicep deployment, you can do this step by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package isn't automatically deployed.
 
-### Deployment container
+### Configure the deployment container
 
-Set the specific storage account and container used for deployments, the authentication method, and credentials in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when you create the app. For an example of how to create the storage container, see [Deployment container](#deployment-container).
+Set the specific storage account and container used for deployments, the authentication method, and credentials in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when you create the app. For an example of how to create the storage container, see [Deployment storage container](#deployment-storage-container).
 
 This example uses a system assigned managed identity to access the specified blob storage container, which is created elsewhere in the deployment:
 
