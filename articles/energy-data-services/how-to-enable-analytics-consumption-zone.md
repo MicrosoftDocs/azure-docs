@@ -245,7 +245,7 @@ $body = @{
 Write-Info "Updating ADME instance..."
 $response = Invoke-RestMethod `
     -Method Put `
-    -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$admeInstanceName?api-version=2025-09-22-preview" `
+    -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/${admeInstanceName}?api-version=2025-09-22-preview" `
     -Headers @{
         "Authorization" = "Bearer $token"
         "Content-Type" = "application/json"
