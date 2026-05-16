@@ -257,37 +257,50 @@ Write-Info ""
 
 # Step 5: Storage Account
 Write-Info "Step 5: Storage Account Configuration"
-$storageAccountName = Read-Host "Enter ADLS Gen2 storage account name"
-$storageRg = Read-Host "Enter storage account resource group (default: $resourceGroup)"
-if ([string]::IsNullOrWhiteSpace($storageRg)) { $storageRg = $resourceGroup }
+$useExistingStorage = Read-Host "Use existing ADLS Gen2 storage account? (y/n - default: n)"
 
-$storageResourceId = "/subscriptions/$subscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-Write-Info "Verifying storage account exists..."
-$storageExists = az storage account show --name $storageAccountName --resource-group $storageRg --query "id" -o tsv 2>$null
-
-if (-not $storageExists) {
-    Write-ErrorMsg "Storage account not found: $storageAccountName"
-    $create = Read-Host "Create ADLS Gen2 storage account? (y/n)"
+if ($useExistingStorage -eq 'y') {
+    Write-Info "`nDiscovering ADLS Gen2 storage accounts in subscription..."
+    $storageAccounts = az storage account list --query "[?kind=='StorageV2' && isHnsEnabled==\`true\`].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json | ConvertFrom-Json
+    $storageAccounts = $storageAccounts | Sort-Object Name
     
-    if ($create -eq 'y') {
-        Write-Info "Creating ADLS Gen2 storage account..."
-        az storage account create `
-            --name $storageAccountName `
-            --resource-group $storageRg `
-            --location $location `
-            --sku Standard_LRS `
-            --kind StorageV2 `
-            --enable-hierarchical-namespace true
-        
-        Write-Success "Storage account created"
+    if ($storageAccounts.Count -eq 0) {
+        Write-ErrorMsg "No ADLS Gen2 storage accounts found. Creating new storage account..."
+        $useExistingStorage = 'n'
     } else {
-        Write-ErrorMsg "Storage account required. Exiting."
-        exit 1
+        Write-Info "`nAvailable ADLS Gen2 storage accounts:"
+        for ($i = 0; $i -lt $storageAccounts.Count; $i++) {
+            Write-Host "  [$i] $($storageAccounts[$i].Name) (RG: $($storageAccounts[$i].ResourceGroup), Location: $($storageAccounts[$i].Location))"
+        }
+        
+        $storageSelection = Read-Host "`nSelect storage account number"
+        $storageSelection = [int]$storageSelection
+        
+        $storageAccountName = $storageAccounts[$storageSelection].Name
+        $storageRg = $storageAccounts[$storageSelection].ResourceGroup
+        
+        Write-Success "Using existing storage account: $storageAccountName"
     }
 }
 
-Write-Success "Storage account verified: $storageAccountName"
+if ($useExistingStorage -ne 'y') {
+    $storageAccountName = Read-Host "`nEnter name for new ADLS Gen2 storage account"
+    $storageRg = Read-Host "Enter resource group for storage account (default: $resourceGroup)"
+    if ([string]::IsNullOrWhiteSpace($storageRg)) { $storageRg = $resourceGroup }
+    
+    Write-Info "Creating ADLS Gen2 storage account..."
+    az storage account create `
+        --name $storageAccountName `
+        --resource-group $storageRg `
+        --location $location `
+        --sku Standard_LRS `
+        --kind StorageV2 `
+        --enable-hierarchical-namespace true
+    
+    Write-Success "Storage account created: $storageAccountName"
+}
+
+$storageResourceId = "/subscriptions/$subscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 Write-Info ""
 
 # Step 6: Grant storage permissions
@@ -562,35 +575,53 @@ echo ""
 
 # Step 5: Storage Account
 info "Step 5: Storage Account Configuration"
-read -p "Enter ADLS Gen2 storage account name: " STORAGE_ACCOUNT_NAME
-read -p "Enter storage account resource group (default: $RESOURCE_GROUP): " STORAGE_RG
-STORAGE_RG=${STORAGE_RG:-$RESOURCE_GROUP}
+read -p "Use existing ADLS Gen2 storage account? (y/n - default: n): " USE_EXISTING_STORAGE
 
-STORAGE_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$STORAGE_RG/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
-
-info "Verifying storage account exists..."
-if ! az storage account show --name "$STORAGE_ACCOUNT_NAME" --resource-group "$STORAGE_RG" &> /dev/null; then
-    error "Storage account not found: $STORAGE_ACCOUNT_NAME"
-    read -p "Create ADLS Gen2 storage account? (y/n): " CREATE_STORAGE
+if [ "$USE_EXISTING_STORAGE" = "y" ]; then
+    info ""
+    info "Discovering ADLS Gen2 storage accounts in subscription..."
+    STORAGE_ACCOUNTS=$(az storage account list --query "[?kind=='StorageV2' && isHnsEnabled==\`true\`].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json)
     
-    if [ "$CREATE_STORAGE" = "y" ]; then
-        info "Creating ADLS Gen2 storage account..."
-        az storage account create \
-            --name "$STORAGE_ACCOUNT_NAME" \
-            --resource-group "$STORAGE_RG" \
-            --location "$LOCATION" \
-            --sku Standard_LRS \
-            --kind StorageV2 \
-            --enable-hierarchical-namespace true
-        
-        success "Storage account created"
+    if [ "$(echo "$STORAGE_ACCOUNTS" | jq 'length')" -eq 0 ]; then
+        error "No ADLS Gen2 storage accounts found. Creating new storage account..."
+        USE_EXISTING_STORAGE="n"
     else
-        error "Storage account required. Exiting."
-        exit 1
+        # Sort storage accounts by name
+        STORAGE_ACCOUNTS=$(echo "$STORAGE_ACCOUNTS" | jq 'sort_by(.Name)')
+        
+        info ""
+        info "Available ADLS Gen2 storage accounts:"
+        echo "$STORAGE_ACCOUNTS" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup), Location: \(.value.Location))"'
+        
+        echo ""
+        read -p "Select storage account number: " STORAGE_SELECTION
+        
+        STORAGE_ACCOUNT_NAME=$(echo "$STORAGE_ACCOUNTS" | jq -r ".[$STORAGE_SELECTION].Name")
+        STORAGE_RG=$(echo "$STORAGE_ACCOUNTS" | jq -r ".[$STORAGE_SELECTION].ResourceGroup")
+        
+        success "Using existing storage account: $STORAGE_ACCOUNT_NAME"
     fi
 fi
 
-success "Storage account verified: $STORAGE_ACCOUNT_NAME"
+if [ "$USE_EXISTING_STORAGE" != "y" ]; then
+    echo ""
+    read -p "Enter name for new ADLS Gen2 storage account: " STORAGE_ACCOUNT_NAME
+    read -p "Enter resource group for storage account (default: $RESOURCE_GROUP): " STORAGE_RG
+    STORAGE_RG=${STORAGE_RG:-$RESOURCE_GROUP}
+    
+    info "Creating ADLS Gen2 storage account..."
+    az storage account create \
+        --name "$STORAGE_ACCOUNT_NAME" \
+        --resource-group "$STORAGE_RG" \
+        --location "$LOCATION" \
+        --sku Standard_LRS \
+        --kind StorageV2 \
+        --enable-hierarchical-namespace true
+    
+    success "Storage account created: $STORAGE_ACCOUNT_NAME"
+fi
+
+STORAGE_RESOURCE_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$STORAGE_RG/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
 echo ""
 
 # Step 6: Grant storage permissions
