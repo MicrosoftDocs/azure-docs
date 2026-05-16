@@ -91,12 +91,30 @@ Write-Info ""
 
 # Step 1: Discover and select subscription
 Write-Info "Step 1: Select Azure Subscription"
-Write-Info "Available subscriptions:"
-az account list --output table
+Write-Info "Discovering subscriptions..."
 
-$subscriptionId = Read-Host "`nEnter your subscription ID"
+$subscriptions = az account list --query '[].{Name:name, SubscriptionId:id, State:state}' -o json | ConvertFrom-Json
+
+if ($subscriptions.Count -eq 0) {
+    Write-ErrorMsg "No subscriptions found. Please run 'az login' first."
+    exit 1
+}
+
+Write-Info "`nAvailable subscriptions:"
+for ($i = 0; $i -lt $subscriptions.Count; $i++) {
+    $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
+    Write-Host "  [$i] $($subscriptions[$i].Name)$state"
+}
+
+$subSelection = Read-Host "`nSelect subscription number (or press Enter for 0)"
+if ([string]::IsNullOrWhiteSpace($subSelection)) { $subSelection = 0 }
+$subSelection = [int]$subSelection
+
+$subscriptionId = $subscriptions[$subSelection].SubscriptionId
+$subscriptionName = $subscriptions[$subSelection].Name
+
 az account set --subscription $subscriptionId
-Write-Success "Subscription set to: $subscriptionId"
+Write-Success "Subscription set to: $subscriptionName ($subscriptionId)"
 Write-Info ""
 
 # Step 2: Discover and select ADME instance
