@@ -94,6 +94,7 @@ Write-Info "Step 1: Select Azure Subscription"
 Write-Info "Discovering subscriptions..."
 
 $subscriptions = az account list --query '[].{Name:name, SubscriptionId:id, State:state}' -o json | ConvertFrom-Json
+$subscriptions = $subscriptions | Sort-Object Name
 
 if ($subscriptions.Count -eq 0) {
     Write-ErrorMsg "No subscriptions found. Please run 'az login' first."
@@ -122,6 +123,7 @@ Write-Info "Step 2: Select Azure Data Manager for Energy Instance"
 Write-Info "Discovering ADME instances in subscription..."
 
 $admeInstances = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --query "[].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json | ConvertFrom-Json
+$admeInstances = $admeInstances | Sort-Object Name
 
 if ($admeInstances.Count -eq 0) {
     Write-ErrorMsg "No ADME instances found in subscription $subscriptionId"
@@ -173,6 +175,7 @@ $useExisting = Read-Host "Use existing managed identity? (y/n, default: n)"
 if ($useExisting -eq 'y') {
     Write-Info "`nDiscovering managed identities in subscription..."
     $identities = az identity list --query "[].{Name:name, ResourceGroup:resourceGroup, Id:id}" -o json | ConvertFrom-Json
+    $identities = $identities | Sort-Object Name
     
     if ($identities.Count -eq 0) {
         Write-ErrorMsg "No managed identities found. Creating new identity..."
