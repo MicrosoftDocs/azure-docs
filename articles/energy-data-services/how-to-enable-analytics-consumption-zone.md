@@ -112,7 +112,7 @@ if ($admeInstances.Count -eq 0) {
 
 Write-Info "`nAvailable ADME instances:"
 for ($i = 0; $i -lt $admeInstances.Count; $i++) {
-    Write-Host "  [$i] $($admeInstances[$i].Name) (RG: $($admeInstances[$i].ResourceGroup), Location: $($admeInstances[$i].Location})"
+    Write-Host "  [$i] $($admeInstances[$i].Name) (RG: $($admeInstances[$i].ResourceGroup), Location: $($admeInstances[$i].Location))"
 }
 
 $selection = Read-Host "`nSelect ADME instance number (or press Enter for 0)"
@@ -162,7 +162,7 @@ if ($useExisting -eq 'y') {
     } else {
         Write-Info "`nAvailable managed identities:"
         for ($i = 0; $i -lt $identities.Count; $i++) {
-            Write-Host "  [$i] $($identities[$i].Name) (RG: $($identities[$i].ResourceGroup})"
+            Write-Host "  [$i] $($identities[$i].Name) (RG: $($identities[$i].ResourceGroup))"
         }
         
         $idSelection = Read-Host "`nSelect identity number"
@@ -177,7 +177,7 @@ if ($useExisting -eq 'y') {
 }
 
 if ($useExisting -ne 'y') {
-    $identityName = Read-Host "`nEnter name for new managed identity (e.g., 'acz-identity')"
+    $identityName = Read-Host "`nEnter name for new managed identity (e.g. acz-identity)"
     $identityRg = Read-Host "Enter resource group for identity (default: $resourceGroup)"
     if ([string]::IsNullOrWhiteSpace($identityRg)) { $identityRg = $resourceGroup }
     
