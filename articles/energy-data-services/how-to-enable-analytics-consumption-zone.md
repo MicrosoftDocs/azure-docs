@@ -156,32 +156,9 @@ $location = $admeInstances[$selection].Location
 Write-Success "Selected: $admeInstanceName"
 Write-Info ""
 
-# Storage Account Subscription
-Write-Info "Storage Account Subscription"
-$useDifferentStorageSub = Read-Host "Use storage account in a different subscription? (y/n - default: n)"
-
-if ($useDifferentStorageSub -eq 'y') {
-    Write-Info "`nDiscovering subscriptions for storage account..."
-    Write-Info "Available subscriptions:"
-    for ($i = 0; $i -lt $subscriptions.Count; $i++) {
-        $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
-        $current = if ($subscriptions[$i].SubscriptionId -eq $subscriptionId) { " (current)" } else { "" }
-        Write-Host "  [$i] $($subscriptions[$i].Name)$state$current"
-    }
-    
-    $storageSubSelection = Read-Host "`nSelect storage subscription number"
-    $storageSubSelection = [int]$storageSubSelection
-    
-    $storageSubscriptionId = $subscriptions[$storageSubSelection].SubscriptionId
-    $storageSubscriptionName = $subscriptions[$storageSubSelection].Name
-    
-    Write-Success "Storage will use subscription: $storageSubscriptionName ($storageSubscriptionId)"
-} else {
-    $storageSubscriptionId = $subscriptionId
-    $storageSubscriptionName = $subscriptionName
-    Write-Info "Storage will use same subscription as ADME instance"
-}
-Write-Info ""
+# Initialize storage subscription to same as ADME (can be changed later in Step 5)
+$storageSubscriptionId = $subscriptionId
+$storageSubscriptionName = $subscriptionName
 
 # Get ADME instance details
 Write-Info "Retrieving ADME instance configuration..."
@@ -195,13 +172,17 @@ $dataPartitionName = $admeDetails.dataPartitions[0].name
 $existingIdentities = $admeDetails.existingIdentities
 
 Write-Success "Instance details retrieved"
+Write-Info "  Instance Name: $admeInstanceName"
 Write-Info "  Location: $($admeDetails.location)"
 Write-Info "  Auth App ID: $authAppId"
 Write-Info "  Data Partition: $dataPartitionName"
 
 if ($existingIdentities) {
     Write-Warning "Found existing managed identities on this instance"
-    Write-Info "  Identities: $($existingIdentities | ConvertTo-Json -Compress)"
+    $existingIdentities.PSObject.Properties | ForEach-Object {
+        $identityName = $_.Name.Split('/')[-1]
+        Write-Info "  - $identityName"
+    }
 }
 Write-Info ""
 
@@ -294,6 +275,28 @@ Write-Info ""
 
 # Step 5: Storage Account
 Write-Info "Step 5: Storage Account Configuration"
+
+# Ask about storage subscription
+$useDifferentStorageSub = Read-Host "Use storage account in a different subscription? (y/n - default: n)"
+
+if ($useDifferentStorageSub -eq 'y') {
+    Write-Info "`nDiscovering subscriptions for storage account..."
+    Write-Info "Available subscriptions:"
+    for ($i = 0; $i -lt $subscriptions.Count; $i++) {
+        $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
+        $current = if ($subscriptions[$i].SubscriptionId -eq $subscriptionId) { " (current)" } else { "" }
+        Write-Host "  [$i] $($subscriptions[$i].Name)$state$current"
+    }
+    
+    $storageSubSelection = Read-Host "`nSelect storage subscription number"
+    $storageSubSelection = [int]$storageSubSelection
+    
+    $storageSubscriptionId = $subscriptions[$storageSubSelection].SubscriptionId
+    $storageSubscriptionName = $subscriptions[$storageSubSelection].Name
+    
+    Write-Success "Storage will use subscription: $storageSubscriptionName ($storageSubscriptionId)"
+    Write-Info ""
+}
 
 # Switch to storage subscription if different
 if ($storageSubscriptionId -ne $subscriptionId) {
@@ -531,29 +534,9 @@ LOCATION=$(echo "$ADME_INSTANCES" | jq -r ".[$SELECTION].Location")
 success "Selected: $ADME_INSTANCE_NAME"
 echo ""
 
-# Storage Account Subscription
-info "Storage Account Subscription"
-read -p "Use storage account in a different subscription? (y/n - default: n): " USE_DIFFERENT_STORAGE_SUB
-
-if [ "$USE_DIFFERENT_STORAGE_SUB" = "y" ]; then
-    info ""
-    info "Discovering subscriptions for storage account..."
-    info "Available subscriptions:"
-    echo "$SUBSCRIPTIONS" | jq -r --arg current "$SUBSCRIPTION_ID" 'to_entries[] | "  [\(.key)] \(.value.Name)\(if .value.SubscriptionId == $current then " (current)" else "" end)"'
-    
-    echo ""
-    read -p "Select storage subscription number: " STORAGE_SUB_SELECTION
-    
-    STORAGE_SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].SubscriptionId")
-    STORAGE_SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].Name")
-    
-    success "Storage will use subscription: $STORAGE_SUBSCRIPTION_NAME ($STORAGE_SUBSCRIPTION_ID)"
-else
-    STORAGE_SUBSCRIPTION_ID="$SUBSCRIPTION_ID"
-    STORAGE_SUBSCRIPTION_NAME="$SUBSCRIPTION_NAME"
-    info "Storage will use same subscription as ADME instance"
-fi
-echo ""
+# Initialize storage subscription to same as ADME (can be changed later in Step 5)
+STORAGE_SUBSCRIPTION_ID="$SUBSCRIPTION_ID"
+STORAGE_SUBSCRIPTION_NAME="$SUBSCRIPTION_NAME"
 
 # Get ADME instance details
 info "Retrieving ADME instance configuration..."
@@ -567,13 +550,17 @@ DATA_PARTITION_NAME=$(echo "$ADME_DETAILS" | jq -r '.dataPartitions[0].name')
 EXISTING_IDENTITIES=$(echo "$ADME_DETAILS" | jq -r '.existingIdentities // {}')
 
 success "Instance details retrieved"
+info "  Instance Name: $ADME_INSTANCE_NAME"
 info "  Location: $(echo "$ADME_DETAILS" | jq -r '.location')"
 info "  Auth App ID: $AUTH_APP_ID"
 info "  Data Partition: $DATA_PARTITION_NAME"
 
 if [ "$EXISTING_IDENTITIES" != "{}" ] && [ "$EXISTING_IDENTITIES" != "null" ]; then
     warning "Found existing managed identities on this instance"
-    info "  Identities: $EXISTING_IDENTITIES"
+    echo "$EXISTING_IDENTITIES" | jq -r 'keys[]' | while read -r identity_id; do
+        identity_name=$(basename "$identity_id")
+        info "  - $identity_name"
+    done
 fi
 echo ""
 
@@ -666,6 +653,25 @@ echo ""
 
 # Step 5: Storage Account
 info "Step 5: Storage Account Configuration"
+
+# Ask about storage subscription
+read -p "Use storage account in a different subscription? (y/n - default: n): " USE_DIFFERENT_STORAGE_SUB
+
+if [ "$USE_DIFFERENT_STORAGE_SUB" = "y" ]; then
+    info ""
+    info "Discovering subscriptions for storage account..."
+    info "Available subscriptions:"
+    echo "$SUBSCRIPTIONS" | jq -r --arg current "$SUBSCRIPTION_ID" 'to_entries[] | "  [\(.key)] \(.value.Name)\(if .value.SubscriptionId == $current then " (current)" else "" end)"'
+    
+    echo ""
+    read -p "Select storage subscription number: " STORAGE_SUB_SELECTION
+    
+    STORAGE_SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].SubscriptionId")
+    STORAGE_SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].Name")
+    
+    success "Storage will use subscription: $STORAGE_SUBSCRIPTION_NAME ($STORAGE_SUBSCRIPTION_ID)"
+    echo ""
+fi
 
 # Switch to storage subscription if different
 if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
