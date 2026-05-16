@@ -21,7 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2026
-  - [Vaulted backups for Cosmos DB accounts with Azure Backup for Cosmos DB (preview)](#vaulted-backups-for-cosmos-db-accounts-with-azure-backup-for-cosmos-db-preview)
+  - [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
@@ -70,15 +70,17 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
-## Vaulted backups for Cosmos DB accounts with Azure Backup for Cosmos DB (preview)
+## Vaulted backup support for Azure Cosmos DB (preview)
 
-Azure Backup now supports **vaulted backups for Cosmos DB**, enabling secure, off-site protection of Cosmos DB accounts in a Backup vault. This capability helps improve **cyber-resilience and compliance** by maintaining isolated backup copies with **long-term retention** that are protected from accidental deletion, malicious activity, and ransomware scenarios.
+**Azure Backup now supports vaulted backups for Azure Cosmos DB (preview)**. You can protect Azure Cosmos DB accounts by using a Backup vault. Azure Backup stores backups in an isolated, off-site vault that strengthens cyber resilience and supports compliance. This approach protects backups from accidental deletion, malicious activity, and ransomware.
 
-Key benefits include **policy-based scheduled backups**, and **security features such as encryption, soft delete, immutability, and role-based access control**. This preview allows customers to protect Azure Cosmos DB accounts using Azure Backup.
+Key benefits include:
+- **Policy-based scheduled backups:** Defines and manages backup schedules and long-term retention (up to 10 years) for Azure Cosmos DB by using Azure Backup policies.
+- **Built-in security protections:** Protects backups with encryption, soft delete, immutability, and role-based access control.
 
-Please refer to the documentation for [product overview](backup-azure-cosmos-db-overview.md) and details on [supported scenarios and limitations](backup-azure-cosmos-db-support-matrix.md).
+**Note**: Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
 
-Billing will be enabled from 1 July 2026. Refer to Azure Backup [pricing page](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for more details.
+For more information, see [About Azure Cosmos DB backup (preview)](backup-azure-cosmos-db-overview.md).
 
 ## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
 
