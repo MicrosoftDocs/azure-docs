@@ -34,25 +34,19 @@ To create a backup policy, follow these steps:
 2.	On the **Protection policies** pane, select **+ Create policy > Create backup policy**.
 3.	On the **Start: Create Policy** pane, select **Datasource type** as **Azure Cosmos DB (Preview)**, and select **Continue**. 
 4. On the **Create Backup Policy** pane, on the **Basics** tab,  enter a **Policy name** for the new backup policy.
-
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-basics.png" alt-text="Screenshot sows how to provide the Backup policy name." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-basics.png":::
-
 5. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
    
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
+
    >[!Note]
    >The preview feature supports weekly backup frequency only.
 
 6. Under **Retention rules**, select **Add retention rule** to define retention rules for specific backups and set retention duration..
 
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
-
    >[!Note]
    >You can apply rules in priority order: yearly, monthly, then weekly. When a recovery point matches multiple rules, apply the highest-priority rule—for example, apply monthly retention over weekly. The default retention rule (with a period of 1 year) applies when no rule matches.
 
-
 7. On the **Review + create** tab, select **Create** and complete the backup policy creation.
-
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-review-create.png" alt-text="Screenshot shows how to trigger the Backup policy creation." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-review-create.png":::
 
 ## Configure vaulted backup
 
@@ -64,7 +58,6 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
 
 2. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Cosmos DB (Preview)**, and **Solution** as **Azure Backup**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-landing.png" alt-text="Screenshot shows the datasource and solution selection." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-landing.png":::
 
 3. On the **Configure Backup** pane, on the **Basics** tab, check if **Datasource type** appears as **Azure Cosmos DB (preview)**, click **Select vault** under **Vault** and choose an existing Backup vault from the dropdown list, and then select **Next**.
 
@@ -74,7 +67,7 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
          
 4. On the **Backup policy** tab, select a Backup policy that defines the backup schedule and the retention duration, and then select **Next**.
 
-   If you don’t have a backup policy, select **Create new** to create a new one.
+   If you don’t have a backup policy, select **Create new** to [create a new one](#create-vaulted-backup-policy-for-azure-cosmos-db).
 
     :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-backup-policy.png" alt-text="Screenshot shows the Backup policy selection." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-backup-policy.png":::
 
@@ -88,12 +81,13 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
    >Ensure that the primary write region of the Azure Cosmos DB account is same as that of the Backup vault region.
 
    On the **Datasources** tab,  the Azure Backup service validates if all the necessary access permissions to connect to the Cosmos DB account. If one or more access permissions are missing, one of the following  error messages appears – **User cannot assign roles** or **Role assignment not done**.
+   
+   | **Error** | **Cause** | **Recommendation** |
+   |-----------|-------------|
+   | **User cannot assign roles** | This message appears when you (the backup admin) don’t have the **write access** on the Cosmos DB account as listed under **View details**. | To assign the necessary permissions on the required resources, select **Download role assignment template** to fetch the ARM template,  and run the template as an administrator. |
+   | **Role assignment not done** | This message appears when you (the backup admin) have the **write access** on the Cosmos DB account to assign missing permissions as listed under **View details**. | To grant permissions inline, select **Assign missing roles**. |
 
-   - **User cannot assign roles**: This message appears when you (the backup admin) don’t have the **write access** on the Cosmos DB account as listed under **View details**. To assign the necessary permissions on the required resources, select **Download role assignment template** to fetch the ARM template,  and run the template as an administrator. Once the template is run successfully, select **Revalidate**.
-
-   - **Role assignment not done**: This message appears when you (the backup admin) have the **write access** on the Cosmos DB account to assign missing permissions as listed under **View details**. To grant permissions inline, select **Assign missing roles**. 
-
-     Once the process starts, the missing access permissions on the Cosmos DB account are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
+   Once the process starts, the missing access permissions on the Cosmos DB account are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
  
 7. After the role assignment validation shows **Success**,  select **Next**.
 

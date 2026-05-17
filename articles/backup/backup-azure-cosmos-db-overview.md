@@ -80,12 +80,12 @@ Azure Backup for Cosmos DB functions parallelly with the native Cosmos DB backup
 
 ## Backup costs
 
-For Cosmos DB vaulted backup (preview), you incur the following costs from, July 1, 2026:
+For Cosmos DB vaulted backup (preview), you incur the following costs from, 1 July 2026:
 
-- Protected item cost
-- Backup data storage cost
-- Restore cost
- 
+- Protected Instance (PI) fee: A fixed management fee charged per protected account, based on the size of source data being backed up.
+- Backup data storage fee: A variable charge based on the amount of backup data stored in the Backup vault (per GB per month).
+- Restore fee: A charge incurred when backup data is restored, based on the volume of data restored.
+
 For more information, see the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
 
 ## Next steps
