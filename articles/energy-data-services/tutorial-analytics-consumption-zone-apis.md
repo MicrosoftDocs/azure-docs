@@ -14,7 +14,8 @@ ms.reviewer:
 
 # Tutorial: Use Analytics Consumption Zone (ACZ) APIs
 
-This tutorial shows how to use the ACZ management APIs in Azure Data Manager for Energy. You create, list, retrieve, and delete ACZ instances by using cURL or PowerShell.
+
+This tutorial shows how to use the ACZ management APIs in Azure Data Manager for Energy. You create, list, retrieve, and delete ACZ instances by using cURL.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -37,6 +38,7 @@ In this tutorial, you learn how to:
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 - An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where user-assigned managed identity allow listed for ACZ operations has **Storage Blob Data Contributor** role.
 - Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
+- cURL installed on your machine.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
 
 ## Get your Azure Data Manager for Energy instance details
@@ -65,8 +67,6 @@ Use the Create ACZ API to set up a new Analytics Consumption Zone for a data par
   - Granted **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account
 - Your user must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
-# [Bash](#tab/bash)
-
 ```bash
 curl --request POST \
   --url https://{base-url}/api/acz/v1/aczs \
@@ -88,43 +88,6 @@ curl --request POST \
     }
   }'
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$baseUrl = "{base-url}"
-$accessToken = "{access-token}"
-$dataPartitionId = "{data-partition-id}"
-
-$body = @{
-  name = "{acz-name}"
-  aczType = "{acz-type}"
-  targetFormat = "DELTA_PARQUET"
-  sink = @{
-    storageType = "microsoft.storage/storageaccounts"
-    storageId = "{storage-resource-id}"
-    basePath = "{base-path}"
-  }
-  configuration = @{
-    catalogKinds = {catalog-kinds}
-    wellboreDDMSKinds = {wellbore-ddms-kinds}
-  }
-} | ConvertTo-Json -Depth 10
-
-$response = Invoke-RestMethod `
-  -Method Post `
-  -Uri "https://$baseUrl/api/acz/v1/aczs" `
-  -Headers @{
-    "Authorization" = "Bearer $accessToken"
-    "Content-Type" = "application/json"
-    "data-partition-id" = $dataPartitionId
-  } `
-  -Body $body
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
 
 ### Request parameters
 
@@ -186,8 +149,6 @@ Use the List ACZs API to get all Analytics Consumption Zones in a data partition
 
 **API**: `GET /api/acz/v1/aczs`
 
-# [Bash](#tab/bash)
-
 ```bash
 curl --request GET \
   --url https://{base_url}/api/acz/v1/aczs \
@@ -195,27 +156,6 @@ curl --request GET \
   --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$baseUrl = "{base_url}"
-$accessToken = "{access_token}"
-$dataPartitionId = "{data_partition_id}"
-
-$response = Invoke-RestMethod `
-  -Method Get `
-  -Uri "https://$baseUrl/api/acz/v1/aczs" `
-  -Headers @{
-    "Authorization" = "Bearer $accessToken"
-    "Accept" = "application/json"
-    "data-partition-id" = $dataPartitionId
-  }
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
 
 ### Sample response (200 OK)
 
@@ -260,8 +200,6 @@ Use the Get ACZ API to get details for a specific ACZ.
 
 **API**: `GET /api/acz/v1/aczs/{acz_id}`
 
-# [Bash](#tab/bash)
-
 ```bash
 curl --request GET \
   --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
@@ -269,28 +207,6 @@ curl --request GET \
   --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$baseUrl = "{base_url}"
-$accessToken = "{access_token}"
-$dataPartitionId = "{data_partition_id}"
-$aczId = "{acz_id}"
-
-$response = Invoke-RestMethod `
-  -Method Get `
-  -Uri "https://$baseUrl/api/acz/v1/aczs/$aczId" `
-  -Headers @{
-    "Authorization" = "Bearer $accessToken"
-    "Accept" = "application/json"
-    "data-partition-id" = $dataPartitionId
-  }
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
 
 Replace `{acz_id}` with the ACZ identifier from the Create or List response.
 
@@ -335,8 +251,6 @@ Use the Delete ACZ API to remove an ACZ configuration.
 > [!WARNING]
 > This delete action can't be undone. It removes all ACZ configuration and stops sync. Data already in the destination ADLS storage account stays intact.
 
-# [Bash](#tab/bash)
-
 ```bash
 curl --request DELETE \
   --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
@@ -344,29 +258,6 @@ curl --request DELETE \
   --header 'Accept: application/json' \
   --header 'data-partition-id: {data_partition_id}'
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$baseUrl = "{base_url}"
-$accessToken = "{access_token}"
-$dataPartitionId = "{data_partition_id}"
-$aczId = "{acz_id}"
-
-$response = Invoke-RestMethod `
-  -Method Delete `
-  -Uri "https://$baseUrl/api/acz/v1/aczs/$aczId" `
-  -Headers @{
-    "Authorization" = "Bearer $accessToken"
-    "Accept" = "application/json"
-    "data-partition-id" = $dataPartitionId
-  }
-
-# Note: 204 No Content returns no response body
-Write-Host "ACZ deleted successfully (HTTP 204)"
-```
-
----
 
 ### Sample response (204 No Content)
 

@@ -28,12 +28,12 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 
 | Step | Task |
 |------|------|
-| 1 | Create a user-assigned managed identity for ACZ |
-| 2 | Assign the user-assigned managed identity to your Azure Data Manager for Energy resource |
-| 3 | Verify the user has entitlement group access |
-| 4 | Create or use an existing ADLS Gen2 storage account |
-| 5 | Grant the user-assigned managed identity permissions on the ADLS Gen2 container |
-| 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (preview requirement) |
+| 1 | Create or use existing ADLS Gen2 storage account |
+| 2 | Create user-assigned managed identity for ACZ |
+| 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
+| 4 | Verify user has entitlement group access |
+| 5 | Grant user-assigned managed identity storage permissions |
+| 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft |
 
 ## Prerequisites
 
@@ -41,801 +41,20 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 - An Azure Data Manager for Energy instance (Developer Tier) with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - The [Azure CLI](/cli/azure/install-azure-cli) installed on your machine, or access to [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## Quick setup with automation (Recommended)
+## Step 1: Create or use an existing ADLS Gen2 storage account
 
-For a faster setup experience, use our automation scripts that handle all configuration steps automatically. Choose the script for your environment:
+ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
 
-# [PowerShell](#tab/powershell-script)
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
+2. On the **Basics** tab, select your subscription and resource group.
+3. Enter a storage account name and select your preferred region.
+4. On the **Advanced** tab, select **Enable hierarchical namespace**.
+5. Select **Review + create**, then select **Create**.
 
-**What the script does:**
-- Discovers your Azure subscriptions and Azure Data Manager for Energy (ADME) instances
-- Prompts for required inputs (resource names, locations)
-- Creates managed identity (or uses existing)
-- Assigns identity to ADME instance (preserving existing identities)
-- Grants storage permissions
-- Provides summary of configuration for Microsoft allowlisting
+> [!IMPORTANT]
+> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
-**Prerequisites:**
-- Azure CLI installed and logged in (`az login`)
-- Permissions to create resources and assign roles
-
-**Setup script:**
-
-```powershell
-<#
-.SYNOPSIS
-    Automates Analytics Consumption Zone (ACZ) setup for Azure Data Manager for Energy.
-
-.DESCRIPTION
-    This script automates the one-time setup required to enable ACZ on your Azure Data Manager for Energy instance.
-    It handles managed identity creation, assignment, and storage permissions.
-
-.NOTES
-    Prerequisites:
-    - Azure CLI installed and authenticated (az login)
-    - Permissions to create managed identities and assign roles
-    - Azure Data Manager for Energy instance already created
-#>
-
-[CmdletBinding()]
-param()
-
-# Colors for output
-function Write-Info { param($Message) Write-Host $Message -ForegroundColor Cyan }
-function Write-Success { param($Message) Write-Host "✓ $Message" -ForegroundColor Green }
-function Write-Warning { param($Message) Write-Host "⚠ $Message" -ForegroundColor Yellow }
-function Write-ErrorMsg { param($Message) Write-Host "✗ $Message" -ForegroundColor Red }
-
-Write-Info "=== Azure Data Manager for Energy - ACZ Setup Automation ==="
-Write-Info ""
-
-# Check authentication
-Write-Info "Checking Azure CLI authentication..."
-$authCheck = az account show 2>&1
-if ($LASTEXITCODE -ne 0) {
-    Write-ErrorMsg "Not authenticated to Azure CLI. Please run 'az login' first."
-    exit 1
-}
-Write-Success "Authenticated"
-Write-Info ""
-
-# Step 1: Discover and select subscription
-Write-Info "Step 1: Select Azure Subscription"
-Write-Info "Discovering subscriptions..."
-
-$subscriptions = az account list --query '[].{Name:name, SubscriptionId:id, State:state}' -o json | ConvertFrom-Json
-$subscriptions = $subscriptions | Sort-Object Name
-
-if ($subscriptions.Count -eq 0) {
-    Write-ErrorMsg "No subscriptions found. Please run 'az login' first."
-    exit 1
-}
-
-Write-Info "`nAvailable subscriptions:"
-for ($i = 0; $i -lt $subscriptions.Count; $i++) {
-    $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
-    Write-Host "  [$i] $($subscriptions[$i].Name)$state"
-}
-
-$subSelection = Read-Host "`nSelect subscription number (or press Enter for 0)"
-if ([string]::IsNullOrWhiteSpace($subSelection)) { $subSelection = 0 }
-$subSelection = [int]$subSelection
-
-$subscriptionId = $subscriptions[$subSelection].SubscriptionId
-$subscriptionName = $subscriptions[$subSelection].Name
-
-az account set --subscription $subscriptionId
-Write-Success "Subscription set to: $subscriptionName ($subscriptionId)"
-Write-Info ""
-
-# Step 2: Discover and select ADME instance
-Write-Info "Step 2: Select Azure Data Manager for Energy Instance"
-Write-Info "Discovering ADME instances in subscription..."
-
-$admeInstances = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --query "[].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json | ConvertFrom-Json
-$admeInstances = $admeInstances | Sort-Object Name
-
-if ($admeInstances.Count -eq 0) {
-    Write-ErrorMsg "No ADME instances found in subscription $subscriptionId"
-    exit 1
-}
-
-Write-Info "`nAvailable ADME instances:"
-for ($i = 0; $i -lt $admeInstances.Count; $i++) {
-    Write-Host "  [$i] $($admeInstances[$i].Name) (RG: $($admeInstances[$i].ResourceGroup), Location: $($admeInstances[$i].Location))"
-}
-
-$selection = Read-Host "`nSelect ADME instance number (or press Enter for 0)"
-if ([string]::IsNullOrWhiteSpace($selection)) { $selection = 0 }
-$selection = [int]$selection
-
-$admeInstanceName = $admeInstances[$selection].Name
-$resourceGroup = $admeInstances[$selection].ResourceGroup
-$location = $admeInstances[$selection].Location
-
-Write-Success "Selected: $admeInstanceName"
-Write-Info ""
-
-# Initialize storage subscription to same as ADME (can be changed later in Step 5)
-$storageSubscriptionId = $subscriptionId
-$storageSubscriptionName = $subscriptionName
-
-# Get ADME instance details
-Write-Info "Retrieving ADME instance configuration..."
-$admeDetails = az resource show `
-    --ids "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$admeInstanceName" `
-    --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames, existingIdentities:identity.userAssignedIdentities}" `
-    -o json | ConvertFrom-Json
-
-$authAppId = $admeDetails.authAppId
-$dataPartitionName = $admeDetails.dataPartitions[0].name
-$existingIdentities = $admeDetails.existingIdentities
-
-Write-Success "Instance details retrieved"
-Write-Info "  Instance Name: $admeInstanceName"
-Write-Info "  Location: $($admeDetails.location)"
-Write-Info "  Auth App ID: $authAppId"
-Write-Info "  Data Partition: $dataPartitionName"
-
-if ($existingIdentities) {
-    Write-Warning "Found existing managed identities on this instance"
-    $existingIdentities.PSObject.Properties | ForEach-Object {
-        $identityName = $_.Name.Split('/')[-1]
-        Write-Info "  - $identityName"
-    }
-}
-Write-Info ""
-
-# Step 3: Managed Identity - Create or Use Existing
-Write-Info "Step 3: Managed Identity Configuration"
-$useExisting = Read-Host "Use existing managed identity? (y/n, default: n)"
-
-if ($useExisting -eq 'y') {
-    Write-Info "`nDiscovering managed identities in subscription..."
-    $identities = az identity list --query "[].{Name:name, ResourceGroup:resourceGroup, Id:id}" -o json | ConvertFrom-Json
-    $identities = $identities | Sort-Object Name
-    
-    if ($identities.Count -eq 0) {
-        Write-ErrorMsg "No managed identities found. Creating new identity..."
-        $useExisting = 'n'
-    } else {
-        Write-Info "`nAvailable managed identities:"
-        for ($i = 0; $i -lt $identities.Count; $i++) {
-            Write-Host "  [$i] $($identities[$i].Name) (RG: $($identities[$i].ResourceGroup))"
-        }
-        
-        $idSelection = Read-Host "`nSelect identity number"
-        $idSelection = [int]$idSelection
-        
-        $identityResourceId = $identities[$idSelection].Id
-        $identityName = $identities[$idSelection].Name
-        $identityRg = $identities[$idSelection].ResourceGroup
-        
-        Write-Success "Using existing identity: $identityName"
-    }
-}
-
-if ($useExisting -ne 'y') {
-    $identityName = Read-Host "`nEnter name for new managed identity (e.g. acz-identity)"
-    $identityRg = Read-Host "Enter resource group for identity (default: $resourceGroup)"
-    if ([string]::IsNullOrWhiteSpace($identityRg)) { $identityRg = $resourceGroup }
-    
-    Write-Info "Creating managed identity: $identityName..."
-    $identity = az identity create --name $identityName --resource-group $identityRg --location $location -o json | ConvertFrom-Json
-    $identityResourceId = $identity.id
-    
-    Write-Success "Managed identity created: $identityResourceId"
-}
-Write-Info ""
-
-# Step 4: Assign managed identity to ADME instance
-Write-Info "Step 4: Assigning Managed Identity to ADME Instance"
-Write-Info "Getting Azure Resource Manager token..."
-
-$token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
-
-# Build identity object (preserve existing identities)
-$identityObject = @{
-    $identityResourceId = @{}
-}
-
-if ($existingIdentities) {
-    Write-Info "Preserving existing identities..."
-    $existingIdentities.PSObject.Properties | ForEach-Object {
-        $identityObject[$_.Name] = @{}
-    }
-}
-
-$body = @{
-    location = $location
-    properties = @{
-        authAppId = $authAppId
-        dataPartitionNames = @(
-            @{ name = $dataPartitionName }
-        )
-    }
-    identity = @{
-        type = "UserAssigned"
-        userAssignedIdentities = $identityObject
-    }
-} | ConvertTo-Json -Depth 10
-
-Write-Info "Updating ADME instance..."
-$response = Invoke-RestMethod `
-    -Method Put `
-    -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/${admeInstanceName}?api-version=2025-09-22-preview" `
-    -Headers @{
-        "Authorization" = "Bearer $token"
-        "Content-Type" = "application/json"
-    } `
-    -Body $body
-
-Write-Success "Managed identity assigned to ADME instance"
-Write-Info ""
-
-# Step 5: Storage Account
-Write-Info "Step 5: Storage Account Configuration"
-
-# Ask about storage subscription
-$useDifferentStorageSub = Read-Host "Use storage account in a different subscription? (y/n - default: n)"
-
-if ($useDifferentStorageSub -eq 'y') {
-    Write-Info "`nDiscovering subscriptions for storage account..."
-    Write-Info "Available subscriptions:"
-    for ($i = 0; $i -lt $subscriptions.Count; $i++) {
-        $state = if ($subscriptions[$i].State -eq 'Enabled') { '' } else { " [$($subscriptions[$i].State)]" }
-        $current = if ($subscriptions[$i].SubscriptionId -eq $subscriptionId) { " (current)" } else { "" }
-        Write-Host "  [$i] $($subscriptions[$i].Name)$state$current"
-    }
-    
-    $storageSubSelection = Read-Host "`nSelect storage subscription number"
-    $storageSubSelection = [int]$storageSubSelection
-    
-    $storageSubscriptionId = $subscriptions[$storageSubSelection].SubscriptionId
-    $storageSubscriptionName = $subscriptions[$storageSubSelection].Name
-    
-    Write-Success "Storage will use subscription: $storageSubscriptionName ($storageSubscriptionId)"
-    Write-Info ""
-}
-
-# Switch to storage subscription if different
-if ($storageSubscriptionId -ne $subscriptionId) {
-    Write-Info "Switching to storage subscription: $storageSubscriptionName..."
-    az account set --subscription $storageSubscriptionId
-    Write-Success "Context switched to storage subscription"
-}
-
-$useExistingStorage = Read-Host "Use existing ADLS Gen2 storage account? (y/n - default: n)"
-
-if ($useExistingStorage -eq 'y') {
-    Write-Info "`nDiscovering ADLS Gen2 storage accounts in subscription..."
-    $storageAccounts = az storage account list --query "[?kind=='StorageV2' && isHnsEnabled==\`true\`].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json | ConvertFrom-Json
-    $storageAccounts = $storageAccounts | Sort-Object Name
-    
-    if ($storageAccounts.Count -eq 0) {
-        Write-ErrorMsg "No ADLS Gen2 storage accounts found. Creating new storage account..."
-        $useExistingStorage = 'n'
-    } else {
-        Write-Info "`nAvailable ADLS Gen2 storage accounts:"
-        for ($i = 0; $i -lt $storageAccounts.Count; $i++) {
-            Write-Host "  [$i] $($storageAccounts[$i].Name) (RG: $($storageAccounts[$i].ResourceGroup), Location: $($storageAccounts[$i].Location))"
-        }
-        
-        $storageSelection = Read-Host "`nSelect storage account number"
-        $storageSelection = [int]$storageSelection
-        
-        $storageAccountName = $storageAccounts[$storageSelection].Name
-        $storageRg = $storageAccounts[$storageSelection].ResourceGroup
-        
-        Write-Success "Using existing storage account: $storageAccountName"
-    }
-}
-
-if ($useExistingStorage -ne 'y') {
-    $storageAccountName = Read-Host "`nEnter name for new ADLS Gen2 storage account"
-    $storageRg = Read-Host "Enter resource group for storage account (default: $resourceGroup)"
-    if ([string]::IsNullOrWhiteSpace($storageRg)) { $storageRg = $resourceGroup }
-    
-    Write-Info "Creating ADLS Gen2 storage account..."
-    az storage account create `
-        --name $storageAccountName `
-        --resource-group $storageRg `
-        --location $location `
-        --sku Standard_LRS `
-        --kind StorageV2 `
-        --enable-hierarchical-namespace true
-    
-    Write-Success "Storage account created: $storageAccountName"
-}
-
-$storageResourceId = "/subscriptions/$storageSubscriptionId/resourceGroups/$storageRg/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
-
-# Switch back to ADME subscription if needed
-if ($storageSubscriptionId -ne $subscriptionId) {
-    Write-Info "Switching back to ADME subscription..."
-    az account set --subscription $subscriptionId
-    Write-Success "Context switched back to ADME subscription"
-}
-Write-Info ""
-
-# Step 6: Grant storage permissions
-Write-Info "Step 6: Granting Storage Permissions"
-Write-Info "Assigning 'Storage Blob Data Contributor' role to managed identity..."
-
-# Get the principal ID of the managed identity
-$principalId = az identity show --ids $identityResourceId --query principalId -o tsv
-
-az role assignment create `
-    --assignee $principalId `
-    --role "Storage Blob Data Contributor" `
-    --scope $storageResourceId
-
-Write-Success "Storage permissions granted"
-Write-Info ""
-
-# Summary
-Write-Info "========================================="
-Write-Info "ACZ Setup Complete!"
-Write-Info "========================================="
-Write-Info ""
-Write-Success "Configuration Summary:"
-Write-Info ""
-Write-Info "ADME Instance Details:"
-Write-Info "  Subscription: $subscriptionName"
-Write-Info "  Subscription ID: $subscriptionId"
-Write-Info "  Name: $admeInstanceName"
-Write-Info "  Resource Group: $resourceGroup"
-Write-Info "  Location: $location"
-Write-Info "  Data Partition: $dataPartitionName"
-Write-Info ""
-Write-Info "Managed Identity:"
-Write-Info "  Name: $identityName"
-Write-Info "  Resource ID: $identityResourceId"
-Write-Info ""
-Write-Info "Storage Account:"
-if ($storageSubscriptionId -ne $subscriptionId) {
-    Write-Info "  Subscription: $storageSubscriptionName"
-    Write-Info "  Subscription ID: $storageSubscriptionId"
-}
-Write-Info "  Name: $storageAccountName"
-Write-Info "  Resource ID: $storageResourceId"
-Write-Info ""
-Write-Warning "NEXT STEPS:"
-Write-Info "1. Share the following with your Microsoft representative for allowlisting:"
-Write-Info "   - ADME Instance: $admeInstanceName"
-Write-Info "   - Managed Identity Resource ID: $identityResourceId"
-Write-Info ""
-Write-Info "2. After allowlisting, verify entitlement group access (see manual steps below)"
-Write-Info ""
-Write-Info "3. Create your first ACZ using the API (see 'Create an Analytics Consumption Zone' section below)"
-Write-Info ""
-```
-
-Save this script as `enable-acz-setup.ps1` and run it with PowerShell.
-
-# [Bash](#tab/bash-script)
-
-**What the script does:**
-- Discovers your Azure subscriptions and Azure Data Manager for Energy (ADME) instances
-- Prompts for required inputs (resource names, locations)
-- Creates managed identity (or uses existing)
-- Assigns identity to ADME instance (preserving existing identities)
-- Grants storage permissions
-- Provides summary of configuration for Microsoft allowlisting
-
-**Prerequisites:**
-- Azure CLI installed and logged in (`az login`)
-- `jq` installed for JSON parsing
-- Permissions to create resources and assign roles
-
-**Setup script:**
-
-```bash
-#!/bin/bash
-
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-NC='\033[0m' # No Color
-
-info() { echo -e "${CYAN}$1${NC}"; }
-success() { echo -e "${GREEN}✓ $1${NC}"; }
-warning() { echo -e "${YELLOW}⚠ $1${NC}"; }
-error() { echo -e "${RED}✗ $1${NC}"; }
-
-info "=== Azure Data Manager for Energy - ACZ Setup Automation ==="
-echo ""
-
-# Check prerequisites
-if ! command -v az &> /dev/null; then
-    error "Azure CLI not found. Please install: https://docs.microsoft.com/cli/azure/install-azure-cli"
-    exit 1
-fi
-
-if ! command -v jq &> /dev/null; then
-    error "jq not found. Please install: https://stedolan.github.io/jq/download/"
-    exit 1
-fi
-
-# Check authentication
-info "Checking Azure CLI authentication..."
-if ! az account show &> /dev/null; then
-    error "Not authenticated to Azure CLI. Please run 'az login' first."
-    exit 1
-fi
-success "Authenticated"
-echo ""
-
-# Step 1: Select subscription
-info "Step 1: Select Azure Subscription"
-info "Discovering subscriptions..."
-
-SUBSCRIPTIONS=$(az account list --query '[].{Name:name, SubscriptionId:id, State:state}' -o json)
-
-if [ "$(echo "$SUBSCRIPTIONS" | jq 'length')" -eq 0 ]; then
-    error "No subscriptions found. Please run 'az login' first."
-    exit 1
-fi
-
-# Sort subscriptions by name
-SUBSCRIPTIONS=$(echo "$SUBSCRIPTIONS" | jq 'sort_by(.Name)')
-
-echo ""
-info "Available subscriptions:"
-for i in $(seq 0 $(($(echo "$SUBSCRIPTIONS" | jq 'length') - 1))); do
-    NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$i].Name")
-    STATE=$(echo "$SUBSCRIPTIONS" | jq -r ".[$i].State")
-    if [ "$STATE" = "Enabled" ]; then
-        echo "  [$i] $NAME"
-    else
-        echo "  [$i] $NAME [$STATE]"
-    fi
-done
-
-echo ""
-read -p "Select subscription number (or press Enter for 0): " SUB_SELECTION
-SUB_SELECTION=${SUB_SELECTION:-0}
-
-SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$SUB_SELECTION].SubscriptionId")
-SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$SUB_SELECTION].Name")
-
-az account set --subscription "$SUBSCRIPTION_ID"
-success "Subscription set to: $SUBSCRIPTION_NAME ($SUBSCRIPTION_ID)"
-echo ""
-
-# Step 2: Select ADME instance
-info "Step 2: Select Azure Data Manager for Energy Instance"
-info "Discovering ADME instances in subscription..."
-
-ADME_INSTANCES=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --query "[].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json)
-
-if [ "$(echo "$ADME_INSTANCES" | jq 'length')" -eq 0 ]; then
-    error "No ADME instances found in subscription $SUBSCRIPTION_ID"
-    exit 1
-fi
-
-# Sort ADME instances by name
-ADME_INSTANCES=$(echo "$ADME_INSTANCES" | jq 'sort_by(.Name)')
-
-echo ""
-info "Available ADME instances:"
-echo "$ADME_INSTANCES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup), Location: \(.value.Location))"'
-
-echo ""
-read -p "Select ADME instance number (default: 0): " SELECTION
-SELECTION=${SELECTION:-0}
-
-ADME_INSTANCE_NAME=$(echo "$ADME_INSTANCES" | jq -r ".[$SELECTION].Name")
-RESOURCE_GROUP=$(echo "$ADME_INSTANCES" | jq -r ".[$SELECTION].ResourceGroup")
-LOCATION=$(echo "$ADME_INSTANCES" | jq -r ".[$SELECTION].Location")
-
-success "Selected: $ADME_INSTANCE_NAME"
-echo ""
-
-# Initialize storage subscription to same as ADME (can be changed later in Step 5)
-STORAGE_SUBSCRIPTION_ID="$SUBSCRIPTION_ID"
-STORAGE_SUBSCRIPTION_NAME="$SUBSCRIPTION_NAME"
-
-# Get ADME instance details
-info "Retrieving ADME instance configuration..."
-ADME_DETAILS=$(az resource show \
-    --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" \
-    --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames, existingIdentities:identity.userAssignedIdentities}" \
-    -o json)
-
-AUTH_APP_ID=$(echo "$ADME_DETAILS" | jq -r '.authAppId')
-DATA_PARTITION_NAME=$(echo "$ADME_DETAILS" | jq -r '.dataPartitions[0].name')
-EXISTING_IDENTITIES=$(echo "$ADME_DETAILS" | jq -r '.existingIdentities // {}')
-
-success "Instance details retrieved"
-info "  Instance Name: $ADME_INSTANCE_NAME"
-info "  Location: $(echo "$ADME_DETAILS" | jq -r '.location')"
-info "  Auth App ID: $AUTH_APP_ID"
-info "  Data Partition: $DATA_PARTITION_NAME"
-
-if [ "$EXISTING_IDENTITIES" != "{}" ] && [ "$EXISTING_IDENTITIES" != "null" ]; then
-    warning "Found existing managed identities on this instance"
-    echo "$EXISTING_IDENTITIES" | jq -r 'keys[]' | while read -r identity_id; do
-        identity_name=$(basename "$identity_id")
-        info "  - $identity_name"
-    done
-fi
-echo ""
-
-# Step 3: Managed Identity
-info "Step 3: Managed Identity Configuration"
-read -p "Use existing managed identity? (y/n - default: n): " USE_EXISTING
-
-if [ "$USE_EXISTING" = "y" ]; then
-    info ""
-    info "Discovering managed identities in subscription..."
-    IDENTITIES=$(az identity list --query "[].{Name:name, ResourceGroup:resourceGroup, Id:id}" -o json)
-    
-    if [ "$(echo "$IDENTITIES" | jq 'length')" -eq 0 ]; then
-        error "No managed identities found. Creating new identity..."
-        USE_EXISTING="n"
-    else
-        # Sort identities by name
-        IDENTITIES=$(echo "$IDENTITIES" | jq 'sort_by(.Name)')
-        
-        info ""
-        info "Available managed identities:"
-        echo "$IDENTITIES" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup))"'
-        
-        echo ""
-        read -p "Select identity number: " ID_SELECTION
-        
-        IDENTITY_RESOURCE_ID=$(echo "$IDENTITIES" | jq -r ".[$ID_SELECTION].Id")
-        IDENTITY_NAME=$(echo "$IDENTITIES" | jq -r ".[$ID_SELECTION].Name")
-        IDENTITY_RG=$(echo "$IDENTITIES" | jq -r ".[$ID_SELECTION].ResourceGroup")
-        
-        success "Using existing identity: $IDENTITY_NAME"
-    fi
-fi
-
-if [ "$USE_EXISTING" != "y" ]; then
-    echo ""
-    read -p "Enter name for new managed identity (e.g. acz-identity): " IDENTITY_NAME
-    read -p "Enter resource group for identity (default: $RESOURCE_GROUP): " IDENTITY_RG
-    IDENTITY_RG=${IDENTITY_RG:-$RESOURCE_GROUP}
-    
-    info "Creating managed identity: $IDENTITY_NAME..."
-    IDENTITY=$(az identity create --name "$IDENTITY_NAME" --resource-group "$IDENTITY_RG" --location "$LOCATION" -o json)
-    IDENTITY_RESOURCE_ID=$(echo "$IDENTITY" | jq -r '.id')
-    
-    success "Managed identity created: $IDENTITY_RESOURCE_ID"
-fi
-echo ""
-
-# Step 4: Assign managed identity to ADME instance
-info "Step 4: Assigning Managed Identity to ADME Instance"
-info "Getting Azure Resource Manager token..."
-
-TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
-
-# Build identity object (preserve existing identities)
-if [ "$EXISTING_IDENTITIES" != "{}" ] && [ "$EXISTING_IDENTITIES" != "null" ]; then
-    info "Preserving existing identities..."
-    IDENTITY_OBJECT=$(echo "$EXISTING_IDENTITIES" | jq ". + {\"$IDENTITY_RESOURCE_ID\": {}}")
-else
-    IDENTITY_OBJECT=$(jq -n "{\"$IDENTITY_RESOURCE_ID\": {}}")
-fi
-
-BODY=$(jq -n \
-    --arg location "$LOCATION" \
-    --arg authAppId "$AUTH_APP_ID" \
-    --arg dataPartition "$DATA_PARTITION_NAME" \
-    --argjson identities "$IDENTITY_OBJECT" \
-    '{
-        location: $location,
-        properties: {
-            authAppId: $authAppId,
-            dataPartitionNames: [{name: $dataPartition}]
-        },
-        identity: {
-            type: "UserAssigned",
-            userAssignedIdentities: $identities
-        }
-    }')
-
-info "Updating ADME instance..."
-curl --request PUT \
-    --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
-    --header "Authorization: Bearer $TOKEN" \
-    --header "Content-Type: application/json" \
-    --data "$BODY" \
-    --silent --show-error
-
-success "Managed identity assigned to ADME instance"
-echo ""
-
-# Step 5: Storage Account
-info "Step 5: Storage Account Configuration"
-
-# Ask about storage subscription
-read -p "Use storage account in a different subscription? (y/n - default: n): " USE_DIFFERENT_STORAGE_SUB
-
-if [ "$USE_DIFFERENT_STORAGE_SUB" = "y" ]; then
-    info ""
-    info "Discovering subscriptions for storage account..."
-    info "Available subscriptions:"
-    echo "$SUBSCRIPTIONS" | jq -r --arg current "$SUBSCRIPTION_ID" 'to_entries[] | "  [\(.key)] \(.value.Name)\(if .value.SubscriptionId == $current then " (current)" else "" end)"'
-    
-    echo ""
-    read -p "Select storage subscription number: " STORAGE_SUB_SELECTION
-    
-    STORAGE_SUBSCRIPTION_ID=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].SubscriptionId")
-    STORAGE_SUBSCRIPTION_NAME=$(echo "$SUBSCRIPTIONS" | jq -r ".[$STORAGE_SUB_SELECTION].Name")
-    
-    success "Storage will use subscription: $STORAGE_SUBSCRIPTION_NAME ($STORAGE_SUBSCRIPTION_ID)"
-    echo ""
-fi
-
-# Switch to storage subscription if different
-if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
-    info "Switching to storage subscription: $STORAGE_SUBSCRIPTION_NAME..."
-    az account set --subscription "$STORAGE_SUBSCRIPTION_ID"
-    success "Context switched to storage subscription"
-fi
-
-read -p "Use existing ADLS Gen2 storage account? (y/n - default: n): " USE_EXISTING_STORAGE
-
-if [ "$USE_EXISTING_STORAGE" = "y" ]; then
-    info ""
-    info "Discovering ADLS Gen2 storage accounts in subscription..."
-    STORAGE_ACCOUNTS=$(az storage account list --query "[?kind=='StorageV2' && isHnsEnabled==\`true\`].{Name:name, ResourceGroup:resourceGroup, Location:location}" -o json)
-    
-    if [ "$(echo "$STORAGE_ACCOUNTS" | jq 'length')" -eq 0 ]; then
-        error "No ADLS Gen2 storage accounts found. Creating new storage account..."
-        USE_EXISTING_STORAGE="n"
-    else
-        # Sort storage accounts by name
-        STORAGE_ACCOUNTS=$(echo "$STORAGE_ACCOUNTS" | jq 'sort_by(.Name)')
-        
-        info ""
-        info "Available ADLS Gen2 storage accounts:"
-        echo "$STORAGE_ACCOUNTS" | jq -r 'to_entries[] | "  [\(.key)] \(.value.Name) (RG: \(.value.ResourceGroup), Location: \(.value.Location))"'
-        
-        echo ""
-        read -p "Select storage account number: " STORAGE_SELECTION
-        
-        STORAGE_ACCOUNT_NAME=$(echo "$STORAGE_ACCOUNTS" | jq -r ".[$STORAGE_SELECTION].Name")
-        STORAGE_RG=$(echo "$STORAGE_ACCOUNTS" | jq -r ".[$STORAGE_SELECTION].ResourceGroup")
-        
-        success "Using existing storage account: $STORAGE_ACCOUNT_NAME"
-    fi
-fi
-
-if [ "$USE_EXISTING_STORAGE" != "y" ]; then
-    echo ""
-    read -p "Enter name for new ADLS Gen2 storage account: " STORAGE_ACCOUNT_NAME
-    read -p "Enter resource group for storage account (default: $RESOURCE_GROUP): " STORAGE_RG
-    STORAGE_RG=${STORAGE_RG:-$RESOURCE_GROUP}
-    
-    info "Creating ADLS Gen2 storage account..."
-    az storage account create \
-        --name "$STORAGE_ACCOUNT_NAME" \
-        --resource-group "$STORAGE_RG" \
-        --location "$LOCATION" \
-        --sku Standard_LRS \
-        --kind StorageV2 \
-        --enable-hierarchical-namespace true
-    
-    success "Storage account created: $STORAGE_ACCOUNT_NAME"
-fi
-
-STORAGE_RESOURCE_ID="/subscriptions/$STORAGE_SUBSCRIPTION_ID/resourceGroups/$STORAGE_RG/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
-
-# Switch back to ADME subscription if needed
-if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
-    info "Switching back to ADME subscription..."
-    az account set --subscription "$SUBSCRIPTION_ID"
-    success "Context switched back to ADME subscription"
-fi
-echo ""
-
-# Step 6: Grant storage permissions
-info "Step 6: Granting Storage Permissions"
-info "Assigning 'Storage Blob Data Contributor' role to managed identity..."
-
-PRINCIPAL_ID=$(az identity show --ids "$IDENTITY_RESOURCE_ID" --query principalId -o tsv)
-
-az role assignment create \
-    --assignee "$PRINCIPAL_ID" \
-    --role "Storage Blob Data Contributor" \
-    --scope "$STORAGE_RESOURCE_ID"
-
-success "Storage permissions granted"
-echo ""
-    '{
-        location: $location,
-        properties: {
-            authAppId: $authAppId,
-            dataPartitionNames: [{name: $dataPartition}]
-        },
-        identity: {
-            type: "UserAssigned",
-            userAssignedIdentities: $identities
-        }
-    }')
-
-info "Updating ADME instance..."
-curl --request PUT \
-    --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
-    --header "Authorization: Bearer $TOKEN" \
-    --header "Content-Type: application/json" \
-    --data "$BODY" \
-    --silent --show-error
-
-success "Managed identity assigned to ADME instance"
-echo ""
-
-# Step 6: Grant storage permissions
-info "Step 6: Granting Storage Permissions"
-info "Assigning 'Storage Blob Data Contributor' role to managed identity..."
-
-PRINCIPAL_ID=$(az identity show --ids "$IDENTITY_RESOURCE_ID" --query principalId -o tsv)
-
-az role assignment create \
-    --assignee "$PRINCIPAL_ID" \
-    --role "Storage Blob Data Contributor" \
-    --scope "$STORAGE_RESOURCE_ID"
-
-success "Storage permissions granted"
-echo ""
-
-# Summary
-info "========================================="
-info "ACZ Setup Complete!"
-info "========================================="
-echo ""
-success "Configuration Summary:"
-echo ""
-info "ADME Instance Details:"
-info "  Subscription: $SUBSCRIPTION_NAME"
-info "  Subscription ID: $SUBSCRIPTION_ID"
-info "  Name: $ADME_INSTANCE_NAME"
-info "  Resource Group: $RESOURCE_GROUP"
-info "  Location: $LOCATION"
-info "  Data Partition: $DATA_PARTITION_NAME"
-echo ""
-info "Managed Identity:"
-info "  Name: $IDENTITY_NAME"
-info "  Resource ID: $IDENTITY_RESOURCE_ID"
-echo ""
-info "Storage Account:"
-if [ "$STORAGE_SUBSCRIPTION_ID" != "$SUBSCRIPTION_ID" ]; then
-    info "  Subscription: $STORAGE_SUBSCRIPTION_NAME"
-    info "  Subscription ID: $STORAGE_SUBSCRIPTION_ID"
-fi
-info "  Name: $STORAGE_ACCOUNT_NAME"
-info "  Resource ID: $STORAGE_RESOURCE_ID"
-echo ""
-warning "NEXT STEPS:"
-info "1. Share the following with your Microsoft representative for allowlisting:"
-info "   - ADME Instance: $ADME_INSTANCE_NAME"
-info "   - Managed Identity Resource ID: $IDENTITY_RESOURCE_ID"
-echo ""
-info "2. After allowlisting, verify entitlement group access (see manual steps below)"
-echo ""
-info "3. Create your first ACZ using the API (see 'Create an Analytics Consumption Zone' section below)"
-echo ""
-```
-
-Save this script as `enable-acz-setup.sh`, make it executable with `chmod +x enable-acz-setup.sh`, and run it.
-
----
-
-> [!TIP]
-> The automation scripts handle all setup steps automatically. If you prefer to understand each configuration step or need customization, continue with the manual step-by-step instructions in this section.
-
-## Manual step-by-step setup
-
-For users who want to understand each configuration step or need customization, follow the manual setup instructions in this section.
-
-## Step 1: Create a user-assigned managed identity for ACZ
+## Step 2: Create a user-assigned managed identity for ACZ
 
 ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a dedicated identity for ACZ:
 
@@ -853,134 +72,25 @@ To create a user-assigned managed identity:
 3. Select your subscription, resource group, region, and provide a name for the identity.
 4. Select **Review + create**, then select **Create**.
 
-## Step 2: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
+## Step 3: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
 
 > [!IMPORTANT]
 > **Different token required for this step!**  
 > This step uses an **Azure Resource Manager (ARM) token** (not your Azure Data Manager for Energy auth token) to update the instance configuration via the ARM control plane API. The following script generates the correct ARM token automatically.
 
-Assign the user-assigned managed identity you created in Step 1 to your Azure Data Manager for Energy resource.
+Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
+
+Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
  > [!IMPORTANT]
 > **Preserve existing managed identities!**  
 > If your Azure Data Manager for Energy instance includes user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities removes them from the instance.
-
-### Initialize variables
-
-First, set up your variables. The Azure CLI commands help you discover available resources.
-
-# [Bash](#tab/bash)
-
-```bash
-# Discover available subscriptions
-az account list --output table
-
-# Set your subscription (replace with your subscription ID)
-SUBSCRIPTION_ID="<your-subscription-id>"
-az account set --subscription $SUBSCRIPTION_ID
-
-# Discover resource groups
-az group list --output table
-
-# Set variables for your Azure Data Manager for Energy instance
-RESOURCE_GROUP="<your-resource-group>"
-ADME_INSTANCE_NAME="<your-adme-instance-name>"
-
-# Discover Azure Data Manager for Energy instances in your subscription
-az resource list \
-  --resource-type "Microsoft.OpenEnergyPlatform/energyServices" \
-  --output table
-
-# Get instance details (location, authAppId, data partitions)
-az resource show \
-  --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME \
-  --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames}" \
-  --output json
-
-# Set instance properties based on the output
-LOCATION="<location-from-output>"  # e.g., "southcentralus"
-AUTH_APP_ID="<authAppId-from-output>"
-DATA_PARTITION_NAME="<partition-name-from-output>"  # e.g., "dp1"
-
-# Set managed identity details
-IDENTITY_SUBSCRIPTION_ID="$SUBSCRIPTION_ID"  # Change if identity is in different subscription
-IDENTITY_RESOURCE_GROUP="<identity-resource-group>"
-IDENTITY_NAME="<your-managed-identity-name>"
-
-# Construct the managed identity resource ID
-IDENTITY_RESOURCE_ID="/subscriptions/$IDENTITY_SUBSCRIPTION_ID/resourceGroups/$IDENTITY_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$IDENTITY_NAME"
-
-echo "Configuration:"
-echo "  Subscription: $SUBSCRIPTION_ID"
-echo "  Resource Group: $RESOURCE_GROUP"
-echo "  ADME Instance: $ADME_INSTANCE_NAME"
-echo "  Location: $LOCATION"
-echo "  Managed Identity: $IDENTITY_RESOURCE_ID"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Discover available subscriptions
-az account list --output table
-
-# Set your subscription (replace with your subscription ID)
-$SUBSCRIPTION_ID = "<your-subscription-id>"
-az account set --subscription $SUBSCRIPTION_ID
-
-# Discover resource groups
-az group list --output table
-
-# Set variables for your Azure Data Manager for Energy instance
-$RESOURCE_GROUP = "<your-resource-group>"
-$ADME_INSTANCE_NAME = "<your-adme-instance-name>"
-
-# Discover Azure Data Manager for Energy instances in your subscription
-az resource list `
-  --resource-type "Microsoft.OpenEnergyPlatform/energyServices" `
-  --output table
-
-# Get instance details (location, authAppId, data partitions)
-az resource show `
-  --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME `
-  --query "{location:location, authAppId:properties.authAppId, dataPartitions:properties.dataPartitionNames}" `
-  --output json
-
-# Set instance properties based on the output
-$LOCATION = "<location-from-output>"  # e.g., "southcentralus"
-$AUTH_APP_ID = "<authAppId-from-output>"
-$DATA_PARTITION_NAME = "<partition-name-from-output>"  # e.g., "dp1"
-
-# Set managed identity details
-$IDENTITY_SUBSCRIPTION_ID = $SUBSCRIPTION_ID  # Change if identity is in different subscription
-$IDENTITY_RESOURCE_GROUP = "<identity-resource-group>"
-$IDENTITY_NAME = "<your-managed-identity-name>"
-
-# Construct the managed identity resource ID
-$IDENTITY_RESOURCE_ID = "/subscriptions/$IDENTITY_SUBSCRIPTION_ID/resourceGroups/$IDENTITY_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$IDENTITY_NAME"
-
-Write-Host "Configuration:"
-Write-Host "  Subscription: $SUBSCRIPTION_ID"
-Write-Host "  Resource Group: $RESOURCE_GROUP"
-Write-Host "  ADME Instance: $ADME_INSTANCE_NAME"
-Write-Host "  Location: $LOCATION"
-Write-Host "  Managed Identity: $IDENTITY_RESOURCE_ID"
-```
-
----
-
-> [!TIP]
+>
 > To preserve existing identities, first retrieve the current configuration:
 > ```bash
-> az resource show --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME --query identity.userAssignedIdentities
+> az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
 > ```
-> Include all returned identity resource identifiers along with your new ACZ identity in the `userAssignedIdentities` object in the next step.
-
-### Update the Azure Data Manager for Energy instance
-
-Use the Azure Management API to assign the user-assigned managed identity to your Azure Data Manager for Energy resource.
-
-# [Bash](#tab/bash)
+> Then include all returned identity resource identifiers along with your new ACZ identity in the following `userAssignedIdentities` object.
 
 ```bash
 # Get Azure Resource Manager token
@@ -988,89 +98,47 @@ TOKEN=$(az account get-access-token --resource "https://management.azure.com/" -
 
 # Update Azure Data Manager for Energy instance with managed identity
 curl --request PUT \
-  --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
+  --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
   --header "Authorization: Bearer $TOKEN" \
-  --header "Content-Type: application/json" \
-  --data "{
-    \"location\": \"$LOCATION\",
-    \"properties\": {
-      \"authAppId\": \"$AUTH_APP_ID\",
-      \"dataPartitionNames\": [
+  --header 'Content-Type: application/json' \
+  --data '{
+    "location": "{location}",
+    "properties": {
+      "authAppId": "{auth-app-id}",
+      "dataPartitionNames": [
         {
-          \"name\": \"$DATA_PARTITION_NAME\"
+          "name": "{data-partition-name}"
         }
       ]
     },
-    \"identity\": {
-      \"type\": \"UserAssigned\",
-      \"userAssignedIdentities\": {
-        \"$IDENTITY_RESOURCE_ID\": {}
+    "identity": {
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}": {}
       }
     }
-  }"
+  }'
 ```
 
-# [PowerShell](#tab/powershell)
+**Replace the placeholders:**
 
-```powershell
-# Get Azure Resource Manager token
-$TOKEN = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
+| `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
+| `{location}` | Azure region of your Azure Data Manager for Energy resource (for example, `southcentralus`) |
+| `{auth-app-id}` | Application ID used for Azure Data Manager for Energy authentication |
+| `{data-partition-name}` | Name of your data partition (for example, `dp1`) |
+| `{sub-id}` | Subscription ID where the user-assigned managed identity resides |
+| `{rg}` | Resource group where the user-assigned managed identity resides |
+| `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
-# Build the request body
-$body = @{
-  location = $LOCATION
-  properties = @{
-    authAppId = $AUTH_APP_ID
-    dataPartitionNames = @(
-      @{
-        name = $DATA_PARTITION_NAME
-      }
-    )
-  }
-  identity = @{
-    type = "UserAssigned"
-    userAssignedIdentities = @{
-      $IDENTITY_RESOURCE_ID = @{}
-    }
-  }
-} | ConvertTo-Json -Depth 10
-
-# Update Azure Data Manager for Energy instance with managed identity
-$response = Invoke-RestMethod `
-  -Method Put `
-  -Uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" `
-  -Headers @{
-    "Authorization" = "Bearer $TOKEN"
-    "Content-Type" = "application/json"
-  } `
-  -Body $body
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
-
-### Verify the identity assignment
-
-After the operation completes, verify the identity is assigned:
-
-# [Bash](#tab/bash)
+After the operation completes, verify the identity is assigned using Azure CLI:
 
 ```bash
-az resource show \
-  --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME \
-  --query identity.userAssignedIdentities
+az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az resource show `
-  --ids /subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME `
-  --query identity.userAssignedIdentities
-```
-
----
 
 **Sample response:**
 
@@ -1085,79 +153,31 @@ az resource show `
 
 The output should include your user-assigned managed identity's resource ID with its `clientId` and `principalId`.
 
-## Step 3: Verify the user has entitlement group access
+## Step 4: Verify user has entitlement group access
 
 To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
 > [!IMPORTANT]
-> This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 1 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
+> This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
 
 If you're not already a member of the users entitlement group, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
-### Initialize variables
-
-# [Bash](#tab/bash)
-
-```bash
-# Set your Azure Data Manager for Energy instance details
-BASE_URL="<your-adme-instance>.energy.azure.com"  # e.g., "myinstance.energy.azure.com"
-DATA_PARTITION_ID="<your-data-partition-id>"  # e.g., "dp1"
-
-# Get access token for Azure Data Manager for Energy APIs
-# See https://learn.microsoft.com/azure/energy-data-services/how-to-generate-auth-token
-ACCESS_TOKEN="<your-access-token>"
-
-echo "Configuration:"
-echo "  Base URL: $BASE_URL"
-echo "  Data Partition: $DATA_PARTITION_ID"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Set your Azure Data Manager for Energy instance details
-$BASE_URL = "<your-adme-instance>.energy.azure.com"  # e.g., "myinstance.energy.azure.com"
-$DATA_PARTITION_ID = "<your-data-partition-id>"  # e.g., "dp1"
-
-# Get access token for Azure Data Manager for Energy APIs
-# See https://learn.microsoft.com/azure/energy-data-services/how-to-generate-auth-token
-$ACCESS_TOKEN = "<your-access-token>"
-
-Write-Host "Configuration:"
-Write-Host "  Base URL: $BASE_URL"
-Write-Host "  Data Partition: $DATA_PARTITION_ID"
-```
-
----
-
-### Verify entitlement group membership
-
-Use the Entitlements Service API to verify your membership:
-
-# [Bash](#tab/bash)
+**To verify you have access**, use the Entitlements Service API to check your membership:
 
 ```bash
 curl --request GET \
-  --url "https://$BASE_URL/api/entitlements/v2/groups/users@$DATA_PARTITION_ID.dataservices.energy/members" \
-  --header "Authorization: Bearer $ACCESS_TOKEN" \
-  --header "data-partition-id: $DATA_PARTITION_ID"
+  --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'data-partition-id: {data-partition-id}'
 ```
 
-# [PowerShell](#tab/powershell)
+**Replace the placeholders:**
 
-```powershell
-$response = Invoke-RestMethod `
-  -Method Get `
-  -Uri "https://$BASE_URL/api/entitlements/v2/groups/users@$DATA_PARTITION_ID.dataservices.energy/members" `
-  -Headers @{
-    "Authorization" = "Bearer $ACCESS_TOKEN"
-    "data-partition-id" = $DATA_PARTITION_ID
-  }
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
+| Placeholder | Description |
+|---|---|
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Your personal access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
 
 **Sample response:**
 
@@ -1181,19 +201,6 @@ $response | ConvertTo-Json -Depth 10
 ```
 
 The response should include your user account in the `members` array. If you're not listed, contact your Azure Data Manager for Energy administrator to add you to the users group.
-
-## Step 4: Create or use an existing ADLS Gen2 storage account
-
-ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
-
-1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
-2. On the **Basics** tab, select your subscription and resource group.
-3. Enter a storage account name and select your preferred region.
-4. On the **Advanced** tab, select **Enable hierarchical namespace**.
-5. Select **Review + create**, then select **Create**.
-
-> [!IMPORTANT]
-> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 
@@ -1231,116 +238,41 @@ After completing the enablement steps, you can create one or more ACZs to sync y
 
 Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
-#### Initialize variables
-
-# [Bash](#tab/bash)
-
-```bash
-# Set your Azure Data Manager for Energy instance details (reuse from Step 4 if in same session)
-BASE_URL="<your-adme-instance>.energy.azure.com"  # e.g., "myinstance.energy.azure.com"
-DATA_PARTITION_ID="<your-data-partition-id>"  # e.g., "dp1"
-ACCESS_TOKEN="<your-access-token>"
-
-# Set storage account details
-STORAGE_SUBSCRIPTION_ID="<storage-subscription-id>"
-STORAGE_RESOURCE_GROUP="<storage-resource-group>"
-STORAGE_ACCOUNT_NAME="<storage-account-name>"
-
-# Construct storage resource ID
-STORAGE_RESOURCE_ID="/subscriptions/$STORAGE_SUBSCRIPTION_ID/resourceGroups/$STORAGE_RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
-
-echo "Configuration:"
-echo "  ADME Base URL: $BASE_URL"
-echo "  Data Partition: $DATA_PARTITION_ID"
-echo "  Storage Account: $STORAGE_RESOURCE_ID"
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-# Set your Azure Data Manager for Energy instance details (reuse from Step 4 if in same session)
-$BASE_URL = "<your-adme-instance>.energy.azure.com"  # e.g., "myinstance.energy.azure.com"
-$DATA_PARTITION_ID = "<your-data-partition-id>"  # e.g., "dp1"
-$ACCESS_TOKEN = "<your-access-token>"
-
-# Set storage account details
-$STORAGE_SUBSCRIPTION_ID = "<storage-subscription-id>"
-$STORAGE_RESOURCE_GROUP = "<storage-resource-group>"
-$STORAGE_ACCOUNT_NAME = "<storage-account-name>"
-
-# Construct storage resource ID
-$STORAGE_RESOURCE_ID = "/subscriptions/$STORAGE_SUBSCRIPTION_ID/resourceGroups/$STORAGE_RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
-
-Write-Host "Configuration:"
-Write-Host "  ADME Base URL: $BASE_URL"
-Write-Host "  Data Partition: $DATA_PARTITION_ID"
-Write-Host "  Storage Account: $STORAGE_RESOURCE_ID"
-```
-
----
-
-#### Create the ACZ
-
-# [Bash](#tab/bash)
+The following example uses cURL:
 
 ```bash
 curl --request POST \
-  --url "https://$BASE_URL/api/acz/v1/aczs" \
-  --header "Authorization: Bearer $ACCESS_TOKEN" \
-  --header "Content-Type: application/json" \
-  --header "data-partition-id: $DATA_PARTITION_ID" \
-  --data "{
-    \"name\": \"my-first-acz\",
-    \"sink\": {
-      \"storageId\": \"$STORAGE_RESOURCE_ID\"
+  --url https://{base_url}/api/acz/v1/aczs \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'Content-Type: application/json' \
+  --header 'data-partition-id: {data_partition_id}' \
+  --data '{
+    "name": "my-first-acz",
+    "sink": {
+      "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}"
     },
-    \"configuration\": {
-      \"catalogKinds\": [
-        \"osdu:wks:master-data--Well:*\",
-        \"osdu:wks:reference-data--UnitOfMeasure:*\"
+    "configuration": {
+      "catalogKinds": [
+        "osdu:wks:master-data--Well:*",
+        "osdu:wks:reference-data--UnitOfMeasure:*"
       ],
-      \"wellboreDDMSKinds\": [
-        \"osdu:wks:work-product-component--WellLog:*\"
+      "wellboreDDMSKinds": [
+        "osdu:wks:work-product-component--WellLog:*"
       ]
     }
-  }"
+  }'
 ```
 
-# [PowerShell](#tab/powershell)
+**Replace the placeholders:**
 
-```powershell
-# Build the request body
-$body = @{
-  name = "my-first-acz"
-  sink = @{
-    storageId = $STORAGE_RESOURCE_ID
-  }
-  configuration = @{
-    catalogKinds = @(
-      "osdu:wks:master-data--Well:*",
-      "osdu:wks:reference-data--UnitOfMeasure:*"
-    )
-    wellboreDDMSKinds = @(
-      "osdu:wks:work-product-component--WellLog:*"
-    )
-  }
-} | ConvertTo-Json -Depth 10
-
-# Create the ACZ
-$response = Invoke-RestMethod `
-  -Method Post `
-  -Uri "https://$BASE_URL/api/acz/v1/aczs" `
-  -Headers @{
-    "Authorization" = "Bearer $ACCESS_TOKEN"
-    "Content-Type" = "application/json"
-    "data-partition-id" = $DATA_PARTITION_ID
-  } `
-  -Body $body
-
-$response | ConvertTo-Json -Depth 10
-```
-
----
+| Placeholder | Description |
+|---|---|
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data_partition_id}` | Your data partition ID (for example, `dp1`) |
+| `{sub-id}` | Subscription ID where the ADLS Gen2 storage account resides |
+| `{rg}` | Resource group where the ADLS Gen2 storage account resides |
+| `{account}` | Name of the ADLS Gen2 storage account |
 
 A successful response returns HTTP status `201` with the ACZ details:
 
