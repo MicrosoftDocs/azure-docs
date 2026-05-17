@@ -99,6 +99,6 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
 
 ## Next steps
 
-[Restore Azure Cosmos DB account using Azure portal (preview)](backup-azure-cosmos-db-restore)
+[Restore Azure Cosmos DB account using Azure portal (preview)](backup-azure-cosmos-db-restore.md)
 
 [Manage backup of Azure Cosmos DB account using Azure portal (preview)](backup-azure-cosmos-db-manage.md)
