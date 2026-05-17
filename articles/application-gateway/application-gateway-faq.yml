@@ -149,6 +149,17 @@ sections:
         answer: |
           An active listener is a listener that's associated to a rule *and* sending traffic to a backend pool. Any listener that *only* redirects traffic isn't an active listener. Listeners associated with redirect rules aren't considered active. If the redirect rule is a path-based rule, all the paths in that redirect rule must be redirecting traffic or else the listener is considered active. For individual component limit details, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
+      - question: Why does my Application Gateway show 'SKU family: Generation_1' even though I am using a V2 SKU (WAF_v2 or Standard_v2)?
+        answer: |
+          The SKU family (Generation_1 vs Generation_2) is an internal Azure platform classification and is not related to the Application Gateway V2 SKU version.
+          * The SKU family value is not configurable via the Azure portal, ARM templates, or CLI.
+          * It is automatically assigned by Azure based on underlying platform infrastructure.
+          * When you select a V2 SKU (Standard_v2 or WAF_v2), you are already using the latest Application Gateway capabilities, regardless of the family value displayed.
+
+          Important:
+          * The SKU name (Standard_v2 / WAF_v2) determines the feature set and behavior—not the SKU family. [learn.microsoft.com]
+          * The SKU family property is informational only and has no impact on functionality, performance, or features of Application Gateway v2.
+          
   - name: Performance
     questions:
       - question: How does Application Gateway support high availability and scalability?
