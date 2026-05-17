@@ -22,7 +22,7 @@ Azure Backup for Cosmos DB is designed for the following scenarios:
 - Centralized governance across multiple workloads 
 - Protection against accidental or malicious deletion (ransomware scenarios) 
 
-[Learn about the supported regions, scenarios, and the limitations for Azure Cosmos DB backup (preview).] (backup-azure-cosmos-db-support-matrix.md)
+Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview). 
 
 ## Why use Azure Backup for Cosmos DB? 
 
