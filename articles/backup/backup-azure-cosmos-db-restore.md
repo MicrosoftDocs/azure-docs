@@ -34,8 +34,6 @@ To restore Azure Cosmos DB account, follow these steps:
    Alternatively, to restore backup from the **Backup vault** pane, go to the **Backup vault** > **Overview**, and select **Restore**.
 
 2. On the **Recover** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Cosmos DB (Preview)**, and **Solution** as **Azure Backup**.
-
-   :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-landing.png" alt-text="Screenshot shows the datasource and solution selection." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-landing.png"::: 
   
 3. Select the **protected item** for which you want to restore the backup, and then select **Continue**.
 
