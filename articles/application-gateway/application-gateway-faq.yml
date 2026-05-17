@@ -157,7 +157,7 @@ sections:
           * When you select a V2 SKU (Standard_v2 or WAF_v2), you are already using the latest Application Gateway capabilities, regardless of the family value displayed.
 
           Important:
-          * The SKU name (Standard_v2 / WAF_v2) determines the feature set and behavior—not the SKU family. [learn.microsoft.com]
+          * The SKU name (Standard_v2 / WAF_v2) determines the feature set and behavior—not the SKU family.
           * The SKU family property is informational only and has no impact on functionality, performance, or features of Application Gateway v2.
           
   - name: Performance
