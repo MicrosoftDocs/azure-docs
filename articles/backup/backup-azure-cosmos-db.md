@@ -13,7 +13,9 @@ ms.author: v-mallicka
 
 # Configure vaulted backup for Azure Cosmos DB account using Azure portal (preview)
 
-This article describes how to configure backup for Azure Cosmos DB (preview) using Azure portal. 
+This article describes how to configure backup for Azure Cosmos DB (preview) using Azure portal.
+
+Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview).
 
 ## Prerequisites
 
