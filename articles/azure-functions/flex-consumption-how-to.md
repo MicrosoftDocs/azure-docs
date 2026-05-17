@@ -664,17 +664,35 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 
 - Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
-- Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or ARM/Bicep templates to manage certificates.
+- Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md#site-scoped-certificates) to manage certificates.
 - Each app supports a maximum of three private certificates and three public certificates.
 - Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain. 
 - Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
-- Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. For more information, see [Use TLS/SSL certificates in your application code](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
+- Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. First, follow the steps in [Make a certificate accessible to your code](#make-a-certificate-accessible-to-your-code) to load certificates into the runtime environment. Then, for guidance on reading certificate files from your application code, see [Load certificates in Linux/Windows containers](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
 
 ### Add a certificate
 
 You can add certificates to your app in several ways, depending on the certificate type. Add free managed and Azure certificates directly in the portal. 
 
-Select one of the following tabs to see how to add a private (.pfx), public (.cer), or Key Vault-managed certificate.
+Select one of the following tabs to see how to add a managed, private (.pfx), public (.cer), or Key Vault-managed certificate.
+
+#### [Managed certificate](#tab/managed-cert)
+
+To create a free managed certificate for a custom domain:
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Custom domains**.
+
+1. Select **Add custom domain**.
+
+1. Under **TLS/SSL certificate**, select **App Service Managed Certificate**.
+
+1. Under **TLS/SSL type**, select **SNI SSL**.
+
+1. Complete the domain validation and select **Add**.
+
+    The managed certificate is created and bound to the custom domain automatically. It might take up to 10 minutes for the certificate to be issued.
 
 #### [Upload private (.pfx)](#tab/private-pfx)
 
