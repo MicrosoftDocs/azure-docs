@@ -82,6 +82,10 @@ Assign the user-assigned managed identity you created in Step 2 to your Azure Da
 
 Use the Azure Management API to update your Azure Data Manager for Energy resource with the user-assigned managed identity:
 
+> [!TIP]
+> **Automated script option available**  
+> For a simplified approach with minimal prompts, you can use an automated script instead of the manual commands below. See [Use automated script](#use-automated-script-for-step-3) at the end of this step. Otherwise, continue with the manual steps.
+
  > [!IMPORTANT]
 > **Preserve existing managed identities!**  
 > If your Azure Data Manager for Energy instance includes user-assigned managed identities (for example, for Customer-Managed Encryption Keys or External Data Sources), you **must include all existing identities** in the `userAssignedIdentities` object. The PUT operation replaces the entire identity configuration—omitting existing identities removes them from the instance.
@@ -188,6 +192,233 @@ az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource
 ```
 
 The output should include your user-assigned managed identity's resource ID with its `clientId` and `principalId`.
+
+### Use automated script for Step 3
+
+As an alternative to the manual commands above, you can use an automated script that handles the identity assignment with minimal user input. The script preserves existing identities automatically and requires only three inputs.
+
+**What the script does:**
+- Retrieves current ADME instance configuration
+- Preserves any existing managed identities
+- Adds your new ACZ identity to the configuration
+- Updates the instance via ARM API
+
+#### [PowerShell](#tab/powershell-script)
+
+**Prerequisites:**
+- Azure CLI installed and authenticated (`az login`)
+- PowerShell 5.1 or later
+
+**Download and run:**
+
+```powershell
+# Download the script
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.ps1" -OutFile "attach-managed-identity.ps1"
+
+# Run the script
+.\attach-managed-identity.ps1
+```
+
+**You will be prompted for:**
+1. Subscription ID where your ADME instance resides
+2. ADME instance name
+3. Managed identity name (from Step 2)
+
+The script automatically detects the resource group, preserves existing identities, and assigns the new identity.
+
+**Script source code:**
+
+```powershell
+<#
+.SYNOPSIS
+    Attach a user-assigned managed identity to an Azure Data Manager for Energy instance.
+#>
+
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$SubscriptionId,
+    
+    [Parameter(Mandatory=$true)]
+    [string]$AdmeInstanceName,
+    
+    [Parameter(Mandatory=$true)]
+    [string]$ManagedIdentityName
+)
+
+Write-Host "Attaching managed identity to ADME instance..." -ForegroundColor Cyan
+
+# Set subscription
+az account set --subscription $SubscriptionId
+
+# Get ADME instance
+$adme = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name $AdmeInstanceName --query "[0]" | ConvertFrom-Json
+
+if (-not $adme) {
+    Write-Host "Error: ADME instance '$AdmeInstanceName' not found" -ForegroundColor Red
+    exit 1
+}
+
+$resourceGroup = $adme.resourceGroup
+$location = $adme.location
+$authAppId = $adme.properties.authAppId
+$dataPartitionName = $adme.properties.dataPartitionNames[0].name
+
+# Get managed identity
+$mi = az identity list --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
+if (-not $mi) {
+    Write-Host "Error: Managed identity '$ManagedIdentityName' not found" -ForegroundColor Red
+    exit 1
+}
+
+$miResourceId = $mi[0].id
+
+# Build user-assigned identities object (preserve existing)
+$identities = @{}
+if ($adme.identity.userAssignedIdentities) {
+    foreach ($key in $adme.identity.userAssignedIdentities.PSObject.Properties.Name) {
+        $identities[$key] = @{}
+    }
+}
+$identities[$miResourceId] = @{}
+
+# Build request body
+$body = @{
+    location = $location
+    properties = @{
+        authAppId = $authAppId
+        dataPartitionNames = @(
+            @{ name = $dataPartitionName }
+        )
+    }
+    identity = @{
+        type = "UserAssigned"
+        userAssignedIdentities = $identities
+    }
+} | ConvertTo-Json -Depth 10
+
+# Get ARM token and update ADME instance
+$token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
+$uri = "https://management.azure.com$($adme.id)?api-version=2025-09-22-preview"
+
+Invoke-RestMethod -Uri $uri -Method Put -Headers @{
+    "Authorization" = "Bearer $token"
+    "Content-Type" = "application/json"
+} -Body $body
+
+Write-Host "Successfully attached managed identity to ADME instance" -ForegroundColor Green
+```
+
+#### [Bash](#tab/bash-script)
+
+**Prerequisites:**
+- Azure CLI installed and authenticated (`az login`)
+- Bash shell (Linux, macOS, WSL, or Git Bash on Windows)
+
+**Download and run:**
+
+```bash
+# Download the script
+curl -o attach-managed-identity.sh https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.sh
+chmod +x attach-managed-identity.sh
+
+# Run the script
+./attach-managed-identity.sh
+```
+
+**You will be prompted for:**
+1. Subscription ID where your ADME instance resides
+2. ADME instance name
+3. Managed identity name (from Step 2)
+
+The script automatically detects the resource group, preserves existing identities, and assigns the new identity.
+
+**Script source code:**
+
+```bash
+#!/bin/bash
+set -e
+
+# Attach a user-assigned managed identity to an Azure Data Manager for Energy instance
+
+echo "Enter Subscription ID: "
+read SUBSCRIPTION_ID
+
+echo "Enter ADME Instance Name: "
+read ADME_INSTANCE_NAME
+
+echo "Enter Managed Identity Name: "
+read MANAGED_IDENTITY_NAME
+
+echo "Attaching managed identity to ADME instance..."
+
+# Set subscription
+az account set --subscription "$SUBSCRIPTION_ID"
+
+# Get ADME instance
+ADME_JSON=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name "$ADME_INSTANCE_NAME" --query "[0]" -o json)
+
+if [ -z "$ADME_JSON" ] || [ "$ADME_JSON" = "null" ]; then
+    echo "Error: ADME instance '$ADME_INSTANCE_NAME' not found"
+    exit 1
+fi
+
+RESOURCE_GROUP=$(echo "$ADME_JSON" | jq -r '.resourceGroup')
+ADME_ID=$(echo "$ADME_JSON" | jq -r '.id')
+LOCATION=$(echo "$ADME_JSON" | jq -r '.location' | tr -d '\r')
+AUTH_APP_ID=$(echo "$ADME_JSON" | jq -r '.properties.authAppId' | tr -d '\r')
+DATA_PARTITION_NAME=$(echo "$ADME_JSON" | jq -r '.properties.dataPartitionNames[0].name' | tr -d '\r')
+
+# Get managed identity
+MI_JSON=$(az identity list --query "[?name=='$MANAGED_IDENTITY_NAME']" -o json)
+MI_ID=$(echo "$MI_JSON" | jq -r '.[0].id' | tr -d '\r')
+
+if [ -z "$MI_ID" ] || [ "$MI_ID" = "null" ]; then
+    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found"
+    exit 1
+fi
+
+# Build user-assigned identities (preserve existing)
+EXISTING_IDENTITIES=$(echo "$ADME_JSON" | jq -r '.identity.userAssignedIdentities | keys[]' 2>/dev/null | tr -d '\r')
+USER_ASSIGNED_IDENTITIES="\"$MI_ID\": {}"
+
+if [ -n "$EXISTING_IDENTITIES" ]; then
+    for identity in $EXISTING_IDENTITIES; do
+        if [ "$identity" != "$MI_ID" ]; then
+            USER_ASSIGNED_IDENTITIES="$USER_ASSIGNED_IDENTITIES, \"$identity\": {}"
+        fi
+    done
+fi
+
+# Get ARM token
+TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
+
+# Update ADME instance
+curl --request PUT \
+  --url "https://management.azure.com${ADME_ID}?api-version=2025-09-22-preview" \
+  --header "Authorization: Bearer $TOKEN" \
+  --header "Content-Type: application/json" \
+  --data "{
+    \"location\": \"$LOCATION\",
+    \"properties\": {
+      \"authAppId\": \"$AUTH_APP_ID\",
+      \"dataPartitionNames\": [
+        {
+          \"name\": \"$DATA_PARTITION_NAME\"
+        }
+      ]
+    },
+    \"identity\": {
+      \"type\": \"UserAssigned\",
+      \"userAssignedIdentities\": {
+        $USER_ASSIGNED_IDENTITIES
+      }
+    }
+  }"
+
+echo "Successfully attached managed identity to ADME instance"
+```
+
+---
 
 ## Step 4: Verify user has entitlement group access
 
