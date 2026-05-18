@@ -184,6 +184,10 @@ Invoke-RestMethod -Uri $uri -Method Put -Headers @{
 | `{rg}` | Resource group where the user-assigned managed identity resides |
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
+> [!IMPORTANT]
+> **Cross-subscription managed identity assignment is not supported.**  
+> The managed identity must be in the **same subscription** as your Azure Data Manager for Energy instance. The `{sub-id}` placeholder must match `{subscription-id}`. Azure silently ignores cross-subscription identities without returning an error—always verify the assignment using the commands shown after this step.
+
 After the operation completes, verify the identity is assigned:
 
 ### [Bash](#tab/bash)
