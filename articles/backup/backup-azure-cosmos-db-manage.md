@@ -58,7 +58,6 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
 
    ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
 
-## Manage operations using the Azure portal
  
 ### Stop Protection
 
