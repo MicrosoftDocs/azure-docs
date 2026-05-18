@@ -49,7 +49,7 @@ For a complete comparison of the Flex Consumption plan against the Consumption p
 
 ## Virtual network integration
 
-Flex Consumption expands on the traditional benefits of the Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. You still take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Enable virtual network integration](./flex-consumption-how-to.md#enable-virtual-network-integration).
+Flex Consumption expands on the traditional benefits of the Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. You still take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Configure virtual network integration](./flex-consumption-how-to.md#configure-virtual-network-integration).
 
 ## Instance sizes
 
@@ -211,7 +211,7 @@ Keep these considerations in mind when using the Flex Consumption plan:
 + **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported. For more information, see [Mount file shares](#mount-file-shares).
 + **Scale**: The lowest maximum scale is currently `1`. The highest currently supported value is `1000`.
 + **PowerShell managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
-+ **Certificates**: Loading certificates by using the `WEBSITE_LOAD_CERTIFICATES` app setting, managed certificates, app service certificates, and other platform certificate-based features like `endToEndEncryptionEnabled` aren't currently supported.
++ **Certificates (preview)**: Flex Consumption introduces site-scoped certificates, a new model where certificates are scoped to your individual app rather than shared across a webspace. Managed certificates and App Service certificates are supported in preview. End-to-end (E2E) encryption isn't currently supported. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
 + **Time zones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
 + **Azure Functions runtime version and proxies**: Flex Consumption only supports version 4.x and later of the Azure Functions runtime. Azure Functions proxies was a feature of versions 1.x through 3.x of the Azure Functions runtime and isn't available in Flex Consumption.
 + **Plan migration**: In-place migration of an existing function app from another hosting plan to the Flex Consumption plan isn't supported. You also can't migrate your app from Flex Consumption to another plan. To move to Flex Consumption, you must create a new function app in a Flex Consumption plan and redeploy your code.
