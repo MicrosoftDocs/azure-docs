@@ -76,7 +76,7 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
 6. On the  **Select resources to backup** pane, select the Azure Cosmos DB account to back up, and then click **Select**.
 
    >[!Note]
-   >Ensure that the primary write region of the Azure Cosmos DB account is same as that of the Backup vault region.
+   Ensure that the primary write region of the Azure Cosmos DB account is same as that of the Backup vault region.
 
    On the **Datasources** tab,  the Azure Backup service validates if all the necessary access permissions to connect to the Cosmos DB account. If one or more access permissions are missing, one of the following  error messages appears – **User cannot assign roles** or **Role assignment not done**.
    
