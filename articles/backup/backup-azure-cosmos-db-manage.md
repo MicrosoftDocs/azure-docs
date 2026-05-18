@@ -83,7 +83,7 @@ To stop protection for Azure Cosmos DB (preview), follow these steps:
 
    :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png"::: 
 
-#### Stop Protection and Retain Data
+### Stop Protection and Retain Data
 
 To stop protection and retain data for Azure Cosmos DB (preview) from the **Stop Backup** pane, follow these steps: 
  
