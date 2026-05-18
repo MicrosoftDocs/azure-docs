@@ -198,7 +198,7 @@ For Python projects, package the root of your project file and always request a 
 ::: zone pivot="programming-language-powershell"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-powershell.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -213,7 +213,7 @@ For Python projects, package the root of your project file and always request a 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-node.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -230,7 +230,7 @@ For Python projects, package the root of your project file and always request a 
 ::: zone pivot="programming-language-python"
 1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-python.md#folder-structure). 
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command. 
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
 
     ```azurecli
     az login
@@ -704,6 +704,177 @@ Visual Studio Code doesn't currently support site update strategy configuration.
 
 ---
 
+## Configure site-scoped certificates
+
+Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. The following table shows the supported certificate types and how each one is added to your function app:
+
+| Certificate type | How to add | Counts toward |
+| --- | --- | --- |
+| [App Service Managed Certificate](../app-service/configure-ssl-certificate.md#create-a-free-managed-certificate) | Created in the portal for a custom domain | Private certificate limit |
+| [App Service certificate](../app-service/configure-ssl-app-service-certificate.md) | Purchased through Azure, then imported | Private certificate limit |
+| [Certificate imported from Key Vault](../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault) | Imported from Azure Key Vault | Private certificate limit |
+| Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
+| Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
+
+### Considerations for site-scoped certificates
+
+- Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
+- Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
+- Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#site-scoped-certificates) to manage certificates.
+- Each app supports a maximum of three private certificates and three public certificates.
+- Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain. 
+- End-to-end (E2E) encryption isn't currently supported.
+- Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
+- Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. First, follow the steps in [Make a certificate accessible to your code](#make-a-certificate-accessible-to-your-code) to load certificates into the runtime environment. Then, for guidance on reading certificate files from your application code, see [Load certificates in Linux/Windows containers](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
+
+### Add a certificate
+
+You can add certificates to your app in several ways, depending on the certificate type. Add free managed and Azure certificates directly in the portal. 
+
+Select one of the following tabs to see how to add a managed, private (.pfx), public (.cer), or Key Vault-managed certificate.
+
+#### [Bind managed certificate](#tab/managed-cert)
+
+To create and bind a free managed certificate for a custom domain:
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Custom domains**.
+
+1. Select **Add custom domain**.
+
+1. Under **TLS/SSL certificate**, select **App Service Managed Certificate**.
+
+1. Under **TLS/SSL type**, select **SNI SSL**.
+
+1. Complete the domain validation and select **Add**.
+
+    The managed certificate is created and bound to the custom domain automatically. It might take up to 10 minutes for the certificate to be issued.
+
+#### [Upload private (.pfx)](#tab/private-pfx)
+
+To upload a custom private certificate that you obtained:
+
+1. Get a certificate from your own certificate provider.
+
+1. Export the certificate as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions). Include all intermediate certificates in the chain.
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Certificates**.
+
+1. Select **Bring your own certificates (.pfx)** > **+ Add certificate**.
+
+1. Under **Source**, select **Upload certificate (.pfx)**.
+
+1. Select your .pfx file and enter the certificate password.
+
+1. Provide a **Certificate friendly name** for identification.
+
+1. Select **Validate**, and then select **Add**.
+
+    After the operation finishes, the certificate appears in the **Bring your own certificates (.pfx)** list.
+
+#### [Import from Key Vault](#tab/key-vault)
+
+If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app. 
+
+> [!IMPORTANT]
+> For better security, use a managed identity to authenticate to Key Vault instead of a service principal.
+
+To grant Key Vault access to a managed identity:
+
+1. [Enable a managed identity](../app-service/overview-managed-identity.md) for your function app if you haven't already:
+
+    ```azurecli
+    az functionapp identity assign \
+        --resource-group <RESOURCE_GROUP> \
+        --name <APP_NAME>
+    ```
+
+1. Grant the managed identity the **Key Vault Certificate User** role on your key vault by using RBAC. This approach is recommended over access policies (legacy):
+
+    ```azurecli
+    # Get the principal ID of the managed identity
+    principalId=$(az functionapp identity show \
+        --resource-group <RESOURCE_GROUP> \
+        --name <APP_NAME> \
+        --query principalId -o tsv)
+
+    # Assign Key Vault Certificate User role
+    az role assignment create \
+        --role "Key Vault Certificate User" \
+        --assignee "$principalId" \
+        --scope "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT_NAME>"
+    ```
+
+    > [!NOTE]
+    > If your key vault is configured to disable public access, make sure to select **Allow trusted Microsoft services to bypass this firewall** so that the Azure Functions platform can access the vault. For more information, see [Key Vault firewall-enabled trusted services only](/azure/key-vault/general/network-security#key-vault-firewall-enabled-trusted-services-only).
+
+To import the certificate from your vault:
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Certificates**.
+
+1. Select **Bring your own certificates (.pfx)** > **+ Add certificate**.
+
+1. Under **Source**, select **Import from Key Vault**.
+
+1. Select **Select key vault certificate**, and then choose the **Subscription**, **Key Vault**, and **Certificate**.
+
+1. After you finish with your selection, choose **Select** > **Validate**, and then select **Add**.
+
+    After the operation finishes, the certificate appears in the **Bring your own certificates (.pfx)** list.
+
+> [!NOTE]
+> When you update your certificate in a Key Vault entry, the platform background job automatically syncs the updated certificate to your function app within 24 hours.
+
+#### [Upload public (.cer)](#tab/public-cer)
+
+Public certificates are supported in the `.cer` format. Upload a public certificate to your function app when your code needs to access remote services that require certificate authentication.
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Certificates**.
+
+1. Select **Public key certificates (.cer)** > **+ Add certificate**.
+
+1. Select your `.cer` file and provide a **Certificate friendly name**.
+
+1. Select **Add**.
+ 
+---
+
+### Make a certificate accessible to your code
+
+After adding a certificate, you must explicitly make it accessible to your function code. 
+
+1. In the [Azure portal](https://portal.azure.com/), go to your function app.
+
+1. In the left menu, expand **Settings** and select **Certificates**.
+
+1. Select **Bring your own certificates (.pfx)** or **Public key certificates (.cer)**.
+
+1. Select **...** (ellipsis) next to the certificate you want to make accessible, and then choose **Make accessible to app code**.
+
+When you enable **Accessible to app code**, the platform loads the certificate into the runtime environment on all instances as a file. 
+
+Certificate files are named by thumbprint and placed in these directories:
+
+| Certificate type | Path |
+| --- | --- |
+| Public certificates (.cer) | `/var/ssl/certs` |
+| Private certificates (.pfx) | `/var/ssl/private` |
+
+### Renew or update a certificate
+
+Free managed certificates are automatically renewed by the platform. For all other certificates, how you update an expiring certificate depends on the certificate source:
+
+- **Certificates imported from Key Vault**: When you renew a certificate in Key Vault, the platform background job automatically syncs the updated certificate to your function app within 24 hours. The new certificate version is loaded to all instances without any manual steps.
+
+- **Uploaded certificates**: Upload the new certificate, and then make it accessible to your app code. If your code references the certificate by thumbprint, update any thumbprint references in your code or app settings.
+
 ## View currently supported regions
 
 To view the list of regions that currently support Flex Consumption plans, see: 
@@ -752,13 +923,11 @@ Use this script to generate a report of the current metrics for your app:
 ```azurecli
 appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
 
-appId=$(az functionapp show --name func-fuxigh6c255de --resource-group exampleRG --query id -o tsv)
-
-echo -e "\nAlways-ready and on-emand execution counts..."
+echo -e "\nAlways-ready and on-demand execution counts..."
 az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionCount" --interval PT1H --output table
 az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionCount" --interval PT1H --output table
 
-echo -e "\nExecution units (MB-ms) in always-ready and on-emand execution counts..."
+echo -e "\nExecution units (MB-ms) in always-ready and on-demand execution counts..."
 az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionUnits" --interval PT1H --output table
 az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionUnits" --interval PT1H --output table
 
@@ -796,12 +965,13 @@ To learn more about metrics for Azure Functions, see [Monitor Azure Functions](m
 
 ### View logs
 
-When you connect your app to Application Insights, you can better analyze your app performance and troubleshoot problems during execution.
+When you connect your app to Application Insights, you can better analyze your app performance and troubleshoot problems during execution. In the Application Insights resource for your app:
 
- 
-   - Use **Performance** to analyze response times and dependencies.
-   - Use **Failures** to identify any errors that occur after migration.
-   - Create custom queries in **Logs** to analyze function behavior. For example:
+- Use **Performance** to analyze response times and dependencies.
+- Use **Failures** to identify any errors that occur after migration.
+- Create custom queries in **Logs** to analyze function behavior.
+
+For example, use this query to compare success rates by instance:
 
 Use this query to compare success rates by instance:
 
