@@ -12,7 +12,7 @@ ms.date: 05/18/2026
 ---
 # Network security for Azure App Configuration
 
-Azure App Configuration integrates with Azure's network security offerings to enable configuration of network security policies that protect your configuration data. Through features like private endpoints and network security perimeters, you can restrict network access to your configuration store to clients in a virtual network, clients with specific IP addresses, or managed identities in specific subscriptions. In addition to inbound controls, with a network security perimeter, you can also place network restrictions on outbound traffic from your configuration store, preventing data exfiltration to unauthorized endpoints.
+Azure App Configuration integrates with Azure's network security offerings, letting you apply network security policies that protect your configuration data. Through features like private endpoints and network security perimeters, you can restrict network access to your configuration store to clients in a virtual network, clients with specific IP addresses, or managed identities in specific subscriptions. In addition to inbound controls, with a network security perimeter, you can also place network restrictions on outbound traffic from your configuration store, preventing data exfiltration to unauthorized endpoints.
 
 ## Public network access
 
