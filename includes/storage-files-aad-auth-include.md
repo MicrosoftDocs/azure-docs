@@ -14,4 +14,4 @@ Azure Files supports identity-based authentication for Windows file shares over 
 
 - On-premises Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
-- Microsoft Entra Kerberos for hybrid and cloud-only identities (preview)
+- Microsoft Entra Kerberos for hybrid and cloud-only identities
