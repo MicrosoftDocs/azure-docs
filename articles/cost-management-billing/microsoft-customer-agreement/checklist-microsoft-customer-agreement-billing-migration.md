@@ -16,7 +16,7 @@ This article provides early guidance so customers can understand migration impac
 
 ## Overview
 
-Before migrating from an Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or pay-as-you-go (PAYG) subscriptions to a Microsoft Customer Agreement (MCA), review this checklist and follow the required steps to ensure a smooth transition. This checklist helps you:
+Before migrating from an Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or pay-as-you-go subscriptions to a Microsoft Customer Agreement (MCA), review this checklist and follow the required steps to ensure a smooth transition. This checklist helps you:
 
 - Validate readiness and dependencies
 - Minimize post-migration issues
@@ -28,7 +28,7 @@ Before migrating from an Enterprise Agreement (EA), Microsoft Customer Agreement
 Confirm access to both the source and the destination MCA as a Billing Account Owner.
 
 - EA → MCA: Ensure EA Admin and MCA Billing Account Owner roles are assigned.
-- PAYG → MCA: Ensure a Global Admin for the PAYG subscription and MCA Billing Account Owner role.
+- Pay-as-you-go → MCA: Ensure a Global Admin for the pay-as-you-go subscription and MCA Billing Account Owner role.
 - MCA → MCA: Confirm Billing Account Owner roles exist in both source and destination MCA billing accounts.[Learn More](/azure/cost-management-billing/manage/understand-mca-roles)
 
 ## No service downtime ##
@@ -36,7 +36,7 @@ Confirm access to both the source and the destination MCA as a Billing Account O
 Azure services in your subscription keep running without any interruption. We only transition the billing relationship for your Azure subscriptions. There are no changes to existing resources, resource groups, or management groups.
 
 >[!NOTE]
->Marketplace Private Offers are market specific. Subscriptions that are associated with Marketplace Private Offers may be blocked from transfer during a country/region change. This happens when the Private Offer is published for a specific market and isn't available in the destination market (EA–Sweden to MCA–United States). This mismatch results in a validation failure. Market eligibility for a Private Offer is defined by the ISV at the time of offer publishing and can't be modified after the offer is accepted. To proceed with the subscription transfer to MCA, the existing Private Offer must be canceled and repurchased, if available in the target market.
+>Marketplace Private Offers are market specific. Subscriptions that are associated with Marketplace Private Offers may be blocked from transfer during a country/region change. This happens when the Private Offer is published for a specific market and isn't available in the destination market (EA–Sweden to MCA–United States). This mismatch results in a validation failure. The independent software vendor (ISV) defines market eligibility for a Private Offer at the time of offer publishing, and it can't be modified after the offer is accepted. To proceed with the subscription transfer to MCA, the existing Private Offer must be canceled and repurchased, if available in the target market.
 
 ## Download historical data
 
@@ -44,13 +44,13 @@ Azure services in your subscription keep running without any interruption. We on
 - You can continue to view historical charges in the Azure portal under the source billing scope, depending on your billing roles:
   - EA → MCA: Historical charges remain visible in Cost Analysis after migration if you're an Enterprise Administrator or Department Administrator on the EA enrollment. Subscription ownership alone doesn't provide access to EA historical charges because subscription roles don't grant access to the EA billing scope.
   - MCA → MCA: Billing Account Owners and Billing Profile Owners/Contributors can continue to view all historical MCA charges in the Azure portal under the source MCA billing scope. Subscription owners without MCA billing roles can't access historical billing data because they don't have permissions to the MCA billing scope.
-  - PAYG → MCA: Subscription owners must download all historical invoices and usage data before the transfer, as this information is no longer accessible once the subscription is migrated. 
+  - Pay-as-you-go → MCA: Subscription owners must download all historical invoices and usage data before the transfer, as this information is no longer accessible once the subscription is migrated. 
 
 ## Review billing hierarchy changes
 
 You use the billing account to manage billing for your Microsoft customer agreement. 
 - Understand the MCA structure: Billing Account → Billing Profile → Invoice Section → Subscription.
-- Each billing profile generates a separate monthly invoice. For example, three billing profiles will result in three monthly invoices.
+- Each billing profile generates a separate monthly invoice. For example, three billing profiles result in three monthly invoices.
 - Map existing departments or subscriptions to MCA invoice sections.
 - EA → MCA: You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. Enterprise administrators become owners of the billing account and billing profile. [Learn More](/azure/cost-management-billing/manage/mca-setup-account#understand-changes-to-your-billing-hierarchy)
 
@@ -63,7 +63,7 @@ You use the billing account to manage billing for your Microsoft customer agreem
 Self-service savings plan transfer: Supported if pricing currency is USD.
 
 - Non-USD currency savings plans:
-  - Savings Plans from the source won't transfer.
+  - Savings Plans from the source don't transfer.
   - They're canceled in the source and automatically repurchased in USD in the destination billing account.
 
 - Important details for repurchased Savings Plans:
@@ -110,14 +110,14 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
   - Update any programming code to replace EA API calls with MCA API calls. [Learn More](/azure/cost-management-billing/costs/migrate-cost-management-api)
   - Subscription vending
   - Automatic purchases
-  - Third-party cost tools (Terraform, ARM, Bicep)
+  - Third-party cost tools (Terraform, Azure Resource Manager, Bicep)
  
 >[!NOTE]
 > EA and MCA API schemas differ. [Learn More](/azure/cost-management-billing/costs/migrate-cost-management-api#apis-to-get-cost-and-usage)
 
 ## Technical dependencies
 
-- After migrating to MCA, note that the transition is an evolutionary process involving both contractual and technical changes. As billing property IDs are updated, ensure all workloads are aligned with the new Billing Account ID, Billing Profile ID, and Invoice Section ID to maintain billing accuracy and business continuity.
+- After you migrate to MCA, the transition is an evolutionary process involving both contractual and technical changes. As billing property IDs are updated, ensure all workloads are aligned with the new Billing Account ID, Billing Profile ID, and Invoice Section ID to maintain billing accuracy and business continuity.
 - Check compatibility of dashboards (for example, Emissions Impact Dashboard) and update references to MCA billing scope.
 
 ## Invoice setup
@@ -126,11 +126,11 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
   - Getting started with MCA billing [Learn More](/azure/cost-management-billing/understand/mca-overview)
   - Organizing your invoice based on your business needs [Learn More](/azure/cost-management-billing/manage/mca-section-invoice)
     
-- MCA change: Next day invoicing applies to Microsoft Marketplace products including SaaS (per seat & flat rate), professional services, Azure managed app flat fees, Power BI visuals, and Dynamics 365 apps (Dataverse/Power Apps). [Learn more](/marketplace/billing-invoicing#next-day-invoicing-for-microsoft-customer-agreement-mca-customers)
+- MCA change: Next day invoicing applies to Microsoft Marketplace products including SaaS (per license & flat rate), professional services, Azure managed app flat fees, Power BI visuals, and Dynamics 365 apps (Dataverse/Power Apps). [Learn more](/marketplace/billing-invoicing#next-day-invoicing-for-microsoft-customer-agreement-mca-customers)
 
 ## Payment setup
 
-- MCA remit-to information differs from EA or PAYG. [Learn More](/azure/cost-management-billing/understand/pay-bill#wire-bank-details)
+- MCA remit-to information differs from EA or pay-as-you-go. [Learn More](/azure/cost-management-billing/understand/pay-bill#wire-bank-details)
 - Notify your accounts payable team.
 - Create separate records for EA and MCA invoices. 
 - Expect a final invoice from the source and new monthly MCA invoices.
@@ -138,7 +138,7 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
 
 **Pricing calculator role changes**
 
- - After transitioning to an MCA, access to negotiated pricing in the Azure Pricing Calculator is restricted to users with specific billing roles, and the permissions required differ from those under an EA.
+ - After you transition to an MCA, access to negotiated pricing in the Azure Pricing Calculator is restricted to users with specific billing roles, and the permissions required differ from the permissions under an EA.
   
   - Under MCA, users must have permissions at the billing profile level to view negotiated pricing.
     - Supported roles include:
@@ -148,7 +148,7 @@ Replace legacy APIs with MCA APIs and updated billing properties. APIs & Automat
     - Invoice Manager
     
     > [!IMPORTANT]
-    > Users without these roles will see **retail pricing only** in the Azure Pricing Calculator.
+    > Users without these roles see **retail pricing only** in the Azure Pricing Calculator.
     
 ## Tax and compliance
 
