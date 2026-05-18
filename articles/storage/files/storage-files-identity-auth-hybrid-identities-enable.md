@@ -72,11 +72,22 @@ For information about how to create and configure a Windows VM and sign in by us
 
 Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra/identity/devices/hybrid-join-plan). They can't be joined to Microsoft Entra Domain Services or joined to AD only.
 
-## Regional availability
+## Regional availability for Microsoft Entra Kerberos
 
-Support for hybrid identities is available in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+Microsoft Entra Kerberos support for hybrid identities is available for all regions in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
-Support for cloud-only identities is available only in the Azure Public cloud.
+Microsoft Entra Kerberos support for cloud-only identities is currently available only for the following subset of regions in the Azure Public cloud.
+
+- Australia Central
+- Australia Central 2
+- Brazil Southeast
+- France South
+- Germany North
+- Norway West
+- South Africa West
+- Switzerland West
+- UAE Central
+- West India
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
