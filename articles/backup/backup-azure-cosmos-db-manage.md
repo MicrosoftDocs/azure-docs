@@ -32,8 +32,6 @@ To change the backup policy for an Azure Cosmos DB account, follow these steps:
    
 5. On the **Change Policy** pane, search and select the new policy that you want to apply, and select **Apply**. 
 
-   :::image type="content" source="./media/backup-azure-cosmos-db-manage/backup-cosmos-edit-protected-item-change-policy.png" alt-text="Screenshot showing the option to reassign policy." lightbox="./media/backup-azure-cosmos-db-manage/backup-cosmos-edit-protected-item-change-policy.png":::
-
 ## Monitor backup and restore operations
 
 Azure Backup creates a job to track scheduled backups and on-demand backup operations. The service also creates a job when you trigger a restore operation, showing notifications in the Azure portal. You can view the backup job status or monitor the restore job progress from the Jobs pane.
@@ -46,19 +44,13 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
 
 3. The **Protected items** pane shows all the backup instances created across the subscriptions.
 
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
-
 4. On the selected protected instance pane, select the **Associated Items**.
 
 5. On the selected associated item pane, the backup jobs for the last seven days appear. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
 
 6. On the Backup jobs pane, review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details. 
 
-   :::image type="content" source="./media/backup-managed-disks/view-all.png" alt-text="Screenshot shows how to select the view all option." lightbox="./media/backup-managed-disks/view-all.png":::
-
 7. Select a job from the list of jobs to view job details.
-
-   :::image type="content" source="./media/backup-managed-disks/select-job.png" alt-text="Screenshot shows how to select a job to see details." lightbox="./media/backup-managed-disks/select-job.png":::
  
 ## Stop Protection for the Azure Cosmos DB
 
@@ -76,13 +68,9 @@ To stop protection for Azure Cosmos DB (preview), follow these steps:
 
 2. On the **Protected items** pane, apply the filters to view  the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
 
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
-
 3. On the **Protected instance** pane, select the **Associated Items** for which you want to stop protection. 
 
 4. On the selected associated item pane, select **Stop Backup**.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-inline.png" alt-text="Screenshot showing the selection of the backup instance to be stopped." lightbox="./media/manage-azure-managed-disks/select-disk-backup-instance-to-stop-expanded.png"::: 
 
 ### Stop Protection and Retain Data
 
@@ -91,17 +79,13 @@ To stop protection and retain data for Azure Cosmos DB (preview) from the **Stop
 1. On the Stop Backup pane, select one of the following data retention options:
 
    1. Retain forever
-   1. Retain as per policy
- 
-   :::image type="content" source="./media/manage-azure-managed-disks/data-retention-options-for-disk-inline.png" alt-text="Screenshot showing the options to stop backup instance protection." lightbox="./media/manage-azure-managed-disks/data-retention-options-for-disk-expanded.png":::
+   2. Retain as per policy
 
    You can also select the reason for stopping backups from the drop-down list.
 
 2. Select **Stop backup**.
 
 3. Select **Confirm** to stop data protection.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
 
 ### Stop Protection and Delete Data
 
@@ -111,13 +95,9 @@ To stop protection and delete data for Azure Cosmos DB (preview) from the **Stop
 
    Provide the name of the backup instance, reason for deletion, and any other comments.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/details-to-stop-disk-backup-inline.png" alt-text="Screenshot for the confirmation for stopping backup." lightbox="./media/manage-azure-managed-disks/details-to-stop-disk-backup-expanded.png":::
+2. Select **Stop backup**.
 
-1. Select **Stop backup**.
-
-1. Select **Confirm** to stop data protection.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
+3. Select **Confirm** to stop data protection.
 
 ## Resume Protection for Azure Cosmos DB
 
@@ -129,17 +109,11 @@ To resume protection for an Azure Cosmos DB backup instance (preview), follow th
 
 2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
 
-   :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
-
 3.  On the selected protected instance pane, sselect the **Associated Items** for which you want to resume protection.
 
 4. On the selected associated item pane, select **Resume Backup**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-protection-inline.png" alt-text="Screenshot showing the option to resume protection of server." lightbox="./media/manage-azure-managed-disks/resume-disk-protection-expanded.png":::
-
 5. On the **Resume Backup** pane, select **Resume backup**.
-
-   :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
 
 ## Delete an Azure Cosmos DB Backup Instance
 
@@ -155,14 +129,9 @@ To delete an Azure Cosmos DB protected instance, follow these steps:
 
 4. On the selected associated item pane, select **Delete**.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-inline.png" alt-text="Screenshot showing the process to delete a backup instance." lightbox="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-expanded.png":::
-
 5. On the **Delete Backup Data** pane, enter confirmation details including name of the Backup instance, reason for deletion, and other comments.
 
-   :::image type="content" source="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-inline.png" alt-text="Screenshot showing how to confirm the deletion of backup instances." lightbox="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-expanded.png":::
-
 6. Select **Delete** to confirm and proceed with deleting backup instance.
-
 
 ## Related content
 
