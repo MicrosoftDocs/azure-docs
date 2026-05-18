@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Files supports identity-based authentication for Windows file shares over Server Message Block (SMB) using the Kerberos authentication protocol through the following methods:
+Azure Files supports identity-based authentication for SMB file shares using the Kerberos authentication protocol. To use identity-based authentication with Azure Files, you must enable one of the following identity sources on your storage account:
 
 - On-premises Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
