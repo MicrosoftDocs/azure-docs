@@ -46,7 +46,7 @@ The following limits apply only for networking resources managed through **Azure
 | Routes with service tag per route table | 25 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
 | Point-to-site revoked client certificates per Azure VPN Gateway |300 |
-| Network interface TAP configurations per virtual network TAP |10 |
+| Virtual network TAP configurations per subscription |10 |
 
 <sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). 
 
@@ -77,7 +77,7 @@ The following limits apply only for networking resources managed through **Azure
 | Network Security Groups (NSGs) |200 |200 |
 | NSG rules per NSG |200 |1,000 |
 | User-defined route tables |200 |200 |
-| User-defined routes per route table |400 |400 |
+| User-defined routes per route table |600 |600 |
 | Public IP addresses (dynamic) |500 |500 |
 | Reserved public IP addresses |500 |500 |
 | Public IP per deployment |5 |Contact support |

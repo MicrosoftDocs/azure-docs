@@ -44,8 +44,6 @@ By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 
 | **TLS_AES_128_GCM_SHA256** | TLS_AES_128_GCM_SHA256 | Yes | Yes |
 | **ECDHE-RSA-AES256-GCM-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Yes | Yes |
 | **ECDHE-RSA-AES128-GCM-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | 
-| **DHE-RSA-AES256-GCM-SHA384** | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | | Yes | 
-| **DHE-RSA-AES128-GCM-SHA256** | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | | Yes | 
 | **ECDHE-RSA-AES256-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | | Yes | 
 | **ECDHE-RSA-AES128-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | | Yes | 
 
@@ -66,11 +64,9 @@ Azure Front Door supports the following cipher suites from which you can choose 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 > [!NOTE]
-> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems.
+> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC cipher suites have been provided for compatibility with those operating systems.
 
 ## Next step
 

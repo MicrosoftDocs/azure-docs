@@ -3,7 +3,7 @@ title: Update IoT Edge version on devices
 description: Learn how to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/02/2026
+ms.date: 04/13/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -161,16 +161,16 @@ The IoT Edge service pulls the latest versions of the runtime images and automat
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, `mcr.microsoft.com/azureiotedge-hub:**1.5**`) update the tag in your deployment manifest and apply the changes to your device.
+If you use specific tags in your deployment (for example, `mcr.microsoft.com/azureiotedge-hub:**1.5.1**`) update the tag in your deployment manifest and apply the changes to your device.
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
 1. On the **Modules** tab, select **Runtime Settings**.
 
-1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. For example, `mcr.microsoft.com/azureiotedge-agent:1.5`
+1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. For example, `mcr.microsoft.com/azureiotedge-agent:1.5.1`
     Don't select **Apply** yet.
 
-1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version. For example, `mcr.microsoft.com/azureiotedge-hub:1.5`.
+1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version. For example, `mcr.microsoft.com/azureiotedge-hub:1.5.1`.
 
 1. Select **Apply** to save changes.
 

@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager so that I can effectively prepare my Linux and Azure Arc-enabled servers for update management."
 ---
 

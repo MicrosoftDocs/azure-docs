@@ -5,7 +5,7 @@ description: Learn how to configure IPv6 in dual stack for VPN Gateway.
 author: radwiv
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 04/03/2026
 ms.author: radwiv
 # Customer intent: "As a network administrator, I want to configure IPv6 in dual-stack mode for Azure VPN Gateway, so that I can support seamless IPv6 traffic alongside IPv4 within my organization's VPN infrastructure."
 ---
@@ -14,7 +14,7 @@ ms.author: radwiv
 
 You can use IPv6 in a dual-stack configuration for Azure VPN Gateway. This configuration allows seamless IPv6 traffic traversal within the VPN tunnel when connecting from on-premises or remote user devices to Azure VPN Gateway.
 
-This article helps you configure IPv6 in dual stack for VPN Gateway using the Azure portal. Configuration steps are similar to the existing IPv4 configuration. You can also use PowerShell, or [CLI](site-to-site-ipv6-azure-cli.md) for this configuration. If you use PowerShell or CLI, you can configure IPv6 addresses along with IPv4 addresses.
+This article helps you configure IPv6 in dual stack for VPN Gateway using the Azure portal. Configuration steps are similar to the existing IPv4 configuration. You can also use [PowerShell](site-to-site-ipv6-azure-powershell.md) or [CLI](site-to-site-ipv6-azure-cli.md) for this configuration. If you use PowerShell or CLI, you can configure IPv6 addresses along with IPv4 addresses.
 
 > [!IMPORTANT]
 > IPv6 in dual stack configuration is currently in PREVIEW.

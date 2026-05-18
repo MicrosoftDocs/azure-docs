@@ -1,8 +1,8 @@
 ---
 title: Metrics for MQTT broker
 description: Available observability metrics for MQTT broker to monitor the health and performance of your solution.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: reference
 ms.custom:
   - ignite-2023

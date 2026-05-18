@@ -110,7 +110,7 @@ For more information, see the following resources:
 | **Documentation** | Various | [Process and create documents in Azure Cosmos DB with Azure Logic Apps](/azure/connectors/connectors-create-api-cosmos-db?tabs=standard) |
 | **Documentation** | Various | [Azure Cosmos DB connector reference](/connectors/documentdb) |
 | **Blog article** | Generally available | [Azure OpenAI and Azure AI Search connectors are now generally available for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682) |
-| **Blog article** | Generally available | [Automate RAG indexing: Azure Logic Apps & AI Search for source document processing](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/automate-rag-indexing-azure-logic-apps--ai-search-for-source-document-processing/4266083) |
+| **Blog article** | Generally available | [Automate RAG indexing: Azure Logic Apps & AI Search for source document processing](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/automate-rag-indexing-azure-logic-apps--ai-search-for-source-document-processing/4266083) |
 | **Blog article** | Public preview | [Azure OpenAI and Azure AI Search connectors are in public preview for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/public-preview-of-azure-openai-and-ai-search-in-app-connectors-for-logic-apps-st/4049584) |
 | **Demo video** | Generally available | [Build an end-to-end RAG-based AI application with Azure Logic Apps (Standard)](https://youtu.be/6QO4hKBmTR0) |
 | **Demo video** | Public preview | [Ingest document data into Azure AI Search and chat with data using Azure Logic Apps](https://youtu.be/tiU5yCvMW9o) |
@@ -136,8 +136,8 @@ For more information, see the following resources:
 | Resource type | Link |
 |---------------|------|
 | **Documentation** | [Call Azure Logic Apps workflows as functions using Azure OpenAI Assistants](/azure/ai-services/openai/how-to/assistants-logic-apps) |
-| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
-| **Blog article** | [Azure AI Assistants with Azure Logic Apps](https://techcommunity.microsoft.com/discussions/azure-ai-services/azure-ai-assistants-with-logic-apps/4246711) |
+| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
+| **Blog article** | [Azure AI Assistants with Azure Logic Apps](https://techcommunity.microsoft.com/discussions/azure-ai-foundry-discussions/azure-ai-assistants-with-logic-apps/4246711) |
 | **Demo video** | [Azure Logic Apps as an AI plugin](https://youtu.be/cW0t2WvqtCc) |
 
 ### Integrate with Semantic Kernel

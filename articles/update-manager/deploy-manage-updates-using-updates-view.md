@@ -7,6 +7,7 @@ ms.author: v-uhabiba
 ms.date: 06/21/2024
 ms.topic: how-to
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to view and manage pending updates for my environment, so that I can ensure all machines are up-to-date and secure from vulnerabilities."
 ---
 

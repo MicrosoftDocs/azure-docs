@@ -38,42 +38,39 @@ In this article, you learn how to:
     > [!NOTE]
     > In production scenarios, use proper certificates for end-to-end SSL verification.
 
+    > [!TIP]
+    > For the full feature scope of API Management, convert the SAP OData API to OpenAPI specification before registering.
+
 ## Retrieve OData metadata from your SAP service
 
 Use one of the following methods to retrieve metadata XML from your SAP service. If you plan to convert the metadata XML to an OpenAPI specification, save the file locally. 
 
 * Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`).
 * Make a direct HTTP call to retrieve the XML: `http://<OData server URL>:<port>/<path>/$metadata`.
+* Use the [SAP Business Accelerator Hub](https://api.sap.com/) if applicable.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 ## Import an API to API Management
 
 Choose one of the following methods to import your API to API Management: 
+- Convert the metadata XML to an OpenAPI specification (**recommended**).
 - Import the metadata XML as an OData API directly.
-- Convert the metadata XML to an OpenAPI specification.
 
-#### [OData metadata](#tab/odata)
-
-[!INCLUDE [api-management-import-odata-metadata](../../includes/api-management-import-odata-metadata.md)]
-
-#### [OpenAPI specification](#tab/openapi)
+#### [OpenAPI specification (recommended)](#tab/openapi)
 
 ## Convert OData metadata to OpenAPI JSON
 
-1. Use an OASIS open-source tool for [OData v2](https://github.com/oasis-tcs/odata-openapi/tree/main/tools) or [OData v4](https://github.com/oasis-tcs/odata-openapi/tree/main/lib), depending on your metadata XML. 
+1. Use the [Microsoft converter](https://github.com/Azure-Samples/odata-openapi-converter/) built on-top of the OASIS open-source tool. 
 
    The following example converts OData v2 XML for the test service `epm_ref_apps_prod_man_srv`:
 
    ```console
-   odata-openapi -p --basePath '/sap/opu/odata/sap/epm_ref_apps_prod_man_srv' \
-    --scheme https --host <your IP address>:<your SSL port> \
-    ./epm_ref_apps_prod_man_srv.xml
+   oasis-converter convert epm_ref_apps_prod_man_srv.xml api.json
    ```
 
     > [!NOTE]
-    > * For testing with a single XML file, you can use a [web-based converter](https://aka.ms/ODataOpenAPI) that's based on an open-source tool.
-    > * With the tool or the web-based converter, specifying the \<IP address>:\<port> of your SAP OData server is optional. Alternatively, add this information later in your generated OpenAPI specification or after you import the file to API Management.
+    > For testing with a single XML file, you can use the [web-based experience](https://aka.ms/ODataOpenAPI).
 
 1. Save the *openapi-spec.json* file locally for import to API Management.
 
@@ -94,38 +91,10 @@ Choose one of the following methods to import your API to API Management:
 
 1. Select **Create**.
 
+You also need to configure authentication to your backend by using an appropriate method for your environment. For examples, see [Authentication and authorization](api-management-policies.md#authentication-and-authorization).
+
 > [!NOTE]
 > For information about API import limitations, see [API import restrictions and known issues](api-management-api-import-restrictions.md).
-
-## Complete the API configuration
-
-Add the following three operations to the API that you imported. To learn how, see [Add and test an operation](add-api-manually.md#add-and-test-an-operation).
-
-- `GET /$metadata`
-
-    |Operation  |Description  |Additional configuration for the operation  |
-    |---------|---------|---------|
-    |`GET /$metadata`     |   Enables API Management to reach the `$metadata` endpoint, which is required for client integration with the OData server.<br/><br/>This required operation isn't included in the OpenAPI specification that you generated and imported.    |  Add a `200 OK` response.       |
-
-    :::image type="content" source="media/sap-api/get-metadata-operation.png" alt-text="Screenshot that shows the GET metadata operation.":::
-
-- `HEAD /` 
-
-    |Operation  |Description  | 
-    |---------|---------| 
-    |`HEAD /`     | Enables the client to exchange cross-site request forgery (CSRF) tokens with the SAP server when required.<br/><br/>SAP also allows CSRF token exchange via the GET verb.<br/><br/> CSRF token exchange isn’t covered in this article. See an [example API Management policy snippet](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml) to broker token exchange.     |
-
-    :::image type="content" source="media/sap-api/head-root-operation.png" alt-text="Screenshot that shows the operation for fetching tokens.":::
-
-- `GET /`
-
-    Operation  |Description  |Additional configuration for the operation  |
-    |---------|---------|---------|
-    |`GET /`     |   Enables policy configuration at the service root.   |    Configure the following inbound [rewrite-uri](rewrite-uri-policy.md) policy to append a trailing slash to requests that are forwarded to the service root:<br/><br> `<rewrite-uri template="/" copy-unmatched-params="true" />` <br/><br/>This policy removes potential ambiguity among requests with and without trailing slashes. These two types of requests are treated differently by some backends.|
-
-    :::image type="content" source="media/sap-api/get-root-operation.png" alt-text="Screenshot that shows the GET operation for the service root.":::
-
-You also need to configure authentication to your backend by using an appropriate method for your environment. For examples, see [Authentication and authorization](api-management-policies.md#authentication-and-authorization).
 
 ## Test your API
 
@@ -145,10 +114,15 @@ You also need to configure authentication to your backend by using an appropriat
 
 1. When you're done testing, exit the test console.
 
+#### [OData metadata](#tab/odata)
+
+[!INCLUDE [api-management-import-odata-metadata](../../includes/api-management-import-odata-metadata.md)]
+
 ---
 
 ## Production considerations
 
+* Use [Defender for APIs](protect-with-defender-for-apis.md) for full lifecycle protection, detection, and response coverage for APIs.
 * See an [example end-to-end scenario](https://community.powerplatform.com/blogs/post/?postid=c6a609ab-3556-ef11-a317-6045bda95bf0) for integrating API Management with an SAP gateway.
 * Control access to an SAP backend by using API Management policies. For example, if the API is imported as an OData API, use the [validate OData request](validate-odata-request-policy.md) policy. There are also policy snippets for [SAP principal propagation for SAP ECC or S/4HANA](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) or [SAP SuccessFactors](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SuccessFactors%20using%20AAD%20JWT%20token.xml) and [fetching an X-CSRF token](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Get%20X-CSRF%20token%20from%20SAP%20gateway%20using%20send%20request.policy.xml).
 * For guidance on deploying, managing, and migrating APIs at scale, see:

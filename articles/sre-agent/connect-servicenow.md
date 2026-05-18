@@ -3,7 +3,7 @@ title: "Tutorial: Connect to ServiceNow in Azure SRE Agent"
 description: Configure ServiceNow as your incident platform using basic authentication or OAuth 2.0 for automated incident management.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 04/15/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -204,6 +204,28 @@ To disconnect your ServiceNow integration, follow these steps:
 > [!WARNING]
 > Disconnecting permanently removes the connection. Your agent stops receiving and managing ServiceNow incidents. For OAuth connections, the process also deletes the associated Azure API Connection resource.
 
+## Update incident fields during investigations (preview)
+
+> [!IMPORTANT]
+> This feature is in preview. Functionality and behavior may change before general availability.
+
+Once your ServiceNow connection is active, your agent can update incident fields directly during investigations. In an incident investigation thread, ask the agent to update fields like assignment group, category, impact, or priority—the agent handles the ServiceNow API call.
+
+**Try it:** In an incident investigation thread, ask:
+
+> "Update this incident's category to 'Network' and subcategory to 'DNS'"
+
+The agent updates the fields directly in ServiceNow and confirms the changes.
+
+**Supported fields:** `assignment_group`, `category`, `subcategory`, `impact`, `urgency`, `priority`, `short_description`, and custom fields (`u_*` prefix like `u_environment`).
+
+**Priority values:** Use string values—`"1"` (Critical), `"2"` (High), `"3"` (Moderate), `"4"` (Low), `"5"` (Planning).
+
+> [!NOTE]
+> Use ServiceNow's snake_case field names (for example, `assignment_group`, not `Assignment Group`). The agent handles the mapping automatically when you describe the field in natural language.
+
+State changes use dedicated actions—the update action doesn't change incident state. To acknowledge or resolve incidents, ask the agent directly (for example, "acknowledge this incident" or "resolve this incident").
+
 ## Troubleshooting
 
 Use the following guidance to resolve common ServiceNow connection issues.
@@ -249,6 +271,7 @@ In this tutorial, you:
 - Verified the connection is active and healthy.
 - Learned how to set up response plans for ServiceNow incidents.
 - Explored what your agent can do with ServiceNow, including reading, posting, acknowledging, and resolving incidents.
+- Updated incident fields like assignment group, category, and impact directly from the agent conversation.
 
 ## Next step
 

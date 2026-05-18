@@ -1,8 +1,8 @@
 ---
 title: 'QuickStart: Create and configure Azure DDoS IP Protection using Azure CLI'
 description: Learn how to create Azure DDoS IP Protection using Azure CLI
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 01/26/2026

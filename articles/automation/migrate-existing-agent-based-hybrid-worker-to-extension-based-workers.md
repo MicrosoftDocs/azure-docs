@@ -1,9 +1,9 @@
 ---
-title: Migrate an existing agent-based hybrid workers to extension-based-workers in Azure Automation
+title: Migrate existing agent-based hybrid workers to extension-based-workers in Azure Automation
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/07/2025
+ms.date: 04/24/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
@@ -85,7 +85,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
 > [!NOTE]
-> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets.
 > 
 > - We strongly recommend that you never configure Hybrid Worker extension on a Virtual machine hosting domain controller. Security best practices don't advise such a setup due to the high-risk nature of exposing domain controllers to potential attack vectors via Azure Automation jobs. Domain controllers should be highly secured and isolated from non-essential services to prevent unauthorized access and maintain the integrity of the Active Directory Domain Services (ADDS) environment.
 
@@ -102,7 +102,7 @@ If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then
 > [!NOTE]
 > - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
 > - For the Arc-enabled server, ensure to reassign the permissions as they get removed whenever the ARC agent is updated.
-> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets.
 
 ## Migrate an existing Agent based Hybrid Worker to Extension based Hybrid Worker
 
@@ -126,6 +126,8 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
+
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 #### [Bicep file](#tab/bicep-file)
 

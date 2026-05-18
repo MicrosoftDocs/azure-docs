@@ -3,7 +3,7 @@ title: Trusted Launch for Azure VMware Solution
 description: Trusted Launch overview and Learn how to configure Virtual Trusted Platform Module (vTPM) on Virtual Machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 03/30/2026
+ms.date: 4/02/2026
 ms.custom: engagement-fy25
 # Customer intent: As an IT admin managing virtual machines in a cloud-based environment, I want to configure Virtual Trusted Platform Module (vTPM) on my VMs, so that I can enhance their security and ensure a trusted boot process.
 ---
@@ -22,11 +22,11 @@ In this article, learn about Trusted Launch and how to configure Virtual Trusted
 
 •	Gain insights and confidence of the entire boot chain's integrity.
 
-•	Ensure that workloads are trusted and verifiable. 
+•	Ensure that workloads are trusted and verifiable.
 
 ## Secure Boot
 
-Secure Boot is the frontline of defense in Trusted Launch. It establishes a "root of trust" for VMs by ensuring that only signed operating systems and drivers are allowed to boot. Secure Boot prevents the installation of malware-based rootkits and bootkits, which can compromise the security of the entire system. With Secure Boot enabled, every aspect of the boot process (from the boot loader to the kernel and kernel drivers) should be digitally signed by trusted publishers. This creates a robust shield against unauthorized modifications and ensures that the VM starts in a secure and trusted state.
+Secure Boot is the frontline of defense in Trusted Launch. It establishes a "root of trust" for VMs by ensuring that only signed operating systems and drivers are allowed to boot. Secure Boot prevents the installation of malware-based rootkits and bootkits, which can compromise the security of the entire system. With Secure Boot enabled, ensure every aspect of the boot process (from the boot loader to the kernel and kernel drivers) gets digitally signed by trusted publishers. The digital signatures create a robust shield against unauthorized modifications and ensure the VMs starts in a secure and trusted state.
  
 ## Virtual Trusted Platform Module (vTPM) 
 
@@ -34,14 +34,13 @@ The vTPM is a virtualized version of a hardware Trusted Platform Module (TPM) 2.
  
 ## Virtualization-based Security (VBS) 
 
-Virtualization-based Security (VBS) is the final piece of the Trusted Launch puzzle. It uses the hypervisor to create isolated, secure memory regions within the VM. VBS uses virtualization to enhance system security by creating an isolated, hypervisor-restricted, specialized subsystem. It provides protection against unauthorized access of credential, prevents malware from running on windows system and ensures only trusted code runs from bootloader onwards.
-
+Virtualization-based Security (VBS) is the final piece of the Trusted Launch puzzle. It uses the hypervisor to create isolated, secure memory regions within the VM. VBS uses virtualization to enhance system security by creating an isolated, hypervisor-restricted, specialized subsystem. It provides protection against unauthorized access of credential, prevents malware from running on windows system, and ensures only trusted code runs from bootloader onwards.
 
 ## Configure Virtual Trusted Platform Module (vTPM) on Virtual Machines with Azure VMware Solution
 
-This section demonstrates how to enable the virtual Trusted Platform Module (vTPM) in a VMware vSphere virtual machine (VM) running in the Azure VMware Solution.  
+This section demonstrates how to enable the virtual Trusted Platform Module (vTPM) in a VMware vSphere virtual machine (VM) running in Azure VMware Solution.
 
-A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within VMs. Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This setting enables VMs to apply security features like BitLocker disk encryption and authenticate virtual hardware devices, creating a more secure virtual environment. 
+A virtual Trusted Platform Module (vTPM) in VMware vSphere is a virtual counterpart of a physical TPM 2.0 chip, utilizing VM Encryption. It provides the same functionalities as a physical TPM but operates within VMs. Each VM can have its own unique and isolated vTPM, which helps secure sensitive information and maintain system integrity. This setting enables VMs to apply security features like BitLocker disk encryption and authenticate virtual hardware devices, to create a more secure virtual environment.
 
 ### Prerequisites
 
@@ -56,24 +55,24 @@ Before configuring vTPM on a VM in Azure VMware Solution, ensure the following p
 
 ### How to Configure vTPM
 
-To configure vTPM on a VM in Azure VMware Solution, use the following steps:
+To configure vTPM on a VM in Azure VMware Solution, follow these steps:
 
 1. Connect to vCenter Server using the vSphere Client.
 
-2. In the inventory, right-click the virtual machine you want to modify and select **Edit Settings**.  
+2. In the inventory, right-click the virtual machine you want to modify and select **Edit Settings**.
 
 :::image type="content" source="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png" alt-text="Diagram showing how to enable vTPM on a virtual machine in Azure VMware Solution." border="false" lightbox="./media/enable-virtual-trusted-platform-module-on-virtual-machine-highres.png":::
 
-3. In the Edit Settings dialog box, select **Add New Device** and choose **Trusted Platform Module**.  
+3. In the Edit Settings dialog box, select **Add New Device** and choose **Trusted Platform Module**.
 
-4. Select **OK**. The virtual machine Summary tab displays the Virtual Trusted Platform Module in the VM Hardware pane. 
+4. Select **OK**. The virtual machine Summary tab displays the Virtual Trusted Platform Module in the VM Hardware pane.
 
 >[!IMPORTANT]
->On VMware vSphere 7, cloning a virtual machine creates an exact replica of both the VM and the vTPM. VMware vSphere 8 introduces options to either copy or replace the TPM, allowing for better handling of different use cases. 
+>On VMware vSphere 7, cloning a virtual machine creates an exact replica of both the VM and the vTPM. VMware vSphere 8 introduces options to either copy or replace the TPM, which allows for better handling of different use cases.
 
 ## Unsupported scenarios 
 
-Migration of VMs with vTPM might not be supported by some tools. Check the documentation of the migration tool. If it isn't supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration. 
+Some tools don't support migrations of VMs with vTPM. Check the documentation of the migration tool. If it isn't supported, you can follow VMware documentation to safely disable vTPM and re-enable it post-migration.
 
 ## More information
 

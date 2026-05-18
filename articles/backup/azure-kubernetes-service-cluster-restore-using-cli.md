@@ -4,6 +4,7 @@ description: This article explains how to restore backed-up Azure Kubernetes Ser
 ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/14/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

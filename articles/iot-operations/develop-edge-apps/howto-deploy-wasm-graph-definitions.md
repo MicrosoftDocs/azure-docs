@@ -194,7 +194,7 @@ For comprehensive development guidance including:
 - Understanding the data model and interfaces
 - Building and testing your modules
 
-See [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md).
+See [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-build-wasm-modules.md).
 
 For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
 
@@ -259,8 +259,8 @@ If `configMediaType` shows a generic value like `application/vnd.oci.empty.v1+js
 
 ## Related content
 
-- [Develop WebAssembly modules](howto-develop-wasm-modules.md) for writing operators in Rust and Python (includes end-to-end quickstart)
+- [Develop WebAssembly modules](howto-build-wasm-modules.md) for writing operators in Rust and Python (includes end-to-end quickstart)
 - [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md) for graph YAML structure and configuration parameters
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md) for DataflowGraph resource configuration and examples
-- [Build WASM modules with VS Code extension](howto-build-wasm-modules-vscode.md) for IDE-based development
+- [Build WASM modules with VS Code extension](howto-build-wasm-modules.md) for IDE-based development
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)

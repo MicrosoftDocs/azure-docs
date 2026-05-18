@@ -3,8 +3,8 @@ title: What is New in Azure IoT Hub? (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains the new features and improvements in Azure IoT Hub.
 #customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub so that I can evaluate their benefits for my IoT projects.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.reviewer: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
@@ -54,9 +54,6 @@ To use IoT Hub with Azure Device Registry and certificate management, deploy ins
 - West Europe
 - North Europe
 
-> > [!IMPORTANT]
-> > In Preview, East US does not support Certificate Management. East US is supported for IoT Hubs, Device Provisioning Service, and ADR Namespaces. 
-> 
 ## Get started with ADR and certificate management
 
 To use these preview features, you must create a new IoT Hub instance with ADR integration. There's currently no upgrade path for existing IoT Hubs. If you're using IoT Hub now, your existing hubs continue to work without interruption. To try the new features, you'll need to:

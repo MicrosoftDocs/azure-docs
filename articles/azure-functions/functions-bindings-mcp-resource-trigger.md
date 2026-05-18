@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](functions
 > For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript,programming-language-javascript"
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript,programming-language-javascript, programming-language-java"
 
 This first example shows how to use resource to implement the UI element of MCP Apps. 
 ::: zone-end
@@ -127,12 +127,6 @@ For the complete code example, see the [Azure Functions MCP Extension repo](http
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-
-> [!IMPORTANT]
-> The MCP extension in Java doesn't_ support resource today.
-
-::: zone-end
 
 ::: zone pivot="programming-language-javascript"  
 Example code for JavaScript isn't currently available. See the TypeScript example for general guidance.
@@ -216,15 +210,7 @@ app.mcpTool("getWeather", {
 For the complete code example, see [weatherMcpApp.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/McpAppDemo/src/functions/weatherMcpApp.ts).
 
 > [!IMPORTANT]
-> The MCP resource trigger for TypeScript currently requires version `4.12.0-preview.2` or later of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions/v/4.12.0-preview.2) package.
-> It also requires version `[4.32.0, 5.0.0)` of the preview exetnsion bundle. Make sure to update your `host.json` to use this preview bundle and version:
->
-> ```json
-> "extensionBundle": {
->   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
->   "version": "[4.32.0, 5.0.0)"
-> }
-> ```
+> The MCP resource trigger for TypeScript requires version `4.12.0` or later of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions/v/4.12.0) package.
 
 ::: zone-end  
 
@@ -290,17 +276,79 @@ def get_weather(location: str) -> Dict[str, Any]:
 For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src).
 
 > [!NOTE]
-> The MCP resource trigger for Python requires version `1.25.0b3` or later of the [`azure-functions`](https://pypi.org/project/azure-functions/1.25.0b3/) package. 
-> It also requires version `[4.32.0, 5.0.0)` of the preview exetnsion bundle. Make sure to update your `host.json` to use this preview bundle and version:
->
-> ```json
-> "extensionBundle": {
->   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview"
->   "version": "[4.32.0, 5.0.0)"
-> }
-> ```
->
-> If the app is using Python 3.9-3.12, add the `PYTHON_ISOLATE_WORKER_DEPENDENCIES: 1` app setting to `local.settings.json` and to app settings when running in Azure.
+> The MCP resource trigger for Python requires version `2.0.0` or later of the [`azure-functions`](https://pypi.org/project/azure-functions/) package and using **Python 3.13** or above. 
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+The following code registers a resource named `Weather Widget` that serves an interactive weather display as bundled HTML content. The resource uses the `ui://` scheme to indicate it's an MCP App UI resource.
+
+```java
+private static final String RESOURCE_METADATA = """
+        {
+            "ui": {
+                "prefersBorder": true
+            }
+        }
+        """;
+
+@FunctionName("GetWeatherWidget")
+public String getWeatherWidget(
+        @McpResourceTrigger(
+                name = "context",
+                uri = "ui://weather/index.html",
+                resourceName = "Weather Widget",
+                title = "Weather Widget",
+                description = "Interactive weather display for MCP Apps",
+                mimeType = "text/html;profile=mcp-app")
+        @McpMetadata(
+                name = "context",
+                json = RESOURCE_METADATA)
+        String context,
+        final ExecutionContext executionContext) {
+
+    executionContext.getLogger().info("GetWeatherWidget: serving weather widget UI");
+
+    return java.nio.file.Files.readString(file.toPath(), StandardCharsets.UTF_8);
+}
+```
+
+A tool can reference this resource by declaring a `resourceUri` in its metadata, pointing to `ui://weather/index.html`. When the tool is invoked, the MCP host fetches the resource and renders it:
+
+```java
+private static final String TOOL_METADATA = """
+        {
+            "ui": {
+                "resourceUri": "ui://weather/index.html"
+            }
+        }
+        """;
+
+@FunctionName("GetWeather")
+public String getWeather(
+        @McpToolTrigger(
+                name = "GetWeather",
+                description = "Returns current weather for a location via Open-Meteo.")
+        @McpMetadata(
+                name = "GetWeather",
+                json = TOOL_METADATA)
+        String context,
+        @McpToolProperty(
+                name = "location",
+                propertyType = "string",
+                description = "City name to check weather for (e.g., Seattle, New York, Miami)")
+        String location,
+        final ExecutionContext executionContext) {
+
+    executionContext.getLogger().info("GetWeather: looking up weather for '" + location + "'");
+
+    Object result = weatherService.getCurrentWeather(location);
+
+    return MAPPER.writeValueAsString(result);
+}
+```
+
+For the complete code example, see [WeatherFunction.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/samples/McpWeatherApp/src/main/java/com/function/weather/WeatherFunction.java).
 
 ::: zone-end
 
@@ -373,7 +421,52 @@ Define the trigger's binding options in your code. The trigger supports the foll
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
+::: zone pivot="programming-language-java"
+
+## Attributes
+
+Apply the `@McpResourceTrigger` annotation to a function parameter to define an MCP resource trigger.
+
+The `@McpResourceTrigger` annotation supports the following properties:
+
+| Property | Description |
+|---|---|
+| **`name`** | Required. The binding name for the resource invocation context parameter. |
+| **`uri`** | Required. The URI of the MCP resource (for example, `"file://readme.md"` or `"ui://weather/index.html"`). |
+| **`resourceName`** | Required. The display name of the MCP resource. |
+| **`title`** | Optional. A human-readable title for display purposes. Unlike `resourceName`, which is a programmatic identifier, this is a friendly label for UI presentation. |
+| **`description`** | Optional. A human-readable description of this resource. |
+| **`mimeType`** | Optional. The MIME type of the resource content (for example, `"text/plain"`, `"text/html"`, `"image/png"`, `"text/html;profile=mcp-app"`). |
+| **`size`** | Optional. The size of the resource in bytes. Defaults to `-1` (not specified). |
+| **`dataType`** | Optional. Defines how the Functions runtime should treat the parameter value. Possible values: `""` (default, deserialize to parameter type), `"string"`, `"binary"`. |
+
+## Metadata annotation
+
+You can optionally apply `@McpMetadata` on the same parameter as `@McpResourceTrigger` to attach arbitrary JSON metadata to the resource. This metadata is surfaced in the MCP protocol's `_meta` field when clients call `resources/list`.
+
+The `@McpMetadata` annotation supports the following properties:
+
+| Property | Description |
+|---|---|
+| **`name`** | Required. The binding parameter name. Should match the `name` value of the trigger annotation on the same parameter. |
+| **`json`** | Required. The metadata as a valid JSON string. Can include any arbitrary key-value pairs such as author information, version numbers, UI hints, or tags. |
+
+**Example:**
+
+```java 
+@McpResourceTrigger(
+        name = "context",
+        uri = "file://readme.md",
+        resourceName = "readme",
+        description = "Application readme file",
+        mimeType = "text/plain")
+@McpMetadata(
+        name = "context",
+        json = "{\"author\": \"John Doe\", \"version\": 1.0}")
+```
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript"
 
 See the [Example section](#example) for complete examples.
 
@@ -418,7 +511,13 @@ The resource handler function has two parameters:
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-java"
+
+The MCP resource trigger binds the resource invocation context to a function parameter. The trigger can bind to the following types: `String`, or `byte[]` for binary content.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Resource URIs
 
@@ -446,7 +545,13 @@ Use the `metadata` option to provide extra metadata for resources. This metadata
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-java"
+
+Use the `@McpMetadata` annotation to provide extra metadata for resources. This metadata is a JSON-serialized string included in the `meta` field of each resource when clients call `resources/list`. It can affect how the resource content is displayed or processed.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Return types
 
@@ -480,7 +585,18 @@ The function should return a `string` containing the resource content (for examp
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-java"
+
+The MCP resource trigger supports the following return types:
+
+| Type | Description |
+| --- | --- |
+| `String` | Returned as text content in the MCP `ReadResourceResult`. |
+| `byte[]` | Returned as base64-encoded binary content in the MCP `ReadResourceResult`. Set `dataType = "binary"` on the annotation when returning binary content. |
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Resource discovery
 

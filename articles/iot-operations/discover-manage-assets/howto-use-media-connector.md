@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 12/10/2025
+ms.date: 04/30/2026
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as a IP video camera.
 ---
@@ -22,14 +22,14 @@ The following table summarizes the features the media connector supports:
 
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
-| Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | No | |
+| Username/password authentication | Yes | For RTSPS endpoints |
+| X.509 user certificates | No | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to to media sources |
+| Southbound certificate trust list | Yes | For media source TLS certificate validation |
 | OpenTelemetry integration | Yes | |
-| Northbound username/password authentication | Yes | For RTSP and RTSPS endpoints |
+| Northbound username/password authentication | Yes | For RTSPS endpoints |
 | Northbound anonymous access | Yes | For RTSP and RTSPS endpoints |
-| Northbound certificate trust list | Yes | For secure connections to RTSPS endpoints only |
+| Northbound certificate trust list | Yes | For RTSPS endpoint TLS certificate validation |
 | Snapshot to MQTT | Yes | Publish image snapshots to MQTT topics |
 | Clip to file system | Yes | Save video clips to local storage |
 | Snapshot to file system | Yes | Save image snapshots to local storage |
@@ -62,41 +62,119 @@ The media connector can connect to various sources, including:
 
 | Media source | Example URLs | Notes |
 |--------------| ---------------|-------|
-| IP camera | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. An IP camera might also expose a standard ONVIF control interface. |
-| Media server | `rtsp://192.168.178.45:554/stream1` | JPEG over HTTP for snapshots, RTSP/RTCP/RTP/MJPEG-TS for video streams. A media server can also serve images and videos using URLs such as `ftp://host/path` or `smb://host/path` |
+| IP camera | `rtsp://192.168.178.45:554/stream1` | RTSP endpoint to stream video. An IP camera might also expose a standard ONVIF control interface. |
+| Media server | `rtsp://192.168.178.45:554/stream1` | RTSP endpoint to stream video. A media server might also expose other endpoints. |
 
-## Task types
+## Stream configuration
 
-The media connector supports the following task types:
+The `streamconfigurations` of an asset describe how to process the stream received from an inbound endpoint of type `Microsoft.Media`.
+
+### Task types
+
+The media connector supports the following `streamconfiguration` task types:
 
 | Task type | Description |
 |-----------|-------------|
 | snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
-| clip-to-fs | Saves a video clip from a media source to the file system. |
-| snapshot-to-fs | Saves a snapshot from a media source to the file system. |
+| snapshot-to-fs | Saves a snapshot from a media source to the container file system. |
+| clip-to-fs | Saves a video clip from a media source to the container file system. |
 | stream-to-rtsp | Proxies a live video stream from a media source to RTSP endpoints. |
 | stream-to-rtsps | Proxies a live video stream from a media source to RTSPS endpoints. |
 
-### RTSP endpoint authentication
+Each task type supports different configuration properties in the `streamconfiguration`:
 
-The connector supports username and password authentication when it proxies live video streams to RTSP or RTSPS endpoints. The connector also supports TLS when it proxies live video streams to RTSPS endpoints.
+| Property                  | Type    | Allowed values                  | Default | snapshot-to-mqtt | snapshot-to-fs | clip-to-fs | stream-to-rtsp | stream-to-rtsps |
+| ------------------------- | ------- | ------------------------------- | ------- | ---------------- | -------------- | ---------- | -------------- | --------------- |
+| autostart                 | boolean | true, false                     | true    | yes              | yes            | yes        | yes            | yes             |
+| format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | jpeg    | yes              | no             | no         | no             | no              |
+| format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | png     | no               | yes            | no         | no             | no              |
+| snapshotsPerSecond        | number  | 0-60.0                          | 1       | yes              | yes            | no         | no             | no              |
+| format                    | string  | avi, mp4, mkv, mjpeg, mpg, mpeg | mkv     | no               | no             | yes        | no             | no              |
+| duration                  | integer | 1-3600                          | 60      | no               | no             | yes        | no             | no              |
+| mediaServerUsernameRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
+| mediaServerPasswordRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
+| mediaServerCertificateRef | string  | N/A                             | ""      | no               | no             | no         | no             | yes             |
 
-Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsp` and `stream-to-rtsps` asset configurations.
+## Northbound destinations
 
-Follow the steps in [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) to add secrets for TLS certificates in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `stream-to-rtsps` asset configurations.
+The output destination for the media connector depends on the `streamconfiguration` task type. Configure the destination in the asset's `streamconfiguration`:
+
+- **`snapshot-to-mqtt`**: Use a destination of type `mqtt` to specify the MQTT topic.
+- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set the `path` field to a fully qualified path inside the local container file system. To enable external access to the saved snapshots or clips, point this path to a mounted volume.
+- **`stream-to-rtsp` and `stream-to-rtsps`**: Set the `path` field to the endpoint address of the northbound media server that you want to proxy the source stream into.
+
+### Northbound RTSPS endpoint validation and user authentication
+
+The connector supports username and password authentication when it connects to the southbound media source. 
+
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `Device inbound endpoint` device configuration.
+
+It also supports username and password authentication when it connects to a northbound media server for streamconfiguration task type `stream-to-rtsps`.
+
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them by following the steps in `Create a connector template instance` in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md) reference the secrets in the runtimeConfiguration section under managedConfigurationSettings as secrets. The value of `secretAlias` is the value set in the streamconfiguration, the value of `secretRef` is the name of the secret CR created, and the value of `secretKey` is the key inside the secret identifying the entry which holds the value.
+
+>[!NOTE]
+> Ensure you always use `stream-to-rtsps` when using authentication for the northbound media server to prevent sending credentials as clear text over the wire.
+
+Media connector supports certificate validation of the southbound media source and the northbound media server certificate, when TLS is used for the connection. Media connector does not support mutual TLS to connect.
+
+The southbound media source endpoint is configured in the `address` field of the device inbound endpoint. The trust bundle which should be used for the certificate validation has to be configured via the connector template instance. Please follow the steps in `Create a connector template instance` in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md) reference the secret containing the trust bundle in the runtimeConfiguration section under managedConfigurationSettings under trustSettings as trustListSecretRef.
+
+The northbound media server endpoint is configured via the destination of the streamconfiguration with task type `stream-to-rtsp` or `stream-to-rtsps`. For `stream-to-rtsps` the trust bundle to be used for certificate validation has to be configured via the `mediaServerCertificateRef` in the stream configuration. Please follow the same process as described above for username and password to define the secret which contains the trust bundle.
+
+[Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) shows how to add secrets for TLS certificates in Azure Key Vault, project them into Kubernetes cluster.
+
+
+#### Username and password authentication
+
+The media connector supports username and password authentication for both:
+
+- **Southbound connections** to the media source.
+- **Northbound connections** to a media server, when the `streamconfiguration` task type is `stream-to-rtsps`.
+
+To configure authentication:
+
+1. Add the username and password as secrets in Azure Key Vault and project them into the Kubernetes cluster. To learn more, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).
+
+1. Reference the secrets:
+
+    - **Southbound**: From the `Device inbound endpoint` device configuration.
+    - **Northbound**: From the `runtimeConfiguration.managedConfigurationSettings.secrets` section of the connector template instance. To learn more, see *Create a connector template instance* in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md). Use these values:
+
+        | Field | Value |
+        |-------|-------|
+        | `secretAlias` | The alias set in the `streamconfiguration`. |
+        | `secretRef` | The name of the secret CR you created. |
+        | `secretKey` | The key inside the secret that holds the value. |
+
+> [!IMPORTANT]
+> Always use `stream-to-rtsps` (not `stream-to-rtsp`) to authenticate to a northbound media server. Otherwise, credentials are sent in clear text.
+
+#### TLS certificate validation
+
+When you use TLS, the media connector validates the certificates of both the southbound media source and the northbound media server. Mutual TLS isn't supported.
+
+To configure the trust bundle:
+
+- **Southbound media source**: The endpoint is set in the `address` field of the device inbound endpoint. Configure the trust bundle in the connector template instance, in the `runtimeConfiguration.managedConfigurationSettings.trustSettings.trustListSecretRef` field. To learn more, see *Create a connector template instance* in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md).
+
+- **Northbound media server**: The endpoint is set in the destination of a `stream-to-rtsp` or `stream-to-rtsps` `streamconfiguration`. For `stream-to-rtsps`, configure the trust bundle in the `mediaServerCertificateRef` field of the stream configuration. Use the same secret-creation process as for username and password.
+
+To add TLS certificates as secrets in Azure Key Vault and project them into the Kubernetes cluster, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
+
 
 ## Example uses
 
 Example uses of the media connector include:
 
-- Capture snapshots from a video stream or from an image URL and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
+- Capture snapshots from a video stream and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
 
 - Save snapshots or video clips to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes).
 
     > [!IMPORTANT]
     > You must install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with the media connector template.
 
-- Proxy a live video stream from a camera to an endpoint that an operator can access. For security and performance reasons, only the media connector should have direct access to an edge camera. The media connector uses a separate media server component to stream video to an operator's endpoint. This media server can transcode to various protocols such as RTSP, RTCP, SRT, and HLS. You need to deploy your own media server to provide these capabilities.
+- Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode/transform the stream based on the operators requirements. This media server is not part of the media connector.
 
 ## Deploy the media connector
 
@@ -108,7 +186,7 @@ Example uses of the media connector include:
 
 ## Create a device with a media endpoint
 
-To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source and any credentials you need to access the media source:
+To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source and any authentication credentials you need to access the media source:
 
 # [Operations experience](#tab/portal)
 
@@ -389,7 +467,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
 
       {
         name: 'clipstream'
-        streamConfiguration: '{"taskType": "clip-to-fs","autostart":true, "format": "mp4","duration": 30}'
+        streamConfiguration: '{"taskType": "clip-to-fs","autostart":true, "duration": 30}'
         destinations: [
           {
             target: 'Storage'

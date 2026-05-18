@@ -2,7 +2,7 @@
 title: Back Up Azure VMs in a Recovery Services Vault
 description: This article describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup.
 ms.topic: how-to
-ms.date: 01/22/2026
+ms.date: 03/25/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -98,9 +98,12 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
      ![Screenshot that shows the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    >[!NOTE]
-    >- All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, you can browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list. If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
-    >- To change the Recovery Services vault of a VM, stop the backup and then assign a new vault to the VM.
+> [!NOTE]
+> * All the VMs in the same region as the vault are available to configure backup. 
+> * Azure VM backup also supports protecting a VM in a different subscription than the vault, as long as the VM and vault are in the same tenant. For supported cross-subscription backup scenarios and limitations, see [Support matrix for Azure VM backups](backup-support-matrix-iaas.md#supported-backup-actions). 
+> * When you configure backup, you can browse to the VM name and its resource group, even though you don't have the required permission on those VMs. 
+> * If your VM is in a soft-deleted state, it doesn't appear in this list. If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
+> * To change the Recovery Services vault of a VM, stop the backup and then assign a new vault to the VM.
 
 1. In **Backup**, select **Enable backup**. This action deploys the policy to the vault and the VMs and installs the backup extension on the VM agent that runs on the Azure VM.
 

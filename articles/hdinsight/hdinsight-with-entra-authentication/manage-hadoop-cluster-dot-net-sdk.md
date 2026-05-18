@@ -3,8 +3,8 @@ title: Manage Apache Hadoop clusters in Entra Auth enabled HDInsight clusters by
 description: Learn how to manage Apache Hadoop clusters in HDInsight by using the .NET SDK
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 09/19/2025
 ---
