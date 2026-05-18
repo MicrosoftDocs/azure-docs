@@ -42,6 +42,10 @@ In this tutorial, you learn how to:
 - Azure CLI installed and authenticated.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
 
+> [!TIP]
+> **Explore the API interactively**  
+> You can view the complete ACZ API specification and test endpoints using Swagger UI at `https://{instance-name}.energy.azure.com/api/acz/v1/docs`. Replace `{instance-name}` with your Azure Data Manager for Energy instance name.
+
 ## Get your Azure Data Manager for Energy instance details
 
 Gather these details from your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/):
