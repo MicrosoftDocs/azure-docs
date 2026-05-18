@@ -265,11 +265,11 @@ LOCATION=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroup
 AUTH_APP_ID=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query properties.authAppId -o tsv | tr -d '\r')
 DATA_PARTITION_NAME=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'properties.dataPartitionNames[0].name' -o tsv | tr -d '\r')
 
-# Get managed identity resource ID (search in same subscription as ADME)
-MI_ID=$(az identity list --subscription "$SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
+# Get managed identity resource ID (search in same resource group as ADME)
+MI_ID=$(az identity list --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
 
 if [ -z "$MI_ID" ]; then
-    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found in subscription"
+    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found in resource group '$RESOURCE_GROUP'"
     exit 1
 fi
 
@@ -374,10 +374,10 @@ $location = $adme.location
 $authAppId = $adme.properties.authAppId
 $dataPartitionName = $adme.properties.dataPartitionNames[0].name
 
-# Get managed identity (search in same subscription as ADME)
-$mi = az identity list --subscription $SubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
+# Get managed identity (search in same resource group as ADME)
+$mi = az identity list --resource-group $resourceGroup --subscription $SubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
 if (-not $mi) {
-    Write-Host "Error: Managed identity '$ManagedIdentityName' not found in subscription" -ForegroundColor Red
+    Write-Host "Error: Managed identity '$ManagedIdentityName' not found in resource group '$resourceGroup'" -ForegroundColor Red
     exit 1
 }
 
