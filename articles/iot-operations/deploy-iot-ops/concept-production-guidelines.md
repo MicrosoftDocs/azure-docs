@@ -130,7 +130,7 @@ For connecting to assets at production, [configure OPC UA authentication](../dis
 
 * Don't use no-auth. Connectivity to OPC UA servers isn't supported without authentication.
 * Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate-for-the-connector-for-opc-ua) and [trust list](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
-* Keep the default [PKI security validation settings](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-pki-security-validation-settings) for production (`minimumCertificateKeySize=2048`, `rejectSha1SignedCertificates=true`). Only relax these settings in test or QA environments.
+* Keep the default [PKI security validation settings](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#relax-the-certificate-validation-on-your-opc-ua-connector-optional) for production (`minimumCertificateKeySize=2048`, `rejectSha1SignedCertificates=true`). Only relax these settings in test or QA environments.
 
 ### Data flows
 
