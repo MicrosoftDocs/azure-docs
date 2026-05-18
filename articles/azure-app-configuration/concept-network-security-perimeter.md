@@ -29,7 +29,7 @@ When you associate a configuration store with a network security perimeter, you 
 
 ## Transitioning to a network security perimeter
 
-A resource association supports two access modes: **Transition** and **Enforced**. Transition mode lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode to ensure a smooth transition to adopting NSP.
+A resource association supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode to ensure a smooth transition to adopting NSP.
 
 ## Access mode and public network access
 
