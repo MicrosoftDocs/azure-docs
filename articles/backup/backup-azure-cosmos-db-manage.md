@@ -52,12 +52,13 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
 
 5. On the selected associated item pane, the backup jobs for the last seven days appear. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
 
-   ![Screenshot shows how to select the view all option.](./media/backup-managed-disks/view-all.png)
-
 6. On the Backup jobs pane, review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details. 
 
-   ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
+   :::image type="content" source="./media/backup-managed-disks/view-all.png" alt-text="Screenshot shows how to select the view all option." lightbox="./media/backup-managed-disks/view-all.png":::
 
+7. Select a job from the list of jobs to view job details.
+
+   :::image type="content" source="./media/backup-managed-disks/select-job.png" alt-text="Screenshot shows how to select a job to see details." lightbox="./media/backup-managed-disks/select-job.png":::
  
 ## Stop Protection for the Azure Cosmos DB
 
