@@ -39,28 +39,7 @@ Key characteristics of ACZ:
 
 This diagram shows the ACZ data flow:
 
-```
-Azure Data Manager for Energy          Customer ADLS Gen2
-┌──────────────────────────┐          ┌─────────────────────────┐
-│                          │          │                         │
-│  OSDU Data Platform      │   ACZ    │  Delta Parquet Files    │
-│  ┌────────────────────┐  │ ──────►  │  ┌──────────────────┐   │
-│  │ Catalog (Wells,    │  │  Sync    │  │ /container/      │   │
-│  │ Fields, etc.)      │  │          │  │   /wells/        │   │
-│  ├────────────────────┤  │          │  │   /welllogs/     │   │
-│  │ Wellbore DDMS      │  │          │  │   /fields/       │   │
-│  │ (WellLogs, etc.)   │  │          │  │                  │   │
-│  └────────────────────┘  │          │  └──────────────────┘   │
-│                          │          │                         │
-└──────────────────────────┘          └────────────┬────────────┘
-                                                   │
-                                      ┌────────────┴────────────┐
-                                      │  Downstream analytics   │
-                                      │  • Microsoft Fabric     │
-                                      │  • Azure Databricks     │
-                                      │  • Power BI             │
-                                      └─────────────────────────┘
-```
+:::image type="content" source="media/concepts-analytics-consumption-zone/acz-architecture.png" alt-text="Diagram showing ACZ data flow from Azure Data Manager for Energy OSDU platform through ACZ sync to customer ADLS Gen2 storage, then to downstream analytics tools like Microsoft Fabric, Azure Databricks, and Power BI.":::
 
 ## How ACZ works
 
@@ -139,22 +118,7 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 
 #### Folder layout
 
-```
-<container>/<acz-id>/                            # or <container>/<base-path>/<acz-id>/
-├── osducatalog/
-│   ├── _delta_log/
-│   │   ├── 00000000000000000000.json
-│   │   └── ...
-│   ├── kind=<kind-1>/
-│   │   ├── part-00000-<guid>.snappy.parquet
-│   │   └── ...
-│   └── kind=<kind-2>/
-│       ├── part-00000-<guid>.snappy.parquet
-│       └── ...
-└── <ddms-entity-type>/
-    └── <entity-type>-<record-id>/
-        └── DDMS parquet files
-```
+:::image type="content" source="media/concepts-analytics-consumption-zone/acz-folder-structure.png" alt-text="Diagram showing ADLS Gen2 folder structure for ACZ with container/acz-id root, osducatalog folder with Delta log and kind partitions containing parquet files, and DDMS entity type folders with record-specific parquet files.":::
 
 #### Key details
 
