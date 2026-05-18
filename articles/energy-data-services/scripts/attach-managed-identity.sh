@@ -56,7 +56,7 @@ fi
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
 # Update Azure Data Manager for Energy instance
-curl --silent --request PUT \
+curl --http1.1 --silent --request PUT \
   --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/json" \

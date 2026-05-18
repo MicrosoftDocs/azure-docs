@@ -113,7 +113,7 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
 
 # Update Azure Data Manager for Energy instance with managed identity
-curl --request PUT \
+curl --http1.1 --request PUT \
   --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
   --header "Authorization: Bearer $TOKEN" \
   --header 'Content-Type: application/json' \
@@ -298,7 +298,7 @@ fi
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
 # Update Azure Data Manager for Energy instance
-curl --silent --request PUT \
+curl --http1.1 --silent --request PUT \
   --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/json" \
@@ -460,7 +460,7 @@ If you're not already a member of the users entitlement group, have an Azure Dat
 ### [Bash](#tab/bash)
 
 ```bash
-curl --request GET \
+curl --http1.1 --request GET \
   --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
   --header 'Authorization: Bearer {access_token}' \
   --header 'data-partition-id: {data-partition-id}'
@@ -547,7 +547,7 @@ Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkt
 ### [Bash](#tab/bash)
 
 ```bash
-curl --request POST \
+curl --http1.1 --request POST \
   --url https://{base_url}/api/acz/v1/aczs \
   --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
