@@ -23,8 +23,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
  
     Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
 
-    Support for DNS server, LDAP port and User DN, Group DN and Netgroup DN are also added. You can now use the LDAP port to run your LDAP server on custom defined ports or on default and non-default ports. You can now directly provide the DNS server details, which includes the CN host name. Configuring the DNs ensures Azure NetApp Files can accurately query and integrate with customer-specific LDAP directory structures.
-
     This enhancement also supports Bind Distinguished Name (Bind DN) authentication for additional LDAP services. When you provide Bind DN credentials during the LDAP configuration, the password is stored in Azure Key Vault. Azure NetApp Files service retrieves the password from the Azure Key Vault when establishing LDAP connections. 
 
 ## April 2026 

@@ -110,7 +110,6 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
     * **Domain name:** The domain name serves as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
-    * **LDAP port:** The custom port number for the LDAP server connection, to improve compatibility with varied infrastructure setups.
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. 
       
        > [!NOTE]
@@ -118,11 +117,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
     * **Certificate CN host:** The common name server of the host, for example server.contoso.com. 
-    * **DNS servers:** The DNS server used to dynamically resolve the CN hostname to the LDAP server’s IP address.
-   
-    * **User DN:** Defines the base path in the LDAP directory where user entries are located.  
-    * **Group DN:** Specifies the location of group entries used for access control and permissions.  
-    * **Netgroup DN:** Defines the network-based groupings, often for NFS or system-level access control. Allowing customers to configure these DNs ensures that ANF can accurately query and integrate with their specific LDAP directory structures, thereby enhancing flexibility.     
+    
     
 1. Select the **Authentication type**
 
