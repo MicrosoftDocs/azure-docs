@@ -17,21 +17,18 @@ param(
 Write-Host "Attaching managed identity to Azure Data Manager for Energy instance..." -ForegroundColor Cyan
 
 # Set subscription
-az account set --subscription $SubscriptionId
+az account set --subscription $SubscriptionId | Out-Null
 
 # Get Azure Data Manager for Energy instance resource group
-$admeList = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name $AdmeInstanceName | ConvertFrom-Json
+$resourceGroup = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --subscription $SubscriptionId --query "[?name=='$AdmeInstanceName'].resourceGroup" -o tsv
 
-if (-not $admeList -or $admeList.Count -eq 0) {
+if (-not $resourceGroup) {
     Write-Host "Error: Azure Data Manager for Energy instance '$AdmeInstanceName' not found" -ForegroundColor Red
     exit 1
 }
 
-$resourceGroup = $admeList[0].resourceGroup
-$admeId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName"
-
 # Get full instance details with API version
-$adme = az resource show --ids $admeId --api-version 2025-09-22-preview | ConvertFrom-Json
+$adme = az resource show --ids "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName" --api-version 2025-09-22-preview | ConvertFrom-Json
 
 $location = $adme.location
 $authAppId = $adme.properties.authAppId
@@ -72,7 +69,7 @@ $body = @{
 
 # Get ARM token and update Azure Data Manager for Energy instance
 $token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
-$uri = "https://management.azure.com$admeId?api-version=2025-09-22-preview"
+$uri = "https://management.azure.com/subscriptions/$SubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName`?api-version=2025-09-22-preview"
 
 Invoke-RestMethod -Uri $uri -Method Put -Headers @{
     "Authorization" = "Bearer $token"
