@@ -17,6 +17,8 @@ In environments that use Azure Virtual WAN, the central network transit point is
 
 For more information, see [**Virtual WAN and Virtual Network manager use cases**](../virtual-wan/virtual-network-manager-virtual-wan-overview.md#use-cases) and [**known issues and limitations**](../virtual-wan/virtual-network-manager-virtual-wan-overview.md#known-issues).
 
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+
 ## Prerequisites
 
 Before you begin, make sure you have:
