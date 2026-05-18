@@ -86,7 +86,7 @@ The Azure Migrate appliance is a virtual appliance that can be deployed on a ser
 
 **Azure Migrate Collector** 
 
-Azure Migrate Collector (preview) enables a quick snapshot discovery of your on-premises environment without requiring continous Azure connectivity. This ode of discovery is ideal for air-gapped or restricted networks where deploying an applicance isn't feasible. [Learn more](how-to-discover-using-collector.md).
+Azure Migrate Collector enables a quick snapshot discovery of your on-premises environment without requiring continous Azure connectivity. This mode supports discovery in air-gapped or restricted networks where deploying an applicance isn't feasible. [Learn more](how-to-discover-using-collector.md).
 
 After you identify the inventory of workloads, you can create a *business case* to make your decision to migrate your on-premises workloads to Azure. A business case helps you estimate the costs and savings of moving to Azure. It helps you identify:
   
