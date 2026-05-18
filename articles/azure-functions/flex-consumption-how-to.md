@@ -37,7 +37,7 @@ Function app resources are language-specific. Make sure to choose your preferred
     - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md) 
  
     ::: zone pivot="programming-language-java" 
-    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-using-maven)   
+    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-by-using-maven)   
     ::: zone-end   
  
     Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
@@ -46,7 +46,7 @@ Function app resources are language-specific. Make sure to choose your preferred
 
 This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
 ::: zone-end  
 
 To support your function code, you need to create three resources:
@@ -144,7 +144,7 @@ To support your function code, you need to create three resources:
 
 For deployment, Flex Consumption plan apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment).
 ::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
 ::: zone-end 
 
 You can choose to deploy your project code to an existing function app using various tools:
@@ -322,7 +322,7 @@ To enable virtual networking when you create your app:
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet requirements and considerations](#subnet-requirements-and-considerations).
+You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet requirements](#subnet-requirements).
 
 1. [Create the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you don't have one already.
 
@@ -531,9 +531,9 @@ az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <A
 
 1. Under **Storage authentication**, select your preferred authentication type: 
 
-        - When you select **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
+    - When you select **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
 
-        - When you select **User assigned identity**, select the identity you want to use.
+    - When you select **User assigned identity**, select the identity you want to use.
 
 1. Select **Save** to update the app.  
 
