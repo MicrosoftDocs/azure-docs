@@ -227,7 +227,7 @@ Use the **Timeline**, **History**, and **Flow** tabs to view its execution detai
 
 **Manage orchestrations**
 
-You can manage your orchestration lifecycle via the dashboard. In the **Orchestations** pane, select an instance ID to access the following actions:
+You can manage your orchestration lifecycle via the dashboard. In the **Orchestrations** pane, select an instance ID to access the following actions:
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status-2.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, Suspend, and Resume buttons for managing orchestrations.":::
 
