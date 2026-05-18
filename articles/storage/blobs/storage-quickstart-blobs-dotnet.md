@@ -72,7 +72,7 @@ The steps in the video are also described in the following sections.
 
 ::: zone-end
 
-## Set up the project
+## Setting up
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
