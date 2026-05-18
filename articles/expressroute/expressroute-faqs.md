@@ -47,7 +47,7 @@ If you plan to use only your primary link to transmit traffic, the bandwidth for
 
 ### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
 
-If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute will only skip charing egress data. Egress data will still be charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
+If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute skips charges for egress data. Egress data is still charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
@@ -370,12 +370,12 @@ The following diagram shows the connectivity scope of different ExpressRoute cir
 
 ## ExpressRoute FastPath
 
-### What happens when the IP address limits are reached ?
+### What happens when the IP address limits are reached?
 When the limit is reached, new routes don't get programmed on FastPath, and instead traffic flows through the ExpressRoute gateway.
 All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
- 
-### Can I use Azure Firewall with FastPath ?
-Yes. To support traffic traversing from On-Premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
+
+### Can I use Azure Firewall with FastPath?
+Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
 
 ## ExpressRoute premium
 
@@ -469,7 +469,7 @@ Refer to [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/ur
 
 Microsoft 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
 
-### What regions is ExpressRoute for Microsoft 365 supported in?
+### What regions are ExpressRoute for Microsoft 365 supported in?
 
 See [ExpressRoute partners and locations](expressroute-locations.md) for information.
 
