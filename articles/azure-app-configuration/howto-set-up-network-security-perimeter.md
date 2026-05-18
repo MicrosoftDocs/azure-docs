@@ -12,7 +12,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Associate Azure App Configuration with a network security perimeter
 
-In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). Associating a network security perimeter with your configuration store lets you define a logical network isolation boundary for your configuration store and other PaaS resources. For more information, see [Network security perimeter for Azure App Configuration](./concept-nsp.md).
+In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). Associating a network security perimeter with your configuration store lets you define a logical network isolation boundary for your configuration store and other PaaS resources. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
 > [!IMPORTANT]
 > Network security perimeter is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms of use.
@@ -80,14 +80,14 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
     > | `<nsp-profile-resource-id>` | The resource ID of the network security perimeter profile to associate with. | `/subscriptions/.../profiles/defaultProfile` |
 
     > [!TIP]
-    > The `--access-mode` parameter can be set to `Learning` or `Enforced`. Start with `Learning` mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-nsp.md#transitioning-to-a-network-security-perimeter).
+    > The `--access-mode` parameter can be set to `Learning` or `Enforced`. Start with `Learning` mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-network-security-perimeter.md#transitioning-to-a-network-security-perimeter).
 
 ---
 
 > [!NOTE]
 > Allow up to 15 minutes for any changes to network security perimeter configuration to take effect at the data plane level.
 
-If you encounter errors while associating your configuration store with a network security perimeter, see [Troubleshooting](./concept-nsp.md#troubleshooting) for guidance on resolving common issues.
+If you encounter errors while associating your configuration store with a network security perimeter, see [Troubleshooting](./concept-network-security-perimeter.md#troubleshooting) for guidance on resolving common issues.
 
 ## Verify the association
 
@@ -112,6 +112,6 @@ az appconfig network-security-perimeter-configuration --name <app-config-store-n
 
 ## Related content
 
-- [Network security perimeter for Azure App Configuration](./concept-nsp.md)
+- [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md)
 - [Network security overview for Azure App Configuration](./concept-network-security.md)
 - [What is Azure network security perimeter?](../private-link/network-security-perimeter-concepts.md)

@@ -328,9 +328,9 @@
     - name: Set up private endpoints
       href: howto-set-up-private-access.md
     - name: Network security perimeter
-      href: concept-nsp.md
+      href: concept-network-security-perimeter.md
     - name: Associate with a network security perimeter
-      href: howto-set-up-nsp.md
+      href: howto-set-up-network-security-perimeter.md
     - name: Disable public network access
       href: howto-disable-public-access.md
     - name: Network access errors

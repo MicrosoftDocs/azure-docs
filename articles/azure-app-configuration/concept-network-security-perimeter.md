@@ -81,6 +81,6 @@ This error occurs when the network security perimeter's configuration would prev
 
 - [What is Azure network security perimeter?](../private-link/network-security-perimeter-concepts.md)
 - [Network security overview for Azure App Configuration](./concept-network-security.md)
-- [Associate with a network security perimeter](./howto-set-up-nsp.md)
+- [Associate with a network security perimeter](./howto-set-up-network-security-perimeter.md)
 - [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md).
 
