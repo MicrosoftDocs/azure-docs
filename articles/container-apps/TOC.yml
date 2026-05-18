@@ -230,6 +230,12 @@ items:
               href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
