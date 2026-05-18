@@ -54,7 +54,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Cosmos DB backup (preview)
+          - text: Azure Cosmos DB vaulted backup (preview)
             url: backup-azure-cosmos-db-overview.md
           - text: Confidential VM backup (preview)
             url: confidential-vm-backup.md
