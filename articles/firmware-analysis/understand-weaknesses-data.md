@@ -1,6 +1,6 @@
 ---
 title: Understand and Prioritize Weaknesses Data in Firmware Analysis
-description: Learn about weaknesses data in the CVE view of the firmware analysis results.
+description: Learn about weaknesses data in the CVE view of the Firmware analysis results.
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.service: azure
 
 Firmware analysis identifies weaknesses in firmware components. These results can help you understand potential security risks, but you should interpret them carefully and in the appropriate context.
 
-This article explains weakness-related fields you might see in firmware analysis results. It explains how these fields relate to one another and how to collectively evaluate them to effectively prioritize risk.
+This article explains weakness-related fields you might see in Firmware analysis results. It explains how these fields relate to one another and how to collectively evaluate them to effectively prioritize risk.
 
 > [!NOTE]
 > The presence of a weakness or Common Vulnerabilities and Exposures (CVE) vulnerability in firmware analysis doesn't necessarily mean a device is vulnerable. The actual impact of a weakness depends on how the affected component is used within the system.
@@ -21,9 +21,9 @@ This article explains weakness-related fields you might see in firmware analysis
 
 Firmware analysis can improve findings with multiple, industry-standard signals. Each signal represents a different aspect of risk and shouldn't be interpreted in isolation.
 
-### CVEs
+###  Common Vulnerabilities and Exposures (CVEs)
 
-A CVE identifier represents a known security vulnerability that's publicly disclosed. Firmware analysis associates CVEs with extracted firmware components when a match is identified. A single firmware component might be associated with multiple CVEs, and a single CVE might appear across multiple devices or components.
+CVEs are known security vulnerabilities that are publicly disclosed. Firmware analysis associates CVEs with extracted firmware components when a match is identified. A single firmware component might be associated with multiple CVEs, and a single CVE might appear across multiple devices or components.
 
 CVEs highlight an issue, but they don't solely indicate the issue's impact or exploitability.
 
@@ -66,7 +66,7 @@ Some CVEs might be marked as part of the Cybersecurity and Infrastructure Securi
 > [!NOTE]
 >
 > - KEV status reflects observed exploitation activity, not whether a specific device is affected.
-> - KEV status in firmware analysis is currently a static value. It reflects the state of the firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date KEV status, re-scan your firmware image.
+> - KEV status in Firmware analysis is currently a static value. It reflects the state of the Firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date KEV status, re-scan your firmware image.
 
 KEV is a strong signal of immediate risk.
 
@@ -88,7 +88,7 @@ To filter by EPSS in the Azure portal, specify the EPSS score in a decimal form.
 Percentile rankings are often more operationally useful, as they show how a CVE ranks relative to the broader vulnerability ecosystem.
 
 > [!NOTE]
-> The EPSS value is currently static. It reflects the state of the firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date EPSS status, re-scan your firmware image.
+> The EPSS value is currently static. It reflects the state of the Firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date EPSS status, re-scan your firmware image.
 
 EPSS provides a forward-looking likelihood signal, not a guarantee of exploitation.
 
@@ -202,4 +202,4 @@ Always interpret weakness data alongside:
   > [!NOTE]
   > Firmware analysis identifies potential risks based on extracted firmware content. It doesn't determine whether a vulnerability is reachable, exploitable, or impactful in a specific deployment.
 
-To learn more about how firmware analysis extracts and presents component data, see [Interpreting extractor paths from SBOM view in firmware analysis](interpreting-extractor-paths.md).
+To learn more about how Firmware analysis extracts and presents component data, see [Interpreting extractor paths from SBOM view in firmware analysis](interpreting-extractor-paths.md).
