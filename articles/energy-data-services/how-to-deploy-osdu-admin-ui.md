@@ -20,7 +20,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Prerequisites
 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- An [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance. The following API permissions are required on the App Registration for the Admin UI to function properly.
+- A [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance. The following API permissions are required on the App Registration for the Admin UI to function properly.
     - [Application.Read.All](/graph/permissions-reference#applicationreadall)
     - [User.Read](/graph/permissions-reference#applicationreadall)
     - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
@@ -118,24 +118,25 @@ There are two deployment options for the OSDU Admin UI:
     [![Screenshot that shows installation.](./media/how-to-deploy-osdu-admin-ui/install-screen.png)](./media/how-to-deploy-osdu-admin-ui/install-screen.png#lightbox)
 
 1. Log into Azure CLI by executing the command on the terminal. It takes you to the sign-in screen.
+
     ```azurecli
     az login
     ```
 
 1. It takes you to the sign-in screen. Enter your credentials and upon success, you see a success message.
 
-   [![Screenshot that shows successful login.](./media/how-to-deploy-osdu-admin-ui/login.png)](./media/how-to-deploy-osdu-admin-ui/login.png#lightbox)
-
 1. Validate that you're using the correct subscription.
+
     ```azurecli
     az account show
     ```
 
 1. If needed, use this code to change subscription.
+
     ```azurecli
     az account set --subscription <subscription-id>
     ```
-    
+
 ### Configure environment variables
 
 1. Enter the required environment variables on the terminal.
@@ -149,15 +150,15 @@ There are two deployment options for the OSDU Admin UI:
 ## Deploy storage account
 
 1. Create resource group. Skip this step if the resource group exists already.
-    
+
     ```azurecli
     az group create \
         --name $RESOURCE_GROUP \
         --location $LOCATION
     ```
-    
+
 1. Create storage account.
-    
+
     ```azurecli
     az storage account create \
         --resource-group $RESOURCE_GROUP \
@@ -169,7 +170,7 @@ There are two deployment options for the OSDU Admin UI:
     ```
 
 1. Configure the static website.
-    
+
     ```azurecli
     az storage blob service-properties update \
         --account-name $WEBSITE_NAME \
@@ -179,7 +180,7 @@ There are two deployment options for the OSDU Admin UI:
     ```
 
 1. Set $web container permissions to allow anonymous access.
-    
+
     ```azurecli
     az storage container set-permission \
         --name '$web' \
@@ -190,25 +191,25 @@ There are two deployment options for the OSDU Admin UI:
 ### Configure the website
 
 1. Navigate to the `OSDUApp` folder.
-    
+
     ```bash
     cd OSDUApp/
     ```
 
 1. Copy Azure routing.ts file.
-    
+
     ```bash
     cp providers/azure/routing.ts src/app/routing.ts
     ```
 
 1. Install the dependencies.
-    
-    ```nodejs    
+
+    ```nodejs
     npm install
     ```
 
 1. Modify the parameters in the config file located at `/src/config/config.json`.
-    
+
 #### [Code snippet](#tab/code)
 
 Replace the values of the environment variables with your values.
@@ -223,9 +224,8 @@ export SCOPE="" # Scope of the ADME instance, i.e. "6ee7e0d6-0641-4b29-a283-541c
 export GRAPH_ENDPOINT="https://graph.microsoft.com/v1.0/" # Microsoft Graph API endpoint
 export APPINSIGHTS_INSTRUMENTATIONKEY="" # Optional. Application Insights instrumentation key
 export OSDU_CONNECTOR_API_ENDPOINT="" # Optional. API endpoint of the OSDU Connector API
-export REDIRECT_URI="" # this is your static website you can find in your storage account example https://<storage account name>.z21.web.core.windows.net/"
-export GCZ_ENDPOINT="" # Optional. GCZ service endpoint
-
+export REDIRECT_URI="" # This is your static website URL, for example https://<storage-account-name>.z21.web.core.windows.net/
+export GCZ_ENDPOINT="" # Optional. Base GCZ service endpoint ending with /gcz/ . Example: https://contoso.energy.azure.com/api/gcz/
 
 jq \
   --arg data "$DATA_PARTITION_ID" \
@@ -257,54 +257,56 @@ jq \
 .settings.api_endpoints.graphAPI_endpoint = $graph |
 .settings.api_endpoints.workflow_endpoint = $endpoint |
 .settings.api_endpoints.wddms_endpoint = $endpoint |
-.settings.api_endpoints.gcz_endpoint = $gcz' \
+.settings.api_endpoints.gcz_endpoint = $gcz
+' \
 src/config/config.json > src/config/temp.json && \
 mv src/config/temp.json src/config/config.json
 ```
 
 #### [Manual](#tab/manual)
-    
+
 Replace the values according to the explanation.
 
 ```json
 {
     ...
-    "domain_name": ".dataservices.energy", // Domain name to use for the entitlements service. Use .dataservices.energy for any ADME deployment.
-    "data_partition": "<adme_data_partition>", // ADME Data Partition ID (i.e. opendes)
+    "domain_name": ".dataservices.energy",
+    "data_partition": "<adme_data_partition>",
     "idp": {
         ...
-        "tenant_id": "<tenant_id>", // Entra ID tenant ID
-        "client_id": "<client_id>", // App Registration ID to use for the admin UI, usually the same as the ADME App Registration ID, i.e. "6ee7e0d6-0641-4b29-a283-541c5d00655a"
-        "redirect_uri": "<redirect_uri>", // This is the website URL ($REDIRECT_URI), i.e. "https://contoso.z1.web.core.windows.net"
-        "scope": "<client_id>/.default" // Scope of the ADME instance, i.e. "00001111-aaaa-2222-bbbb-3333cccc4444/.default"
+        "tenant_id": "<tenant_id>",
+        "client_id": "<client_id>",
+        "redirect_uri": "<redirect_uri>",
+        "scope": "<client_id>/.default"
     },
-    "api_endpoints": { // Just replace contoso.energy.azure.com with your ADME_URL after removing https or wwww in all the API endpoints below.
-        "entitlement_endpoint": "https://contoso.energy.azure.com/api/", 
+    "api_endpoints": {
+        "entitlement_endpoint": "https://contoso.energy.azure.com/api/",
         "storage_endpoint": "https://contoso.energy.azure.com/api/",
         "search_endpoint": "https://contoso.energy.azure.com/api/",
         "legal_endpoint": "https://contoso.energy.azure.com/api/",
         "schema_endpoint": "https://contoso.energy.azure.com/api/",
-        "osdu_connector_api_endpoint":"osdu_connector", // Optional. API endpoint of the OSDU Connector API*
+        "osdu_connector_api_endpoint": "osdu_connector",
         "file_endpoint": "https://contoso.energy.azure.com/api/",
         "graphAPI_endpoint": "https://graph.microsoft.com/v1.0/",
-        "workflow_endpoint": "https://contoso.energy.azure.com/api/"
+        "workflow_endpoint": "https://contoso.energy.azure.com/api/",
+        "wddms_endpoint": "https://contoso.energy.azure.com/api/",
+        "gcz_endpoint": "https://contoso.energy.azure.com/api/gcz/"
     }
     ...
 }
-
 ```
-
----
 
 > [!NOTE]
 > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
 
 1. Build the web UI.
+
     ```bash
     ng build --configuration=azure-prod
     ```
 
 1. Upload the build to Storage Account.
+
     ```azurecli
     az storage blob upload-batch \
         --account-name $WEBSITE_NAME \
@@ -314,8 +316,9 @@ Replace the values according to the explanation.
     ```
 
 1. Fetch the website URL.
+
     ```bash
-   echo $REDIRECT_URI
+    echo $REDIRECT_URI
     ```
 
 1. Configure the [ADME CORS policy](#add-cors-policy) and [App Registration SPA redirect URI](#add-redirect-uri-to-app-registration) with the website URL.
@@ -333,6 +336,7 @@ You need to add the redirect URI as a Single-Page App to the App Registration us
 To configure the redirect URI, follow the steps in the [Add redirect URI to App Registration](/entra/identity-platform/scenario-spa-app-registration) documentation.
 
 ## Next steps
+
 After you have a successful Admin UI working, you can:
 
 - [Add first set of users](how-to-manage-users.md#first-time-addition-of-users-in-a-new-data-partition).
@@ -343,8 +347,8 @@ You can also ingest data into your Azure Data Manager for Energy instance:
 
 - [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md).
 - [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md).
-    
+
 ## References
 
-For information about OSDU Admin UI, see [OSDU GitLab](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies).<br>
+For information about OSDU Admin UI, see [OSDU GitLab](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies).  
 For other deployment methods (Terraform or Azure DevOps CI/CD pipeline), see [OSDU Admin UI DevOps](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/-/tree/main/OSDUApp/devops/azure).
