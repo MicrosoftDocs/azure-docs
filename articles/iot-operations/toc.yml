@@ -19,11 +19,8 @@ items:
           - name: Get insights from your data
             href: get-started-end-to-end-sample/quickstart-get-insights.md
             displayName: get started, end-to-end, e2e, sample, fabric, dashboard, Event Hubs
-      - name: Deploy Azure IoT Operations
+      - name: Plan your deployment
         items:
-          - name: Deployment overview
-            href: deploy-iot-ops/overview-deploy.md
-            displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
           - name: Deployment planning
             href: deploy-iot-ops/deployment-planning.md
             displayName: planning, sizing, broker, MQTT, topology, memory, production
@@ -43,6 +40,11 @@ items:
               - name: Internal traffic encryption
                 href: deploy-iot-ops/deployment-planning-encryption.md
                 displayName: MQTT, broker, certificates, TLS, internal
+      - name: Deploy Azure IoT Operations
+        items:
+          - name: Deployment overview
+            href: deploy-iot-ops/overview-deploy.md
+            displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
           - name: Best practices for namespaces
             href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Best practices for schema registries
@@ -109,175 +111,162 @@ items:
               - name: Test connection
                 href: manage-mqtt-broker/howto-test-connection.md
                 displayName: MQTT, broker, NodePort, LoadBalancer, ClusterIP, TLS, testing
-          - name: Discover and manage assets and devices
-            items:
-              - name: Understand asset and device management
-                href: discover-manage-assets/overview-manage-assets.md
-                displayName: operations, experience, connector, Akri, Akri services, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
-              - name: Understand assets and devices
-                href: discover-manage-assets/concept-assets-devices.md
-                displayName: data points, events, operations, experience, southbound, namespace assets, namespace
-              - name: Understand Akri services
-                href: discover-manage-assets/overview-akri.md
-                displayName: OPC UA, akri, discover, detect, device, registry, southbound
-              - name: Use the operations experience UI
-                href: discover-manage-assets/howto-use-operations-experience.md
-                displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
-              - name: Connect to OPC UA servers
-                items:
-                  - name: Understand the connector for OPC UA
-                    href: discover-manage-assets/overview-opc-ua-connector.md
-                    displayName: OPC UA server, OPC UA client, payload, southbound
-                  - name: Configure OPC UA assets and devices
-                    href: discover-manage-assets/howto-configure-opc-ua.md
-                    displayName: operations, experience, OPC UA, device, data points, events, southbound
-                  - name: Detect OPC UA assets
-                    href: discover-manage-assets/howto-detect-opc-ua-assets.md
-                    displayName: connector, OPC UA, detect, akri, southbound
-                  - name: Control OPC UA assets
-                    href: discover-manage-assets/howto-control-opc-ua.md
-                    displayName: connector, OPC UA, commander, write, southbound, process control
-                  - name: Understand OPC UA application authentication
-                    href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
-                    displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn, southbound
-                  - name: Configure OPC UA application authentication
-                    href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
-                    displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
-              - name: Connect to media sources
-                href: discover-manage-assets/howto-use-media-connector.md
-                displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
-              - name: Connect to ONVIF-compliant cameras
-                href: discover-manage-assets/howto-use-onvif-connector.md
-                displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
-              - name: Connect to HTTP/REST endpoints
-                href: discover-manage-assets/howto-use-http-connector.md
-                displayName: HTTP, REST, API, southbound
-              - name: Connect to SSE endpoints
-                href: discover-manage-assets/howto-use-sse-connector.md
-                displayName: HTTP, SSE, API, southbound, server-sent, events
-              - name: Connect to MQTT endpoints
-                href: discover-manage-assets/howto-use-mqtt-connector.md
-                displayName: southbound, broker, events
-              - name: Connect to Kafka endpoints
-                href: discover-manage-assets/howto-connect-kafka.md
-                displayName: southbound, broker, hubs, MQTT, data flow
-              - name: Enable and run management actions
-                href: discover-manage-assets/howto-use-management-actions.md
-                displayName: management actions, commander, CLI, enable, execute, disable, Event Grid
-              - name: Use asset endpoints to manage assets
-                href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
-                displayName: connector, tags, southbound, asset endpoint profile
-          - name: Process and route data
-            items:
-              - name: Data flows vs. data flow graphs
-                href: connect-to-cloud/overview-dataflow-comparison.md
-                displayName: data flow, graph, comparison, choose, decision
-              - name: Endpoints
-                items:
-                  - name: Overview
-                    href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-                    displayName: data flow, endpoint, routing, MQTT, Kafka, Data Lake, Fabric, Azure Data Explorer, storage, local storage, northbound
-                  - name: MQTT and Event Grid
-                    href: connect-to-cloud/howto-configure-mqtt-endpoint.md
-                    displayName: data flow, endpoint, northbound
-                  - name: Kafka and Event Hubs
-                    href: connect-to-cloud/howto-configure-kafka-endpoint.md
-                    displayName: data flow, endpoint, northbound
-                  - name: ADLSv2 Blob Storage
-                    href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
-                    displayName: data flow, endpoint, northbound
-                  - name: Microsoft Fabric Real-Time Intelligence
-                    href: connect-to-cloud/howto-configure-fabric-real-time-intelligence.md
-                    displayName: data flow, endpoint, northbound
-                  - name: Microsoft Fabric OneLake
-                    href: connect-to-cloud/howto-configure-fabric-endpoint.md
-                    displayName: data flow, endpoint, northbound
-                  - name: Azure Data Explorer
-                    href: connect-to-cloud/howto-configure-adx-endpoint.md
-                    displayName: data flow, endpoint, northbound
-                  - name: OpenTelemetry
-                    href: connect-to-cloud/open-telemetry.md
-                    displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
-                  - name: Local storage or ACSA
-                    href: connect-to-cloud/howto-configure-local-storage-endpoint.md
-                    displayName: data flow, endpoint, northbound, Azure Container Storage enabled by Azure Arc
-              - name: Source
-                href: connect-to-cloud/howto-configure-dataflow-source.md
-                displayName: data flow, source, MQTT, Kafka, topic, asset, broker, shared subscription
-              - name: Data flows
-                items:
-                  - name: Overview
-                    href: connect-to-cloud/overview-dataflow.md
-                    displayName: architecture, data processing, routing, transformation, schema registry, enrich, northbound
-                  - name: Create a data flow
-                    href: connect-to-cloud/howto-create-dataflow.md
-                    displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich, map, serialize, schema
-                  - name: Map data
-                    href: connect-to-cloud/concept-dataflow-mapping.md
-                    displayName: data flow, transform, metadata, mapping, filtering, last known value, LKV
-                  - name: Enrich data
-                    href: connect-to-cloud/concept-dataflow-enrich.md
-                    displayName: data flow, transform, context, contextualization
-                  - name: Filter data
-                    href: connect-to-cloud/howto-dataflow-filter.md
-                    displayName: data flow, filter, drop, condition, boolean, expression
-                  - name: Schemas
-                    href: connect-to-cloud/concept-schema-registry.md
-                    displayName: data flow, serialize, deserialize, schema registry
-              - name: Data flow graphs
-                items:
-                  - name: Overview
-                    href: connect-to-cloud/concept-dataflow-graphs.md
-                    displayName: data flow, graph, transform, map, filter, branch, window, compose, pipeline
-                  - name: Create a data flow graph
-                    href: connect-to-cloud/howto-create-dataflow-graph.md
-                    displayName: data flow, graph, create, deploy, pipeline, source, destination
-                  - name: Transform data with map
-                    href: connect-to-cloud/howto-dataflow-graphs-map.md
-                    displayName: data flow, graph, map, rename, restructure, wildcard, copy, compute
-                  - name: Filter and route data
-                    href: connect-to-cloud/howto-dataflow-graphs-filter-route.md
-                    displayName: data flow, graph, filter, drop, branch, concat, merge, route, condition
-                  - name: Aggregate data over time
-                    href: connect-to-cloud/howto-dataflow-graphs-window.md
-                    displayName: data flow, graph, window, aggregate, average, sum, min, max, tumbling
-                  - name: Enrich with external data
-                    href: connect-to-cloud/howto-dataflow-graphs-enrich.md
-                    displayName: data flow, graph, enrich, dataset, state store, context, lookup
-                  - name: Route messages to different topics
-                    href: connect-to-cloud/howto-dataflow-graphs-topic-routing.md
-                    displayName: data flow, graph, topic, routing, metadata, dynamic
-                  - name: Use WASM transforms
-                    href: connect-to-cloud/howto-dataflow-graph-wasm.md
-                    displayName: data flow, WASM, WebAssembly, graph, transform, custom, developer, deploy
-                  - name: Schemas
-                    href: connect-to-cloud/concept-dataflow-graphs-schema.md
-                    displayName: data flow, graph, schema, nodeConnections, serialization
-              - name: Destination
-                href: connect-to-cloud/howto-configure-dataflow-destination.md
-                displayName: data flow, destination, MQTT, Kafka, topic, container, table, dynamic
-              - name: Buffering and disk persistence
-                href: connect-to-cloud/howto-configure-disk-persistence.md
-                displayName: data flow, buffering, destination outage, persistence, disk, restart, state, MQTT broker
-              - name: Expressions reference
-                href: connect-to-cloud/concept-dataflow-graphs-expressions.md
-                displayName: data flow, expression, function, operator, metadata, variable, conversion
-              - name: Profiles
-                href: connect-to-cloud/howto-configure-dataflow-profile.md
-                displayName: data flow, scale, scaling
-      - name: Troubleshoot Azure IoT Operations
+      - name: Discover and manage assets and devices
         items:
-          - name: Troubleshoot
-            href: troubleshoot/troubleshoot.md
-            displayName: troubleshooting, diagnostics, logs, issue, workaround
-          - name: Known issues
-            href: troubleshoot/known-issues.md
-            displayName: diagnostics, logs, issue, workaround
-          - name: Tips and tools
-            href: troubleshoot/tips-tools.md
-            displayName: kubernetes, MQTT, client, kubectl, k9s, listener, MQTT explorer
-          - name: FAQ
-            href: troubleshoot/iot-operations-faq.yml
+          - name: Understand asset and device management
+            href: discover-manage-assets/overview-manage-assets.md
+            displayName: operations, experience, connector, Akri, Akri services, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
+          - name: Understand assets and devices
+            href: discover-manage-assets/concept-assets-devices.md
+            displayName: data points, events, operations, experience, southbound, namespace assets, namespace
+          - name: Understand Akri services
+            href: discover-manage-assets/overview-akri.md
+            displayName: OPC UA, akri, discover, detect, device, registry, southbound
+          - name: Use the operations experience UI
+            href: discover-manage-assets/howto-use-operations-experience.md
+            displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
+          - name: Connect to OPC UA servers
+            items:
+              - name: Understand the connector for OPC UA
+                href: discover-manage-assets/overview-opc-ua-connector.md
+                displayName: OPC UA server, OPC UA client, payload, southbound
+              - name: Configure OPC UA assets and devices
+                href: discover-manage-assets/howto-configure-opc-ua.md
+                displayName: operations, experience, OPC UA, device, data points, events, southbound
+              - name: Detect OPC UA assets
+                href: discover-manage-assets/howto-detect-opc-ua-assets.md
+                displayName: connector, OPC UA, detect, akri, southbound
+              - name: Control OPC UA assets
+                href: discover-manage-assets/howto-control-opc-ua.md
+                displayName: connector, OPC UA, commander, write, southbound, process control
+              - name: Understand OPC UA application authentication
+                href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
+                displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn, southbound
+              - name: Configure OPC UA application authentication
+                href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
+                displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
+          - name: Connect to media sources
+            href: discover-manage-assets/howto-use-media-connector.md
+            displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
+          - name: Connect to ONVIF-compliant cameras
+            href: discover-manage-assets/howto-use-onvif-connector.md
+            displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
+          - name: Connect to HTTP/REST endpoints
+            href: discover-manage-assets/howto-use-http-connector.md
+            displayName: HTTP, REST, API, southbound
+          - name: Connect to SSE endpoints
+            href: discover-manage-assets/howto-use-sse-connector.md
+            displayName: HTTP, SSE, API, southbound, server-sent, events
+          - name: Connect to MQTT endpoints
+            href: discover-manage-assets/howto-use-mqtt-connector.md
+            displayName: southbound, broker, events
+          - name: Connect to Kafka endpoints
+            href: discover-manage-assets/howto-connect-kafka.md
+            displayName: southbound, broker, hubs, MQTT, data flow
+          - name: Enable and run management actions
+            href: discover-manage-assets/howto-use-management-actions.md
+            displayName: management actions, commander, CLI, enable, execute, disable, Event Grid
+          - name: Use asset endpoints to manage assets
+            href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
+            displayName: connector, tags, southbound, asset endpoint profile
+      - name: Process and route data
+        items:
+          - name: Data flows vs. data flow graphs
+            href: connect-to-cloud/overview-dataflow-comparison.md
+            displayName: data flow, graph, comparison, choose, decision
+          - name: Endpoints
+            items:
+              - name: Overview
+                href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+                displayName: data flow, endpoint, routing, MQTT, Kafka, Data Lake, Fabric, Azure Data Explorer, storage, local storage, northbound
+              - name: MQTT and Event Grid
+                href: connect-to-cloud/howto-configure-mqtt-endpoint.md
+                displayName: data flow, endpoint, northbound
+              - name: Kafka and Event Hubs
+                href: connect-to-cloud/howto-configure-kafka-endpoint.md
+                displayName: data flow, endpoint, northbound
+              - name: ADLSv2 Blob Storage
+                href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+                displayName: data flow, endpoint, northbound
+              - name: Microsoft Fabric Real-Time Intelligence
+                href: connect-to-cloud/howto-configure-fabric-real-time-intelligence.md
+                displayName: data flow, endpoint, northbound
+              - name: Microsoft Fabric OneLake
+                href: connect-to-cloud/howto-configure-fabric-endpoint.md
+                displayName: data flow, endpoint, northbound
+              - name: Azure Data Explorer
+                href: connect-to-cloud/howto-configure-adx-endpoint.md
+                displayName: data flow, endpoint, northbound
+              - name: OpenTelemetry
+                href: connect-to-cloud/open-telemetry.md
+                displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
+              - name: Local storage or ACSA
+                href: connect-to-cloud/howto-configure-local-storage-endpoint.md
+                displayName: data flow, endpoint, northbound, Azure Container Storage enabled by Azure Arc
+          - name: Source
+            href: connect-to-cloud/howto-configure-dataflow-source.md
+            displayName: data flow, source, MQTT, Kafka, topic, asset, broker, shared subscription
+          - name: Data flows
+            items:
+              - name: Overview
+                href: connect-to-cloud/overview-dataflow.md
+                displayName: architecture, data processing, routing, transformation, schema registry, enrich, northbound
+              - name: Create a data flow
+                href: connect-to-cloud/howto-create-dataflow.md
+                displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich, map, serialize, schema
+              - name: Map data
+                href: connect-to-cloud/concept-dataflow-mapping.md
+                displayName: data flow, transform, metadata, mapping, filtering, last known value, LKV
+              - name: Enrich data
+                href: connect-to-cloud/concept-dataflow-enrich.md
+                displayName: data flow, transform, context, contextualization
+              - name: Filter data
+                href: connect-to-cloud/howto-dataflow-filter.md
+                displayName: data flow, filter, drop, condition, boolean, expression
+              - name: Schemas
+                href: connect-to-cloud/concept-schema-registry.md
+                displayName: data flow, serialize, deserialize, schema registry
+          - name: Data flow graphs
+            items:
+              - name: Overview
+                href: connect-to-cloud/concept-dataflow-graphs.md
+                displayName: data flow, graph, transform, map, filter, branch, window, compose, pipeline
+              - name: Create a data flow graph
+                href: connect-to-cloud/howto-create-dataflow-graph.md
+                displayName: data flow, graph, create, deploy, pipeline, source, destination
+              - name: Transform data with map
+                href: connect-to-cloud/howto-dataflow-graphs-map.md
+                displayName: data flow, graph, map, rename, restructure, wildcard, copy, compute
+              - name: Filter and route data
+                href: connect-to-cloud/howto-dataflow-graphs-filter-route.md
+                displayName: data flow, graph, filter, drop, branch, concat, merge, route, condition
+              - name: Aggregate data over time
+                href: connect-to-cloud/howto-dataflow-graphs-window.md
+                displayName: data flow, graph, window, aggregate, average, sum, min, max, tumbling
+              - name: Enrich with external data
+                href: connect-to-cloud/howto-dataflow-graphs-enrich.md
+                displayName: data flow, graph, enrich, dataset, state store, context, lookup
+              - name: Route messages to different topics
+                href: connect-to-cloud/howto-dataflow-graphs-topic-routing.md
+                displayName: data flow, graph, topic, routing, metadata, dynamic
+              - name: Use WASM transforms
+                href: connect-to-cloud/howto-dataflow-graph-wasm.md
+                displayName: data flow, WASM, WebAssembly, graph, transform, custom, developer, deploy
+              - name: Schemas
+                href: connect-to-cloud/concept-dataflow-graphs-schema.md
+                displayName: data flow, graph, schema, nodeConnections, serialization
+          - name: Destination
+            href: connect-to-cloud/howto-configure-dataflow-destination.md
+            displayName: data flow, destination, MQTT, Kafka, topic, container, table, dynamic
+          - name: Buffering and disk persistence
+            href: connect-to-cloud/howto-configure-disk-persistence.md
+            displayName: data flow, buffering, destination outage, persistence, disk, restart, state, MQTT broker
+          - name: Expressions reference
+            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
+            displayName: data flow, expression, function, operator, metadata, variable, conversion
+          - name: Profiles
+            href: connect-to-cloud/howto-configure-dataflow-profile.md
+            displayName: data flow, scale, scaling
       - name: Develop edge applications
         items:
           - name: Developer guide
@@ -380,6 +369,19 @@ items:
           - name: Deploy in layered network with private connectivity
             href: end-to-end-tutorials/tutorial-layered-network-private-connectivity.md
             displayName: tutorial, layered network, Purdue, private connectivity, ExpressRoute, Private Link
+      - name: Troubleshoot Azure IoT Operations
+        items:
+          - name: Troubleshoot
+            href: troubleshoot/troubleshoot.md
+            displayName: troubleshooting, diagnostics, logs, issue, workaround
+          - name: Known issues
+            href: troubleshoot/known-issues.md
+            displayName: diagnostics, logs, issue, workaround
+          - name: Tips and tools
+            href: troubleshoot/tips-tools.md
+            displayName: kubernetes, MQTT, client, kubectl, k9s, listener, MQTT explorer
+          - name: FAQ
+            href: troubleshoot/iot-operations-faq.yml
       - name: Reference
         items:
           - name: Azure IoT Operations release notes
