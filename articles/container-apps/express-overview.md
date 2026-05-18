@@ -108,54 +108,54 @@ The express deployment model supports the following features. This list is updat
 | Region restriction | ✅ Yes |
 | Logs (Log Analytics) | ✅ Yes |
 | Rolling updates | ⚠️ Partial |
-| Secrets | ❌ No |
-| Billing | ❌ No |
-| Secrets from Key Vault | ❌ No |
-| Autoscale (KEDA-based) | ❌ No |
-| Managed identity (app runtime) | ❌ No |
-| Managed identity (image pull) | ❌ No |
-| VNet integration | ❌ No |
-| Quota | ❌ No |
-| Health probes | ❌ No |
-| Exec access | ❌ No |
-| Easy Auth | ❌ No |
-| Metrics (Azure Monitor) | ❌ No |
-| Custom domain (managed certificate) | ❌ No |
-| IP restrictions | ❌ No |
-| CORS | ❌ No |
-| Logs (Azure Monitor) | ❌ No |
-| Session affinity | ❌ No |
-| Sidecar container | ❌ No |
-| Init container | ❌ No |
-| Volume mount | ❌ No |
-| Ephemeral storage | ❌ No |
-| GPU | ❌ No |
-| Insecure HTTP ingress | ❌ No |
-| Additional ports | ❌ No |
-| App-to-app communication | ❌ No |
-| Debug console | ❌ No |
-| Deployment label | ❌ No |
-| Language stack | ❌ No |
-| Multi revision / traffic splitting | ❌ No |
-| Resiliency | ❌ No |
-| Source-to-cloud deployment | ❌ No |
-| TCP protocol | ❌ No |
-| Aspire | ❌ No |
-| Maintenance window | ❌ No |
-| OpenTelemetry | ❌ No |
-| Premium ingress | ❌ No |
-| Private endpoint | ❌ No |
-| Workload profiles | ❌ No |
-| Peer-to-peer encryption | ❌ No |
-| Job | ❌ No |
-| Single revision management | ❌ No |
-| Custom domain (BYOC) | ❌ No |
-| Environment custom domain suffix (BYOC) | ❌ No |
-| Environment custom domain suffix (managed certificate) | ❌ No |
-| Azure file storage | ❌ No |
-| Zone redundancy | ❌ No |
-| App-to-app (internal FQDN) | ❌ No |
-| Internal vs. external apps | ❌ No |
+| Secrets | 🔜 Coming soon |
+| Billing | 🔜 Coming soon |
+| Secrets from Key Vault | 🔜 Coming soon |
+| Autoscale (KEDA-based) | 🔜 Coming soon |
+| Managed identity (app runtime) | 🔜 Coming soon |
+| Managed identity (image pull) | 🔜 Coming soon |
+| VNet integration | 🔜 Coming soon |
+| Quota | 🔜 Coming soon |
+| Health probes | 🔜 Coming soon |
+| Exec access | 🔜 Coming soon |
+| Easy Auth | 🔜 Coming soon |
+| Metrics (Azure Monitor) | 🔜 Coming soon |
+| Custom domain (managed certificate) | 🔜 Coming soon |
+| IP restrictions | 🔜 Coming soon |
+| CORS | 🔜 Coming soon |
+| Logs (Azure Monitor) | 🔜 Coming soon |
+| Session affinity | 🔜 Coming soon |
+| Sidecar container | 🔜 Coming soon |
+| Init container | 🔜 Coming soon |
+| Volume mount | 🔜 Coming soon |
+| Ephemeral storage | 🔜 Coming soon |
+| GPU | 🔜 Coming soon |
+| Insecure HTTP ingress | 🔜 Coming soon |
+| Additional ports | 🔜 Coming soon |
+| App-to-app communication | 🔜 Coming soon |
+| Debug console | 🔜 Coming soon |
+| Deployment label | 🔜 Coming soon |
+| Language stack | 🔜 Coming soon |
+| Multi revision / traffic splitting | 🔜 Coming soon |
+| Resiliency | 🔜 Coming soon |
+| Source-to-cloud deployment | 🔜 Coming soon |
+| TCP protocol | 🔜 Coming soon |
+| Aspire | 🔜 Coming soon |
+| Maintenance window | 🔜 Coming soon |
+| OpenTelemetry | 🔜 Coming soon |
+| Premium ingress | 🔜 Coming soon |
+| Private endpoint | 🔜 Coming soon |
+| Workload profiles | 🔜 Coming soon |
+| Peer-to-peer encryption | 🔜 Coming soon |
+| Job | 🔜 Coming soon |
+| Single revision management | 🔜 Coming soon |
+| Custom domain (BYOC) | 🔜 Coming soon |
+| Environment custom domain suffix (BYOC) | 🔜 Coming soon |
+| Environment custom domain suffix (managed certificate) | 🔜 Coming soon |
+| Azure file storage | 🔜 Coming soon |
+| Zone redundancy | 🔜 Coming soon |
+| App-to-app (internal FQDN) | 🔜 Coming soon |
+| Internal vs. external apps | 🔜 Coming soon |
 
 ## Region availability
 
