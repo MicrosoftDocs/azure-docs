@@ -86,7 +86,7 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 
 > [!TIP]
 > **Automated script option available**  
-> For a simplified approach with minimal prompts, you can use an automated script instead of the manual commands. See [Use automated script](#use-automated-script-for-step-3) at the end of this step. Otherwise, continue with the manual steps.
+> For a simplified approach with minimal prompts, you can use an automated script instead of the manual commands. See [Use automated script](#use-automated-script-for-step-3-optional) at the end of this step. Otherwise, continue with the manual steps.
 
  > [!IMPORTANT]
 > **Preserve existing managed identities!**  
