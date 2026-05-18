@@ -36,7 +36,7 @@ To create a backup policy, follow these steps:
    
    :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
 
-   >The preview feature supports weekly backup frequency only.
+   The preview feature supports weekly backup frequency only.
 
 6. Under **Retention rules**, select **Add retention rule** to define retention rules for specific backups and set retention duration..
 
