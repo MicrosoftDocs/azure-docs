@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.topic: concept-article
 ms.date: 04/22/2026
 
-# customer intent: As a developer or administrator using Azure App Configuration, I want to understand how network security perimeter works so that I can manage network access to my configuration store alongside other PaaS resources.
+# customer intent: As a developer or administrator using Azure App Configuration, I want to understand how network security perimeters work so that I can manage network access to my configuration store alongside other PaaS resources.
 ---
 # Network security perimeter for Azure App Configuration (preview)
 
@@ -42,7 +42,7 @@ For a complete breakdown of how these settings interact, see [Moving new resourc
 If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store's outbound requests are abiding by NSP rules (public network access is SecuredByPerimeter **or** NSP assocation is in Enforced mode), this outbound communication to Azure Key Vault is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
-- **FQDN outbound access rule**: Add an FQDN outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
+- **FQDN outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
 
 If neither condition is met, the configuration store can't access the encryption key, and requests to the store will fail.
 
