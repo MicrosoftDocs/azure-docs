@@ -96,7 +96,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Cosmos DB backup (preview)
+          - text: Azure Cosmos DB vaulted backup (preview)
             url: backup-azure-cosmos-db-overview.md
           - text: Azure Database for PostgreSQL Flexible Server backup
             url: backup-azure-database-postgresql-flex-overview.md
