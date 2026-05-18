@@ -30,13 +30,13 @@ A resource association supports two access modes: **Transition** and **Enforced*
 
 ## Access mode and public network access
 
-When a store is associated with an NSP, the network access rules enforced on the configuration store depend on the combination of two settings: the association's access mode (Transition or Enforced) and the configuration store's public network access setting (Enabled, Disabled, or Secured by perimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules, the configuration store's public network access setting, or both.
+When a configuration store is associated with an NSP, the network access rules enforced on the configuration store depend on the combination of two settings: the association's access mode (Transition or Enforced) and the configuration store's public network access setting (Enabled, Disabled, or Secured by perimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules, the configuration store's public network access setting, or both.
 
 For a complete breakdown of how these settings interact, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
 ## Considerations for customer-managed key encryption
 
-If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter **or** the NSP association is in Enforced mode), outbound communication to Azure Key Vault must be permitted by the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter _or_ the NSP association is in Enforced mode), outbound communication to Azure Key Vault must be permitted by the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
 - **FQDN outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
@@ -59,7 +59,7 @@ If your configuration store has [monitoring](./monitor-app-configuration.md) ena
 
 If you associate a configuration store with a network security perimeter in a different subscription than the store, you must ensure that the network security perimeter's subscription has the `Microsoft.AppConfiguration` resource provider registered. If the resource provider isn't registered, you receive the following error when performing the association:
 
-"The network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/registerrp for instructions on registering a resource provider."
+> The network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/registerrp for instructions on registering a resource provider.
 
 To resolve this error, take the following steps:
 1. Register the `Microsoft.AppConfiguration` resource provider in the network security perimeter's subscription.
@@ -71,7 +71,7 @@ For more information about registering a subscription to a resource provider, se
 
 If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), you might receive the following error when associating the store with a network security perimeter:
 
-"The requested Network Security Perimeter association cannot be applied because it would block access to the configuration store's customer-managed key. See https://aka.ms/appconfig/NSPTroubleshooting for guidance on configuring an NSP for configuration stores that use a customer-managed key."
+> The requested Network Security Perimeter association cannot be applied because it would block access to the configuration store's customer-managed key. See https://aka.ms/appconfig/NSPTroubleshooting for guidance on configuring an NSP for configuration stores that use a customer-managed key.
 
 This error occurs when the network security perimeter's configuration would prevent the configuration store from reaching the Azure Key Vault that holds its customer-managed key. To resolve this error, configure the network security perimeter to permit access to the Key Vault as described in [Considerations for customer-managed key encryption](#considerations-for-customer-managed-key-encryption), then re-attempt the association.
 
