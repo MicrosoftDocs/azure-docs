@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/15/2026
+ms.date: 05/18/2026
 ms.topic: how-to 
 ms.custom:
   - devx-track-azurepowershell
@@ -124,6 +124,9 @@ Use Az or AzureRM cmdlets for manipulating Automation resources outside the cont
 You can create Python 2 runbooks in Azure Automation. For Python module information, see [Manage Python 2 packages in Azure Automation](../python-packages.md).
 
 ## Custom modules
+
+> [!IMPORTANT]
+> Packages and modules uploaded to an Automation account are treated as **customer-owned content (customer IP)**. Microsoft doesn't inspect or validate these packages. Packages are **loaded at runtime within the customer environment** and customers are responsible for ensuring their integrity and security.
 
 Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Add a connection type](../automation-connections.md#add-a-connection-type).
 
