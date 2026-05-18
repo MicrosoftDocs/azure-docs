@@ -29,9 +29,13 @@ When you associate a configuration store with a network security perimeter, you 
 
 ## Transitioning to a network security perimeter
 
-A resource association supports two access modes: **Transition** and **Enforced**. Transition mode lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. We recommend starting in Transition mode, using [diagnostic logs](../private-link/network-security-perimeter-diagnostic-logs.md) to validate your perimeter rules, and then switching to Enforced mode to fully secure your configuration store.
+A resource association supports two access modes: **Transition** and **Enforced**. Transition mode lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode to ensure a smooth transition to adopting NSP.
 
-For more information, see [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md).
+## Access mode and public network access
+
+When a store is associated with a NSP, the network access rules enforced on the configuration store depend on the combination of two settings: the association's **access mode** (Transition or Enforced) and the configuration store's public network access setting (Enabled, Disabled, or SecuredByPerimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules and/or the configuration store's public network access setting.
+
+For a complete breakdown of how these settings interact, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
 ## Considerations for customer-managed key encryption
 
