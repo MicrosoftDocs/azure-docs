@@ -224,6 +224,9 @@ As an alternative to the manual commands, you can download and run an automated 
 - Adds the new ACZ identity
 - Updates the instance via Azure Resource Manager API
 
+> [!NOTE]
+> The script searches for the managed identity in the same subscription and resource group as the Azure Data Manager for Energy instance. If your managed identity is in a different subscription or resource group, use the manual commands instead.
+
 #### [Bash](#tab/bash-script)
 
 **Prerequisites:**
