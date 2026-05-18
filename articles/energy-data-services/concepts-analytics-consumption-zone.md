@@ -39,7 +39,7 @@ Key characteristics of ACZ:
 
 This diagram shows the ACZ data flow:
 
-:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-architecture.png" alt-text="Diagram of data flow from Azure Data Manager for Energy to Azure Data Lake Storage, then to analytics tools such as Microsoft Fabric, Azure Databricks, and Power BI.":::
+:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-architecture.png" alt-text="Data flow diagram. Shows data moving from Azure Data Manager for Energy to Azure Data Lake Storage to analytics tools.":::
 
 ## How ACZ works
 
@@ -118,7 +118,7 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 
 #### Folder layout
 
-:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-folder-structure.png" alt-text="Diagram of folder structure in Azure Data Lake Storage. Shows container root with catalog and entity type folders.":::
+:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-folder-structure.png" alt-text="Folder structure diagram for Azure Data Lake Storage.":::
 
 #### Key details
 
