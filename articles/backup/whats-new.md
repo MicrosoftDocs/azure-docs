@@ -80,7 +80,7 @@ Key benefits include:
 
 **Note**: Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
 
-For more information, see [About Azure Cosmos DB backup (preview)](backup-azure-cosmos-db-overview.md).
+For more information, see [About Azure Cosmos DB vaulted backup (preview)](backup-azure-cosmos-db-overview.md).
 
 ## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
 
