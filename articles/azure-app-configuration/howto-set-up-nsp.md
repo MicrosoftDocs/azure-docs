@@ -53,7 +53,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdowns, then select **Associate**.
 
-   :::image type="content" source="./media/nsp/associate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store.":::
+   :::image type="content" source="./media/network-security-perimeter/associate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/associate-nsp.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
