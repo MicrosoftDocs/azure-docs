@@ -9,7 +9,7 @@ ms.date: 05/17/2026
 ms.custom: template-how-to-pattern
 ---
 
-# How to connect Analytics Consumption Zone to Azure Databricks
+# How to connect analytics consumption zone to Azure Databricks
 
 This article shows you how to connect Analytics Consumption Zone (ACZ) to Azure Databricks for querying Azure Data Manager for Energy data. After completing these steps, you can query OSDU® data using Databricks SQL and notebooks.
 

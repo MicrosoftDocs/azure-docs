@@ -125,7 +125,7 @@ sections:
 
         - question: Can ACZ sync data from Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS?
           answer: >
-            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. Catalog kinds include master data and reference data from the Storage service. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or RAFS DDMS. Future releases might add more DDMS types.
+            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. Catalog kinds include master data and reference data from the Storage service. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or RAFS DDMS.
 
         - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
           answer: >
@@ -137,13 +137,13 @@ sections:
 
         - question: What are the known issues in the ACZ Preview release?
           answer: >
-            1. During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
+            - During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
 
-            2. During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This action may lead to data inconsistencies in ACZ data.
+            - During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This action may lead to data inconsistencies in ACZ data.
 
-            3. During preview, ACZ supports max 100 kinds.
+            - During preview, ACZ supports max 100 kinds.
 
-            4. During preview, ACZ is only available on Developer Tier instances. Standard Tier instances are not supported.
+            - During preview, ACZ is only available on Developer Tier instances. Standard Tier instances are not supported.
 
         - question: How does ACZ differ from the Geospatial Consumption Zone (GCZ)?
           answer: >

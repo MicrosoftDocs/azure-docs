@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# How to enable the Analytics Consumption Zone (ACZ)
+# How to enable the analytics consumption zone (ACZ)
 
 This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZs to sync different Azure Data Manager for Energy data sets to your Azure Data Lake Storage (ADLS) Gen2 account.
 
@@ -204,9 +204,9 @@ az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource
 
 ```json
 {
-  "/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-acz-identity": {
-    "clientId": "abcd1234-ab12-cd34-ef56-abcdef123456",
-    "principalId": "98765432-9876-5432-1098-987654321098"
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-acz-identity": {
+    "clientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   }
 }
 ```

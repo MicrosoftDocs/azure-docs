@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# Analytics Consumption Zone (ACZ) concepts
+# Analytics consumption zone (ACZ) concepts
 
 
 The Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes Azure Data Manager for Energy data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.

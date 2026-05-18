@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# How to connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric
+# How to connect analytics consumption zone (ACZ) data to Microsoft Fabric
 
 
 This article shows how to connect your ACZ data to Microsoft Fabric by using OneLake shortcuts. ACZ stores data in Azure Data Lake Storage (ADLS) Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Power BI.

@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial: Use Analytics Consumption Zone (ACZ) APIs
+# Tutorial: Use analytics consumption zone (ACZ) APIs
 
 
 This tutorial shows how to use the ACZ management APIs in Azure Data Manager for Energy. You create, list, retrieve, and delete ACZ instances by using cURL.
@@ -141,7 +141,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 |---|---|---|---|
 | `{acz-name}` | string | Yes | Display name for the ACZ (1-100 characters, for example, `my-acz-wells-and-logs`). |
 | `{acz-type}` | string | No | `LATEST_VERSION` (default) exports only the latest version. `ALL_VERSIONS` exports all versions. |
-| `{storage-resource-id}` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct`). |
+| `{storage-resource-id}` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct`). |
 | `{base-path}` | string | No | Base path within the storage account for ACZ data output (for example, `acz-output`). |
 | `{catalog-kinds}` | string[] | No | OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*", "osdu:wks:reference-data--UnitOfMeasure:*"]`). |
 | `{wellbore-ddms-kinds}` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
