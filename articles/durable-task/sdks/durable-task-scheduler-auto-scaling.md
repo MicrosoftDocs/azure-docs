@@ -1,23 +1,31 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: "Configure autoscaling for Durable Task SDK in Azure Container Apps"
+title: "Configure Autoscaling for Durable Task SDK in Azure Container Apps"
 titleSuffix: Durable Task
-description: Learn how to implement autoscaling with the Durable Task Scheduler using the Durable Task SDKs in Azure Container Apps.
+description: Learn how to configure autoscaling for Durable Task Scheduler apps in Azure Container Apps. Set replica ranges and scale rules to handle workload spikes automatically.
 ms.subservice: durable-task-sdks
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 05/06/2025
+ms.date: 04/30/2026
 ---
 
-# Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps
+# Configure autoscaling for Durable Task SDK apps in Azure Container Apps
 
-You can implement autoscaling in container apps that use the Durable Task Scheduler. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
+When you host Durable Task SDK apps in Azure Container Apps, you can configure autoscaling so the platform automatically adjusts the number of replicas based on your orchestration, activity, or entity workload.
 
-Control autoscaling by setting the range of application replicas deployed in response to an orchestration, activity, or entity being triggered. The scaler dynamically adjusts the number of container app replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
+In this article, you learn how to:
+
+> [!div class="checklist"]
+> - Set minimum and maximum replica counts for your container app.
+> - Add scale rules that respond to Durable Task Scheduler work items.
+> - Deploy and verify an autoscaling sample using Azure Developer CLI.
 
 > [!NOTE]
-> Autoscaling is supported for apps built using the Durable Task SDKs and hosted in Azure Container Apps.
+> Autoscaling is supported for apps built using the Durable Task SDKs and hosted in Azure Container Apps. This feature uses the `azure-durabletask-scheduler` KEDA scaler.
+
+> [!IMPORTANT]
+> Setting `minReplicas` to `0` enables scale-to-zero, which saves costs when idle but introduces cold-start latency when new work items arrive. Set `minReplicas` to `1` or higher if your workload is latency-sensitive.
 
 ## Configure the autoscaler
 
@@ -25,19 +33,31 @@ You can set the autoscaler configuration via the Azure portal, a Bicep template,
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/scaler-configuration.png" alt-text="Screenshot of the scaler min and max replica configuration in the Azure portal.":::
+1. In the [Azure portal](https://portal.azure.com), navigate to your container app.
 
-:::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/scaler-configuration-details.png" alt-text="Screenshot of the Durable Task Scheduler-related configuration for the scaler in the Azure portal.":::
+1. From the left side menu, select **Application** > **Scale**.
+
+1. Set the **Min replicas** and **Max replicas** values for your revision.
+
+   :::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/scaler-configuration.png" alt-text="Screenshot of the scaler min and max replica configuration in the Azure portal.":::
+
+1. Select **Add** to create a new scale rule. Set the **Type** to **Custom** and configure the Durable Task Scheduler fields.
+
+   :::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/scaler-configuration-details.png" alt-text="Screenshot of the Durable Task Scheduler-related configuration for the scaler in the Azure portal.":::
+
+1. Ensure the **Authenticate with a Managed Identity** checkbox is selected and choose the identity linked to your scheduler and task hub resource.
+
+1. Select **Save**.
 
 | Field | Description | Example |
 | ----- | ----------- | ------- |
-| Min replicas | Minimum number of replicas allowed for the container revision at any given time. | 1 |
-| Max replicas | Maximum number of replicas allowed for the container revision at any given time. | 10 |
+| Min replicas | Minimum number of replicas allowed for the container revision at any given time. | `1` |
+| Max replicas | Maximum number of replicas allowed for the container revision at any given time. | `10` |
 | endpoint | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
-| maxConcurrentWorkItemsCount | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | 1 |
-| taskhubName | The name of the task hub connected to the scheduler. | taskhub-ID |
-| workItemType | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | Orchestration |
-| Managed identity | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. Ensure the **Authenticate with a Managed Identity** checkbox is selected. | someone@example.com |
+| maxConcurrentWorkItemsCount | Maximum number of work items a single replica processes concurrently. Lower values cause the scaler to add replicas sooner. Start with `1` for CPU-intensive work; increase for I/O-bound workloads. | `1` |
+| taskhubName | The name of the task hub connected to the scheduler. | `taskhub-ID` |
+| workItemType | The work item type that is being dispatched. Options include `Orchestration`, `Activity`, or `Entity`. | `Orchestration` |
+| Managed identity | The user-assigned or system-assigned managed identity linked to the scheduler and task hub resource. | `/subscriptions/<SUB_ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IDENTITY_NAME>` |
 
 # [Bicep](#tab/bicep)
 
@@ -68,11 +88,52 @@ scale: {
 | `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. | `1` |
 | `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. | `10` |
 | `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
-| `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
+| `maxConcurrentWorkItemsCount` | Maximum number of work items a single replica processes concurrently. Lower values cause the scaler to add replicas sooner. Start with `1` for CPU-intensive work; increase for I/O-bound workloads. | `1` |
 | `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
-| `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
-| `identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. | `someone@example.com` |
+| `workItemType` | The work item type that is being dispatched. Options include `Orchestration`, `Activity`, or `Entity`. | `Orchestration` |
+| `identity` | The resource ID of the user-assigned or system-assigned managed identity linked to the scheduler and task hub resource. | `/subscriptions/<SUB_ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IDENTITY_NAME>` |
 
+### Add multiple scale rules
+
+You can define separate scale rules for different work item types. For example, to scale independently for both orchestrations and activities:
+
+```bicep
+scale: {
+  minReplicas: containerMinReplicas
+  maxReplicas: containerMaxReplicas
+  rules: [
+    {
+      name: 'dts-scaler-orchestration'
+      custom: {
+        type: 'azure-durabletask-scheduler'
+        metadata: {
+          endpoint: dtsEndpoint
+          maxConcurrentWorkItemsCount: '1'
+          taskhubName: taskHubName
+          workItemType: 'Orchestration'
+        }
+        identity: scaleRuleIdentity
+      }
+    }
+    {
+      name: 'dts-scaler-activity'
+      custom: {
+        type: 'azure-durabletask-scheduler'
+        metadata: {
+          endpoint: dtsEndpoint
+          maxConcurrentWorkItemsCount: '5'
+          taskhubName: taskHubName
+          workItemType: 'Activity'
+        }
+        identity: scaleRuleIdentity
+      }
+    }
+  ]
+}
+```
+
+> [!TIP]
+> Use a higher `maxConcurrentWorkItemsCount` for I/O-bound activities (like HTTP calls) and a lower value for CPU-intensive orchestrations.
 
 # [Azure CLI](#tab/cli)
 
@@ -82,27 +143,29 @@ az containerapp create \
   --name <APP_NAME> \
   --environment <ENVIRONMENT_ID> \
   --user-assigned <USER_ASSIGNED_IDENTITY_ID> \
+  --min-replicas 1 \
+  --max-replicas 10 \
   --scale-rule-name dtsscaler-orchestration \
   --scale-rule-type azure-durabletask-scheduler \
-  --scale-rule-metadata "endpoint=<DTS-ENDPOINT>" "maxConcurrentWorkItemsCount=1" "taskhubName=<TASKHUB-NAME> "workItemType=Orchestration" \
+  --scale-rule-metadata "endpoint=<DTS-ENDPOINT>" "maxConcurrentWorkItemsCount=1" "taskhubName=<TASKHUB-NAME>" "workItemType=Orchestration" \
   --scale-rule-identity <USER_ASSIGNED_IDENTITY_ID>
 ```
 
 | Field | Description | Example |
 | ----- | ----------- | ------- |
-| `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. | `1` |
-| `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. | `10` |
+| `--min-replicas` | Minimum number of replicas allowed for the container revision at any given time. | `1` |
+| `--max-replicas` | Maximum number of replicas allowed for the container revision at any given time. | `10` |
 | `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
-| `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
+| `maxConcurrentWorkItemsCount` | Maximum number of work items a single replica processes concurrently. Lower values cause the scaler to add replicas sooner. Start with `1` for CPU-intensive work; increase for I/O-bound workloads. | `1` |
 | `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
-| `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
-| `scale-rule-identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. | `someone@example.com` |
+| `workItemType` | The work item type that is being dispatched. Options include `Orchestration`, `Activity`, or `Entity`. | `Orchestration` |
+| `--scale-rule-identity` | The resource ID of the user-assigned or system-assigned managed identity linked to the scheduler and task hub resource. | `/subscriptions/<SUB_ID>/resourceGroups/<RG>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IDENTITY_NAME>` |
 
 ---
 
-## Experiment with the sample
+## Tutorial: Deploy an autoscaling container app
 
-In the [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/scenarios/AutoscalingInACA), you use the Azure Developer CLI to implement autoscaling for a container app built with the .NET Durable Task SDK and hosted in Azure Container Apps. The sample showcases an orchestration using the function chaining pattern.
+Already configured autoscaling on an existing app? You can skip this section. If you want a hands-on walkthrough, follow the steps below to deploy the [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/scenarios/AutoscalingInACA) using Azure Developer CLI. The sample deploys a .NET Durable Task SDK app that uses the function chaining pattern and includes a pre-configured KEDA scaler.
 
 > [!NOTE]
 > Although this sample uses the Durable Task .NET SDK, autoscaling is language-agnostic.
@@ -135,6 +198,12 @@ In the [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Sam
    cd /path/to/Durable-Task-Scheduler/samples/scenarios/AutoscalingInACA
    ```
 
+1. Initialize the Azure Developer CLI environment (only required the first time):
+
+   ```azdeveloper
+   azd init
+   ```
+
 1. Provision resources and deploy the application:
 
    ```azdeveloper
@@ -146,7 +215,7 @@ In the [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Sam
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. |
+   | Azure Location | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
    This process may take some time to complete. As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress. The output also demonstrates how `azd up`:
@@ -225,7 +294,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
    :::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
 
-### Understanding the custom scaler
+### Understand the custom scaler
 
 This sample includes an `azure.yaml` configuration file.  When you ran `azd up`, you deployed the entire sample solution to Azure, including a custom scaler for your container apps that automatically scales based on the Durable Task Scheduler's workload.
 
@@ -236,20 +305,25 @@ The custom scaler:
 - Scales back down when the load decreases.
 - Provides efficient resource utilization by matching capacity to demand.
 
-### Confirm the scaler is configured
+### Verify the scaler configuration
 
 Verify the autoscaling is functioning correctly in the deployed solution.
 
 1. In the Azure portal, navigate to your worker app.
 
-1. From the left side menu, click **Application** > **Revisions and replicas**.
+1. From the left side menu, select **Application** > **Revisions and replicas**.
 
-1. Click the **Replicas** tab to verify your application is scaling out.
+1. Select the **Replicas** tab to verify your application is scaling out.
 
-1. From the left side menu, click **Application** > **Scale**.
+   :::image type="content" source="../scheduler/media/durable-task-scheduler-auto-scaling-aca/revision-management-page.png" alt-text="Screenshot of the Revisions and replicas page showing scaled replicas in the Azure portal.":::
 
-1. Click the scale name to view the scaler settings.
+1. From the left side menu, select **Application** > **Scale**.
 
-## Next steps
+1. Select the scale rule name to view the scaler settings.
 
-Currently, autoscaling container apps using Durable Functions for Durable Task Scheduler isn't available. In the meantime, [try autoscaling container apps using the Microsoft SQL (MSSQL) backend](../../azure-functions/durable-functions/durable-functions-mssql-container-apps-hosting.md).
+## Related content
+
+- [Durable Task Scheduler overview](../scheduler/durable-task-scheduler.md)
+- [Quickstart: Deploy a Durable Task SDK app to Azure Container Apps](quickstart-container-apps-durable-task-sdk.md)
+- [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)
+- [Host a Durable Functions app with MSSQL backend in Azure Container Apps](../../azure-functions/durable-functions/durable-functions-mssql-container-apps-hosting.md)

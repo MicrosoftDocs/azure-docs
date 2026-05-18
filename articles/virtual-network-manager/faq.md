@@ -72,6 +72,8 @@ Yes, a virtual network can belong to more than one Azure Virtual Network Manager
 
 Yes, spoke virtual networks can connect to Virtual WAN hubs while in the mesh connectivity configuration. Those virtual networks in the meshed group have direct connectivity with each other.
 
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+
 ### Will operations to the IP prefixes in virtual networks that are a part of the Azure Virtual Network Manager mesh propagate automatically? 
 
 Virtual networks in the mesh are automatically in sync. IP prefixes will be updated automatically. This means traffic within the mesh will work even after there are changes in IP prefixes in virtual networks in the mesh.
@@ -166,7 +168,7 @@ No, an Azure Virtual WAN hub can't be in a network group at this time.
 
 ### Can I use an Azure Virtual WAN instance as the hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration?
 
-No, an Azure Virtual WAN hub isn't supported as the hub in a hub-and-spoke topology at this time.
+Yes. You can use an Azure Virtual WAN hub as the hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration. For steps, see [Use a Virtual WAN hub as the hub](how-to-create-hub-and-spoke.md#use-a-virtual-wan-hub-as-the-hub).
 
 ### My virtual network isn't receiving the configurations I'm expecting. How do I troubleshoot?
 

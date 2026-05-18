@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.date: 08/28/2025
+ms.date: 05/7/2026
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
@@ -14,6 +14,7 @@ ms.custom:
 ---
 
 # Explore application inventory
+
 This article describes how you can use Azure Migrate to define applications running in your datacenter by logically grouping servers and workloads as an application entity. These applications can be used to plan and execute the migrations more efficiently. Azure Migrate now supports the automatic discovery of applications by grouping of inventory discovered using [Collector](how-to-discover-using-collector.md).
 
 ## Current limitations
@@ -78,7 +79,9 @@ You can start identifying the applications running in your datacenter. Here are 
 
 1. You can either go to **Overview** and select **Add application** from the All inventory summary card or you can go to **Applications** under **Explore applications** and select **Add application** from there.
 2. The applications can be inventoried in one of three ways- select **Add application** if you want to define application through Portal or select **Import > Import applications** to import the application details at scale using a CSV file.
-3. If you have performed the discovery using the [Collector](how-to-discover-using-collector.md), discovery of the applications will be automatically triggered and you can review the system-defined applications in the **Applications** view. 
+3. Select **Add applications** > **Auto discover applications** to automatically discover applications.
+4. Azure Migrate groups discovered workloads into applications using server naming patterns, inferred environments, and server roles. This process can take up to one hour.
+5. Auto-discovered applications are created with the Managed by property set to System. When you review and modify application grouping, properties, or tags, the property is updated to User.
 
 ### Create new application
 
@@ -118,16 +121,17 @@ If you want to define applications at scale, you can select **Import> Import app
 3. In the exported CSV, you can add names of the applications, a workload is a part of. You can add more than one name if the workload is shared amongst multiple applications. For instance, if a database- "SQLDB01" is shared by 2 applications, then you can add- "App01, App02" under Application name column in the same row. 
 
     >[!Note]
-    > The **Application name(s)** are case-sensitive. The application name also allows for alphanumeric and special characters except `','` and `'\'`. You can add applications in multiple import operations but it is recommended to not trigger multiple import operations in parallel. 
+    > The **Application name(s)** are case-sensitive. The application name also allows for alphanumeric and special characters except `','` and `'\'`. In each import operation, you can add up to 500 workloads per application and 200 applications. To import more applications, run multiple import operations with up to 200 applications per operation.
 
 4. After adding the application names to the file, you can browse and select the CSV file. 
-5. If the selected file passes the validation checks, you can select **Import** to upload the details of the applications, as added in the CSV file.
+5. If the selected file passes the validation checks, you can select Import to upload the details of the applications, as added in the CSV file.
 6. After the import is complete, you can see the import status and review the **no of applications created** and check the **error** file if any failures occur. 
 
     >[!Note]
     > The All inventory export contains a column named 'App ARM ID Name(s)' which is the ARM representation of the application resource- do not add/edit any values in the column as that can lead to errors in importing the application grouping. Currently, import applications only supports adding workloads to an application and not to removing any associated workloads from existing applications. To remove a workload, use the portal experience to review and edit the specific application.
 
 ### Import application properties
+
 When the application is defined using import, a warning icon appears next to the application name to indicate that mandatory properties need to be updated. You can update these properties individually by selecting the application in the Applications view, or update them at scale using **Import> Import application properties**. 
 
 1. You can update the properties of application(s) in the prescribed template, which is an export of applications inventory.
@@ -138,7 +142,15 @@ When the application is defined using import, a warning icon appears next to the
     >[!Note]
     > Don't edit the **App ARM ID** column in the CSV file. You can add application properties across multiple import operations but avoid triggering multiple imports in parallel.
 
-5. After adding or editing application information in the CSV file, browse and select the updated CSV file.
+5. The following values are supported in the CSV file:
+
+    **Property** | **Required** | **Description** | **Values**
+    --- | --- | --- | ---
+    Business criticality | Yes | Specify the criticality of the application to your business | Choose from **High**, **Medium**, **Low**
+    Complexity | Yes | Specify the complexity in terms of workloads and dependencies | Choose from **High**, **Medium**, **Low**
+    Publisher | No (Optional) | Specify the names of the publisher of application (Packaged) or its workloads (custom) | For example, **SAP** if it's a Packaged application or **Microsoft** if it's a Custom application running on .NET IIS web application and SQL database
+    Technology stack | No (Optional) | Specify the technology used like runtimes, frameworks, languages etc. | For example, .NET, SQL, MySQL, Tomcat etc.
+
 6. If the file passes validation checks, select Import to upload the application details captured in the CSV file.
 7. After the import completes, review the import status, the number of applications processed, and the error file if any failures occur.
 
@@ -164,7 +176,9 @@ After defining the applications, you can review the applications any time from t
 
 ## Auto-discovered applications
 
-Azure Migrate now supports the automatic discovery of applications by grouping of inventory discovered using [Collector](how-to-discover-using-collector.md). Currently the process of automatically creating applications is performed only once after the inventory from collector is imported. Each auto-discovered application represents a logical grouping of servers (and workloads running on those servers) automatically identified using server-naming patterns, inferred environments, and derived server roles. You can review these applications from the **Applications** view. 
+Azure Migrate now supports automatic application discovery by grouping servers discovered through the Collector, Appliance, or CSV import.
+
+To start automatic discovery, go to **Add Applications** > **Auto discover applications**. You can run this process only once, and it might take up to one hour depending on the total number of discovered workloads. Each auto-discovered application represents a logical grouping of servers (and workloads running on those servers) automatically identified using server-naming patterns, inferred environments, and derived server roles. You can review these applications from the **Applications** view. 
 
 - The view shows Applications which are either **Managed by** system (auto-discovered applications) or user (manually added applications through portal or import).
 - You can scope the system-defined applications from the view and filter by **Confidence score** which is a system assigned score to represent the accuracy of the application grouping. The user-defined (manually created) applications do not have a confidence score value so it is set to '-'.

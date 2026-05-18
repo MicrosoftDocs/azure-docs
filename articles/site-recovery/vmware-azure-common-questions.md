@@ -1,7 +1,7 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 02/13/2026
+ms.date: 04/06/2026
 ms.topic: faq
 ms.service: azure-site-recovery
 ms.author: v-gajeronika
@@ -14,6 +14,8 @@ ms.custom: engagement-fy23
 # Common questions about VMware to Azure replication
 
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 >[!NOTE]
 >You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).

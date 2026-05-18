@@ -1,35 +1,39 @@
 ---
 title: Autoscale feature for Azure Health Data Services FHIR service
-description: Explore how autoscaling in the FHIR service in Azure Health Data Services boosts efficiency and helps ensure optimal performance by scaling resources based on load.
+description: Learn how autoscaling in the FHIR service for Azure Health Data Services improves performance and efficiency under varying load, and start optimizing today.
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: feature-guide
-ms.date: 08/12/2025
+ms.topic: article
+ms.date: 05/04/2026
 ms.author: kesheth
 ---
 
-# Autoscaling
+# Autoscaling for the FHIR service
 
-Azure Health Data Services provides a managed service for persisting FHIR&reg;-compliant healthcare data and interacting with the data securely through the API service endpoint. 
+Azure Health Data Services provides a managed environment for persisting FHIR&reg;-compliant healthcare data and interacting with that data securely through the FHIR API endpoint. 
 
-Autoscaling is a capability to dynamically scale FHIR service based on the load reported. The FHIR service in Azure Health Data Services provides the built-in autoscaling capability, which is automated. This capability provides elasticity and enables on demand provisioning of more instances for FHIR service customers.
+The built-in autoscaling capability in this environment automatically ensures that compute resources for the FHIR service can dynamically adjust based on the load, helping maintain performance and efficiency under varying workloads. You don't need to take any action to configure or enable this feature.
 
 The autoscaling feature for FHIR service is available in all regions where the FHIR service is supported.
-> [!NOTE]
-> The autoscaling feature is subject to the resources availability in Azure regions.
 
-The autoscaling feature adjusts computing resources automatically to optimize service scalability. There's no action required from customers.
+> [!NOTE]
+> The autoscaling feature depends on resource availability in Azure regions.
 
 ## Autoscale at the compute level
 
-### Scaling trigger
+### Scale triggers
 
-Scaling triggers describes when scaling of the service is performed. Conditions defined in the trigger are checked periodically to determine if a service should be scaled or not. Only the following triggers are currently supported: Average CPU, Max Worker Thread, Average LogWrite, Average data IO.
+Scaling triggers determine when scaling of the service is performed. The system checks conditions defined in the trigger at one-minute intervals to determine if a service should be scaled. The service currently supports only the following triggers:  
+
+- Average CPU
+- Max Worker Thread
+- Average LogWrite
+- Average data IO
     
 ### Scaling mechanism
 
-The scaling mechanism is applied if the trigger check determines that scaling is necessary. Additionally, the scaling trigger isn't evaluated again until the scaling interval expires, which is set to one minute for the FHIR service.
+The scaling mechanism is applied if the trigger check determines that scaling is necessary. The system doesn't evaluate the scaling trigger again until the scaling interval expires.
 
 To ensure the best possible outcome, we recommend that you gradually increase your request rate to match the expected push rate, rather than pushing all requests at the same time. 
 
@@ -41,7 +45,7 @@ The autoscaling feature incurs no extra costs.
 
 ### What should customers do if there's high volume of HTTP 429 errors?
 
-We recommend that you gradually increase the request rate to see if it reduces HTTP 429 errors. For consistent 429 errors, create a support ticket through the Azure portal. The support team will engage with you to understand your scaling trigger needs.
+Gradually increase the request rate to see if it reduces HTTP 429 errors. For consistent 429 errors, create a support ticket through the Azure portal. The support team works with you to understand your scaling trigger needs.
 
 ## Related content
 

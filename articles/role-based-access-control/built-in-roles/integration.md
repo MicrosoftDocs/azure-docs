@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -943,7 +943,7 @@ Allows read-only access to Azure API Center service.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -968,7 +968,7 @@ Allows read-only access to Azure API Center service.
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -3112,11 +3112,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/write | Create or update a Services Hub Connector |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/read | View or List Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/delete | Delete Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/checkAssessmentEntitlement/action | Lists the Assessment Entitlements for a given Services Hub Workspace |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/* |  |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/* |  |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/supportOfferingEntitlement/read | View the Support Offering Entitlements for a given Services Hub Workspace |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/workspaces/read | List the Services Hub Workspaces for a given User |
 > | **NotActions** |  |
@@ -3139,11 +3142,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.ServicesHub/connectors/write",
         "Microsoft.ServicesHub/connectors/read",
         "Microsoft.ServicesHub/connectors/delete",
         "Microsoft.ServicesHub/connectors/checkAssessmentEntitlement/action",
+        "Microsoft.ServicesHub/connectors/*",
+        "Microsoft.ServicesHub/*",
         "Microsoft.ServicesHub/supportOfferingEntitlement/read",
         "Microsoft.ServicesHub/workspaces/read"
       ],

@@ -1,15 +1,15 @@
 ---
-title: Getting started with Azure Functions
+title: Get Started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/17/2025
+ms.date: 03/23/2026
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Getting started with Azure Functions
+# Get started with Azure Functions
 
-[Azure Functions](./functions-overview.md) lets you implement your system's logic as event-driven, readily available blocks of code. These code blocks are called functions. This article helps you find the most useful Azure Functions content quickly. For more general information about Azure Functions, see the [Introduction to Azure Functions](./functions-overview.md).
+Azure Functions lets you implement your system's logic as event-driven, readily available blocks of code. These code blocks are called functions. This article helps you find the most useful Azure Functions content quickly. For more general information about Azure Functions, see the [Introduction to Azure Functions](./functions-overview.md).
 
 Choose your preferred development language at the top of the article. 
 
@@ -39,7 +39,7 @@ You can create your first function by using one of the following tools:
 + [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
 ::: zone-end
 ::: zone pivot="programming-language-other"  
-Besides the natively supported programming languages, you can use [custom handlers](functions-custom-handlers.md) to create functions in any language that supports HTTP primitives. The article [Create a Go or Rust function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivots=programming-language-other) shows you how to use custom handlers to write your function code in either Rust or Go. 
+Besides the natively supported programming languages, you can use [custom handlers](functions-custom-handlers.md) to create functions in any language that supports HTTP primitives. To use custom handlers to write your function code in either Rust or Go, see [Create a Go or Rust function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivots=programming-language-other). 
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript" 
 ## Review end-to-end samples
@@ -48,33 +48,33 @@ These sites let you browse existing functions reference projects and samples in 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=dotnetCsharp)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AC%23&type=repositories&l=C%23)
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions) 
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AC%23&type=repositories&l=C%23)
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions) 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=java)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJava&type=repositories&l=Java)
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJava&type=repositories&l=Java)
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=javascript)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJavaScript&type=repositories)
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=javascript&products=azure-functions)
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3AJavaScript&type=repositories)
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=javascript&products=azure-functions)
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=typescript)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3ATypeScript+&type=repositories)
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=typescript&products=azure-functions)
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3ATypeScript+&type=repositories)
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=typescript&products=azure-functions)
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=powershell)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APowerShell&type=repositories) 
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=powershell&products=azure-functions)
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APowerShell&type=repositories) 
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=powershell&products=azure-functions)
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=python)
-+ [Azure Functions Samples in Github](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APython+&type=repositories) 
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
++ [Azure Functions samples in GitHub](https://github.com/search?q=topic%3Aazure-functions+org%3AAzure-Samples+fork%3Atrue+language%3APython+&type=repositories) 
++ [Azure samples browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
 ::: zone-end  
 
 ## Scenarios
@@ -94,9 +94,8 @@ Here are some common scenarios to help you get started:
 
 Complete one of the following interactive training modules to learn more about Functions:
 
-+ [Choose the best Azure serverless technology for your business scenario](/training/modules/serverless-fundamentals/) 
 + [Well-Architected Framework - Performance efficiency](/training/modules/azure-well-architected-performance-efficiency/)
-+ [Execute an Azure Function with triggers](/training/modules/execute-azure-function-with-triggers/)
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 To learn even more, see the [full listing of interactive tutorials](/training/browse/?expanded=azure&products=azure-functions).
  
@@ -126,8 +125,8 @@ Learn more about developing functions using Rust, Go, and other languages by rev
 
 You might also be interested in these articles:
 
-+ [Deploying Azure Functions](./functions-deployment-technologies.md)
-+ [Monitoring Azure Functions](./functions-monitoring.md) 
-+ [Performance and reliability](./functions-best-practices.md)
++ [Deployment technologies in Azure Functions](./functions-deployment-technologies.md)
++ [Monitor executions in Azure Functions](./functions-monitoring.md) 
++ [Best practices for reliable Azure Functions](./functions-best-practices.md)
 + [Securing Azure Functions](./security-concepts.md)
-+ [Durable Functions](../durable-task/common/what-is-durable-task.md)
++ [What is Durable Task?](../durable-task/common/what-is-durable-task.md)

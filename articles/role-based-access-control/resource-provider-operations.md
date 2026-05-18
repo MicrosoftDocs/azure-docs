@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -43,7 +43,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.AVS](./permissions/compute.md#microsoftavs) |  | [Azure VMware Solution](/azure/azure-vmware/introduction) |
 > | [Microsoft.AzureFleet](./permissions/compute.md#microsoftazurefleet) |  | [Azure Compute Fleet](/azure/azure-compute-fleet/overview) |
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
-> | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 > | [Microsoft.ComputeLimit](./permissions/compute.md#microsoftcomputelimit) |  |  |
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
@@ -135,11 +134,12 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DataFactory](./permissions/analytics.md#microsoftdatafactory) | Hybrid data integration at enterprise scale, made easy. | [Data Factory](/azure/data-factory/) |
 > | [Microsoft.DataLakeAnalytics](./permissions/analytics.md#microsoftdatalakeanalytics) | Distributed analytics service that makes big data easy. | [Data Lake Analytics](/azure/data-lake-analytics/) |
 > | [Microsoft.DataLakeStore](./permissions/analytics.md#microsoftdatalakestore) | Highly scalable and cost-effective data lake solution for big data analytics. | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) |
+> | [Microsoft.Fabric](./permissions/analytics.md#microsoftfabric) | Unified analytics platform for data engineering, data science, and business intelligence. | [Microsoft Fabric](/fabric/) |
 > | [Microsoft.HDInsight](./permissions/analytics.md#microsofthdinsight) | Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters. | [HDInsight](/azure/hdinsight/) |
 > | [Microsoft.Kusto](./permissions/analytics.md#microsoftkusto) | Service for storing and running interactive analytics over Big Data. | [Azure Data Explorer](/azure/data-explorer/) |
 > | [Microsoft.PowerBIDedicated](./permissions/analytics.md#microsoftpowerbidedicated) | Manage Power BI Premium dedicated capacities for exclusive use by an organization. | [Power BI Embedded](/azure/power-bi-embedded/) |
-> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) |  | [Microsoft Purview](/purview/) |
-> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) |  | [Azure Synapse Analytics](/azure/synapse-analytics/) |
+> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) | Unified data governance and compliance solution. | [Microsoft Purview](/purview/) |
+> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) | Limitless analytics service with enterprise data warehousing and big data analytics. | [Azure Synapse Analytics](/azure/synapse-analytics/) |
 
 <a name='microsoftsearch'></a>
 
@@ -161,6 +161,7 @@ Click the resource provider name in the following list to see the list of permis
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AzureSphere](./permissions/internet-of-things.md#microsoftazuresphere) |  | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) |
+> | [Microsoft.DeviceRegistry](./permissions/internet-of-things.md#microsoftdeviceregistry) |  |  |
 > | [Microsoft.Devices](./permissions/internet-of-things.md#microsoftdevices) | Ensure that your users are accessing your resources from devices that meet your standards for security and compliance. | [IoT Hub](/azure/iot-hub/)<br/>[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 > | [Microsoft.DeviceUpdate](./permissions/internet-of-things.md#microsoftdeviceupdate) |  | [Device Update for IoT Hub](/azure/iot-hub-device-update/) |
 > | [Microsoft.DigitalTwins](./permissions/internet-of-things.md#microsoftdigitaltwins) |  | [Azure Digital Twins](/azure/digital-twins/) |

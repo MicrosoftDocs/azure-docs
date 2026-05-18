@@ -389,6 +389,8 @@ items:
   items:
   - name: Overview
     href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
+  - name: WhatsApp usernames and BSUIDs
+    href: concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md
   - name: Pricing
     href: concepts/advanced-messaging/whatsapp/pricing.md
   - name: Advanced messaging for WhatsApp terms of service

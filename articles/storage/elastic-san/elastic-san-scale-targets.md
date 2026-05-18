@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure Elas
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: concept-article
-ms.date: 01/08/2026
+ms.date: 04/22/2026
 ms.author: rogarana
 ms.custom: references_regions
 # Customer intent: "As a storage administrator, I want to understand the scalability and performance targets of Elastic SAN, so that I can optimize capacity, IOPS, and throughput for my deployment requirements in different regions."
@@ -42,7 +42,7 @@ Different regions have varying levels of base storage capacity available. We bre
 
 ##### Higher available base storage capacity
 
-The following regions have higher base storage capacity available. The table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, West US 2, Australia Southeast, West Central US, West US, UK West.
+The following regions have higher base storage capaity available. The table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, West US 2, Australia Southeast, West Central US, West US, UK West.
 
 
 |Resource  |Values  |
@@ -72,16 +72,16 @@ The following regions have lower base storage capacity available. The table foll
 
 #### ZRS
 
-ZRS is only available in France Central, North Europe, West Europe, and West US 2.
+ZRS is available in Australia East, Brazil South, Canada Central, Central India, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Italy North, Japan East, Korea Central, Mexico Central, North Europe, Norway East, Poland Central, Qatar Central, South Africa North, South Central US, Southeast Asia, Spain Central, Sweden Central, Switzerland North, UAE North, UK South, West Europe, West US 2, and West US 3.
 
-|Resource  |France Central  |North Europe | West Europe |West US 2    |
-|---------|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum capacity-only units (TiB)     |200         |200        |200        |200        |
-|Maximum base capacity units (TiB)    |100         |100        |100        |100        |
-|Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
-|Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
-|Maximum total throughput (MB/s)    |20,000         |20,000        |20,000        |20,000        |
+|Resource  |Values | 
+|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |
+|Maximum capacity-only units (TiB)     |200         |
+|Maximum base capacity units (TiB)    |100         |
+|Minimum total SAN capacity (TiB)    |1         |
+|Maximum total IOPS     |500,000         |
+|Maximum total throughput (MB/s)    |20,000         |
 
 #### Quota and capacity increases
 To increase quota, create a support ticket with the subscription ID and region information to request an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region.”

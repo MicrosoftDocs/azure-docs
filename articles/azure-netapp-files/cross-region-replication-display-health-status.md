@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 03/03/2026
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to monitor the health status of replication relationships in Azure NetApp Files, so that I can ensure data integrity and continuity during cross-region replication processes.
 ---

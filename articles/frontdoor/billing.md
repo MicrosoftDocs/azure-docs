@@ -1,8 +1,8 @@
 ---
 title: Understand Azure Front Door billing
 description: Learn how you're billed when you use Azure Front Door.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 12/28/2023

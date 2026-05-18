@@ -89,13 +89,12 @@ A subscription owner can navigate in the Azure portal to **Subscriptions** and t
 1. Select the subscription that you want to cancel.
 1. At the top of page, select **Cancel**.
 1. If you have any resources associated with the subscription, they're shown on the page. At the top of the page, select **Cancel subscription**.
-    :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription.png" alt-text="Screenshot showing the subscription properties where you select Cancel subscription." lightbox="./media/cancel-azure-subscription/cancel-subscription.png" :::
+![Screenshot showing the subscription properties where you select Cancel subscription.](./media/cancel-azure-subscription/cancel-subscription.png)
 1. Select a reason for cancellation.
 1. If you have a support plan and no other subscriptions use it, select **Turn off auto-renew**. If other subscriptions use the support plan, clear the option.
 1. If you have any running resources associated with the subscription, you must select **Turn off resources**. Ensure that you already backed up any data that you want to keep.
-1. Select **Cancel subscription**.  
-    :::image type="content" source="./media/cancel-azure-subscription/cancel-subscription-final.png" alt-text="Screenshot showing the Cancel subscription window options." lightbox="./media/cancel-azure-subscription/cancel-subscription-final.png" :::
-
+1. Select **Cancel subscription**.
+![Screenshot showing the Cancel subscription window options.](./media/cancel-azure-subscription/cancel-subscription-final.png)
 After the subscription is canceled, a notification shows that the cancellation is complete. 
 
 If you have any outstanding charges that aren't invoiced yet, their estimated charges are shown. As described previously, you get a final bill at the end of your billing cycle.
@@ -103,8 +102,7 @@ If you have any outstanding charges that aren't invoiced yet, their estimated ch
 If you have any outstanding credits that aren't yet applied to your invoice, the estimated credits that apply to your invoice are shown. For more information about data update frequency, see [Cost and usage data updates and retention](../costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
 
 The following example shows that credits were applied and pending estimated charges. In this example, the final bill is estimated at USD 50.50.
-
-:::image type="content" source="./media/cancel-azure-subscription/cancel-complete.png" alt-text="Screenshot showing that subscription cancellation status." lightbox="./media/cancel-azure-subscription/cancel-complete.png" :::
+![Screenshot showing that subscription cancellation status.](./media/cancel-azure-subscription/cancel-complete.png)
 
 > [!NOTE]
 > Partners can suspend or cancel a subscription if requested by a customer or in cases of nonpayment or fraud. For more information, see [Suspend or cancel a subscription](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
@@ -128,8 +126,7 @@ If you cancel an Azure Support plan, you're billed for the rest of the month. **
 After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends.
 
 After you cancel, your services are disabled. That means your virtual machines are deallocated, temporary IP addresses are freed, and storage is read-only. Here's an example of the cancellation window.
-
-:::image type="content" source="./media/cancel-azure-subscription/cancel-window.png" alt-text="Screenshot showing the cancellation window." lightbox="./media/cancel-azure-subscription/cancel-window.png" :::
+![Screenshot showing the cancellation window.](./media/cancel-azure-subscription/cancel-window.png)
 
 After you cancel a subscription, your billing stops immediately. You can delete your subscription directly using the Azure portal three days after you cancel it, using the **Delete subscription** option after it becomes available. When your subscription is canceled, Microsoft waits 30 to 90 days before permanently deleting your data in case you need to access it or recover your data. We don't charge you for retaining the data. For more information, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930).
 
@@ -146,14 +143,13 @@ The **Delete subscription** option isn't available until **3 days** after you ca
 ![Screenshot of 3 days delay for deleting subscriptions.](media/cancel-azure-subscription/cancel-subscription-3-days.png)
 
 
-
-
 1. If necessary, type the name of the subscription and then select **Delete**.
-    - When all required conditions are met, you can delete the subscription.  
-    :::image type="content" source="./media/cancel-azure-subscription/type-name-delete.png" alt-text="Screenshot showing where you type the subscription name and Delete." lightbox="./media/cancel-azure-subscription/type-name-delete.png" :::
-    - If there are required deletion conditions, but they aren't met, the following page is shown.  
-      :::image type="content" source="./media/cancel-azure-subscription/manual-delete-subscription.png" alt-text="Screenshot showing the Delete your subscription page." lightbox="./media/cancel-azure-subscription/manual-delete-subscription.png" :::
-      - If **Delete resources** doesn't display a green check mark, then you have resources that must be deleted in order to delete the subscription. You can select **View resources** to navigate to the Resources page to manually delete the resources. After resource deletion, you might need to wait 10 minutes for resource deletion status to update in order to delete the subscription.
+   - When all required conditions are met, you can delete the subscription.
+   ![Screenshot showing where you type the subscription name and Delete.](./media/cancel-azure-subscription/type-name-delete.png)
+   
+   - If there are required deletion conditions, but they aren't met, the following page is shown.
+   ![Screenshot showing the Delete your subscription page.](./media/cancel-azure-subscription/manual-delete-subscription.png)
+   - If **Delete resources** doesn't display a green check mark, then you have resources that must be deleted in order to delete the subscription. You can select **View resources** to navigate to the Resources page to manually delete the resources. After resource deletion, you might need to wait 10 minutes for resource deletion status to update in order to delete the subscription.
       - If **Manual deletion date** doesn't display a green check mark, you must wait the required period before you can delete the subscription.  
 
 > [!NOTE]
@@ -187,24 +183,34 @@ See the [Renewal and Cancellation](/visualstudio/subscriptions/faq/admin/renewal
 
 ## What data transfer fees are applied when moving all data off Azure?
 
-Azure now offers free egress for customers leaving Azure when taking out their data via the internet to another cloud provider or an on-premises data center. Use the following these steps to submit your request for free egress.
+Azure now offers free egress for customers leaving Azure when taking out their data via the internet to another cloud provider or an on-premises data center. For customers with billing address in the United Kingdom (UK) that transfer data from UK datacenters, free egress is offered via the internet and the Microsoft Premium Global Network (MGN) when leaving Azure or single Azure services.  Use the following steps to submit your request for free egress 
 
+---
 ### Create a support request
 
 1. To signal your intent to exit Azure and allow us to accommodate your request, create an [Azure Support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and provide:
-    - Your _Subscription ID_ or _Enrollment ID_
-    - The date you plan to start your transfer
-    - An estimate of the amount of data you plan to egress
-1. Once your request is logged with Azure Support, you have 60 days from the date you indicate as your start data transfer date to egress your data out of Azure. If you need more than 60 days to egress your data, include an overview of your migration timeline in your initial Azure support request.
-1. After egressing your data, cancel all subscriptions associated with your account.
+   - Your _Subscription ID_ or _Enrollment ID_
+      
+   - The date you plan to start your transfer
+   - An estimate of the amount of data you plan to egress
+1. Once your request is logged with Azure Support, you have 60 days from the date you indicate as your start data transfer date to egress your data out of Azure. If you need more than 60 days to egress your data, include an overview of your migration timeline in your initial Azure support request. For customers with billing address in the UK that transfer data from UK datacenters, you have 180 days. 
+
+1. After egressing your data, cancel all subscriptions associated with your account. 
+
+   1. Note: For customers with billing address in the UK transferring data from UK datacenters for some but not all Azure services, finish all consumption for those services.
+   
 1. Contact Azure Support and create a request to claim invoice-level credit for your egress charges incurred during your exit. You can either reopen your initial support request (step 1) or create a new Azure Support request. An invoice-level credit adjustment is applied to the existing balance.
 
 ### Qualifications
 
-- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](#create-a-support-request).
-- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.
-- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date.
-- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving Azure Storage data out of Azure are eligible for credits.
+- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](/azure/cost-management-billing/manage/cancel-azure-subscription).  For customers with billing address in the UK that transfer data from UK datacenters, your notice to leave may be for any number of single Azure services.
+
+- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.  For customers with billing address in the UK transferring data from UK datacenters, you must finish all service consumption for any single Azure services for which you are requesting your invoice-level credit.
+
+- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date. For customers with billing address in the UK transferring data from UK datacenters, you receive credit for a maximum of 180 days of egress.
+
+- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving data out of Azure are eligible for credits.
+
 - Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.

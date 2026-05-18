@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -111,7 +111,7 @@ The following table provides a brief description of each built-in role. Click th
 > | --- | --- | --- |
 > | <a name='avere-contributor'></a>[Avere Contributor](./built-in-roles/storage.md#avere-contributor) | Can create and manage an Avere vFXT cluster. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | <a name='avere-operator'></a>[Avere Operator](./built-in-roles/storage.md#avere-operator) | Used by the Avere vFXT cluster to manage the cluster | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
-> | <a name='azure-file-sync-administrator'></a>[Azure File Sync Administrator](./built-in-roles/storage.md#azure-file-sync-administrator) | Provides full access to manage all Azure File Sync (Storage Sync Service) resources. | 92b92042-07d9-4307-87f7-36a593fc5850 |
+> | <a name='azure-file-sync-administrator'></a>[Azure File Sync Administrator](./built-in-roles/storage.md#azure-file-sync-administrator) | Provides full access to manage all Azure File Sync (Storage Sync Service) resources. Also allows read/write access to all data contained in a storage account via access to storage account keys. | 92b92042-07d9-4307-87f7-36a593fc5850 |
 > | <a name='azure-file-sync-reader'></a>[Azure File Sync Reader](./built-in-roles/storage.md#azure-file-sync-reader) | Provides read access to Azure File Sync service (Storage Sync Service). | 754c1a27-40dc-4708-8ad4-2bffdeee09e8 |
 > | <a name='backup-contributor'></a>[Backup Contributor](./built-in-roles/storage.md#backup-contributor) | Lets you manage backup service, but can't create vaults and give access to others | 5e467623-bb1f-42f4-a55d-6e525e11384b |
 > | <a name='backup-mua-admin'></a>[Backup MUA Admin](./built-in-roles/storage.md#backup-mua-admin) | Backup MultiUser-Authorization. Can create/delete ResourceGuard  | c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8 |
@@ -313,14 +313,14 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
-> | <a name='azure-ai-account-owner'></a>[Azure AI Account Owner](./built-in-roles/ai-machine-learning.md#azure-ai-account-owner) | Grants full access to manage AI projects and accounts. Includes an ABAC condition to constrain role assignments. Grants conditional assignment of the Azure AI User role to other user principles. Applies for new Foundry resources. | e47c6f54-e4a2-4754-9501-8e0985b135e1 |
+> | <a name='azure-ai-account-owner'></a>[Foundry Account Owner](./built-in-roles/ai-machine-learning.md#foundry-account-owner) | Grants full access to manage AI projects and accounts. Includes an ABAC condition to constrain role assignments. Grants conditional assignment of the Foundry User role to other user principles. Applies for new Foundry resources. | e47c6f54-e4a2-4754-9501-8e0985b135e1 |
 > | <a name='azure-ai-administrator'></a>[Azure AI Administrator](./built-in-roles/ai-machine-learning.md#azure-ai-administrator) | A Built-In Role that has all control plane permissions to work with Azure AI and its dependencies. Applies to Azure Machine Learning and Foundry hubs only. | b78c5d69-af96-48a3-bf8d-a8b4d589de94 |
 > | <a name='azure-ai-developer'></a>[Azure AI Developer](./built-in-roles/ai-machine-learning.md#azure-ai-developer) | Can perform all actions within an Azure AI resource besides managing the resource itself. Applies to Azure Machine Learning and Foundry hubs only. | 64702f94-c441-49e6-a78b-ef80e0188fee |
 > | <a name='azure-ai-enterprise-network-connection-approver'></a>[Azure AI Enterprise Network Connection Approver](./built-in-roles/ai-machine-learning.md#azure-ai-enterprise-network-connection-approver) | Can approve private endpoint connections to Azure AI common dependency resources | b556d68e-0be0-4f35-a333-ad7ee1ce17ea |
 > | <a name='azure-ai-inference-deployment-operator'></a>[Azure AI Inference Deployment Operator](./built-in-roles/ai-machine-learning.md#azure-ai-inference-deployment-operator) | Can perform all actions required to create a resource deployment within a resource group. | 3afb7f49-54cb-416e-8c09-6dc049efa503 |
-> | <a name='azure-ai-owner'></a>[Azure AI Owner](./built-in-roles/ai-machine-learning.md#azure-ai-owner) | Grants full to manage AI project and accounts. Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources. | c883944f-8b7b-4483-af10-35834be79c4a |
-> | <a name='azure-ai-project-manager'></a>[Azure AI Project Manager](./built-in-roles/ai-machine-learning.md#azure-ai-project-manager) | Lets you perform developer actions and management actions on Foundry Projects. Includes an ABAC condition to constrain role assignments. Allows for making role assignments, but limited to Azure AI User role. Applies for new Foundry resources. | eadc314b-1a2d-4efa-be10-5d325db5065e |
-> | <a name='azure-ai-user'></a>[Azure AI User](./built-in-roles/ai-machine-learning.md#azure-ai-user) | Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. | 53ca6127-db72-4b80-b1b0-d745d6d5456d |
+> | <a name='azure-ai-owner'></a>[Foundry Owner](./built-in-roles/ai-machine-learning.md#foundry-owner) | Grants full to manage AI project and accounts. Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources. | c883944f-8b7b-4483-af10-35834be79c4a |
+> | <a name='azure-ai-project-manager'></a>[Foundry Project Manager](./built-in-roles/ai-machine-learning.md#foundry-project-manager) | Lets you perform developer actions and management actions on Foundry Projects. Includes an ABAC condition to constrain role assignments. Allows for making role assignments, but limited to Foundry User role. Applies for new Foundry resources. | eadc314b-1a2d-4efa-be10-5d325db5065e |
+> | <a name='azure-ai-user'></a>[Foundry User](./built-in-roles/ai-machine-learning.md#foundry-user) | Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. | 53ca6127-db72-4b80-b1b0-d745d6d5456d |
 > | <a name='azureml-compute-operator'></a>[AzureML Compute Operator](./built-in-roles/ai-machine-learning.md#azureml-compute-operator) | Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). | e503ece1-11d0-4e8e-8e2c-7a6c3bf38815 |
 > | <a name='azureml-data-scientist'></a>[AzureML Data Scientist](./built-in-roles/ai-machine-learning.md#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | <a name='azureml-metrics-writer-preview'></a>[AzureML Metrics Writer (preview)](./built-in-roles/ai-machine-learning.md#azureml-metrics-writer-preview) | Lets you write metrics to AzureML workspace | 635dd51f-9968-44d3-b7fb-6d9a6bd613ae |

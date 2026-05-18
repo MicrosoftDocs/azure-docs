@@ -9,6 +9,15 @@ groups:
     title: Azure portal
   - id: python
     title: Python
+# Owner: dlepow
+- id: api-management-credential-auth-scenario
+  title: Authentication scenario
+  prompt: Choose authorization credential
+  pivots:
+  - id: apim-client-secret
+    title: Client secret
+  - id: apim-federated-identity
+    title: Federated identity credentials
 # Owner: v-mallicka
 - id: backup-client-template-arm-bicep
   title: Clients
@@ -204,6 +213,14 @@ groups:
     title: Durable Functions
   - id: durable-task-sdks
     title: Durable Task SDKs
+- id: agent-framework-approach
+  title: Agent Framework approach
+  prompt: Choose your hosting option.
+  pivots:
+  - id: azure-functions
+    title: Azure Functions
+  - id: other-compute
+    title: Bring your own compute
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model

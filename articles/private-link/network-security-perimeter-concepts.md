@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 08/01/2025
+ms.date: 03/22/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -101,11 +101,11 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | | Public Preview |
 | [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | | Generally Available |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | | Generally Available |
-| [Service Bus](/azure/service-bus-messaging/network-security-perimeter)              | Microsoft.ServiceBus/namespaces | | Generally Available |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | | Public Preview |
-| [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | | Generally Available |
+| [Storage](/azure/storage/common/storage-network-security#network-security-perimeter-preview)               | Microsoft.Storage/storageAccounts | | Generally Available |
 | [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices(kind="OpenAI") | | Public Preview |
 | [Microsoft Foundry](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) | Microsoft.CognitiveServices(kind="AIServices") | | Generally Available |
+| [Azure Service Bus](/azure/service-bus-messaging/network-security-perimeter) | Microsoft.ServiceBus/namespaces | | Generally Available |
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
@@ -142,8 +142,11 @@ Network security perimeter is currently available in all Azure public cloud regi
 > [!NOTE]
 > For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
-> [!NOTE]
-> Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating a storage account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.
+### Microsoft Sentinel limitations
+
+The following are known limitations:
+* Network security perimeters aren't supported for Log Analytics workspaces enabled for Microsoft Sentinel. If a network security perimeter is enabled on the workspace, analytic rules are automatically disabled. For more information, see [Prerequisites for deploying Microsoft Sentinel](/azure/sentinel/prerequisites).
+* Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating a storage account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

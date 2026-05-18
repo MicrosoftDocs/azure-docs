@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Durable Task documentation
-summary: Durable Task automatically handles retries, state persistence, and crash recovery so you can focus on your business logic.
+summary: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. 
 
 metadata:
   title: Durable Task documentation
-  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Instead of managing complex retry logic, state machines, or message queues, you express your business logic as straightforward functions - Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Workflows can run for hours, days, or even months, reliably resuming from the last completed step after any crash, restart, or redeployment. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, and the Durable Task Scheduler - a fully managed backend service purpose-built for durable workloads.
+  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. 
   ms.service: durable-task
   ms.topic: landing-page
   author: hhunter-ms
@@ -24,16 +24,57 @@ landingContent:
           - text: Programming model
             url: programming-model-overview.md
 
-  - title: Components
+  - title: Get started with Durable Agents
     linkLists:
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
-          - text: Durable Functions >
-            url: /azure/azure-functions/durable-functions/
-          - text: Durable Task SDKs >
-            url: /azure/durable-task/sdks/
-          - text: Durable Task Scheduler >
-            url: /azure/durable-task/scheduler/
+          - text: Durable Task for AI Agents
+            url: ../sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
+          - text: Durable Task Microsoft Agent Framework extension (preview)
+            url: ../sdks/durable-agents-microsoft-agent-framework.md?toc=/azure/durable-task/common/toc.json
+          - text: Agentic application patterns
+            url: ../../azure-functions/durable-functions/quickstart-js-vscode.md?toc=/azure/durable-task/common/toc.json
+
+  - title: Get started in Durable Functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Durable Functions app (C#)
+            url: ../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md?toc=/azure/durable-task/common/toc.json
+          - text: Create a Durable Functions app (Python)
+            url: ../../azure-functions/durable-functions/quickstart-python-vscode.md?toc=/azure/durable-task/common/toc.json
+          - text: Create a Durable Functions app (JavaScript)
+            url: ../../azure-functions/durable-functions/quickstart-js-vscode.md?toc=/azure/durable-task/common/toc.json
+          - text: Create a Durable Functions app (TypeScript)
+            url: ../../azure-functions/durable-functions/quickstart-ts-vscode.md?toc=/azure/durable-task/common/toc.json
+          - text: Create a Durable Functions app (PowerShell)
+            url: ../../azure-functions/durable-functions/quickstart-powershell-vscode.md?toc=/azure/durable-task/common/toc.json
+          - text: Create a Durable Functions app (Java)
+            url: ../../azure-functions/durable-functions/quickstart-java.md?toc=/azure/durable-task/common/toc.json
+          - text: Configure Durable Functions with Durable Task Scheduler
+            url: ../scheduler/quickstart-durable-task-scheduler.md
+
+  - title: Get started in the Durable Task SDKs
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create an app with the Durable Task SDKs
+            url: ../sdks/quickstart-portable-durable-task-sdks.md
+          - text: Host on Azure Container Apps
+            url: ../sdks/quickstart-container-apps-durable-task-sdk.md
+          - text: Host on Azure Kubernetes Service
+            url: ../sdks/quickstart-aks-durable-task-scheduler.md
+          - text: Use work item filtering with Durable Task Scheduler
+            url: ../scheduler/quickstart-work-item-filtering-durable-task.md
+
+  - title: Hosting models
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Durable Functions
+            url: ../../azure-functions/durable-functions/durable-functions-overview.md?toc=/azure/durable-task/common/toc.json
+          - text: Durable Task SDKs
+            url: ../sdks/durable-task-overview.md
 
   - title: Core concepts
     linkLists:
@@ -48,12 +89,21 @@ landingContent:
           - text: Versioning and deployment safety
             url: durable-orchestration-versioning.md
 
+  - title: Storage providers
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Durable Task Scheduler
+            url: ../scheduler/durable-task-scheduler.md
+          - text: Azure Storage
+            url: ../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md?toc=/azure/durable-task/common/toc.json
+
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
           - text: Durable Functions troubleshooting
-            url: ../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md
+            url: ../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md?toc=/azure/durable-task/common/toc.json
           - text: Durable Task SDK troubleshooting
             url: ../sdks/durable-task-sdk-troubleshooting.md
           - text: Community Q&A

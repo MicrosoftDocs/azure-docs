@@ -351,6 +351,33 @@ helm install azureappconfiguration.kubernetesprovider \
     --set env.azureAppConfigurationAudience="{Cloud specific audience here}"
 ```
 
+### [PowerShell](#tab/powershell)
+#### Azure PowerShell
+
+If you use Azure PowerShell, the audience can be configured by setting the `AzureAppConfigurationEndpointResourceId` parameter on a custom Azure environment using `Add-AzEnvironment` or `Set-AzEnvironment`. Use version **15.6.0** or later of the **Az** module.
+
+The following example demonstrates how to configure the Bleu environment with the App Configuration audience and endpoint suffix.
+
+```powershell
+Add-AzEnvironment -Name "{Environment name}" `
+    -AzureAppConfigurationEndpointResourceId "https://appconfig.sovcloud-api.fr" `
+    -AzureAppConfigurationEndpointSuffix "appconfig.sovcloud-api.fr"
+```
+
+To update an existing environment:
+
+```powershell
+Set-AzEnvironment -Name "{Environment name}" `
+    -AzureAppConfigurationEndpointResourceId "https://appconfig.sovcloud-api.fr" `
+    -AzureAppConfigurationEndpointSuffix "appconfig.sovcloud-api.fr"
+```
+
+After configuring the environment, connect to it before running any App Configuration commands:
+
+```powershell
+Connect-AzAccount -Environment "{Environment name}"
+```
+
 ---
 
 ## Next steps
