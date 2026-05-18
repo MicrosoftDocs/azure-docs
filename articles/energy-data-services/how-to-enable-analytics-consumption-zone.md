@@ -24,6 +24,8 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 
 ## Setup overview
 
+The setup configures a managed identity that enables ACZ to access ADME data and write to ADLS Gen2.
+
 Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
 | Step | Task |
@@ -84,7 +86,7 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 
 > [!TIP]
 > **Automated script option available**  
-> For a simplified approach with minimal prompts, you can use an automated script instead of the manual commands below. See [Use automated script](#use-automated-script-for-step-3) at the end of this step. Otherwise, continue with the manual steps.
+> For a simplified approach with minimal prompts, you can use an automated script instead of the manual commands. See [Use automated script](#use-automated-script-for-step-3) at the end of this step. Otherwise, continue with the manual steps.
 
  > [!IMPORTANT]
 > **Preserve existing managed identities!**  
@@ -195,13 +197,13 @@ The output should include your user-assigned managed identity's resource ID with
 
 ### Use automated script for Step 3
 
-As an alternative to the manual commands above, you can use an automated script that handles the identity assignment with minimal user input. The script preserves existing identities automatically and requires only three inputs.
+As an alternative to the manual commands, you can use an automated script that handles the identity assignment with minimal user input. The script preserves existing identities automatically and requires only three inputs.
 
 **What the script does:**
-- Retrieves current ADME instance configuration
+- Retrieves current Azure Data Manager for Energy instance configuration
 - Preserves any existing managed identities
 - Adds your new ACZ identity to the configuration
-- Updates the instance via ARM API
+- Updates the instance via Azure Resource Manager (ARM) API
 
 #### [PowerShell](#tab/powershell-script)
 
@@ -220,8 +222,8 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/azure-docs/main/
 ```
 
 **You will be prompted for:**
-1. Subscription ID where your ADME instance resides
-2. ADME instance name
+1. Subscription ID where your Azure Data Manager for Energy instance resides
+2. Azure Data Manager for Energy instance name
 3. Managed identity name (from Step 2)
 
 The script automatically detects the resource group, preserves existing identities, and assigns the new identity.
@@ -245,16 +247,16 @@ param(
     [string]$ManagedIdentityName
 )
 
-Write-Host "Attaching managed identity to ADME instance..." -ForegroundColor Cyan
+Write-Host "Attaching managed identity to Azure Data Manager for Energy instance..." -ForegroundColor Cyan
 
 # Set subscription
 az account set --subscription $SubscriptionId
 
-# Get ADME instance
+# Get Azure Data Manager for Energy instance
 $adme = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name $AdmeInstanceName --query "[0]" | ConvertFrom-Json
 
 if (-not $adme) {
-    Write-Host "Error: ADME instance '$AdmeInstanceName' not found" -ForegroundColor Red
+    Write-Host "Error: Azure Data Manager for Energy instance '$AdmeInstanceName' not found" -ForegroundColor Red
     exit 1
 }
 
@@ -296,7 +298,7 @@ $body = @{
     }
 } | ConvertTo-Json -Depth 10
 
-# Get ARM token and update ADME instance
+# Get ARM token and update Azure Data Manager for Energy instance
 $token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
 $uri = "https://management.azure.com$($adme.id)?api-version=2025-09-22-preview"
 
@@ -305,14 +307,14 @@ Invoke-RestMethod -Uri $uri -Method Put -Headers @{
     "Content-Type" = "application/json"
 } -Body $body
 
-Write-Host "Successfully attached managed identity to ADME instance" -ForegroundColor Green
+Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
 ```
 
 #### [Bash](#tab/bash-script)
 
 **Prerequisites:**
 - Azure CLI installed and authenticated (`az login`)
-- Bash shell (Linux, macOS, WSL, or Git Bash on Windows)
+- Bash shell (Linux, macOS, Windows Subsystem for Linux (WSL), or Git Bash on Windows)
 
 **Download and run:**
 
@@ -326,8 +328,8 @@ chmod +x attach-managed-identity.sh
 ```
 
 **You will be prompted for:**
-1. Subscription ID where your ADME instance resides
-2. ADME instance name
+1. Subscription ID where your Azure Data Manager for Energy instance resides
+2. Azure Data Manager for Energy instance name
 3. Managed identity name (from Step 2)
 
 The script automatically detects the resource group, preserves existing identities, and assigns the new identity.
@@ -343,22 +345,22 @@ set -e
 echo "Enter Subscription ID: "
 read SUBSCRIPTION_ID
 
-echo "Enter ADME Instance Name: "
+echo "Enter Azure Data Manager for Energy Instance Name: "
 read ADME_INSTANCE_NAME
 
 echo "Enter Managed Identity Name: "
 read MANAGED_IDENTITY_NAME
 
-echo "Attaching managed identity to ADME instance..."
+echo "Attaching managed identity to Azure Data Manager for Energy instance..."
 
 # Set subscription
 az account set --subscription "$SUBSCRIPTION_ID"
 
-# Get ADME instance
+# Get Azure Data Manager for Energy instance
 ADME_JSON=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name "$ADME_INSTANCE_NAME" --query "[0]" -o json)
 
 if [ -z "$ADME_JSON" ] || [ "$ADME_JSON" = "null" ]; then
-    echo "Error: ADME instance '$ADME_INSTANCE_NAME' not found"
+    echo "Error: Azure Data Manager for Energy instance '$ADME_INSTANCE_NAME' not found"
     exit 1
 fi
 
@@ -392,7 +394,7 @@ fi
 # Get ARM token
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
-# Update ADME instance
+# Update Azure Data Manager for Energy instance
 curl --request PUT \
   --url "https://management.azure.com${ADME_ID}?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
@@ -415,7 +417,7 @@ curl --request PUT \
     }
   }"
 
-echo "Successfully attached managed identity to ADME instance"
+echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
 ```
 
 ---
