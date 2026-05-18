@@ -80,13 +80,13 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **+ Create**.
 
    >[!TIP]
-   >You may also select the Cluster from the Placement Policy overview pane and then select **Create**.
+   >You can also select the Cluster from the Placement Policy overview pane and then select **Create**.
    >
 
 1. Provide a descriptive name, select the policy type, and select the cluster where the policy is created. Then select **Enabled**.
 
    >[!WARNING]
-   >If you disable the policy, then the policy and the underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
+   >If you disable the policy, then the policy and the underlying DRS rule are created. However, the policy actions are ignored until you enable the policy. 
 
 1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, select **+ Add hosts** and the hosts to include in the policy. You can select multiple hosts.
 
@@ -170,8 +170,8 @@ For most workloads, it isn't necessary and can cause unintended performance impa
 ### Enable Restrict VM movement for specific VMs
 
 1. Navigate to **Manage Placement policies** and select **Restrict VM movement**.
-1. Select the VM or VMs you want to restrict, then select **Select**.
-1. The VM or VMS you selected appears in the **VMs with restricted movement** tab.
+1. Select the virtual machine (VM) or VMs you want to restrict, then select **Select**.
+1. The VMS you selected appears in the **VMs with restricted movement** tab.
    * In the vSphere Client, a VM override is created to set DRS to **partially automated** for that VM.    
    * DRS no longer migrates the VM automatically.
    * Manual vMotion of the VM and automatic initial placement of the VM continues to function.
