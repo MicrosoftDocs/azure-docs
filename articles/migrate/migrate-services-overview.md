@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 03/20/2025
+ms.date: 05/18/2026
 ms.custom: mvc, engagement-fy25
 ms.collection:
   - migration
@@ -34,7 +34,7 @@ For more information on migrating or modernizing multi-tier applications using A
 
 ## Azure Copilot migration agent 
 
-Azure Migrate also integrates with the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, and review business case insights. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Note that migration execution continues to be performed through the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
+Azure Migrate also contains the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, review business case insights, and create or download customized landing zone templates. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Note that migration execution continues to be performed through the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
 
 ## Benefits of Azure Migrate 
 
@@ -49,7 +49,7 @@ Azure Migrate offers these benefits for your cloud migration journey:
     1. Develop a plan for migration. 
     1. Migrate the workloads by using in-product, Microsoft, and partner migration tools. (Partner tools might charge you for using their services.) 
 
-- **Range of tools**: Azure Migrate has tools for assessment and migration, as described  [later in this article](#integrated-tools-and-features). 
+- **Range of tools**: Azure Migrate provides tools for assessment and migration.
 
 - **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize: 
 
@@ -86,7 +86,7 @@ The Azure Migrate appliance is a virtual appliance that can be deployed on a ser
 
 **Azure Migrate Collector** 
 
-Azure Migrate Collector (preview) helps to streamline discovery. The Collector enables centralized data collection across environments and simplifies onboarding by reducing the need for multiple appliances. [Learn more](how-to-discover-using-collector.md).
+Azure Migrate Collector (preview) enables a quick snapshot discovery of your on-premises environment without requiring continous Azure connectivity. This ode of discovery is ideal for air-gapped or restricted networks where deploying an applicance isn't feasible. [Learn more](how-to-discover-using-collector.md).
 
 After you identify the inventory of workloads, you can create a *business case* to make your decision to migrate your on-premises workloads to Azure. A business case helps you estimate the costs and savings of moving to Azure. It helps you identify:
   
@@ -119,7 +119,7 @@ You can migrate the following workloads by using the integrated Azure Migrate an
 | On-premises physical servers or servers hosted on other clouds | Migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Azure Migrate and Modernize tool uses a replication appliance for the migration. |
 | Web apps hosted on Windows in a VMware environment | Perform agentless migration of ASP.NET web apps at scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using Azure Migrate. |
 
-For detailed information on how to To migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration using Azure Migrate. 
+For detailed information on how to migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration using Azure Migrate. 
 
 ::: moniker range="migrate-classic"
 ## Integrated tools and features
@@ -151,6 +151,8 @@ The following features from software development companies (SDCs) are integrated
 | [CloudRecon](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases. |
 | [Zerto](https://go.microsoft.com/fwlink/?linkid=2152102) | Migrate servers. |
 ::: moniker-end
+
+For detailed capabilities and latest updates, see [What's new](whats-new.md).
 
 ## Related content
 
