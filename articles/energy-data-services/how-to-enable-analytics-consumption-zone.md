@@ -24,7 +24,7 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 
 ## Setup overview
 
-The setup configures a managed identity that enables ACZ to access Azure Data Manager for Energy (ADME) data and write to ADLS Gen2.
+The setup configures a managed identity that enables ACZ to access Azure Data Manager for Energy data and write to ADLS Gen2.
 
 Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
