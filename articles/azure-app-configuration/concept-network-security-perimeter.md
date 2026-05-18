@@ -33,13 +33,13 @@ A resource association supports two access modes: **Transition** and **Enforced*
 
 ## Access mode and public network access
 
-When a store is associated with a NSP, the network access rules enforced on the configuration store depend on the combination of two settings: the association's **access mode** (Transition or Enforced) and the configuration store's public network access setting (Enabled, Disabled, or SecuredByPerimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules and/or the configuration store's public network access setting.
+When a store is associated with a NSP, the network access rules enforced on the configuration store depend on the combination of two settings: the association's access mode (Transition or Enforced) and the configuration store's public network access setting (Enabled, Disabled, or Secured by perimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules and/or the configuration store's public network access setting.
 
 For a complete breakdown of how these settings interact, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
 ## Considerations for customer-managed key encryption
 
-If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store's outbound requests are abiding by NSP rules (public network access is SecuredByPerimeter **or** NSP assocation is in Enforced mode), this outbound communication to Azure Key Vault is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are abiding by NSP rules (public network access is Secured by perimeter **or** the NSP association is in Enforced mode), this outbound communication to Azure Key Vault is subject to the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
 - **FQDN outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
