@@ -294,7 +294,7 @@ fi
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
 # Update Azure Data Manager for Energy instance
-HTTP_CODE=$(curl --write-out '%{http_code}' --silent --output /dev/null --max-time 30 --request PUT \
+curl --silent --request PUT \
   --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/json" \
@@ -314,14 +314,9 @@ HTTP_CODE=$(curl --write-out '%{http_code}' --silent --output /dev/null --max-ti
         $USER_ASSIGNED_IDENTITIES
       }
     }
-  }")
+  }" > /dev/null
 
-if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-    echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
-else
-    echo "Error: API returned HTTP $HTTP_CODE"
-    exit 1
-fi
+echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
 ```
 
 **Usage:**
