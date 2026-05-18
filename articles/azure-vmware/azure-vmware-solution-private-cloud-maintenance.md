@@ -84,7 +84,7 @@ The following actions are necessary for ensuring host maintenance operations are
 
 ## Next steps
 
-Now that you've learnt how to ensure seamless Azure VMware Solution private cloud maintenance, you might want to learn about:
+You learned how to ensure seamless Azure VMware Solution private cloud maintenance. Your next step could be to learn more about:
 
 - [How to configure Resource Health alerts for Azure VMware Solution](configure-azure-monitor-for-resource-health-for-azure-vmware-solution.md)
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
