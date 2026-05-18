@@ -583,7 +583,7 @@
         href: backup-azure-database-postgresql-flex-use-rest-api.md
       - name: Restore
         href: backup-azure-database-postgresql-flex-use-rest-api-restore.md
-- name: Azure Cosmos DB backup (preview)
+- name: Azure Cosmos DB vaulted backup
   items:
   - name: Overview
     href: backup-azure-cosmos-db-overview.md
