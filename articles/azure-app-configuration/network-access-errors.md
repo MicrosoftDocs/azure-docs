@@ -14,8 +14,6 @@ This article describes network access related errors that can occur when making 
 
 ## IP address rejected
 
-When public network access is disabled for a configuration store, requests will be rejected unless they meet the criteria for inbound access.
-
 ### Error response
 
 ```http
@@ -38,8 +36,6 @@ Content-Type: application/problem+json; charset=utf-8
 - Verify that the private endpoint connection associated with the private endpoint has been approved. 
 
 ## Rejected by network security perimeter
-
-When a store is associated with a network security perimeter in "enforced mode", requests will be rejected unless they meet the criteria for inbound access.
 
 ### Error response
 

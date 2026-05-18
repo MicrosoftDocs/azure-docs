@@ -26,7 +26,7 @@ Network security controls prevent unauthorized access to App Configuration store
 
 - **Configure network security groups for private endpoint subnets**: When using private endpoints, apply Network Security Groups to the subnets (NSGs) hosting the private endpoints to control traffic flow. Enable network policies on the private endpoint subnet and implement restrictive NSG rules to allow only necessary traffic to reach the App Configuration private endpoints. See [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
 
-- **Use network security perimeter (preview)**: Define a logical network boundary for your App Configuration store and other PaaS resources using [network security perimeter](/azure/azure-app-configuration/concept-nsp). Network security perimeters provide centralized network access rule configuration, inbound and outbound access controls, and diagnostic logging for network traffic. See [Associate with a network security perimeter](/azure/azure-app-configuration/howto-set-up-nsp).
+- **Use network security perimeter (preview)**: Define a logical network isolation boundary for your App Configuration store and other PaaS resources using [network security perimeter](/azure/azure-app-configuration/concept-network-security-perimeter). Network security perimeters provide centralized network access rule configuration, inbound and outbound access controls, and diagnostic logging for network traffic. See [Associate with a network security perimeter](/azure/azure-app-configuration/howto-set-up-network-security-perimeter).
 
 ## Identity and access management
 

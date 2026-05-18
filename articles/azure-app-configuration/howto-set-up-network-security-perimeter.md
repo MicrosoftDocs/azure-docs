@@ -6,7 +6,7 @@ author: austintolani
 ms.author: austintolani
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 05/18/2026
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -25,7 +25,7 @@ In this article, you learn how to associate your Azure App Configuration store w
 
 ## Sign in to Azure
 
-You need to sign in to Azure first to access the App Configuration service.
+You need to sign in to Azure to access the App Configuration service.
 
 ### [Portal](#tab/azure-portal)
 
@@ -44,6 +44,8 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 ---
 
 ## Associate your configuration store with a network security perimeter
+
+Use the portal or Azure CLI to create an association between your configuration store and an existing network security perimeter.
 
 ### [Portal](#tab/azure-portal)
 
@@ -68,12 +70,13 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 1. Run the following command to associate your configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association create --name "app-config-association" --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}" -o None
+    az network perimeter association create --name <association-name> --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}" -o none
     ```
 
     > [!div class="mx-tdBreakAll"]
     > | Placeholder | Description | Example |
     > |---|---|---|
+    > | `<association-name>` | A name for the new association resource. | `app-config-association` |
     > | `<nsp-name>` | The name of your network security perimeter. | `MyNSP` |
     > | `<nsp-resource-group>` | The resource group of your network security perimeter. | `MyNSPResourceGroup` |
     > | `<app-config-resource-id>` | The resource ID of your App Configuration store from the previous step. | `/subscriptions/.../MyAppConfigStore` |
@@ -100,12 +103,13 @@ After associating the configuration store with the network security perimeter, y
 1. Under **Network security perimeter**, select **Manage**.
 
 1. Review the network security perimeter configuration to confirm that your configuration store is associated with the expected perimeter and profile.
+
 ### [Azure CLI](#tab/azure-cli)
 
-Run the following command to view the network security perimeter configuration for your configuration store. 
+Run the following command to view the network security perimeter configuration for your configuration store.
 
 ```azurecli-interactive
-az appconfig network-security-perimeter-configuration --name <app-config-store-name> --resource-group <resource-group>
+az appconfig network-security-perimeter-configuration list --name <app-config-store-name> --resource-group <resource-group>
 ```
 
 ---
