@@ -6,11 +6,11 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: azure-container-apps
-  ms.date: 05/06/2026
+  ms.date: 05/18/2026
   ms.author: cshoe
 title: Azure Container Apps Express frequently asked questions (FAQs)
 summary: |
-  This article lists commonly asked questions about Azure Container Apps Express together with related answers.
+  Find answers to frequently asked questions about Azure Container Apps Express.
 
   > [!IMPORTANT]
   > Azure Container Apps Express is currently in **Public Preview**. Preview features are provided without an SLA and are not recommended for production workloads. Some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -21,7 +21,7 @@ sections:
       - question: |
           What is Azure Container Apps Express?
         answer: |
-          Azure Container Apps Express is a streamlined environment tier currently in **Public Preview**, purpose-built for web applications. It delivers the fastest provisioning, instant scale-from-zero, and the simplest developer experience in Azure Container Apps. Express removes infrastructure decisions ΓÇö there's no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and Express handles everything else.
+          Azure Container Apps Express is a streamlined environment tier currently in **Public Preview**, purpose-built for web applications. It delivers the fastest provisioning, instant scale-from-zero, and the simplest developer experience in Azure Container Apps. Express removes infrastructure decisions: no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and Express handles everything else.
 
       - question: |
           How is Azure Container Apps Express different from Azure Container Apps?
@@ -31,14 +31,14 @@ sections:
           - **Provisioning**: Express apps are running in seconds, not minutes.
           - **Cold starts**: Express delivers sub-second scale-from-zero startup times.
           - **Configuration**: Express provides production-ready defaults with no infrastructure decisions required.
-          - **Environments**: Express environments are fully managed and shared — you don't provision or configure the underlying infrastructure.
+          - **Environments**: Express environments are fully managed and shared, so you don't provision or configure the underlying infrastructure.
 
           For workloads that need VNet isolation, dedicated compute, GPU, or advanced networking, Azure Container Apps continues to offer the full spectrum of compute options through workload profiles.
 
       - question: |
           If Express is meant to simplify Azure Container Apps, why does the environment construct still exist?
         answer: |
-          In Express, the environment's role has shifted. It's no longer infrastructure you provision and configure ΓÇö it's a lightweight, fully managed grouping for your apps, closer to an *app group* than an infrastructure boundary. Setup time has shrunk to almost zero.
+          In Express, the environment's role has shifted. It's now a lightweight, fully managed grouping for your apps, closer to an *app group* than an infrastructure boundary. Setup time shrinks to nearly zero.
 
           It's preserved in Express for a few reasons:
 
@@ -51,13 +51,13 @@ sections:
         answer: |
           Express is purpose-built for two audiences:
 
-          - **Developers who want to ship fast** ΓÇö SaaS apps, APIs, web dashboards, prototypes, and startups that want to go from idea to production in minutes.
-          - **Agents that deploy on demand** ΓÇö MCP servers, tool-use endpoints, multi-step workflow APIs, and human-in-the-loop UIs that need instant provisioning and teardown.
+          - **Developers who want to ship fast**: SaaS apps, APIs, web dashboards, prototypes, and startups that go from idea to production in minutes.
+          - **Agents that deploy on demand**: MCP servers, tool-use endpoints, multi-step workflow APIs, and human-in-the-loop UIs that need instant provisioning and teardown.
 
       - question: |
           What is the relationship between Express and Azure Container Apps Sandboxes?
         answer: |
-          Under the hood, Express is built entirely on [Azure Container Apps Sandboxes](https://aka.ms/aca/sandboxes-blog) ΓÇö a foundational platform primitive that delivers sub-second startup from prewarmed pools, strong isolation, and massive scale-out. You don't need to understand Sandboxes to use Express. Express is the opinionated, developer-friendly experience built on top of Sandboxes.
+          Under the hood, Express is built entirely on [Azure Container Apps Sandboxes](https://aka.ms/aca/sandboxes-blog), a foundational platform primitive that delivers sub-second startup from prewarmed pools, strong isolation, and massive scale-out. You don't need to understand Sandboxes to use Express. Express is the opinionated, developer-friendly experience built on top of Sandboxes.
 
   - name: Getting started
     questions:
@@ -124,7 +124,7 @@ sections:
       - question: |
           What features are not yet available in Express?
         answer: |
-          Express is a Public Preview with a meaningful feature gap compared to Azure Container Apps. Features not yet available include:
+          Express is in Public Preview with a meaningful feature gap compared to Azure Container Apps. Features not yet available include:
 
           - VNet integration
           - Custom domains
@@ -155,14 +155,14 @@ sections:
       - question: |
           Why can't I create an Express environment in my preferred region?
         answer: |
-          During Public Preview, Express is available in a specific set of regions. The portal and CLI may display regions where Express is not yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error. Region availability is expanding as the preview progresses.
+          During Public Preview, Express is available in a specific set of regions. The portal and CLI may display regions where Express is not yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't yet supported. Region availability is expanding as the preview progresses.
 
   - name: Pricing and billing
     questions:
       - question: |
           How is Express billed?
         answer: |
-          Express uses the existing Azure Container Apps consumption pricing model ΓÇö per-second vCPU and memory billing with scale-to-zero. There is no environment provisioning fee. Customers benefit from the same free grant that applies to consumption workloads today. Express is designed to be the most cost-effective way to run web applications and APIs on Azure Container Apps. For detailed pricing, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/).
+          Express uses the existing Azure Container Apps consumption pricing model: per-second vCPU and memory billing with scale-to-zero. There is no environment provisioning fee. You benefit from the same free grant that applies to consumption workloads today. Express is the most cost-effective way to run web applications and APIs on Azure Container Apps. For detailed pricing, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/).
 
       - question: |
           Is there a free tier for Express?
@@ -197,7 +197,7 @@ sections:
       - question: |
           Can I self-migrate my environment to Express?
         answer: |
-          Yes. Self-migration is available so you can move to Express on your own terms without contacting support. You can use the archive and restore mechanism to migrate your environment ΓÇö archive your existing environment and restore it as an Express environment. This gives you full control over the migration process and timing.
+          Yes. Self-migration is available so you can move to Express on your own terms without contacting support. You can use the archive and restore mechanism to migrate your environment: archive your existing environment, then restore it as an Express environment. This gives you full control over the migration process and timing.
 
       - question: |
           Can I opt out of automatic migration?
