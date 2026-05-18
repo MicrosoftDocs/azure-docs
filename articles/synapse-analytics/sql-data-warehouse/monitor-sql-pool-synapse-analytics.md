@@ -11,6 +11,8 @@ ms.service: azure-synapse-analytics
 
 # Monitor dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 ## Synapse Analytics monitoring options

@@ -25,7 +25,7 @@ This quickstart describes how to use Bicep to deploy the prerequisite infrastruc
 - Ensure you have the **Platform / IT administrator** persona roles assigned at the subscription or resource group scope. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
 
 > [!IMPORTANT]
-> Microsoft Discovery workspaces are network-hardened by default. Before you deploy this template, you must also create the **Discovery NSP Perimeter Joiner** custom role and assign it to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For the role definition, see [Discovery NSP Perimeter Joiner (custom role)](concept-role-assignments.md#discovery-nsp-perimeter-joiner-custom-role). For step-by-step setup, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+> Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
 
 - Verify you have sufficient [quota reservations](concept-quota-reservation.md) for your target region.
 
@@ -53,20 +53,21 @@ Multiple Azure resources have been defined in the Bicep file:
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Replace the `<prescribedSCName>` and `<presecribedWSName>` placeholders with the supercomputer and workspace names you want to use, and update the `location` parameter if you're deploying to a region other than `swedencentral`.
+1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
 ```azurecli
 az group create --name exampleRG --location swedencentral
-az deployment group create --resource-group exampleRG --template-file main.bicep
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters location=swedencentral supercomputerName=<prescribedSCName> workspaceName=<presecribedWSName>
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 New-AzResourceGroup -Name exampleRG -Location swedencentral
-New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -location swedencentral -supercomputerName <prescribedSCName> -workspaceName <presecribedWSName>
 ```
 
 ---

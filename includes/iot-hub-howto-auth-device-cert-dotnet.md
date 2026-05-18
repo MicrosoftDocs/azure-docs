@@ -54,5 +54,5 @@ For more information about certificate authentication, see:
 For working samples of device X.509 certificate authentication, see:
 
 * [Connect with X.509 certificate](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/X509DeviceCertWithChainSample)
-* [DeviceClientX509AuthenticationE2ETests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/Tests/iothub/device/DeviceClientX509AuthenticationE2ETests.cs)
+* [DeviceClientX509AuthenticationE2ETests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/DeviceClientX509AuthenticationE2ETests.cs)
 * [Guided project - Provision IoT devices securely and at scale with IoT Hub Device Provisioning Service](/training/modules/provision-iot-devices-secure-scale-with-iot-hub-dps/)

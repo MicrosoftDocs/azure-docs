@@ -19,14 +19,18 @@
   items:
   - name: Volumes as a service 
     items: 
+      - name: Understand Azure NetApp Files Volumes as a Service
+        href: understand-volumes-as-service.md
       - name: Understand NAS
-        href: network-attached-storage-concept.md 
-      - name: Understand NAS protocols
-        href: network-attached-storage-protocols.md
-      - name: Understand SMB support 
-        href: sever-message-block-support.md
-      - name: Understand Object REST API 
-        href: object-rest-api-introduction.md
+        items:
+        - name: Understand NAS concepts
+          href: network-attached-storage-concept.md 
+        - name: Understand NAS protocols
+          href: network-attached-storage-protocols.md
+        - name: Understand Server Message Block (SMB) support
+          href: sever-message-block-support.md
+        - name: Understand object REST API 
+          href: object-rest-api-introduction.md
       - name: Understand NAS permissions 
         items:
         - name: Understand NAS share permissions 
@@ -43,34 +47,36 @@
             href: auxiliary-groups.md
           - name: Understand NFSv4.x access control lists
             href: nfs-access-control-lists.md
-      - name: Understand dual-protocol security style and permission behaviors
-        href: dual-protocol-permission-behaviors.md
-      - name: Understand data encryption 
-        href: understand-data-encryption.md
-      - name: Understand Kerberos
-        href: kerberos.md 
-      - name: Understand guidelines for Active Directory Domain Services
-        href: understand-guidelines-active-directory-domain-service-site.md
-      - name: Understand DNS 
-        href: domain-name-system-concept.md
-      - name: Understand LDAP
+        - name: Understand dual-protocol security style and permission behaviors
+          href: dual-protocol-permission-behaviors.md
+      - name: Understand Kerberos, Entra ID, Active Directory, LDAP and DNS 
+        items: 
+        - name: Understand Kerberos
+          href: kerberos.md 
+        - name: Understand Active Directory Domain Services and guidelines for site design and planning
+          href: understand-guidelines-active-directory-domain-service-site.md
+        - name: Understand LDAP
+          items:
+          - name: Understand LDAP basics
+            href: lightweight-directory-access-protocol.md
+          - name: Understand name mapping using LDAP
+            href: lightweight-directory-access-protocol-name-mapping.md
+          - name: Understand the allow local NFS users with LDAP option
+            href: lightweight-directory-access-protocol-local-users.md
+          - name: Understand LDAP schemas
+            href: lightweight-directory-access-protocol-schemas.md
+          - name: Understand NFS group memberships and supplemental groups
+            href: network-file-system-group-memberships.md
+        - name: Understand DNS 
+          href: domain-name-system-concept.md
+      - name: Understand volume characteristics 
         items:
-        - name: Understand LDAP basics
-          href: lightweight-directory-access-protocol.md
-        - name: Understand name mapping using LDAP
-          href: lightweight-directory-access-protocol-name-mapping.md
-        - name: Understand the allow local NFS users with LDAP option
-          href: lightweight-directory-access-protocol-local-users.md
-        - name: Understand LDAP schemas
-          href: lightweight-directory-access-protocol-schemas.md
-      - name: Understand NFS group memberships and supplemental groups
-        href: network-file-system-group-memberships.md
-      - name: Understand file locking
-        href: understand-file-locks.md  
-      - name: Understand volume languages
-        href: understand-volume-languages.md
-      - name: Understand file path lengths 
-        href: understand-path-lengths.md 
+        - name: Understand file locking and lock types
+          href: understand-file-locks.md  
+        - name: Understand volume languages
+          href: understand-volume-languages.md
+        - name: Understand path lengths 
+          href: understand-path-lengths.md 
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -107,6 +113,22 @@
       href: azure-policy-definitions.md
     - name: Storage service add-ons
       href: storage-service-add-ons.md
+  - name: Quotas 
+    items:
+      - name: Understand capacity quotas
+        items: 
+          - name: Understand regional capacity quota
+            href: regional-capacity-quota.md
+      - name: Understand volume quotas
+        items:
+          - name: Understand volume quota
+            href: volume-quota-introduction.md
+          - name: Understand volume hard quotas
+            href: volume-hard-quota-guidelines.md
+      - name: Understand user and group quotas
+        items:      
+          - name: Understand default and individual user and group quotas
+            href: default-individual-user-group-quotas-introduction.md
   - name: Cost optimization 
     items:
     - name: Cost model for Azure NetApp Files
@@ -115,16 +137,6 @@
       href: cool-access-introduction.md
     - name: Azure NetApp Files reserved capacity
       href: reservations.md
-  - name: Quotas 
-    items:
-    - name: Understand volume quota
-      href: volume-quota-introduction.md
-    - name: Understand volume hard quota
-      href: volume-hard-quota-guidelines.md
-    - name: Regional capacity quota
-      href: regional-capacity-quota.md
-    - name: Understand default and individual user and group quotas
-      href: default-individual-user-group-quotas-introduction.md
   - name: Performance
     items:
     - name: Best practices and considerations
@@ -273,6 +285,18 @@
         href: advanced-ransomware-protection.md
       - name: Requirements and considerations for Azure NetApp Files advanced ransomware protection
         href: ransomware-protection-requirements.md    
+  - name: Security and data encryption
+    items:
+    - name: Understand Azure NetApp Files security and encryption
+      items:
+      - name: Understand Azure NetApp Files data plane security
+        href: data-plane-security.md
+      - name: Understand Azure NetApp Files control plane security
+        href: control-plane-security.md
+      - name: Understand data encryption in Azure NetApp Files
+        href: understand-data-encryption.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
   - name: Solutions and benefits
     items:
     - name: Solution architectures using Azure NetApp Files
@@ -287,16 +311,6 @@
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
-  - name: Security
-    items:
-    - name: Understand Azure NetApp Files security
-      items:
-      - name: Understand data plane security 
-        href: data-plane-security.md
-      - name: Understand control plane security 
-        href: control-plane-security.md
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 - name: How-to guides
   items: 
   - name: Register and set up
@@ -585,6 +599,8 @@
     href: faq-smb.md
   - name: Performance FAQs
     href: faq-performance.md
+  - name: Cloning FAQs
+    href: faq-clone.md
   - name: Application resilience FAQs
     href: faq-application-resilience.md
   - name: Data migration and protection FAQs

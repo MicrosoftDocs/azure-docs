@@ -23,7 +23,7 @@ The application is a minimal ASP.NET Core 8.0 Web API that:
 
 ## Skip to the code on GitHub
 
-Clone the [Microsoft.Azure.StackExchangeRedis](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis/tree/main/sample.aspnet) repo on GitHub.
+Clone the [Microsoft.Azure.StackExchangeRedis](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis/tree/main/ASP.NET_Samples) repo on GitHub.
 
 ## Prerequisites
 

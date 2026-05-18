@@ -120,6 +120,10 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
+## Where is network security perimeter available?
+
+Network security perimeter is currently available in all Azure public cloud regions and in Azure Government regions (US Gov Virginia, US Gov Texas, US Gov Arizona, US DoD East and US DoD Central). 
+
 ## Supported access rule types
 
 Network security perimeter supports the following access rule types:
@@ -137,7 +141,7 @@ Network security perimeter supports the following access rule types:
 
 ### Logging limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
+While enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
 > For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.

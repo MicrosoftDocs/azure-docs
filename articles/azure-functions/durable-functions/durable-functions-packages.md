@@ -37,7 +37,7 @@ The following sections provide more detail on each language, including alternati
 Add the [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/) NuGet package to your `.csproj` file. This package (sometimes called the "WebJobs extension") contains both the Durable Functions extension and the .NET in-process SDK.
 
 > [!NOTE]
-> These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension) need to manage in their `.csproj`.
+> These are the same packages that non-.NET customers [manually upgrading their extensions](./durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version) need to manage in their `.csproj`.
 
 ## .NET isolated
 

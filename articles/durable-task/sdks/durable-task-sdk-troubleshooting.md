@@ -1,8 +1,8 @@
 ---
-title: Troubleshoot Durable Task SDKs
-description: Learn how to diagnose and resolve common issues when building apps with the portable Durable Task SDKs for .NET, Java, JavaScript, and Python.
+title: "Troubleshoot Durable Task SDKs: Common Issues and Fixes"
+description: Diagnose and resolve common issues with the portable Durable Task SDKs for .NET, Java, JavaScript, and Python. Fix connection errors, orchestration failures, and activity issues.
 ms.topic: troubleshooting
-ms.date: 02/25/2026
+ms.date: 04/30/2026
 ms.author: azfuncdf
 author: torosent
 ms.reviewer: hhunter-ms
@@ -11,15 +11,77 @@ ms.subservice: durable-task-sdks
 ms.devlang: csharp
 ---
 
-# Troubleshoot Durable Task SDKs
+# Troubleshoot common Durable Task SDK issues
 
-This article helps you diagnose and fix common issues when building applications with the portable Durable Task SDKs. These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs.
+This article helps you diagnose and fix common issues when building applications with the portable Durable Task SDKs. Find your scenario in the following list and follow the linked steps to diagnose and resolve the issue.
+
+## Common scenarios
+
+**Connection and setup**
+
+- [Emulator isn't running or is unreachable](#emulator-isnt-running-or-is-unreachable)
+- [Connection string format is incorrect](#connection-string-format-is-incorrect)
+- [Client or worker fails to connect](#client-or-worker-fails-to-connect)
+- [Task hub doesn't exist](#task-hub-doesnt-exist)
+- [Identity-based authentication failures on Azure](#identity-based-authentication-failures-on-azure)
+
+**Orchestrations**
+
+- [Orchestration is stuck in the Pending state](#orchestration-is-stuck-in-the-pending-state)
+- [Orchestration is stuck in the Running state](#orchestration-is-stuck-in-the-running-state)
+- [Nondeterministic orchestrator code](#nondeterministic-orchestrator-code)
+- [Serialization and deserialization errors](#serialization-and-deserialization-errors)
+
+**Activities**
+
+- [Activity not found](#activity-not-found)
+- [Activity failure handling](#activity-failure-handling)
+
+**gRPC**
+
+- [gRPC message size limit exceeded](#grpc-message-size-limit-exceeded)
+- [Stream cancellation errors during shutdown](#stream-cancellation-errors-during-shutdown)
+
+**Logging and diagnostics**
+
+- [Verbose logging configuration](#verbose-logging-configuration)
+- [Application Insights integration](#application-insights-integration)
+
+**Language-specific**
+
+- [C#: Source generator warnings break builds](#source-generator-warnings-break-builds)
+- [C#: Roslyn analyzer throws in foreach loops](#roslyn-analyzer-throws-in-foreach-loops)
+- [Java: Gradle permission denied error](#gradle-permission-denied-error)
+- [Java: OrchestratorBlockedException](#orchestratorblockedexception)
+- [Python: Retry policy requires max_retry_interval](#retry-policy-requires-max_retry_interval)
+- [Python: WhenAllTask exception behavior](#whenalltask-exception-behavior)
+
+These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs.
 
 > [!NOTE]
 > This guide covers the **portable Durable Task SDKs**. For issues specific to the Durable Task Scheduler service, see [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md). For issues specific to the Durable Functions extension, see [Durable Functions troubleshooting guide](../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md).
 
 > [!TIP]
-> The [Durable Task Scheduler monitoring dashboard](../scheduler/durable-task-scheduler-dashboard.md) is a valuable tool for inspecting orchestration status, viewing execution history, and identifying failures. Use it alongside this guide to speed up troubleshooting.
+> The [Durable Task Scheduler monitoring dashboard](../scheduler/durable-task-scheduler-dashboard.md) is useful for inspecting orchestration status, viewing execution history, and identifying failures. Use it alongside this guide to speed up troubleshooting.
+
+## Find your issue
+
+| Error message or symptom | Section |
+| --- | --- |
+| `connection refused` or `failed to connect` at startup | [Emulator isn't running or is unreachable](#emulator-isnt-running-or-is-unreachable) |
+| Connection string parse errors or authentication errors at startup | [Connection string format is incorrect](#connection-string-format-is-incorrect) |
+| Worker connects but orchestrations don't start | [Task hub doesn't exist](#task-hub-doesnt-exist) |
+| `401 Unauthorized` or identity/role errors on Azure | [Identity-based authentication failures on Azure](#identity-based-authentication-failures-on-azure) |
+| Orchestration stuck in "Pending" | [Orchestration is stuck in the "Pending" state](#orchestration-is-stuck-in-the-pending-state) |
+| Orchestration stuck in "Running" | [Orchestration is stuck in the "Running" state](#orchestration-is-stuck-in-the-running-state) |
+| Replay failures, infinite loops, or unexpected behavior | [Nondeterministic orchestrator code](#nondeterministic-orchestrator-code) |
+| Type mismatch or JSON serialization errors | [Serialization and deserialization errors](#serialization-and-deserialization-errors) |
+| `activity not found` | [Activity not found](#activity-not-found) |
+| `RESOURCE_EXHAUSTED` or `message too large` | [gRPC message size limit exceeded](#grpc-message-size-limit-exceeded) |
+| `CANCELLED: Cancelled on client` during shutdown | [Stream cancellation errors during shutdown](#stream-cancellation-errors-during-shutdown) |
+| `CS0419` / `VSTHRD105` warnings break build | [Source generator warnings break builds (C#)](#source-generator-warnings-break-builds) |
+| `OrchestratorBlockedException` (Java) | [OrchestratorBlockedException (Java)](#orchestratorblockedexception) |
+| Unhelpful error when using `retry_policy` (Python) | [Retry policy requires max_retry_interval (Python)](#retry-policy-requires-max_retry_interval) |
 
 ## Connection and setup issues
 
@@ -33,13 +95,13 @@ If your app fails at startup with a connection error like "connection refused" o
    docker ps | grep durabletask
    ```
 
-2. Check the correct port mappings. The emulator exposes two ports:
+1. Verify the port mappings are correct. The emulator exposes two ports:
    - **8080**—gRPC endpoint (used by your app)
    - **8082**—Dashboard UI
 
    If you're using a custom port mapping, update your connection string to match the host port mapped to container port `8080`.
 
-3. Test connectivity to the gRPC endpoint:
+1. Test connectivity to the gRPC endpoint:
 
    ```bash
    curl -v http://localhost:8080
@@ -86,18 +148,19 @@ using Microsoft.DurableTask.Client.AzureManaged;
 using Microsoft.DurableTask.Worker.AzureManaged;
 
 var connectionString = "Endpoint=http://localhost:8080;Authentication=None";
-var taskHubName = "my-taskhub";
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Services.AddDurableTaskWorker(options =>
-{
-    options.EnableEntitySupport = true;
-})
-.UseDurableTaskScheduler(connectionString, taskHubName);
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
+    {
+        registry.AddOrchestrator<MyOrchestrator>();
+        registry.AddActivity<MyActivity>();
+    })
+    .UseDurableTaskScheduler(connectionString);
 
 builder.Services.AddDurableTaskClient()
-    .UseDurableTaskScheduler(connectionString, taskHubName);
+    .UseDurableTaskScheduler(connectionString);
 ```
 
 # [JavaScript](#tab/javascript)
@@ -194,11 +257,11 @@ If your app runs locally but fails when deployed to Azure, the issue is likely r
 1. Make sure the connection string uses the correct `Authentication` value (`ManagedIdentity`). In Python, pass a `DefaultAzureCredential()` instance as the `token_credential` parameter instead of using a connection string.
 1. For user-assigned identities, check that the `ClientID` in the connection string matches the identity's client ID.
 
-For detailed instructions, see [Identity-based access for Durable Task Scheduler](../scheduler/durable-task-scheduler-identity.md).
+For detailed instructions, see [Configure managed identity for Durable Task Scheduler](../scheduler/durable-task-scheduler-identity.md).
 
 ## Orchestration issues
 
-### Orchestration is stuck in the Pending state
+### Orchestration is stuck in the "Pending" state
 
 An orchestration in "Pending" status indicates it was scheduled but a worker hasn't picked it up. Check the following items:
 
@@ -211,14 +274,13 @@ An orchestration in "Pending" status indicates it was scheduled but a worker has
 Check that the orchestrator class is registered with the worker during startup. If you use source generators (`[DurableTask]` attribute), the registration is automatic. Otherwise, register manually:
 
 ```csharp
-builder.Services.AddDurableTaskWorker(builder =>
-{
-    builder.AddTasks(tasks =>
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
     {
-        tasks.AddOrchestrator<MyOrchestrator>();
-        tasks.AddActivity<MyActivity>();
-    });
-});
+        registry.AddOrchestrator<MyOrchestrator>();
+        registry.AddActivity<MyActivity>();
+    })
+    .UseDurableTaskScheduler(connectionString);
 ```
 
 # [JavaScript](#tab/javascript)
@@ -259,81 +321,32 @@ workerBuilder.addOrchestration(
 
 ---
 
-### Orchestration is stuck in the Running state
+### Orchestration is stuck in the "Running" state
 
-An orchestration stuck in "Running" typically means it's waiting for a task that isn't complete. Common causes:
+An orchestration stuck in "Running" typically means it's waiting for a task that isn't complete. To diagnose, open the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md) and inspect the orchestration's execution history. Look for the last completed event — the next event in the sequence is the one that's blocking.
 
-- **Activity not registered.** The orchestration calls an activity name that isn't registered with the worker. Check the Durable Task Scheduler dashboard for errors.
-- **Waiting on an external event.** The orchestration calls `waitForExternalEvent` and the event isn't raised yet.
-- **Waiting on a durable timer.** The orchestration creates a timer that isn't expired yet.
-- **Activity throws an unhandled exception.** Check the dashboard history view for failed activity events.
+Common causes:
 
-Use the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md) to inspect the orchestration's execution history and identify which task is blocking.
+- **Activity not registered.** The orchestration calls an activity name that isn't registered with the worker. The dashboard shows a `TaskScheduled` event with no corresponding `TaskCompleted`. Check that the activity name matches between your orchestrator code and worker registration (see [Activity not found](#activity-not-found)).
+- **Waiting on an external event.** The orchestration calls `waitForExternalEvent` and the event isn't raised yet. The dashboard shows an `EventRaised` event is expected but missing. Verify the event name and that the sender is targeting the correct orchestration instance ID.
+- **Waiting on a durable timer.** The orchestration creates a timer that isn't expired yet. The dashboard shows a `TimerCreated` event. Wait for the timer to fire, or check if the timer duration is longer than expected.
+- **Activity throws an unhandled exception.** The dashboard shows a `TaskFailed` event. Check the failure details for the exception message and stack trace.
 
 ### Nondeterministic orchestrator code
 
-Orchestrator code must be [deterministic](../common/durable-task-code-constraints.md). Nondeterministic code causes replay failures that result in unexpected behavior, infinite loops, or errors. Avoid the following patterns in orchestrator code:
-
-**Don't use current time directly.** Use the context-provided current time instead.
+Orchestrator code must be [deterministic](../common/durable-task-code-constraints.md). Nondeterministic code causes replay failures that result in unexpected behavior, infinite loops, or errors. Don't use current time, random numbers, GUIDs, or I/O (like HTTP calls) directly in orchestrator code. Use the context-provided alternatives or delegate to activities.
 
 # [C#](#tab/csharp)
 
 ```csharp
 // ❌ Wrong - non-deterministic
 var now = DateTime.UtcNow;
+var id = Guid.NewGuid();
+var data = await httpClient.GetAsync("https://example.com/api");
 
 // ✅ Correct - deterministic
 var now = context.CurrentUtcDateTime;
-```
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-// ❌ Wrong - non-deterministic
-const now = new Date();
-
-// ✅ Correct - deterministic
-const now = ctx.currentUtcDateTime;
-```
-
-# [Python](#tab/python)
-
-```python
-# ❌ Wrong - non-deterministic
-import datetime
-now = datetime.datetime.utcnow()
-
-# ✅ Correct - deterministic
-now = ctx.current_utc_datetime
-```
-
-# [Java](#tab/java)
-
-```java
-// ❌ Wrong - non-deterministic
-Instant now = Instant.now();
-
-// ✅ Correct - deterministic
-Instant now = ctx.getCurrentInstant();
-```
-
----
-
-**Don't use random numbers, GUIDs, or HTTP calls directly in orchestrator code.** Move these operations into activities.
-
-# [C#](#tab/csharp)
-
-```csharp
-// ❌ Wrong - non-deterministic
-var id = Guid.NewGuid();
-
-// ✅ Correct - deterministic
 var id = context.NewGuid();
-
-// ❌ Wrong - I/O in orchestrator
-var data = await httpClient.GetAsync("https://example.com/api");
-
-// ✅ Correct - delegate to activity
 var data = await context.CallActivityAsync<string>("FetchData");
 ```
 
@@ -341,15 +354,13 @@ var data = await context.CallActivityAsync<string>("FetchData");
 
 ```javascript
 // ❌ Wrong - non-deterministic
+const now = new Date();
 const id = crypto.randomUUID();
-
-// ✅ Correct - deterministic
-const id = ctx.newGuid();
-
-// ❌ Wrong - I/O in orchestrator
 const data = await fetch("https://example.com/api");
 
-// ✅ Correct - delegate to activity
+// ✅ Correct - deterministic
+const now = ctx.currentUtcDateTime;
+const id = ctx.newGuid();
 const data = yield ctx.callActivity(fetchData);
 ```
 
@@ -357,17 +368,14 @@ const data = yield ctx.callActivity(fetchData);
 
 ```python
 # ❌ Wrong - non-deterministic
-import uuid
+import datetime, uuid, requests
+now = datetime.datetime.utcnow()
 id = str(uuid.uuid4())
-
-# ✅ Correct - deterministic
-id = ctx.new_uuid()
-
-# ❌ Wrong - I/O in orchestrator
-import requests
 data = requests.get("https://example.com/api")
 
-# ✅ Correct - delegate to activity
+# ✅ Correct - deterministic
+now = ctx.current_utc_datetime
+id = ctx.new_uuid()
 data = yield ctx.call_activity(fetch_data)
 ```
 
@@ -375,15 +383,13 @@ data = yield ctx.call_activity(fetch_data)
 
 ```java
 // ❌ Wrong - non-deterministic
+Instant now = Instant.now();
 String id = UUID.randomUUID().toString();
-
-// ✅ Correct - deterministic
-String id = ctx.newUUID().toString();
-
-// ❌ Wrong - I/O in orchestrator
 String data = httpClient.send(request, BodyHandlers.ofString()).body();
 
-// ✅ Correct - delegate to activity
+// ✅ Correct - deterministic
+Instant now = ctx.getCurrentInstant();
+String id = ctx.newUUID().toString();
 String data = ctx.callActivity("FetchData", null, String.class).await();
 ```
 
@@ -391,11 +397,14 @@ String data = ctx.callActivity("FetchData", null, String.class).await();
 
 ### Serialization and deserialization errors
 
-Serialization errors occur when the types used for orchestration inputs, outputs, or activity results don't match between caller and callee. Common causes include:
+Serialization errors occur when the types used for orchestration inputs, outputs, or activity results don't match between caller and callee. These errors can appear as unexpected `null` values, `JsonException`, or type cast failures in your orchestration history.
 
-- **Type mismatch.** The orchestrator expects a different type than what the activity returns.
-- **Non-serializable types.** Custom types that can't be serialized to JSON fail silently or throw exceptions.
-- **Java double-serialization of strings.** In Java, passing a `String` directly to an activity can result in double-quoted strings (for example, `"\"hello\""` instead of `"hello"`). This behavior is a [known issue](https://github.com/microsoft/durabletask-java/issues/235). Cast the result explicitly or use wrapper objects.
+**How to diagnose:**
+1. Open the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md) and inspect the orchestration history. Look at the `Input` and `Result` fields for activities that failed.
+1. Verify the type expected by the orchestrator matches the type returned by the activity. For example, if the activity returns a `string` but the orchestrator expects an `int`, the deserialization fails.
+1. Check for non-serializable types. Custom types that can't be serialized to JSON (for example, types with circular references or no default constructor) fail silently or throw exceptions.
+
+**Known issue (Java):** Passing a `String` directly to an activity can result in double-quoted strings (for example, `"\"hello\""` instead of `"hello"`). This behavior is a [known issue](https://github.com/microsoft/durabletask-java/issues/235). Cast the result explicitly or use wrapper objects.
 
 > [!TIP]
 > Use simple data types (strings, numbers, arrays, and plain objects or POJOs/POCOs/dataclasses) for orchestration and activity inputs and outputs. Avoid complex types with custom serialization logic.
@@ -411,13 +420,12 @@ If an orchestration fails with an "activity not found" error, the activity name 
 In .NET, activities can be registered by class name or by using the `[DurableTask]` attribute with source generators. Verify that the activity class is included in the worker registration:
 
 ```csharp
-builder.Services.AddDurableTaskWorker(builder =>
-{
-    builder.AddTasks(tasks =>
+builder.Services.AddDurableTaskWorker()
+    .AddTasks(registry =>
     {
-        tasks.AddActivity<SayHello>();
-    });
-});
+        registry.AddActivity<SayHello>();
+    })
+    .UseDurableTaskScheduler(connectionString);
 ```
 
 When calling the activity from an orchestrator, use the class name:
@@ -482,139 +490,17 @@ ctx.callActivity("SayHello", "Tokyo", String.class).await();
 
 ---
 
-### Handle activity failures
+### Activity failure handling
 
-When an activity throws an exception, the orchestrator receives a `TaskFailedException` (or language equivalent). Inspect the inner error details to learn the root cause.
+When an activity throws an exception, the orchestrator receives a `TaskFailedException` (or language equivalent). Catch this exception and inspect the inner error details to find the root cause. In C#, use `ex.FailureDetails` to access the error type and message, and `IsCausedBy<T>()` to check for specific exception types.
 
-# [C#](#tab/csharp)
-
-```csharp
-try
-{
-    await context.CallActivityAsync("ProcessOrder", order);
-}
-catch (TaskFailedException ex)
-{
-    // Access the original exception details
-    var details = ex.FailureDetails;
-    logger.LogError(
-        "Activity failed: {Type} - {Message}",
-        details.ErrorType,
-        details.ErrorMessage);
-
-    // Check for specific exception types
-    if (details.IsCausedBy<TimeoutException>())
-    {
-        // Handle timeout
-    }
-}
-```
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-try {
-  const result = yield ctx.callActivity(processOrder, order);
-} catch (error) {
-  console.error(`Activity failed: ${error.message}`);
-}
-```
-
-# [Python](#tab/python)
-
-```python
-try:
-    result = yield ctx.call_activity(process_order, input=order)
-except TaskFailedError as e:
-    print(f"Activity failed: {e}")
-```
-
-# [Java](#tab/java)
-
-```java
-try {
-    ctx.callActivity("ProcessOrder", order, String.class).await();
-} catch (TaskFailedException ex) {
-    FailureDetails details = ex.getFailureDetails();
-    System.err.println("Activity failed: " + details.getErrorMessage());
-}
-```
-
----
-
-### Retry policies for activity failures
-
-Configure retry policies to automatically retry failed activities. Transient failures, like network timeouts or temporary service outages, are often resolved by retrying.
-
-# [C#](#tab/csharp)
-
-```csharp
-var retryOptions = new TaskOptions(
-    new TaskRetryOptions(new RetryPolicy(
-        maxNumberOfAttempts: 3,
-        firstRetryInterval: TimeSpan.FromSeconds(5),
-        backoffCoefficient: 2.0)));
-
-await context.CallActivityAsync("ProcessOrder", order, retryOptions);
-```
-
-# [JavaScript](#tab/javascript)
-
-Retry policies for activities aren't yet available in the JavaScript portable SDK. As a workaround, implement retry logic in your orchestrator:
-
-```javascript
-const maxAttempts = 3;
-let lastError;
-for (let i = 0; i < maxAttempts; i++) {
-  try {
-    const result = yield ctx.callActivity(processOrder, order);
-    return result;
-  } catch (error) {
-    lastError = error;
-    yield ctx.createTimer(5 * Math.pow(2, i)); // exponential backoff
-  }
-}
-throw lastError;
-```
-
-# [Python](#tab/python)
-
-```python
-from datetime import timedelta
-from durabletask import task
-
-retry_policy = task.RetryPolicy(
-    max_number_of_attempts=3,
-    first_retry_interval=timedelta(seconds=5),
-    max_retry_interval=timedelta(minutes=1),
-)
-
-result = yield ctx.call_activity(
-    process_order,
-    input=order,
-    retry_policy=retry_policy,
-)
-```
-
-> [!NOTE]
-> When you use `retry_policy` in Python, you must specify `max_retry_interval`. Omitting it produces an unhelpful error.
-
-# [Java](#tab/java)
-
-```java
-TaskOptions retryOptions = new TaskOptions(
-    new RetryPolicy(3, Duration.ofSeconds(5)));
-
-ctx.callActivity("ProcessOrder", order, retryOptions, String.class).await();
-```
-
----
+For detailed error handling and retry policy examples in each language, see [Error handling and retries](../common/durable-task-error-handling.md).
 
 ## gRPC issues
 
-### gRPC message size limit
+### gRPC message size limit exceeded
 
-gRPC enforces a default maximum message size of 4 MB. Orchestrations or activities with large inputs or outputs can exceed this limit and fail with a `RESOURCE_EXHAUSTED` or `message too large` error.
+If you see a `RESOURCE_EXHAUSTED` or `message too large` error, an orchestration or activity input/output exceeds the gRPC default maximum message size of 4 MB.
 
 **Mitigations:**
 - Reduce the size of inputs and outputs. Store large payloads in external storage, like Azure Blob Storage, and pass only references.
@@ -622,15 +508,9 @@ gRPC enforces a default maximum message size of 4 MB. Orchestrations or activiti
 
 ### Stream cancellation errors during shutdown
 
-When stopping a worker, you might see stream cancellation errors like `CANCELLED: Cancelled on client`. These errors are typically harmless and occur because the gRPC stream between the worker and the scheduler closes during shutdown.
+When stopping a worker, you might see `CANCELLED: Cancelled on client` errors. These errors are typically harmless and occur because the gRPC stream between the worker and the scheduler closes during shutdown. The .NET, Python, and Java SDKs handle these errors internally.
 
-# [C#](#tab/csharp)
-
-The SDK handles these errors internally. No action is needed if the app shuts down intentionally.
-
-# [JavaScript](#tab/javascript)
-
-The JavaScript SDK might throw `Stream error Error: 1 CANCELLED: Cancelled on client` when calling `worker.stop()`. This error is a [known issue](https://github.com/microsoft/durabletask-js/issues/47). Wrap the stop call in a try-catch if the error affects your shutdown logic:
+In **JavaScript**, the SDK might throw `Stream error Error: 1 CANCELLED: Cancelled on client` when calling `worker.stop()`. This error is a [known issue](https://github.com/microsoft/durabletask-js/issues/47). Wrap the stop call in a try-catch if the error affects your shutdown logic:
 
 ```javascript
 try {
@@ -643,19 +523,9 @@ try {
 }
 ```
 
-# [Python](#tab/python)
-
-These errors are handled internally by the SDK. No action is needed if the app is shutting down intentionally.
-
-# [Java](#tab/java)
-
-These errors are handled internally by the SDK. No action is needed if the app is shutting down intentionally.
-
----
-
 ## Logging and diagnostics
 
-### Enable verbose logging
+### Verbose logging configuration
 
 Increase log verbosity to get more details about SDK operations, including gRPC communication and orchestration replay events.
 
@@ -854,10 +724,10 @@ For questions and reporting bugs, open an issue in the GitHub repo for the relev
 | JavaScript | [microsoft/durabletask-js](https://github.com/microsoft/durabletask-js/issues) |
 | Python | [microsoft/durabletask-python](https://github.com/microsoft/durabletask-python/issues) |
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
-
-> [!div class="nextstepaction"]
-> [Explore the Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md)
+- [Configure autoscaling for Durable Task SDK apps](./durable-task-scheduler-auto-scaling.md)
+- [OpenTelemetry tracing for Durable Task SDKs](./durable-task-scheduler-opentelemetry-tracing.md)

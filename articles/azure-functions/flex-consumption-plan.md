@@ -49,7 +49,7 @@ For a complete comparison of the Flex Consumption plan against the Consumption p
 
 ## Virtual network integration
 
-Flex Consumption expands on the traditional benefits of the Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. You still take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Enable virtual network integration](./flex-consumption-how-to.md#enable-virtual-network-integration).
+Flex Consumption expands on the traditional benefits of the Consumption plan by adding support for [virtual network integration](./functions-networking-options.md#virtual-network-integration). When your apps run in a Flex Consumption plan, they can connect to other Azure services secured inside a virtual network. You still take advantage of serverless billing and scale, together with the scale and throughput benefits of the Flex Consumption plan. For more information, see [Configure virtual network integration](./flex-consumption-how-to.md#configure-virtual-network-integration).
 
 ## Instance sizes
 
@@ -152,6 +152,7 @@ This table shows the language stack versions that are currently supported for Fl
 | Node.js | Node.js 20, Node.js 22   |
 | PowerShell | PowerShell 7.4   |
 | Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13  | 
+| Custom handlers | 1.0 |
 
 1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  
 

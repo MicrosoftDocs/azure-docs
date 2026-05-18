@@ -345,7 +345,7 @@ For more information, see [DFS Namespaces and DFS Replication overview](/previou
 
 ### Sysprep
 
-Using Sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. Agent installation and server registration should occur after you deploy the server image and complete Sysprep mini-setup.
+Using Sysprep on a server that has the Azure File Sync agent installed isn't supported and can lead to unexpected results. This includes any scenario where the server is cloned or imaged after the Azure File Sync agent has been installed. Agent installation and server registration should occur after you deploy the server image and complete Sysprep mini-setup. 
 
 ### Windows Search
 

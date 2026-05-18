@@ -23,9 +23,9 @@ The following table summarizes the features the connector for HTTP/REST currentl
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to the HTTP endpoint |
+| Southbound certificate trust list | Yes | For secure TLS connections to the HTTP endpoint |
 | OpenTelemetry integration | Yes | |
 | Automatic retries | Yes | Reports failed status for nonretryable errors |
 | WASM data transformation | Yes | Optionally transform incoming data |
