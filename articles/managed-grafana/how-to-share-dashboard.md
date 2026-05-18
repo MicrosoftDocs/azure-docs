@@ -59,7 +59,7 @@ The Grafana portal provides several options to share access to Grafana dashboard
 > [!TIP] 
 > If you update a dashboard or a panel, ensure you save your changes before sharing it so that it contains your latest changes.
 
-For more information about the sharing methods presented below, refer to Grafana's [Share dashboards and panels documentation](https://grafana.com/docs/grafana/latest/dashboards/share-dashboards-panels).
+For more information about the sharing methods presented below, refer to Grafana's [Share dashboards and panels documentation](https://grafana.com/docs/grafana/latest/visualizations/dashboards/share-dashboards-panels/).
 
 ### Share a link
 

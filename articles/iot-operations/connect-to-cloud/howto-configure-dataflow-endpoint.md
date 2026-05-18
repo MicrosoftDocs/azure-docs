@@ -1,12 +1,12 @@
 ---
 title: Configure data flow endpoints in Azure IoT Operations
 description: Configure data flow endpoints to create connection points for data sources.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/08/2026
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -18,7 +18,7 @@ To get started with data flows, first create data flow endpoints. A data flow en
 Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination | Data flow graphs support |
-|---------------|-------------|-------------------------|------------------------------|---------------------------|
+| --- | --- | --- | --- | --- |
 | [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
 | [OpenTelemetry](open-telemetry.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
@@ -46,12 +46,14 @@ Each data flow must have either the source or destination configured with an MQT
 The following table shows the supported scenarios:
 
 | Scenario | Supported |
-|----------|-----------|
+| --- | --- |
 | Default endpoint as source | Yes |
 | Default endpoint as destination | Yes |
 | Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as source and destination | No, unless one of them is an MQTT endpoint with host `aio-broker` |
+
+For information about how the local MQTT broker buffers data when a destination endpoint is unavailable, see [Configure data buffering and disk persistence for data flows](howto-configure-disk-persistence.md).
 
 ## Reuse endpoints
 

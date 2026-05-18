@@ -4,8 +4,8 @@ description: Apache HBase Master (HMaster) fails to start in Azure HDInsight
 ms.service: azure-hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  03/23/2024
 ---
