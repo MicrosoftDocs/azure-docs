@@ -104,6 +104,8 @@ This migration is designed as a cutover migration. With this approach, you build
 
 Before you migrate from AWS Application Load Balancer to Application Gateway, assess the existing architecture and identify capabilities to map or replace. This assessment helps ensure a smooth migration and maintains your application's functionality.
 
+To plan to migrate your AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migration/migrate-networking-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-guides) that might align to your use case.
+
 ### Direct capability mapping
 
 The microservices architecture capabilities map from AWS ALB to Application Gateway as follows:
