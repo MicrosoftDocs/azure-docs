@@ -59,7 +59,7 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
    ![Screenshot shows how to select a job to see details.](./media/backup-managed-disks/select-job.png)
 
  
-### Stop Protection
+## Stop Protection for the Azure Cosmos DB
 
 You can stop protecting an Azure Cosmos DB (preview) in the following ways:
 
