@@ -305,24 +305,54 @@ You can use Maven to create a Flex Consumption hosted function app and the requi
     Maven uses settings in the `pom.xml` template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. If these resources already exist, the code is deployed to your function app, overwriting any existing code.
 ::: zone-end  
 
-## Enable virtual network integration
+## Configure virtual network integration
 
-You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet). You can enable virtual network integration when you create your app or at a later time.
+You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan when you create your app or at a later time. Before you enable virtual network integration, review the networking behavior and subnet requirements specific to Flex Consumption.
 
-> [!IMPORTANT]
-> The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters. 
-
-### Understand Flex Consumption IP multiplexing
+### How Flex Consumption networking works
 
 Flex Consumption instances don't each use a unique IP address from the subnet you integrate the app with. Instead, a pool of platform-managed network gateways (internal to the Flex Consumption infrastructure) uses IP addresses from the subnet to serve all apps integrated with that subnet. This IP multiplexing architecture is fundamentally different from Premium plans, where each instance uses one IP address from the subnet.
 
 The *40 IPs per app* guideline ensures there are enough IP addresses for the platform gateway pool and other infrastructure components but it's not an enforced limit. Plan for this minimum when sizing your subnet, but understand that actual IP consumption is typically lower. The platform dynamically allocates IPs from the shared gateway pool as apps integrated with the subnet scale out.
 
-To enable virtual networking when you create your app:
+### Subnet sizing and requirements
 
-### [Azure CLI](#tab/azure-cli)
+Choose an appropriately sized subnet for your Flex Consumption apps. The following table provides guidance based on your scenario:
 
-You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet requirements](#subnet-requirements).
+| Scenario | Recommended CIDR | Usable IPs | Notes |
+| ------ | ------ | ------- | ------- |
+| Single Flex app | `/27` | 27 | Minimum supported subnet size for one app |
+| Multiple Flex apps in one subnet | `/26` | 59 | Recommended when hosting multiple apps and for high-scale workloads (1,000+ instances); provides adequate gateway capacity |
+
+#### Subnet delegation
+
+- Delegate the subnet to `Microsoft.App/environments`. This delegation differs from Premium and Dedicated plans, which use `Microsoft.Web/serverFarms`.
+- The `Microsoft.App` resource provider must be [registered in your subscription](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+#### Subnet usage restrictions
+
+- The subnet can't already be used for private endpoints or service endpoints, and it can't be delegated to other hosting plans or services.
+- You can't share the same subnet between an Azure Container Apps environment and a Flex Consumption app.
+- Subnet names can't contain underscore (`_`) characters, which is a current limitation of the Flex Consumption plan.
+
+#### Subnet sharing
+
+- You can share the same subnet with more than one app running in a Flex Consumption plan. However, because networking resources are shared across all apps, one function app can affect the performance of others on the same subnet. Consider the aggregate demand when packing multiple apps into a small subnet.
+- The subnet and app must be in the same region.
+
+#### IP allocation and planning
+
+- Flex Consumption apps don't assign a unique IP address to each instance. Instead, a pool of network gateways uses IP addresses from the subnet. The guideline of reserving 40 IPs per app helps ensure there are sufficient IP addresses for the gateway pool and other infrastructure components, but actual usage is typically lower.
+- A `/27` subnet (27 usable IPs) is sufficient for a single app supporting up to 1,000 instances due to IP multiplexing. For multiple apps or high-scale workloads, use a `/26` subnet to provide adequate gateway capacity.
+- When many apps share a subnet and many scale out with significant outbound traffic, outbound network throughput can become a bottleneck rather than IP addresses being exhausted. Evaluate performance at your planned production scale.
+
+### Enable virtual network integration at app creation
+
+The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet). 
+
+#### [Azure CLI](#tab/azure-cli)
+
+You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet sizing and requirements](#subnet-sizing-and-requirements).
 
 1. [Create the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you don't have one already.
 
@@ -336,7 +366,7 @@ You can enable virtual network integration by running the [`az functionapp creat
 
     The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
 
-### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 Use these steps to create your function app with virtual network integration and related Azure resources. 
 
@@ -354,7 +384,7 @@ Use these steps to create your function app with virtual network integration and
 
 11. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-### [Visual Studio Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
 You can't currently enable virtual networking when you use Visual Studio Code to create your app.
 
@@ -365,9 +395,11 @@ For end-to-end examples of how to create apps in Flex Consumption with virtual n
 - [Flex Consumption: HTTP to Event Hubs using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
 - [Flex Consumption: triggered from Service Bus using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
 
-To modify or delete virtual network integration in an existing app:
+### Modify or remove virtual network integration
 
-### [Azure CLI](#tab/azure-cli)
+You can add, change, or remove virtual network integration for an existing app.
+
+#### [Azure CLI](#tab/azure-cli)
 
 Use the [`az functionapp vnet-integration add`](/cli/azure/functionapp/vnet-integration#az-functionapp-vnet-integration-add) command to enable virtual network integration to an existing function app:
 
@@ -387,7 +419,7 @@ Use the [`az functionapp vnet-integration list`](/cli/azure/functionapp/vnet-int
 az functionapp vnet-integration list --resource-group <RESOURCE_GROUP> --name <APP_NAME>
 ```
 
-### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 You can integrate your existing app with an existing virtual network and subnet in the portal. 
 
@@ -399,52 +431,17 @@ You can integrate your existing app with an existing virtual network and subnet 
 
 1. Select an existing **Virtual network** and **Subnet** and select **Connect**.
 
-### [Visual Studio Code](#tab/vs-code)
+#### [Visual Studio Code](#tab/vs-code)
 
 You can't currently configure virtual networking in Visual Studio Code.
 
 ---
 
-## Subnet sizing and requirements
-
-Choose an appropriately sized subnet for your Flex Consumption apps. The following table provides guidance based on your scenario:
-
-| Scenario | Recommended CIDR | Usable IPs | Notes |
-| ------ | ------ | ------- | ------- |
-| Single Flex app | `/27` | 27 | Minimum supported subnet size for one app |
-| Multiple Flex apps in one subnet | `/26` | 59 | Recommended when hosting multiple apps and for high-scale workloads (1,000+ instances); provides adequate gateway capacity |
-
-### Subnet requirements
-
-When you choose and configure a subnet for Flex Consumption, keep these requirements and considerations in mind:
-
-#### Subnet delegation
-
-- Delegate the subnet to `Microsoft.App/environments`. This delegation differs from Premium and Dedicated plans, which use `Microsoft.Web/serverFarms`.
-- Register the Microsoft.App resource provider in your subscription. You can register it through the Azure portal (**Subscriptions** > **Resource providers** > search for "Microsoft.App" > **Register**) or by using the Azure CLI.
-
-#### Subnet usage restrictions
-
-- The subnet can't already be used for private endpoints or service endpoints, and it can't be delegated to other hosting plans or services.
-- You can't share the same subnet between an Azure Container Apps environment and a Flex Consumption app.
-- Subnet names can't contain underscore (`_`) characters, which is a current limitation of the Flex Consumption plan.
-
-#### Subnet sharing
-
-- You can share the same subnet with more than one app running in a Flex Consumption plan. However, because networking resources are shared across all apps, one function app can affect the performance of others on the same subnet. Consider the aggregate demand when packing multiple apps into a small subnet.
-- The subnet and app must be in the same region.
-
-#### IP allocation and planning
-
-- Flex Consumption apps don't assign a unique IP address to each instance. Instead, a pool of network gateways uses IP addresses from the subnet. The guideline of reserving 40 IPs per app helps ensure there are sufficient IP addresses for the gateway pool and other infrastructure components, but actual usage is typically lower.
-- A `/27` subnet (27 usable IPs) is sufficient for a single app supporting up to 1,000 instances due to IP multiplexing. For multiple apps or high-scale workloads, use a `/26` subnet to provide adequate gateway capacity.
-- When many apps share a subnet and many scale out with significant outbound traffic, outbound network throughput can become a bottleneck rather than IP addresses being exhausted. Evaluate performance at your planned production scale.
-
-## Troubleshoot network performance problems
+### Troubleshoot network performance
 
 When a Flex Consumption app integrates with a subnet smaller than the recommended size, you might experience performance degradation as the app scales. This problem can also happen if you integrate many apps with the same subnet when they scale out and have significant outbound traffic.
 
-### Symptoms of undersized subnets
+#### Symptoms of undersized subnets
 
 Monitor for these symptoms, which indicate that outbound capacity rather than IP addresses is the limiting factor:
 
@@ -455,7 +452,7 @@ Monitor for these symptoms, which indicate that outbound capacity rather than IP
 > [!IMPORTANT]
 > Scale-out itself isn't blocked by subnet size. The app continues to add instances even if the subnet is undersized. Performance degradation occurs instead of a hard scale limit.
 
-### Monitoring and mitigation
+#### Monitoring and mitigation
 
 - **Instrument Application Insights with outbound dependency latency metrics**: where this metric provides an early warning signal for undersized subnets.
 - **Load-test at production scale before settling on subnet size** to validate that your subnet sizing can handle your expected workload.
