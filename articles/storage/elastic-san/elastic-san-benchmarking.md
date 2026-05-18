@@ -68,7 +68,7 @@ diskspd.exe -c100G -b4K -r -o64 -t8 -w0 -d120 -Sh -L E:\esan_test.dat
 - -d120 – 120 second runtime
 - -c100G – 100GB test file
 
-![DiskSpd random read output](./media/diskspd-random-read-output.png)
+:::image type="content" source="../media/diskspdIOTest.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload."::
 
 **Results:**
 
@@ -86,8 +86,6 @@ This workload represents **small-block, IOPS-intensive scenarios**, such as tran
 diskspd.exe -c100G -b1M -si -o32 -t4 -w0 -d120 -Sh -L E:\esan_test.dat
 ```
 
-![DiskSpd sequential read output](./media/diskspd-sequential-read-output.png)
-
 **Parameters:**
 
 - -b1M → 1 MB I/O size
@@ -97,6 +95,8 @@ diskspd.exe -c100G -b1M -si -o32 -t4 -w0 -d120 -Sh -L E:\esan_test.dat
 - -w0 → 100% read workload
 - -d120 → 120 second runtime
 - -c100G → 100 GB test file
+
+:::image type="content" source="../media/diskspdThroughputtest.png" alt-text="Screenshot of DiskSpd output showing approximately 1,567 MB/s for a 1M sequential read workload.":::
 
 **Results:**
 
@@ -146,7 +146,7 @@ fio --name=randread --rw=randread --bs=4k --iodepth=64 --numjobs=8 --size=100G -
 - size=100G — Test file size
 - direct=1 — Bypass OS cache
 
-![fio random read output](./media/fio-random-read-output.png)
+:::image type="content" source="../media/fioiotest.png" alt-text="Screenshot of fio output showing approximately 81.8K IOPS and 320 MB/s for a 4K random read workload.":::
 
 **Results:**
 
@@ -174,7 +174,7 @@ fio --name=readseq --rw=read --bs=1M --iodepth=32 --numjobs=4 --size=100G --time
 - size=100G — Test file size
 - direct=1 — Bypass OS cache
 
-![fio sequential read output](./media/fio-sequential-read-output.png)
+:::image type="content" source="../media/fiothroughputtest.png" alt-text="Screenshot of fio output showing approximately 1,488 MB/s for a 1M sequential read workload.":::
 
 **Results:**
 
