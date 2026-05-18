@@ -11,6 +11,7 @@ ms.custom: include-file
 ---
 
 > [!IMPORTANT]
-> Azure Virtual WAN hubs in Azure Virtual Network Manager hub-and-spoke connectivity configurations is currently in preview.
+> Using an Azure Virtual WAN hub in Azure Virtual Network Manager hub-and-spoke connectivity configurations is currently in preview. While in preview, functionality, availability, and other aspects of this feature might change in response to feedback.
 >
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or can have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
