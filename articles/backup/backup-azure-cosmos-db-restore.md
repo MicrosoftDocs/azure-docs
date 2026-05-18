@@ -39,7 +39,7 @@ To restore Azure Cosmos DB account, follow these steps:
 
    :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-basics.png" alt-text="Screenshot shows the protected item selection." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-basics.png":::  
 
-4. On the **Restore point** tab, click **Select restore point** and choose the restore point you want to restore.
+4. On the **Restore** pane, on the **Restore point** tab, click **Select restore point** and choose the restore point you want to restore.
    
    The latest restore point is pre-populated.
 
