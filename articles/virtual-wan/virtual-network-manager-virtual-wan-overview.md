@@ -12,8 +12,7 @@ ms.custom:
 
 # Virtual Network Manager and Virtual WAN (Public Preview)
 
-> [!Important]
-> Virtual WAN and Virtual Network Manager integration is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 ## Overview
 
@@ -25,6 +24,7 @@ Virtual Network Manager **connection configurations** also assign your network g
 * Route maps: assign which route maps are applied to Virtual Network connections.
 * Routing configuration: specify which Virtual WAN route table the Virtual Network connection learns routes from and which route tables the Virtual Network propagates to.
 
+For detailed instructions on how to use this integration, reference [Configure Virtual WAN hub for Network Manager](../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md).
 
 ## Key Considerations about Virtual WAN and Network Manager interactions
 
