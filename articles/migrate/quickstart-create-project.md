@@ -39,7 +39,7 @@ Follow these steps to create an Azure Migrate project for the first time:
    :::image type="content" source="./media/quickstart-create-project/assess-migrate-servers-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
 
 1. In **Create project**, select the **Subscription** and **Resource group**. 
-1. Select Create new to create a new Resource group if you don't have one.   
+1. Select **Create new** to create a new **Resource group** if you don't have one.   
 
     :::image type="content" source="./media/quickstart-create-project/create-project.png" alt-text="Screenshot shows how to create a new resource group and Azure Migrate page to input project settings." lightbox="./media/quickstart-create-project/create-project.png":::
 
@@ -83,11 +83,9 @@ After you install the Az CLI (in PowerShell), go to PowerShell on your system as
  
 ## Create additional projects
 
-You can create additional projects to manage separate migration scenarios. Follow these steps to create an additional Azure Migrate project:  
+You can create additional projects to manage separate migration scenarios. To create another Azure Migrate project, follow these steps:  
 
-Go to **All projects**, you can see all the existing projects. If you already have a project and you want to create a new project, follow the steps:
-   
-1.  In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.   
+1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.   
 1. On the Azure Migrate dashboard, select All Projects on the upper left.
 1. Select a **Create project**.
 
