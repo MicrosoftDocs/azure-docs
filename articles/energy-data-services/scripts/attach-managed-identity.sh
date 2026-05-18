@@ -17,16 +17,20 @@ echo "Attaching managed identity to Azure Data Manager for Energy instance..."
 # Set subscription
 az account set --subscription "$SUBSCRIPTION_ID"
 
-# Get Azure Data Manager for Energy instance
-ADME_JSON=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name "$ADME_INSTANCE_NAME" --query "[0]" -o json)
+# Get Azure Data Manager for Energy instance resource group
+ADME_LIST=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --name "$ADME_INSTANCE_NAME" -o json)
 
-if [ -z "$ADME_JSON" ] || [ "$ADME_JSON" = "null" ]; then
+if [ -z "$ADME_LIST" ] || [ "$ADME_LIST" = "[]" ]; then
     echo "Error: Azure Data Manager for Energy instance '$ADME_INSTANCE_NAME' not found"
     exit 1
 fi
 
-RESOURCE_GROUP=$(echo "$ADME_JSON" | jq -r '.resourceGroup')
-ADME_ID=$(echo "$ADME_JSON" | jq -r '.id')
+RESOURCE_GROUP=$(echo "$ADME_LIST" | jq -r '.[0].resourceGroup')
+ADME_ID="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME"
+
+# Get full instance details with API version
+ADME_JSON=$(az resource show --ids "$ADME_ID" --api-version 2025-09-22-preview -o json)
+
 LOCATION=$(echo "$ADME_JSON" | jq -r '.location' | tr -d '\r')
 AUTH_APP_ID=$(echo "$ADME_JSON" | jq -r '.properties.authAppId' | tr -d '\r')
 DATA_PARTITION_NAME=$(echo "$ADME_JSON" | jq -r '.properties.dataPartitionNames[0].name' | tr -d '\r')
