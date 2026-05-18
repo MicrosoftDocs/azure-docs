@@ -42,7 +42,7 @@ This section describes testing reachability of a standard load balancer frontend
 Choose either ping or traceroute to test reachability of a standard load balancer frontend from a device outside of Azure.
 
 > [!NOTE]
-> When pinging to a public IPv6 address, there can be a couple of timeouts before the Load Balancer will respond. Also it is common that there appear multiple timeouts after successful responses
+> When using `ping` with a public IPv6 address, there can be a couple of timeouts before the Load Balancer responds. Multiple timeouts after successful responses are also common.
 
 ### [Ping](#tab/ping/windows-outside)
 
