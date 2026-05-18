@@ -86,7 +86,7 @@ After you install the Az CLI (in PowerShell), go to PowerShell on your system as
 You can create additional projects to manage separate migration scenarios. To create another Azure Migrate project, follow these steps:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.   
-1. On the Azure Migrate dashboard, select All Projects on the upper left.
+1. On the Azure Migrate dashboard, select **All projects** on the upper left.
 1. Select a **Create project**.
 
     :::image type="content" source="./media/quickstart-create-project/create-additional-project.png" alt-text="Screenshot shows how to create an additional project." lightbox="./media/quickstart-create-project/create-additional-project.png":::
