@@ -176,11 +176,21 @@ Invoke-RestMethod -Uri $uri -Method Put -Headers @{
 | `{rg}` | Resource group where the user-assigned managed identity resides |
 | `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
 
-After the operation completes, verify the identity is assigned using Azure CLI:
+After the operation completes, verify the identity is assigned:
+
+### [Bash](#tab/bash)
 
 ```bash
 az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
 ```
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query identity.userAssignedIdentities
+```
+
+---
 
 **Sample response:**
 
