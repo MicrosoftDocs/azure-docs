@@ -141,7 +141,7 @@ To resume protection for an Azure Cosmos DB backup instance (preview), follow th
 
    :::image type="content" source="./media/manage-azure-managed-disks/resume-disk-backup-inline.png" alt-text="Screenshot showing the option to resume backup." lightbox="./media/manage-azure-managed-disks/resume-disk-backup-expanded.png":::
 
-### Delete Backup Instance
+## Delete an Azure Cosmos DB Backup Instance
 
 If you want to delete a protected instance of Azure Cosmos DB (preview), stop all scheduled backups and remove all existing recovery points. 
 
