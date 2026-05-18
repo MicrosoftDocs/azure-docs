@@ -73,7 +73,7 @@ The resulting wizard has multiple pages to complete.
 
 In the **Basics** blade, select the desired subscription, resource group, name, network interface name, and region for your private endpoint. You must create the private endpoint in the same region as the virtual network you wish to create the private endpoint in. Then select **Next: Resource**.
 
-[![Screenshot showing how to provide the project and instance details for a new private endpoint.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png)](media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png#lightbox)
+[![Screenshot showing how to provide the project and instance details for a new private endpoint.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png#lightbox)
 
 If you're using classic file shares: 
 
