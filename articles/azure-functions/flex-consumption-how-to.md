@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 12/12/2025
+ms.date: 05/18/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -327,7 +327,7 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 #### Subnet delegation
 
 - Delegate the subnet to `Microsoft.App/environments`. This delegation differs from Premium and Dedicated plans, which use `Microsoft.Web/serverFarms`.
-- The `Microsoft.App` resource provider must be [registered in your subscription](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- [Register](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) the `Microsoft.App` resource provider in your subscription.
 
 #### Subnet usage restrictions
 
@@ -346,13 +346,13 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 - A `/27` subnet (27 usable IPs) is sufficient for a single app supporting up to 1,000 instances due to IP multiplexing. For multiple apps or high-scale workloads, use a `/26` subnet to provide adequate gateway capacity.
 - When many apps share a subnet and many scale out with significant outbound traffic, outbound network throughput can become a bottleneck rather than IP addresses being exhausted. Evaluate performance at your planned production scale.
 
-### Enable virtual network integration at app creation
+### Enable virtual network integration when you create the app
 
 The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet). 
 
 #### [Azure CLI](#tab/azure-cli)
 
-You can enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet sizing and requirements](#subnet-sizing-and-requirements).
+Enable virtual network integration by running the [`az functionapp create`] command and including the `--vnet` and `--subnet` parameters. The subnet must be delegated to `Microsoft.App/environments` and must be at least `/27` in size. For more information, see [Subnet sizing and requirements](#subnet-sizing-and-requirements).
 
 1. [Create the virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet), if you don't have one already.
 
