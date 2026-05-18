@@ -14,28 +14,6 @@ ms.author: anfdocs
 Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Microsoft Foundry, Azure Databricks, OneLake, and others.
 
 
-## Register the feature
-
-You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI 
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFEnableObjectRESTAPI 
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
-
 ## Create the self-signed certificate
 
 You must generate a PEM-formatted SSL certificate. You can create the SSL certificate in the Azure portal or with a script.  
