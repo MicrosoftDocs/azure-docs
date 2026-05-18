@@ -1,18 +1,19 @@
 ---
-title: FHIR service versioning policy and history management
+title: Configure FHIR Service Versioning Policy and History
 description: Learn how to configure FHIR service versioning policy and manage resource history in Azure Health Data Services.
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 05/18/2026
 ms.author: kesheth
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
 ---
 
 # Versioning policy and history management
 
-The versioning policy in the Azure Health Data Services FHIR&reg; service is a configuration that determines how history is stored for every resource type, with the option for resource specific configuration. This policy is directly related to the concept of managing history for FHIR resources.
+The versioning policy in the Azure Health Data Services FHIR&reg; service determines how history is stored for every resource type, with the option for resource specific configuration. This policy is directly related to managing history for FHIR resources.
 
 ## History in FHIR
 
@@ -65,7 +66,7 @@ When you configure resource level configuration, you select the FHIR resource ty
 
 FHIR history helps end users see how a resource changes over time. It's also useful when you use audit logs to see the state of a resource before and after a user modifies it. In general, keep history for a resource unless you know that the history isn't needed. Frequent resource updates can result in a large amount of data storage, which can be undesirable in FHIR services with a large amount of data.
 
-Changing the versioning policy, either at a system level or resource level, doesn't remove the existing history for any resources in your FHIR service. To reduce the history data size in your FHIR service, use the [$purge-history](purge-history.md) operation.
+When you change the versioning policy, either at a system level or resource level, it doesn't remove the existing history for any resources in your FHIR service. To reduce the history data size in your FHIR service, use the [$purge-history](purge-history.md) operation.
 
 > [!NOTE] 
 > Add the query parameters `_summary=count` and `_count=0` to the `_history` endpoint to get a count of all versioned resources. This count includes soft deleted resources.
@@ -73,6 +74,7 @@ Changing the versioning policy, either at a system level or resource level, does
 ## Metadata-only updates and versioning
 
 If you set the versioning policy to either `versioned` or `version-update`, metadata-only updates (changes to FHIR resources that only affect the metadata) increment the resource version, create a new version, and save the old version as a historical record. If you're making metadata-only changes by using PUT, PATCH, or `$bulk-update`, use the query parameter `_meta-history` to configure whether the old version is saved as a historical record.
+
 - `_meta-history=true` is set by default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. The `lastUpdated` timestamp is updated to reflect the change.
 - `_meta-history=false` can be set to `false`. This setting increments the resource version and creates a new version, but doesn't save the old version as a historical record. The `lastUpdated` timestamp is also updated to reflect the change. This configuration can help reduce data storage when making metadata-only updates.  
 
@@ -83,7 +85,8 @@ To run the following examples, you need:
 
 ### Example of `_meta-history=false` with PUT
 
-To demonstrate the use of the `_meta-history` parameter with PUT, follow this example:
+To demonstrate the use of the `_meta-history` query parameter with PUT, follow this example:
+
 1. Create a resource:  
 
     ```http
@@ -150,12 +153,15 @@ To demonstrate the use of the `_meta-history` parameter with PUT, follow this ex
     }
     ```
 
-1. This operation increments the resource version and creates version 3, but it doesn't save the old version 2 as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions are returned, versions 1 and 3. The `_meta-history=false` query parameter only affects metadata-only changes made by using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes increments the resource version and saves the old version as a historical record.
+    This operation increments the resource version and creates version 3, but it doesn't save the old version 2 as a historical record. To see the result, run:
 
+    `GET <fhir server>/Patient/test-patient/_history`
+
+    The response includes two versions, versions 1 and 3. The `_meta-history=false` query parameter only affects metadata-only changes made by using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes increments the resource version and saves the old version as a historical record.
 
 ### Example of `_meta-history=false` with PATCH or `$bulk-update`
 
-To demonstrate the use of the `_meta-history` parameter with PATCH or `$bulk-update`, follow this example:
+To demonstrate the use of the `_meta-history` query parameter with PATCH or `$bulk-update`, follow this example:
 
 1. Create a resource:  
 
@@ -268,9 +274,11 @@ To demonstrate the use of the `_meta-history` parameter with PATCH or `$bulk-upd
     ]
     ```
 
-1. This operation increments the resource version and creates version 3, but the old version 2 isn't saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. The response includes two versions, versions 1 and 3. The `_meta-history=false` query parameter only affects metadata-only changes made using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes increments the resource version and saves the old version as a historical record.
+    This operation increments the resource version and creates version 3, but the old version 2 isn't saved as a historical record. To see the result, run: 
 
+    `GET <fhir server>/Patient/test-patient/_history`
 
+    The response includes two versions, versions 1 and 3. The `_meta-history=false` query parameter only affects metadata-only changes made using PUT or PATCH. Using the query parameter to make metadata updates along with other non-metadata field value changes increments the resource version and saves the old version as a historical record.
 
 ## Next steps
 
