@@ -30,7 +30,8 @@ Azure Automation uses a number of PowerShell modules to enable cmdlets in runboo
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
 
 > [!IMPORTANT]
-> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](../manage-runtime-environment.md).
+> - New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](../manage-runtime-environment.md).
+> - Packages and modules uploaded to an Automation account are treated as **customer-owned content (customer IP)**. Microsoft doesn't inspect or validate these packages. Packages are **loaded at runtime within the customer environment** and customers are responsible for ensuring their integrity and security.
 
 ## Sandboxes
 
@@ -124,9 +125,6 @@ Use Az or AzureRM cmdlets for manipulating Automation resources outside the cont
 You can create Python 2 runbooks in Azure Automation. For Python module information, see [Manage Python 2 packages in Azure Automation](../python-packages.md).
 
 ## Custom modules
-
-> [!IMPORTANT]
-> Packages and modules uploaded to an Automation account are treated as **customer-owned content (customer IP)**. Microsoft doesn't inspect or validate these packages. Packages are **loaded at runtime within the customer environment** and customers are responsible for ensuring their integrity and security.
 
 Azure Automation supports custom PowerShell modules that you create to use with your runbooks and DSC configurations. One type of custom module is an integration module that optionally contains a file of metadata to define the custom functionality for the module cmdlets. An example of the use of an integration module is provided in [Add a connection type](../automation-connections.md#add-a-connection-type).
 
