@@ -30,11 +30,11 @@ LOCATION=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroup
 AUTH_APP_ID=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query properties.authAppId -o tsv | tr -d '\r')
 DATA_PARTITION_NAME=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'properties.dataPartitionNames[0].name' -o tsv | tr -d '\r')
 
-# Get managed identity resource ID
-MI_ID=$(az identity list --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
+# Get managed identity resource ID (search in same subscription as ADME)
+MI_ID=$(az identity list --subscription "$SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
 
 if [ -z "$MI_ID" ]; then
-    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found"
+    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found in subscription"
     exit 1
 fi
 

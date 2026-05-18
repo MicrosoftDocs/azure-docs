@@ -34,10 +34,10 @@ $location = $adme.location
 $authAppId = $adme.properties.authAppId
 $dataPartitionName = $adme.properties.dataPartitionNames[0].name
 
-# Get managed identity
-$mi = az identity list --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
+# Get managed identity (search in same subscription as ADME)
+$mi = az identity list --subscription $SubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
 if (-not $mi) {
-    Write-Host "Error: Managed identity '$ManagedIdentityName' not found" -ForegroundColor Red
+    Write-Host "Error: Managed identity '$ManagedIdentityName' not found in subscription" -ForegroundColor Red
     exit 1
 }
 
