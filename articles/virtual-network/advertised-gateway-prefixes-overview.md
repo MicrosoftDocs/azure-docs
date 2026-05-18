@@ -1,6 +1,7 @@
 ---
-title: Advertised gateway prefixes for route advertisement
-description: Learn about advertised gateway prefixes (summarizedGatewayPrefixes), which let you specify summarized CIDR prefixes that Azure hybrid gateways advertise to on-premises networks.
+title: Advertised gateway prefixes in Azure virtual networks
+titleSuffix: Azure Virtual Network
+description: Learn about advertised gateway prefixes (summarizedGatewayPrefixes), which let Azure VPN Gateway and ExpressRoute gateways advertise summarized CIDR prefixes to on-premises networks.
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
@@ -10,7 +11,7 @@ ms.custom: template-concept
 #CustomerIntent: As a network engineer, I want to configure summarized gateway prefixes so that I can reduce the number of routes advertised from Azure to my on-premises network.
 ---
 
-# Advertised gateway prefixes overview
+# Advertised gateway prefixes in Azure virtual networks
 
 Advertised gateway prefixes let you specify summarized (aggregated) CIDR prefixes that Azure hybrid gateways advertise to on-premises networks instead of advertising all individual virtual network and spoke CIDRs. This feature helps reduce the number of advertised routes in large hub-and-spoke designs.
 
