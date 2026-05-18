@@ -26,6 +26,10 @@ You need to check the regions where the virtual networks are located. The config
 
 To resolve this issue, add the region where the virtual network is located to the configuration. 
 
+### I deployed a configuration in the Azure portal, but the status still shows as “Not deployed”. Did my deployment fail?
+
+Not necessarily. After a deployment or configuration commit completes, the status updates in the portal can take time. To see the correct, updated status, manually refresh the portal page or wait. The status should then reflect the actual deployment state.
+
 ### Configuration isn't deployed
 
 You need to deploy the configuration after you create or modify it. The configuration is only applied to the virtual networks after you deploy it.

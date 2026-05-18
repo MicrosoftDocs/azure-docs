@@ -95,6 +95,9 @@ items:
             displayName: Discovery Agent, agent types, prompt agent, workflow agent, orchestration
       - name: Tools & Models
         items:
+          - name: Discovery Supercomputer and model execution
+            href: concept-supercomputer.md
+            displayName: Microsoft Discovery, Supercomputer, tools, workloads, infrastructure
           - name: Tools and model integration
             href: concept-tools-model-integration.md
             displayName: Microsoft Discovery, tools, model integration, action-based tools, code-environment based tools, OpenAPI, MCP

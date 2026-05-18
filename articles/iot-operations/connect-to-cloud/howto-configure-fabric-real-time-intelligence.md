@@ -6,13 +6,13 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/05/2026
+ms.date: 05/15/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
 
-#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
 ---
 
 # Configure data flow endpoints for Microsoft Fabric Real-Time Intelligence

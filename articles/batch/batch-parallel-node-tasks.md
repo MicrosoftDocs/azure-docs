@@ -26,10 +26,10 @@ Instead of using Standard\_D1 nodes that have one CPU core, you could use [Stand
 
 ## Enable parallel task execution
 
-You configure compute nodes for parallel task execution at the pool level. With the Batch .NET library, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) property when you create a pool. If you're using the Batch REST API, set the [taskSlotsPerNode](/rest/api/batchservice/pools/create-pool) element in the request body during pool creation.
+You configure compute nodes for parallel task execution at the pool level. With the Batch .NET library, set the [BatchAccountPoolData.TaskSlotsPerNode](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskslotspernode) property when you create a pool. If you're using the Batch REST API, set the [taskSlotsPerNode](/rest/api/batchservice/pools/create-pool) element in the request body during pool creation.
 
 > [!NOTE]
-> You can set the `taskSlotsPerNode` element and [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property only at pool creation time. They can't be modified after a pool has already been created.
+> You can set the `taskSlotsPerNode` element and [TaskSlotsPerNode](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskslotspernode) property only at pool creation time. They can't be modified after a pool has already been created.
 
 Azure Batch allows you to set task slots per node up to (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `taskSlotsPerNode` may be set to 16. However, regardless of how many cores the node has, you can't have more than 256 task slots per node. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services (classic)](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Batch service quotas and limits](batch-quota-limit.md).
 
@@ -40,13 +40,13 @@ Azure Batch allows you to set task slots per node up to (4x) the number of node 
 
 When enabling concurrent tasks, it's important to specify how you want the tasks to be distributed across the nodes in the pool.
 
-By using the [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool.taskschedulingpolicy) property, you can specify that tasks should be assigned evenly across all nodes in the pool ("spreading"). Or you can specify that as many tasks as possible should be assigned to each node before tasks are assigned to another node in the pool ("packing").
+By using the [BatchAccountPoolData.TaskSchedulingPolicy](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskschedulingpolicy) property, you can specify that tasks should be assigned evenly across all nodes in the pool ("spreading"). Or you can specify that as many tasks as possible should be assigned to each node before tasks are assigned to another node in the pool ("packing").
 
-As an example, consider the pool of [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#d-series) nodes (in the previous example) that is configured with a [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) value of 16. If the [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool.taskschedulingpolicy) is configured with a [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) of *Pack*, it would maximize usage of all 16 cores of each node and allow an [autoscaling pool](batch-automatic-scaling.md) to remove unused nodes (nodes without any tasks assigned) from the pool. Autoscaling minimizes resource usage and can save money.
+As an example, consider the pool of [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md#d-series) nodes (in the previous example) that is configured with a [BatchAccountPoolData.TaskSlotsPerNode](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskslotspernode) value of 16. If the [BatchAccountPoolData.TaskSchedulingPolicy](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskschedulingpolicy) is configured with a [BatchNodeFillType](/dotnet/api/azure.resourcemanager.batch.models.batchnodefilltype) of *Pack*, it would maximize usage of all 16 cores of each node and allow an [autoscaling pool](batch-automatic-scaling.md) to remove unused nodes (nodes without any tasks assigned) from the pool. Autoscaling minimizes resource usage and can save money.
 
 ## Define variable slots per task
 
-A task can be defined with the [CloudTask.RequiredSlots](/dotnet/api/microsoft.azure.batch.cloudtask.requiredslots) property, specifying how many slots it requires to run on a compute node. The default value is 1. You can set variable task slots if your tasks have different weights associated with their resource usage on the compute node. Variable task slots let each compute node have a reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
+A task can be defined with the [BatchTaskCreateOptions.RequiredSlots](/dotnet/api/azure.compute.batch.batchtaskcreateoptions.requiredslots) property, specifying how many slots it requires to run on a compute node. The default value is 1. You can set variable task slots if your tasks have different weights associated with their resource usage on the compute node. Variable task slots let each compute node have a reasonable number of concurrent running tasks without overwhelming system resources like CPU or memory.
 
 For example, for a pool with property `taskSlotsPerNode = 8`, you can submit multi-core required CPU-intensive tasks with `requiredSlots = 8`, while other tasks can be set to `requiredSlots = 1`. When this mixed workload is scheduled, the CPU-intensive tasks run exclusively on their compute nodes, while other tasks can run concurrently (up to eight tasks at once) on other nodes. The mixed workload helps you balance your workload across compute nodes and improve resource usage efficiency.
 
@@ -59,39 +59,48 @@ Be sure you don't specify a task's `requiredSlots` to be greater than the pool's
 
 ## Batch .NET example
 
-The following [Batch .NET](/dotnet/api/microsoft.azure.batch) API code snippets show how to create a pool with multiple task slots per node and how to submit a task with required slots.
+The following [Batch .NET](/dotnet/api/azure.compute.batch) API code snippets show how to create a pool with multiple task slots per node and how to submit a task with required slots.
 
 ### Create a pool with multiple task slots per node
 
 This code snippet shows a request to create a pool that contains four nodes, with four task slots allowed per node. It specifies a task scheduling policy that fills each node with tasks prior to assigning tasks to another node in the pool.
 
-For more information on adding pools by using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
+For more information on adding pools by using the Batch .NET API, see [BatchAccountPoolCollection.CreateOrUpdate](/dotnet/api/azure.resourcemanager.batch.batchaccountpoolcollection.createorupdate).
 
-```csharp
-CloudPool pool =
-    batchClient.PoolOperations.CreatePool(
-        poolId: "mypool",
-        targetDedicatedComputeNodes: 4
-        virtualMachineSize: "standard_d1_v2",
-        VirtualMachineConfiguration: new VirtualMachineConfiguration(
-            imageReference: new ImageReference(
-                                publisher: "MicrosoftWindowsServer",
-                                offer: "WindowsServer",
-                                sku: "2019-datacenter-core",
-                                version: "latest"),
-            nodeAgentSkuId: "batch.node.windows amd64");
+```C# Snippet:parallel_pool_create
+BatchAccountPoolData poolData = new BatchAccountPoolData()
+{
+    VmSize = "standard_d1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2019-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 4 }
+    },
+    TaskSlotsPerNode = 4,
+    TaskSchedulingPolicy = new Azure.ResourceManager.Batch.Models.BatchTaskSchedulingPolicy(
+        Azure.ResourceManager.Batch.Models.BatchNodeFillType.Pack)
+};
 
-pool.TaskSlotsPerNode = 4;
-pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
-pool.Commit();
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, "mypool", poolData);
 ```
 
 ### Create a task with required slots
 
 This code snippet creates a task with nondefault `requiredSlots`. This task runs when there are enough free slots available on a compute node.
 
-```csharp
-CloudTask task = new CloudTask(taskId, taskCommandLine)
+```C# Snippet:parallel_task_required_slots
+BatchTaskCreateOptions task = new BatchTaskCreateOptions(taskId, taskCommandLine)
 {
     RequiredSlots = 2
 };
@@ -101,28 +110,26 @@ CloudTask task = new CloudTask(taskId, taskCommandLine)
 
 This code snippet lists all compute nodes in the pool and prints the counts for running tasks and task slots per node.
 
-```csharp
-ODATADetailLevel nodeDetail = new ODATADetailLevel(selectClause: "id,runningTasksCount,runningTaskSlotsCount");
-IPagedEnumerable<ComputeNode> nodes = batchClient.PoolOperations.ListComputeNodes(poolId, nodeDetail);
-
-await nodes.ForEachAsync(node =>
+```C# Snippet:parallel_list_nodes
+await foreach (BatchNode node in batchClient.GetNodesAsync(
+    poolId,
+    select: new[] { "id", "runningTasksCount", "runningTaskSlotsCount" }))
 {
-    Console.WriteLine(node.Id + " :");
-    Console.WriteLine($"RunningTasks = {node.RunningTasksCount}, RunningTaskSlots = {node.RunningTaskSlotsCount}");
-
-}).ConfigureAwait(continueOnCapturedContext: false);
+    System.Console.WriteLine(node.Id + " :");
+    System.Console.WriteLine($"RunningTasks = {node.RunningTasksCount}, RunningTaskSlots = {node.RunningTaskSlotsCount}");
+}
 ```
 
 ### List task counts for the job
 
 This code snippet gets task counts for the job, which includes both tasks and task slots count per task state.
 
-```csharp
-TaskCountsResult result = await batchClient.JobOperations.GetJobTaskCountsAsync(jobId);
+```C# Snippet:parallel_job_task_counts
+BatchTaskCountsResult result = await batchClient.GetJobTaskCountsAsync(jobId);
 
-Console.WriteLine("\t\tActive\tRunning\tCompleted");
-Console.WriteLine($"TaskCounts:\t{result.TaskCounts.Active}\t{result.TaskCounts.Running}\t{result.TaskCounts.Completed}");
-Console.WriteLine($"TaskSlotCounts:\t{result.TaskSlotCounts.Active}\t{result.TaskSlotCounts.Running}\t{result.TaskSlotCounts.Completed}");
+System.Console.WriteLine("\t\tActive\tRunning\tCompleted");
+System.Console.WriteLine($"TaskCounts:\t{result.TaskCounts.Active}\t{result.TaskCounts.Running}\t{result.TaskCounts.Completed}");
+System.Console.WriteLine($"TaskSlotCounts:\t{result.TaskSlotCounts.Active}\t{result.TaskSlotCounts.Running}\t{result.TaskSlotCounts.Completed}");
 ```
 
 ## Batch REST example
@@ -174,9 +181,9 @@ This snippet shows a request to add a task with nondefault `requiredSlots`. This
 
 ## Code sample on GitHub
 
-The [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks) project on GitHub illustrates the use of the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) property.
+The [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ParallelTasks) project on GitHub illustrates the use of the [BatchAccountPoolData.TaskSlotsPerNode](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata.taskslotspernode) property.
 
-This C# console application uses the [Batch .NET](/dotnet/api/microsoft.azure.batch) library to create a pool with one or more compute nodes. It executes a configurable number of tasks on those nodes to simulate a variable load. Output from the application shows which nodes executed each task. The application also provides a summary of the job parameters and duration.
+This C# console application uses the [Batch .NET](/dotnet/api/azure.compute.batch) library to create a pool with one or more compute nodes. It executes a configurable number of tasks on those nodes to simulate a variable load. Output from the application shows which nodes executed each task. The application also provides a summary of the job parameters and duration.
 
 The following example shows the summary portion of the output from two different runs of the ParallelTasks sample application. Job durations shown here don't include pool creation time, since each job was submitted to a previously created pool whose compute nodes were in the *Idle* state at submission time.
 

@@ -1,122 +1,122 @@
 ---
 title: Use Microsoft Entra ID to authenticate Batch Management solutions
-description: Explore using Microsoft Entra ID to authenticate from applications that use the Batch Management .NET library.
+description: Learn how to authenticate apps that use the Batch Management .NET library with Microsoft Entra ID and the Azure Identity library.
 ms.topic: how-to
-ms.date: 06/24/2024
-ms.custom: has-adal-ref, devx-track-csharp, devx-track-arm-template, devx-track-dotnet
-# Customer intent: As a developer integrating batch management solutions, I want to authenticate my application using a cloud-based identity service, so that I can securely manage resources and access the Batch Management .NET library programmatically.
+ms.date: 05/15/2026
+ms.custom: devx-track-csharp, devx-track-arm-template, devx-track-dotnet
+# Customer intent: As a developer integrating Batch management solutions, I want to authenticate my application to Microsoft Entra ID using the Azure Identity library, so that I can securely manage Batch accounts, keys, applications, and packages programmatically.
 ---
 
 # Authenticate Batch Management solutions with Microsoft Entra ID
 
-Applications that call the Azure Batch Management service authenticate with [Microsoft Authentication Library](../active-directory/develop/msal-overview.md) (Microsoft Entra ID). Microsoft Entra ID is Microsoft's multitenant cloud based directory and identity management service. Azure itself uses Microsoft Entra ID for the authentication of its customers, service administrators, and organizational users.
+Applications that call the Azure Batch Management service authenticate with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multitenant cloud-based directory and identity management service. Azure itself uses Microsoft Entra ID to authenticate its customers, service administrators, and organizational users.
 
-The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager](../azure-resource-manager/management/overview.md) to manage these resources programmatically. Microsoft Entra ID is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through Azure Resource Manager.
+The recommended way to authenticate Batch management apps is to use the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme), together with the [Azure.ResourceManager.Batch](/dotnet/api/overview/azure/resourcemanager.batch-readme) management library. The Azure Identity library provides token-based credential classes (such as `DefaultAzureCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, and `InteractiveBrowserCredential`) that work consistently whether your app runs locally, on Azure, or on-premises. For an overview of recommended authentication strategies, see [Authenticate .NET apps to Azure services using the Azure Identity library](/dotnet/azure/sdk/authentication/).
 
-In this article, we explore using Microsoft Entra ID to authenticate from applications that use the Batch Management .NET library. We show how to use Microsoft Entra ID to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagement](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement) sample project, available on GitHub, to walk through using Microsoft Entra ID with the Batch Management .NET library.
+The `Azure.ResourceManager.Batch` library exposes types for managing Batch accounts, account keys, applications, and application packages. It's an Azure resource provider client and works together with [Azure Resource Manager](../azure-resource-manager/management/overview.md) to manage these resources programmatically. Microsoft Entra ID is required to authenticate requests made through any Azure resource provider client, including this library.
 
-To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
+> [!NOTE]
+> The legacy `Microsoft.Azure.Management.Batch` package and ADAL-based code patterns (`AuthenticationContext.AcquireToken`) are deprecated. New code should use `Azure.ResourceManager.Batch` with `Azure.Identity` credentials.
+
+To learn more about using the Batch Management .NET library, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
 <a name='register-your-application-with-azure-ad'></a>
 
-## Register your application with Microsoft Entra ID
+## Register an application (optional)
 
-The [Microsoft Authentication Library](../active-directory/develop/msal-authentication-flows.md) (MSAL) provides a programmatic interface to Microsoft Entra ID for use within your applications. To call MSAL from your application, you must register your application in a Microsoft Entra tenant. When you register your application, you supply Microsoft Entra ID with information about your application, including a name for it within the Microsoft Entra tenant. Microsoft Entra ID then provides an application ID that you use to associate your application with Microsoft Entra ID at runtime. To learn more about the application ID, see [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md).
+Whether you need to register a separate Microsoft Entra application depends on the credential type you use:
 
-To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint.
+- If you use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) and sign in through a developer tool (Azure CLI, Azure PowerShell, Visual Studio, or Visual Studio Code), or your app runs on an Azure resource with a managed identity, you don't need to register a separate application. The credential uses the identity already configured in that environment.
+- If your app authenticates as a service principal (for example, with [`ClientSecretCredential`](/dotnet/api/azure.identity.clientsecretcredential) or [`ClientCertificateCredential`](/dotnet/api/azure.identity.clientcertificatecredential)), you must register an application in your Microsoft Entra tenant.
 
-![Adding an application](./media/batch-aad-auth-management/app-registration-management-plane.png)
+To register an application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app). After registration, Microsoft Entra ID provides an *application (client) ID* you use at runtime. For more information, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals).
 
-Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.
+## Assign Azure RBAC permissions
 
-![Completed registration process](./media/batch-aad-auth-management/app-registration-client-id.png)
+After you decide which identity your app uses (a developer account, a managed identity, or a service principal), assign that identity the Azure role-based access control (RBAC) permissions it needs on the resource group or subscription where you manage Batch accounts. Common built-in roles include **Contributor**, **Azure Batch Account Contributor**, and **Reader**.
 
-## Grant the Azure Resource Manager API access to your application
-
-Next, you'll need to delegate access to your application to the Azure Resource Manager API. The Microsoft Entra identifier for the Resource Manager API is **Windows Azure Service Management API**.
-
-Follow these steps in the Azure portal:
-
-1. In the left-hand navigation pane of the Azure portal, choose **All services**, click **App Registrations**, and click **Add**.
-2. Search for the name of your application in the list of app registrations:
-
-    ![Search for your application name](./media/batch-aad-auth-management/search-app-registration.png)
-
-3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
-4. Click **Add** to add a new required permission.
-5. In step 1, enter **Windows Azure Service Management API**, select that API from the list of results, and click the **Select** button.
-6. In step 2, select the check box next to **Access Azure classic deployment model as organization users**, and click the **Select** button.
-7. Click the **Done** button.
-
-The **Required Permissions** blade now shows that permissions to your application are granted to both the MSAL and Resource Manager APIs. Permissions are granted to MSAL by default when you first register your app with Microsoft Entra ID.
-
-![Delegate permissions to the Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
+For steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 <a name='azure-ad-endpoints'></a>
-
-## Microsoft Entra endpoints
-
-To authenticate your Batch Management solutions with Microsoft Entra ID, you'll need two well-known endpoints.
-
-- The **Microsoft Entra common endpoint** provides a generic credential gathering interface when a specific tenant is not provided, as in the case of integrated authentication:
-
-    `https://login.microsoftonline.com/common`
-
-- The **Azure Resource Manager endpoint** is used to acquire a token for authenticating requests to the Batch management service:
-
-    `https://management.core.windows.net/`
-
-The AccountManagement sample application defines constants for these endpoints. Leave these constants unchanged:
-
-```csharp
-// Azure Active Directory "common" endpoint.
-private const string AuthorityUri = "https://login.microsoftonline.com/common";
-// Azure Resource Manager endpoint
-private const string ResourceUri = "https://management.core.windows.net/";
-```
-
-## Reference your application ID
-
-Your client application uses the application ID (also referred to as the client ID) to access Microsoft Entra ID at runtime. Once you've registered your application in the Azure portal, update your code to use the application ID provided by Microsoft Entra ID for your registered application. In the AccountManagement sample application, copy your application ID from the Azure portal to the appropriate constant:
-
-```csharp
-// Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Graph API. For information
-// about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
-// https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app
-private const string ClientId = "<application-id>";
-```
-Also copy the redirect URI that you specified during the registration process. The redirect URI specified in your code must match the redirect URI that you provided when you registered the application.
-
-```csharp
-// The URI to which Azure AD will redirect in response to an OAuth 2.0 request. This value is
-// specified by you when you register an application with AAD (see ClientId comment). It does not
-// need to be a real endpoint, but must be a valid URI (e.g. https://accountmgmtsampleapp).
-private const string RedirectUri = "http://myaccountmanagementsample";
-```
-
 <a name='acquire-an-azure-ad-authentication-token'></a>
 
-## Acquire a Microsoft Entra authentication token
+## Authenticate with the Azure Identity library
 
-After you register the AccountManagement sample in the Microsoft Entra tenant and update the sample source code with your values, the sample is ready to authenticate using Microsoft Entra ID. When you run the sample, the MSAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials:
+With `Azure.Identity` and `Azure.ResourceManager.Batch`, you don't need to manually reference Microsoft Entra endpoints, resource URIs, or redirect URIs — the credential handles token acquisition, caching, and refresh automatically.
 
-```csharp
-// Obtain an access token using the "common" AAD resource. This allows the application
-// to query AAD for information that lies outside the application's tenant (such as for
-// querying subscription information in your Azure account).
-AuthenticationContext authContext = new AuthenticationContext(AuthorityUri);
-AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
-                                                        ClientId,
-                                                        new Uri(RedirectUri),
-                                                        PromptBehavior.Auto);
-```
+1. Install the required NuGet packages:
 
-After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service.
+   ```bash
+   dotnet add package Azure.Identity
+   dotnet add package Azure.ResourceManager.Batch
+   ```
+
+1. Add the following `using` statements to your code:
+
+   ```csharp
+   using Azure.Identity;
+   using Azure.ResourceManager;
+   using Azure.ResourceManager.Batch;
+   ```
+
+1. Create a credential and pass it to `ArmClient`. Use the client to enumerate or manage Batch accounts.
+
+   **Recommended: `DefaultAzureCredential`** — works locally with developer tool sign-ins (Azure CLI, Visual Studio, Visual Studio Code) and uses managed identity automatically when the app runs on Azure:
+
+   ```csharp
+   ArmClient arm = new ArmClient(new DefaultAzureCredential());
+
+   SubscriptionResource subscription = await arm.GetDefaultSubscriptionAsync();
+   await foreach (BatchAccountResource account in subscription.GetBatchAccountsAsync())
+   {
+       Console.WriteLine(account.Data.Name);
+   }
+   ```
+
+   **Interactive (integrated) sign-in** — prompts a user to sign in via the system browser. Use this when your app must authenticate a specific user interactively:
+
+   ```csharp
+   var credential = new InteractiveBrowserCredential(
+       new InteractiveBrowserCredentialOptions
+       {
+           TenantId = "<tenant-id>",
+           ClientId = "<application-id>",      // optional; required only if you registered your own app
+           RedirectUri = new Uri("http://localhost")
+       });
+
+   ArmClient arm = new ArmClient(credential);
+   ```
+
+   **Service principal (client secret)** — use for unattended apps that authenticate with an app registration secret:
+
+   ```csharp
+   var credential = new ClientSecretCredential(
+       tenantId: "<tenant-id>",
+       clientId: "<application-id>",
+       clientSecret: "<client-secret>");
+
+   ArmClient arm = new ArmClient(credential);
+   ```
+
+   **Managed identity** — use when your app runs on an Azure resource (such as a VM, App Service, or Container App) that has a system-assigned or user-assigned managed identity:
+
+   ```csharp
+   // System-assigned managed identity
+   var credential = new ManagedIdentityCredential();
+
+   // Or, user-assigned managed identity
+   // var credential = new ManagedIdentityCredential(clientId: "<user-assigned-client-id>");
+
+   ArmClient arm = new ArmClient(credential);
+   ```
+
+The credential transparently caches and refreshes tokens, so you can keep `ArmClient` and Batch management resources alive for the lifetime of your app.
 
 ## Next steps
 
-- For more information on running the [AccountManagement sample application](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement), see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
-- To learn more about Microsoft Entra ID, see the [Microsoft Entra Documentation](../active-directory/index.yml).
-- In-depth examples showing how to use MSAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
-- To authenticate Batch service applications using Microsoft Entra ID, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md)
+- [Authenticate Batch service solutions with Microsoft Entra ID](batch-aad-auth.md)
+- [Authenticate .NET apps to Azure services using the Azure Identity library](/dotnet/azure/sdk/authentication/)
+- [Azure.ResourceManager.Batch client library for .NET](/dotnet/api/overview/azure/resourcemanager.batch-readme)
+- [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
+- [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)

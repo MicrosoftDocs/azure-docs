@@ -378,6 +378,29 @@ After configuring the environment, connect to it before running any App Configur
 Connect-AzAccount -Environment "{Environment name}"
 ```
 
+### [Azure CLI](#tab/azure-cli)
+#### Azure CLI
+
+If you use Azure CLI, the audience can be configured by setting the `appconfig_auth_token_audience` endpoint property on a cloud definition using `az cloud register` or `az cloud update`.
+
+The following example demonstrates how to configure a custom cloud for Bleu with the App Configuration audience.
+
+```azurecli
+az cloud register --name <bleu-cloud-name> --cloud-config "{\"endpoints\":{\"resourceManager\":\"<bleu-resource-manager-endpoint>\",\"activeDirectory\":\"<bleu-active-directory-endpoint>\",\"activeDirectoryResourceId\":\"<bleu-active-directory-resource-id>\",\"appconfig_auth_token_audience\":\"https://appconfig.sovcloud-api.fr\"}}"
+```
+
+To update the current cloud:
+
+```azurecli
+az cloud update -n <bleu-cloud-name> --cloud-config "{\"endpoints\": {\"appconfig_auth_token_audience\": \"https://appconfig.sovcloud-api.fr\"}}"
+```
+
+After configuring the cloud, set it as the active cloud before running any App Configuration commands:
+
+```azurecli
+az cloud set --name <bleu-cloud-name>
+```
+
 ---
 
 ## Next steps

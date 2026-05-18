@@ -430,7 +430,7 @@ Azure Storage firewalls for virtual networks | Supported. | If you want to restr
 General-purpose V2 storage accounts (hot and cool tiers) | Supported. | Transaction costs increase substantially compared to general-purpose V1 storage accounts.
 Generation 2 (UEFI boot) | Supported.
 Managed shared disk| Supported. |
-Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. 
+Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. __This SKU supports only new replications. Disks must be PV2 from the enable time. Upgrading from PV1 to PV2 for an existing replication job isn't supported and requires re-enabling replication.__
 Ultra Disks | Supported. | Zonal Disaster Recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks can't be supported.
 Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.

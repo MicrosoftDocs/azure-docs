@@ -16,14 +16,14 @@ An Azure Batch job often requires setup before its tasks are executed, and post-
 
 As with other Batch tasks, you can specify a command line to invoke when a job preparation or release task runs. Job preparation and release tasks offer familiar Batch task features such as:
 
-- [Resource file download](/dotnet/api/microsoft.azure.batch.jobpreparationtask.resourcefiles).
+- [Resource file download](/dotnet/api/azure.compute.batch.batchjobpreparationtask.resourcefiles).
 - Elevated execution.
 - Custom environment variables.
 - Maximum execution duration.
 - Retry count.
 - File retention time.
 
-This article shows how to use the [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask) and [JobReleaseTask](/dotnet/api/microsoft.azure.batch.jobreleasetask) classes in the [Batch .NET](/dotnet/api/microsoft.azure.batch) library.
+This article shows how to use the [BatchJobPreparationTask](/dotnet/api/azure.compute.batch.batchjobpreparationtask) and [BatchJobReleaseTask](/dotnet/api/azure.compute.batch.batchjobreleasetask) classes in the [Azure.Compute.Batch](/dotnet/api/azure.compute.batch) library.
 
 > [!TIP]
 > Job preparation and release tasks are especially helpful in *shared pool* environments, in which a pool of compute nodes persists between job runs and is used by many jobs.
@@ -49,7 +49,7 @@ If the node restarts, the job preparation task runs again, but you can also disa
 The job preparation task runs only on nodes that are scheduled to run a task. This behavior prevents unnecessary runs on nodes that aren't assigned any tasks. Nodes might not be assigned any tasks when the number of job tasks is less than the number of nodes in the pool. This behavior also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks.
 
 > [!NOTE]
-> [JobPreparationTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) differs from [CloudPool.StartTask](/dotnet/api/microsoft.azure.batch.cloudpool.starttask) in that `JobPreparationTask` runs at the start of each job, whereas `StartTask` runs only when a compute node first joins a pool or restarts.
+> [BatchJobPreparationTask](/dotnet/api/azure.compute.batch.batchjobpreparationtask) differs from [BatchPool.StartTask](/dotnet/api/azure.compute.batch.batchpool.starttask) in that `BatchJobPreparationTask` runs at the start of each job, whereas `StartTask` runs only when a compute node first joins a pool or restarts.
 
 ## Job release task
 
@@ -60,45 +60,41 @@ Once you mark a job as completed, the job release task runs on each node in the 
 
 Job release tasks can run for a maximum of 15 minutes before the Batch service terminates them. For more information, see the [REST API reference documentation](/rest/api/batchservice/jobs/create-job).
 
-## Job preparation and release tasks with Batch .NET
+## Job preparation and release tasks with Azure.Compute.Batch
 
-To run a job preparation task, assign a [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask) object to your job's [CloudJob.JobPreparationTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) property. Similarly, to use a job release task, initialize a [JobReleaseTask](/dotnet/api/microsoft.azure.batch.jobreleasetask) and assign it to your job's [CloudJob.JobReleaseTask](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask).
+To run a job preparation task, assign a [BatchJobPreparationTask](/dotnet/api/azure.compute.batch.batchjobpreparationtask) object to your job's [BatchJobCreateOptions.JobPreparationTask](/dotnet/api/azure.compute.batch.batchjobcreateoptions) property. Similarly, to use a job release task, initialize a [BatchJobReleaseTask](/dotnet/api/azure.compute.batch.batchjobreleasetask) and assign it to your job's [BatchJobCreateOptions.JobReleaseTask](/dotnet/api/azure.compute.batch.batchjobcreateoptions) property.
 
-In the following code snippet, `myBatchClient` is an instance of [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient), and `myPool` is an existing pool within the Batch account.
+In the following code snippet, `myBatchClient` is an instance of [BatchClient](/dotnet/api/azure.compute.batch.batchclient), and `myPool` is an existing pool within the Batch account.
 
-```csharp
-// Create the CloudJob for CloudPool "myPool"
-CloudJob myJob =
-    myBatchClient.JobOperations.CreateJob(
-        "JobPrepReleaseSampleJob",
-        new PoolInformation() { PoolId = "myPool" });
-
+```C# Snippet:job_prep_release_create
 // Specify the command lines for the job preparation and release tasks
 string jobPrepCmdLine =
     "cmd /c echo %AZ_BATCH_NODE_ID% > %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
 string jobReleaseCmdLine =
     "cmd /c del %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
 
-// Assign the job preparation task to the job
-myJob.JobPreparationTask =
-    new JobPreparationTask { CommandLine = jobPrepCmdLine };
+// Build the job create content for BatchPool "myPool" with preparation and
+// release tasks attached.
+BatchJobCreateOptions jobContent = new BatchJobCreateOptions(
+    "JobPrepReleaseSampleJob",
+    new BatchPoolInfo { PoolId = "myPool" })
+{
+    JobPreparationTask = new BatchJobPreparationTask(jobPrepCmdLine),
+    JobReleaseTask = new BatchJobReleaseTask(jobReleaseCmdLine)
+};
 
-// Assign the job release task to the job
-myJob.JobReleaseTask =
-    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
-
-await myJob.CommitAsync();
+await myBatchClient.CreateJobAsync(jobContent);
 ```
 
-The job release task runs when a job is terminated or deleted. You terminate a job by using [JobOperations.TerminateJobAsync](/dotnet/api/microsoft.azure.batch.joboperations.terminatejobasync), and delete a job by using [JobOperations.DeleteJobAsync](/dotnet/api/microsoft.azure.batch.joboperations.deletejobasync). You typically terminate or delete a job when its tasks are completed, or when a timeout you define is reached.
+The job release task runs when a job is terminated or deleted. You terminate a job by using [BatchClient.TerminateJobAsync](/dotnet/api/azure.compute.batch.batchclient.terminatejobasync), and delete a job by using [BatchClient.DeleteJobAsync](/dotnet/api/azure.compute.batch.batchclient.deletejobasync). You typically terminate or delete a job when its tasks are completed, or when a timeout you define is reached.
 
-```csharp
+```C# Snippet:job_prep_release_terminate
 // Terminate the job to mark it as completed. Terminate initiates the
 // job release task on any node that ran job tasks. Note that the
 // job release task also runs when a job is deleted, so you don't
 // have to call Terminate if you delete jobs after task completion.
 
-await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
+await myBatchClient.TerminateJobAsync(WaitUntil.Completed, "JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub

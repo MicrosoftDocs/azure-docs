@@ -1,16 +1,17 @@
 ---
 title: Events FAQ for Azure Health Data Services
-description: Get answers to common questions about the events capability in the FHIR and DICOM services in Azure Health Data Services. Find out how events work, what types of events are supported, and how to subscribe to events by using Azure Event Grid.
+description: Get answers to common questions about Azure Health Data Services events for FHIR and DICOM services.
 services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: reference
-ms.date: 11/26/2024
+ms.date: 05/15/2026
 ms.author: chrupa
+ai-usage: ai-assisted
 ---
 
-# Events FAQ
+# Events FAQ for Azure Health Data Services
 
 Events let you subscribe to data changes in the FHIR&reg; or DICOM&reg; service and get notified through Azure Event Grid. You can use events to trigger workflows, automate tasks, send alerts, and more. In this FAQ, you find answers to some common questions about events.
 
@@ -73,7 +74,7 @@ Use the Event Grid filtering feature. There are unique identifiers in the event 
 
 **Can I use the same subscriber for multiple workspaces, FHIR accounts, or DICOM accounts?**
 
-Yes. We recommend that you use different subscribers for each FHIR or DICOM service to enable processing in isolated scopes.
+Yes. Use different subscribers for each FHIR or DICOM service to enable processing in isolated scopes.
 
 **Is the Event Grid compatible with HIPAA and HITRUST compliance requirements?**
 
@@ -81,12 +82,22 @@ Yes. Event Grid supports Health Insurance Portability and Accountability Act (HI
 
 **How long does it take to receive an events message?**
 
-On average, you should receive your events message within one second after a successful HTTP request. 99.99% of the event messages should be delivered within five seconds unless limitation of the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
+On average, you receive your events message within one second after a successful HTTP request. 99.99% of the event messages are delivered within five seconds unless limitation of the FHIR service, DICOM service, or [Event Grid](../../event-grid/quotas-limits.md) is reached.
 
 **Is it possible to receive duplicate events messages?**
 
-Yes. The Event Grid guarantees at least one event message delivery with its push mode. There may be cases when the event delivery request returns with a transient failure status code. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
+Yes. The Event Grid guarantees at least one event message delivery with its push mode. There might be cases when the event delivery request returns with a transient failure status code. In this situation, the Event Grid considers it a delivery failure and resends the events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
 
-Generally, we recommend developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate.
+Generally, ensure idempotency for the event subscriber. The event ID or the combination of all fields in the `data` property of the message content are unique for each event. You can rely on them to deduplicate.
+
+**How to avoid AHDS Events processing lag during periods of sustained high-volume write operations, such as large-scale import or bulk ingestion scenarios?**
+
+This behavior is due to the underlying event processing architecture, where event generation and delivery operate asynchronously from data ingestion. When ingestion throughput exceeds the event system’s processing capacity, a backlog can form, resulting in delayed event delivery. In observed cases, this delay can extend to multiple days and isn't mitigated solely through compute scaling.
+
+To ensure events remain aligned with data ingestion, consider the following approaches:
+
+- Throttle ingestion throughput to a rate that the event system can process in near real time.
+- Pause or stage bulk imports periodically to allow the event system to catch up.
+- Plan for eventual consistency in event delivery during high-volume workloads.
 
 [!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]
