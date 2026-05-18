@@ -97,7 +97,7 @@
         },
         {
             "source_path_from_root": "/articles/durable-task/quickstart-netherite.md",
-            "redirect_url": "/azure/azure-functions/durable-functions/quickstart-netherite",
+            "redirect_url": "/azure/durable-task/durable-functions/quickstart-netherite",
             "redirect_document_id": false
         },
         {
