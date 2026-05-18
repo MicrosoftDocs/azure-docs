@@ -3,14 +3,14 @@ title: Enable first-party application service principal for Azure VMware Solutio
 description: Learn about enabling first-party application service principal for Azure VMware Solution Generation 2 Private Clouds.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/21/2025
+ms.date: 4/22/2026
 #customer intent: As a cloud administrator, I want to enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds so that I can manage the Azure VMware Solution experiences.
 # Customer intent: As a cloud administrator, I want to enable the first-party application service principal for Azure VMware Solution Generation 2 private clouds so that I can effectively manage and deploy the cloud infrastructure.
 ---
 
 # Enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds
 
-In this article, you learn how to re-enable the Azure VMware Solution service principal. This service principal is required to be enabled to deploy the Azure VMware Solution Generation 2 (Gen 2) private clouds. If you're already familiar with how to enable service principal, re-enable the service principal for application ID '1a5e141d-70dd-4594-8442-9fc46fa48686' with name 'Avs Fleet Rp'.
+In this article, learn how to re-enable the Azure VMware Solution service principal. This service principal is required to be enabled to deploy the Azure VMware Solution Generation 2 (Gen 2) private clouds. If you're already familiar with how to enable service principal, re-enable the service principal for application ID '1a5e141d-70dd-4594-8442-9fc46fa48686' with name 'Avs Fleet Rp'.
 
 ## Prerequisite
  
@@ -20,19 +20,19 @@ You must have the permissions to edit applications in your Microsoft Entra ID te
 - Global Administrator
 
 > [!NOTE]
-> Roles must be assigned without conditions. Conditional role assignments are not supported for private cloud deployment.
+> Roles must be assigned without conditions. Conditional role assignments aren't supported for private cloud deployment.
 
 ## Enable first-party application service principal for Azure VMware Solution Gen 2 Private Clouds
 
-There are two options to enable the service principal for Azure VMware Solution. You can use either the **Microsoft Entra ID** portal or Azure PowerShell. The following sections describe both options.
+There are two options to enable the service principal for Azure VMware Solution. You can use the **Microsoft Entra ID** portal or Azure PowerShell. The following sections describe both options.
 
 ### Option 1: From the Portal  
 
 1. Select **Microsoft Entra ID**.  
 
-2. Search **Microsoft Entra ID** for the application ID ``1a5e141d-70dd-4594-8442-9fc46fa48686``. Select **'Avs Fleet Rp'**.  
+2. Search **Microsoft Entra ID** for the application ID ``1a5e141d-70dd-4594-8442-9fc46fa48686``. Select **Avs Fleet Rp**.  
 
-3. Enable the **'Avs Fleet Rp'** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**.   
+3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**.   
 
 4. Ensure you select **Save**.  
 
@@ -68,7 +68,7 @@ Azure VMware Solution Gen 2 relies on **two first-party applications** in Micros
 
 Both apps must be enabled for proper operation of the Azure VMware Solution control plane.  
 
-If customers **delete either application ID** (for example, during a tenant cleanup), they can recover functionality by re-enabling the applications on the same page in Microsoft Entra ID. Make sure that **both the Avs Fleet Rp and AzS VIS Prod App** are set to **Enabled for users to sign-in**.  
+If customers **delete either application ID** (for example, during a tenant cleanup), they can recover functionality by re-enabling the applications on the same page in Microsoft Entra ID. Ensure both the **Avs Fleet Rp** and **AzS VIS Prod App** are set to **Enabled** for users to sign-in.  
 
 To help customers quickly identify issues, we added an **error check** that validates the presence of both apps. If either app is missing or disabled, the error message clearly indicates the required fix and provides a link back to this documentation for guidance.  
 
@@ -77,7 +77,7 @@ To help customers quickly identify issues, we added an **error check** that vali
 
 ## Next steps
   
-- Review steps to [enable role assignments for your identifies if they are removed](native-role-assignment.md) 
+- Review steps to [enable role assignments for your identifies if they're removed](native-role-assignment.md) 
 
 - Follow a tutorial for [Creating an Azure VMware Gen 2 private cloud](native-create-azure-vmware-virtual-network-private-cloud.md)
 

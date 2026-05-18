@@ -1,8 +1,8 @@
 ---
 title: Transform data with map in data flow graphs
 description: Learn how to define map rules that rename, restructure, compute, and copy fields in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

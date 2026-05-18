@@ -2,8 +2,8 @@
 title: Deploy IoT Hub with ADR Integration and Certificate Management (Preview)
 titleSuffix: Azure IoT Hub
 description: Learn how to create an IoT Hub with ADR integration and Microsoft-backed X.509 certificate management.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
@@ -20,7 +20,7 @@ This article explains how to deploy IoT Hub with [Azure Device Registry (ADR)](i
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Ensure that you have the privilege to perform role assignments within your target scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 - Select a [supported region](iot-hub-what-is-new.md#supported-regions) to deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service.
 
