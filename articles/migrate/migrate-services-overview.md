@@ -34,7 +34,7 @@ For more information on migrating or modernizing multi-tier applications using A
 
 ## Azure Copilot migration agent 
 
-Azure Migrate also contains the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, review business case insights, and create or download customized landing zone templates. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Note that migration execution continues to be performed through the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
+Azure Migrate contains the Azure Copilot migration agent (preview), a planning-focused experience that helps you analyze and plan migrations using your Azure Migrate project data. The agent provides a conversational interface to explore discovered inventory, assess Azure readiness, compare migration strategies, review business case insights, and create or download customized landing zone templates. It complements Azure Migrate by helping you interpret discovery and assessment results and generate planning-level recommendations. Migration execution continues in the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
 
 ## Benefits of Azure Migrate 
 
