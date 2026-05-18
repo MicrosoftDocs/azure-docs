@@ -121,15 +121,12 @@ Follow these steps to delete an existing Azure Migrate project:
 
     :::image type="content" source="./media/quickstart-create-project/associated-resource-group.png" alt-text="Screenshot shows how to select associated resource group to delete a project." lightbox="./media/quickstart-create-project/associated-resource-group.png":::
 
-1. Select the **Associated resource** type checkbox. 
+1. Select the **Associated resource type** checkbox. 
 1. Select **Next** to delete the project.
 
 > [!NOTE]
 > - When you delete, both the project and the metadata about discovered servers are deleted.
 > - If you're using the older version of Azure Migrate, go to the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
-> - If you're using dependency analysis with an Azure Log Analytics workspace:
-    > - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
-    > - If you want to delete the Log Analytics workspace, do that manually.
 > - Project deletion is irreversible. Deleted objects can't be recovered.
 
 ## Next steps
