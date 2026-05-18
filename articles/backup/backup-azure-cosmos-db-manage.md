@@ -118,7 +118,7 @@ To stop protection and delete data for Azure Cosmos DB (preview) from the **Stop
 
    :::image type="content" source="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-inline.png" alt-text="Screenshot showing the options for backup instance retention to be selected." lightbox="./media/manage-azure-managed-disks/confirm-stopping-disk-backup-expanded.png":::
 
-### Resume Protection
+## Resume Protection for Azure Cosmos DB
 
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your servers. When you resume protection for a backup instance, the existing backup policy applies only to new recovery points. Azure Backup cleans up existing recovery points that exceed their originally configured retention, based on the backup policy active at the time of creation.
 
