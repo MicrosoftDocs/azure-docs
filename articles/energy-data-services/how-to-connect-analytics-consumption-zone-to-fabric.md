@@ -3,7 +3,7 @@ title: How to connect ACZ data to Microsoft Fabric - Azure Data Manager for Ener
 description: Learn how to connect ACZ data in ADLS Gen2 to Microsoft Fabric by using OneLake shortcuts for analytics and reporting.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 5/11/2026
+ms.date: 05/17/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 

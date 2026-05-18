@@ -5,7 +5,7 @@ author: nsannala
 ms.author: nsannala
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 5/11/2026
+ms.date: 05/17/2026
 ms.custom: template-how-to-pattern
 ---
 

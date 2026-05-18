@@ -3,7 +3,7 @@ title: Analytics Consumption Zone concepts in Azure Data Manager for Energy
 description: Learn about the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ mirrors Azure Data Manager for Energy data to Azure Data Lake Storage.
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
-ms.date: 05/12/2026
+ms.date: 05/17/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 

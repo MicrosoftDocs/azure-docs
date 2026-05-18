@@ -3,7 +3,7 @@ title: 'Tutorial: Use Analytics Consumption Zone (ACZ) APIs in Azure Data Manage
 description: Learn how to use the ACZ APIs to create, list, get details of, and delete Analytics Consumption Zones in Azure Data Manager for Energy.
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 05/12/2026
+ms.date: 05/17/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 

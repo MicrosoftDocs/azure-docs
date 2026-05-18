@@ -3,7 +3,7 @@ title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager 
 description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure user-assigned managed identity, storage, and permissions for ACZ.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 05/17/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
