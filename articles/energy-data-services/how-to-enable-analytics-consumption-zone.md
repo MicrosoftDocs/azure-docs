@@ -24,7 +24,7 @@ This article explains how to enable the Analytics Consumption Zone (ACZ) capabil
 
 ## Setup overview
 
-The setup configures a managed identity that enables ACZ to access ADME data and write to ADLS Gen2.
+The setup configures a managed identity that enables ACZ to access Azure Data Manager for Energy (ADME) data and write to ADLS Gen2.
 
 Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
@@ -231,7 +231,7 @@ As an alternative to the manual commands, you can download and run an automated 
 
 **Prerequisites:**
 - Azure CLI installed and authenticated (`az login`)
-- Bash shell (Linux, macOS, WSL, or Git Bash)
+- Bash shell (Linux, macOS, Windows Subsystem for Linux (WSL), or Git Bash)
 
 **Script:**
 
@@ -268,7 +268,7 @@ LOCATION=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroup
 AUTH_APP_ID=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query properties.authAppId -o tsv | tr -d '\r')
 DATA_PARTITION_NAME=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'properties.dataPartitionNames[0].name' -o tsv | tr -d '\r')
 
-# Get managed identity resource ID (search in same resource group as ADME)
+# Get managed identity resource ID (search in same resource group as Azure Data Manager for Energy)
 MI_ID=$(az identity list --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
 
 if [ -z "$MI_ID" ]; then
@@ -385,7 +385,7 @@ $location = $adme.location
 $authAppId = $adme.properties.authAppId
 $dataPartitionName = $adme.properties.dataPartitionNames[0].name
 
-# Get managed identity (search in same resource group as ADME)
+# Get managed identity (search in same resource group as Azure Data Manager for Energy)
 $mi = az identity list --resource-group $resourceGroup --subscription $SubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
 if (-not $mi) {
     Write-Host "Error: Managed identity '$ManagedIdentityName' not found in resource group '$resourceGroup'" -ForegroundColor Red
