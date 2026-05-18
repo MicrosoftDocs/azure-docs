@@ -92,6 +92,8 @@ Use the Azure Management API to update your Azure Data Manager for Energy resour
 > ```
 > Then include all returned identity resource identifiers along with your new ACZ identity in the following `userAssignedIdentities` object.
 
+### [Bash](#tab/bash)
+
 ```bash
 # Get Azure Resource Manager token
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv)
@@ -119,6 +121,40 @@ curl --request PUT \
     }
   }'
 ```
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Get Azure Resource Manager token
+$token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
+
+# Build request body
+$body = @{
+    location = "{location}"
+    properties = @{
+        authAppId = "{auth-app-id}"
+        dataPartitionNames = @(
+            @{ name = "{data-partition-name}" }
+        )
+    }
+    identity = @{
+        type = "UserAssigned"
+        userAssignedIdentities = @{
+            "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}" = @{}
+        }
+    }
+} | ConvertTo-Json -Depth 10
+
+# Update Azure Data Manager for Energy instance with managed identity
+$uri = "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview"
+
+Invoke-RestMethod -Uri $uri -Method Put -Headers @{
+    "Authorization" = "Bearer $token"
+    "Content-Type" = "application/json"
+} -Body $body
+```
+
+---
 
 **Replace the placeholders:**
 
@@ -164,12 +200,25 @@ If you're not already a member of the users entitlement group, have an Azure Dat
 
 **To verify you have access**, use the Entitlements Service API to check your membership:
 
+### [Bash](#tab/bash)
+
 ```bash
 curl --request GET \
   --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
   --header 'Authorization: Bearer {access_token}' \
   --header 'data-partition-id: {data-partition-id}'
 ```
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members" -Method Get -Headers @{
+    "Authorization" = "Bearer {access_token}"
+    "data-partition-id" = "{data-partition-id}"
+}
+```
+
+---
 
 **Replace the placeholders:**
 
@@ -238,7 +287,7 @@ After completing the enablement steps, you can create one or more ACZs to sync y
 
 Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
-The following example uses cURL:
+### [Bash](#tab/bash)
 
 ```bash
 curl --request POST \
@@ -262,6 +311,36 @@ curl --request POST \
     }
   }'
 ```
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Build request body
+$body = @{
+    name = "my-first-acz"
+    sink = @{
+        storageId = "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}"
+    }
+    configuration = @{
+        catalogKinds = @(
+            "osdu:wks:master-data--Well:*",
+            "osdu:wks:reference-data--UnitOfMeasure:*"
+        )
+        wellboreDDMSKinds = @(
+            "osdu:wks:work-product-component--WellLog:*"
+        )
+    }
+} | ConvertTo-Json -Depth 10
+
+# Create ACZ
+Invoke-RestMethod -Uri "https://{base_url}/api/acz/v1/aczs" -Method Post -Headers @{
+    "Authorization" = "Bearer {access_token}"
+    "Content-Type" = "application/json"
+    "data-partition-id" = "{data_partition_id}"
+} -Body $body
+```
+
+---
 
 **Replace the placeholders:**
 
