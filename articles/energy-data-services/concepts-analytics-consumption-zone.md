@@ -39,7 +39,7 @@ Key characteristics of ACZ:
 
 This diagram shows the ACZ data flow:
 
-:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-architecture.png" alt-text="Diagram showing ACZ data flow from Azure Data Manager for Energy OSDU platform through ACZ sync to customer ADLS Gen2 storage, then to downstream analytics tools like Microsoft Fabric, Azure Databricks, and Power BI.":::
+:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-architecture.png" alt-text="Diagram of data flow from Azure Data Manager for Energy to Azure Data Lake Storage, then to analytics tools such as Microsoft Fabric, Azure Databricks, and Power BI.":::
 
 ## How ACZ works
 
@@ -118,7 +118,7 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 
 #### Folder layout
 
-:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-folder-structure.png" alt-text="Diagram showing ADLS Gen2 folder structure for ACZ with container/acz-id root, osducatalog folder with Delta log and kind partitions containing parquet files, and DDMS entity type folders with record-specific parquet files.":::
+:::image type="content" source="media/concepts-analytics-consumption-zone/analytics-consumption-zone-folder-structure.png" alt-text="Diagram of folder structure in Azure Data Lake Storage. Shows container root with catalog and entity type folders.":::
 
 #### Key details
 
