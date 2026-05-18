@@ -13,7 +13,7 @@ summary: |
   Find answers to frequently asked questions about Azure Container Apps express.
 
   > [!IMPORTANT]
-  > Azure Container Apps express is currently in **public preview**. Preview features are provided without an SLA and are not recommended for production workloads. Some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  > Azure Container Apps express is currently in **public preview**. Preview features are provided without an Service Level Agreements (SLA) and aren't recommended for production workloads. Some features may not be supported or may have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 sections:
   - name: General
@@ -29,7 +29,7 @@ sections:
           Azure Container Apps requires you to create and configure a managed environment before deploying apps. Express eliminates that step entirely. Key differences include:
 
           - **Provisioning**: Express apps are running in seconds, not minutes.
-          - **Cold starts**: Express delivers sub-second scale-from-zero startup times.
+          - **Cold starts**: Express delivers subsecond scale-from-zero startup times.
           - **Configuration**: Express provides production-ready defaults with no infrastructure decisions required.
           - **Environments**: Express environments are fully managed and shared, so you don't provision or configure the underlying infrastructure.
 
@@ -38,12 +38,12 @@ sections:
       - question: |
           If express is meant to simplify Azure Container Apps, why does the environment construct still exist?
         answer: |
-          In express, the environment's role has shifted. It's now a lightweight, fully managed grouping for your apps, closer to an *app group* than an infrastructure boundary. Setup time shrinks to nearly zero.
+          In express, the environment's role is different. It's now a lightweight, fully managed grouping for your apps, closer to an *app group* than an infrastructure boundary. Setup time shrinks to nearly zero.
 
-          It's preserved in express for a few reasons:
+          Express preserves it for a few reasons:
 
-          - **Consistency**: Existing IaC, SDKs, and CLI commands continue to work unchanged.
-          - **Future features**: Some upcoming capabilities will bind apps in an environment together (for example, VNet attachment).
+          - **Consistency**: Existing IaC, Software Development Kits (SDKs), and CLI commands continue to work unchanged.
+          - **Future features**: Some upcoming capabilities bind apps in an environment together (for example, VNet attachment).
           - **Smooth path between tiers**: A shared model makes it easier to move between express and standard Azure Container Apps.
 
       - question: |
@@ -52,12 +52,12 @@ sections:
           Express is purpose-built for two audiences:
 
           - **Developers who want to ship fast**: SaaS apps, APIs, web dashboards, prototypes, and startups that go from idea to production in minutes.
-          - **Agents that deploy on demand**: MCP servers, tool-use endpoints, multi-step workflow APIs, and human-in-the-loop UIs that need instant provisioning and teardown.
+          - **Agents that deploy on demand**: Model Context Protocol (MCP) servers, tool-use endpoints, multi-step workflow APIs, and human-in-the-loop UIs that need instant provisioning and teardown.
 
       - question: |
           What is the relationship between express and Azure Container Apps Sandboxes?
         answer: |
-          Under the hood, express is built entirely on [Azure Container Apps Sandboxes](https://aka.ms/aca/sandboxes-blog), a foundational platform primitive that delivers sub-second startup from prewarmed pools, strong isolation, and massive scale-out. You don't need to understand Sandboxes to use express. Express is the opinionated, developer-friendly experience built on top of Sandboxes.
+          Under the hood, express is built entirely on [Azure Container Apps Sandboxes](https://aka.ms/aca/sandboxes-blog), a foundational platform primitive that delivers subsecond startup from prewarmed pools, strong isolation, and massive scale-out. You don't need to understand Sandboxes to use express. Express is the opinionated, developer-friendly experience built on top of Sandboxes.
 
   - name: Getting started
     questions:
@@ -70,15 +70,15 @@ sections:
 
           ```azurecli
           az containerapp env create \
-            --name my-express-env \
-            --resource-group MyResourceGroup \
+            --name <ENVIRONMENT_NAME> \
+            --resource-group <RESOURCE_GROUP_NAME> \
             --environment-mode express \
             --logs-destination none
 
           az containerapp create \
-            --name my-app \
-            --resource-group MyResourceGroup \
-            --environment my-express-env \
+            --name <APP_NAME> \
+            --resource-group <RESOURCE_GROUP_NAME> \
+            --environment <ENVIRONMENT_NAME> \
             --image docker.io/nginx \
             --target-port 80 \
             --ingress external \
@@ -96,12 +96,12 @@ sections:
       - question: |
           What identity and account requirements are needed to use express?
         answer: |
-          Express requires a Microsoft Entra ID-backed account. Personal Microsoft accounts and non-Entra-backed accounts are not supported. Your subscription must also be registered for the Azure Container Apps resource provider. If you encounter a `tenant_not_allowed` error when accessing the portal, verify that your account is backed by a Microsoft Entra tenant.
+          Express requires a Microsoft Entra ID-backed account. Personal Microsoft accounts and non-Entra-backed accounts aren't supported. Your subscription must also be registered for the Azure Container Apps resource provider. If you encounter a `tenant_not_allowed` error when accessing the portal, verify that your account is backed by a Microsoft Entra tenant.
 
       - question: |
           Can I use both the Azure CLI and the portal to manage express apps?
         answer: |
-          Yes. Express apps can be created and managed through both the Azure CLI (using `az containerapp env create --environment-mode express` and `az containerapp create`) and the new Azure Container Apps portal at [containerapps.azure.com](https://containerapps.azure.com/).
+          Yes. You can create express apps through both the [Azure CLI](./deploy-express-cli.md) and the Azure Container Apps portal at [containerapps.azure.com](https://containerapps.azure.com/).
 
   - name: Features and capabilities
     questions:
@@ -122,7 +122,7 @@ sections:
           For the most current list of supported features, see the [express documentation](https://aka.ms/aca/express).
 
       - question: |
-          What features are not yet available in express?
+          What features aren't yet available in express?
         answer: |
           Express is in public preview with a meaningful feature gap compared to Azure Container Apps. Features not yet available include:
 
@@ -155,28 +155,28 @@ sections:
       - question: |
           Why can't I create an express environment in my preferred region?
         answer: |
-          During public preview, express is available in a specific set of regions. The portal and CLI may display regions where express is not yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't yet supported. Region availability is expanding as the preview progresses.
+          During public preview, express is available in a specific set of regions. The portal and CLI may display regions where express isn't yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't yet supported. Region availability is expanding as the preview progresses.
 
   - name: Pricing and billing
     questions:
       - question: |
           How is express billed?
         answer: |
-          Express uses the existing Azure Container Apps consumption pricing model: per-second vCPU and memory billing with scale-to-zero. There is no environment provisioning fee. You benefit from the same free grant that applies to consumption workloads today. Express is the most cost-effective way to run web applications and APIs on Azure Container Apps. For detailed pricing, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/).
+          Express uses the existing Azure Container Apps consumption pricing model: per-second vCPU and memory billing with scale-to-zero. There's no environment provisioning fee. You benefit from the same free grant that applies to consumption workloads today. Express is the most cost-effective way to run web applications and APIs on Azure Container Apps. For detailed pricing, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/).
 
       - question: |
           Is there a free tier for express?
         answer: |
-          Yes. Express includes the same generous free grant that applies to Azure Container Apps consumption workloads. You are not charged until your usage exceeds the free grant thresholds. Combined with scale-to-zero, express ensures you only pay for what you use.
+          Yes. Express includes the same generous free grant that applies to Azure Container Apps consumption workloads. You aren't charged until your usage exceeds the free grant thresholds. Combined with scale-to-zero, express ensures you only pay for what you use.
 
   - name: Migration
     questions:
       - question: |
-          Will my existing Azure Container Apps environments be automatically migrated to express?
+          Do my existing Azure Container Apps environments automatically migrate to express?
         answer: |
           Some existing environments may be eligible for migration to express. Migration is performed in phases, starting with environments that are inactive, empty (no running apps or jobs), and belong to subscriptions with low Azure Container Apps usage. The criteria are designed to minimize disruption.
 
-          If your environment is selected for migration, you will receive a notification in advance with details about the timeline and any action required. You will also be able to opt-out of any migration.
+          If your environment is selected for migration, you aren'tified in advance with details about the timeline and any action required. You can to opt-out of any migration if you choose.
 
       - question: |
           What criteria are used to select environments for migration?
@@ -187,7 +187,7 @@ sections:
           - **Feature usage**: Environments that don't use advanced features (such as VNet integration, Dapr, dedicated workload profiles, or session pools) are considered first.
           - **Subscription with low usage**: Low-usage subscriptions are migrated before high-usage ones to minimize revenue risk.
 
-          Environments that use advanced features not yet available in express, or that belong to high-usage subscriptions, are not auto-migrated.
+          Environments that use advanced features not yet available in express, or that belong to high-usage subscriptions, aren't auto-migrated.
 
       - question: |
           What is environment archiving?
@@ -197,24 +197,24 @@ sections:
       - question: |
           Can I self-migrate my environment to express?
         answer: |
-          Yes. Self-migration is available so you can move to express on your own terms without contacting support. You can use the archive and restore mechanism to migrate your environment: archive your existing environment, then restore it as an express environment. This gives you full control over the migration process and timing.
+          Yes. Self-migration is available so you can move to express on your own terms without contacting support. You can use the archive and restore mechanism to migrate your environment: archive your existing environment, then restore it as an express environment. This process gives you full control over the migration process and timing.
 
       - question: |
           Can I opt out of automatic migration?
         answer: |
-          If you receive a migration notification and your environment relies on features not yet available in express, or if migration would disrupt your workloads, you can reach out to Azure support to discuss your options. Environments using advanced features that are not supported in express are not auto-migrated. You also have the option to self-migrate at a time that works for you using the archive and restore workflow.
+          If you receive a migration notification and your environment relies on features not yet available in express, or if migration would disrupt your workloads, you can reach out to Azure support to discuss your options. Environments using advanced features that aren't supported in express aren't auto-migrated. You also have the option to self-migrate at a time that works for you using the archive and restore workflow.
 
       - question: |
           Will I lose any functionality if my environment is migrated to express?
         answer: |
-          Automatic migration is only performed for environments where express supports all the features currently in use. If your environment uses advanced features such as VNet integration, Dapr, dedicated workload profiles, or custom domains that are not yet available in express, it will not be selected for automatic migration.
+          Automatic migration is only performed for environments where express supports all the features currently in use. If your environment uses features not available in express, such as VNet integration, Dapr, dedicated workload profiles, or custom domains, the app isn't a candidate for automatic migration.
 
           If you self-migrate using archive and restore, review the express feature support matrix to confirm that all features your application depends on are available before proceeding.
 
       - question: |
           What happens to my apps and data during migration?
         answer: |
-          During migration, your applications will experience up to 15 minutes of downtime. The migration process is designed to be transparent and without data loss. You will receive advance notification before any automatic migration takes place. If you self-migrate using archive and restore, you control the process and timing directly.
+          During migration, expect up to 15 minutes of downtime. The migration process is designed to be transparent and without data loss. You'll receive advance notification before any automatic migration takes place. If you self-migrate using archive and restore, you control the process and timing directly.
 
   - name: Production readiness
     questions:
@@ -226,7 +226,7 @@ sections:
       - question: |
           Does express have an SLA?
         answer: |
-          Express is in public preview and does not currently have an SLA. SLA commitments will be defined as express moves toward General Availability. For workloads that require an SLA today, use Azure Container Apps with workload profiles.
+          Express is in public preview and doesn't currently have an SLA. SLA commitments are emerging as express moves toward General Availability. For workloads that require an SLA today, use Azure Container Apps with workload profiles.
 
       - question: |
           How do I provide feedback or report issues?
