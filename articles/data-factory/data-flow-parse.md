@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.topic: concept-article
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Parse transformation in mapping data flow
@@ -13,6 +13,9 @@ ms.date: 05/15/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Parse**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the Parse transformation to parse text columns in your data that are strings in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
 

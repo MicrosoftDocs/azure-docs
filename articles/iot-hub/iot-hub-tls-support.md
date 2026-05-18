@@ -2,11 +2,11 @@
  title: Azure IoT Hub TLS support
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
- author: cwatson-cat
+ author: sethmanheim
  ms.service: azure-iot-hub
  ms.topic: how-to
  ms.date: 06/05/2025
- ms.author: cwatson
+ ms.author: sethm
  ms.custom: references_regions
 ---
 
@@ -21,7 +21,7 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 
 > [!IMPORTANT]
->  It’s important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. TLS 1.2 is supported on all IoT Hubs, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites).
+>  It's important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. TLS 1.2 is supported on all IoT Hubs, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites).
 > > Currently, TLS 1.2 enforcement is supported only in public cloud regions.
 > 
 > To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#checking-tls-versions-and-cipher-suites-for-iot-hub-devices).
@@ -161,7 +161,7 @@ Azure IoT Hub provides the capability to check the TLS version, cipher suites, a
 
 ### Checking TLS versions and cipher suites using IoT Hub metrics
 
-If you want to validate that device traffic to IoT Hub is utilizing TLSv1.2 and strong cipher suites, you can check IoT Hub’s metrics. This allows you to filter by TLS version or cipher suite and check the number of successful connections. 
+If you want to validate that device traffic to IoT Hub is utilizing TLSv1.2 and strong cipher suites, you can check IoT Hub's metrics. This allows you to filter by TLS version or cipher suite and check the number of successful connections. 
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 1. In the left-side menu under **Monitoring**,  select **Metrics**.

@@ -11,7 +11,7 @@ ms.custom: networking, private-link, nsp
 
 # Configure network security for Microsoft Discovery workspaces
 
-This article walks you through the prerequisites for network hardening and how to create private endpoints for Microsoft Discovery workspaces and bookshelves. Network hardening is enabled by default — the Discovery control plane automatically deploys Network Security Perimeters, private endpoints, and virtual network injection for managed resources. For an overview of what these features are and why they matter, see [Network security for Microsoft Discovery](concept-network-security.md).
+This article walks you through the prerequisites for network hardening and how to create private endpoints for Microsoft Discovery workspaces and bookshelves. Network hardening is enabled by default - the Discovery control plane automatically deploys Network Security Perimeters, private endpoints, and virtual network injection for managed resources. For an overview of what these features are and why they matter, see [Network security for Microsoft Discovery](concept-network-security.md).
 
 ## Prerequisites
 
@@ -28,16 +28,16 @@ This article walks you through the prerequisites for network hardening and how t
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **AIFSPInfrastructure** service principal.
+The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **Discovery control-plane service App** service principal.
 
 ### Verify the service principal
 
-The Discovery first-party app (**AIFSPInfrastructure**) has the following identity:
+The Discovery first-party app (**Discovery control-plane service App**) has the following identity:
 
 | Property | Value |
 |----------|-------|
 | **Application (client) ID** | `92c174ac-8e41-4815-a1b7-d81b19ab03ce` |
-| **Display name** | AIFSPInfrastructure |
+| **Display name** | Discovery control-plane service App |
 
 Verify the service principal exists in your tenant:
 
@@ -54,7 +54,7 @@ az ad sp show --id 92c174ac-8e41-4815-a1b7-d81b19ab03ce \
 
 ### Create the custom role definition
 
-Create a file named `nsp-perimeter-joiner-role.json`:
+Create a file named `nsp-perimeter-joiner-role.json`. Replace `<your-subscription-id>` with your Azure subscription ID.
 
 ```json
 {
@@ -73,8 +73,6 @@ Create a file named `nsp-perimeter-joiner-role.json`:
 }
 ```
 
-Replace `<your-subscription-id>` with your Azure subscription ID.
-
 > [!TIP]
 > Azure subscriptions have a limit on the number of custom roles. If you've reached the limit, delete any unused custom roles before creating the Discovery NSP Perimeter Joiner role. Check existing custom roles with `az role definition list --custom-role-only`.
 
@@ -83,6 +81,9 @@ Replace `<your-subscription-id>` with your Azure subscription ID.
 ```azurecli
 az role definition create --role-definition nsp-perimeter-joiner-role.json
 ```
+
+> [!NOTE]
+> If role definition creation fails with the error "A custom role with the same name already exists in this directory," it means someone in your tenant has already created this role. Work with them to add your subscription to the role's assignable scopes by appending `/subscriptions/<your-subscription-id>` (replace with your subscription ID) to the `AssignableScopes` of the existing custom role.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -133,7 +134,7 @@ New-AzRoleAssignment `
 2. Select **Access control (IAM)** > **+ Add** > **Add role assignment**.
 3. Search for **Discovery NSP Perimeter Joiner** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `AIFSPInfrastructure` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -186,7 +187,7 @@ New-AzRoleAssignment `
 2. Select **+ Add** > **Add role assignment**.
 3. Search for **Reader** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `AIFSPInfrastructure` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -201,7 +202,7 @@ Workspaces and bookshelves require dedicated subnets for their managed resources
 | **Bookshelf** | `searchSubnet`, `privateEndpointSubnet` | `Microsoft.App/environments` on search subnet |
 
 > [!IMPORTANT]
-> **Subnets can't be reused across workspaces or bookshelves.** Each workspace and each bookshelf requires its own unique, non-overlapping subnets. This is an Azure Container Apps (ACA) restriction — each delegated subnet can only be associated with a single Container Apps Environment. Plan your virtual network address space accordingly when deploying multiple resources.
+> **Subnets can't be reused across workspaces or bookshelves.** Each workspace and each bookshelf requires its own unique, non-overlapping subnets. This is an Azure Container Apps (ACA) restriction - each delegated subnet can only be associated with a single Container Apps Environment. Plan your virtual network address space accordingly when deploying multiple resources.
 
 ## Create private endpoints for data-plane access
 
@@ -464,7 +465,7 @@ If DNS queries return a public IP instead of your private endpoint IP:
 
 ## Next steps
 
-- [Network security for Microsoft Discovery](concept-network-security.md) — Understand the architecture, supported resource types, and limitations.
+- [Network security for Microsoft Discovery](concept-network-security.md) - Understand the architecture, supported resource types, and limitations.
 - [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md)
 - [What is Azure Private Link?](/azure/private-link/private-link-overview)
 

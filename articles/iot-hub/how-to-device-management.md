@@ -2,8 +2,8 @@
 title: Device management using direct methods
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods for device management tasks including invoking a remote device reboot.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp

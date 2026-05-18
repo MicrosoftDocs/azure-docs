@@ -6,137 +6,90 @@ author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-virtual-network
 ms.topic: faq
-ms.date: 03/17/2026
+ms.date: 04/07/2026
 # Customer intent: As a network administrator using Network Virtual Appliances, I want to understand how MANA affects my NVA deployments and how to apply Azure Policy to manage the transition.
 ---
 
 # MANA support for Network Virtual Appliances (NVAs)
 
+As Azure expands [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) support to [existing VM series](./accelerated-networking-mana-existing-sizes.md), Network Virtual Appliances (NVAs) running on those VM series may be placed on MANA-capable hardware. Existing VM series are supported on Microsoft Azure Network Adapter (MANA) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
+
+Newer VM series are built and optimized with MANA in mind and are designed to take full advantage of its performance, reliability, and resiliency improvements. For this reason, it is recommended to use newer VM sizes for the most optimal networking experience.
+
+While most workloads transition to MANA-capable hardware without issue, NVA workloads are uniquely impacted due to their direct dependency on the underlying network hardware and drivers. 
+
+## Compatibility
+Your NVA VMs running on [existing VM series](./accelerated-networking-mana-existing-sizes.md) must meet the one of following requirements. For DPDK-based workloads, see the [DPDK guidance](./setup-dpdk-mana.md) for more information.
+
+1. **Use a compatible VM series and/or operating system**:
+    <br>To check whether your configuration is supported, see [MANA support for existing VM series](./accelerated-networking-mana-existing-sizes.md).
+
+2. **Confirm MANA support with your NVA vendor**
+   <br>Ensure that your NVA solution explicitly supports MANA.
+
+## Temporary MANA Exception with `LegacyVMNVA`
+You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑enabled hardware. This tag prevents NVA VMs and Virtual Machine Scale Sets from landing on MANA hardware while you complete your migration. Follow the steps below to apply the tag.
+
 > [!IMPORTANT]
-> For timelines pertaining to VM families running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
+> The `LegacyVMNVA` tag must be applied before August 1, 2026. VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
 
-The following content is for customers using Network Virtual Appliances (NVAs) that utilize existing VM sizes.
+1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
+     - This will automatically apply the tag across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
+     - It will scope tag application to specific NVA publishers and associated product IDs available in the Azure Marketplace.
+     - Applying this policy has no cost implications for your subscription.
 
-Per the [announcement](https://aka.ms/announcemanasupportforexistingvms), General Purpose Compute VMs can be deployed on compute hardware equipped with the [Microsoft Azure Network Adapter (MANA)](/azure/virtual-network/accelerated-networking-mana-overview). MANA was introduced in February 2025 with the Intel v6 family of sizes as part of Azure Boost. MANA is an Azure optimized, performance-focused, Accelerated Networking device that is an integral part of the newest Azure Boost offerings.
+2. Choose the appropriate scope for the Azure Policy:
+   
+    | Scope level | Applies to |
+    |---|---|
+    | Root Management Group | Entire Azure Tenant (all subscriptions) |
+    | Management Group | Multiple subscriptions |
+    | Subscription | All resource groups and resources in the subscription |
+    | Resource Group | Resources in that resource group |
+    | Resource | Single resource |
 
-As described in [Microsoft Azure Network Adapter (MANA) support for existing VM Sizes](./accelerated-networking-mana-existing-sizes.md), Network Virtual Appliances (NVAs) may also be deployed on MANA-capable hardware.
+   Microsoft recommends applying policy enforcement gradually, following your organization's safe rollout strategies. Azure Policy supports safe rollout primitives that let you incrementally roll out enforcement by region and resource type. For a detailed breakdown of available mechanisms, see [Azure Policy Safe Deployment Practices](../governance/policy/how-to/policy-safe-deployment-practices.md).
 
-For optimal Accelerated Networking performance, the Virtual Machine (VM) should use an operating system that fully supports NVIDIA `ConnectX-3`, `ConnectX-4 Lx`, `ConnectX-5`, **and** MANA.
+4. Enable **Automatically enroll in minor version changes** to ensure minor revisions are applied automatically. Alternatively, assign the policy using version `1.*.*`.
 
-When a VM or NVA using an operating system that doesn't support MANA is deployed on MANA hardware, it falls back to the NetVSC network adapter. In this scenario, the MANA Virtual Function (VF) is visible, but no network interfaces are exposed by the MANA driver. Accelerated Networking performance for a VM falling back to the NetVSC network adapter is expected to be close to SR-IOV/VF mode NVIDIA `ConnectX-3`, `ConnectX-4 Lx`, `ConnectX-5`. A high number of concurrent connections can cause performance degradation. VMs and NVAs that use DPDK also revert to using NetVSC if the underlying OS doesn't meet the requirements. For more information, see [Microsoft Azure Network Adapter (MANA) and DPDK on Linux](./setup-dpdk-mana.md).
+5. Activate the tag by performing a "stop deallocate and start" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
 
-While Microsoft has performed extensive testing across a wide range of use cases, there remains a possibility that virtual machines may experience intermittent connectivity or degraded performance.
+## Network performance for incompatible VMs
+If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, networking automatically falls back to the NetVSC network adapter. In this scenario:
+- The MANA Virtual Function (VF) may be visible, but no interfaces are exposed by the MANA driver.
+- Performance is expected to be comparable to SR‑IOV-based `ConnectX‑3`, `ConnectX‑4 Lx`, and `ConnectX‑5` devices.
+- Workloads with a high number of concurrent connections may see reduced performance.
 
-For best performance and overall experience, we recommend migrating to the latest generation of VMs. At a minimum, ensure your operating systems fully support MANA.
+> [!NOTE] 
+> While Azure performs extensive testing across a wide range of use cases, virtual machines may still experience rare intermittent connectivity or degraded performance. In such cases, it's highly recommended to migrate to the latest generation of VMs or at a minimum, utilize an operating system that's compatible with MANA.
+
+## Special tag deployment scenarios
+
+### NVAs acquired outside of Azure Marketplace
+
+If your NVA was acquired directly from your NVA provider rather than through the Azure Marketplace, work with your provider directly to determine whether changes are required to your deployment templates or mechanisms to ensure the `LegacyVMNVA` tag is applied to both existing and new deployments.
+
+### Managed Service NVAs
+
+This change also affects NVAs provided through a managed service. Work with your managed service provider to understand their plans and processes for applying the `LegacyVMNVA` tag to your resources.
 
 ## FAQ
+### How can I verify that the `LegacyVMNVA` tag has been applied?
+The `LegacyVMNVA` tag is visible in the Azure portal for both IaaS VMs and VM Scale Set scenarios. Azure Policy also collects and aggregates compliance data so you can track which resources are *compliant* (tag applied) versus *noncompliant* (tag not yet applied). This compliance report is available in the Azure portal under the **Policy** tab. You can also verify tag presence using Azure CLI.
 
-### How do I know if my NVA supports MANA?
+### Can I edit the `LegacyVMNVA` policy?
+The built-in policy can't be edited directly. Microsoft recommends assigning it as-is to minimize management overhead and ensure you receive all policy revisions and updates automatically. If further customization is needed, the policy can be duplicated and modified before assignment.
 
-Reach out to your NVA provider to determine if the NVA supports MANA.
+### How can I exclude specific resources or scopes from policy enforcement?
+You can use Azure Policy exemption capabilities. For more information, [Azure Policy exemption structure](../governance/policy/concepts/exemption-structure.md).
 
-### How do I determine if my NVA is deployed on MANA hardware?
+### How can I roll back the `LegacyVMNVA` policy assignment?
+To roll back the policy assignment, delete the policy assignment. For a more gradual rollback, update the policy resource selector to incrementally remove regions. If the `LegacyVMNVA` tag is present on applied to existing VMs, delete the tag using your Azure client of choice and redeploy the VMs.
 
-To determine if your NVA VM is deployed on MANA, follow the instructions in [Linux VMs with the Microsoft Azure Network Adapter](./accelerated-networking-mana-linux.md).
-
-### Is any action needed if the NVA or underlying OS supports MANA?
-
-No action is required if the NVA or the underlying OS already supports MANA.
-
-### What if additional time is needed to migrate to an NVA that fully supports MANA?
-
-You can apply a tag to Network Virtual Appliances (NVAs), VMs, and Virtual Machine Scale Sets for MANA support. This tag provides a temporary reprieve and allows time to migrate to an NVA or operating system that fully supports MANA.
-
-### What if the NVA is acquired directly from the NVA provider and not through the Azure Marketplace?
-
-Work with your NVA provider directly to determine if any changes are required in the deployment templates or mechanisms to ensure the tag is applied to existing and new deployments.
-
-### Are Managed Service NVAs affected by this change?
-
-Yes. NVAs provided through a managed service are also impacted by this change. Work with the managed service provider to determine their plans and processes for applying the policy.
-
-### How long will the tag be usable?
-
-The tag will be usable until the end of September 2026. After this time, the systems will be updated to ignore the tag, allowing the NVAs to be deployed on MANA-enabled hardware.
-
-### What support is available to help apply this tag on my applicable resources?
-
-To apply this tag across applicable resources at scale, you can [apply a built-in Azure Policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
-
-Like any other Azure Policy assignment, it can be applied at the following scope levels to cover applicable resources underneath it:
-
-| Scope level | Applies to |
-|---|---|
-| Root Management Group | Entire Azure Tenant (all subscriptions) |
-| Management Group | Multiple subscriptions |
-| Subscription | All resource groups and resources in the subscription |
-| Resource Group | Resources in that resource group |
-| Resource | Single resource |
-
-The policy applies a specific tag, `LegacyVMNVA`, to NVA deployments. The policy covers individual workloads and Virtual Machine Scale Sets scenarios as well.
-
-Logic in the policy definition scopes the tag application to specific NVA publishers and associated product IDs, which are available in the Azure Marketplace. The tag inhibits deployment of NVAs on MANA-enabled hardware.
-
-### Does applying the policy have any cost implications for my subscription?
-
-No. There are no cost implications of applying the policy.
-
-### How do I assign a policy definition?
-
-Microsoft recommends that policy enforcement is applied gradually to your environment following your organization's strategies for safe rollout. Azure Policy supports safe rollout primitives that enable customers to gradually roll out enforcement by region and resource type.
-
-For a more detailed breakdown of the mechanisms available to gradually roll out this policy assignment, see [Safe deployment of Azure Policy assignments](/azure/governance/policy/how-to/policy-safe-deployment-practices).
-
-### Can the policy be edited?
-
-No. The built-in policy can't be edited. We recommend assigning the built-in policy as-is. This minimizes management overhead since the policy is managed by Microsoft and ensures you receive policy revisions and updates.
-
-However, if the definition needs further customization, the policy can be duplicated, customized as needed, and then assigned.
-
-### Will there be new versions of the policy definition?
-
-There may be minor revisions to the policy. As such, we recommend applying the built-in policy. For more information on policy versioning, see [Policy Definition Versions - REST API (Azure Policy)](/rest/api/policy-authorization/policy-definition-versions).
-
-### Is there a way to selectively apply the policy to VMs within my environment?
-
-Azure Policy exemption capabilities can be used to exclude resources or scopes from policy enforcement. For more information, see [Details of the policy exemption structure](/azure/governance/policy/concepts/exemption-structure).
-
-### How can I ensure that new versions are automatically applied?
-
-At the time of assigning the policy, enable **Automatically enroll in minor version changes** to ensure that minor versions are automatically applied. You may also assign the policy with `1.*.*`.
-
-To control the rollout of updated policy definition versions to your environment, see [Safe deployment of Azure Policy assignments](/azure/governance/policy/how-to/policy-safe-deployment-practices).
-
-### Are there any additional steps after applying the tag or using policy to deploy the tag?
-
-For existing VMs, a redeployment is required after the tag has been applied.
-
-### What VM sizes is the policy applicable to?
-
-VM sizes are specified in [Microsoft Azure Network Adapter (MANA) support for existing VM Sizes](./accelerated-networking-mana-existing-sizes.md).
-
-### How can I verify that the tag has been applied to my resources?
-
-The tag `LegacyVMNVA` is visible in the Azure portal for IaaS VMs and for VM Scale Set scenarios.
-
-Azure Policy collects and aggregates compliance data, which can be used to see which resources are *compliant* against the definition (the tag is applied) versus which ones are *non-compliant* and must be remediated (the tag isn't applied). This compliance report can be viewed in the Azure portal under the **Policy** tab.
-
-### Is there a rollback mechanism in case of an error?
-
-To roll back the policy assignment, delete the policy assignment. For a more gradual approach, update the policy resource selector in the policy assignment to incrementally remove regions.
-
-If the tag has been applied to existing VMs, delete the tags using your Azure client of choice and redeploy the VMs.
-
-### Is any action needed after end of September 2026?
-
-No action is required at the end of September 2026. However, we recommend removing the policy assignment from all associated subscriptions.
-
-### Does the Accelerated Networking enablement status affect application of the policy?
-
-No. Accelerated Networking enablement doesn't have any effect on the application of the policy.
+## Is any action needed after the tag expires on May 31, 2027?
+No action is required after May 31, 2027. However, we recommend removing the policy assignment from all associated subscriptions.
 
 ## Related content
-
 - [Accelerated Networking Overview](https://aka.ms/accelnet)
 - [How Accelerated Networking works in Linux and FreeBSD VMs](/azure/virtual-network/accelerated-networking-how-it-works)
 - [Microsoft Azure Network Adapter (MANA) support for existing VM Sizes](./accelerated-networking-mana-existing-sizes.md)

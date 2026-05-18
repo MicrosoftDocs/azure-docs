@@ -123,10 +123,14 @@ items:
       href: discovered-metadata.md
     - name: Review discovered inventory
       href: how-to-review-discovered-inventory.md
-    - name: Tags 
-      href: resource-tagging.md
     - name: Insights
       href: insights-overview.md
+    - name: Tags in Azure Migrate
+      href: resource-tagging.md
+    - name: Create and manage tags
+      href: how-to-create-manage-tags.md
+    - name: Modify and delete tags
+      href: how-to-modify-delete-tags.md
     - name: Define and manage applications
       href: define-manage-applications.md
 - name: Create Business case
@@ -173,7 +177,7 @@ items:
               href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
-      - name: Azure VM assessment
+      - name: VM assessment
         items:
         - name: Create an Azure VM assessment
           href: how-to-create-assessment.md
@@ -189,7 +193,7 @@ items:
           href: tutorial-assess-vmware-azure-vmware-solution.md
         - name: Review assessment report
           href: review-azure-vmware-solution-assessment.md
-      - name: Azure SQL assessment
+      - name: SQL assessment
         items:
         - name: Create an Azure SQL assessment
           href: tutorial-assess-sql.md
@@ -197,7 +201,7 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-sql-assessment.md
-      - name: Azure Database for PostgreSQL assessment
+      - name: PostgreSQL assessment
         items:
         - name: Create an Azure Database for PostgreSQL assessment
           href: tutorial-assess-postgresql.md
@@ -209,6 +213,12 @@ items:
         items:
         - name: Create and Review MySQL assessment
           href: create-mysql-assessment.md
+      - name: MongoDB assessment
+        items:
+        - name: Create a MongoDB assessment
+          href: tutorial-assess-mongodb.md
+        - name: Review assessment report
+          href: tutorial-review-mongodb-report.md
       - name: Webapp assessment
         items:
         - name: Create a Webapp assessment

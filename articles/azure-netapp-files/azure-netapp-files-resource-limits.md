@@ -27,8 +27,8 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
-|  Number of volumes per capacity pool     |    500   |    Yes     |
-|  Number of snapshots per volume       |    255     |    No        |
+|  Number of volumes per capacity pool  |    500   |    Yes     |
+|  Number of snapshots per volume  |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered virtual networks [VNets]) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  2,048 TiB   |   No   |
@@ -39,6 +39,9 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB | No |
 |  Maximum size of a single [large volume](large-volumes-requirements-considerations.md) | 1 PiB | Yes** |
 | Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
+| Maximum size of a large volume up to 7.2 PiB** | 7.2 PiB | Yes** |
+|  Maximum size of a single file on regular Azure NetApp Files volumes    |    64 TiB    |    No    | 
+|  Maximum size of a single file on Azure NetApp Files large volumes    |    16 TiB    |    No    |    
 | Maximum size of a large volume up to 7.2 PiB*** | 7.2 PiB | Yes** |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    

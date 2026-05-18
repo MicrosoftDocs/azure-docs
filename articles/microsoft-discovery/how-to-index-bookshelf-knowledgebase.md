@@ -18,7 +18,7 @@ A Bookshelf knowledgebase enables customers to convert unstructured private data
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Access to the Azure Discovery resource provider (`Microsoft.Discovery`) in your subscription.
 - Microsoft Discovery Platform Administrator role.
 
@@ -363,3 +363,11 @@ After the initial indexing, you can add new documents to the source storage cont
 
 > [!IMPORTANT]
 > Deleting files from the source storage container isn't supported. If you need to remove documents from a knowledgebase, create a new knowledgebase with a fresh storage container that contains only the desired documents, and run a full enrichment and index.
+
+## Related content
+
+- [Query bookshelf knowledgebase query logs](how-to-query-bookshelf-logs.md)
+- [Query bookshelf indexing logs](how-to-query-bookshelf-indexing-logs.md)
+- [Access resource logs for Microsoft Discovery resources](how-to-access-resource-logs.md)
+- [Microsoft Discovery Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)
+- [Managed identities in Microsoft Discovery](concept-managed-identities.md)

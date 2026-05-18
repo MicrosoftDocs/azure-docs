@@ -95,6 +95,9 @@ items:
             displayName: Discovery Agent, agent types, prompt agent, workflow agent, orchestration
       - name: Tools & Models
         items:
+          - name: Discovery Supercomputer and model execution
+            href: concept-supercomputer.md
+            displayName: Microsoft Discovery, Supercomputer, tools, workloads, infrastructure
           - name: Tools and model integration
             href: concept-tools-model-integration.md
             displayName: Microsoft Discovery, tools, model integration, action-based tools, code-environment based tools, OpenAPI, MCP
@@ -123,6 +126,9 @@ items:
           - name: Responsible AI in Microsoft Discovery
             href: concept-responsible-ai.md
             displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
+          - name: Transparency note
+            href: concept-platform-card.md
+            displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
   - name: How-tos
     items:
       - name: Migration
@@ -146,6 +152,9 @@ items:
           - name: Manage Supercomputer using REST APIs
             href: how-to-manage-supercomputers-rest-api.md
             displayName: Microsoft Discovery, services, how to, supercomputers
+          - name: Run and manage jobs on Supercomputer using REST APIs
+            href: how-to-run-jobs-supercomputer-rest-api.md
+            displayName: Microsoft Discovery, services, how to, jobs, supercomputers
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
@@ -210,6 +219,9 @@ items:
           - name: Publish a tool to Azure Container Registry
             href: how-to-publish-tool-to-acr.md
             displayName: Microsoft Discovery, tool, ACR, publish, container registry
+          - name: Deploy a tool to Microsoft Discovery
+            href: how-to-deploy-tool-to-discovery.md
+            displayName: Microsoft Discovery, tool, deploy, create tool, definition content, environment variables, REST API, portal
       - name: Observability
         items:
           - name: Access resource logs

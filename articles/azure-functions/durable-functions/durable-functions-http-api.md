@@ -761,7 +761,7 @@ Content-Type: application/json
 ```
 
 > [!NOTE]
-> By default with [class-based entities in .NET](durable-functions-dotnet-entities.md#defining-entity-classes), specifying the `op` value of `delete` deletes the state of an entity. If the entity defines an operation named `delete`, however, that user-defined operation is invoked instead.
+> By default with [class-based entities in .NET](durable-functions-dotnet-entities.md#define-entity-classes), specifying the `op` value of `delete` deletes the state of an entity. If the entity defines an operation named `delete`, however, that user-defined operation is invoked instead.
 
 ### Response
 

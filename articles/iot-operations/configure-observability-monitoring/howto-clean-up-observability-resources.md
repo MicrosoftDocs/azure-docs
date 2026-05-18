@@ -1,8 +1,8 @@
 ---
 title: Clean up observability resources
 description: Learn how to clean up shared and data collection observability resources from an existing installation in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.date: 11/20/2025
 
@@ -49,4 +49,4 @@ kubectl delete -f ama-metrics-prometheus-config.yaml
 ## Next steps
 
 - [Deploy observability resources with a script](howto-configure-observability.md)
-- [How to Deploy observability resources manually](howto-configure-observability-manual.md)
+

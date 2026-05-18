@@ -82,24 +82,34 @@
     href: migrate-from-hub-spoke-topology.md
   - name: Virtual hub routing preference
     href: about-virtual-hub-routing-preference.md
-  - name: Any-to-any
-    href: scenario-any-to-any.md
-  - name: Isolating VNets
-    href: scenario-isolate-vnets.md
-  - name: Isolating VNets - custom
-    href: scenario-isolate-vnets-custom.md
-  - name: Isolating virtual networks and branches
-    href: scenario-isolate-virtual-networks-branches.md
-  - name: Shared services VNets
-    href: scenario-shared-services-vnet.md
-  - name: Route through an NVA
-    href: scenario-route-through-nva.md
-  - name: Route through an NVA - custom
-    href: scenario-route-through-nvas-custom.md
+  - name: Basic routing scenarios
+    items:
+    - name: Any-to-any
+      href: scenario-any-to-any.md
+    - name: Isolating VNets
+      href: scenario-isolate-vnets.md
+    - name: Isolating VNets - custom
+      href: scenario-isolate-vnets-custom.md 
+    - name: Shared services VNets
+      href: scenario-shared-services-vnet.md
+  - name: Static routes in Virtual WAN
+    items:
+    - name: Static routes overview
+      href: static-routes.md
+    - name: Azure Firewall static routing basics
+      href: static-routes-firewall-basic.md
+    - name: Selective Azure Firewall bypass
+      href: firewall-custom-bypass.md
+    - name: Route traffic to spoke NVAs
+      href: indirect-spoke-architecture.md
+    - name: Spoke NVA inspection
+      href: spoke-inspection-north-south.md
+    - name: Combining Azure Firewall and spoke NVAs
+      href: hybrid-firewall-spoke-static.md
+    - name: Routing intent with static routes
+      href: routing-intent-static-route.md
   - name: BGP peering with virtual hub
     href: scenario-bgp-peering-hub.md
-  - name: Azure Firewall - custom
-    href: scenario-route-between-vnets-firewall.md
   - name: Application Gateway and backend pools
     href: scenario-secured-hub-app-gateway.md
   - name: Microsoft 365 - ExpressRoute private peering
@@ -134,14 +144,16 @@
   items:
   - name: Create an NVA in a virtual hub
     href: how-to-nva-hub.md
-  - name: Restart an NVA in a virtual hub
-    href: how-to-network-virtual-appliance-restart.md
-  - name: Reimage an NVA in a virtual hub
-    href: how-to-network-virtual-appliance-reimage.md
   - name: Configure DNAT/Internet inbound for NVAs
     href: how-to-network-virtual-appliance-inbound.md
-  - name: Manage IP configurations for NVAs
-    href: how-to-network-virtual-appliance-add-ip-configurations.md
+  - name: Infrastructure operations
+    items:
+    - name: Restart an NVA in a virtual hub
+      href: how-to-network-virtual-appliance-restart.md
+    - name: Reimage an NVA in a virtual hub
+      href: how-to-network-virtual-appliance-reimage.md
+    - name: Manage IP configurations for NVAs
+      href: how-to-network-virtual-appliance-add-ip-configurations.md
 - name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
@@ -246,7 +258,7 @@
         href: openvpn-azure-ad-mfa.md
       - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
-      - name: Configure a tenant for multiple application registration
+      - name: Configure a tenant for multiple application registrations
         href: openvpn-azure-ad-tenant-multi-app.md
     - name: VPN client configuration
       items:
@@ -282,10 +294,12 @@
       href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
-    - name: User tunnel
+    - name: User tunnel - Windows clients
       href: howto-always-on-user-tunnel.md
-    - name: Device tunnel
+    - name: Device tunnel - Windows clients
       href: howto-always-on-device-tunnel.md
+    - name: Device tunnel - macOS clients
+      href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel-macos.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
 - name: ExpressRoute connections 
@@ -345,6 +359,8 @@
       href: how-to-routing-policies.md
     - name: Internet access with routing intent
       href: about-internet-routing.md
+    - name: Configuring static routes with routing intent
+      href: routing-intent-static-route.md
   - name: Next hop IP support
     href: next-hop-ip.md
   - name: Route traffic from a virtual hub to an NVA (legacy)

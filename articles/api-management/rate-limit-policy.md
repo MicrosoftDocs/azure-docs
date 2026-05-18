@@ -57,7 +57,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
 
 
-### api attributes
+### Api attributes
 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -67,7 +67,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
 
 
-### operation attributes
+### Operation attributes
 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -86,6 +86,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 * This policy can be used only once per policy definition.
 * This policy is only applied when an API is accessed using a subscription key.
+* [!INCLUDE [api-management-rate-limit-implementation-v2](../../includes/api-management-rate-limit-implementation-v2.md)]
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 * [!INCLUDE [api-management-rate-limit-gateway-calls](../../includes/api-management-rate-limit-gateway-calls.md)]
 

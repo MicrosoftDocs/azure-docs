@@ -180,16 +180,16 @@
           href: ../../azure-functions/durable-functions/durable-functions-roslyn-analyzer.md?toc=/azure/durable-task/common/toc.json
         - name: Durable entities
           href: ../../azure-functions/durable-functions/durable-functions-dotnet-entities.md?toc=/azure/durable-task/common/toc.json
-        - name: Migrate from In-Process to Isolated model
-          href: ../../azure-functions/durable-functions/durable-functions-migrate.md?toc=/azure/durable-task/common/toc.json
-      - name: Node.js
-        items:
-        - name: Upgrade to Node.js model v4
-          href: ../../azure-functions/durable-functions/durable-functions-node-model-upgrade.md?toc=/azure/durable-task/common/toc.json
-      - name: PowerShell
-        items:
-        - name: Author Durable Functions apps using the PowerShell SDK
-          href: ../../azure-functions/durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md?toc=/azure/durable-task/common/toc.json
+    - name: Migrate
+      items:
+      - name: Migrate to Node.js model v4
+        href: ../../azure-functions/durable-functions/durable-functions-node-model-upgrade.md?toc=/azure/durable-task/common/toc.json
+      - name: Migrate to the standalone PowerShell SDK
+        href: ../../azure-functions/durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md?toc=/azure/durable-task/common/toc.json
+      - name: Migrate from In-Process to Isolated model (.NET)
+        href: ../../azure-functions/durable-functions/durable-functions-migrate.md?toc=/azure/durable-task/common/toc.json
+      - name: Isolated API mapping reference
+        href: ../../azure-functions/durable-functions/durable-functions-isolated-api-mapping.md?toc=/azure/durable-task/common/toc.json
     - name: Deploy
       items:
       - name: Continuous deployment
@@ -256,6 +256,8 @@
         href: ../scheduler/durable-task-scheduler-work-item-throughput.md
       - name: Billing
         href: ../scheduler/durable-task-scheduler-billing.md
+      - name: REST API
+        href: /rest/api/durabletask/?view=rest-durabletask-2026-02-01&preserve-view=true
   - name: Azure Storage
     href: ../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md?toc=/azure/durable-task/common/toc.json
   - name: MSSQL

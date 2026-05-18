@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: reference
-ms.date: 02/13/2025
+ms.date: 04/27/2026
 ---
 
 # Mapping data flow transformation overview
@@ -15,6 +15,9 @@ ms.date: 02/13/2025
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  To compare these transformations to their Dataflow Gen2 equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 

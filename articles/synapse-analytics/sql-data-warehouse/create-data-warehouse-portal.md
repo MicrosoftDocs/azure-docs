@@ -16,6 +16,8 @@ ms.custom:
 
 # Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) in Azure synapse Analytics using the Azure portal
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Quickly create and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using the Azure portal.
 
 > [!IMPORTANT]  

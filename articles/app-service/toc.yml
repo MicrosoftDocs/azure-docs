@@ -304,7 +304,7 @@ items:
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Stream diagnostic logs
+    - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md
