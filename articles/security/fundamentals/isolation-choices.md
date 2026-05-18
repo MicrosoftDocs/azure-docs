@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -262,7 +262,7 @@ For many organizations, data encryption at rest is a mandatory step towards data
 
 [!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
-[Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) provides end-to-end encryption for your VM data by encrypting data at the VM host level. By default, it uses platform-managed keys, but you can optionally use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](/azure/security/fundamentals/key-management) when you need greater control.
+[Encryption at host](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) provides end-to-end encryption for your VM data by encrypting data at the VM host level. By default, it uses platform-managed keys, but you can optionally use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](key-management.md) when you need greater control.
 
 Encryption at host provides server-side encryption at the VM host level by using AES 256 encryption, which is FIPS 140-2 compliant. This encryption occurs without consuming VM CPU resources and provides end-to-end encryption for:
 
@@ -339,6 +339,6 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 ## Next steps
 
-- Learn about [network security groups](/azure/virtual-network/network-security-groups-overview). Network security groups filter network traffic between Azure resources in a virtual network. You can restrict traffic to subnets or virtual machines based on source, destination, port, and protocol by using security rules.
+- Learn about [network security groups](../../virtual-network/network-security-groups-overview.md). Network security groups filter network traffic between Azure resources in a virtual network. You can restrict traffic to subnets or virtual machines based on source, destination, port, and protocol by using security rules.
 
 - Learn about [virtual machine isolation in Azure](/azure/virtual-machines/isolation). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.

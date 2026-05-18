@@ -286,12 +286,16 @@
                   href: point-to-site-vpn-client-configuration-radius-password.md
                 - name: Other authentication protocols
                   href: point-to-site-vpn-client-configuration-radius-other.md
-    - name: Assign IP addresses to specific user groups
+    - name: Assign IP addresses to specific User Groups
       items:
-        - name: About user groups and client address pools
+        - name: About User Groups and client address pools
           href: point-to-site-user-groups-about.md
-        - name: Configure user groups for address pools
-          href: point-to-site-user-groups-create.md
+        - name: Configure groups and client address pools
+          items:
+          - name: Azure portal
+            href: point-to-site-user-groups-create-portal.md
+          - name: PowerShell
+            href: point-to-site-user-groups-create.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels
@@ -316,6 +320,8 @@
           href: azure-vpn-client-prerequisites-check.md
         - name: Azure VPN Client versions
           href: azure-vpn-client-versions.md
+        - name: Download Azure VPN Client with Windows Package Manager (WinGet)
+          href: point-to-site-vpn-client-winget.md
         - name: Report Azure VPN Client problems - Feedback Hub
           href: https://learn.microsoft.com/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client?toc=/azure/vpn-gateway/TOC.json
     - name: Intune - Deploy VPN client profile
@@ -324,6 +330,8 @@
   items:
     - name: Azure portal
       href: ipv6-configuration.md
+    - name: Azure PowerShell
+      href: site-to-site-ipv6-azure-powershell.md
     - name: Azure CLI
       href: site-to-site-ipv6-azure-cli.md
 - name: VNet-to-VNet VPN

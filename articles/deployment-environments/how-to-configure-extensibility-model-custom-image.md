@@ -88,7 +88,7 @@ You can call the script using the following command in PowerShell:
 Additionally, if you would like to push to a specific repository and tag name, you can run:
 
 ```azurepowershell
-.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
 ```
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
@@ -144,7 +144,7 @@ The script builds an image and pushes it to the specified Azure Container Regist
 Additionally, if you would like to push to a specific repository and tag name, you can run:
 
 ```azurepowershell
-.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
 ```
 
 To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
@@ -158,7 +158,7 @@ To start with, you can use the published GitHub workflow from the Leveraging ADE
 In order to use the workflow, you will need to:
 
 - Fork this repository into your personal account
-- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
+- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OIDC. For more information, see [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 - Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
 - Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
  
@@ -235,7 +235,7 @@ EnvironmentVars="/environment.tfvars.json"
 echo "$ADE_OPERATION_PARAMETERS" > $EnvironmentVars
 ```
 
-Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use the Managed Service Identity (MSI) when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE MSI:
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use the managed identity when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE managed identity:
 ```bash
 export ARM_USE_MSI=true
 export ARM_CLIENT_ID=$ADE_CLIENT_ID
@@ -405,7 +405,7 @@ echo "$ADE_OPERATION_PARAMETERS" | jq -r 'to_entries|.[]|[.key, .value] | @tsv' 
   done
 ```
 
-Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE Managed Service Identity (MSI) when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses ADE MSI:
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE managed identity when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE managed identity:
 
 ```bash
 export ARM_USE_MSI=true

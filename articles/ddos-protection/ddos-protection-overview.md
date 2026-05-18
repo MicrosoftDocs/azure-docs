@@ -2,11 +2,11 @@
 title: Azure DDoS Protection Overview
 description: Get always-on traffic monitoring, adaptive real-time tuning, and DDoS mitigation analytics with Azure DDoS Protection. Sign up now.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: overview
 ms.date: 07/08/2025
-ms.author: abell
+ms.author: duau
 ms.custom: references_regions
 # Customer intent: As a cloud infrastructure manager, I want to implement DDoS protection for my applications, so that I can enhance security and ensure high availability during potential DDoS attacks.
 ---
@@ -47,7 +47,7 @@ For more information about the tiers, see [DDoS Protection tier comparison](ddos
 - **DDoS Protection analytics, metrics, and alerting:**
 Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP, and UDP) for each public IP of the protected resource, in the virtual network that has DDoS enabled. The policy thresholds are auto-configured via machine learning-based network traffic profiling. DDoS mitigation occurs for an IP address under attack only when the policy threshold is exceeded.
     - **Attack analytics:**
-Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors-reference.md#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
+Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](/azure/sentinel/data-connectors-reference#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
     - **Attack metrics:**
  Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.

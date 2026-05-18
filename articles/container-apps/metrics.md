@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ The metrics explorer in the Azure portal allows you to visualize the data. You c
 
 ## Available metrics
 
-Container Apps provides these basic metrics.
+Container Apps provide these basic metrics.
 
 | Title | Dimensions | Description | Metric ID | Unit |
 |--|--|--|--|--|
@@ -26,7 +26,7 @@ Container Apps provides these basic metrics.
 | Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | Bytes |
 | Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | Bytes |
 | Replica count | Revision | Number of active replicas | `Replicas` | Count |
-| Total Replica Restart Count | Replica, Revision | Total number of restarts since the replica came online | `RestartCount` | Count |
+| Total Replica Restart Count | Replica, Revision | Total number of restarts for app container instances only, excluding platform-managed sidecar containers | `RestartCount` | Count |
 | Requests | Replica, Revision, Status Code, Status Code Category | Requests processed | `Requests` | Count |
 | Reserved Cores | Revision | Number of reserved cores for container app revisions | `CoresQuotaUsed` | Count |
 | Resiliency Connection Timeouts | Revision | Total connection timeouts | `ResiliencyConnectTimeouts` | Count |

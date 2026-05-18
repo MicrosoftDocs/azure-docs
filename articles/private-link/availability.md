@@ -1,8 +1,8 @@
 ---
 title: Azure Private Link availability
 description: In this article, learn about which Azure services support Private Link.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/30/2026
@@ -50,7 +50,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Azure managed disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure managed disks.](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 | Azure Batch (batchAccount) | All public regions<br/> All Government regions<br/>All China regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Functions | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Functions.](../azure-functions/functions-create-vnet.md) |
@@ -74,6 +74,9 @@ The following tables list the Private Link services and the regions where they'r
 |  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](/azure/mariadb/concepts-data-access-security-private-link)      |
 | Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](../azure-cache-for-redis/cache-private-link.md) |
+
+> [!NOTE]
+> Azure Cache for Redis is being retired in September 2028. New cache creation will be unavailable starting April 2026. We recommend migrating to [Azure Managed Redis](/azure/azure-cache-for-redis/retirement-faq).
 
 ### Integration
 

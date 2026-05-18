@@ -215,6 +215,24 @@ items:
         href: biztalk-server-migration-overview.md
       - name: Migration options and best practices
         href: biztalk-server-migration-approaches.md
+      - name: Migration Agent for Azure Logic Apps
+        items:
+        - name: About Migration Agent
+          href: migration/migration-agent-overview.md
+        - name: Migrate to Azure Logic Apps
+          href: migration/migration-agent-quickstart.md
+        - name: Discovery stage
+          href: migration/migration-agent-discovery-stage.md
+        - name: Planning stage
+          href: migration/migration-agent-planning-stage.md
+        - name: Conversion stage
+          href: migration/migration-agent-conversion-stage.md
+        - name: Validation stage
+          href: migration/migration-agent-validation-stage.md
+        - name: Deployment stage
+          href: migration/migration-agent-deployment-stage.md
+        - name: Extend migration agent with custom parsers
+          href: migration/migration-agent-extend.md
   - name: Develop
     items:
     - name: Add a trigger or action to a workflow
@@ -423,8 +441,6 @@ items:
       href: logic-apps-enterprise-integration-metadata.md
     - name: Microsoft Dataverse
       href: connectors/dataverse.md
-    - name: Microsoft Graph Security
-      href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
       href: ../connectors/connectors-create-api-office365-outlook.md
     - name: Oracle Database

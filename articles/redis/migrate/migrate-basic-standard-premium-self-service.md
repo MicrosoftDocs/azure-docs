@@ -17,24 +17,21 @@ This article provides step-by-step instructions for migration paths. We highly r
 
 [!INCLUDE [Redis migration agent skill](../includes/redis-migration-agent-skill.md)]
 
-## Step 1: Update deployment scripts
+## Step 1: Update deployment scripts and create new Azure Managed Redis instance
 
-Once you have identified the appropriate Azure Managed Redis SKU, update your deployment scripts (such as ARM templates, Bicep files, or Terraform configurations) to provision Azure Managed Redis instead of Azure Cache for Redis.
-
-## Step 2: Create a new Azure Managed Redis instance
-
+1. Once you have identified the appropriate Azure Managed Redis SKU, update your deployment scripts (such as ARM templates, Bicep files, or Terraform configurations) to provision Azure Managed Redis instead of Azure Cache for Redis.
 1. Use the [SKU mapping table](migrate-basic-standard-premium-understand.md#choose-the-right-azure-managed-redis-size-and-sku) to select the right size (same size or bigger than the existing cache) and performance tier.
 1. Create the instance by following the [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md).
 
 > [!TIP]
 > If you're unsure whether your workload is memory-intensive or compute-intensive, start with the **Balanced** performance tier.
 
-## Step 3: Migrate your data
+## Step 2: Migrate your data
 
-Choose a data migration strategy based on your tolerance for downtime and data loss.
+Choose a data migration strategy based on your tolerance for downtime and data loss. If your application can tolerate data loss, or can rehydrate the cache from its data source (for example, a look-aside cache pattern), you can skip this step and proceed directly to [Step 3](#step-3-update-your-application).
 
-> [!NOTE]
-> If your application can tolerate data loss, or can rehydrate the cache from its data source (for example, a look-aside cache pattern), you can skip this step and proceed directly to [Step 4](#step-4-update-your-application).
+> [!IMPORTANT]
+> Azure Managed Redis reserves approximately 20% of memory for system operations and overhead. Account for this reservation when choosing the right memory size for your new instance. For example, if your workload requires 10 GB of usable memory, select a SKU with at least 12.5 GB of total memory.
 
 ### Export and import data using an RDB file
 
@@ -47,7 +44,7 @@ Steps:
 
 1. Export the RDB file from the existing Azure Cache for Redis instance using the [export instructions](../../azure-cache-for-redis/cache-how-to-import-export-data.md#export) or the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache).
 1. Import the RDB file into the new Azure Managed Redis instance using the [import instructions](../how-to-import-export-data.md) or the PowerShell Import cmdlet.
-1. Proceed to [Step 4: Update your application](#step-4-update-your-application).
+1. Proceed to [Step 3: Update your application](#step-3-update-your-application).
 
 ### Dual-write strategy
 
@@ -61,7 +58,7 @@ Steps:
 1. Modify your application code to write to both the existing cache and the new Azure Managed Redis instance.
 1. Continue reading data from the existing cache until the new instance is sufficiently populated.
 1. Update the application code to read and write from the new instance only.
-1. Proceed to [Step 4: Update your application](#step-4-update-your-application).
+1. Proceed to [Step 3: Update your application](#step-3-update-your-application).
 
 ### Programmatic migration
 
@@ -75,9 +72,9 @@ Steps:
 1. Create a VM in the same region as the existing cache. If your dataset is large, choose a powerful VM to reduce copying time.
 1. Flush data from the new cache to ensure it's empty. **Don't flush the source cache.**
 1. Copy data from the source cache to the new Azure Managed Redis instance.
-1. Proceed to [Step 4: Update your application](#step-4-update-your-application).
+1. Proceed to [Step 3: Update your application](#step-3-update-your-application).
 
-## Step 4: Update your application
+## Step 3: Update your application
 
 Update your application's connection configuration to point to the new Azure Managed Redis instance. At a minimum, you need to update:
 
@@ -93,7 +90,7 @@ Update your application's connection configuration to point to the new Azure Man
 
 Azure Cache for Redis and Azure Managed Redis are compatible, so no application code changes other than connection configurations are required for most scenarios.
 
-## Step 5: Validate and decommission
+## Step 4: Validate and decommission
 
 1. Verify your application works correctly with the new Azure Managed Redis instance.
 1. Monitor the new cache for expected behavior, performance, and error rates.

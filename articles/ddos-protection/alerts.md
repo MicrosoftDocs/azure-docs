@@ -2,11 +2,11 @@
 title: 'Tutorial: Configure Azure DDoS Protection metric alerts through portal'
 description: Learn how to configure DDoS protection metric alerts for Azure DDoS Protection.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 03/17/2026
-ms.author: abell
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure DDoS protection metric alerts through the management portal, so that I can receive timely notifications during an attack to effectively respond and mitigate potential threats."
 ---
 

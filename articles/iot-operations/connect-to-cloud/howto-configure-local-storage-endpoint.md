@@ -1,8 +1,8 @@
 ---
 title: Configure local storage data flow endpoint in Azure IoT Operations
 description: Learn how to configure a local storage data flow endpoint in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 ---
 
 # Configure data flow endpoints for local storage
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 To send data to local storage in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
@@ -126,7 +124,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 

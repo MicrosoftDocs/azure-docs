@@ -1,5 +1,5 @@
 items:
-  - name: Azure SRE Agent Preview documentation
+  - name: Azure SRE Agent documentation
     href: index.yml
   - name: What is SRE Agent?
     href: overview.md
@@ -24,8 +24,12 @@ items:
         href: user-roles.md
       - name: Agent permissions
         href: permissions.md
+      - name: Subscription permission visibility
+        href: subscription-permission-visibility.md
       - name: Agent identity
         href: agent-identity.md
+      - name: Security overview
+        href: security-overview.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -42,6 +46,8 @@ items:
         href: threads.md
       - name: Tools
         href: tools.md
+      - name: Default agent override info
+        href: default-agent-override-info.md
       - name: Deep context
         href: workspace-tools.md
       - name: Agent reasoning
@@ -52,12 +58,16 @@ items:
         items:
           - name: Connect knowledge
             href: connect-knowledge.md
+          - name: Add web page knowledge
+            href: add-web-page-knowledge.md
           - name: File attachments
             href: file-attachments.md
           - name: GitHub connector
             href: github-connector.md
           - name: Azure DevOps connector
             href: ado-connector.md
+          - name: Cross-account ADO access
+            href: cross-account-ado-oauth.md
       - name: Diagnose
         items:
           - name: Incident response
@@ -74,12 +84,16 @@ items:
             href: deep-investigation.md
           - name: Diagnose with Azure observability
             href: diagnose-azure-observability.md
+          - name: Azure Monitor alerts
+            href: azure-monitor-alerts.md
           - name: Diagnose with external observability
             href: diagnose-observability.md
           - name: Troubleshoot App Service
             href: troubleshoot-azure-app-service.md
           - name: Troubleshoot Container Apps
             href: troubleshoot-azure-container-apps.md
+          - name: Troubleshoot Java applications on AKS
+            href: troubleshoot-java-aks.md
       - name: Act
         items:
           - name: Execute mitigations
@@ -104,6 +118,8 @@ items:
             href: agent-hooks.md
           - name: Code interpreter
             href: code-interpreter.md
+          - name: Tools and skills
+            href: global-tools-page.md
       - name: Knowledge & data sources
         items:
           - name: Azure DevOps Wiki knowledge
@@ -112,12 +128,14 @@ items:
             href: upload-knowledge-document.md
           - name: Kusto tools
             href: kusto-tools.md
+          - name: Azure Data Explorer connector
+            href: kusto-cluster-grouping.md
+          - name: Log Analytics & App Insights
+            href: log-analytics-app-insights.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access
         items:
-          - name: Chat from your tools
-            href: chat-from-your-tools.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter
@@ -192,16 +210,22 @@ items:
             href: outlook-connector.md
           - name: Set up MCP connector
             href: mcp-connector.md
+          - name: Set up Log Analytics connector
+            href: setup-log-analytics-connector.md
           - name: Create a Kusto tool
             href: create-kusto-tool.md
           - name: Upload knowledge documents
             href: tutorial-upload-knowledge-document.md
           - name: Connect Azure DevOps Wiki
             href: connect-devops-wiki.md
-      - name: Access
-        items:
-          - name: Set up Teams bot
-            href: teams-bot.md
+          - name: Manage global tools
+            href: manage-global-tools.md
+          - name: Connect ADO repo with managed identity
+            href: connect-ado-repo-managed-identity.md
+          - name: Cross-account ADO access
+            href: cross-account-azdo-oauth-authorization.md
+          - name: Add a web page knowledge source
+            href: add-web-page.md
   - name: Reference
     items:
       - name: Supported regions
@@ -214,10 +238,6 @@ items:
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
-      - name: Anthropic subprocessor
-        href: anthropic-sub-processor.md
-      - name: Billing
-        href: billing.md
       - name: Frequently asked questions
         items:
           - name: General

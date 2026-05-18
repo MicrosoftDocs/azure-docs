@@ -3,7 +3,7 @@ title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
 ms.service: azure-site-recovery
-ms.date: 10/31/2025
+ms.date: 05/05/2026
 ms.custom: mvc
 ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
@@ -18,6 +18,8 @@ This tutorial shows you how to set up disaster recovery for Azure VMs using [Azu
 > * Prepare VMs you want to replicate
 > * Create a Recovery Services vault
 > * Enable VM replication
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 When you enable [replication](azure-to-azure-quickstart.md) for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. [Learn more](azure-to-azure-architecture.md) about the architecture.
 
@@ -50,7 +52,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
-        - Write to an Azure Managed Disk.
+        - Write to an Azure managed disk.
 
 ### Verify target settings
 

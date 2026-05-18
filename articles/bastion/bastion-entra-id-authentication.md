@@ -2,11 +2,11 @@
 title: 'Configure Microsoft Entra ID authentication'
 titleSuffix: Azure Bastion
 description: Learn how to configure Microsoft Entra ID authentication for RDP and SSH connections through Azure Bastion, including role assignments, virtual machine extensions, and connection steps.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/09/2026
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to configure Microsoft Entra ID authentication with Azure Bastion, so that I can use identity-based access policies and MFA for my virtual machines."
 ---
@@ -39,7 +39,7 @@ Before you configure Entra ID authentication, verify the following:
   * **Linux virtual machines (SSH):** Any Linux distribution that supports the AADSSHLoginForLinux extension.
 
 * **Native client connections:** Azure CLI version 2.32 or later. Run `az extension add --name ssh` to install the SSH extension. For setup details, see [Configure Bastion for native client connections](native-client.md).
-
+* **RDP connections through the portal:** If you have a policy preventing popups, specifically allow-list this domain `cdn.bastion.azure.com`
 
 ## Entra ID authentication overview
 

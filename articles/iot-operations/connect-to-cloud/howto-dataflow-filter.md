@@ -1,8 +1,8 @@
 ---
 title: Filter data in a data flow
 description: Filter messages in a data flow based on conditions using Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 ---
 
 # Filter data in a data flow
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Use the filter stage in a data flow to drop messages that match a condition. When a filter expression evaluates to true, the message is **dropped**. When the expression evaluates to false, the message passes through to the next stage.
 
@@ -93,7 +91,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -146,7 +146,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -201,7 +203,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -277,7 +281,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -347,7 +353,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:

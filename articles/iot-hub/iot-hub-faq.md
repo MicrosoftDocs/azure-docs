@@ -1,9 +1,9 @@
 ---
-title: "FAQ: What is New in Azure IoT Hub? (Preview)"
+title: "FAQ: What is New in Azure IoT Hub?"
 titleSuffix: Azure IoT Hub
 description: Learn about the new features and improvements in Azure IoT Hub.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 11/04/2025
@@ -11,7 +11,7 @@ ms.custom: references_regions
 #Customer intent: As a developer using IoT Hub, I want to understand the new features and improvements in Azure IoT Hub and how they affect my existing deployments.
 ---
 
-# FAQ: What is new in Azure IoT Hub? (preview)
+# FAQ: What is new in Azure IoT Hub?
 
 Azure IoT Hub introduces advanced capabilities to improve security and unify operations across cloud and edge-connected deployments. This FAQ addresses common questions about the new generation of IoT Hub.
 
@@ -53,7 +53,7 @@ No. Certificate management is an optional feature of ADR, and thus it requires u
 
 ## Can I use certificate management without Device Provisioning Service (DPS)?
 
-No, certificate management relies on the Device Provisioning Service (DPS) for device registration and certificate management. You must use DPS with ADR to utilize certificate management features. For more information, see the section [Device Provisioning Service integration](iot-hub-certificate-management-overview.md#device-provisioning-service-integration) in [What is certificate management?](iot-hub-certificate-management-overview.md)
+No, certificate management relies on Device Provisioning Service (DPS) for device registration and certificate management. You must use DPS with ADR to use certificate management features. For more information, see [Certificate issuance in Azure IoT Hub certificate management](concept-certificate-issuance.md).
 
 ## What is the pricing model for IoT Hub with ADR and certificate management?
 
@@ -73,9 +73,6 @@ IoT Hub with ADR integration and certificate management is available in the foll
 - West US 2
 - West Europe
 - North Europe
-
-> [!IMPORTANT]
-> In Preview, Certificate Management is not supported in East US. East US is supported for IoT Hub, Device Provisioning Service, and ADR Namespaces.
 
 ## Related content
 

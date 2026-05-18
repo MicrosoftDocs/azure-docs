@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 02/20/2026
+ms.date: 04/21/2026
  
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
@@ -123,11 +123,14 @@ To build MCP servers by using Azure compute services and register them in your A
 
 ##  Discover MCP servers using API Center portal
 
-Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. From the API Center portal, users can do the following:
-- Browse and filter MCP servers in the inventory.
-- For remote MCP servers, view details such as the URL endpoint of the MCP server and API definition, and install the MCP server in their Visual Studio Code environment.
+Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can browse and filter MCP servers in the inventory.
 
-:::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
+:::image type="content" source="media/register-discover-mcp-server/mcp-server-tiles.png" alt-text="Screenshot of MCP servers in API Center portal.":::
+
+* Users can view details such as the URL endpoint of the MCP server and tool schemas, and install the MCP server in their Visual Studio Code environment.
+- A built-in test console allows users to test MCP server tools and view the responses directly in the portal. On the **Documentation** tab of an MCP server details page, select a tool and then **Run tool** to access the test console.
+
+:::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP Inspector in API Center portal.":::
 
 ## Manage access to MCP servers
 

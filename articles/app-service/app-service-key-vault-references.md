@@ -2,9 +2,8 @@
 title: Use Key Vault References as App Settings
 description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
 author: cephalin
-
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 04/09/2026
 ms.author: cephalin
 #customer intent: As an app developer, I want to implement Azure Key Vault as part of my approach to apps in Azure App Service.
 ms.service: azure-app-service
@@ -29,7 +28,7 @@ To read secrets from a key vault, you first need to create a vault and give your
 
    Key vault references use the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
-1. Authorize [read access to secrets in your key vault](/azure/key-vault/general/security-features#privileged-access) for the managed identity that you created. How you do it depends on the permissions model of your key vault:
+1. Authorize [read access to secrets in your key vault](/azure/key-vault/general/secure-key-vault#privileged-access) for the managed identity that you created. How you do it depends on the permissions model of your key vault:
 
    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. See [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide).
    - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. See [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy).
@@ -53,15 +52,16 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
    ```azurepowershell
    Update-AzFunctionAppSetting -Name <app-name> -ResourceGroupName <group-name> -AppSetting @{vnetRouteAllEnabled = $true}
    ```
+
    ---
 
 1. Make sure that the vault's configuration allows the network or subnet that your app uses to access it.
 
-Note that even if you have correctly configured the vault to accept traffic from your virtual network the vault's audit logs may still show a failed (403 - Forbidden) SecretGet event from the app's public outbound IP. This will be followed by a successful SecretGet event from the app's private IP, and is by design.
+Even if you've correctly configured the vault to accept traffic from your virtual network, the vault's audit logs may still show a failed (403 - Forbidden) SecretGet event from the app's public outbound IP. A successful SecretGet event from the app's private IP will follow and is by design.
 
 ### Access vaults with a user-assigned identity
 
-Some apps need to refer to secrets at creation time, when a system-assigned identity isn't available yet. In these cases, create a user-assigned identity and give it access to the vault in advance.
+Some apps need to refer to secrets at creation time, when a system-assigned identity isn't available yet. In these cases, create a user-assigned identity, and give it access to the vault in advance.
 
 After you grant permissions to the user-assigned identity, follow these steps:
 
@@ -89,6 +89,9 @@ After you grant permissions to the user-assigned identity, follow these steps:
    ---
 
 This setting applies to all Key Vault references for the app.
+
+> [!TIP]
+> If you want to revert your app to use the system-assigned identity, set the value to `SystemAssigned` instead of the Resource ID.
 
 ## <a name = "rotation"></a> Understand rotation
 
@@ -139,7 +142,7 @@ In this case, App Service uses a default file system until Azure Files is set up
 
 Apps can use the `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING` application settings to integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
-For App Service and Azure Functions, the Azure portal also uses these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, this approach isn't available. Instead, you need to work directly with the Application Insights resource to view the telemetry. However, these values [aren't considered secrets](/azure/azure-monitor/app/sdk-connection-string#is-the-connection-string-a-secret), so you might consider configuring them directly instead of using Key Vault references.
+For App Service and Azure Functions, the Azure portal also uses these settings to surface telemetry data from the resource. If these values are referenced from Key Vault, this approach isn't available. Instead, you need to work directly with the Application Insights resource to view the telemetry. However, these values [aren't considered secrets](/azure/azure-monitor/app/connection-strings#is-the-connection-string-a-secret), so you might consider configuring them directly instead of using Key Vault references.
 
 ### Azure Resource Manager deployment
 
@@ -253,9 +256,9 @@ The following pseudo-template is an example of what a function app might look li
 
 ## Troubleshoot Key Vault references
 
-If a reference isn't resolved properly, the reference string is used instead, for example, `@Microsoft.KeyVault(...)`. This situation might cause the application to throw errors, because it's expecting a secret of a different value.
+If a reference isn't resolved properly, the reference string is used instead. Here's an example, `@Microsoft.KeyVault(...)`. This situation might cause the application to throw errors, because it's expecting a secret of a different value.
 
-Failure to resolve is commonly due to a misconfiguration of the [Key Vault access policy](#grant-your-app-access-to-a-key-vault). However, the reason could also be that a secret no longer exists or the reference contains a syntax error.
+Failure to resolve is commonly due to a misconfiguration of the [Key Vault access policy](#grant-your-app-access-to-a-key-vault). However, the reason could also be that a secret no longer exists, or the reference contains a syntax error.
 
 If the syntax is correct, you can view other causes for an error by checking the current resolution status in the Azure portal. Go to **Application Settings** and select **Edit** for the reference in question. The edit dialog shows status information, including any errors. If you don't see the status message, it means that the syntax is invalid and not recognized as a Key Vault reference.
 
@@ -271,7 +274,6 @@ To use the detector for App Service:
 To use the detector for Azure Functions:
 
 1. In the Azure portal, go to your app.
-1. Go to **Platform features**.
 1. Select **Diagnose and solve problems**.
 1. Select **Availability and Performance** > **Function app down or reporting errors**.
 1. Select **Key Vault Application Settings Diagnostics**.

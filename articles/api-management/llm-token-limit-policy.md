@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 11/17/2025
+ms.date: 04/01/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -18,8 +18,6 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The `llm-token-limit` policy prevents large language model (LLM) API usage spikes on a per key basis by limiting consumption of language model tokens to either a specified rate (number per minute), a quota over a specified period, or both. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
-
-By relying on token usage metrics returned from the LLM endpoint, the policy monitors and enforces limits based on actual token consumption. The policy also enables estimation of prompt tokens in advance by API Management, minimizing unnecessary requests to the LLM backend if the limit is already exceeded. However, because the actual number of tokens consumed depends on both the prompt size and the completion size (which varies by request), the policy can't predict total token consumption in advance. This design could allow token limits to be exceeded temporarily when multiple requests are processed concurrently.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -48,9 +46,9 @@ By relying on token usage metrics returned from the LLM endpoint, the policy mon
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | counter-key          | The key to use for the token limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.| Yes      | N/A     |
 | tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.      | N/A     |
-| token-quota | The maximum number of tokens allowed during the time interval specified in the `token-quota-period`. Policy expressions aren't allowed. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified. | N/A |
-| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly`. The start time of a quota period is calculated as the UTC timestamp truncated to the unit (hour, day, etc.) used for the period.  | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.   | N/A |
-| estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens. <br><br>When set to `false`, the remaining tokens per `counter-key` are calculated using the actual token usage from the response of the model. This could result in prompts being sent to the model that exceed the token limit. In such case, this will be detected in the response, and all succeeding requests will be blocked by the policy until the token limit resets.  | Yes       | N/A     |
+| token-quota | The maximum number of tokens allowed during the time interval specified in the `token-quota-period`. Policy expressions are allowed. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified. | N/A |
+| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly`. The start time of a quota period is calculated as the UTC timestamp truncated to the unit (hour, day, etc.) used for the period. Policy expressions are allowed. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.   | N/A |
+| estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate prompt tokens in advance based on prompt schema in API. <br> - `false`: don't estimate prompt tokens; use actual token usage from the model response. <br><br>For token counting and estimation behavior, see [Considerations for token counts and estimation](#considerations-for-token-counts-and-estimation). | Yes       | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
 | remaining-quota-tokens-header-name | The name of a response header whose value after each policy execution is the estimated number of remaining tokens corresponding to `token-quota` allowed for the `token-quota-period`. Policy expressions aren't allowed. | No | N/A |
@@ -58,7 +56,7 @@ By relying on token usage metrics returned from the LLM endpoint, the policy mon
 | remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens corresponding to `tokens-per-minute` allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
 | remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining tokens corresponding to `tokens-per-minute` allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
 | tokens-consumed-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
-| tokens-consumed-variable-name    | The name of a variable initialized to the estimated number of tokens in the prompt in `backend` section of pipeline if `estimate-prompt-tokens` is `true` and zero otherwise. The variable is updated with the reported count upon receiving the response in `outbound` section.|  No | N/A  |
+| tokens-consumed-variable-name    | The name of a variable initialized to the estimated prompt token count in the `backend` section (or zero if `estimate-prompt-tokens` is `false`), updated with the actual reported count in the `outbound` section.|  No | N/A  |
 
 ## Usage
 
@@ -70,15 +68,23 @@ By relying on token usage metrics returned from the LLM endpoint, the policy mon
 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an LLM API using the portal.
-* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the LLM API are used to determine token usage.
-* When multiple requests are sent concurrently or with slight delays, the policy can allow token consumption that exceeds the configured limit. This happens because the policy can't determine the exact number of tokens consumed until responses are received from the backend. Once responses are processed and token limits are exceeded, subsequent requests are blocked until the limit resets. 
-* Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
-* The value of `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` is an estimate for informational purposes but could be larger than expected based on actual token consumption. The value is more accurate as the quota is approached.
-* For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
+* The value of `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` is an estimate and may be larger than expected based on actual token consumption. For more information, see [Considerations for token counts and estimation](#considerations-for-token-counts-and-estimation).
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 * [!INCLUDE [api-management-rate-limit-implementation-v2](../../includes/api-management-rate-limit-implementation-v2.md)]
 * [!INCLUDE [api-management-token-limit-gateway-counts](../../includes/api-management-token-limit-gateway-counts.md)]
 
+## Considerations for token counts and estimation
+
+The policy monitors and enforces token limits using actual token usage data returned from the LLM endpoint. You can optionally enable prompt token estimation to reduce unnecessary backend requests. The following considerations apply.
+
+- **Token types**: The policy currently counts prompt and completion tokens only.
+- **Without prompt token estimation** (`estimate-prompt-tokens="false"`): The policy uses actual token usage values from the `usage` section of the LLM API response. Prompts may be sent to the backend even when the limit is exceeded; this is detected from the response, after which subsequent requests are blocked until the limit resets.
+- **With prompt token estimation** (`estimate-prompt-tokens="true"`): The policy estimates prompt tokens from the prompt schema in the API definition before sending the request. This can reduce unnecessary backend requests when the limit is already exceeded, but may reduce performance.
+- **Streaming**: When streaming is enabled in the API request (`stream: true`), prompt tokens are always estimated regardless of the `estimate-prompt-tokens` setting. Completion tokens are also estimated when responses are streamed.
+- **Image input**: For models that accept image input, image tokens are generally counted by the backend LLM and included in limit and quota calculations. However, when streaming is enabled or `estimate-prompt-tokens` is set to `true`, the policy overcounts each image as a maximum of 1200 tokens.
+- **Concurrency**: Because the exact number of tokens consumed can't be determined until responses are received from the backend, concurrent or near-concurrent requests can temporarily exceed the configured token limit. Once responses are processed and the limit is exceeded, subsequent requests are blocked until the limit resets.
+- **Remaining quota accuracy**: The estimated remaining token quota returned in `remaining-quota-tokens-variable-name` or `remaining-quota-tokens-header-name` may be larger than expected based on actual token consumption, and becomes more accurate as the quota is approached.
+- 
 ## Examples
 
 ### Token rate limit
@@ -121,7 +127,6 @@ In the following example, the token quota of 10000 is keyed by the subscription 
 ## Related policies
 
 * [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
-* [azure-openai-token-limit](azure-openai-token-limit-policy.md) policy
 * [llm-emit-token-metric](llm-emit-token-metric-policy.md) policy
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

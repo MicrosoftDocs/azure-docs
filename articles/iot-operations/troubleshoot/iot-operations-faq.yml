@@ -53,7 +53,7 @@ sections:
       answer: Microsoft supports the three most recent minor versions of Azure IoT Operations. To learn more, see [Supported versions](../overview-support.md#supported-versions).
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
-      answer: Yes, Azure IoT Operations supports deployment on Azure Arc–enabled Kubernetes clusters connected through Azure Private Link. For questions or more details, please reach out to our team at [aioteam@microsoft.com](mailto:aioteam@microsoft.com). 
+      answer: Yes, Azure IoT Operations supports Azure Private Link for data-plane services such as Azure Storage, Event Hubs, Azure Data Explorer, and Event Grid. You can create private endpoints for these destinations to keep data traffic off the public internet. Private Link Scope (PLS) for the Arc management plane is not currently supported. For more details, see [Deploy Azure IoT Operations with private connectivity](../manage-layered-network/howto-private-connectivity.md). For questions, reach out to [aioteam@microsoft.com](mailto:aioteam@microsoft.com). 
 additionalContent: |
     ## Related content
 

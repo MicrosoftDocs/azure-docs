@@ -117,10 +117,10 @@ The resource providers for database services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Cache | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) |
-| Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
-| Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
-| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
+| Microsoft.Cache | [Azure Managed Redis](../../redis/index.yml) and [Azure Cache for Redis](../../azure-cache-for-redis/cache-overview.md) <br><br>**Note:** Azure Cache for Redis is being retired. For more information, see [Azure Cache for Redis retirement FAQ](../../azure-cache-for-redis/retirement-faq.yml). |
+| Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
+| Microsoft.DBforMySQL | [AzureÂ Database for MySQL](/azure/mysql/) |
+| Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](/azure/cosmos-db/)<br /> [Azure DocumentDB](/azure/documentdb/) |
 | Microsoft.Sql | [Azure SQL Database](/azure/azure-sql/database/index)<br /> [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
@@ -291,7 +291,7 @@ The resource providers for security services are:
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](/azure/dedicated-hsm/) |
 | Microsoft.KeyVault | [Key Vault](/azure/key-vault/) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityInsights | [Microsoft Sentinel](../../sentinel/index.yml) |
+| Microsoft.SecurityInsights | [Microsoft Sentinel](/azure/sentinel/) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Extended Security Updates |
 

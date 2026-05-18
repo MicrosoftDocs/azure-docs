@@ -316,7 +316,7 @@ Next, test and run your workflow, which now looks similar to the following examp
 
 To manually start your workflow, on the designer toolbar, select **Run** > **Run**.
 
-* If the current travel time stays under your limit, your workflow does nothing else and waits or the next interval before checking again.
+* If the current travel time stays under your limit, your workflow does nothing else and waits for the next interval before checking again.
 
 * If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. The following example shows a sample email that your workflow sends:
 

@@ -1,7 +1,7 @@
 ---
 title: Device Update for IoT Hub supported platforms
 description: Device Update for IoT Hub supported operating systems.
-author: eshashah
+author: cwatson-cat
 ms.author: cwatson
 ms.date: 05/17/2023
 ms.topic: concept-article

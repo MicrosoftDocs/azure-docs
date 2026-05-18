@@ -10,21 +10,41 @@ metadata:
   ms.service: azure-sre-agent
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 08/22/2025
+  ms.date: 04/06/2026
 landingContent:
-  - title: About Azure SRE Agent
+  - title: Overview
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure SRE Agent?
+          - text: What is Azure SRE Agent and how it works
             url: overview.md
-          - text: How to use an agent
-            url: usage.md
   - title: Get started
     linkLists:
-      - linkListType: tutorial
+      - linkListType: get-started
         links:
-          - text: Troubleshoot Azure App Service
-            url: troubleshoot-azure-app-service.md
-          - text: Troubleshoot Azure Container Apps
-            url: troubleshoot-azure-container-apps.md
+          - text: Create your first agent in minutes
+            url: create-and-set-up.md
+  - title: Build subagents or skills
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Create specialized domain experts
+            url: sub-agents.md
+  - title: Connectors
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Integrate your tools and data sources
+            url: connectors.md
+  - title: Incident response
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Automate triage and remediation
+            url: incident-response.md
+  - title: Deep context
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Give your agent code access and persistent memory
+            url: workspace-tools.md

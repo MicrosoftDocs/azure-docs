@@ -5,7 +5,7 @@ description: Learn how to configure a site-to-site VPN connection with IPv4 and 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 04/08/2026
 ms.author: cherylmc
 # Customer intent: "As a network administrator, I want to configure IPv6 in dual-stack mode for Azure VPN Gateway, so that I can support seamless IPv6 traffic alongside IPv4 within my organization's VPN infrastructure."
 ---
@@ -14,11 +14,11 @@ ms.author: cherylmc
 
 This article helps you create a site-to-site VPN gateway connection in IPv4 and IPv6 dual stack from your on-premises network to a virtual network (VNet) using the Azure CLI.
 
-:::image type="content" source="media/site-to-site-ipv6-azure-cli/site-to-site-connection.png" alt-text="Diagram showing site-to-site VPN gateway connection in dual stack.":::
+:::image type="content" source="media/site-to-site-ipv6-dual-stack/site-to-site-connection-dual-stack.png" alt-text="Diagram showing site-to-site VPN gateway connection in dual stack.":::
 
 A site-to-site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP addresses assigned to it. The current site-to-site VPN configuration with dual-stack support allows only IPv6 traffic in the inner tunnel. IPv6 inner traffic is supported exclusively with IKEv2.
 
-The steps in this article create two connections between the VPN gateway and the on-premises VPN device using a shared key. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
+The steps in this article create two connections between the VPN gateway and the on-premises VPN device using a shared key. You can also use [PowerShell](site-to-site-ipv6-azure-powershell.md) for this configuration. If you aren't configuring IPv4 addresses along with IPv6 addresses, you can optionally use the [Azure portal](ipv6-configuration.md). For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
 > [!IMPORTANT]
 > IPv6 in dual stack configuration is currently in PREVIEW.
@@ -31,7 +31,7 @@ The steps in this article create two connections between the VPN gateway and the
 
 Verify that your environment meets the following criteria before beginning configuration:
 
-* Verify that you have a functioning route-based VPN gateway. To create a VPN gateway, see [Create a VPN gateway](create-gateway-powershell.md).
+* Verify that you have a functioning route-based VPN gateway. To create a VPN gateway, see [Create a VPN gateway](create-routebased-vpn-gateway-cli.md).
 
 * If you're unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure routes to your on-premises location. None of the subnets of your on-premises network can overlap with the virtual network subnets that you want to connect to.
 
@@ -40,6 +40,7 @@ Verify that your environment meets the following criteria before beginning confi
   * Make sure you have a compatible VPN device and someone who can configure it. For more information about compatible VPN devices and device configuration, see [About VPN devices](vpn-gateway-about-vpn-devices.md).
 
   * Determine if your VPN device supports active-active mode gateways. This article creates an active-active mode VPN gateway, which is recommended for highly available connectivity. Active-active mode specifies that both gateway VM instances are active. This mode requires two public IP addresses, one for each gateway VM instance. You configure your VPN device to connect to the IP address for each gateway VM instance.
+    
     If your VPN device doesn't support this mode, don't enable this mode for your gateway. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
 
 * If your virtual network gateway and local network gateway reside in different subscriptions and different tenants, you'll need to use slightly different steps. Review the [Connections with different tenants and different subscriptions](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
@@ -92,7 +93,7 @@ az network vnet subnet create \
 
 ## Create the Azure VPN gateway
 
-The Azure VPN Gateway is deployed with a zonal SKU in the GatewaySubnet. In active-active mode, it requires two public IP addresses with Standard SKU:
+The Azure VPN Gateway is deployed with a zonal SKU in the GatewaySubnet. In active-active mode, it requires two public IP addresses with Standard SKU. Create the public IP addresses, then create the VPN gateway.
 
 ```bash
 # create the first public IP of the VPN Gateway
@@ -186,7 +187,13 @@ az network local-gateway create \
 
 ## Configure your VPN device
 
-Site-to-site connections to an on-premises network require a VPN device. For information to help you configure your device, see [Configure your VPN device](vpn-gateway-howto-site-to-site-resource-manager-cli.md#VPNDevice). Make sure to configure your VPN device to connect to both gateway IP addresses of the active-active mode VPN gateway. If your VPN device doesn't support active-active mode, you can still connect to both gateway IP addresses, but only one connection will be active at a time. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
+Site-to-site connections to an on-premises network require a VPN device. For information to help you configure your device, see [Configure your VPN device](vpn-gateway-howto-site-to-site-resource-manager-cli.md#VPNDevice). When configuring your VPN device, you need the following items:
+
+- **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use.
+
+- **Public IP addresses of your virtual network gateway instances**: Obtain the IP address for each VM instance. If your gateway is in active-active mode, you'll have an IP address for each gateway VM instance. Be sure to configure your device with both IP addresses, one for each active gateway VM.
+
+Make sure to configure your VPN device to connect to both gateway IP addresses of the active-active mode VPN gateway. If your VPN device doesn't support active-active mode, you can still connect to both gateway IP addresses, but only one connection will be active at a time. For more information, see [Design highly available connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md) and [About active-active mode VPN gateways](about-active-active-gateways.md).
 
 ## Create the VPN connections
 
@@ -335,7 +342,3 @@ az network vpn-connection delete \
 * Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://azure.microsoft.com/products/virtual-machines/).
 
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a site-to-site VPN Connection](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/).
-
-* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/).

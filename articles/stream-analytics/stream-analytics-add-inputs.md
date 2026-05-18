@@ -5,7 +5,7 @@ ms.service: azure-stream-analytics
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.topic: concept-article
-ms.date: 02/26/2024
+ms.date: 04/29/2026
 ---
 # Understand inputs for Azure Stream Analytics
 
@@ -23,16 +23,16 @@ These input resources can live in the same Azure subscription as your Stream Ana
 You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](/rest/api/streamanalytics/2020-03-01/inputs), [Visual Studio](stream-analytics-tools-for-visual-studio-install.md), and [Visual Studio Code](./quick-create-visual-studio-code.md) to create, edit, and test Stream Analytics job inputs.
 
 > [!NOTE] 
-> We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
+> Use [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for the best local development experience. Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) has known feature gaps and won't be improved going forward.
 
 ## Stream and reference inputs
-As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types:
+As data is pushed to a data source, the Stream Analytics job consumes the data and processes it in real time. Inputs are divided into two types:
 
 - Data stream inputs
-- Reference data inputs.
+- Reference data inputs
 
 ### Data stream input
-A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, Azure Data Lake Storage Gen2, and Blob storage are supported as data stream input sources. Event Hubs is used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
+A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, Azure Data Lake Storage Gen2, and Blob storage are supported as data stream input sources. Event Hubs collects event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios. Blob storage can ingest bulk data as a stream, such as log files.
 
 For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md).
 

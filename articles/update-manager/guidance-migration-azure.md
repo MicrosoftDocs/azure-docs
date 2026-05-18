@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 08/21/2025
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator overseeing server management, I want to migrate from Microsoft Configuration Manager to Azure Update Manager, so that I can streamline software update processes and benefit from a cloud-native patch management solution.
 ---
 

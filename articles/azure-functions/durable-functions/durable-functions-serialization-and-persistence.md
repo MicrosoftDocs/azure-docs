@@ -1,0 +1,211 @@
+---
+title: "Data Persistence and Serialization in Durable Functions - Azure"
+description: "Learn how Durable Functions persists and serializes data in Azure Functions. Discover best practices for handling large payloads, sensitive data, and custom serialization to optimize performance."
+author: cgillum
+ms.topic: concept-article
+ms.service: azure-functions
+ms.date: 04/23/2026
+ms.author: azfuncdf
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-dotnet
+#Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
+---
+
+# Data persistence and serialization in Durable Functions for Azure Functions
+
+The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](../../durable-task/common/durable-task-hubs.md) to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
+
+This article explains what data gets persisted, how to handle large payloads and sensitive data, and how to customize serialization for each supported language.
+
+In this article:
+
+- [Task hub contents](#task-hub-contents) - What data is stored and how
+- [Keep inputs and outputs small](#keep-durable-functions-inputs-and-outputs-small) - Strategies for managing payload size
+- [Work with sensitive data](#work-with-sensitive-data) - Protect secrets and personally identifiable information
+- [Customize serialization and deserialization](#customize-serialization-and-deserialization) - Language-specific serialization options
+
+## Task hub contents
+
+Task hubs store the current state of instances, and any pending messages:
+
+* *Instance states* store the current status and history of an instance. For orchestration instances, this state includes the runtime state, the orchestration history, inputs, outputs, and custom status. For entity instances, it includes the entity state.
+* *Messages* store function inputs or outputs, event payloads, and metadata that is used for internal purposes, like routing and end-to-end correlation.
+
+Messages are deleted after being processed, but instance states persist unless they're explicitly deleted by the application or an operator. In particular, an orchestration history remains in storage even after the orchestration completes.
+
+For an example of how states and messages represent the progress of an orchestration, see the [task hub execution example](../../durable-task/common/durable-task-hubs.md#execution-example).
+
+Where and how states and messages are represented in storage [depends on the storage provider](../../durable-task/common/durable-task-hubs.md#representation-in-storage). Durable Functions' default provider is [Azure Storage](durable-functions-azure-storage-provider.md), which persists data to queues, tables, and blobs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account that you specify.
+
+### Types of data that are serialized and persisted
+The following list shows the different types of data that will be serialized and persisted when using features of Durable Functions:
+
+- All inputs and outputs of orchestrator, activity, and entity functions, including any IDs and unhandled exceptions
+- Orchestrator, activity, and entity function names
+- External event names and payloads
+- Custom orchestration status payloads
+- Orchestration termination messages
+- Durable timer payloads
+- Durable HTTP request and response URLs, headers, and payloads
+- Entity call and signal payloads
+- Entity state payloads
+
+For guidance on managing payload size and protecting sensitive items in this list, see the following sections.
+
+### Keep Durable Functions inputs and outputs small
+
+You can run into memory issues if you provide large inputs and outputs to and from Durable Functions APIs. Inputs and outputs are serialized into the orchestration history, which means that large payloads can, over time, greatly contribute to unbounded history growth. This growth risks causing memory exceptions during [replay](../../durable-task/common/durable-task-orchestrations.md#reliability).
+
+To mitigate the impact of large inputs and outputs, you can:
+
+- Delegate work to sub-orchestrators to load balance the history memory burden across multiple orchestrators, keeping the memory footprint of individual histories small.
+- Store large data in external storage (such as Azure Blob Storage) and pass lightweight identifiers that allow you to retrieve that data inside activity functions when needed.
+
+If you use Durable Task Scheduler, you can also use [large payload support](../../durable-task/scheduler/durable-task-scheduler-large-payloads.md) to offload larger payloads to Azure Blob Storage.
+
+> [!TIP]
+> The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
+
+### Work with sensitive data
+
+Inputs and outputs (including exceptions) to and from Durable Functions APIs are durably persisted in your [storage provider of choice](../../durable-task/common/durable-task-storage-providers.md). If those inputs, outputs, or exceptions contain sensitive data (such as secrets, connection strings, or personally identifiable information), anyone with read access to your storage provider's resources could obtain them.
+
+To safely handle sensitive data, fetch that data within activity functions from either Azure Key Vault or environment variables, and never communicate that data directly to or from orchestrators or entities. This approach helps prevent sensitive data from leaking into your storage resources.
+
+> [!TIP]
+> This guidance also applies to the `CallHttp` orchestrator API, which persists its request and response payloads in storage. If your target HTTP endpoints require authentication, implement the HTTP call inside an activity, or use the [built-in managed identity support offered by CallHttp](./durable-functions-http-features.md#managed-identities), which doesn't persist credentials to storage.
+
+> [!NOTE]
+> Avoid logging data containing secrets as anyone with read access to your logs (for example in Application Insights) could obtain those secrets.
+
+#### Encryption at rest
+
+When using the Azure Storage provider, all data is automatically encrypted at rest. However, anyone with access to the storage account can read the data in its unencrypted form. If you need stronger protection for sensitive data, consider first encrypting the data using your own encryption keys so that the data is persisted in its pre-encrypted form.
+
+Alternatively, .NET users have the option of implementing custom serialization providers that provide automatic encryption. An example of custom serialization with encryption can be found in [this GitHub sample](https://github.com/charleszipp/azure-durable-entities-encryption).
+
+> [!NOTE]
+> If you decide to implement application-level encryption, be aware that orchestrations and entities can exist for indefinite amounts of time. This matters when it comes time to rotate your encryption keys because an orchestration or entities may run longer than your key rotation policy. If a key rotation happens, the key used to encrypt your data may no longer be available to decrypt it the next time your orchestration or entity executes. Custom encryption is therefore recommended only when orchestrations and entities are expected to run for relatively short periods of time.
+
+## Customize serialization and deserialization
+
+Serialization customization options vary by language. Select your language tab to see the available options.
+
+# [C# (InProc)](#tab/csharp-inproc)
+
+### Default serialization logic
+
+Durable Functions for .NET in-process internally uses [Json.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) to serialize orchestration and entity data to JSON. The default Json.NET settings used are:
+
+**Inputs, Outputs, and State:**
+
+```csharp
+JsonSerializerSettings
+{
+    TypeNameHandling = TypeNameHandling.None,
+    DateParseHandling = DateParseHandling.None,
+}
+```
+
+**Exceptions:**
+
+```csharp
+JsonSerializerSettings
+{
+    ContractResolver = new ExceptionResolver(),
+    TypeNameHandling = TypeNameHandling.Objects,
+    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+}
+```
+
+Read more detailed documentation about `JsonSerializerSettings` [here](https://www.newtonsoft.com/json/help/html/SerializationSettings.htm).
+
+### Customize serialization with .NET attributes
+
+During serialization, Json.NET looks for [various attributes](https://www.newtonsoft.com/json/help/html/SerializationAttributes.htm) on classes and properties that control how the data is serialized and deserialized from JSON. If you own the source code for data type passed to Durable Functions APIs, consider adding these attributes to the type to customize serialization and deserialization.
+
+### Customize serialization with Dependency Injection
+
+Function apps that target .NET and run on the Functions V3 runtime can use [Dependency Injection (DI)](../functions-dotnet-dependency-injection.md) to customize how data and exceptions are serialized. The following sample code demonstrates how to use DI to override the default Json.NET serialization settings using custom implementations of the `IMessageSerializerSettingsFactory` and `IErrorSerializerSettingsFactory` service interfaces.
+
+```csharp
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+[assembly: FunctionsStartup(typeof(MyApplication.Startup))]
+namespace MyApplication
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            builder.Services.AddSingleton<IMessageSerializerSettingsFactory, CustomMessageSerializerSettingsFactory>();
+            builder.Services.AddSingleton<IErrorSerializerSettingsFactory, CustomErrorSerializerSettingsFactory>();
+        }
+
+        /// <summary>
+        /// A factory that provides the serialization for all inputs and outputs for activities and
+        /// orchestrations, as well as entity state.
+        /// </summary>
+        internal class CustomMessageSerializerSettingsFactory : IMessageSerializerSettingsFactory
+        {
+            public JsonSerializerSettings CreateJsonSerializerSettings()
+            {
+                // Return your custom JsonSerializerSettings here
+            }
+        }
+
+        /// <summary>
+        /// A factory that provides the serialization for all exceptions thrown by activities
+        /// and orchestrations
+        /// </summary>
+        internal class CustomErrorSerializerSettingsFactory : IErrorSerializerSettingsFactory
+        {
+            public JsonSerializerSettings CreateJsonSerializerSettings()
+            {
+                // Return your custom JsonSerializerSettings here
+            }
+        }
+    }
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+### .NET Isolated and System.Text.Json
+
+Durable Functions running in the [.NET Isolated worker process](../dotnet-isolated-process-guide.md) uses the same object-serializer configured globally for your Azure Functions app (see [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This serializer happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will transitively apply to Durable Functions.
+
+For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
+
+# [JavaScript](#tab/javascript)
+
+### Serialization and deserialization logic
+
+Azure Functions Node applications use [`JSON.stringify()` for serialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.Parse()` for deserialization](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse). Most types should serialize and deserialize seamlessly. In cases where the default logic is insufficient, defining a `toJSON()` method on the object will override the serialization logic. However, no analog exists for object deserialization.
+
+For full customization of the serialization/deserialization pipeline, consider handling the serialization and deserialization with your own code and passing around data as strings.
+
+
+# [Python](#tab/python)
+
+### Serialization and deserialization logic
+
+It's recommended to use type annotations to ensure Durable Functions serializes and deserializes your data correctly. While many built-in types are handled automatically, some built-in data types require type annotations to preserve the type during deserialization.
+
+For custom data types, you make JSON serialization and deserialization possible by defining class methods `to_json` and `from_json` on your data type class. Note that these methods are not called on the return value from the orchestrator function, meaning the return value has to be natively JSON-serializable. For more information, see [Bindings](durable-functions-bindings.md#python-trigger-usage).
+
+# [Java](#tab/java)
+
+Java uses the [Jackson v2.x](https://github.com/FasterXML/jackson#jackson-project-home-github) libraries for serialization and deserialization of data payloads. You can use [Jackson annotations](https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations) on your POJO types to customize the serialization behavior.
+
+---
+
+## Next steps
+
+- [Task hubs in Durable Functions](../../durable-task/common/durable-task-hubs.md)
+- [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md)
+- [Durable Functions bindings](durable-functions-bindings.md)

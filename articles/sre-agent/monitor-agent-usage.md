@@ -17,7 +17,7 @@ Track Azure AI Unit (AAU) consumption, manage allocation limits, and review sess
 > [!TIP]
 > - See how many AAUs your agent consumes in this billing cycle.
 > - View daily consumption trends on a bar chart to spot usage spikes.
-> - Adjust your active flow AAU allocation at any time, up to 200,000 per month.
+> - Adjust your active flow AAU allocation at any time, up to 1,000,000 per month.
 > - Generate session insights from any conversation thread for performance review.
 
 ## The problem: usage without visibility
@@ -48,7 +48,7 @@ Select **Change AAU allocation** to modify your monthly active flow AAU limit.
 |---|---|
 | **Input** | Monthly active flow AAUs |
 | **Step size** | Increments of 100 |
-| **Maximum** | 200,000 AAUs per month |
+| **Maximum** | 1,000,000 AAUs per month |
 | **Effective** | Changes take effect immediately |
 
 If you reduce the allocation to less than your current consumption, a warning prompts you to confirm the change before applying it.

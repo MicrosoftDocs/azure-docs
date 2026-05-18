@@ -1,12 +1,12 @@
 ---
-title: Migrate C# app from in-process to isolated worker model
+title: Migrate C# Apps from In-process to Isolated Worker Model
 description: Learn how to migrate your existing C# function apps running on .NET in the in-process model to the isolated worker model.
 ms.service: azure-functions
 ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 03/20/2026
 ---
 
 # Migrate C# apps from the in-process model to the isolated worker model
@@ -54,7 +54,7 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 6 o
 > [!TIP]
 > **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
 
-This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 10 or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ## Prepare for migration
 
@@ -260,7 +260,7 @@ The value you have for `AzureWebJobsStorage` might be different. You don't need 
 
 ### host.json file
 
-No changes are required to your *host.json* file. However, if your Application Insights configuration is in this file from your in-process model project, you might want to make additional changes in your *Program.cs* file. The *host.json* file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
+No changes are required to your *host.json* file. However, if your Application Insights configuration is in this file from your in-process model project, you might want to make more changes in your *Program.cs* file. The *host.json* file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 ### Other code changes
 
@@ -359,7 +359,7 @@ namespace Company.Function
 Updating your function app to the isolated model involves two changes that should be completed together, because if you only complete one, the app is in an error state. Both of these changes also cause the app process to restart. For these reasons, you should perform the update using a [staging slot](./functions-deployment-slots.md). Staging slots help minimize downtime for your app and allow you to test and verify your migrated code with your updated configuration in Azure. You can then deploy your fully migrated app to the production slot through a swap operation.
 
 > [!IMPORTANT]
-> When an app's deployed payload doesn't match the configured runtime, it's in [an error state](./errors-diagnostics/diagnostic-events/azfd0013.md). During the migration process, you put the app into this state, ideally only temporarily. Deployment slots help mitigate the effect of this, because the error state will be resolved in your staging (nonproduction) environment before the changes are applied as single update to your production environment. Slots also defend against any mistakes and allow you to detect any other issues before reaching production.
+> When an app's deployed payload doesn't match the configured runtime, it's in [an error state](./errors-diagnostics/diagnostic-events/azfd0013.md). During the migration process, you put the app into this state, ideally only temporarily. Deployment slots help mitigate the effect of this, because the error state is resolved in your staging (nonproduction) environment before the changes are applied as single update to your production environment. Slots also defend against any mistakes and allow you to detect any other issues before reaching production.
 > 
 > During the process, you might still see errors in logs coming from your staging (nonproduction) slot. This is expected, though these should go away as you proceed through the steps. Before you perform the slot swap operation, you should confirm that these errors stop being raised and that your application is working as expected.
 
@@ -388,7 +388,7 @@ Once you complete these steps, the migration is complete, and your app runs on t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn more about the isolated worker model][isolated-guide]
+> [Learn more about running C# Azure Functions in the isolated worker model][isolated-guide]
 
 [isolated-guide]: ./dotnet-isolated-process-guide.md
 [.NET Upgrade Assistant]: /dotnet/core/porting/upgrade-assistant-overview

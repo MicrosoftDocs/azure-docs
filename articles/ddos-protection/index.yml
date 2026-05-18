@@ -5,8 +5,8 @@ summary: "Learn how the Azure DDoS Protection, when combined with application de
 metadata: 
   description: "Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks."
   keywords: azure ddos protection
-  author: AbdullahBell
-  ms.author: abell
+  author: duongau
+  ms.author: duau
   ms.date: 03/17/2026
   ms.service: azure-ddos-protection
   ms.topic: landing-page

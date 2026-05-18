@@ -27,7 +27,7 @@ There are several considerations to be aware of when using cool access.
 ### General considerations for cool access
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers.
-* Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
+* Although cool access is available for the Standard, Premium, Ultra, and Flexible service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
 * Cool access supports two tiering policies: `Auto` and `SnapshotOnly`. The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier. The `Auto` policy encompasses both snapshot copy data and data in the active file system.
     Throughput is based on the [the service level](azure-netapp-files-service-levels.md#supported-service-levels) for both the `Auto` and `SnapshotOnly` tiering policies.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information about the retrieval policy, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
@@ -61,11 +61,9 @@ There are several considerations to be aware of when using cool access.
 
 ### Considerations for throughput in Premium and Ultra service level volumes with cool access
 
-- Enabling cool access on volumes in Premium and Ultra capacity pools results in reduced throughput: 
-    - For the Premium service level, throughput is 36 MiB/s per 1 TiB (compared to 64 MiB/s per 1 TiB without cool access) 
-    - For the Ultra service level, throughput is 68 MiB/second per 1 TiB (compared to 128 MiB/second per 1 TiB without cool access) 
-    - Reduced throughput limits are applicable to the `Auto` and `SnapshotOnly` tiering policies.
-- This reduced throughput remains in effect even if the cool access feature is subsequently turned off for the volume.  
+>[!IMPORTANT]
+>Throughput calculations for cool access with the Premium and Ultra service levels depends on the QoS of the capacity pool and the amount of data in the cool tier. To learn more, see [Throughput in the Premium and Ultra service levels](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels).
+
 - When cool access is enabled on a volume, you benefit from a reduced price. You don't receive additional discounts specifically for the reduced bandwidth. Instead, you pay the cool access price, which inherently includes the reduced throughput. 
 
 ### Considerations for deleting data on a cool access enabled volume
@@ -89,78 +87,6 @@ There are several considerations to be aware of when using cool access.
 
 * When you [restore a snapshot of a cool access-enabled volume to a new volume](snapshots-restore-new-volume.md), the new volume inherits the cool access configuration from the parent volume. After the new volume is created, you can modify the cool access settings.  
 * You can't restore from a snapshot of a non-cool-access volume to a cool access volume. Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
-
-## Enable cool access 
-
-You must register for cool access with the Flexible, Premium, or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
-
-### <a name="register-the-feature"></a> Register for cool access
-
-# [Ultra](#tab/ultra)
-
-Before using cool access at the Ultra service level for the first time, you need to register the feature. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-# [Premium](#tab/premium)
-
-Before using cool access at the Premium service level for the first time, you need to register the feature. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-# [Standard](#tab/standard)
-
-No registration is required to use cool access at the Standard service level.
-
-# [Flexible](#tab/flexible)
-
-You must register cool access with the Flexible service level before using it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
-    ```
-
-2. Check the status of the feature registration: 
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
-    ```
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-    
----
 
 ### Configure the capacity pool for cool access
 

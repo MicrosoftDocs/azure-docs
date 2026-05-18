@@ -3,11 +3,11 @@ title: What is a private endpoint?
 titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/30/2026
-ms.author: abell
+ms.author: allensu
 ms.custom:
   - references_regions
   - ignite-2024
@@ -111,6 +111,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Machine Learning | Microsoft.MachineLearningServices/registries | amlregistry |
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
+| Azure Managed Redis | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |

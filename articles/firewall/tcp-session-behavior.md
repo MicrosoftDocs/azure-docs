@@ -53,7 +53,13 @@ The TCP idle timeout behavior differs for north-south and east-west traffic:
 When Azure Firewall terminates a TCP connection due to an idle timeout, it sends a TCP reset packet (RST) to both the client and server. This packet notifies both parties that the connection closed. The behavior of TCP reset packets differs for north-south and east-west traffic.
 
 - **North-south traffic**: Azure Firewall notifies both the client and server when an idle timeout occurs by sending a TCP reset packet (RST).
-- **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs. This behavior can cause unexpected problems in applications. Configure a keep-alive mechanism within your application to keep long-running sessions active and prevent disruptions during scale-in, maintenance, or autorecovery events.
+- **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs.
+
+Because no reset packet is sent, the underlying connection might be removed by platform infrastructure without explicitly notifying Azure Firewall. As a result, Azure Firewall can temporarily retain the flow state even after the connection is no longer active.
+
+During this period, subsequent packets that match the existing flow might continue to be allowed until the firewall flow state expires. This can create a temporary mismatch between the actual connection state and the firewall’s tracked state, which might result in intermittent or unexpected application behavior.
+
+To mitigate this behavior, use application-level TCP keep-alives and implement retry logic to ensure connections are re-established after idle timeouts.
 
 Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity problems when sessions terminate unexpectedly. To avoid these problems, implement retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
 

@@ -1,8 +1,8 @@
 ---
 title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to an MQTT broker in a nonproduction environment.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 02/11/2026
@@ -12,8 +12,6 @@ ms.service: azure-iot-operations
 ---
 
 # Test connectivity to MQTT broker with MQTT clients
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 This article shows different ways to test connectivity to an MQTT broker with MQTT clients in a nonproduction environment.
 
@@ -200,7 +198,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a file named `broker-nodeport.yaml` with the following configuration. Replace placeholders with your own values, including your own authentication and TLS settings.
 
@@ -369,7 +369,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 > [!CAUTION]
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).
@@ -583,7 +585,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
