@@ -41,7 +41,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-app-configuration/concept-experimentation.md",
+            "source_path": "/articles/azure-app-configuration/concept-experimentation.md",
             "redirect_url": "/azure/azure-app-configuration/",
             "redirect_document_id": false
         }
