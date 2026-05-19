@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 10/22/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 Create a lakehouse in your Microsoft Fabric workspace:
