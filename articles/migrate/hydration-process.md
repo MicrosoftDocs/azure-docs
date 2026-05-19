@@ -13,7 +13,9 @@ ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 
 # Hydration process
 
-You have to make some changes to the VMs configuration before the migration to ensure that the migrated VMs function properly on Azure. Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. Before you migrate, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Migrate performs the hydration process.
+You need to modify VM configurations before migration to ensure that migrated VMs function properly on Azure. Azure Migrate applies these configuration changes thorugh a process known as *hydration*. Hydration process is supported only for operating system versions listed in [VM requirements (agentless)](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless). For operating systems not listed, perform the required changes manually before migration. If you migrate a VM  without these, the VM migth not boot, or experience connectivity issues.
+
+The following diagram illustrates the hydration process in Azure Migrate.
 
  [![Hydration steps](./media/concepts-prepare-vmware-agentless-migration/hydration-process-inline.png)](./media/concepts-prepare-vmware-agentless-migration/hydration-process-expanded.png#lightbox)
 
