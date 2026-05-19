@@ -63,11 +63,17 @@ The drill instance is created. Review the summary widgets on the **Overview** pa
 
 ## Review and configure resources for the drill
 
+This section helps you verify and configure drill resources. You can review permissions, validate resource inclusion, assess metrics readiness, and include required resources to ensure successful drill execution.
+
 To review and configure resources for the drill, follow these steps:
 
 1. On the selected service group pane, select **Resiliency** > **Drills**.
 
 1.  On the **Drills** pane, select the drill instance you created.
+
+### Review drill role assignment status
+
+To review drill role assignment status, follow these steps:
 
 1. On the selected drill instance pane, select **Settings** > **Identity and permissions**.
 
@@ -77,21 +83,13 @@ To review and configure resources for the drill, follow these steps:
 
 If there are errors in Drills Role Assignment status,  reassess the status by selecting **Assess role assignment readiness**.
 
-## Review the resources included in the drill
+### Review the resources included in the drill
 
 The zone down drill allows you to review the resources included in the drill. The drill does the following actions:
 
 - Includes resources with a native zonal resiliency solution by default; these resources qualify for fault injection.
 - Associates a Recovery Plan with the Service Group for resources that require manual failover (for example, Virtual Machines with Azure Site Recovery).
 - Excludes resources that lack native zonal resiliency, aren't part of a Recovery Plan, or don't support zonal resiliency detection for the resource type.
-
-To review and configure resources for the drill, follow these steps:
-
-1. On the selected service group pane, select **Resiliency** > **Drills**.
-
-1.  On the **Drills** pane, select the drill instance you created.
-
-### Include resources in the drill
 
 To include resources in the drill, follow these steps:
 
