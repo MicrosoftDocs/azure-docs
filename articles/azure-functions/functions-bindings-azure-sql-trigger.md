@@ -50,6 +50,8 @@ For more information on change tracking and how it's used by applications such a
 
 [!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
 
+For a complete end-to-end example of using the Azure SQL trigger, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
+
 ::: zone pivot="programming-language-csharp"
 
 ## Example usage
