@@ -34,7 +34,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > The `LegacyVMNVA` tag must be applied before August 1, 2026. VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
 
 1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
-     - This will automatically apply the tag across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
+     - Using the existing [Compliance and Remediation process](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal), the Tag can be applied across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
      - It will scope tag application to specific NVA publishers and associated product IDs available in the Azure Marketplace.
      - Applying this policy has no cost implications for your subscription.
 
