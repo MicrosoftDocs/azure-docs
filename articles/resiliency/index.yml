@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 11/19/2025
+  ms.date: 06/03/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -56,6 +56,18 @@ landingContent:
         links:
           - text: Monitor protection summary
             url: tutorial-monitor-protection-summary.md
+
+  # Card (optional)
+  - title: Zonal resiliency (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Availability Zone Down Drills (preview)
+            url: availability-zone-down-drills-about.md
+          - text: goals and recommendations (preview)
+            url: goals-recommendations-about.md
+          - text: Azure Recovery Orchestration Plan (preview)
+            url: recovery-orchestration-plan-about.md 
 
   # Card (optional)
   - title: Resiliency Copilot

@@ -4,7 +4,7 @@ description: Learn about the supported scenarios, limitations, and Azure RBAC ro
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/02/2026
+ms.date: 06/03/2026
 ms.topic: reference
 ms.service: resiliency
 #customer intent: As an IT admin, I want to learn which Azure RBAC roles are required for goals and recommendations, so that I can grant the right permissions to my team.

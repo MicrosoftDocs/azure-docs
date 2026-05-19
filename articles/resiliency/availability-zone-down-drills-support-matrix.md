@@ -2,7 +2,7 @@
 title: Availability zone down drills support matrix for Infrastructure Resiliency Manager
 description: Provides a summary regional availability, supported scenarios, and limitations for availability zone down drills in Infrastructure Resiliency Manager.
 ms.topic: reference
-ms.date: 06/02/2026
+ms.date: 06/03/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka

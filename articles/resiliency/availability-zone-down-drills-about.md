@@ -2,7 +2,7 @@
 title: About Availability Zone Down Drills in Infrastructure Resiliency Manager
 description: Learn about Availability Zone Down Drills in Infrastructure Resiliency Manager (preview) and how it helps you assess cross-zone resiliency for your applications.
 ms.topic: overview
-ms.date: 06/02/2026
+ms.date: 06/03/2026
 ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
