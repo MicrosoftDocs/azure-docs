@@ -61,8 +61,6 @@ To understand your service group's resiliency status and receive tailored recomm
 
 4. A confirmation pane appears. Select **Save** to confirm.
 
-   :::image type="content" source="media/goals-recommendations/assign-goals-context-blade.png" alt-text="Screenshot showing the goal assignment confirmation pane." lightbox="media/goals-recommendations/assign-goals-context-blade.png":::
-
 5. The system begins discovering resources in the service group and assigning goals. This process may take a few minutes to complete.
 
 6. After discovery completes, you see a summary of your protection status and any recommendations.
@@ -88,7 +86,7 @@ The summary view shows the distribution of resources by zone-resiliency status:
 
 1. Select the summary tile to view the detailed resource list.
 
-1. The resource list shows:
+2. The resource list shows:
    - The zonal resiliency solution configured for each resource.
    - Whether each resource is included or excluded from evaluation.
 
@@ -112,8 +110,6 @@ Not all resources in a service group require zonal resiliency. You can exclude n
 
 3. Set **Target State** to **Excluded** and select the reason: **Zone resiliency not required for this resource**.
 
-   :::image type="content" source="media/goals-recommendations/exclude-resource-selection.png" alt-text="Screenshot showing the exclusion dialog with target state and reason." lightbox="media/goals-recommendations/exclude-resource-selection.png":::
-
 4. Once saved, the exemption status for the resource shows as **Excluded** and is counted under **Not Evaluated** in the resiliency summary.
 
 > [!NOTE]
@@ -130,8 +126,6 @@ Some resources may be resilient by design, even if Azure can't automatically det
 2. Select the resource you want to attest, then select **Include/Exclude Resources**.
 
 3. Set **Target State** to **Excluded** and select the reason: **Ensuring zone resilience via custom solution**.
-
-   :::image type="content" source="media/goals-recommendations/manual-attestation-selection.png" alt-text="Screenshot showing the attestation dialog with the custom solution reason selected." lightbox="media/goals-recommendations/manual-attestation-selection.png":::
 
 4. Once saved, the exemption status for the resource shows as **Manually attested** and is counted under **Zone resilient** in the resiliency summary.
 
