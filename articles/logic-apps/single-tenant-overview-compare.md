@@ -309,7 +309,7 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
 * **Trigger history and run history**: For a **Standard** logic app workflow, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-* **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
+* **Terraform**: You can deploy Standard logic app infrastructure using the AzAPI Terraform provider, which has feature parity with ARM/Bicep. For a recommended module-based approach, see the [Azure Verified Modules (AVM) for Logic Apps Standard](https://github.com/Azure/terraform-azurerm-avm-res-web-site). For AVM support boundaries, see [Module support](https://azure.github.io/Azure-Verified-Modules/help-support/module-support/).
 
 * **Incoming client certificate**: **Standard** logic apps don't support incoming client certificates, and no client certificate setting exists for the logic app in the Azure portal. If you use ARM template deployment, make sure that you don't enable client certificates.
 
