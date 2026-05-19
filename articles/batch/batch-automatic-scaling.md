@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 06/05/2025
+ms.date: 05/19/2026
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 # Customer intent: "As a cloud operations engineer, I want to implement autoscaling for compute nodes in a cloud pool, so that I can dynamically adjust resources based on workload demands, optimizing costs and performance."
 ---
@@ -22,7 +22,7 @@ You can enable automatic scaling when you create a pool, or apply it to an exist
 
 ## Autoscale formulas
 
-An autoscale formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) element (Batch REST) or [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string can't exceed 8 KB, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
+An autoscale formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) element (Batch REST) or [BatchPool.AutoScaleFormula](/dotnet/api/azure.compute.batch.batchpool.autoscaleformula) property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string can't exceed 8 KB, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
 You can think of automatic scaling formulas as a Batch autoscale "language." Formula statements are free-formed expressions that can include both *service-defined variables*, which are defined by the Batch service, and *user-defined variables*. Formulas can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
@@ -348,7 +348,7 @@ $NodeDeallocationOption = taskcompletion;
 
 By default, the Batch service adjusts a pool's size according to its autoscale formula every 15 minutes. This interval is configurable by using the following pool properties:
 
-- [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Batch .NET)
+- [BatchPool.AutoScaleEvaluationInterval](/dotnet/api/azure.compute.batch.batchpool.autoscaleevaluationinterval) (Batch .NET)
 - [autoScaleEvaluationInterval](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (REST API)
 
 The minimum interval is five minutes, and the maximum is 168 hours. If an interval outside this range is specified, the Batch service returns a Bad Request (400) error.
@@ -364,35 +364,47 @@ Pool autoscaling can be configured using any of the [Batch SDKs](batch-apis-tool
 
 To create a pool with autoscaling enabled in .NET, follow these steps:
 
-1. Create the pool with [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Set the [CloudPool.AutoScaleEnabled](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) property to **true**.
-1. Set the [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) property with your autoscale formula.
-1. (Optional) Set the [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) property (default is 15 minutes).
-1. Commit the pool with [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) or [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Create the pool with [BatchAccountPoolCollection.CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.batch.batchaccountpoolcollection.createorupdateasync).
+1. Set the [BatchPool.EnableAutoScale](/dotnet/api/azure.compute.batch.batchpool.enableautoscale) property to **true**.
+1. Set the [BatchPool.AutoScaleFormula](/dotnet/api/azure.compute.batch.batchpool.autoscaleformula) property with your autoscale formula.
+1. (Optional) Set the [BatchPool.AutoScaleEvaluationInterval](/dotnet/api/azure.compute.batch.batchpool.autoscaleevaluationinterval) property (default is 15 minutes).
+1. Commit the pool with [BatchClient.CreatePool](/dotnet/api/azure.compute.batch.batchclient.createpool) or [CreatePoolAsync](/dotnet/api/azure.compute.batch.batchclient.createpoolasync).
 
-The following example creates an autoscale-enabled pool in .NET. The pool's autoscale formula sets the target number of dedicated nodes to 5 on Mondays, and to 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, `myBatchClient` is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
+The following example creates an autoscale-enabled pool in .NET. The pool's autoscale formula sets the target number of dedicated nodes to 5 on Mondays, and to 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, `myBatchClient` is a properly initialized instance of the [BatchClient](/dotnet/api/azure.compute.batch.batchclient) class.
 
-```csharp
-CloudPool pool = myBatchClient.PoolOperations.CreatePool(
-                    poolId: "mypool",
-                    virtualMachineSize: "standard_d1_v2",
-                    VirtualMachineConfiguration: new VirtualMachineConfiguration(
-                        imageReference: new ImageReference(
-                                            publisher: "MicrosoftWindowsServer",
-                                            offer: "WindowsServer",
-                                            sku: "2019-datacenter-core",
-                                            version: "latest"),
-                        nodeAgentSkuId: "batch.node.windows amd64");
-pool.AutoScaleEnabled = true;
-pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
-pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
-await pool.CommitAsync();
+```C# Snippet:autoscale_pool_create
+BatchAccountPoolData poolData = new BatchAccountPoolData()
+{
+    VmSize = "standard_d1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2019-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        AutoScale = new BatchAccountAutoScaleSettings(
+            formula: "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);")
+        {
+            EvaluationInterval = TimeSpan.FromMinutes(30)
+        }
+    }
+};
+
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, "mypool", poolData);
 ```
 
 > [!IMPORTANT]
 > When you create an autoscale-enabled pool, don't specify the *targetDedicatedNodes* parameter or the *targetLowPriorityNodes* parameter on the call to `CreatePool`. Instead, specify the `AutoScaleEnabled` and `AutoScaleFormula` properties on the pool. The values for these properties determine the target number of each type of node.
 >
-> To manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePoolAsync](/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync)), you must first disable automatic scaling on the pool, then resize it.
+> To manually resize an autoscale-enabled pool (for example, with [BatchClient.ResizePoolAsync](/dotnet/api/azure.compute.batch.batchclient.resizepoolasync)), you must first disable automatic scaling on the pool, then resize it.
 
 > [!TIP]
 > For more examples of using the .NET SDK, see the [Batch .NET Quickstart repository](https://github.com/Azure-Samples/batch-dotnet-quickstart) on GitHub.
@@ -407,12 +419,12 @@ To create an autoscale-enabled pool with the Python SDK:
 
 The following example illustrates these steps.
 
-```python
+```python Snippet:autoscale_pool_create_enable_python
 # Create a pool; specify configuration
-new_pool = batch.models.PoolAddParameter(
+new_pool = models.BatchPoolCreateOptions(
     id="autoscale-enabled-pool",
-    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-        image_reference=batchmodels.ImageReference(
+    virtual_machine_configuration=models.VirtualMachineConfiguration(
+        image_reference=models.BatchVmImageReference(
           publisher="Canonical",
           offer="UbuntuServer",
           sku="20.04-LTS",
@@ -423,7 +435,7 @@ new_pool = batch.models.PoolAddParameter(
     target_dedicated_nodes=0,
     target_low_priority_nodes=0
 )
-batch_service_client.pool.add(new_pool) # Add the pool to the service client
+batch_client.create_pool(pool=new_pool) # Add the pool to the service client
 
 formula = """$curTime = time();
              $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
@@ -432,10 +444,11 @@ formula = """$curTime = time();
              $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
 
 # Enable autoscale; specify the formula
-response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
-                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10),
-                                            pool_enable_auto_scale_options=None,
-                                            custom_headers=None, raw=False)
+enable_options = models.BatchPoolEnableAutoScaleOptions(
+    auto_scale_formula=formula,
+    auto_scale_evaluation_interval=datetime.timedelta(minutes=10),
+)
+batch_client.enable_pool_auto_scale(pool_id=pool_id, enable_auto_scale_options=enable_options)
 ```
 
 > [!TIP]
@@ -445,7 +458,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 Each Batch SDK provides a way to enable automatic scaling. For example:
 
-- [BatchClient.PoolOperations.EnableAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync) (Batch .NET)
+- [BatchClient.EnablePoolAutoScaleAsync](/dotnet/api/azure.compute.batch.batchclient.enablepoolautoscaleasync) (Batch .NET)
 - [Enable automatic scaling on a pool](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (REST API)
 
 When you enable autoscaling on an existing pool, keep in mind:
@@ -458,37 +471,40 @@ When you enable autoscaling on an existing pool, keep in mind:
 > [!NOTE]
 > If you specified values for the *targetDedicatedNodes* or *targetLowPriorityNodes* parameters of the `CreatePool` method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the autoscale formula is evaluated.
 
-This C# example uses the [Batch .NET](/dotnet/api/microsoft.azure.batch) library to enable autoscaling on an existing pool.
+This C# example uses the [Batch .NET](/dotnet/api/azure.compute.batch) library to enable autoscaling on an existing pool.
 
-```csharp
+```C# Snippet:autoscale_enable
 // Define the autoscaling formula. This formula sets the target number of nodes
 // to 5 on Mondays, and 1 on every other day of the week
 string myAutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 
 // Set the autoscale formula on the existing pool
-await myBatchClient.PoolOperations.EnableAutoScaleAsync(
+await batchClient.EnablePoolAutoScaleAsync(
     "myexistingpool",
-    autoscaleFormula: myAutoScaleFormula);
+    new BatchPoolEnableAutoScaleOptions() { AutoScaleFormula = myAutoScaleFormula });
 ```
 
 ### Update an autoscale formula
 
 To update the formula on an existing autoscale-enabled pool, call the operation to enable autoscaling again with the new formula. For example, if autoscaling is already enabled on `myexistingpool` when the following .NET code is executed, its autoscale formula is replaced with the contents of `myNewFormula`.
 
-```csharp
-await myBatchClient.PoolOperations.EnableAutoScaleAsync(
+```C# Snippet:autoscale_change_formula
+await batchClient.EnablePoolAutoScaleAsync(
     "myexistingpool",
-    autoscaleFormula: myNewFormula);
+    new BatchPoolEnableAutoScaleOptions() { AutoScaleFormula = myNewFormula });
 ```
 
 ### Update the autoscale interval
 
 To update the autoscale evaluation interval of an existing autoscale-enabled pool, call the operation to enable autoscaling again with the new interval. For example, to set the autoscale evaluation interval to 60 minutes for a pool that's already autoscale-enabled in .NET:
 
-```csharp
-await myBatchClient.PoolOperations.EnableAutoScaleAsync(
+```C# Snippet:autoscale_change_interval
+await batchClient.EnablePoolAutoScaleAsync(
     "myexistingpool",
-    autoscaleEvaluationInterval: TimeSpan.FromMinutes(60));
+    new BatchPoolEnableAutoScaleOptions()
+    {
+        AutoScaleEvaluationInterval = TimeSpan.FromMinutes(60)
+    });
 ```
 
 ## Evaluate an autoscale formula
@@ -497,7 +513,7 @@ You can evaluate a formula before applying it to a pool. This lets you test the 
 
 Before you can evaluate an autoscale formula, you must first enable autoscaling on the pool with a valid formula, such as the one-line formula `$TargetDedicatedNodes = 0`. Then, use one of the following to evaluate the formula you want to test:
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) or [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+- [BatchClient.EvaluatePoolAutoScale](/dotnet/api/azure.compute.batch.batchclient.evaluatepoolautoscale) or [EvaluateAutoScaleAsync](/dotnet/api/azure.compute.batch.batchclient.evaluatepoolautoscaleasync)
 
     These Batch .NET methods require the ID of an existing pool and a string containing the autoscale formula to evaluate.
 
@@ -505,36 +521,37 @@ Before you can evaluate an autoscale formula, you must first enable autoscaling 
 
     In this REST API request, specify the pool ID in the URI, and the autoscale formula in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
-The following [Batch .NET](/dotnet/api/microsoft.azure.batch) example evaluates an autoscale formula. If the pool doesn't already use autoscaling, enable it first.
+The following [Batch .NET](/dotnet/api/azure.compute.batch) example evaluates an autoscale formula. If the pool doesn't already use autoscaling, enable it first.
 
-```csharp
+```C# Snippet:autoscale_evaluate
 // First obtain a reference to an existing pool
-CloudPool pool = await batchClient.PoolOperations.GetPoolAsync("myExistingPool");
+BatchPool pool = await batchClient.GetPoolAsync("myExistingPool");
 
 // If autoscaling isn't already enabled on the pool, enable it.
 // You can't evaluate an autoscale formula on a non-autoscale-enabled pool.
-if (pool.AutoScaleEnabled == false)
+if (pool.EnableAutoScale != true)
 {
     // You need a valid autoscale formula to enable autoscaling on the
     // pool. This formula is valid, but won't resize the pool:
-    await pool.EnableAutoScaleAsync(
-        autoscaleFormula: "$TargetDedicatedNodes = $CurrentDedicatedNodes;",
-        autoscaleEvaluationInterval: TimeSpan.FromMinutes(5));
+    await batchClient.EnablePoolAutoScaleAsync(
+        pool.Id,
+        new BatchPoolEnableAutoScaleOptions()
+        {
+            AutoScaleFormula = "$TargetDedicatedNodes = $CurrentDedicatedNodes;",
+            AutoScaleEvaluationInterval = TimeSpan.FromMinutes(5)
+        });
 
-    // Batch limits EnableAutoScaleAsync calls to once every 30 seconds.
-    // Because you want to apply our new autoscale formula below if it
-    // evaluates successfully, and you *just* enabled autoscaling on
-    // this pool, pause here to ensure you pass that threshold.
-    Thread.Sleep(TimeSpan.FromSeconds(31));
+    // Batch limits EnablePoolAutoScale calls to once every 30 seconds.
+    await Task.Delay(TimeSpan.FromSeconds(31));
 
     // Refresh the properties of the pool so that we've got the
-    // latest value for AutoScaleEnabled
-    await pool.RefreshAsync();
+    // latest value for EnableAutoScale.
+    pool = await batchClient.GetPoolAsync(pool.Id);
 }
 
 // You must ensure that autoscaling is enabled on the pool prior to
 // evaluating a formula
-if (pool.AutoScaleEnabled == true)
+if (pool.EnableAutoScale == true)
 {
     // The formula to evaluate - adjusts target number of nodes based on
     // day of week and time of day
@@ -548,25 +565,23 @@ if (pool.AutoScaleEnabled == true)
 
     // Perform the autoscale formula evaluation. Note that this code does not
     // actually apply the formula to the pool.
-    AutoScaleRun eval =
-        await batchClient.PoolOperations.EvaluateAutoScaleAsync(pool.Id, myFormula);
+    AutoScaleRun eval = await batchClient.EvaluatePoolAutoScaleAsync(
+        pool.Id,
+        new BatchPoolEvaluateAutoScaleOptions(myFormula));
 
     if (eval.Error == null)
     {
-        // Evaluation success - print the results of the AutoScaleRun.
-        // This will display the values of each variable as evaluated by the
-        // autoscale formula.
         Console.WriteLine("AutoScaleRun.Results: " +
             eval.Results.Replace("$", "\n    $"));
 
         // Apply the formula to the pool since it evaluated successfully
-        await batchClient.PoolOperations.EnableAutoScaleAsync(pool.Id, myFormula);
+        await batchClient.EnablePoolAutoScaleAsync(
+            pool.Id,
+            new BatchPoolEnableAutoScaleOptions() { AutoScaleFormula = myFormula });
     }
     else
     {
-        // Evaluation failed, output the message associated with the error
-        Console.WriteLine("AutoScaleRun.Error.Message: " +
-            eval.Error.Message);
+        Console.WriteLine("AutoScaleRun.Error.Message: " + eval.Error.Message);
     }
 }
 ```
@@ -587,18 +602,18 @@ AutoScaleRun.Results:
 
 It's recommended to periodically check the Batch service's evaluation of your autoscale formula. To do so, get (or refresh) a reference to the pool, then examine the properties of its last autoscale run.
 
-In Batch .NET, the [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) property has several properties that provide information about the latest automatic scaling run performed on the pool:
+In Batch .NET, the [BatchPool.AutoScaleRun](/dotnet/api/azure.compute.batch.batchpool.autoscalerun) property has several properties that provide information about the latest automatic scaling run performed on the pool:
 
-- [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-- [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-- [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+- [AutoScaleRun.Timestamp](/dotnet/api/azure.compute.batch.autoscalerun.timestamp)
+- [AutoScaleRun.Results](/dotnet/api/azure.compute.batch.autoscalerun.results)
+- [AutoScaleRun.Error](/dotnet/api/azure.compute.batch.autoscalerun.error)
 
 In the REST API, [information about a pool](/rest/api/batchservice/get-information-about-a-pool) includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
 
 The following C# example uses the Batch .NET library to print information about the last autoscaling run on pool *myPool*.
 
-```csharp
-await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
+```C# Snippet:autoscale_read_run
+BatchPool pool = await batchClient.GetPoolAsync("myPool");
 Console.WriteLine("Last execution: " + pool.AutoScaleRun.Timestamp);
 Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
@@ -660,9 +675,9 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Example 2: Task-based adjustment
 
-In this C# example, the pool size is adjusted based on the number of tasks in the queue. Both comments and line breaks are included in the formula strings.
+In this example, the pool size is adjusted based on the number of tasks in the queue. Both comments and line breaks are included in the formula strings.
 
-```csharp
+```
 // Get pending tasks for the past 15 minutes.
 $samples = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
 // If you have fewer than 70 percent data points, use the last sample point,
@@ -680,9 +695,9 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Example 3: Accounting for parallel tasks
 
-This C# example adjusts the pool size based on the number of tasks. This formula also takes into account the [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) value that's been set for the pool. This approach is useful in situations where [parallel task execution](batch-parallel-node-tasks.md) has been enabled on your pool.
+This example adjusts the pool size based on the number of tasks. This formula also takes into account the [TaskSlotsPerNode](/dotnet/api/azure.compute.batch.batchpool.taskslotspernode) value that's been set for the pool. This approach is useful in situations where [parallel task execution](batch-parallel-node-tasks.md) has been enabled on your pool.
 
-```csharp
+```
 // Determine whether 70 percent of the samples have been recorded in the past
 // 15 minutes; if not, use last sample
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
@@ -712,7 +727,7 @@ Specifically, this formula does the following:
   - If both values are 0, indicating that no tasks were running or active in the last 60 minutes, the pool size is set to 0.
   - If either value is greater than zero, no change is made.
 
-```csharp
+```C#
 string now = DateTime.UtcNow.ToString("r");
 string formula = string.Format(@"
     $TargetDedicatedNodes = {1};
