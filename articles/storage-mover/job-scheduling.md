@@ -59,7 +59,7 @@ To define a job schedule while creating a new migration job, complete the follow
 
 ## Add or update the schedule for an existing job
 
-To define a schedule for a previoulsy created migration job, or to modify a job with an existing schedule, complete the following steps.
+To define a schedule for a previously created migration job, or to modify a job with an existing schedule, complete the following steps.
 
 1. In your Storage Mover resource, select **Projects**, and then select a project.
 1. Select the job you want to update, then select **Edit**.

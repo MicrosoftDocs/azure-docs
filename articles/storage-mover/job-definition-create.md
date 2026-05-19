@@ -73,7 +73,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Screen capture of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/job-definition-create/project-selected-lrg.png":::
 
-1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You can also add an optional description value of less than 1024 characters. Next, select the appropriate migration type. Storage Mover supports *on-premises*, *multicloud*, and *Azure-to-Azure* migration types.Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
+1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You can also add an optional description value of less than 1024 characters. Next, select the appropriate migration type. Storage Mover supports *on-premises*, *multicloud*, and *Azure-to-Azure* migration types. Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
 
    :::image type="content" source="media/job-definition-create/tab-basics-sml.png" alt-text="Screen capture of the migration job's Basics tab, showing the location of the data fields." lightbox="media/job-definition-create/tab-basics-lrg.png":::
 
@@ -162,8 +162,8 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 1. Navigate to the Project explorer page within the Azure portal to view a list of available projects. Select a project and you will see a list of jobs. Select a job and select **Start job**.
 
 > [!NOTE]
-- Currently, only one job can be run on a given agent at a time. If there is already another job in running state, starting of another job will fail. Mover agent puts a marker file on target share or container when it starts a job (file name "").
-- User can have only one job running at given time for a target container or share. If you are running multiple agents, you cannot use it to run job against same target share or container. The job that runs later will get error "Failed to claim the target: Target is busy" (Error AZSM1027)
+> - Currently, only one job can be run on a given agent at a time. If there is already another job in running state, starting of another job will fail. Mover agent puts a marker file on target share or container when it starts a job (file name "").
+> - User can have only one job running at given time for a target container or share. If you are running multiple agents, you cannot use it to run job against same target share or container. The job that runs later will get error "Failed to claim the target: Target is busy" (Error AZSM1027)
 
 
 ### [PowerShell](#tab/powershell)
