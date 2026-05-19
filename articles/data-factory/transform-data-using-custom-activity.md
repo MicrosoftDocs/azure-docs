@@ -356,7 +356,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 See [Automatically scale compute nodes in an Azure Batch pool](../batch/batch-automatic-scaling.md) for details.
 
-If the pool is using the default [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
+If the pool is using the default [autoScaleEvaluationInterval](https://learn.microsoft.com/dotnet/api/azure.compute.batch.batchpool.autoscaleevaluationinterval?view=azure-dotnet-preview), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity. If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
 ## Related content
 See the following articles that explain how to transform data in other ways:
