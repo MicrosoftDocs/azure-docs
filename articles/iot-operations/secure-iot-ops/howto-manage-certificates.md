@@ -4,7 +4,8 @@ description: Azure IoT Operations uses TLS to encrypt communication. Learn how t
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 01/27/2026
+ms.date: 05/12/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ---
@@ -161,9 +162,13 @@ Azure IoT Operations uses Azure Key Vault as the managed vault solution on the c
 
 ### Add and use certificates
 
-Connectors use the certificate management experience to configure application authentication to external servers. To learn more about how connectors use certificates to establish mutual trust with external servers, see the connector-specific certificate management documentation such as [Understand the OPC UA certificates infrastructure](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md).
+Connectors use the certificate management experience to configure application authentication to external servers. For example, the connector for OPC UA uses certificates in the trust list to authenticate the server identity of the OPC UA servers it connects to.
 
 When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the Kubernetes cluster to be used in the *Trust list* and *Issuer list* stores for external connections. Each connector has its own trust list to store the certificates of the external servers it trusts and connects to.
+
+You can manage certificates for external communications using either the operations experience web UI or the Azure CLI:
+
+# [Operations experience](#tab/portal)
 
 To manage certificates for external communications, follow these steps:
 
@@ -203,12 +208,38 @@ To manage certificates for external communications, follow these steps:
 
 You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the Kubernetes cluster, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
 
-## Use CLI commands to create certificates
+# [Azure CLI](#tab/cli)
 
-The previous sections explained how to manage certificates using the operations experience web UI and the Azure portal. You can also use the Azure CLI to manage the certificates in the connector for OPC UA trust and issuer lists. For more information, see [az iot ops connector opcua trust](/cli/azure/iot/ops/connector/opcua/trust) and [az iot ops connector opcua issuer](/cli/azure/iot/ops/connector/opcua/issuer) commands.
+You can use the Azure CLI to manage the certificates in a connector's trust list. The CLI flow assumes the certificate is already stored as a secret in Azure Key Vault. See [Add certificates as secrets to Azure Key Vault](#add-certificates-as-secrets-to-azure-key-vault) for details.
 
 > [!TIP]
-> Remember, these certificates must be stored as secrets in Azure Key Vault.
+> The Azure CLI flow partially overlaps with the operations experience. The operations experience can also upload a new certificate to Azure Key Vault as part of the same flow, whereas the Azure CLI requires the certificate to already exist as a secret in Azure Key Vault.
+
+#### Connector for OPC UA
+
+For the connector for OPC UA, use the dedicated `az iot ops connector opcua trust` and `az iot ops connector opcua issuer` commands to add certificates to the trust and issuer lists. For more information, see [az iot ops connector opcua trust](/cli/azure/iot/ops/connector/opcua/trust) and [az iot ops connector opcua issuer](/cli/azure/iot/ops/connector/opcua/issuer).
+
+#### Other connectors
+
+For the connectors for HTTP/REST, MQTT, ONVIF, SSE, and the media connector, use the following steps to add a certificate to the connector's trust list:
+
+1. Make sure your certificate is already stored as a secret in Azure Key Vault. To learn more, see [Add certificates as secrets to Azure Key Vault](#add-certificates-as-secrets-to-azure-key-vault).
+
+1. Create a synced secret on the cluster that references the Key Vault secret. The following example creates a synced secret named `my-trust-list` that maps the Azure Key Vault secret `my-cert-pem` to the file `ca.crt` on the cluster:
+
+    ```azurecli
+    az iot ops secretsync secret set \
+      --instance <your-instance-name> \
+      --resource-group <your-resource-group> \
+      --name my-trust-list \
+      --secret target=ca.crt source=my-cert-pem
+    ```
+
+    For more information, see [az iot ops secretsync secret set](/cli/azure/iot/ops/secretsync/secret#az-iot-ops-secretsync-secret-set).
+
+1. Update the connector template to reference the synced secret in the trust-list field of its runtime configuration. Use `az iot ops connector template update` with the `--trust-settings-secret-ref` parameter to set the synced secret name. For more information, see [az iot ops connector template update](/cli/azure/iot/ops/connector/template).
+
+---
 
 ## Add certificates as secrets to Azure Key Vault
 

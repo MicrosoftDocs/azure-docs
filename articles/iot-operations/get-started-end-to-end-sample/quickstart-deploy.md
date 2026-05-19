@@ -5,9 +5,9 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/20/2025
+ms.date: 05/15/2026
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
 
 # Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s

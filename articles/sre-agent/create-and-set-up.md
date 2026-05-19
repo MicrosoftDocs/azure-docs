@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Contributor role on the subscription. (You need it to register resource providers and create resources.) If your team assigns managed resource groups with role-based access control, you also need Owner or User Access Administrator privileges to create role assignments.
 - Network access to `*.azuresre.ai` from your browser.
 

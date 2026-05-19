@@ -24,15 +24,12 @@ If you have a reservation with multiple quantities, you can choose to exchange f
 However, you cannot exchange between different product families. For instance, a reservation for Azure Cosmos DB cannot be exchanged for a SQL Database reservation, because they belong to different service categories.
 This flexibility ensures you can adapt your reservations as your cloud strategy evolves—while still benefiting from cost savings.
 
->[!NOTE]
-> Starting July 1, 2026, Azure Reserved Virtual Machine Instances (RIs) for select VM series will no longer be available for purchase or renewal. Existing reservations will continue to run and deliver savings through the end of their term, but customers will need to plan ahead as renewals for these impacted series will no longer be offered. As your current RIs approach expiration, your Azure costs and optimization strategy may be impacted. Review the full transition guide to understand which reservations are affected, key decision timelines, and recommended actions to avoid unexpected cost changes and maintain your savings strategy.  To learn more, go to [Manage legacy VM RIs after July 1st 2026](manage-legacy-vm-reservations-after-july-1-2026.md).
-
 ## Reservation exchange policy changes
 
 > [!NOTE]
 > Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service was extended **until further notice**.
 >
->Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+>Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 >You may continue [exchanging](exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
 >

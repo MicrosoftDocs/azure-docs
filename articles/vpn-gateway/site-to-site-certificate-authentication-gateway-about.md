@@ -11,7 +11,7 @@ ms.author: cherylmc
 # Customer intent: "As a network engineer, I want to understand how to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 
-# About site-to-site VPN connections with certificate authentication - Preview
+# About site-to-site VPN connections with certificate authentication
 
 This article helps you understand site-to-site (S2S) VPN gateway connections between your on-premises network and an Azure virtual network that use X.509 certificate-based authentication. Certificate authentication provides stronger security compared to preshared keys (PSK) for VPN connections.
 
@@ -23,8 +23,7 @@ Site-to-site certificate authentication relies on both inbound, and outbound cer
 :::image type="content" source="./media/site-to-site-certificate-authentication/certificate-diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections using certificates." lightbox="./media/site-to-site-certificate-authentication/certificate-diagram.png":::
 
 > [!IMPORTANT]
-> Site-to-site certificate authentication is currently in Preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Site-to-site certificate authentication is supported only in the Azure public cloud.
 
 ## Certificates
 
