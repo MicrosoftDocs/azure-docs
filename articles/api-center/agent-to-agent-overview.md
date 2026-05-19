@@ -1,48 +1,129 @@
 ---
 title: Agent registry in Azure API Center
-description: "Overview of the agent registry for discovering, registering, and managing A2A agents in API Center."
-
-
+description: Overview of the agent registry for discovering, registering, and managing A2A agents.
 ms.service: azure-api-center
 ms.topic: overview
 ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 
-#customer intent: As an API platform owner, I want to understand how to use the agent registry to discover, register, and manage AI agents.
-
+# Customer intent: As an API platform owner, I want to understand how to use the agent registry to discover, register, and manage AI agents.
 ---
 
 # Agent registry in Azure API Center
 
-Azure API Center provides a centralized platform for discovering, registering, and managing AI agents. It supports first-party and third-party agents, integrates with API Management for private endpoints, and stores customizable metadata to improve discoverability and governance.
+Azure API Center provides a centralized platform for discovering, registering, and managing AI agents across an organization. It supports both first-party and third-party agents, integrates with Azure API Management for secure access, and enables organizations to improve governance, discoverability, and operational control of AI-driven systems.
+
+---
 
 ## Key features
 
-**Centralized Discovery and Management**: A single location to register and manage both first-party and third-party AI agents, including those exposed in API Management or hosted externally.
+### Centralized discovery and management
 
-**Enhanced Discoverability**: Enables developers and other stakeholders to easily find and access approved AI agents through a curated catalog, either via the built-in API Center portal or a custom UI.
+API Center provides a single location to register and manage AI agents, including:
 
-**Governance and Security**: Addresses shadow IT and uncontrolled AI tool adoption by providing a governed channel for accessing AI agents, improving security and compliance.
+- First-party enterprise agents
+- Third-party AI agents
+- Agents exposed through Azure API Management
+- Externally hosted agents
 
-**Integration with API Management**: AI agents can be placed behind an API Management gateway for private endpoints, enhanced security, and controlled access.  A2A agent APIs in a linked API Management instance synchronize automatically to API Center.
+This centralized registry improves visibility and simplifies operational management.
 
-**Customizable Metadata**: Organizations can define and store relevant metadata for each registered AI agent, facilitating filtering and searching.
+---
+
+### Enhanced discoverability
+
+Developers and platform teams can easily discover approved AI agents through:
+
+- The built-in Azure API Center portal
+- Custom developer portals or internal UIs
+- Metadata-based filtering and search
+
+This helps teams quickly identify and use the right agents for specific business scenarios.
+
+---
+
+### Governance and security
+
+The agent registry helps organizations reduce shadow IT and unmanaged AI adoption by providing:
+
+- A governed catalog of approved AI agents
+- Centralized visibility into agent usage
+- Improved compliance and security oversight
+- Controlled enterprise-wide access patterns
+
+This creates a more secure and manageable AI ecosystem.
+
+---
+
+### Integration with API Management
+
+AI agents can be integrated with Azure API Management to enable:
+
+- Private endpoints
+- Secure gateway access
+- Authentication and authorization policies
+- Traffic control and observability
+
+A2A agent APIs published in a connected API Management instance automatically synchronize with API Center.
+
+---
+
+### Customizable metadata
+
+Organizations can define and store custom metadata for AI agents, including:
+
+- Provider details
+- Capabilities
+- Skills
+- Ownership information
+- Environment classification
+
+This metadata improves discoverability, governance, and lifecycle management.
+
+---
 
 ## Register an AI agent
 
-You can register AI agents in API Center similar to how you register other assets such as APIs and MCP servers. During registration, fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
+You can register AI agents in API Center similarly to other assets such as APIs and MCP servers.
 
-For detailed steps, see [Register agent](register-manage-agents.md#register-agent).
+During registration, provide details for:
+
+- **Agent Card**
+- **Agent Skills**
+- **Agent Capabilities**
+
+These details help make the agent discoverable and usable across the organization.
+
+For detailed instructions, see [Register agent](register-manage-agents.md#register-agent).
+
+---
 
 ## Manage your AI agent
 
-After registering an A2A agent, you can update its metadata, add skills, configure capabilities, and manage provider information. Skills define the specific actions your agent can perform, making it discoverable and invokable by other agents.
+After registering an A2A agent, you can:
 
-For step-by-step instructions, see [Manage agents in Azure API Center](register-manage-agents.md).
+- Update metadata
+- Add or modify skills
+- Configure capabilities
+- Manage provider information
+- Maintain governance details
 
-## View dependency maps for A2A agents (preview)
+Skills define the actions an agent can perform, enabling other agents and applications to discover and invoke them effectively.
 
-API platform administrators can now create relationships feature using the dependency tracker feature. This capability allows API Center to identify the right agent to call and enable communication across agents in an enterprise. 
+For more information, see [Manage agents in Azure API Center](register-manage-agents.md).
+
+---
+
+## View dependency maps for A2A agents (Preview)
+
+API platform administrators can use the dependency tracking feature to create and visualize relationships between agents and APIs.
+
+This capability helps API Center:
+
+- Identify the correct agent for a request
+- Enable communication across enterprise agents
+- Visualize dependencies between resources
+- Improve operational understanding of agent ecosystems
 
 For detailed steps, see [Track API resource dependencies in your API center](track-resource-dependencies.md).
