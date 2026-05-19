@@ -1,7 +1,7 @@
 ---
 title: Respond to database changes in Azure Cosmos DB using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure Cosmos DB trigger function that runs in response to changes in an Azure Cosmos DB database."
-ms.date: 12/01/2025
+ms.date: 05/19/2026
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure Cosmos DB triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -17,12 +17,16 @@ The project source uses the Azure Developer CLI (azd) extension with Visual Stud
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account. The code project creates additional Azure resources, including an Azure Cosmos DB instance.  
 -->
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
-> [!IMPORTANT]  
-> While responding to [changes in an Azure Cosmos DB No SQL database](./functions-bindings-cosmosdb-v2-trigger.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+This article supports version 4 of the Node.js programming model for Azure Functions.
+::: zone-end
+::: zone pivot="programming-language-python"
+This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
 [!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
+
++ [Azure Databases extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
 ## Initialize the project
 
@@ -33,7 +37,7 @@ You can use the `azd init` command from the command palette to create a local Az
 1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Initialize App (init)`, and then choose **Select a template**.
 
     There might be a slight delay while `azd` initializes the current folder or workspace.  
-::: zone-end 
+ 
 ::: zone pivot="programming-language-csharp" 
 3. When prompted, choose **Select a template**, then search for and select `Azure Functions with Cosmos DB Bindings (.NET)`. 
 
@@ -42,13 +46,25 @@ You can use the `azd init` command from the command palette to create a local Az
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-<!--Replace content when support is added-->
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions with Cosmos DB Bindings (Java)`. 
+
+4. When prompted, enter a unique environment name, such as `cosmosdbchanges-java`.
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-<!--Replace content when support is added-->
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions JavaScript CosmosDB trigger`. 
+
+4. When prompted, enter a unique environment name, such as `cosmosdbchanges-js`.
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
-<!--Replace content when support is added--> 
+3. When prompted, choose **Select a template**, then search for and select `Azure Functions PowerShell CosmosDB trigger`. 
+
+4. When prompted, enter a unique environment name, such as `cosmosdbchanges-ps`.
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 3. When prompted, choose **Select a template**, then search for and select `Azure Functions TypeScript CosmosDB trigger`. 
@@ -64,7 +80,7 @@ You can use the `azd init` command from the command palette to create a local Az
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
 5. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:
 
     ### [Linux/macOS](#tab/linux)
@@ -155,6 +171,7 @@ The function is triggered based on the change feed in an Azure Cosmos DB NoSQL d
 - `COSMOS_CONTAINER_NAME`: The name of the container to monitor
 
 These environment variables are created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation.
+::: zone-end  
 
 You can review the code that defines the Azure Cosmos DB trigger:
      
@@ -192,7 +209,7 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 ::: zone-end  
 
 After you review and verify your function code locally, it's time to publish the project to Azure. 
-::: zone pivot="programming-language-csharp,programming-language-typescript,programming-language-python"  
+ 
 ## Deploy to Azure
 
 You can run the `azd deploy` command from Visual Studio Code to deploy the project code to your already provisioned resources in Azure.
@@ -236,7 +253,7 @@ azd down --no-prompt
 >The `--no-prompt` option instructs `azd` to delete your resource group without a confirmation from you. 
 >
 >This command doesn't affect your local code project. 
-::: zone-end
+
 ## Related content
 
 + [Azure Functions scenarios](functions-scenarios.md)
