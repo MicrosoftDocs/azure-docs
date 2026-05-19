@@ -4,7 +4,7 @@ description: Azure Files supports identity-based authentication over SMB (Server
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 02/20/2026
+ms.date: 04/06/2026
 ms.author: kendownie
 # Customer intent: "As a cloud architect, I want to implement identity-based authentication for Azure file shares over SMB, so that I can enhance security and streamline access for users."
 ---
@@ -17,28 +17,19 @@ This article explains how you can use identity-based authentication, either on-p
 
 Azure Files supports identity-based authentication over SMB for Windows, [Linux](storage-files-identity-auth-linux-kerberos-enable.md), and macOS clients. Azure Files doesn't currently support identity-based authentication for Network File System (NFS) file shares.
 
-> [!IMPORTANT]
-> For security reasons, use identity-based authentication to access file shares instead of the storage account key. Never share your storage account keys.
+## Why use identity-based authentication?
+
+For security reasons, use identity-based authentication to access SMB file shares instead of the storage account key. It's also more convenient than using storage account keys in many scenarios:
+
+- Using identity-based authentication provides a seamless migration experience when replacing on-premises file servers, allowing end users to continue to access their data with the same credentials.
+
+- Identity-based authentication eliminates the need to change your directory service when moving applications to the cloud, expediting cloud adoption.
+
+- For file share DR scenarios, you can configure identity-based authentication to support proper access control enforcement upon failover.
 
 ## How it works
 
 Azure Files uses the Kerberos protocol to authenticate with an identity source. When an identity associated with a user or application running on a client attempts to access data in Azure Files, the request is sent to the identity source to authenticate the identity. If authentication is successful, the identity source returns a Kerberos ticket. The client then sends a request that includes the Kerberos ticket, and Azure Files uses that ticket to authorize the request. The Azure Files service only receives the Kerberos ticket, not the user's access credentials.
-
-## Common use cases
-
-Identity-based authentication with SMB Azure file shares can be useful in a variety of scenarios:
-
-### Replace on-premises file servers
-
-Replacing scattered on-premises file servers is a challenge every organization faces during their IT modernization journey. Using identity-based authentication with Azure Files provides a seamless migration experience, allowing end users to continue to access their data with the same credentials.
-
-### Lift and shift applications to Azure
-
-When you lift and shift applications to the cloud, you likely want to keep the same authentication model for file share access. Identity-based authentication eliminates the need to change your directory service, expediting cloud adoption.
-
-### Backup and disaster recovery (DR)
-
-If you keep your primary file storage on-premises, Azure Files is an ideal solution for backup and DR to improve business continuity. You can use Azure file shares to back up your file servers while preserving Windows discretionary access control lists (DACLs). For DR scenarios, you can configure an authentication option to support proper access control enforcement at failover.
 
 ## Choose an identity source for your storage account
 
@@ -66,7 +57,7 @@ Use the following guidelines to determine which identity source you should choos
 
 - If you already use Microsoft Entra Domain Services, choose Microsoft Entra Domain Services as your identity source.
 
-## Enable an identity source
+## Enable an identity source on your storage account
 
 After you choose an identity source, enable it on your storage account.
 

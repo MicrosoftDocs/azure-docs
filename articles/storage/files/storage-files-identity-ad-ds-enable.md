@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 04/03/2026
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT administrator, I want to enable Active Directory Domain Services authentication for Azure file shares, so that our domain-joined Windows virtual machines can securely access and manage file shares using existing AD credentials.
@@ -26,7 +26,7 @@ To enable AD DS authentication over SMB for Azure file shares, register your Azu
 The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage accounts to your on-premises AD DS and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature. Because some parts of the cmdlets interact with your on-premises AD DS, review the explanation of what the cmdlets do. You can then determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. If you're unable to use the AzFilesHybrid module, you can enable the feature using [manual steps](#option-two-manually-perform-the-enablement-actions).
 
 > [!IMPORTANT]
-> The AzFilesHybrid module only supports AES-256 Kerberos encryption. If you previously enabled the feature by using an older AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method, update to AES-256 immediately. For more information, see [Troubleshoot Azure Files SMB authentication](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
+> The AzFilesHybrid module only supports AES-256 Kerberos encryption. If you previously enabled the feature by using an older AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method, update your storage account to AES-256 immediately. For more information about why you should upgrade, see [Troubleshoot Azure Files AD DS authentication support for AES-256 Kerberos encryption](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-encryption?toc=/azure/storage/files/toc.json).
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage 
 
 ### Download AzFilesHybrid module
 
-Download and unzip the latest version of the [AzFilesHybrid module](https://www.powershellgallery.com/packages/AzFilesHybrid/).
+Download and unzip the latest version of the [AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases/tag/v0.3.2).
 
 ### Run Join-AzStorageAccount
 
@@ -81,7 +81,7 @@ Connect-AzAccount
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
-$SamAccountName = "<sam-account-name-here>"
+$SamAccountName = "<sam-account-name-here without the trailing '$'>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the 
 # storage account is created under the root directory.
@@ -114,6 +114,8 @@ Join-AzStorageAccount `
 # https://learn.microsoft.com/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
+
+You can now proceed to [confirm the feature is enabled](#confirm-the-feature-is-enabled).
 
 ## Option two: Manually perform the enablement actions
 
@@ -194,16 +196,16 @@ Set-AzStorageAccount `
         -ActiveDirectoryDomainGuid "<your-guid>" `
         -ActiveDirectoryDomainSid "<your-domain-sid>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
-        -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
+        -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name without the trailing '$'>" `
         -ActiveDirectoryAccountType "<your-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
 #### Enable AES-256 encryption (recommended)
 
-To enable AES-256 encryption, follow these steps.
+To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
 
 > [!IMPORTANT]
-> To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
+> An upcoming Windows change (July 2026 Windows Server Update) will change the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. We upgrading to AES-256 now to ensure uninterrupted access to your Azure file shares.
 
 The cmdlet you run to configure AES-256 support depends on whether the domain object that represents your storage account is a computer account or service logon account (user account). Either way, you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 
@@ -232,14 +234,6 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 > [!IMPORTANT]
 > If you previously used RC4 encryption and updated the storage account to use AES-256 (recommended), run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
-
-### Debugging
-
-If needed, run the `Debug-AzStorageAccountAuth` cmdlet to check your AD configuration by using the signed in AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
-
-```PowerShell
-Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
-```
 
 ## Confirm the feature is enabled
 
@@ -272,11 +266,19 @@ AzureStorageID:<yourStorageSIDHere>
 > [!IMPORTANT]
 > Before you can authenticate users, you must [assign share-level permissions](storage-files-identity-assign-share-level-permissions.md).
 
+## Debugging
+
+To check your AD configuration by using the signed in AD user, run the `Debug-AzStorageAccountAuth` cmdlet. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for storage accounts that use Microsoft Entra Domain Services as the identity source. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
+
+```PowerShell
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ## Disable AD DS authentication on your storage account
 
-If you want to use another authentication method, disable AD DS authentication on your storage account by using the Azure portal, PowerShell, or Azure CLI.
+If you want to use another identity source, disable AD DS authentication on your storage account by using the Azure portal, PowerShell, or Azure CLI.
 
-If you disable this feature, the file shares in your storage account won't have identity-based access until you enable and configure one of the other identity sources.
+If you disable this identity source, the file shares in your storage account won't have identity-based access until you enable and configure one of the other identity sources.
 
 > [!IMPORTANT]
 > After disabling AD DS authentication on the storage account, consider deleting the AD DS identity (computer account or service logon account) that you created to represent the storage account in your on-premises AD. If you leave the identity in AD DS, it remains as an orphaned object. Removing it isn't automatic.

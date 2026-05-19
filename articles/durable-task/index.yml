@@ -1,0 +1,177 @@
+### YamlMime:Hub
+
+title: Durable Task documentation
+summary: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that handles state persistence, automatic recovery, and distributed coordination for you. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, the Durable Task Scheduler storage provider, and Durable Agentic application patterns.
+brand: azure
+
+metadata:
+  title: Durable Task documentation
+  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that handles state persistence, automatic recovery, and distributed coordination for you. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, the Durable Task Scheduler storage provider, and Durable Agentic application patterns.
+  ms.service: durable-task
+  ms.topic: hub-page
+  author: hhunter-ms
+  ms.author: hannahhunter
+  ms.date: 03/20/2026
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    - title: What is Durable Task?
+      itemType: overview
+      url: ./common/what-is-durable-task.md
+    - title: Choose your hosting model
+      itemType: concept
+      url: ./common/choose-orchestration-framework.md
+    - title: Programming model overview
+      itemType: concept
+      url: ./common/programming-model-overview.md
+    - title: AI agents overview
+      itemType: concept
+      url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
+    - title: Durable Functions
+      itemType: overview
+      url: /azure/azure-functions/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
+    - title: Durable Task SDKs
+      itemType: overview
+      url: ./sdks/durable-task-overview.md?toc=/azure/durable-task/common/toc.json
+    - title: Durable Task for AI agents
+      itemType: overview
+      url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
+    - title: Durable Task Scheduler storage provider
+      itemType: overview
+      url: ./scheduler/durable-task-scheduler.md?toc=/azure/durable-task/common/toc.json
+
+conceptualContent:
+  items:
+    - title: Durable Functions
+      summary: Serverless orchestrations hosted on Azure Functions
+      links:
+        - text: "Quickstart: Create a Durable Functions app (C#)"
+          url: /azure/azure-functions/durable-functions/durable-functions-isolated-create-first-csharp?toc=/azure/durable-task/common/toc.json
+          itemType: quickstart
+        - text: "Quickstart: Create a Durable Functions app (Python)"
+          url: /azure/azure-functions/durable-functions/quickstart-python-vscode?toc=/azure/durable-task/common/toc.json
+          itemType: quickstart
+        - text: "Quickstart: Create a Durable Functions app (JavaScript)"
+          url: /azure/azure-functions/durable-functions/quickstart-js-vscode?toc=/azure/durable-task/common/toc.json
+          itemType: quickstart
+        - text: Storage providers
+          url: ./common/durable-task-storage-providers.md?pivots=durable-functions
+          itemType: concept
+      # footerLink (optional)
+      footerLink:
+        url: /azure/azure-functions/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
+        text: See more
+    - title: Durable Task SDKs
+      summary: Portable SDKs for hosting durable workflows on any compute platform
+      links:
+        - text: "Quickstart: Create a portable Durable Task SDK app"
+          url: ./sdks/quickstart-portable-durable-task-sdks.md
+          itemType: quickstart
+        - text: "Quickstart: Host on Azure Container Apps"
+          url: ./sdks/quickstart-container-apps-durable-task-sdk.md
+          itemType: quickstart
+        - text: "Quickstart: Host on Azure Kubernetes Service"
+          url: ./sdks/quickstart-aks-durable-task-scheduler.md
+          itemType: quickstart
+        - text: Storage providers
+          url: ./common/durable-task-storage-providers.md?pivots=durable-task-sdks
+          itemType: how-to-guide
+      # footerLink (optional)
+      footerLink:
+        url: /azure/durable-task/sdks/durable-task-overview?toc=/azure/durable-task/common/toc.json
+        text: See more
+    - title: Durable Task for AI agents
+      summary: Build fault-tolerant, scalable AI agents with durable execution
+      links:
+        - text: Microsoft Agent Framework extension
+          url: ./sdks/durable-agents-microsoft-agent-framework.md?toc=/azure/durable-task/common/toc.json
+          itemType: concept
+        - text: Agentic application patterns
+          url: ./sdks/durable-agents-patterns.md?toc=/azure/durable-task/common/toc.json
+          itemType: concept
+      footerLink:
+        url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
+        text: See more
+    - title: Durable Task Scheduler
+      summary: Fully managed backend service purpose-built for durable workloads
+      links:
+        - text: How it works
+          url: ./scheduler/develop-with-durable-task-scheduler.md
+          itemType: how-to-guide
+        - text: "Quickstart: Configure Durable Functions with Scheduler"
+          url: ./scheduler/quickstart-durable-task-scheduler.md
+          itemType: quickstart
+        - text: "Quickstart: Create an SDK app with Durable Task Scheduler"
+          url: ./sdks/quickstart-portable-durable-task-sdks.md
+          itemType: quickstart
+        - text: Monitoring dashboard
+          url: ./scheduler/durable-task-scheduler-dashboard.md
+          itemType: how-to-guide
+      footerLink:
+        url: /azure/durable-task/scheduler/durable-task-scheduler?toc=/azure/durable-task/common/toc.json
+        text: See more
+
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Core concepts
+      items:
+        # Card
+        - title: Code constraints and limitations
+          summary: Learn about code constraints and limitations to be aware of when building durable orchestrations.
+          url: ./common/durable-task-code-constraints.md
+        # Card
+        - title: Task hubs
+          summary: Learn how task hubs store the progress of orchestrations, activities, and entity functions.
+          url: ./common/durable-task-hubs.md
+        # Card
+        - title: Error handling and retries
+          summary: Learn how to handle errors and implement retries in Durable Task orchestrations.
+          url: ./common/durable-task-error-handling.md
+        # Card
+        - title: Durable entities
+          summary: Learn how to define and manage stateful entities in Durable Task.
+          url: ./common/durable-task-entities.md
+        # Card
+        - title: Versioning and deployment safety
+          summary: Learn how to manage versioning and ensure safe deployments in Durable Task.
+          url: ./common/durable-orchestration-versioning.md
+        # Card
+        - title: Task scheduling and timers
+          summary: Learn how to schedule orchestrations and use timers in Durable Task.
+          url: ./common/durable-task-timers.md
+
+    - title: Durable application patterns
+      items:
+        # Card
+        - title: Function chaining
+          summary: Learn how to chain functions together in a sequence of dependent steps.
+          url: ./common/durable-task-sequence.md
+        # Card
+        - title: Fan-out/fan-in
+          summary: Learn how to run multiple functions in parallel and then wait for them to complete.
+          url: ./common/durable-task-fan-in-fan-out.md
+        # Card
+        - title: Monitors
+          summary: Learn how to implement long-running monitoring processes that react to changes in your environment.
+          url: ./common/durable-task-monitor.md
+        # Card
+        - title: Human interaction
+          summary: Learn how to design orchestrations that wait for human input or approval.
+          url: ./common/durable-task-human-interaction.md   
+
+    - title: Explore more
+      items:
+        # Card
+        - title: Durable execution in Azure Container Apps
+          summary: Achieve durable execution in your workflows in Azure Container Apps.
+          url: /azure/container-apps/workflows-overview
+        # Card
+        - title: Durable Functions in Agent Framework
+          summary: Build stateful AI agents and multi-agent deterministic orchestrations in a serverless environment on Azure.
+          url: /agent-framework/integrations/azure-functions
+        # Card
+        - title: Durable Task code samples
+          summary: Explore code samples for implementing durable orchestrations in various environments.
+          url: https://review.learn.microsoft.com/en-us/samples/browse/?branch=main&branchFallbackFrom=pr-en-us-313622&term=durable%20functions&terms=durable%20functions

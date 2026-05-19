@@ -138,6 +138,7 @@ Azure Cache for Redis requires all the following outbound connectivity items to 
 | oneocsp.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
 | crl.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
 | cacerts.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
+| login.microsoftonline.com | HTTPS | 443 | Microsoft Entra ID authentication | N/A |
 | www.microsoft.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
 | cdp.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |
 | status.geotrust.com | HTTP | 80 | Azure Public Key Infrastructure | N/A |

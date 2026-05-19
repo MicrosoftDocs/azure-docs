@@ -15,7 +15,7 @@ This article compares three ways to access files from Azure Functions: storage b
 
 Storage bindings and external databases work on all hosting plans. Storage mounts are Linux only and aren't supported on the [Consumption](./consumption-plan.md) plan.
 
-If you want to jump straight to working code, see the [Tutorial: Durable text analysis with a mounted Azure Files share](./durable/tutorial-durable-text-analysis-azure-files.md) for parallel file processing or [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](./tutorial-ffmpeg-processing-azure-files.md) for hosting large binaries on a mount.
+If you want to jump straight to working code, see the [Tutorial: Durable text analysis with a mounted Azure Files share](./durable-functions/tutorial-durable-text-analysis-azure-files.md) for parallel file processing or [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](./tutorial-ffmpeg-processing-azure-files.md) for hosting large binaries on a mount.
 
 [!INCLUDE [functions-azure-files-samples-note](../../includes/functions-azure-files-samples-note.md)]
 
@@ -132,7 +132,7 @@ Select each tab to view details about the specific scenario:
 > **Use case:** You have 1,000 analysis tasks that all need to read from the same set of reference data files (for example, ML models, lookup tables, or corpus data).
 
 > [!NOTE]
-> For a complete walkthrough of this pattern, see [Tutorial: Durable text analysis with a mounted Azure Files share](./durable/tutorial-durable-text-analysis-azure-files.md).
+> For a complete walkthrough of this pattern, see [Tutorial: Durable text analysis with a mounted Azure Files share](./durable-functions/tutorial-durable-text-analysis-azure-files.md).
 
 **The problem:** Without mounts, you have two suboptimal options:
 
@@ -421,7 +421,7 @@ The following table lists common issues with Azure Files storage mounts on funct
 ## Related content
 
 - [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](./tutorial-ffmpeg-processing-azure-files.md)
-- [Tutorial: Durable text analysis with a mounted Azure Files share](./durable/tutorial-durable-text-analysis-azure-files.md)
+- [Tutorial: Durable text analysis with a mounted Azure Files share](./durable-functions/tutorial-durable-text-analysis-azure-files.md)
 - [Mount file shares](./storage-considerations.md#mount-file-shares)
 - [Flex Consumption plan](./flex-consumption-plan.md)
-- [Durable Functions overview](./durable/durable-functions-overview.md)
+- [Durable Functions overview](./durable-functions/durable-functions-overview.md)

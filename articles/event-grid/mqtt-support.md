@@ -6,7 +6,7 @@ ms.custom:
   - ignite-2023
   - build-2024
   - build-2025
-ms.date: 07/30/2025
+ms.date: 05/07/2026
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -173,28 +173,58 @@ MQTT v5 introduces support for assigned client identifiers, which allows the MQT
 - For firmware updates or resets, clients should either retain their known client identifier or use modest session expiry intervals to avoid prolonged lockouts.
 - Namespace configuration can increase session limits per client to minimize disruptions during updates or rollbacks.
 
+### Shared subscriptions 
+
+**Shared subscriptions** in MQTT enable multiple clients to consume messages from a single topic subscription as a group, allowing the broker to distribute messages across them in a load-balanced manner. Instead of every subscriber receiving every message, the workload is shared—each message is delivered to only one client within the group. This pattern is particularly useful for scaling backend processing, improving throughput, and ensuring high availability in scenarios like telemetry processing, order handling, or event-driven microservices. In Azure Event Grid MQTT Broker, shared subscriptions help build resilient, horizontally scalable consumer applications without requiring complex custom load-balancing logic.
+
+### Subscription identifiers 
+
+**Subscription identifiers** in Azure Event Grid MQTT Broker (MQTT 5) allow a client to assign a unique numeric ID to each subscription so that incoming messages can be easily associated with the correct subscription. When the broker delivers a message, it includes the identifier(s) of the matching subscription(s), enabling the client to route and process messages efficiently—especially when handling multiple or overlapping topic filters.
+
+#### Why subscription identifiers matter
+
+- **Clear message context**: Instantly know which subscription triggered the message
+- **Simplified logic**: Avoid complex topic matching on the client side
+- **Efficient processing**: Route messages to the right handler or workflow quickly
+
+#### Smart home monitoring example
+
+Consider two client application monitors different types of data from a home:
+
+- Subscription ID 1 → `home/livingroom/temperature`
+- Subscription ID 2 → `home/+/humidity`
+
+:::image type="content" source="media/mqtt-support/smart-home-subscription-id-mqtt-broker.png" alt-text="Diagram showing MQTT broker routing temperature and humidity sensor messages to client applications using subscription IDs instead of topic string matching.":::
+
+A message published to `home/livingroom/temperature` is delivered by the broker with Subscription ID: 1. A message published to `home/kitchen/humidity` is delivered with Subscription ID: 2.
+
+Instead of checking topic strings like `home/livingroom/temperature`, the client can simply use:
+
+- **ID 1** → Process temperature data
+- **ID 2** → Process humidity data
+
+This makes the application logic cleaner, faster, and easier to maintain.
+
 ## Current limitations
 
 The MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following list details the current differences between features supported by the MQTT broker and the MQTT specifications.
 
 ### MQTT v5 current limitations
 
-MQTT v5 currently differs from the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
+Support for MQTT v5 currently differs from the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 
-- Shared subscriptions aren't supported yet.
 - The effective will delay interval is the lesser of the provided Will Delay Interval and the session expiry interval (if provided).
 - Maximum QoS is 1.
 - Maximum packet size is 512 KiB.
-- Subscription identifiers aren't supported.
 - Topic alias maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within the set limit.
 - CONNACK doesn't return the `Response Information` property even if the CONNECT request contains the `Request Response Information` property.
 - User properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, and AUTH packets aren't used by the service, so they aren't supported. If any of these requests include user properties, the request fails.
 - If the server receives a PUBACK packet from a client with a nonsuccess response code, the connection is terminated.
 - Keep Alive maximum is 1,160 seconds.
 
-### MQTTv3.1.1 current limitations
+### MQTT v3.1.1 current limitations
 
-MQTT v5 currently differs from the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
+The MQTT broker currently differs from the [MQTT v3.1.1 specification](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
 
 - QoS 2 isn't supported. A publish request with a `RETAIN` flag or with a QoS 2 fails and closes the connection.
 - Keep Alive maximum is 1,160 seconds.

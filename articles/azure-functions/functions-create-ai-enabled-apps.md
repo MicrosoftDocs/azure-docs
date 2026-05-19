@@ -21,7 +21,7 @@ Consider using Azure Functions in your AI-enabled experiences for these scenario
 
 | Scenario | Description |
 | ----- | ----- |
-| [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Content Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
+| [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Context Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
  
@@ -154,9 +154,9 @@ Here are some reference samples for function calling scenarios:
 
 AI-driven processes often determine how to interact with models and other AI assets. However, some scenarios require a higher level of predictability or well-defined steps. These directed agentic workflows orchestrate separate tasks or interactions that agents must follow. 
 
-The [Durable Functions extension](durable/what-is-durable-task.md) helps you take advantage of the strengths of Functions to create multistep, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
+The [Durable Functions extension](../durable-task/common/what-is-durable-task.md) helps you take advantage of the strengths of Functions to create multistep, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
 
-For more workflow scenario ideas, see [Application patterns](durable/durable-functions-sequence.md) in Durable Functions. 
+For more workflow scenario ideas, see [Application patterns](../durable-task/common/durable-task-sequence.md) in Durable Functions. 
 
 ## Retrieval-augmented generation
 

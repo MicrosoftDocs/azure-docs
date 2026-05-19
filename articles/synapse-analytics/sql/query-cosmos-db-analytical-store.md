@@ -13,6 +13,8 @@ ms.custom: cosmos-db
 
 # Query Azure Cosmos DB data using a serverless SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 [!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 A serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](/azure/cosmos-db/synapse-link) in near real time without affecting the performance of your transactional workloads. It offers a familiar Transact-SQL (T-SQL) syntax to query data from the [analytical store](/azure/cosmos-db/analytical-store-introduction) and integrated connectivity to a wide range of business intelligence (BI) and ad-hoc querying tools via the T-SQL interface.

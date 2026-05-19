@@ -1,49 +1,75 @@
 ---
-title: Enable Dedicated Hosting Plan for Azure Monitor for SAP solutions
-description: Learn about enabling dedicated hosting plan for your AMS resources
-author: vaidehikher18
+title: Enable the dedicated hosting plan for Azure Monitor for SAP solutions
+description: Switch the Azure function hosting plan in Azure Monitor for SAP solutions (AMS) from Elastic Premium to the dedicated plan to optimize cost and improve scaling efficiency.
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 11/14/2024
+ms.date: 04/09/2026
 ms.author: vaidehikher
-#Customer intent: As an SAP Basis or cloud infrastructure team member, I want to deploy Azure Monitor for SAP solutions with dedicated hosting plan.
+author: vaidehikher18
 # Customer intent: As an SAP Basis team member, I want to enable the dedicated hosting plan for Azure Monitor for SAP solutions, so that I can optimize cost and improve scaling efficiency for monitoring my SAP systems.
 ---
 
-# Enable Dedicated Hosting Plan
+# Enable the dedicated hosting plan for Azure Monitor for SAP solutions
 
-One of the features of Azure Monitor for SAP solutions is that it uses an Azure function to collect and process the data from your SAP systems. The service deploys and manages the Azure function, so you don't need to configure or maintain it. However, you may want to optimize the cost and reliability of the Azure function based on your monitoring needs and usage patterns. 
+Azure Monitor for SAP solutions (AMS) uses an Azure function to collect monitoring data from your SAP systems. By default, this function runs on the Elastic Premium hosting plan. Switch to the dedicated hosting plan to reduce costs and improve scaling efficiency for high-volume monitoring workloads.
 
-This new feature allows you to switch the hosting plan of the Azure function that is used inside of Azure Monitor for SAP solutions. With this feature, you can migrate to the dedicated plan for the Azure functions. The hosting plan of the Azure function determines how the function app is scaled and billed.
-
-The Dedicated hosting plan has a significant improvement in cost and scaling efficiency when used on AMS
+This article shows you how to switch the hosting plan from Elastic Premium to dedicated and check the change in the Azure portal.
 
 ## Prerequisites
-Ensure there are no locks on monitor subnet's Resource Group
 
-## Steps to enable dedicated hosting plan
-1.	Navigate to Overview Section of the AMS monitor. Verify the hosting option is Elastic Premium. Then click on Edit Option.
- ![Screenshot of Changing Azure Function Hosting Plan in AMS from Overview Section.](../monitor/media/enable-dedicated-hosting-plan/change-hosting-plan.png)
+- No locks on the monitor subnet's resource group.
 
-2.	Navigate to the popup that opens click on Update and then Confirm.
- ![Screenshot of successful migration.](../monitor/media/enable-dedicated-hosting-plan/successful.png)
+## Enable the dedicated hosting plan
 
-3.	When deployment succeeds, Hosting plan is updated in overview section.
+To switch from the Elastic Premium plan to the dedicated hosting plan, follow these steps:
 
-## Steps to revert to Elastic Plan on unhealthy AMS
-If the deployment fails with code FunctionAppRestoreFailed or if restoration to Elastic Premium Plan is needed after multiple failure, then follow the below steps to revert to Elastic Premium Plan.
-### Prerequisite
-Ensure the storage account has public network access:
+1. Go to the **Overview** section of the AMS monitor. Check that the hosting option is **Elastic Premium plan**, and then select **edit**.
+
+   :::image type="content" source="media/enable-dedicated-hosting-plan/change-hosting-plan.png" alt-text="Screenshot of changing the Azure function hosting plan in AMS from the Overview section.":::
+
+1. In the dialog that opens, select **Update**, and then select **Confirm**.
+
+   :::image type="content" source="media/enable-dedicated-hosting-plan/successful.png" alt-text="Screenshot of a successful hosting plan migration in Azure Monitor for SAP solutions.":::
+
+1. Check that the hosting plan is updated in the **Overview** section after the deployment succeeds.
+
+## Revert to the Elastic Premium plan
+
+If the deployment fails with the code `FunctionAppRestoreFailed` or if you need to restore the Elastic Premium plan after multiple failures, follow these steps.
+
+### Before you begin
+
+Make sure the storage account has public network access:
+
 1. Go to the storage account in the AMS managed resource group.
-2. Go to the security and networking tab, then click on the networking tab.
-3. Go to the public network access, ensure the 'enabled from all networks' option is selected.
-### Steps to follow:
-1.	[Install Azure CLI](https://go.microsoft.com/fwlink/?linkid=2297461).
-2.	Set the subscription by running `az account set --subscription "<Subscription Name>"` 
-3.	To install Workloads CLI extension, run `az extension add --name workloads` 
-5.	Execute az monitor create with required properties as per your AMS.\
-`az workloads monitor create -g <rg-name> -n <ams_name> -l <location> --app-location <app-location> --managed-rg-name <managed_rg_name> --monitor-subnet <subnet_arm_id> --routing-preference <routing_preference> --identity type=None`
-6.	Monitor is restored once operation completes.
+1. Go to the **Security + networking** tab, and then select **Networking**.
+1. Under **Public network access**, make sure the **Enabled from all networks** option is selected.
 
+### Restore the monitor
 
+1. [Install Azure CLI](/cli/azure/install-azure-cli).
+
+1. Set the subscription:
+
+   ```azurecli
+   az account set --subscription "<Subscription Name>"
+   ```
+
+1. Install the Workloads CLI extension:
+
+   ```azurecli
+   az extension add --name workloads
+   ```
+
+1. Run `az workloads monitor create` with the required properties for your AMS instance:
+
+   ```azurecli
+   az workloads monitor create -g <rg-name> -n <ams_name> -l <location> --app-location <app-location> --managed-rg-name <managed_rg_name> --monitor-subnet <subnet_arm_id> --routing-preference <routing_preference> --identity type=None
+   ```
+
+1. Check that the monitor is restored after the operation completes.
+
+## Related content
+
+- [What is Azure Monitor for SAP solutions?](about-azure-monitor-sap-solutions.md)

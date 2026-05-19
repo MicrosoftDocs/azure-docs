@@ -117,6 +117,8 @@
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Managed Redis
+      href: /azure/redis/reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json   
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
     - name: Copilot Credit Pre-Purchase
@@ -167,6 +169,8 @@
       href: manage-reserved-vm-instance.md
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+    - name: Transition guide for retired Azure Reserved VM Instances
+      href: manage-legacy-vm-reservations-after-july-1-2026.md
   - name: Utilization and cost reports
     items:
     - name: View reservation utilization

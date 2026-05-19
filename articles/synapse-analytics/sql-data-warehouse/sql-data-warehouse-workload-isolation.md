@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Azure Synapse Analytics workload group isolation
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains how workload groups can be used to configure workload isolation, contain resources, and apply runtime rules for query execution.
 
 ## Workload groups

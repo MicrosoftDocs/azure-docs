@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 04/28/2026
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -33,7 +33,6 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 [!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
 ## Prerequisites
-
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 -   A custom domain name that is owned by you or your organization. This article does not provide instructions on how to procure a custom domain name.
 -   Optionally, a valid certificate with a public and private key (.PFX). The subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS). 
@@ -97,16 +96,16 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     
     [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
-If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
+If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. 
 
-For more information, see [Use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).    
+For help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
 
 # [Managed](#tab/managed)
 
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!IMPORTANT]
-> **Creation of managed certificates for custom domains in API Management will be temporarily unavailable from August 15, 2025 to March 15, 2026.** Our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
+> **Creation of managed certificates for custom domains in API Management will be temporarily unavailable from August 15, 2025 to June 30, 2026.** Our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
 >
 > Existing managed certificates will be autorenewed and remain unaffected.
 >
@@ -217,18 +216,51 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 ---
 
+## Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates
+
+When you use an Azure Key Vault-backed certificate for a custom domain, API Management provides controls and diagnostics to help you keep certificates in sync and quickly resolve access issues.
+
+For example, because of a configuration change or connectivity problem, your API Management instance might be unable to fetch a hostname certificate from Azure Key Vault after a certificate is updated or rotated there. When this happens, your API Management instance continues to use a cached certificate until it receives an updated certificate. If the cached certificate expires, runtime traffic to the gateway will be blocked. Any upstream service such as Application Gateway that uses the hostname certificate configuration could also block runtime traffic to the gateway when an expired cached certificate is used.
+
+Use the following controls and diagnostics to keep your certificates in sync and prevent or minimize downtime.
+
+### Synchronize certificates
+
+Select **Sync certificates** on the command bar to manually start certificate synchronization when certificate thumbprints have changed. This option lets you avoid waiting for the automated synchronization job, which typically runs every 3-4 hours.
+
+:::image type="content" source="media/configure-custom-domain/synchronize-key-vault-certificates.png" alt-text="Screenshot of command to synchronize hostname certificates from Azure Key Vault in the portal." lightbox="media/configure-custom-domain/synchronize-key-vault-certificates.png":::
+
+### View sync logs
+
+Select **View sync logs** on the command bar to open a panel with detailed root-cause information when certificate synchronization fails. These logs help you diagnose and resolve synchronization issues faster.
+
+### Restore access to the key vault
+
+API Management shows proactive warnings when it detects access issues between your API Management instance and the key vault used by the custom domain. These access issues often cause certificate synchronization failures.
+
+If a warning appears, select **Restore** to automatically fix access based on your key vault authorization model. Depending on the model, API Management takes one of the following actions to restore access:
+
+* Assigns the **Key Vault Secrets User** role for an Azure RBAC-based key vault.
+* Grants the **GET** permission for an access policy-based key vault.
+
+### Additional troubleshooting tips for failed certificate rotation from Azure Key Vault
+
+* Confirm that the managed identity used to access the key vault exists. 
+
+* If your API Management instance is deployed in a virtual network, confirm outbound connectivity to the AzureKeyVault service tag. 
+
+
+
+
+
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 [!INCLUDE [api-management-standard-v2-limitation](../../includes/api-management-standard-v2-limitation.md)]
 
-## Troubleshooting: Hostname certificate rotation from Azure Key Vault failed
-
-Because of a configuration change or connectivity problem, your API Management instance might be unable to fetch a hostname certificate from Azure Key Vault after a certificate is updated or rotated there. When this happens, your API Management instance continues to use a cached certificate until it receives an updated certificate. If the cached certificate expires, runtime traffic to the gateway will be blocked. Any upstream service such as Application Gateway that uses the hostname certificate configuration could also block runtime traffic to the gateway when an expired cached certificate is used. 
-
-To mitigate this problem, confirm that the key vault exists, and the certificate is stored in the key vault. If your API Management instance is deployed in a virtual network, confirm outbound connectivity to the AzureKeyVault service tag. Check whether the managed identity used to access the key vault exists. Confirm the managed identity's permissions to access the key vault. Review [Set up a custom domain name - Key Vault](#set-a-custom-domain-name---portal), earlier in this article, for detailed configuration steps. After the configuration is restored, the hostname certificate will refresh in API Management within 4 hours. 
 
 ## Related content
 
-[Upgrade and scale your service](upgrade-and-scale.md)
+- [Upgrade and scale your service](upgrade-and-scale.md)
+- [Use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).    
 
 

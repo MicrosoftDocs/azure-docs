@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 05/01/2026
 ms.update-cycle: 180-days
  
 ms.custom: 
@@ -14,20 +14,17 @@ ms.collection:
 
 # Set up and customize your API Center portal
 
-This article shows you how to set up and customize the *API Center portal* (preview), an Azure-managed website for discovering APIs, MCP servers, and related assets in your [API center](overview.md). 
+This article shows you how to set up and customize the *API Center portal*, an Azure-managed website for discovering APIs, MCP servers, and related assets in your [API center](overview.md). 
 
 The API Center portal supports and streamlines the work of developers who use and create APIs within your organization. Users with access can:
 
 * **Search for APIs** by name or use AI-assisted semantic search.
-* **Filter APIs** by type or lifecycle stage.
+* **Filter APIs** by type, lifecycle stage, and other properties.
 * **View API details and definitions** including endpoints, methods, parameters, and response formats.
 * **Download API definitions** to their computer or open in Visual Studio Code.
 * **Try out APIs** with API key or OAuth 2.0 authentication.
 
 :::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
-
-> [!NOTE]
-> The API Center portal is currently in preview.
 
 > [!TIP]
 > Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals).
@@ -65,6 +62,9 @@ After configuring access, open the API Center portal by selecting **View API Cen
 (Replace `<service-name>` and `<location>` with your API center name and deployment location.)
 
 By default, the portal home page is publicly reachable. If Microsoft Entra ID is configured for access, users must select **Sign-in** to access APIs. See [Enable sign-in to portal by Microsoft Entra users and groups](#enable-sign-in) for details on configuring user access.
+
+* Add filters on the home page to display assets of certain types or that match certain metadata values.
+* Select an API or other registered asset to view its details, such as endpoints, methods, parameters, and response formats. You can also download API definitions or open them in Visual Studio Code.
 
 <a id="enable-sign-in"></a>
 ## Enable sign-in to portal by Microsoft Entra users and groups 

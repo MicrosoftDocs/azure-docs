@@ -1308,6 +1308,9 @@ items:
       - name: SharePoint Online list
         displayName: troubleshooting
         href: connector-troubleshoot-sharepoint-online-list.md
+      - name: Shopify
+        displayName: troubleshooting
+        href: connector-troubleshoot-shopify.md
       - name: Snowflake
         displayName: troubleshooting
         href: connector-troubleshoot-snowflake.md

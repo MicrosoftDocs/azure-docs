@@ -3,7 +3,7 @@ title: Manage Backups with Azure role-based access control
 description: Use Azure role-based access control to manage access to backup management operations in Recovery Services vault.
 ms.reviewer: dapatil
 ms.topic: how-to
-ms.date: 05/30/2025
+ms.date: 04/30/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -39,11 +39,17 @@ The following table captures the Backup management actions and corresponding min
 | Enable backup of Azure VMs (from VM blade) | Backup Operator | Resource group containing the vault |  | 
 | | Backup Operator | Resource group containing the virtual machine |  |
 | | Virtual Machine Contributor | VM resource |  Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read Microsoft.Compute/virtualMachines/instanceView/read |
+| Enable backup of Azure VMs across subscriptions | Backup Operator | Resource group containing the vault (vault subscription) |   |
+| | Virtual Machine Contributor | VM resource (protected VM subscription) | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |   |
 | Restore VM | Backup Operator | Recovery Services vault |   |
 | | Contributor | Resource group in which VM will be deployed |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Resources/subscriptions/resourceGroups/write` <br> - `Microsoft.Resources/subscriptions/resourceGroups/read` <br> - `Microsoft.DomainRegistration/domains/write` <br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` <br> - `Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/read` <br> - `Microsoft.Network/virtualNetworks/subnets/join/action` <br><br> Additionally, if you want to set custom role despite built-in-role, following permissions are needed on the Staging Location's Storage Account: <br><br> - `Microsoft.Storage/storageAccounts/read` <br> - `Microsoft.Storage/storageAccounts/write` |
 | | Virtual Machine Contributor | Source VM that got backed up |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read|
 | | Storage Account Contributor | Storage account resource where disks are going to be restored |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
+| Restore VM/disks across subscriptions | Backup Operator | Recovery Services vault (vault subscription) | This is in addition to the restore permissions mentioned above. To restore a vault-tier recovery point to a subscription other than the protected VM subscription or vault subscription, enable [Cross Subscription Restore](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) on the vault. |
+| | Virtual Machine Contributor | Source VM that got backed up (protected VM subscription) | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
+| | Contributor | Target resource group where VM/disks will be restored (target subscription) | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Resources/subscriptions/resourceGroups/write |
+| | Storage Account Contributor | Target or staging storage account used during restore, where applicable | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |
 | Restore legacy unmanaged-disk VM recovery points as managed disks | Backup Operator | Recovery Services vault |
 | | Virtual Machine Contributor | Source VM that got backed up | Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Compute/virtualMachines/write Microsoft.Compute/virtualMachines/read |
 | | Storage Account Contributor | Temporary Storage account selected as part of restore to hold restore metadata and temporary VHD files |   Alternatively, instead of a built-in-role, you can consider a custom role which has the following permissions: Microsoft.Storage/storageAccounts/write Microsoft.Storage/storageAccounts/listkeys/action |

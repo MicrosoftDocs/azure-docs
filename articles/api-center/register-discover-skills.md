@@ -3,7 +3,7 @@ title: Register Skills in Your API Center
 description: Learn how to register skills in Azure API Center to create a centralized skills registry for your organization. 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/12/2026
+ms.date: 05/05/2026
 ai-usage: ai-assisted
 
 
@@ -17,9 +17,6 @@ ms.custom:
 
 This article describes how to use Azure API Center to register agent [skills](https://agentskills.io/home) as part of your API inventory. Skills are reusable capabilities that AI agents can discover and consume to extend their functionality.
 
-> [!NOTE]
-> Registering skills in API Center is currently in preview.
-
 By registering skills in your API center, you create a centralized registry that helps your organization:
 
 - Discover available skills and their capabilities
@@ -29,14 +26,6 @@ By registering skills in your API center, you create a centralized registry that
 
 - An API center. If you don't have an API center yet, see the quickstart to [Create an API center](set-up-api-center.md).
 - One or more skills that you want to register, typically hosted in a source code repository such as GitHub.
-- For integration with a Git repository for continuous synchronization of skill information (optional): 
-    - For non-public repositories, a personal access token (PAT) to access the repository where your skill information is stored. The PAT must have appropriate permissions to read the repository content. To create a PAT for GitHub, see [Create a fine-grained personal access token](https://docs.github.com/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token).
-    - An Azure key vault to store a PAT. If you need to create one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). To add or manage secrets in the key vault, you need at least the **Key Vault Secrets Officer** role or equivalent permissions.   
-    - For Azure CLI:.
-        [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-        > [!NOTE]
-        > You can run Azure CLI command examples in this article in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
 
 ## Register a skill
 
@@ -76,66 +65,9 @@ You can update skill information at any time:
 1. Select **Edit** to modify the skill's properties.
 1. Make your changes and select **Save**.
 
-## Integrate a Git repository to synchronize skills
+## Synchronize skills from a Git repository
 
-To automate skill registration and updates, integrate a Git repository with your API center. By using this integration, you can synchronize information about one or more skills from the repository to your API center inventory. 
-
-When you integrate a Git repository:
-
-* Your API center creates an [environment](key-concepts.md#environment) that represents the repository as a source of skills.
-* API Center regularly synchronizes skill information from the repository to your API center inventory.
-
-### Store PAT in Azure Key Vault
-
-If your Git repository is private, manually upload and securely store a PAT to Azure Key Vault that grants access to the repository. When you integrate the Git repository with your API center, configure the integration to use this secret.  
-
-For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal).
-
-If you don't need to configure a PAT, proceed to [integrate the Git repository with your API center](#integrate-a-git-repository).
-
-### Configure a managed identity for your API center
-
-Your API center uses a managed identity to authenticate to Azure Key Vault and retrieve the PAT needed to access the Git repository. The following procedures describe how to manually configure a managed identity for your API center and assign it the necessary permissions to access the Key Vault.
-
-If you don't configure the managed identity, API Center can configure it for you automatically when you integrate the Git repository.
-
-[!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
-
-### Assign the managed identity the Key Vault Secrets User role
-
-[!INCLUDE [configure-managed-identity-kv-secret-user](includes/configure-managed-identity-kv-secret-user.md)]
-
-### Integrate a Git repository
-
-To integrate a Git repository:
-
-1. In the [Azure portal](https://portal.azure.com), go to your API center.
-1. In the sidebar menu, select **Platforms** > **Integrations**.
-1. Select **+ New integration** and choose **From Git repository**.
-1. On **Integrate your Git repository**, provide the following information:
-
-    | Field | Description |
-    |-------|-------------|
-    | **Configure Git repository source** ||
-    | **Repository URL** | Enter the URL to the Git repository containing skill files, optionally specifying branch and subfolder (for example, `https://github.com/<org>/<repo>/tree/main/skills`). |
-    | **Git provider** | Select the provider (for example, **GitHub**). |
-    | **Asset type configuration** | API Center configures a default **skill** asset type with file pattern `**/skill.md.` <br/><br/>Select **+ Add asset type** to add one or more asset types to sync. |
-    | **Personal access token (PAT)** | If you have a PAT stored in Azure Key Vault, click **Select** to browse to the Key Vault secret.<br/><br/>Optionally select **Automatically configure managed identity and assign permissions** if you haven't manually configured a managed identity to access the key vault secret. |
-    | **Integration details** | Accept the generated link identifier or provide a custom ID for the integration link. |
-    | **Environment details** | |
-    | **Environment title** | Enter a friendly name for the repository environment (for example, *Git repository*). |
-    | **Identification** | Enter an environment resource name (for example, *git-repository*). |
-    | **Environment type** | Select the environment type (for example, **Production**). |
-    | **Description** | Optionally add a description for the environment. |
-    | **Asset details** | |
-    | **Lifecycle** | Select the lifecycle stage for assets synced from the repository (for example, **Design**). |
-
-    :::image type="content" source="media/register-discover-skills/integrate-git-repository-small.png" alt-text="Screenshot of integrating a Git repo in an API center in the portal." lightbox="media/register-discover-skills/integrate-git-repository.png":::
-1. Select **Create**.
-
-The portal adds the environment to your API center. The portal adds the skills from the repository to the API center inventory on the **Inventory** > **Assets** page. You can identify linked skills by the link icon in the list.
-
-:::image type="content" source="media/register-discover-skills/linked-skills.png" alt-text="Screenshot of linked skills in API center in the portal.":::
+To automate skill registration and keep your inventory up to date, you can integrate a Git repository with your API center. For more information, see [Synchronize API assets from a Git repo](synchronize-assets-git.md).
 
 ## Discover skills in the API Center portal
 
@@ -144,8 +76,48 @@ Set up your [API Center portal](set-up-api-center-portal.md) so that developers 
 * Browse and filter skills in the inventory.
 * View detailed information about each skill.
 
+## Assess AI skills (preview)
+
+API Center comes with default skill assessment criteria out of the box, evaluating skills across four key dimensions, each scored on a 1–5 scale with a default threshold of 3: 
+
+| Criterion | Description |
+|-----------|-------------|
+| Documentation clarity | Evaluates how clearly a skill's purpose and behavior are communicated. |
+| Help completeness | Assesses whether the output serves as a comprehensive standalone reference. |
+| Discoverability | Measures how easily functionality can be navigated and found. |
+| Safe usage | Evaluates whether sufficient guidance is provided for safe operation. | 
+
+Enterprise platform administrators can further extend these defaults by defining custom assessment criteria tailored to their organization's specific standards, compliance requirements, and governance policies. 
+
+To enable automated quality assessments of skills in your inventory:
+
+1. In the [Azure portal](https://portal.azure.com), go to your API center.
+1. In the sidebar menu. go to **Governance** > **AI Assessment (preview)**.
+1. In **Assessment status**, select **Enabled**.
+1. Enter a **Description** for the assessment.
+1. In **Assessment criteria**, do one of the following:
+    - Select the **Default** criteria described previously.
+
+        :::image type="content" source="media/register-discover-skills/skill-assessment.png" alt-text="Screenshot of Configuration of AI skill assessment in the portal." lightbox="media/register-discover-skills/skill-assessment.png":::
+    - Select **Custom** and then select **+ Add criterion**. 
+        1. Provide a **Name** and optional **Assessment instruction** for the criterion.
+        1. Enter **Minimum** and **Maximum** values for the score (for example, 1 and 5).
+        1. Enter a **Threshold** value (for example, 3) that indicates the minimum acceptable score for the criterion.
+        1. Enter a **Weight** value that indicates the contribution of the criterion to the total assessment (for example, a weight of 0.3 multiples the score by 0.3, contributing 30% to the total assessment).
+        1. Optionally, add one or more **Score descriptions** to describe what each level of the score represents.
+        1. Repeat the preceding steps to add more criteria as needed.
+1. Select **Save**.
+
+You can then view assessment results for each skill on the skill details page in the API Center portal. 
+
+:::image type="content" source="media/register-discover-skills/assessment-in-portal.png" alt-text="Screenshot of skill assessment in the API Center portal." lightbox="media/register-discover-skills/assessment-in-portal.png":::
+
+> [!NOTE]
+> API Center runs skill assessments approximately once per hour. It can take up to an hour for new or updated skills to be assessed and for the results to appear in the API Center portal.
+
 ## Related content
 
+* [Synchronize API assets from a Git repo](synchronize-assets-git.md)
 * [Register and discover MCP servers in your API inventory](register-discover-mcp-server.md)
 * [Set up your API Center portal](set-up-api-center-portal.md)
 * [Key concepts in Azure API Center](key-concepts.md)
