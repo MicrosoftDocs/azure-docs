@@ -1,7 +1,7 @@
 ---
-title: Create an Azure IoT hub
+title: Create an Azure IoT Hub
 titleSuffix: Azure IoT Hub
-description: How to create, manage, and delete Azure IoT hubs through the Azure portal, CLI, and PowerShell. Includes information about retrieving the service connection string.
+description: Learn how to create, manage, and delete Azure IoT hubs through the Azure portal, the Azure CLI, and PowerShell. Includes information about retrieving the service connection string.
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
@@ -14,7 +14,7 @@ ms.custom:
 
 # Create and manage Azure IoT hubs
 
-This article explains how to create an IoT hub **without** Azure Device Registry (ADR) and certificate management integration. If you want to create an IoT hub integrated with these preview features, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
+This article explains how to create an IoT hub without Azure Device Registry and certificate management integration. If you want to create an IoT hub integrated with these preview features, see [Get started with Device Registry and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
 ## Prerequisites
 
@@ -22,11 +22,11 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure portal](#tab/portal)
 
-* Access to the [Azure portal](https://portal.azure.com).
+Access to the [Azure portal](https://portal.azure.com).
 
 ### [Azure CLI](#tab/cli)
 
-* The Azure CLI installed on your development machine. If you don't have the Azure CLI, follow the steps provided in [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* The Azure CLI installed on your development machine. If you don't have the Azure CLI, follow the steps provided in [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
 
@@ -36,8 +36,7 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure PowerShell](#tab/powershell)
 
-* Azure PowerShell installed on your development machine. If you don't have Azure PowerShell, follow the steps provided in  [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
-
+* Azure PowerShell installed on your development machine. If you don't have Azure PowerShell, follow the steps provided in [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 * A resource group in your Azure subscription. If you want to create a new resource group, use the [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) command:
 
    ```azurepowershell-interactive
@@ -54,7 +53,7 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure CLI](#tab/cli)
 
-Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub in your resource group, using a globally unique name for your IoT hub. For example:
+Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub in your resource group. Use a globally unique name for your IoT hub. For example:
 
 ```azurecli-interactive
 az iot hub create --name <NEW_NAME_FOR_YOUR_IOT_HUB> --resource-group <RESOURCE_GROUP_NAME> --sku S1
@@ -88,25 +87,25 @@ Provide access permissions to applications and services that use IoT Hub functio
 
 ### Connect with a connection string
 
-Connection strings are tokens that grant devices and services permissions to connect to IoT Hub based on shared access policies. Connection strings are an easy way to get started with IoT Hub, and are used in many samples and tutorials, but aren't recommended for production scenarios.
+Connection strings are tokens that grant devices and services permissions to connect to IoT Hub based on shared access policies. Connection strings are an easy way to get started with IoT Hub and are used in many samples and tutorials. We don't recommend them for production scenarios.
 
-For most sample scenarios, the **service** policy is sufficient. The service policy grants **Service Connect** permissions to access service endpoints. For more information about the other built-in shared access policies, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
+For most sample scenarios, the service policy is sufficient. The service policy grants Service Connect permissions to access service endpoints. For more information about the other built-in shared access policies, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
-To get the IoT Hub connection string for the **service** policy, follow these steps:
+To get the IoT Hub connection string for the service policy, follow these steps:
 
 #### [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
 
-1. On the left-side pane of your IoT hub, select **Shared access policies** under **Security settings**.
+1. On the service menu of your IoT hub, under **Security settings**, select **Shared access policies**.
 
 1. From the list of policies, select the **service** policy.
 
-1. Copy the **Primary connection string** and save the value.
+1. Copy the primary connection string, and save the value.
 
 #### [Azure CLI](#tab/cli)
 
-Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get a connection string for your IoT hub that grants the service policy permissions:
+Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get a connection string for your IoT hub that grants the service policy permissions.
 
 ```azurecli-interactive
 az iot hub connection-string show --hub-name <YOUR_IOT_HUB_NAME> --policy-name service
@@ -136,17 +135,17 @@ The service connection string should look similar to the following example:
 
 ### Connect with role assignments
 
-Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control (RBAC) provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
+Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 
 ## Delete an IoT hub
 
-When you delete an IoT hub, you lose the associated device identity registry. If you want to move or upgrade an IoT hub, or delete an IoT hub but keep the devices, consider [migrating an IoT hub using the Azure CLI](./migrate-hub-state-cli.md).
+When you delete an IoT hub, you lose the associated device identity registry. If you want to move or upgrade an IoT hub, or delete an IoT hub but keep the devices, consider [migrating an IoT hub by using the Azure CLI](./migrate-hub-state-cli.md).
 
 ### [Azure portal](#tab/portal)
 
-To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
+To delete an IoT hub, open your IoT hub in the Azure portal, and then choose **Delete**.
 
-:::image type="content" source="./media/create-hub/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/create-hub/delete-iot-hub.png":::
+:::image type="content" source="./media/create-hub/delete-iot-hub.png" alt-text="Screenshot that shows where to find the Delete button for an IoT hub in the Azure portal." lightbox="./media/create-hub/delete-iot-hub.png":::
 
 ### [Azure CLI](#tab/cli)
 
@@ -158,7 +157,7 @@ az iot hub delete --name <IOT_HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>
 
 ### [Azure PowerShell](#tab/powershell)
 
-To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/remove-aziothub) command.
+To delete the IoT hub, use the [Remove-AzIotHub](/powershell/module/az.iothub/remove-aziothub) command:
 
 ```azurepowershell-interactive
 Remove-AzIotHub `
@@ -170,10 +169,8 @@ Remove-AzIotHub `
 
 ## Other tools for managing IoT hubs
 
-In addition to the Azure portal and CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
+In addition to the Azure portal and the Azure CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
 
 * **IoT Hub resource provider REST API**: Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
-
-* **Azure resource manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
-
+* **Azure Resource Manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
 * **Visual Studio Code**: Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md).
