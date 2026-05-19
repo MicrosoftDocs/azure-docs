@@ -52,7 +52,7 @@ Use the portal or Azure CLI to create an association between your configuration 
 
 1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdown, then select **Associate**.
 
-   :::image type="content" source="./media/network-security-perimeter/associate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/associate-nsp.png":::
+   :::image type="content" source="./media/network-security-perimeter/associate-network-security-perimeter.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/associate-network-security-perimeter.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -101,7 +101,7 @@ After associating the configuration store with the network security perimeter, y
 
 1. Review the network security perimeter configuration to confirm that your configuration store is associated with the expected perimeter and profile.
 
-   :::image type="content" source="./media/network-security-perimeter/verify-association-nsp.png" alt-text="Screenshot of the Azure portal, showing the network security perimeter configuration for an App Configuration store." lightbox="./media/network-security-perimeter/verify-association-nsp.png":::
+   :::image type="content" source="./media/network-security-perimeter/verify-association-network-security-perimeter.png" alt-text="Screenshot of the Azure portal, showing the network security perimeter configuration for an App Configuration store." lightbox="./media/network-security-perimeter/verify-association-network-security-perimeter.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -127,7 +127,7 @@ Use the portal or Azure CLI to remove an existing association between your confi
 
 1. In the **Dissociate network security perimeter** pane, select **Dissociate**.
 
-   :::image type="content" source="./media/network-security-perimeter/dissociate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Dissociate network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/dissociate-nsp.png":::
+   :::image type="content" source="./media/network-security-perimeter/dissociate-network-security-perimeter.png" alt-text="Screenshot of the Azure portal, showing the Dissociate network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/dissociate-network-security-perimeter.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
