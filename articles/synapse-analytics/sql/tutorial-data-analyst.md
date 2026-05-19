@@ -13,6 +13,8 @@ ms.author: stefanazaric
 
 # Tutorial: Explore and Analyze data lakes with serverless SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this tutorial, you learn how to perform exploratory data analysis using existing open datasets, with no storage setup required. You combine different Azure Open Datasets using serverless SQL pool. You then visualize the results in Synapse Studio for Azure Synapse Analytics.
 
 In this tutorial, you:

@@ -2,7 +2,7 @@
 title: Transform data by using the Script activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use the Script Activity to transform data in an Azure Data Factory or Synapse Analytics pipeline.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse

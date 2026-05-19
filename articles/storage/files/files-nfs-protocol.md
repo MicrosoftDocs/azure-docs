@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/24/2025
+ms.date: 04/02/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to deploy and manage NFS file shares in Azure Files, so that I can support Linux-based applications and workloads that require POSIX compliance and efficient data access."
@@ -12,28 +12,14 @@ ms.custom: references_regions
 
 # NFS Azure file shares
 
+**Applies to:** :heavy_check_mark: NFS file shares
+
 Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same FileStorage storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
 
 > [!IMPORTANT]
 > NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues. NFS access control lists (ACLs) aren't supported.
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Common scenarios
 
@@ -57,7 +43,8 @@ NFS file shares are often used in the following scenarios:
 
 All data stored in Azure Files is encrypted at rest using Azure storage service encryption (SSE). Storage service encryption works similarly to BitLocker on Windows: data is encrypted beneath the file system level. Because data is encrypted beneath the Azure file share's file system, as it's encoded to disk, you don't have to have access to the underlying key on the client to read or write to the Azure file share. Encryption at rest applies to both the SMB and NFS protocols.
 
-For [encryption in transit](encryption-in-transit-for-nfs-shares.md), Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections between the server and the client, protecting data in transit from interception. 
+For [encryption in transit](encryption-in-transit-for-nfs-shares.md), Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections between the server and the client, protecting data in transit from interception. Azure Files provides a dedicated **Require Encryption in Transit for NFS** setting to independently control whether encryption is required for NFS access. For new storage accounts created by using the Azure portal, this setting is enabled by default. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API set this value as **Not selected** to ensure backward compatibility. For existing storage accounts, the **Secure transfer required** setting continues to govern NFS encryption behavior until you explicitly configure the per-protocol setting.
+
 Azure provides a layer of encryption for all data in transit between Azure datacenters using [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). Through this, encryption exists when data is transferred between Azure data centers.
 
 Unlike Azure Files using the SMB protocol, file shares using the NFS protocol don't offer user-based authentication. Authentication for NFS shares is based on the configured network security rules. Due to this, to ensure only secure connections are established to your NFS share, you must set up either a private endpoint or a service endpoint for your storage account.
@@ -66,12 +53,12 @@ A private endpoint (also called a private link) gives your storage account a pri
 
 If you don't require a static IP address, you can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Files within the virtual network. A service endpoint configures storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. However, be aware that a rare event such as a zone outage could cause the underlying IP address of the storage account to change. While the data will still be available on the file share, the client would require a remount of the share.
 
-If you want to access shares from on-premises, then you must set up a VPN or ExpressRoute in addition to a private endpoint. Requests that don't originate from the following sources will be rejected:
+If you want to access shares from on-premises, then you must set up a VPN or ExpressRoute in addition to a private endpoint. Requests that don't originate from the following sources are rejected:
 
 - [A private endpoint](storage-files-networking-overview.md#private-endpoints)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
-    - [Point-to-site (P2S) VPN](../../vpn-gateway/point-to-site-about.md)
-    - [Site-to-Site](../../vpn-gateway/design.md#s2smulti)
+    - [Point-to-site VPN](../../vpn-gateway/point-to-site-about.md)
+    - [Site-to-site VPN](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [A restricted public endpoint](storage-files-networking-overview.md#public-endpoint-firewall-settings)
 
@@ -118,7 +105,7 @@ NFS Azure file shares are supported in all regions that support SSD file shares.
 
 ## Performance
 
-NFS Azure file shares are only offered on SSD file shares, which store data on solid-state drives (SSD). In the provisioned v2 model, you get to customize on provisioned capactiy, IOPS, and throughput independently. See the [provisioned v2 model](understanding-billing.md#provisioned-v2-model) to understand more. In the provisioned v1 model, the IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
+NFS Azure file shares are only offered on SSD file shares, which store data on solid-state drives (SSD). In the provisioned v2 model, you get to customize on provisioned capacity, IOPS, and throughput independently. See the [provisioned v2 model](understanding-billing.md#provisioned-v2-model) to understand more. In the provisioned v1 model, the IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).

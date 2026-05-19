@@ -7,12 +7,14 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
-ms.date: 03/10/2025
+ms.date: 05/19/2026
 
 #customer-intent: As a developer, I want to deploy an environment so that I can create resources and a resource group.
 ---
 
 # Create and access an environment by using the Azure CLI
+
+[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
 
 This article explains how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project by using the Azure CLI.
 
@@ -66,13 +68,13 @@ Complete the following steps in the Azure CLI to create an environment and confi
 1. List the type of environments that you can create in a specific project:
 
    ```azurecli
-   az devcenter dev environment-type list --dev-center <devcenterName> --project-name <projectName> -o table
+   az devcenter dev environment-type list --dev-center-name <devcenterName> --project-name <projectName> -o table
    ```
 
 1. List the [environment definitions](concept-environments-key-concepts.md#environment-definitions) that are available to a specific project:
 
    ```azurecli
-   az devcenter dev environment-definition list --dev-center <devcenterName> --project-name <projectName> -o table
+   az devcenter dev environment-definition list --dev-center-name <devcenterName> --project-name <projectName> -o table
    ```
 
 1. Create an environment by using an *environment-definition* (an infrastructure-as-code template that's defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
@@ -117,7 +119,7 @@ To access an environment:
 1. List existing environments that are available in a specific project:
 
    ```azurecli
-    az devcenter dev environment list --dev-center <devcenterName> --project-name <projectName>
+    az devcenter dev environment list --dev-center-name <devcenterName> --project-name <projectName>
    ```
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.

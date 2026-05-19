@@ -99,6 +99,7 @@ Availability for file access log is limited to the following regions:
 - Japan West
 - Korea Central
 - Korea South
+- Malaysia West 
 - New Zealand North
 - North Europe
 - Norway East
@@ -115,7 +116,8 @@ Availability for file access log is limited to the following regions:
 - UAE North 
 - UK South
 - UK West
-- US Gov Arizona 
+- US Gov Arizona
+- US Gov Texas
 - US Gov Virginia
 - West Europe
 - West US

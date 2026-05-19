@@ -4,7 +4,7 @@ description: This article describes how to unregister servers from a Site Recove
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 04/06/2026
 ms.author: v-gajeronika
 
 # Customer intent: "As an IT administrator managing disaster recovery, I want to unregister servers and disable protection for virtual machines and physical servers, so that I can effectively manage and streamline our backup processes and reduce unnecessary costs."
@@ -127,8 +127,9 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
         popd
 ```
 
-
 ## Disable protection for a VMware VM or physical server (VMware to Azure)
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
 2. In **Disable replication** page, select one of these options:

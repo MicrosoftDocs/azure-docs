@@ -4,13 +4,15 @@ description: Use Visual Studio to query dedicated SQL pool using Azure Synapse A
 services: synapse analytics
 author: azaricstefan 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: get-started
 ms.subservice: sql
 ms.date: 02/04/2026
 ms.author: stefanazaric 
 ---
 
 # Connect to Synapse SQL with Visual Studio and SSDT
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 > [!div class="op_single_selector"]
 > * [Power BI](get-started-power-bi-professional.md)

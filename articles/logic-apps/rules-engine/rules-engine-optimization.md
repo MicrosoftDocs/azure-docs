@@ -1,25 +1,27 @@
 ---
-title: Optimization for the Azure Logic Apps Rules Engine
-description: Learn how the Azure Logic Apps Rules Engine works from condition evaluation and action execution to prioritization, and how to optimize operation.
+title: Execution Optimization for the Rules Engine
+description: Learn how the Azure Logic Apps Rules Engine evaluates conditions, executes actions, and resolves conflicts between rules, including agenda, priority, caching, and performance concepts.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
-
-#CustomerIntent: As a developer, I want to understand how the Azure Logic Apps Rules Engine works and ways to optimize operation.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
 ms.custom:
   - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to understand how the Azure Logic Apps Rules Engine works and ways to optimize operations.
 ---
 
-# Optimization for Azure Logic Apps Rules Engine execution
+# Execution optimization for the Azure Logic Apps Rules Engine
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
+This guide describes core concepts that explain how the Azure Logic Apps Rules Engine works when evaluating conditions, executing actions, and resolving conflicts between rules. The Azure Logic Apps Rules Engine provides the execution context for a ruleset, which you create with the Microsoft Rules Composer.
 
-The Azure Logic Apps Rules Engine provides the execution context for a ruleset, which you can create with the Microsoft Rules Composer. This guide explains the core concepts around how the rules engine works and provides optimization recommendations for operations and execution.
+You'll learn about the engine's three-stage execution algorithm, how the agenda and priority system determines rule execution order, and how side effects influence caching behavior. This guide also provides performance optimization strategies, including tips for managing fact types, logical operators, update calls, and class inheritance support, so you can build rulesets that run efficiently.
 
 ## Core components
 
@@ -194,7 +196,7 @@ Although the conditions for both rules are met, Rule 2 executes first due to its
 |----------------|--------|
 | Fact1 (value=1) | **Rule 2**: <br>Discount: 15% <br><br>**Rule 1**: <br>Discount: 10% |
 
-## Action side effects
+## Action side effects and caching behavior
 
 If an action's execution affects an object's state or a term used in conditions, this action is said to have a "side effect" on that object or term. This phrase doesn't mean that the action has side effects, but rather, the object or term is potentially affected by one or more actions.
 
@@ -284,7 +286,7 @@ All the remaining rules in the ruleset use **StatusObj.Flag** in their condition
 
 Instead, you can set the **Flag** value to **false** before you invoke the ruleset, and then use only **Rule 1** in the ruleset to set the flag. In this case, the **Update** function is called only if the **Amount** value is greater than 5. The **Update** function isn't called if the amount is less than or equal to 5. This way, all the rules except **Rule 1** and **Rule 2** are evaluated twice only if the **Amount** value is greater than 5.
 
-### SideEffects property behavior
+### SideEffects property behavior and caching behavior
 
 In the **XmlDocumentFieldBinding** and **ClassMemberBinding** classes, the **SideEffects** property determines whether to cache the value of the bound field, member, or column.
 

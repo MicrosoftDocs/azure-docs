@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/03/2026
+ms.date: 03/10/2026
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 # Customer intent: "As a storage administrator, I want to analyze Azure Files metrics using Azure Monitor, so that I can optimize workload performance by monitoring availability, latency, and utilization of file shares."
@@ -13,27 +13,13 @@ ms.custom: monitoring, devx-track-azurepowershell
 
 # Use Azure Monitor to Analyze Azure Files metrics
 
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
 Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
 
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
-
-## Applies to
-| Management model  | Billing model  | Media tier     | Redundancy     |                 SMB                 |                 NFS                 |
-| ----------------- | -------------- | -------------- | -------------- | :---------------------------------: | :---------------------------------: |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Local (LRS)    | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.FileShares | Provisioned v2 | SSD (premium)  | Zone (ZRS)     | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Local (LRS)    |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium)  | Zone (ZRS)     |  ![Yes](../media/icons/yes-icon.png)  | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium)  | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Local (LRS)    | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Zone (ZRS)     | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | Geo (GRS)      | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
-| Microsoft.Storage | Pay-as-you-go  | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) |  ![No](../media/icons/no-icon.png)  |
 
 ## Supported metrics
 
@@ -122,43 +108,42 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 
 ### [.NET](#tab/dotnet) 
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
- 
-In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+Azure Monitor provides the [Azure.Monitor.Query](https://www.nuget.org/packages/Azure.Monitor.Query/) .NET SDK to read metric definitions and values. Use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) for passwordless authentication with `DefaultAzureCredential`. For more information, see [Passwordless connections for Azure services](/dotnet/azure/sdk/authentication).
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
+First, install the required NuGet packages:
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Monitor.Query
+```
+
+In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
 ### List the account-level metric definition
 
 The following example shows how to list a metric definition at the account level:
 
 ```csharp
-    public static async Task ListStorageMetricDefinition()
+using Azure;
+using Azure.Identity;
+using Azure.Monitor.Query;
+using Azure.Monitor.Query.Models;
+
+public static async Task ListStorageMetricDefinition()
+{
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    AsyncPageable<MetricDefinition> metricDefinitions = client.GetMetricDefinitionsAsync(resourceId, metricsNamespace);
+    
+    await foreach (var metricDefinition in metricDefinitions)
     {
-        var resourceId = "<resource-ID>";
-        var subscriptionId = "<subscription-ID>";
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-
-        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
-
-        foreach (var metricDefinition in metricDefinitions)
-        {
-            // Enumerate metric definition:
-            //    Id
-            //    ResourceId
-            //    Name
-            //    Unit
-            //    MetricAvailabilities
-            //    PrimaryAggregationType
-            //    Dimensions
-            //    IsDimensionRequired
-        }
+        Console.WriteLine(metricDefinition.Id);
+        Console.WriteLine(metricDefinition.ResourceId);
+        Console.WriteLine(metricDefinition.Name);
+        Console.WriteLine(metricDefinition.Unit);
     }
-
+}
 ```
 
 ### Reading account-level metric values
@@ -166,45 +151,40 @@ The following example shows how to list a metric definition at the account level
 The following example shows how to read `UsedCapacity` data at the account level:
 
 ```csharp
-    public static async Task ReadStorageMetricValue()
-    {
-        var resourceId = "<resource-ID>";
-        var subscriptionId = "<subscription-ID>";
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-
-        Microsoft.Azure.Management.Monitor.Models.Response Response;
-
-        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
-        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
-        string timeSpan = startDate + "/" + endDate;
-
-        Response = await readOnlyClient.Metrics.ListAsync(
-            resourceUri: resourceId,
-            timespan: timeSpan,
-            interval: System.TimeSpan.FromHours(1),
-            metricnames: "UsedCapacity",
-
-            aggregation: "Average",
-            resultType: ResultType.Data,
-            cancellationToken: CancellationToken.None);
-
-        foreach (var metric in Response.Value)
+public static async Task ReadStorageMetricValue()
+{
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    Response<MetricsQueryResult> result = await client.QueryResourceAsync(
+        resourceId,
+        new[] { "UsedCapacity" },
+        new MetricsQueryOptions
         {
-            // Enumerate metric value
-            //    Id
-            //    Name
-            //    Type
-            //    Unit
-            //    Timeseries
-            //        - Data
-            //        - Metadatavalues
+            Granularity = TimeSpan.FromHours(1),
+            Aggregations = { MetricAggregationType.Average },
+            TimeRange = new QueryTimeRange(TimeSpan.FromHours(3))
+        });
+    
+    foreach (MetricResult metric in result.Value.Metrics)
+    {
+        Console.WriteLine(metric.Name);
+        Console.WriteLine(metric.Unit);
+        foreach(var item in metric.TimeSeries)
+        {
+            Console.WriteLine("Metadata:");
+            foreach(var metadata in item.Metadata)
+            {
+                Console.WriteLine($"{metadata.Key}: {metadata.Value}");
+            }
+            Console.WriteLine("Values:");
+            foreach(var value in item.Values)
+            {
+                Console.WriteLine($"TimeStamp: {value.TimeStamp}, Average: {value.Average}");
+            }
         }
     }
-
+}
 ```
 
 ### Reading multidimensional metric values
@@ -214,50 +194,43 @@ For multidimensional metrics, you need to define metadata filters if you want to
 The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
-    public static async Task ReadStorageMetricValueTest()
-    {
-        // Resource ID for Azure Files
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default";
-        var subscriptionId = "<subscription-ID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-
-        Microsoft.Azure.Management.Monitor.Models.Response Response;
-
-        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
-        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
-        string timeSpan = startDate + "/" + endDate;
-        // It's applicable to define meta data filter when a metric support dimension
-        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
-        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
-            string.Format("BlobType eq '{0}'", "BlockBlob"));
-
-        Response = readOnlyClient.Metrics.List(
-                        resourceUri: resourceId,
-                        timespan: timeSpan,
-                        interval: System.TimeSpan.FromHours(1),
-                        metricnames: "BlobCapacity",
-                        odataQuery: odataFilterMetrics,
-                        aggregation: "Average",
-                        resultType: ResultType.Data);
-
-        foreach (var metric in Response.Value)
+public static async Task ReadStorageMetricValueTest()
+{
+    // Resource ID for Azure Files
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    // Define a dimension filter to read metric data on specific dimension values
+    // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+    Response<MetricsQueryResult> result = await client.QueryResourceAsync(
+        resourceId,
+        new[] { "BlobCapacity" },
+        new MetricsQueryOptions
         {
-            //Enumerate metric value
-            //    Id
-            //    Name
-            //    Type
-            //    Unit
-            //    Timeseries
-            //        - Data
-            //        - Metadatavalues
+            Granularity = TimeSpan.FromHours(1),
+            Aggregations = { MetricAggregationType.Average },
+            TimeRange = new QueryTimeRange(TimeSpan.FromHours(3)),
+            Filter = "BlobType eq 'BlockBlob'"
+        });
+    
+    foreach (MetricResult metric in result.Value.Metrics)
+    {
+        Console.WriteLine(metric.Name);
+        Console.WriteLine(metric.Unit);
+        foreach(var item in metric.TimeSeries)
+        {
+            Console.WriteLine("Metadata:");
+            foreach(var metadata in item.Metadata)
+            {
+                Console.WriteLine($"{metadata.Key}: {metadata.Value}");
+            }
+            Console.WriteLine("Values:");
+            foreach(var value in item.Values)
+            {
+                Console.WriteLine($"TimeStamp: {value.TimeStamp}, Average: {value.Average}");
+            }
         }
     }
-
 ```
 
 ---

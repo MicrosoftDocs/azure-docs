@@ -5,7 +5,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 

@@ -517,7 +517,7 @@ Before you can evaluate an autoscale formula, you must first enable autoscaling 
 
     These Batch .NET methods require the ID of an existing pool and a string containing the autoscale formula to evaluate.
 
-- [Evaluate an automatic scaling formula](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+- [Evaluate an automatic scaling formula](/rest/api/batchservice/pools/evaluate-pool-auto-scale)
 
     In this REST API request, specify the pool ID in the URI, and the autoscale formula in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
@@ -608,7 +608,7 @@ In Batch .NET, the [BatchPool.AutoScaleRun](/dotnet/api/azure.compute.batch.batc
 - [AutoScaleRun.Results](/dotnet/api/azure.compute.batch.autoscalerun.results)
 - [AutoScaleRun.Error](/dotnet/api/azure.compute.batch.autoscalerun.error)
 
-In the REST API, [information about a pool](/rest/api/batchservice/get-information-about-a-pool) includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
+In the REST API, [information about a pool](/rest/api/batchservice/pools/get-pool) includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/pools/get-pool#autoscalerun) property.
 
 The following C# example uses the Batch .NET library to print information about the last autoscaling run on pool *myPool*.
 

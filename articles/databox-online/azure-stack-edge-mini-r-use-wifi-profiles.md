@@ -2,12 +2,12 @@
 title: Use Wi-Fi profiles with Azure Stack Edge Mini R devices
 description: Describes how to create Wi-Fi profiles for Azure Stack Edge Mini R devices on high-security enterprise networks and personal networks.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/10/2023
-ms.author: alkohli
+ms.author: sipastak
 #Customer intent: As an IT pro or network administrator, I need to give users secure wireless access to their Azure Stack Edge Mini R devices.    
 ---
 

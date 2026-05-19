@@ -7,9 +7,9 @@ metadata:
   description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
-  author: robbyatmicrosoft
-  ms.author: robbymillsap
-  ms.reviewr: robbymillsap, chkittel, prwilk
+  author: reginahack
+  ms.author: rhackenberg
+  ms.reviewr: rhackenberg, chkittel
   ms.date: 07/31/2025
   ms.collection:
    - migration
@@ -24,7 +24,7 @@ landingContent:
           - text: Plan your migration
             url:  /azure/cloud-adoption-framework/migrate/plan-migration
           - text: Select your migration strategy
-            url:  /azure/cloud-adoption-framework/plan/select-cloud-migration-strategy?utm_source=chatgpt.com
+            url:  /azure/cloud-adoption-framework/plan/select-cloud-migration-strategy
 
   - title: Data
     linkLists:

@@ -17,6 +17,9 @@ ms.custom:
 
 [Azure Private Link](../private-link/private-link-overview.md) is a technology that allows you to connect Azure Platform-as-a-Service offerings using private IP address connectivity by exposing [Private Endpoints](../private-link/private-endpoint-overview.md). With Azure Virtual WAN, you can deploy a Private Endpoint in one of the virtual networks connected to any virtual hub. This private link provides connectivity to any other virtual network or branch connected to the same Virtual WAN.
 
+> [!NOTE]
+> There is a maximum of 4,000 private endpoints across all virtual networks connected to a single Virtual WAN hub. Exceeding this limit can cause connection degradation. High-scale private endpoints aren't currently supported for Virtual WAN hubs, so this limit isn't currently adjustable. For more information about private endpoint virtual network limits, see [Increase private endpoint limits in VNets connected to Azure resources](../private-link/increase-private-endpoint-vnet-limits.md).
+
 ## Before you begin
 
 The steps in this article assume that you  deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.

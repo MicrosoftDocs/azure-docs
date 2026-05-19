@@ -5,8 +5,8 @@ description: 'This quickstart shows how to create and run load tests using the b
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 12/16/2025
 ---
 

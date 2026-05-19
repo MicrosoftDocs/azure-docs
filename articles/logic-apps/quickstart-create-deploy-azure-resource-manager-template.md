@@ -1,30 +1,38 @@
 ---
-title: Quickstart - Create Consumption logic app workflow with ARM templates
-description: Learn to create and deploy a Consumption logic app workflow with Azure Resource Manager templates (ARM templates) in multitenant Azure Logic Apps.
+title: Quickstart - Deploy Consumption Workflows with ARM Templates
+description: Quickly automate deployment by creating Azure Resource Manager templates (ARM templates) for Consumption logic app workflows in multitenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: quickstart
+ms.update-cycle: 1095-days
+ms.date: 03/11/2026
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 02/19/2025
-#Customer intent: As a developer, I want to create and deploy an automated workflow in multitenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to quickly create and deploy an automated Consumption workflow in multitenant Azure Logic Apps by using ARM templates.
 ---
 
-# Quickstart: Create and deploy a Consumption logic app workflow in multitenant Azure Logic Apps with an ARM template
+# Quickstart: Automate deployment for Consumption logic app workflows in multitenant Azure Logic Apps by using ARM templates
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-[Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multitenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
+[Azure Logic Apps](logic-apps-overview.md) is a cloud platform that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
+
+This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multitenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
+
+> [!IMPORTANT]
+> 
+> This quickstart applies only to Consumption logic apps, not Standard logic apps. Make sure that 
+> connections in your template use the same Azure resource group and location as your logic app. 
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Screenshot shows button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
+You need an Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 
@@ -207,7 +215,7 @@ For more information, see the following documentation:
    }
    ```
 
-For more information, see these topics:
+For more information, see:
 
 * [Resource Management REST API](/rest/api/resources/)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)

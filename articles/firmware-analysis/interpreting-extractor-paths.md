@@ -4,7 +4,7 @@ description: Learn how to interpret extractor paths from the SBOM view in firmwa
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
-ms.date: 09/12/2025
+ms.date: 03/05/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -82,3 +82,38 @@ When you hover over the number, you’ll see a pop-up that looks like this:
 :::image type="content" source="media/extractor-paths/pop-up-multiple-paths.png" alt-text="Screenshot of an SBOM's multiple paths." lightbox="media/extractor-paths/pop-up-multiple-paths.png":::
 
 This means that the SBOM can be found at these two executable paths.
+
+## How UEFI analysis capabilities affect extractor paths
+
+UEFI (Unified Extensible Firmware Interface) firmware differs from other firmware types in structure and content. A single UEFI firmware image can contain:
+
+- UEFI-specific modules
+- Other executable formats embedded within the firmware (for example, Linux ELF binaries)
+
+As a result, firmware analysis results—and the extractor paths shown in the SBOM view—may include a mix of executable types within the same analysis.
+
+For UEFI firmware, extractor path enhancements are currently provided as a **Preview** capability. When available, extractor paths may include:
+
+- The UEFI module name
+- GUID-based identifiers used internally by UEFI firmware
+
+These enhancements are intended to improve clarity when correlating SBOM entries with UEFI modules. However, they may not appear for all firmware images or all modules.
+
+> [!NOTE]
+> Because UEFI extractor path enhancements are in Preview, coverage may be incomplete. Missing module names or paths should be interpreted as **unknown**, not as evidence that a component is absent.
+
+
+### Relationship between UEFI analysis coverage and extractor paths
+
+UEFI analysis capabilities vary by feature maturity:
+
+- Detection of cryptographic certificates and keys embedded in UEFI firmware is **Generally Available (GA)**
+- SBOM extraction, weakness detection, binary hardening attributes, and extractor path enhancements for UEFI firmware are currently in **Preview**
+
+Because SBOM and weakness data for UEFI firmware are derived from detected components:
+
+- CVEs may appear only for components whose versions can be confidently identified
+- Some SBOM rows may have missing or partial data
+- Some extractor paths may apply only to non-UEFI executables embedded within the firmware
+
+Missing or empty values in UEFI-related rows should be interpreted as **unknown**, not as confirmation that a security feature is absent or a vulnerability does not exist.

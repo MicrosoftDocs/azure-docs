@@ -2,7 +2,7 @@
 title: Specify Custom Parameters For Baseline Policy
 description: Learn how to customize Machine Configuration security baseline parameters to meet organizational requirements across Azure and Arc-enabled machines using the Azure Policy Settings Picker experience.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Specify Custom Parameters for Baseline Policy

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 160">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+
+  <!-- Teams Bot -->
+  <rect x="20" y="15" width="220" height="52" rx="8" fill="#5B5FC7" filter="url(#shadow)"/>
+  <text x="130" y="38" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="white">Teams Bot</text>
+  <text x="130" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="rgba(255,255,255,0.8)">DM or @mention in channels</text>
+
+  <!-- Portal -->
+  <rect x="20" y="82" width="220" height="52" rx="8" fill="#0078D4" filter="url(#shadow)"/>
+  <text x="130" y="105" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="white">SRE Agent Portal</text>
+  <text x="130" y="122" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="rgba(255,255,255,0.8)">sre.azure.com</text>
+
+  <!-- Horizontal arrows -->
+  <line x1="240" y1="41" x2="380" y2="41" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="240" y1="108" x2="380" y2="108" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Your Agent -->
+  <rect x="390" y="15" width="340" height="119" rx="12" fill="#107C10" filter="url(#shadow)"/>
+  <text x="560" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="22" font-weight="bold" fill="white">Your Agent</text>
+  <text x="560" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="rgba(255,255,255,0.85)">Same reasoning, memory,</text>
+  <text x="560" y="100" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="rgba(255,255,255,0.85)">and tools — every channel</text>
+</svg>

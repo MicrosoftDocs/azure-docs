@@ -6,7 +6,7 @@ manager: anitharaju
 services: azure-communication-services
 ms.author: aigerimb
 ms.date: 06/16/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: kr2b-contr-experiment

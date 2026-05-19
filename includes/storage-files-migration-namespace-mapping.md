@@ -83,20 +83,7 @@ It's possible that, in your situation, a set of folders can logically sync to th
     :::column:::
         Use the previous information to determine how many Azure file shares you need and which parts of your existing data will end up in which Azure file share.
 
-        Create a table that records your thoughts so that you can refer to it when you need to. Staying organized is important, because losing details of your mapping plan can happen easily when you're provisioning many Azure resources at once. Download the following Excel file to use as a template to help create your mapping.
+        Create a table that records your thoughts so that you can refer to it when you need to. Staying organized is important, because losing details of your mapping plan can happen easily when you're provisioning many Azure resources at once.
 
-[//]: # (HTML appears as the only way to accomplish adding a nested two-column table with working image parsing and text/hyperlink on the same line.)
-
-<br>
-<table>
-    <tr>
-        <td>
-            <img src="media/storage-files-migration-namespace-mapping/excel.png" alt="Excel icon that sets the context for the download.">
-        </td>
-        <td>
-            <a href="https://download.microsoft.com/download/1/8/D/18DC8184-E7E2-45EF-823F-F8A36B9FF240/Azure File Sync - Namespace Mapping.xlsx">Download a namespace-mapping template.</a>
-        </td>
-    </tr>
-</table>
     :::column-end:::
 :::row-end:::

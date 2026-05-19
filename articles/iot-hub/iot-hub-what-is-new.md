@@ -3,8 +3,8 @@ title: What is New in Azure IoT Hub? (Preview)
 titleSuffix: Azure IoT Hub
 description: This article explains the new features and improvements in Azure IoT Hub.
 #customer intent: As a developer new to IoT Hub, I want to understand the new features and improvements in Azure IoT Hub so that I can evaluate their benefits for my IoT projects.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.reviewer: cwatson
 ms.service: azure-iot-hub
 services: iot-hub
@@ -47,6 +47,7 @@ For more information, see [Azure IoT Hub Device Provisioning Service (DPS)](../i
 To use IoT Hub with Azure Device Registry and certificate management, deploy instances of IoT Hub, Azure Device Registry, and Device Provisioning Service in one of the following supported regions:
 
 - East US
+
 - East US 2
 - West US
 - West US 2
@@ -71,4 +72,5 @@ The preview period offers these features at no extra cost on top of your standar
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
 - [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
 - [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+
 - [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)

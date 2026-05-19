@@ -108,7 +108,7 @@ Create a new PVC that uses the volume snapshot as a data source.
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azuresan
+     storageClassName: azuresan-csi
      resources:
        requests:
          storage: 100Gi

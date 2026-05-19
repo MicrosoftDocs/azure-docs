@@ -4,12 +4,14 @@ description: Learn about the history and difference between Azure Synapse (forme
 author: azaricstefan
 ms.author: stefanazaric
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: sql
 ms.date: 10/06/2024
 ---
 
 # Difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 *Originally posted as a techcommunity blog at: https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772*
 

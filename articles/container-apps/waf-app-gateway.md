@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 02/26/2026
+ms.date: 03/27/2026
 ms.author: cshoe
 ---
 
@@ -278,8 +278,10 @@ To connect the frontend and backend pool, perform the following steps:
     | Backend protocol | Select **HTTPS**. |
     | Backend port | Enter **443**. |
     | Use well known CA certificate | Select **Yes**. |
-    | Override with new host name | Select **Yes**. |
-    | Host name override | Select **Pick host name from backend target**. |
+    | Cookie-based affinity | Leave as **Disable**. |
+    | Connection draining | Leave as **Disable**. |
+    | Request timeout (seconds) | Leave as the default. |
+    | Override with new host name | Select **Yes**, then select **Pick host name from backend target**. |
     | Use custom probe | Select **No**. |
 
 1. Select **Add** to add the backend settings.

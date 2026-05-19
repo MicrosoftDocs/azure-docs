@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/27/2025
+ms.date: 03/10/2026
 ms.author: normesta
 ms.custom:
   - devx-track-azurecli
@@ -550,6 +550,8 @@ az storage account or-policy delete \
 
 N/A
 
+---
+
 ## Behavior when re-creating an object replication policy 
 
 
@@ -570,8 +572,6 @@ After the policy is re‑created, Azure attempts replication again for eligible 
 - **If a source blob has no previous versions available on the destination:** Azure determines that the blob has already been copied under a prior policy. Re‑replication of that blob does not succeed. Only new blob writes (or new versions created after the policy is re‑created) replicate successfully. 
 
 - **If a source blob has previous versions available on the destination:** Azure is able to re‑replicate the blob. The blob is copied again to the destination as a new version. This enables successful re‑replication of existing blobs without data inconsistency. 
-
----
 
 ## Next steps
 

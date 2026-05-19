@@ -62,7 +62,7 @@ You can use HDInsight to perform interactive queries at petabyte scales over str
 
 ### Internet of Things (IoT)
 
-You can use HDInsight to process streaming data that is received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+You can use HDInsight to process streaming data that is received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 :::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot-new.png" alt-text="Screenshot of the HDInsight architecture: Internet of Things.":::
 

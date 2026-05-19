@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is Elastic integration with Azure?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage the Elastic integration with Azure

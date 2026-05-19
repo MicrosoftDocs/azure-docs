@@ -19,7 +19,7 @@ The simplified experience leverages an enhanced agent-based migration stack tail
 - **Unified OS support matrix**: This provides a consistent and streamlined approach to operating system support across migration workflows, simplifying planning and execution.
 
 > [!NOTE]
-> For the latest list of supported operating systems, including EOL or unsupported OSs such as CentOS, see [Azure support matrix](/azure/site-recovery/vmware-physical-azure-support-matrix).
+> For the latest list of supported operating systems, including EOS or unsupported OSs such as CentOS, see [Azure support matrix](/azure/site-recovery/vmware-physical-azure-support-matrix).
   
 Overall, the upgraded stack equips customers with powerful tools to efficiently migrate newer Linux distributions, leverage modern Windows Server platform for replication, and benefit from a unified OS support framework, enhancing the entire migration journey to Azure.
 
@@ -54,5 +54,5 @@ The key differences between the Classic and Simplified experience:
     
 ## Next steps
 
-- Learn more about setting up the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
+- Learn more about setting up the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
   

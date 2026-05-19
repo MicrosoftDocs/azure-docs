@@ -7,13 +7,15 @@ ms.author: joanpo
 ms.date: 08/29/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
 ---
 
 # Restore a deleted dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn to restore a dedicated SQL pool (formerly SQL DW) using either the Azure portal or PowerShell.
 

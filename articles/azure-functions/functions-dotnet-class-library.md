@@ -2,7 +2,7 @@
 title: Develop legacy C# class library functions using Azure Functions
 description: Understand how to use C# to develop and publish code as class libraries that run in-process with the Azure Functions runtime.
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 05/06/2025
@@ -433,6 +433,9 @@ Here's a sample JSON representation of `customDimensions` data:
 ```
 
 ### <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry
+
+> [!IMPORTANT]
+> OpenTelemetry isn't supported for C# in-process function apps. For the [isolated worker model](dotnet-isolated-process-guide.md), use the [OpenTelemetry exporter](opentelemetry-howto.md) instead, which is the recommended approach for custom telemetry. The classic Application Insights SDK shown in this section is legacy and won't receive new feature updates.
 
 There's a Functions-specific version of the Application Insights SDK that you can use to send custom telemetry data from your functions to Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use the following command from the command prompt to install this package:
 

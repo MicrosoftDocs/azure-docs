@@ -4,7 +4,7 @@ description: This article helps you to get started with Cost Management to under
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/27/2025
-ms.topic: conceptual
+ms.topic: get-started
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

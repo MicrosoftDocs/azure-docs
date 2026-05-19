@@ -2,14 +2,14 @@
 title: Use ephemeral OS disk nodes for Azure Batch pools
 description: Learn how and why to create a Batch pool that uses ephemeral OS disk nodes.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 03/06/2026
 ms.devlang: csharp
 # Customer intent: "As a cloud architect, I want to configure Azure Batch pools with ephemeral OS disks, so that I can reduce costs and improve application performance for stateless workloads."
 ---
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following impacts:
 
@@ -40,30 +40,102 @@ The following example shows how to create a Batch pool where the nodes use ephem
 
 ### Code examples
 
-This code snippet shows how to create a pool with ephemeral OS disks using Azure Batch Python SDK with the Ephemeral OS disk using the temporary disk (cache).
+This code snippet shows how to create a pool with ephemeral OS disks using the azure-mgmt-batch Python SDK with the ephemeral OS disk using the temporary disk (cache).
 
 ```python
-virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-    image_reference=image_ref_to_use,
-    node_agent_sku_id=node_sku_id,
-    os_disk=batch.models.OSDisk(
-        ephemeral_os_disk_settings=batch.models.DiffDiskSettings(
-            placement=batch.models.DiffDiskPlacement.cache_disk
-        )
-    )
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.batch import BatchManagementClient
+from azure.mgmt.batch.models import (
+    BatchAccountPoolData,
+    DeploymentConfiguration,
+    VirtualMachineConfiguration,
+    ImageReference,
+    OSDisk,
+    DiffDiskSettings,
+    DiffDiskPlacement,
 )
+
+
+def create_pool_with_ephemeral_os_disk():
+    client = BatchManagementClient(
+        credential=DefaultAzureCredential(),
+        subscription_id="subscriptionId",
+    )
+
+    pool = client.pool.create(
+        resource_group_name="resourceGroupName",
+        account_name="accountName",
+        pool_name="ephemeralOSDiskPool",
+        parameters=BatchAccountPoolData(
+            vm_size="standard_ds1_v2",
+            deployment_configuration=DeploymentConfiguration(
+                virtual_machine_configuration=VirtualMachineConfiguration(
+                    image_reference=ImageReference(
+                        publisher="Canonical",
+                        offer="UbuntuServer",
+                        sku="22.04-LTS",
+                    ),
+                    node_agent_sku_id="batch.node.ubuntu 22.04",
+                    os_disk=OSDisk(
+                        ephemeral_os_disk_settings=DiffDiskSettings(
+                            placement=DiffDiskPlacement.CACHE_DISK
+                        )
+                    ),
+                )
+            ),
+        ),
+    )
 ```
 
-This is the same code snippet but for creating a pool with ephemeral OS disks using the Azure Batch .NET SDK and C#. 
+This is the same code snippet but for creating a pool with ephemeral OS disks using the Azure.ResourceManager.Batch SDK and C#.
 
 ```csharp
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: nodeAgentSku
-        );
-virtualMachineConfiguration.OSDisk = new OSDisk();
-virtualMachineConfiguration.OSDisk.EphemeralOSDiskSettings = new DiffDiskSettings();
-virtualMachineConfiguration.OSDisk.EphemeralOSDiskSettings.Placement = DiffDiskPlacement.CacheDisk;
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+//...
+
+public async Task SetEphemeralOSDisk()
+{
+    ArmClient client = new ArmClient(new DefaultAzureCredential());
+
+    ResourceIdentifier batchAccountResourceId =
+        BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+    BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
+
+    BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+    BatchAccountPoolData poolData = new BatchAccountPoolData()
+    {
+        VmSize = "standard_ds1_v2",
+        DeploymentConfiguration = new BatchDeploymentConfiguration()
+        {
+            VmConfiguration = new BatchVmConfiguration(
+                imageReference: new BatchImageReference()
+                {
+                    Publisher = "Canonical",
+                    Offer = "UbuntuServer",
+                    Sku = "22.04-LTS"
+                },
+                nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            {
+                OSDisk = new BatchOSDisk()
+                {
+                    EphemeralOSDiskSettings = new DiffDiskSettings()
+                    {
+                        Placement = BatchDiffDiskPlacement.CacheDisk
+                    }
+                }
+            }
+        }
+    };
+
+    ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+        WaitUntil.Completed, "ephemeralOSDiskPool", poolData);
+}
 ```
 
 ## Next steps

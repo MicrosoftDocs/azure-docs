@@ -6,13 +6,15 @@ ms.author: ajagadish
 ms.date: 05/11/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: get-started
 ms.custom:
   - vs-azure
   - azure-synapse
 ---
 
 # Getting started with Visual Studio 2019
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing you to do the following:
 

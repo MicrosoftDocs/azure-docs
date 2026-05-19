@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 03/03/2026
+ms.date: 03/17/2026
 ms.author: ramakk
 ms.custom: references_regions
 # Customer intent: "As a network architect, I want to design a network architecture for Azure NetApp Files, so that I can ensure effective connectivity and optimal performance for my workloads in both cloud-native and hybrid environments."
@@ -35,7 +35,10 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 ### Constraints
 
 >[!IMPORTANT]
->Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features. 
+>Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features.
+
+>[!IMPORTANT]
+>Starting May 31, 2026, basic networking is no longer available for new volumes and Azure NetApp Files volumes will start using Standard Networking by default. Any requests that that specify Basic Networking will be automatically upgraded to Standard Networking. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard Networking features. Existing volumes are not affected and no customer action is required.
 
 The following table describes what’s supported for each network features configuration:
 
@@ -108,12 +111,12 @@ If the subnet has a combination of volumes with the Standard and Basic network f
 Configuring UDRs on the source VM subnets with the address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
 > [!NOTE]
-> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address doesn't forward the Azure NetApp Files traffic to the firewall. 
+> To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the IPv4 address of the Azure NetApp Files volume and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address doesn't forward the Azure NetApp Files traffic to the firewall. 
 
 >[!NOTE]
 > If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't effective. 
 >
-> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
 
 ## Azure native environments
 

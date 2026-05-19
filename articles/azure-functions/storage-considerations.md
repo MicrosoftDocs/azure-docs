@@ -17,10 +17,10 @@ When you create a function app instance in Azure, you must provide access to a d
 
 |Storage service  | Functions usage  |
 |---------|---------|
-| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
+| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
 | [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> Maintain [extension bundles](./extension-bundles.md).<br/>Store deployment logs.<br/>Supports [Managed dependencies in PowerShell](./functions-reference-powershell.md#managed-dependencies-feature). |
-| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
+| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
+| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
 
 1. Blob storage is the default store for function keys, but you can [configure an alternate store](function-keys-how-to.md#manage-key-storage).
 1. Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions.
@@ -132,7 +132,7 @@ Use the following table to determine which function trigger best fits your needs
 
 ### In-region data residency
 
-When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable/durable-functions-azure-storage-provider.md#storage-account-selection).
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
@@ -164,18 +164,6 @@ You can use the following strategies to avoid host ID collisions:
 You can explicitly set a specific host ID for your function app in the application settings by using the `AzureFunctionsWebHost__hostid` setting. For more information, see [AzureFunctionsWebHost__hostid](functions-app-settings.md#azurefunctionswebhost__hostid). 
 
 When the collision occurs between slots, you must set a specific host ID for each slot, including the production slot. You must also mark these settings as [deployment settings](functions-deployment-slots.md#create-a-deployment-setting) so they don't get swapped. To learn how to create app settings, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
-
-## Azure Arc-enabled clusters
-
-When your function app is deployed to an Azure Arc-enabled Kubernetes cluster, your function app might not require a storage account. In this case, functions only require a storage account when your function app uses a trigger that requires storage. The following table indicates which triggers might require a storage account and which don't.
-
-| Not required | might require storage |
-| --- | --- | 
-| • [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md)<br/>• [HTTP](functions-bindings-http-webhook.md)<br/>• [Kafka](functions-bindings-kafka.md)<br/>• [RabbitMQ](functions-bindings-rabbitmq.md)<br/>• [Service Bus](functions-bindings-service-bus.md) | • [Azure SQL](functions-bindings-azure-sql.md)<br/>• [Blob storage](functions-bindings-storage-blob.md)<br/>• [Event Grid](functions-bindings-event-grid.md)<br/>• [Event Hubs](functions-bindings-event-hubs.md)<br/>• [IoT Hub](functions-bindings-event-iot.md)<br/>• [Queue storage](functions-bindings-storage-queue.md)<br/>• [SendGrid](functions-bindings-sendgrid.md)<br/>• [SignalR](functions-bindings-signalr-service.md)<br/>• [Table storage](functions-bindings-storage-table.md)<br/>• [Timer](functions-bindings-timer.md)<br/>• [Twilio](functions-bindings-twilio.md)
-
-To create a function app on an Azure Arc-enabled Kubernetes cluster without storage, you must use the Azure CLI command [az functionapp create](/cli/azure/functionapp#az-functionapp-create). The version of the Azure CLI must include version 0.1.7 or a later version of the [appservice-kube extension](/cli/azure/appservice/kube). Use the `az --version` command to verify that the extension is installed and is the correct version.
-
-Creating your function app resources using methods other than the Azure CLI requires an existing storage account. If you plan to use any triggers that require a storage account, you should create the account before you create the function app. 
 
 ## Create an app without Azure Files
 
@@ -210,9 +198,9 @@ Azure Files is used to enable dynamic scale-out for Functions. Scaling could be 
 
 ## Mount file shares
 
-_This functionality is current only available when running on Linux._ 
+_This functionality is currently only available when running on Linux._
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. 
+You can mount Azure Files shares to your Linux function apps, which lets you access existing files, machine learning models, or large binaries in your functions. Storage mounts aren't supported on the [Consumption](./consumption-plan.md) plan. For conceptual guidance on choosing between storage mounts, bindings, and external databases, see [Choose a file access strategy for Azure Functions](./concept-file-access-options.md).
 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
@@ -235,17 +223,6 @@ In this command, `-ShareName` is the name of the existing Azure Files share. `-M
 For a complete example, see [Create a serverless Python function app and mount file share](create-resources-azure-powershell.md#create-a-serverless-python-function-app-and-mount-file-share). 
 
 ---
-
-Currently, only a `storage-type` of `AzureFiles` is supported. You can only mount five shares to a given function app. Mounting a file share can increase the cold start time by at least 200-300 ms, or even more when the storage account is in a different region.
-
-The mounted share is available to your function code at the `mount-path` specified. For example, when `mount-path` is `/path/to/mount`, you can access the target directory by file system APIs, as in the following Python example:
-
-```python
-import os
-...
-
-files_in_share = os.listdir("/path/to/mount")
-```
 
 ## Related article
 

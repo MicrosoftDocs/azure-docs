@@ -12,6 +12,8 @@ ms.topic: best-practice
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find a collection of best practices for using serverless SQL pool. Serverless SQL pool is a resource in Azure Synapse Analytics. If you're working with a dedicated SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.
 
 Serverless SQL pool allows you to query files in your Azure Storage accounts. It doesn't have local storage or ingestion capabilities. All files that the queries target are external to serverless SQL pool. Everything related to reading files from storage might affect query performance.

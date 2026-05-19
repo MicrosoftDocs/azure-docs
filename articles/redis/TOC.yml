@@ -79,6 +79,10 @@ items:
             href: monitor-diagnostic-settings.md
           - name: List of Redis metrics
             href: monitor-cache-reference.md#metrics
+          - name: Enable Redis keyspace notifications
+            href: enable-redis-keyspace-notifications.md
+          - name: Dashboards with Grafana
+            href: grafana-dashboards.md
       - name: Scaling and performance
         items:
           - name: Change the size and tier of a cache
@@ -103,6 +107,9 @@ items:
             href: /azure/reliability/reliability-managed-redis?toc=/azure/redis/toc.json&bc=/azure/redis/breadcrumb/toc.json
       - name: Security and networking
         items:
+          - name: Secure your Azure Managed Redis deployment
+            href: secure-azure-managed-redis.md
+            displayName: security features, security baseline
           - name: Using TLS with a managed cache
             href: tls-configuration.md
           - name: Configure disk encryption
@@ -111,9 +118,7 @@ items:
             href: private-link.md
           - name: Security controls by Azure Policy
             href: ./security-controls-policy.md
-            displayName: regulatory, compliance, standards, domains
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+            displayName: regulatory, compliance, standards, domain
       - name: Cache management
         items:
           - name: Configure in Azure portal
@@ -122,8 +127,8 @@ items:
             href: how-to-import-export-data.md
           - name: Scheduled maintenance
             href: scheduled-maintenance.md
-          - name: Configure redis-cli access
-            href: how-to-redis-cli-tool.md
+          - name: Manage data with client tools
+            href: how-to-redis-access-data.md
           - name: Management FAQs
             href: management-faq.yml
           - name: Azure Functions
@@ -158,9 +163,31 @@ items:
           href: /azure/developer/github-copilot-azure?toc=/azure/redis/toc.json&bc=/azure/redis/breadcrumb/toc.json
   - name: Migration
     items:
-      - name: Move from Azure Cache for Redis to Azure Managed Redis
-        href: migrate/migrate-overview.md
-      - name: Migrate to Azure Redis from other caches
+      - name: Migrate Basic, Standard, or Premium tiers to Azure Managed Redis
+        items:
+          - name: Overview
+            href: /azure/redis/migrate/migrate-basic-standard-premium-overview
+          - name: Understand differences
+            href: /azure/redis/migrate/migrate-basic-standard-premium-understand
+          - name: Explore migration options
+            href: /azure/redis/migrate/migrate-basic-standard-premium-options
+          - name: Self-service migration
+            href: /azure/redis/migrate/migrate-basic-standard-premium-self-service
+          - name: Migration using tooling
+            href: /azure/redis/migrate/migrate-basic-standard-premium-with-tooling
+      - name: Migrate Enterprise tier to Azure Managed Redis
+        items:
+          - name: Overview
+            href: migrate/migrate-redis-enterprise-overview.md
+          - name: Understand differences
+            href: migrate/migrate-redis-enterprise-understand.md
+          - name: Explore migration options
+            href: migrate/migrate-redis-enterprise-options.md
+          - name: Self-service migration
+            href: migrate/migrate-redis-enterprise-self-service.md
+          - name: Migration using tooling
+            href: migrate/migrate-redis-enterprise-with-tooling.md
+      - name: Migrate to Azure Managed Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis
     items:

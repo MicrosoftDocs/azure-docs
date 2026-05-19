@@ -4,8 +4,8 @@ description: Learn how Azure Load Testing uses data and what to expect.
 ms.date: 12/03/2025
 ms.topic: faq
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 hideEdit: true
 # Customer intent: As an Azure user, I want to understand how Azure Load Testing uses my data and the reliability of its responses, so that I can effectively manage and optimize my Azure environment while ensuring data privacy and security.
 ---

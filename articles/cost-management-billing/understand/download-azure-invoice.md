@@ -6,8 +6,8 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 11/17/2025
+ms.topic: how-to
+ms.date: 04/01/2026
 ms.author: jkinma
 ms.custom: sfi-image-nochange
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -212,13 +212,20 @@ You give others access to view, download, and pay invoices by assigning them the
 
 You might need to send your monthly invoice to your accounting team or to another one of your email addresses. You can do so without granting your accounting team or the secondary email access to your billing profile.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-1.  Search for **Cost Management + Billing**.  
-1.  Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png" lightbox="./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png" alt-text="Screenshot that shows the Email invoice option for invoices.":::
-1.  If you have multiple billing profiles, select a billing profile.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing**.  
+1. Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
+1. If you have multiple billing profiles, select a billing profile.
 1. In the :::no-loc text="additional"::: recipients section, add the email addresses to receive invoices.
-1.  Select **Save**.
+1. Select **Save**.
+
+## Update the bill-to address or PO number on an invoice
+
+1. From the **Invoice list**, select the invoice you want to update.
+
+1. On the **Invoice details** page, select **Change bill-to + PO number** from the menu at the top of the page.
+
+1. Update the **bill-to address** and/or **PO number**, then regenerate the invoice to apply your changes.
 
 ## Azure Government support for invoices
 

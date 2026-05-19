@@ -7,32 +7,37 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l3-cluster-layered-network.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-l4-cluster-layered-network.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-layered-network.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-connect-arc-enabled-servers.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-deploy-aks-layered-network.md",
-            "redirect_url": "/azure/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-layered-network/concept-iot-operations-in-layered-network.md",
+            "redirect_url": "/azure/iot-operations/manage-layered-network/overview-layered-network",
             "redirect_document_id": false
         },
         {
@@ -691,9 +696,14 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-build-wasm-modules.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-develop-wasm-modules.md",
-            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-develop-wasm-modules",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-wasm-onnx-inference.md",
@@ -714,6 +724,21 @@
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-registry-endpoint.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-configure-registry-endpoint",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/concept-dataflow-conversions.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/concept-dataflow-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop-edge-apps/howto-develop-wasm-modules.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop-edge-apps/howto-build-wasm-modules-vscode.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
         }
     ]
 }

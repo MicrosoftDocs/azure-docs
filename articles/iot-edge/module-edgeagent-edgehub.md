@@ -3,7 +3,7 @@ title: Properties of the Azure IoT Edge agent and hub module twins
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/04/2026
+ms.date: 05/13/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -30,7 +30,7 @@ The module twin for the IoT Edge agent is called **$edgeAgent**. It coordinates 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | `imagePullPolicy` | Specifies when to pull the image: **OnCreate** or **Never**. Use **Never** if the image is already on the device. | Yes |
-| `restartPolicy` | When to restart the module. Possible values are: **Never**: don't restart module if not running, **Always**: always restart module if not running, **On-Unhealthy**: restart module if unhealthy, **On-Failed**: restart if Failed. **Note:** Only **Never** and **Always** are currently implemented. **On-Unhealthy** and **On-Failed** are accepted by the schema but don't initiate a restart. For details, see [IoT Edge limits and restrictions](iot-edge-limits-and-restrictions.md). | Yes |
+| `restartPolicy` | When to restart the module. Possible values are: **never**: don't restart module if not running, **on-failure**: restart module if it exits with a non-zero exit code, **on-unhealthy**: restart module if unhealthy (see note), **always**: always restart module if not running. **Note:** The `on-failure` policy restarts modules that exit with a non-zero exit code. The `on-unhealthy` policy is accepted by the schema but the runtime doesn't currently derive unhealthy status from Docker health checks, so it has no practical effect. For details, see [IoT Edge limits and restrictions](iot-edge-limits-and-restrictions.md). | Yes |
 | `runtime.type` | Must be **docker**. | Yes |
 | `runtime.settings.minDockerVersion` | Specifies the minimum Docker version required by this deployment manifest. | Yes |
 | `runtime.settings.loggingOptions` | Specifies a stringified JSON with the logging options for the IoT Edge agent container. Learn more about [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/). | No |
@@ -54,7 +54,7 @@ The module twin for the IoT Edge agent is called **$edgeAgent**. It coordinates 
 | `modules.{moduleId}.version` | A user-defined string representing the version of this module. | Yes |
 | `modules.{moduleId}.type` | Must be **docker**. | Yes |
 | `modules.{moduleId}.status` | **running** \| **stopped** | Yes |
-| `modules.{moduleId}.restartPolicy` | **never** \| **always** | Yes |
+| `modules.{moduleId}.restartPolicy` | **never** \| **on-failure** \| **on-unhealthy** \| **always** | Yes |
 | `modules.{moduleId}.startupOrder` | An integer value for the location a module has in the startup order. A **0** is first and **max integer** (4294967295) is last. If you don't provide a value, the default is **max integer**.  | No |
 | `modules.{moduleId}.imagePullPolicy` | **on-create** \| **never** | No |
 | `modules.{moduleId}.env` | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}`. | No |
@@ -124,12 +124,23 @@ The module twin for an IoT Edge hub is called **$edgeHub**. It coordinates commu
 | `lastDesiredVersion` | This integer refers to the last version of the desired properties processed by the IoT Edge hub. |
 | `lastDesiredStatus.code` | The status code referring to last desired properties seen by the IoT Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed. |
 | `lastDesiredStatus.description` | Text description of the status. |
-| `clients` | All clients connected to edgeHub with the status and last connected time. Example: `"clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }`. |
+| `clients` | All clients connected to edgeHub with the status and last connected time. Example: `"clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }`. For details about which connections appear in this property, see [Which connections appear in `clients`](#which-connections-appear-in-clients). |
 | `clients.{device or moduleId}.status` | The connectivity status of this device or module. Possible values: **connected** or **disconnected**. Only module identities can be in disconnected state. Downstream devices connecting to IoT Edge hub appear only when connected. |
 | `clients.{device or moduleId}.lastConnectTime` | Last time the device or module connected. |
 | `clients.{device or moduleId}.lastDisconnectTime` | Last time the device or module disconnected. |
 | `schemaVersion` | Schema version of reported properties. |
 | `version` | Version of the image. For example: `"version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }`. | 
+
+### Which connections appear in `clients`
+
+The `clients` reported property lists every separate logical connection the local edgeHub serves, except its own `$edgeHub` identity. Specifically:
+
+- **Modules on the same edge device** appear as `<deviceId>/<moduleName>`. This includes `$edgeAgent`, because the local edgeAgent connects through the local edgeHub.
+- **Downstream IoT Edge child devices** appear as `<childDeviceId>/$edgeHub` and `<childDeviceId>/$edgeAgent`. There's no bare `<childDeviceId>` entry. The child's `$edgeHub` connection is the "device's own connection" referenced in [Number of connected clients in gateway hierarchy](iot-edge-limits-and-restrictions.md#number-of-connected-clients-in-gateway-hierarchy).
+- **Downstream leaf devices** (non-IoT Edge devices) appear as `<deviceId>` with no module suffix.
+- The local edgeHub's own identity (`<deviceId>/$edgeHub`) is intentionally omitted to avoid self-reference.
+
+When a module disconnects, its entry remains in `clients` with status `Disconnected`. When a downstream device disconnects, its entry is removed from `clients`. The visible entries equal the count budgeted against `MaxConnectedClients`. There's no hidden additional connection.
 
 ## Next steps
 

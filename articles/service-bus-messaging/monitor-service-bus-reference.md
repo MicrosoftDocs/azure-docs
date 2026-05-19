@@ -52,7 +52,7 @@ The following metrics are *message metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included. |
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. Includes successfully auto-forwarded messages delivered to the destination entity. |
 | Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
 | Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
 | Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |
@@ -61,6 +61,16 @@ The following metrics are *message metrics*.
 | Completed Messages | The number of messages completed over a specified period. |
 | Abandoned Messages | The number of messages abandoned over a specified period. |
 | Size | Size of an entity (queue or topic) in bytes. |
+
+> [!NOTE]
+> **Incoming Messages and Outgoing Messages counts may not always match.** This is expected behavior and doesn't indicate message loss. Common reasons include:
+>
+> - **Duplicate detection**: Messages identified as duplicates are counted as incoming but are discarded and never become outgoing.
+> - **Topic subscription filters**: A single message sent to a topic counts as one incoming message but produces an outgoing message only for each subscription whose filter matches. If no subscription filter matches, there are zero outgoing messages for that incoming message.
+> - **Consumer lag**: If consumers receive messages more slowly than producers send them, the incoming count exceeds the outgoing count until consumers catch up.
+> - **Message expiration (TTL)**: Messages that expire before being consumed are never counted as outgoing.
+> - **Dead-lettering**: Messages moved to the dead-letter queue aren't counted as outgoing.
+> - **Autoforwarding**: Successfully auto-forwarded messages count as incoming on the destination entity. They aren't counted as outgoing on the source entity. When an auto-forward attempt is retried (for example, because the destination has sessions enabled or hits a transient error), each retry that reaches the destination is counted again, so one source message can produce more than one entry in the destination's incoming count.
 
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.

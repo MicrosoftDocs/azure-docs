@@ -85,7 +85,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
    > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
-   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#availability-zone-support) and 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
    After you finish, your settings look similar to the following example:
@@ -316,7 +316,7 @@ Next, test and run your workflow, which now looks similar to the following examp
 
 To manually start your workflow, on the designer toolbar, select **Run** > **Run**.
 
-* If the current travel time stays under your limit, your workflow does nothing else and waits or the next interval before checking again.
+* If the current travel time stays under your limit, your workflow does nothing else and waits for the next interval before checking again.
 
 * If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. The following example shows a sample email that your workflow sends:
 

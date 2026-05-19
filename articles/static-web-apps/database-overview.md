@@ -4,7 +4,7 @@ description: Learn about the database connection features of Azure Static Web Ap
 author: cjk7989
 ms.author: jikunchen
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 03/03/2023
 ---
 

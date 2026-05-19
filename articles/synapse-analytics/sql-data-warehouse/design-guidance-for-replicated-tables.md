@@ -6,12 +6,14 @@ ms.author: ajagadish
 ms.date: 01/09/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - azure-synapse
 ---
 
 # Design guidance for using replicated tables in Synapse SQL pool
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article gives recommendations for designing replicated tables in your Synapse SQL pool schema. Use these recommendations to improve query performance by reducing data movement and query complexity.
 

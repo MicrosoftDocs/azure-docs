@@ -4,7 +4,7 @@ description: Regional mapping for business continuity and disaster recovery (BCD
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 08/31/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---

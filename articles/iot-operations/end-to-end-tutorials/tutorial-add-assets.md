@@ -26,7 +26,7 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
-- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
+- Use these scripts in GitHub for an automated [deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 - [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest version.
 
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ Unless otherwise noted, you can run the console commands in this tutorial in eit
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as data points, events, and actions. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
 
 The tutorial also explains how to use credentials stored in Azure Key Vault to authenticate to the simulated OPC UA server.
 
@@ -316,7 +316,7 @@ The sample tags you added in the previous tutorial generate messages from your a
 
 ## How did we solve the problem?
 
-In this tutorial, you added a device and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
+In this tutorial, you added a device and then defined an asset and data points. The assets and data points model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
 
 You used credentials stored in Azure Key Vault to authenticate to the OPC UA server. This approach is more secure than hardcoding credentials in your asset definition.
 

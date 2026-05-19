@@ -16,7 +16,7 @@ ms.custom:
 
 # Quickstart: Create an App Service Environment
 
-In this quickstart, you create an App Service Environment. [App Service Environment][Intro] is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
+In this quickstart, you create an App Service Environment. [App Service Environment](overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -120,8 +120,4 @@ After you successfully create your App Service Environment, you can select it as
 
 ## Related content
 
-- [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
-
-<!--Links-->
-[Intro]: ./overview.md
-[UseAppServiceEnvironment]: ./using.md
+- [Create an App Service Environment - Azure Resource Manager template](how-to-create-from-template.md)

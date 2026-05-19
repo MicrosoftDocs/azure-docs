@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute: QoS requirements'
 description: This page provides detailed requirements for configuring and managing QoS. Skype for Business/voice services are discussed.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
 ---
 
@@ -13,7 +12,7 @@ ms.author: duau
 
 Skype for Business has various workloads that require differentiated QoS treatment. If you plan to consume voice services through ExpressRoute, you should adhere to the requirements described in this article.
 
-![Diagram that shows the voice services going through ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
+:::image type="content" source="./media/expressroute-qos/expressroute-qos.png" alt-text="Diagram that shows the voice services going through ExpressRoute.":::
 
 > [!NOTE]
 > QoS requirements apply to the Microsoft peering only. The DSCP values in your network traffic received on Azure private peering will be kept as is, but they won't be used to prioritize the traffic on Microsoft's network. 
@@ -38,6 +37,6 @@ The following table provides a list of DSCP markings used by Microsoft Teams and
 * Refer to the requirements for [Routing](expressroute-routing.md) and [NAT](expressroute-nat.md).
 * See the following links to configure your ExpressRoute connection.
   
-  * [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-  * [Configure routing](expressroute-howto-routing-classic.md)
-  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+  * [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
+  * [Configure routing](expressroute-howto-routing-arm.md)
+  * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)

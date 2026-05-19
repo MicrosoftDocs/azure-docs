@@ -31,7 +31,7 @@ Enable semantic caching of responses to LLM API requests to reduce bandwidth and
 * Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to AI APIs using Azure API Management ](api-management-authenticate-authorize-ai-apis.md#authenticate-with-managed-identity).
 * An [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) instance with the **RediSearch** module enabled on the Redis cache.
     > [!NOTE]
-    > You can only enable the **RediSearch** module when creating a new  Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)
+    > You can only enable the **RediSearch** module when creating a new Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](../redis/redis-modules.md)
 * Configure the Azure Managed Redis instance as an external cache in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
 
 
@@ -116,37 +116,31 @@ If the request is successful, the response includes a vector representation of t
 ## Configure semantic caching policies
 
 To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply the following policies: one to check the cache before sending requests (lookup) and another to store responses for future reuse (store):
-* In the **Inbound processing** section for the API, add the [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policy. In the `embeddings-backend-id` attribute, specify the Embeddings API backend you created.
-
-    > [!NOTE]
-    > When enabling semantic caching for other large language model APIs, use the [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) policy instead.
+* In the **Inbound processing** section for the API, add the [llm-semantic-cache-lookup](llm-semantic-cache-lookup-policy.md) policy. In the `embeddings-backend-id` attribute, specify the Embeddings API backend you created.
 
     Example:
 
     ```xml
-    <azure-openai-semantic-cache-lookup
+    <llm-semantic-cache-lookup
         score-threshold="0.15"
         embeddings-backend-id="embeddings-backend"
         embeddings-backend-auth="system-assigned"
         ignore-system-messages="true"
         max-message-count="10">
         <vary-by>@(context.Subscription.Id)</vary-by>
-    </azure-openai-semantic-cache-lookup>
+    </llm-semantic-cache-lookup>
     <rate-limit calls="10" renewal-period="60" />
     ```
     
     > [!NOTE]
     > [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
     
-* In the **Outbound processing** section for the API, add the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) policy.
-
-    > [!NOTE]
-    > When enabling semantic caching for other large language model APIs, use the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) policy instead.
+* In the **Outbound processing** section for the API, add the [llm-semantic-cache-store](llm-semantic-cache-store-policy.md) policy.
 
     Example:
 
     ```xml
-    <azure-openai-semantic-cache-store duration="60" />
+    <llm-semantic-cache-store duration="60" />
     ```
 
 ## Confirm caching

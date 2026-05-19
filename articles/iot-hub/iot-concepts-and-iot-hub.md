@@ -2,8 +2,8 @@
 title: What is Azure IoT Hub?
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure IoT Hub helps users connect IoT applications and their attached devices.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
@@ -43,7 +43,7 @@ IoT Hub supports two methods of authentication between the device and the IoT hu
 
 You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps/index.yml).
 
-For more information, see [Device management and control](../iot/iot-overview-device-management.md).
+For more information, see [Device management and control](/previous-versions/azure/iot/iot-overview-device-management).
 
 ## Device communication patterns
 
@@ -61,13 +61,13 @@ Examples of device communication include:
 
 IoT hubs can receive telemetry from devices and route it to the appropriate cloud services. Examples of telemetry received from a device can include sensor data such as speed or temperature, an error message such as missed event, or an information message to indicate the device is in good health. IoT devices send events to an application to gain insights. Applications might require specific subsets of events for processing or storage at different endpoints.
 
-For more information, see [Device infrastructure and connectivity](../iot/iot-overview-device-connectivity.md).
+For more information, see [Device infrastructure and connectivity](/previous-versions/azure/iot/iot-overview-device-connectivity).
 
 ### Add device properties
 
 Properties can be read or set from the IoT hub and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. Temperature can be a writable property that can be updated on the device or read from a temperature sensor attached to the device.
 
-You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot/overview-iot-plug-and-play.md).
+You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play).
 
 ### Issue commands to devices
 

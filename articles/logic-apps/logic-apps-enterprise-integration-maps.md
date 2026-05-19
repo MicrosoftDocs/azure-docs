@@ -1,14 +1,16 @@
 ---
-title: Add maps to use with workflows
-description: Add maps for transform operations in workflows with Azure Logic Apps.
+title: Add Maps for Transform Operations in Workflows
+description: Add maps to use with transform operations in workflows created by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to add maps that transform operations like Transform XML can use in my workflows.
 ---
 
-# Add maps for transformations in workflows with Azure Logic Apps
+# Add maps for transform operations to use in workflows created with Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 

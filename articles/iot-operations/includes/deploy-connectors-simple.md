@@ -5,9 +5,13 @@ author: dominicbetts
 ms.topic: include
 ms.date: 07/25/2025
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 When you deploy Azure IoT Operations, the deployment includes various connectors. Before you can use the connectors (such as ONVIF, media, and HTTP/REST) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
+
+> [!TIP]
+> If you create a custom Akri connector, you also need to add a connector template instance for the custom connector in the Azure portal before it can be used in the operations experience web UI. For more information about developing custom Akri connectors, see [Build and deploy custom Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md).
 
 All the connectors can publish captured data to the MQTT broker.
 

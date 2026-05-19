@@ -1,13 +1,14 @@
 ---
-title: Connect to on-premises data sources
-description: Access on-premises data sources from workflows in Azure Logic Apps by creating the on-premises data gateway resource in the Azure portal.
+title: Connect to On-Premises Data Sources
+description: Access on-premises data sources from workflows in Azure Logic Apps by creating an on-premises data gateway resource in the Azure portal.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, mideboer, azla
+ms.reviewers: estfan, mideboer, azla
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
-#Customer intent: As a logic apps developer, I want to create a data gateway resource in the Azure portal so that my logic app workflow can connect to on-premises data sources.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want my workflow to use connectors that access on-premises data sources by creating a data gateway resource in the Azure portal.
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -75,7 +76,7 @@ Azure Logic Apps supports read and write operations through the data gateway, bu
 
   * When you create a data gateway resource in Azure, you select a data gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
 
-  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Microsoft Entra tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  * Your logic app resource and gateway resource don't have to exist in the same Azure subscription. In triggers and actions where you use the gateway resource, you can select a different Azure subscription that has a gateway resource, but only if that subscription exists in the same Microsoft Entra tenant or directory as your logic app resource. You also have to have administrator permissions on the gateway, which another administrator can set up for you. For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.fabric.microsoft.com/t5/Power-BI-Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
 
     > [!NOTE]
     > Currently, you can't share a data gateway resource or installation across multiple subscriptions. 
@@ -139,7 +140,7 @@ After you create your gateway resource and associate your Azure subscription wit
       * These subscriptions exist in the same Microsoft Entra tenant or directory as your logic app resource.
       * You have administrator permissions on the gateway, which another administrator can set up for you.
      
-      For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+      For more information, see [Data Gateway: Automation using PowerShell - Part 1](https://community.fabric.microsoft.com/t5/Power-BI-Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) and [PowerShell: Data Gateway - Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
   
    1. From the **Connection Gateway** list, select the gateway resource that you want to use. This list shows the available gateway resources in your selected subscription. Each gateway resource is linked to a single gateway installation.
 
