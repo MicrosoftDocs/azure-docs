@@ -220,6 +220,9 @@
     - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
       href: batch-spot-vms.md
+    - name: Use temporary NVMe disks
+      displayName: nvme, temp, temporary
+      href: batch-nvme-temp.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md
