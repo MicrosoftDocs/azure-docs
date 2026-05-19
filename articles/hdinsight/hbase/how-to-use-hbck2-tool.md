@@ -4,9 +4,9 @@ description: Learn how to use the HBase HBCK2 tool.
 services: hdinsight
 ms.service: azure-hdinsight
 ms.custom: troubleshooting
-ms.topic: conceptual
-author: apurbasroy
-ms.author: apsinhar
+ms.topic: how-to
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  06/15/2024
 ---

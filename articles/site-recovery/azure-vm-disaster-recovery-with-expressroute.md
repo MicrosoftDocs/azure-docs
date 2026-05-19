@@ -17,7 +17,7 @@ This article describes how to integrate Azure ExpressRoute with [Azure Site Reco
 
 Site Recovery enables disaster recovery of Azure virtual machines by replicating Azure virtual machine data to Azure.
 
-- If Azure virtual machines use [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview), virtual machine data is replicated to a replicated managed disk in the secondary region.
+- If Azure virtual machines use [Azure managed disks](/azure/virtual-machines/managed-disks-overview), virtual machine data is replicated to a replicated managed disk in the secondary region.
 - If Azure virtual machines don't use managed disks, virtual machine data is replicated to an Azure storage account.
 - Replication endpoints are public, but replication traffic for Azure virtual machines doesn't cross the internet.
 
@@ -155,7 +155,6 @@ This configuration helps protect against failure of the primary ExpressRoute cir
 
 - You can have simultaneous connections from the on-premises datacenter to source vNEt with the primary circuit, and to the target vNet with the secondary circuit.
 - With simultaneous connections to primary and target, make sure that  on-premises routing only uses the secondary circuit and connection after failover.
--	You can’t connect both circuits to the same vNet when circuits are created at the same peering location.
 
 ### Access with a single circuit
 

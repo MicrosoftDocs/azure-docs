@@ -4,7 +4,7 @@ description: This FAQ is a list of frequently asked questions and answers about 
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/26/2025
-ms.topic: conceptual
+ms.topic: faq
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

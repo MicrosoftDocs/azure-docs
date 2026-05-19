@@ -140,6 +140,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - **Retention duration is increased / decreased:** When the retention duration is changed, the new retention duration is applied to the existing recovery points as well. As a result, some of the recovery points will be cleaned up. If the retention period is increased, the existing recovery points will have an increased retention as well.
 - **Changed from daily to weekly:** When the scheduled backups are changed from daily to weekly,  the existing daily recovery points are cleaned up.
 - **Changed from weekly to daily:** The existing weekly backups will be retained based on the number of days remaining according to the current retention policy.
+- **Schedule days/tags are changed, but retention is unchanged:** Existing recovery points continue to expire according to their current retention settings. New recovery points are no longer created for the removed schedule days/tags. Because Azure VM backup is incremental, storage reduction is gradual and depends on how much data in expired recovery points was overwritten by newer retained recovery points.
 
 ### Additional reference
 
@@ -198,7 +199,7 @@ Azure VMs use disks to store their operating system, apps, and data. Each Azure 
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure Managed Disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
 - [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage

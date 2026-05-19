@@ -2,7 +2,7 @@
 title: Migrating data into Azure NetApp Files volumes
 description: Learn about different options and strategies for migrating data into Azure NetApp Files volumes. 
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: overview
 author: b-ahibbard
 ms.author: anfdocs
 ms.date: 01/20/2026

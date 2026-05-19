@@ -8,8 +8,8 @@ metadata:
   description: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
   ms.service: azure-app-testing
   ms.topic: landing-page
-  ms.author: ninallam
-  author: ninallam
+  ms.author: nandinim
+  author: nandinimurali
   ms.date: 07/24/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

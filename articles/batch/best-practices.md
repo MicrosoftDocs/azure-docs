@@ -101,7 +101,7 @@ under `microsoft-azure-batch`, there's no guarantee that these images are kept u
 
 Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service ([autoscale](nodes-and-pools.md#automatic-scaling-policy) or [autopool](nodes-and-pools.md#autopools)).
 
-- **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
+- **Pool re-creation:** Avoid deleting and re-creating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
 - **Pool efficiency and billing:** Batch itself incurs no extra charges. However, you do incur charges for Azure resources utilized, such as compute, storage, networking, and any other resources that may be required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it's in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 

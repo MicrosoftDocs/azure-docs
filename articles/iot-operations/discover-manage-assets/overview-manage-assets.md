@@ -4,7 +4,7 @@ description: Understand concepts and options for managing the devices and assets
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/16/2026
+ms.date: 04/22/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -107,6 +107,8 @@ Device Registry uses namespaces to organize assets and devices. Each Azure IoT O
 
 Manage devices and assets through the operations experience or through Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
 
+[!INCLUDE [cloud-source-of-truth](../includes/cloud-source-of-truth.md)]
+
 ### Akri services
 
 Akri services in Azure IoT Operations:
@@ -130,11 +132,34 @@ Connectors include:
 
 - **Connector for SSE**. A service for connecting to server-sent event (SSE) endpoints and publishing event data to the MQTT broker.
 
-- **Connector for MQTT (preview)**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
+- **Connector for MQTT**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
 
   You can also use a data flow to connect to a Kafka endpoint and route messages to the MQTT broker. Learn how in [Connect to Kafka endpoints](howto-connect-kafka.md).
 
 - **Custom connectors**. Services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
+
+Each connector organizes asset data using one or more of the following types:
+
+- **Datasets**: A logical grouping of telemetry data points that defines what data is collected and routes it to a destination MQTT topic.
+- **Event groups**: A logical container for related discrete events from an asset, such as state changes or alerts, routed to a destination MQTT topic.
+- **Management groups**: A logical grouping of read, write, or call actions that can be invoked against an asset.
+- **Streams**: A continuous flow of media data, such as video or audio, from an asset such as a camera.
+
+For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
+
+The following table summarizes which data types each connector supports.
+
+| Connector       | Datasets | Event groups | Management groups | Streams |
+|-----------------|:--------:|:------------:|:-----------------:|:-------:|
+| OPC UA          | Yes      | Yes          | Yes               |         |
+| ONVIF           |          | Yes          | Yes               |         |
+| Media           |          |              |                   | Yes     |
+| HTTP/REST       | Yes      |              |                   |         |
+| SSE             | Yes      | Yes          |                   |         |
+| MQTT            | Yes      |              | Yes               |         |
+
+> [!TIP]
+> To learn more about how management groups and actions work across connectors, see [Enable and run management actions](howto-use-management-actions.md).
 
 #### Discovery
 

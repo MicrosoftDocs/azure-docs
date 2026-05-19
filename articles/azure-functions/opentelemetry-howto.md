@@ -102,6 +102,9 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ### [Application Insights](#tab/app-insights)
 
+    > [!NOTE]
+    > Starting with version 3.0, the `Microsoft.ApplicationInsights.WorkerService` package leverages Azure Monitor Exporter. You can use this package to maintain the existing Application Insights configuration behaviors while internally using the Azure Monitor pipeline, including the OpenTelemetry exporter. You can use the `Microsoft.ApplicationInsights.WorkerService` package (v3.0 or later) instead of the `Azure.Monitor.OpenTelemetry.Exporter` package, which is shown in the following example.
+
     ```cmd
     dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry
     dotnet add package OpenTelemetry.Extensions.Hosting 

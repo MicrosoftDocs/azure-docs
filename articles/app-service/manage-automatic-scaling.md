@@ -4,7 +4,7 @@ description: Learn how to scale automatically in Azure App Service with no confi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 01/09/2026
+ms.date: 04/16/2026
 ms.custom: devx-track-azurecli
 ms.service: azure-app-service
 ---
@@ -41,7 +41,7 @@ Only one scaling method should be active for an App Service plan.
 
 | &nbsp; | **Manual** | **Autoscale** | **Automatic scaling** |
 |--------|------------|---------------|------------------------|
-| Available tiers | Basic and up | Standard and up | Premium v2 and Premium v3 |
+| Available tiers | Basic and up | Standard and up | Premium v2 - v4 |
 | Rule-based scaling | No | Yes | No (traffic-based) |
 | Schedule-based scaling | No | Yes | No |
 | Always-ready instances | No | No | Yes (minimum 1) |
@@ -61,7 +61,7 @@ Here are a few scenarios where you should scale out automatically:
 
 ## Enable automatic scaling
 
-The **Maximum burst** setting represents the highest number of instances that your App Service plan can increase to based on incoming HTTP requests. For Premium v2 & v3 plans, you can specify up to 30 instances. The maximum burst number must be equal to or greater than the number of workers specified for the App Service plan.
+The **Maximum burst** setting represents the highest number of instances that your App Service plan can increase to based on incoming HTTP requests. For Premium v2, v3, and v4 plans, you can specify up to 30 instances. The maximum burst number must be equal to or greater than the number of workers specified for the App Service plan.
 
 #### [Azure portal](#tab/azure-portal)
 

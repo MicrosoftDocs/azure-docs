@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 02/20/2026
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -485,7 +485,6 @@ The following items are prefixed with:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
     sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS02
-    sudo pcs resource meta rsc_sap_NW1_ERS02 resource-stickiness=3000
    
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
@@ -524,7 +523,21 @@ The following items are prefixed with:
     #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     ```
 
-10. **[A]** Add firewall rules for ASCS and ERS on both nodes.
+10. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
+
+    > [!NOTE]
+    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
+    >
+    > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you set up `priority-fencing-delay` on an existing cluster, make sure to clear the `pcmk_delay_max` setting in the fencing device.  
+
+    ```bash
+    sudo pcs resource defaults update priority=1
+    sudo pcs resource update rsc_sap_NW1_ASCS00 meta priority=10
+
+    sudo pcs property set priority-fencing-delay=15s
+    ```
+
+11. **[A]** Add firewall rules for ASCS and ERS on both nodes.
 
     ```bash
     # Probe Port of ASCS
@@ -534,6 +547,12 @@ The following items are prefixed with:
     sudo firewall-cmd --zone=public --add-port={62102,3202,3302,50213,50214,50216}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62102,3202,3302,50213,50214,50216}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 
@@ -725,7 +744,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Simulate a node crash.
+2. Simulate a node crash.
 
    Resource state before starting the test:
 
@@ -798,7 +817,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Block network communication.
+3. Block network communication.
 
    Resource state before starting the test:
 
@@ -827,6 +846,9 @@ Follow these steps to install an SAP application server.
 
    By enabling the `priority-fencing-delay` property, the cluster introduces a delay in the fencing action, specifically on the node hosting ASCS resource, allowing the node to win the fence race.
 
+   > [!NOTE]
+   > The `priority-fencing-delay` property applies only to two-node cluster configurations.
+
    Run the following command to delete the firewall rule.
 
    ```bash
@@ -834,7 +856,7 @@ Follow these steps to install an SAP application server.
     iptables -D INPUT -s 10.0.0.8 -j DROP; iptables -D OUTPUT -d 10.0.0.8 -j DROP
    ```
 
-1. Kill the message server process.
+4. Kill the message server process.
 
    Resource state before starting the test:
 
@@ -881,7 +903,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Kill the enqueue server process.
+5. Kill the enqueue server process.
 
    Resource state before starting the test:
 
@@ -932,7 +954,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill the enqueue replication server process.
+6. Kill the enqueue replication server process.
 
    Resource state before starting the test:
 
@@ -982,7 +1004,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill the enqueue `sapstartsrv` process.
+7. Kill the enqueue `sapstartsrv` process.
 
    Resource state before starting the test:
 

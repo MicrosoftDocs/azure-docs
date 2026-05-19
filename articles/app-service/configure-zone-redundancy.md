@@ -1,7 +1,7 @@
 ---
 title: Configure App Service Plans for Zone Redundancy
 description: Learn how to configure an App Service plan for zone redundancy, see how plan instances spread across availability zones, and check for zone redundancy support.
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 07/15/2025
 author: anaharris

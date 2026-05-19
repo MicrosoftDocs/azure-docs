@@ -269,7 +269,7 @@ Refer to [extension creation errors](/troubleshoot/azure/azure-kubernetes/extens
 
 This error is caused by connectivity problems that occur between the cluster and the firewall in addition to egress blocking problems. 
 To resolve this problem, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress), 
-and add the FQDN required to pull Service Connector Helm chart: `scaksextension.azurecr.io`
+and add the FQDN required to pull Service Connector Helm chart: `mcr.microsoft.com`
 
 **Error messages:**
 

@@ -5,7 +5,7 @@ description: Learn about Communication Services' Telephony Pricing Model.
 author: sadas
 ms.author: sadas
 ms.date: 1/28/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ---
 # Telephony (PSTN) pricing

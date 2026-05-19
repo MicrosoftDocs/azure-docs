@@ -168,12 +168,16 @@ items:
       href: fqdn-tags.md
     - name: Service tags
       href: service-tags.md
-    - name: Scale outbound SNAT ports
-      href: integrate-with-nat-gateway.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
-  - name: SNAT private ranges
-    href: snat-private-range.md
+  - name: SNAT
+    items:
+    - name: SNAT private ranges
+      href: snat-private-range.md
+    - name: Scale outbound SNAT ports
+      href: integrate-with-nat-gateway.md
+    - name: Scale outbound SNAT ports with zone redundancy
+      href: integrate-with-nat-gateway-v2.md
   - name: Customer-controlled maintenance
     href: customer-controlled-maintenance.md
   - name: Packet capture on Azure Firewall
@@ -226,10 +230,6 @@ items:
     href: ../azure-resource-manager/management/relocation/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Remote work support
     href: remote-work-support.md
-- name: Troubleshooting
-  items:
-  - name: Known issues and limitations
-    href: firewall-known-issues.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -262,3 +262,5 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+- name: Support and troubleshooting
+  href: support-help.md

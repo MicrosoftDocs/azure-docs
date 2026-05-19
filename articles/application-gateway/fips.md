@@ -6,7 +6,7 @@ author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 12/01/2025
-ms.author: greglin
+ms.author: mbender
 ---
 
 # FIPS mode in Application Gateway

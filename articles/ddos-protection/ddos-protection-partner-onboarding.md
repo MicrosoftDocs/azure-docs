@@ -2,10 +2,10 @@
 title: Partnering with Azure DDoS Protection
 description: "Understand partnering opportunities enabled by Azure DDoS Protection."
 ms.service: azure-ddos-protection
-author: AbdullahBell
+author: duongau
 ms.topic: how-to
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 # Customer intent: "As a product manager, I want to understand the integration opportunities provided by DDoS protection services, so that I can enhance my product offerings and ensure robust security against DDoS attacks for our customers."
 ---
 
@@ -76,7 +76,7 @@ The following steps are required for partners to configure integration with Azur
 
 ### Get help
 
-- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
+- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/blog/microsoft-security-blog/welcome-to-the-microsoft-security-community/4471927).
 - Follow discussions on [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
 
 ### Get to market

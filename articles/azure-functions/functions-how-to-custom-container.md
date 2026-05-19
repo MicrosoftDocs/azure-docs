@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Functions in Containers
 description: Learn how to work with containerized function apps running in Linux containers in an Azure Container Apps environment.
-ms.date: 02/25/2026
+ms.date: 03/13/2026
 ms.topic: how-to
 zone_pivot_groups: functions-container-hosting
 ms.custom:
@@ -22,7 +22,7 @@ This article demonstrates the support that Azure Functions provides for containe
 [!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
 
 ::: zone-end
-:::zone pivot="azure-functions,azure-arc"
+:::zone pivot="azure-functions"
 This article demonstrates the support that Azure Functions provides for function apps that run in Linux containers.
 ::: zone-end
 
@@ -38,9 +38,6 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 :::zone pivot="azure-functions"
 > [Create your first containerized Azure Functions](functions-deploy-container.md)
 :::zone-end
-:::zone pivot="azure-arc"
-> [Working with containers and Azure Functions](functions-how-to-custom-container.md?pivots=azure-arc)
-::: zone-end
 >
 >[!IMPORTANT]
 >This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
@@ -98,6 +95,15 @@ The Azure Functions extension for Visual Studio Code creates your Dockerfile whe
   ```  
 
 ---
+
+## Create a custom Dockerfile
+
+Instead of using a generated Dockerfile, you can manually create one when you need more control over your container image. The [custom-container](https://github.com/Azure/azure-functions-docker/tree/dev/custom-container) folder of the `azure-functions-docker` repository provides these templates to get you started:
+
+| Template | Description |
+|----------|-------------|
+| [template.Dockerfile](https://github.com/Azure/azure-functions-docker/blob/dev/custom-container/template.Dockerfile) | A commented, step-by-step guide for building a custom container. It includes instructions for multiple language runtimes (Java, .NET isolated, Node.js, PowerShell, Python), optional CA certificate installation, running as a non-root user, and enabling SSH for Kudu debugging. |
+| [sample.Dockerfile](https://github.com/Azure/azure-functions-docker/blob/dev/custom-container/sample.Dockerfile) | A ready-to-use example built from the template that creates a Java-based Azure Functions container with SSH enabled for Kudu debugging. |
 
 ## Create your function app in a container
 
@@ -160,10 +166,6 @@ The specified image version is deployed to your app.
 
 The specified image version is deployed to your app.
 ::: zone-end  
-
-:::zone pivot="azure-arc"
-This feature isn't documented.
-::: zone-end
 
 ---
 
@@ -286,10 +288,6 @@ Based on your changes, a new image is deployed to your app or new allocations ar
 1. To make updates, modify any of the image settings, such as the **Full Image Name and Tag**, and then select **Save**.
 
 The new image is deployed to your app based on your new settings.
-::: zone-end
-
-:::zone pivot="azure-arc"
-This feature isn't documented.
 ::: zone-end
 
 ---

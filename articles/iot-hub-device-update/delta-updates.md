@@ -4,7 +4,7 @@ description: Understand key concepts for using delta or differential updates wit
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 02/14/2025
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---

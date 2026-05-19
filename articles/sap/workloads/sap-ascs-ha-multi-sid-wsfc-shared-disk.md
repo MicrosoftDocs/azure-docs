@@ -7,10 +7,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
-manager: juergent
-author: rdeltcheva
+ms.date: 03/09/2026
 ms.author: radeltch
-ms.date: 03/04/2026
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 # Customer intent: "As a system administrator, I want to implement a multi-SID high availability setup for SAP ASCS/SCS instances using Windows Server Failover Clustering on Azure, so that I can ensure enhanced reliability and performance for my SAP environment."
 ---
@@ -185,6 +183,7 @@ Once the script completes, the results are displayed in the Azure portal, as sho
 
 ### Add disks to cluster machines and configure SIOS cluster-share disk
 
+
 You must add a new cluster-share disk for each extra SAP ASCS/SCS instance. For Windows Server 2012 R2, the Windows Server failover cluster share disk currently in use is the SIOS DataKeeper software solution.
 
 Perform the following actions:
@@ -251,11 +250,11 @@ The high-level procedure is as follows:
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#create-azure-internal-load-balancer
 
-[sap-high-availability-installation-wsfc-shared-disk-install-ascs]:sap-high-availability-installation-wsfc-shared-disk.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170
-[sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]:sap-high-availability-installation-wsfc-shared-disk.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556
-[sap-high-availability-installation-wsfc-shared-disk-add-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761
-[sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#4498c707-86c0-4cde-9c69-058a7ab8c3ac
-[sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]:sap-high-availability-installation-wsfc-shared-disk.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9
+[sap-high-availability-installation-wsfc-shared-disk-install-ascs]:sap-high-availability-installation-wsfc-shared-disk.md#install-sap-with-a-high-availability-ascsscs-instance
+[sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]:sap-high-availability-installation-wsfc-shared-disk.md#modify-the-sap-profile-of-the-ascsscs-instance
+[sap-high-availability-installation-wsfc-shared-disk-add-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#add-a-probe-port
+[sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#open-the-windows-firewall-probe-port
+[sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]:sap-high-availability-installation-wsfc-shared-disk.md#test-the-sap-ascsscs-instance-failover
 
 [sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]:sap-high-availability-infrastructure-wsfc-shared-disk.md#sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk
 

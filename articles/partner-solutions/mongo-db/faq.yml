@@ -1,0 +1,46 @@
+### YamlMime:FAQ
+metadata:
+  title: MongoDB Atlas frequently asked questions
+  description: Answers to common questions about using MongoDB Atlas in Azure, including configuration, management, and support.
+  ms.topic: faq
+  ai-usage: ai-generated
+  ms.date: 12/17/2025
+
+title: MongoDB Atlas FAQ
+summary: |
+  Get answers to common questions about creating, managing, and supporting MongoDB Atlas resources in Azure.
+
+sections:
+  - name: General
+    questions:
+      - question: What is MongoDB Atlas on Azure?
+        answer: MongoDB Atlas is a jointly managed Azure Native Integration that lets you provision and manage Atlas organizations directly in Azure.
+      - question: What workloads is MongoDB Atlas suited for?
+        answer: Atlas stores and processes operational data for web and mobile apps, real-time analytics, full-text and vector search, stream processing, and globally distributed deployments.
+      - question: How do I subscribe to MongoDB Atlas?
+        answer: Subscribe to MongoDB Atlas in Azure Marketplace or through the Azure portal, then create a resource from your subscription.
+
+  - name: Create and configure
+    questions:
+      - question: How do I create a MongoDB Atlas resource in the Azure portal?
+        answer: In the Azure portal, select **Create a resource**, choose **MongoDB Atlas**, and walk through the wizard. Provide project details, choose a resource group, name the resource, select a region, and set the Atlas organization name. Use Tags if you need them, then review and create.
+      - question: Which settings are required on the Basics tab?
+        answer: You must select a subscription, pick or create a resource group, enter a unique resource name, choose a region, and provide an Atlas organization name. Other settings populate based on your chosen plan.
+
+  - name: Manage
+    questions:
+      - question: How do I access my MongoDB Atlas account from the Azure resource?
+        answer: Open the resource in the Azure portal and select **Go to MongoDB Atlas**. If your Azure email doesn't yet have an Atlas account, you're prompted to set a password and configure it.
+      - question: What information appears on the MongoDB Atlas resource overview?
+        answer: The overview shows essentials such as resource group, location, subscription and ID, tags, status, pricing plan, billing term, and the portal URL. Use the links beside each item to manage settings.
+      - question: Does deleting the Azure resource remove my Atlas organization?
+        answer: No. Deleting the Azure MongoDB Atlas resource doesn't delete the organization in Atlas. Delete the organization separately in the Atlas portal if needed.
+
+  - name: Support and resources
+    questions:
+      - question: How do I get support for MongoDB Atlas?
+        answer: Contact MongoDB Atlas support or sales through their site. You can also open a support request from the Azure portal by selecting **Support + Troubleshooting** > **New support request** and following the link to log a request in the MongoDB portal.
+      - question: Where can I learn more about MongoDB Atlas?
+        answer: Review MongoDB's documentation for service concepts, features, pricing, cluster types, and quick-start tutorials, including labs and vector search guides.
+      - question: Which developer tools work with MongoDB Atlas?
+        answer: Developers can use MongoDB Compass, MongoDB Shell, MongoDB for Visual Studio Code, the Atlas CLI, and language drivers to connect and manage Atlas data.

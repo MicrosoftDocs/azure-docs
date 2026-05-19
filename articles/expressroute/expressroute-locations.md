@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/09/2025
+ms.date: 04/28/2026
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -98,15 +98,15 @@ The following table shows locations by service provider. If you want to view ava
 | **DCI Indonesia** |&check; |&check; | Jakarta Metro |
 | **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Doha2<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Jakarta<br/>Jakarta2<br/>Kuala Lumpur<br/>Madrid<br/>Madrid2<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Queretaro<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Singapore2<br/>Tokyo2 |
 | **[Devoli](https://devoli.com/)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
-| **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; |&check; | Frankfurt |
+| **[Deutsche Telekom AG IntraSelect](https://business.telekom.com/global/products-and-solutions/next-level-networking/mpls/intraselect-transport-connect/)** | &check; |&check; | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | &check; |&check; | Amsterdam<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Hong Kong2 |
-| **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam Metro<br/>Amsterdam2<br/>Atlanta2<br/>Brussels<br/>Dallas2<br/>Hong Kong2<br/>London<br/>Phoenix2<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Sydney2<br/>Tokyo2<br/>Vienna<br/>Washington DC<br/>Zurich Metro |
+| **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam Metro<br/>Amsterdam2<br/>Atlanta2<br/>Brussels<br/>Dallas2<br/>Hong Kong2<br/>London<br/>Phoenix2<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Stockholm2<br/>Sydney2<br/>Tokyo2<br/>Vienna<br/>Washington DC<br/>Zurich Metro |
 | **du datamena** |&check; |&check; | Dubai2 |
 | **[eir evo](https://eirbusiness.ie/cloud-solutions/)** |&check; |&check; | Dublin |
 | **[Elisa](https://elisa.fi/)** |&check; |&check; | Stockholm |
 | **[Embratel](https://www.embratel.com.br/rede-de-dados/cloud-interconnect)** |&check; |&check; | Sao Paulo |
 | **[Epsilon Global Communications](https://epsilontel.com/solutions/cloud-connect/)** | &check; | &check; | Hong Kong2<br/>London2<br/>Singapore<br/>Singapore2<br/>Washington DC |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Chicago Metro<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Kuala Lumpur<br/>London<br/>London2<br/>Los Angeles2<br/>Madrid Metro<br/>Madrid2<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Montreal<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Queretaro<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Warsaw<br/>Washington DC<br/>Zurich<br/>Zurich2 |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Chicago Metro<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Kuala Lumpur<br/>London<br/>London2<br/>Los Angeles>br/>Los Angeles2<br/>Madrid Metro<br/>Madrid2<br/>Melbourne<br/>Melbourne2<br/>Miami<br/>Milan<br/>Milan Metro<br/>Montreal<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Queretaro<br/>Rio de Janeiro<br/>Santiago<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Warsaw<br/>Washington DC<br/>Zurich<br/>Zurich2 |
 | **Etisalat UAE** |&check; |&check; | Abu Dhabi<br/>Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>London<br/>Paris |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | &check; | &check; | Brussels<br/>Brussels2 |
@@ -203,7 +203,7 @@ The following table shows locations by service provider. If you want to view ava
 | **RISQ** |&check; | &check; | Quebec City<br/>Montreal |
 | **SCSK** |&check; | &check; | Tokyo3 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/)** | &check; | &check; | Seoul |
-| **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | &check; | &check; | London2<br/>Washington DC |
+| **[SES](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)** | &check; | &check; | London2<br/>Washington DC |
 | **[SIFY](https://sifytechnologies.com/)** | &check; | &check; | Chennai<br/>Mumbai2<br/>Pune |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |&check; |&check; | Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** | &check; | &check; | Seoul |
@@ -222,7 +222,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telefonica](https://www.telefonica.com/es/)** | &check; | &check; | Amsterdam<br/>Dallas<br/>Frankfurt2<br/>Hong Kong SAR<br/>London<br/>Madrid<br/>Sao Paulo<br/>Singapore<br/>Washington DC |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** | &check; | &check; | London<br/>London2<br/>Singapore2 |
 | **Telenor** |&check; |&check; | Amsterdam<br/>London<br/>Oslo<br/>Stavanger |
-| **[Telia Carrier](https://www.arelion.com/products-and-services/internet-and-cloud/cloud-connect)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong SAR<br/>London<br/>Oslo<br/>Paris<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Stockholm<br/>Washington DC |
+| **[Arelion (Telia Carrier)](https://www.arelion.com/products-and-services/internet-and-cloud/cloud-connect)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong SAR<br/>London<br/>Oslo<br/>Paris<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Stockholm<br/>Washington DC |
 | **[Telin](https://telin.net/)** | &check; | &check; | Jakarta<br/>Jakarta2 |
 | **Telmex Uninet**| &check; | &check; | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | &check; | &check; | Canberra<br/>Melbourne<br/>Singapore<br/>Sydney |
@@ -233,7 +233,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | &check; | &check; | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| &check; | &check; | Melbourne<br/>Sydney |
 | **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |&check; |&check; | Warsaw |
-| **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; | &check; | Frankfurt |
+| **[T-Systems](https://business.telekom.com/global/products-and-solutions/next-level-networking/mpls/intraselect-transport-connect/)** | &check; | &check; | Frankfurt |
 | **UOLDIVEO** | &check; | &check; | Sao Paulo |
 | **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | &check; | &check; | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong SAR<br/>London<br/>Mumbai<br/>Paris<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
@@ -309,7 +309,7 @@ If your connectivity provider isn't listed in previous sections, you can still c
 If you're remote and don't have fiber connectivity, or you want to explore other connectivity options you can check the following satellite operators. 
 
 * Intelsat
-* [SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)
+* [SES](https://www.ses.com/network-and-technology/technology-enablers/azure-expressroute)
 * [Viasat](https://news.viasat.com/newsroom/press-releases/viasat-introduces-direct-cloud-connect-a-new-service-providing-fast-secure-private-connections-to-business-critical-cloud-services)
 * [Marlink](https://www.marlink.com/)
 
@@ -372,7 +372,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/universaledge-main)**| Equinix | Montreal<br/>Toronto |
 | **POST Telecom Luxembourg**| Equinix | Amsterdam |
 | **[Proximus](https://www.proximus.be/en/id_cl_explore/companies-and-public-sector/networks/corporate-networks/explore.html)**| Bics | Amsterdam<br/>Dublin<br/>London<br/>Paris |
-| **[QSC AG](https://www2.qbeyond.de/en/)** |Interxion | Frankfurt |  
+| **[QSC AG](https://www.qbeyond.de/en/)** |Interxion | Frankfurt |  
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 

@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Azure Native Dynatrace Service?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Complete the prerequisites for Dynatrace

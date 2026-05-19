@@ -1,16 +1,17 @@
 ---
-title: Edit and manage logic apps in Visual Studio Code
-description: Edit, enable, disable, or delete logic app resources and their workflows with Visual Studio Code.
+title: Edit and Manage Workflows in Visual Studio Code
+description: Edit, enable, disable, or delete logic app workflows in Azure Logic Apps by using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
 ms.custom: devx-track-dotnet
-# Customer intent: As a logic apps developer, I want to edit and manage my logic apps and workflows using Visual Studio Code.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to edit and manage logic app workflows in Visual Studio Code.
 ---
 
-# Edit and manage logic apps in Visual Studio Code
+# Edit and manage logic app workflows in Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -18,7 +19,7 @@ This guide shows how to work with deployed logic apps in Visual Studio Code and 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension if necessary, connect from Visual Studio Code to your Azure account, and publish any changes that you make to your project.
 

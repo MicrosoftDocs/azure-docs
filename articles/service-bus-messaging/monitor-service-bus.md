@@ -3,7 +3,7 @@ title: Monitor Azure Service Bus
 description: Start here to learn how to monitor Azure Service Bus by using Azure Monitor metrics, logs, and tools.
 ms.date: 07/22/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 author: spelluru
 ms.author: spelluru 
 ---

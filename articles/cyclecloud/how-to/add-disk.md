@@ -1,14 +1,14 @@
 ---
-title: Managed Disk Options
-description: Learn about volumes (Azure Managed Disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
+title: managed disk Options
+description: Learn about volumes (Azure managed disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
 author: mvrequa
 ms.date: 06/30/2025
 ms.author: adjohnso
 ---
 
-# Managed Disks
+# managed disks
 
-CycleCloud automatically attaches volumes ([Azure Managed Disks](/azure/virtual-machines/linux/disks-types)) to your nodes for extra storage space. Managed disks come in four types and have capacities up to 64 TiB.
+CycleCloud automatically attaches volumes ([Azure managed disks](/azure/virtual-machines/linux/disks-types)) to your nodes for extra storage space. Managed disks come in four types and have capacities up to 64 TiB.
 
 To create a 100 GB volume, add the following code to your `[[node]]` element in your cluster template:
 

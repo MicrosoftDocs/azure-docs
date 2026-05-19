@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy Azure Bastion from the Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion from the Azure portal using default settings, custom configuration, or the free Developer SKU.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 01/20/2026
-ms.author: abell
+ms.author: cherylmc
 ms.custom: references_regions
 
 # Customer intent: As a cloud administrator, I want to deploy Azure Bastion from the Azure portal, so that I can securely access virtual machines without requiring public IP addresses.
@@ -133,22 +133,9 @@ Azure Bastion Developer provides secure, browser-based connectivity to a virtual
 
 When you select **Connect**, Bastion Developer automatically deploys to your virtual network. The connection opens directly in the Azure portal. When you disconnect, the Bastion Developer resource remains deployed for future connections.
 
-[!INCLUDE [regions](../../includes/bastion-developer-regions.md)]
+For more information about Bastion Developer, including the list of supported regions, see [Bastion SKU comparison regional availability](bastion-sku-comparison.md#regional-availability).
 
 ---
-
-## <a name="connect"></a>Connect to a VM
-
-After Bastion is deployed, the screen changes to the **Connect** pane. You can use any of the following articles to connect to a VM. Some connection types require specific [Bastion SKUs](bastion-sku-comparison.md).
-
-[!INCLUDE [Links to connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
-
-You can also use these basic connection steps to connect to your VM:
-
-[!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
-
-> [!NOTE]
-> Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.
 
 ## <a name="remove"></a>Remove VM public IP address
 
@@ -166,13 +153,13 @@ When you finish using the virtual network and the virtual machines, delete the r
 
 ## Next steps
 
-In this quickstart, you deployed Bastion to your virtual network and connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
+In this quickstart, you deployed Bastion to your virtual network. Next, you can connect to a virtual machine securely via Bastion, configure more features, and work with VM connections.
 
-> [!div class="nextstepaction"]
-> [VM connections and features](vm-about.md)
-
-> [!div class="nextstepaction"]
-> [Azure Bastion configuration settings](configuration-settings.md)
-
-> [!div class="nextstepaction"]
-> [Bastion SKU comparison](bastion-sku-comparison.md)
+* Connect to a Windows VM: [RDP](bastion-connect-vm-rdp-windows.md) | [SSH](bastion-connect-vm-ssh-windows.md)
+* Connect to a Linux VM: [SSH](bastion-connect-vm-ssh-linux.md) | [RDP](bastion-connect-vm-linux-rdp.md)
+* Connect from a native client: [Windows](connect-vm-native-client-windows.md) | [Linux/SSH](connect-vm-native-client-linux.md)
+* [Connect to a scale set](bastion-connect-vm-scale-set.md)
+* [VM connections and features](vm-about.md)
+* [Azure Bastion configuration settings](configuration-settings.md)
+* [Bastion SKU comparison](bastion-sku-comparison.md)
+* [IP-based connections](connect-ip-address.md)

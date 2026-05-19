@@ -6,7 +6,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/16/2025
+ms.date: 03/12/2026
 ms.author: souchak
 ms.custom:
 - references_regions
@@ -35,6 +35,11 @@ Most countries/regions accept credit cards and debit cards. Here's some specific
 The Reserve Bank of India has a [regulation for storing credit card information](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159) that might affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 If you get an error after you add a credit card, see [Troubleshoot a declined card](../troubleshoot-billing/troubleshoot-declined-card.md).
+
+> [!NOTE]
+> Additional information for SEPA Direct Debit users in Europe:
+> - SEPA Direct Debit is connected to the specific billing account where it is set up. If you have multiple billing accounts and want to use SEPA Direct Debit, you need to add this payment method separately to each account.
+> - If you have an MCA billing account type, you must have Billing account owner or Billing account contributor role to add or manage SEPA Direct Debit payment method. You can learn more about administrative roles [here](understand-mca-roles.md).
 
 <a id="addcard"></a>
 

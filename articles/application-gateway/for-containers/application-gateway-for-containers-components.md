@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 12/05/2025
+ms.date: 4/27/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -41,6 +41,17 @@ This article provides detailed descriptions and requirements for components of A
   - A minimum /24 subnet mask for each deployment (assuming no resources are previously provisioned in the subnet).
     - If you plan to deploy multiple Application Gateway for Containers resources that share the same subnet, calculate the required addresses as *n×256*, where *n* equals the number of Application Gateway for Containers resources. This assumes each contains one association.
   - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource.
+ 
+#### Network Security Groups on the association subnet
+
+For associations created on or after **April 23, 2026**, Network Security Groups (NSGs) are fully supported on the Application Gateway for Containers association subnet. This includes both **inbound and outbound** rules.
+
+For associations created **before April 23, 2026**, inbound NSG rules can be configured; however, inbound traffic on **ports 80 and 443** is always allowed, regardless of the configured rules.
+
+"Deny all" rules are supported on the association subnet. However, without explicit allow exceptions, these rules can affect both inbound and outbound traffic:
+
+- **Deny all inbound** rules will block traffic on ports **80 and 443** unless explicit allow rules are defined, preventing access to the frontend.
+- **Deny all outbound** rules may block traffic egressing from the proxy to the AKS cluster unless required outbound exceptions are configured.
 
 ### Application Gateway for Containers ALB Controller
 
@@ -138,3 +149,32 @@ Application Gateway for Containers enforces the following timeouts as it initiat
 
 > [!NOTE]
 > Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request is idle. For example, if you're serving large file downloads and you expect transfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.
+
+## Connectivity
+
+The following connectivity requirements are needed for successful operation of Application Gateway for Containers.
+
+### ALB controller outbound connectivity
+
+|Endpoint|Port|Purpose|
+|--|--|--|
+| management.azure.com | TCP 443 | Azure ARM API |
+| login.microsoftonline.com | TCP 443 | Entra AD authentication |
+| *.oic.prod-aks.azure.com | TCP 443 | AKS OIDC issuer (Workload Identity) |
+| *.alb.azure.com | TCP 443 | Configuration Endpoint |
+| mcr.microsoft.com | TCP 443 | Container images for helm deployment |
+| DNS Resolution | UDP 53 | In a default AKS deployment, ALB Controller will query coreDNS/kube-dns within the cluster |
+
+### ALB controller inbound connectivity
+
+>[!Note]
+>These inbound ports are exposed via ClusterIP Service and not published directly to the internet. They are exposed to help with troubleshooting / diagnostics and may be blocked with network policy if desired.
+
+|Port|Name|Purpose|
+|--|--|--|
+| TCP 8000 | backend health | Backend health endpoint (/backendHealth) |
+| TCP 8001 | metrics | Prometheus metrics endpoint (/metrics) |
+
+### Frontend connectivity
+
+Each frontend for Application Gateway for Containers is in the format of `*.fzXX.alb.azure.com`, where XX are numeric digits 0-99.  Frontends may only listen on port 443 and 80.

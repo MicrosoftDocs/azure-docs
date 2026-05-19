@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 04/20/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -14,6 +14,24 @@ ms.custom:
 # What's new in Azure Files and Azure File Sync
 
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
+
+## What's new in 2026
+
+### 2026 quarter 2 (April, May, June)
+
+#### Entra-only identity support for SMB Azure file shares is now generally available
+
+With native Microsoft Entra ID authentication, organizations can grant secure, identity-based access to SMB file shares using cloud-native-only identities.
+
+This means no Active Directory, hybrid sync, or managed domain controllers required, significantly simplifying architecture while reducing ongoing management and maintenance costs.
+
+To learn more, read the [blog post](https://azure.microsoft.com/blog/azure-files-entra-only-identities-advancing-cloud-native-identity-and-security/).
+
+#### Managed identity support for SMB Azure file shares is now generally available
+
+Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability enables applications and virtual machines to securely access Azure Files without secrets, passwords, or key distribution. The GA release includes AKS workload identity support, co-existence of application identities and end-user identity access on the same storage account, and simplified enablement via the Azure portal.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-keyless-application-access-with-managed-identities---now-ga-in-azure-file/4513053).
 
 ## What's new in 2025
 

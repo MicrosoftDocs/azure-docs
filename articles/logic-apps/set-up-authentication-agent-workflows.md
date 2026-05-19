@@ -1,18 +1,17 @@
 ---
 title: Protect Agentic Workflows with Easy Auth
 description: Set up conversational agentic workflows with App Service Authentication (Easy Auth) in Azure Logic Apps.
-author: ecfan
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, edwardyhe, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/08/2025
+ms.date: 03/10/2026
 ms.update-cycle: 180-days
 #Customer intent: As an integration and AI developer working with Azure Logic Apps, I want to secure access to my conversational agentic workflow and external chat client by authenticating and authorizing users through Easy Auth.
 ---
 
-# Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (Preview)
+# Secure conversational agentic workflows with Easy Auth (App Service Authentication) in Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -214,7 +213,7 @@ If you have to reuse an existing app registration that is shared with another AP
    If you don't have a user-assigned managed identity with logic app access, follow these steps:
 
    1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal).
-   1. [Add the user-assigned identity to your logic app](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
+   1. [Add the user-assigned identity to your logic app](authenticate-with-managed-identity.md?tabs=standard#add-user-identity-portal).
    1. [Set up the user-assigned identity as a federated identity credential on your app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
 
 1. Optionally, if you need to set up [claims](/entra/identity-platform/developer-glossary#claim) such as roles, scopes, user groups, or [`XMS_CC`](/entra/identity-platform/claims-challenge?tabs=dotnet#receiving-xms_cc-claim-in-an-access-token), follow these steps:

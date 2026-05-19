@@ -4,7 +4,7 @@ description: Learn how to use a managed Admin for Spring in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: cshoe
 ms.custom:
@@ -351,7 +351,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Dependency
 
-When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://central.sonatype.com/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>

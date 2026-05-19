@@ -333,20 +333,20 @@ Use these steps to create a function app in the Flex Consumption plan. When you 
 
 1. Follow the prompts and provide this information:
 
-    | Prompt |  Selection |
-    | ------ |  ----------- |
-    | **Enter a globally unique name for the new function app** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | **Select a hosting plan** | Choose **Flex Consumption**, which is the recommended [hosting plan](functions-scale.md) for serverless hosting. |
-        | **Select a location for new resources** | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
-    | **Select a runtime stack**| Select the language version you currently run locally. |
-        | **Select an instance size** | Select **512**. You can always [change the instance size](./flex-consumption-how-to.md#configure-instance-memory) setting to a larger size later. |
-    | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 1 and 1,000.  |
-    | **Select a resource group**  | Select **Create new resource group** and accept the default or enter another name for the new group that's unique in your subscription.| 
-    | **Select resource authentication type** | Select **Managed identity** so that your app connects to remote resources by using Microsoft Entra ID authentication instead of using shared secrets (connection strings and keys), which are less secure. |
-    | **Select a user assigned identity** | Select **Create new user-assigned identity**. | 
-    | **Select a location for new resources** | Select the same region as the storage account you created. If for some reason this region isn't supported by the Flex Consumption play, it isn't displayed. In that case, choose a nearby [region](https://azure.microsoft.com/regions/) instead. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
-    | **Select a storage account** | Choose the name of the storage account you created. |
-    | **Select an Application Insights resource for your app** | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
+   | Prompt |  Selection |
+   | ------ |  ----------- |
+   | **Enter a globally unique name for the new function app** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | **Select a hosting plan** | Choose **Flex Consumption**, which is the recommended [hosting plan](functions-scale.md) for serverless hosting. |
+   | **Select a location for new resources** | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+   | **Select a runtime stack**| Select the language version you currently run locally. |
+   | **Select an instance size** | Select **512**. You can always [change the instance size](./flex-consumption-how-to.md#configure-instance-memory) setting to a larger size later. |
+   | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 1 and 1,000.  |
+   | **Select a resource group**  | Select **Create new resource group** and accept the default or enter another name for the new group that's unique in your subscription.| 
+   | **Select resource authentication type** | Select **Managed identity** so that your app connects to remote resources by using Microsoft Entra ID authentication instead of using shared secrets (connection strings and keys), which are less secure. |
+   | **Select a user assigned identity** | Select **Create new user-assigned identity**. | 
+   | **Select a location for new resources** | Select the same region as the storage account you created. If for some reason this region isn't supported by the Flex Consumption play, it isn't displayed. In that case, choose a nearby [region](https://azure.microsoft.com/regions/) instead. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
+   | **Select a storage account** | Choose the name of the storage account you created. |
+   | **Select an Application Insights resource for your app** | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created. Select **View Output** in this notification to view the creation results, including the Azure resources that you created.
 

@@ -11,6 +11,8 @@ ms.date: 05/12/2025
 
 # Geomatch custom rules
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 Custom rules allow you to create tailored rules to suit the exact needs of your applications and security policies. Now, you can restrict access to your web applications by country/region. As with all custom rules, this logic can be compounded with other rules to suit the needs of your application.
 
 To create a geo-filtering custom rule in the Azure portal, select *Geo location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. When creating geomatch rules with Azure PowerShell or Azure Resource Manager, use the match variable `RemoteAddr` and the operator `Geomatch`. For more information, see [how to create custom rules in PowerShell](configure-waf-custom-rules.md) and more [custom rule examples](create-custom-waf-rules.md).

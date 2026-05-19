@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Data Factory. Th
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: references_regions
 ms.date: 02/06/2024
 ---

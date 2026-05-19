@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 12/22/2025
+ms.date: 04/17/2026
 ---
 
 # Resource functions for Bicep
@@ -661,6 +661,48 @@ output storageID string = storageAccount.id
 
 For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid).
 
+## roleDefinitions
+
+`roleDefinisions(roleName)`
+
+Returns information about the specified role definition, including `id` and `roleDefinitionId`. It's a name-based helper for Azure RBAC role assignments. Instead of requiring you to hardcode the GUID of a built-in role definition (like Contributor, Reader, and others), it lets you provide the built-in role’s display name, and the function resolves the corresponding role definition information at deployment time.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| roleName | Yes | string | The display name of the role definition. |
+
+### Return value
+
+An object representing the role definition, including `id` and `roleDefinitionId`.
+
+### Examples
+
+The following Bicep code creates a deterministic Azure RBAC role assignment that grants a specified principal the **Storage Blob Data Reader** built‑in role at the deployment scope by resolving the role definition by name at deployment time.
+
+```bicep
+@description('Specifies the role definition ID used in the role assignment.')
+param roleDefinitionName string = 'Storage Blob Data Reader'
+
+@description('Specifies the principal ID assigned to the role.')
+param principalId string
+
+var roleAssignmentName= guid(principalId, roleDefinitionName, resourceGroup().id)
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: roleAssignmentName
+  properties: {
+    roleDefinitionId: roleDefinitions(roleDefinitionName).id
+    principalId: principalId
+  }
+}
+
+```
+
+For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#roledefinitions).
+
 ## subscriptionResourceId
 
 `subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
@@ -681,7 +723,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the subscription](deploy-to-subscription.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a resource group value.
 
-### subscriptionResourceID example
+### subscriptionResourceId example
 
 The following Bicep file assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 

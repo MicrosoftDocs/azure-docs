@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about firmware analysis
-description: Find answers to some of the common questions about firmware analysis. This article includes the file systems that are supported by firmware analysis, and links to the Azure CLI and Azure PowerShell commands.
+description: Find answers to some of the common questions about firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/12/2025
+ms.date: 03/05/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -14,6 +14,7 @@ ms.subservice: azure-firmware-analysis
 This article addresses frequent questions about firmware analysis.
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+
 
 ## What types of firmware images does firmware analysis support?
 Firmware analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Firmware analysis supports the following file system formats:
@@ -47,6 +48,7 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * YAFFS filesystem, little endian
 * ZStandard compressed data
 * Zip archive
+
 
 ## What SBOM components does firmware analysis detect?
 
@@ -86,3 +88,30 @@ gpg			|   mosquitto	|   readline
 You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
  
 You can also find the Quickstart for our Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the Quickstart for our Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
+
+
+## Is UEFI (Unified Extensible Firmware Interface) firmware analysis supported?
+Yes. UEFI firmware analysis is supported with a mix of **Generally Available (GA)** and **Preview** capabilities.
+
+### What is generally available for UEFI firmware analysis?
+
+Firmware analysis provides **GA support** for detecting and analyzing cryptographic material embedded in UEFI firmware, including:
+- Cryptographic certificates
+- Cryptographic keys
+
+These capabilities are considered stable and fully supported for UEFI firmware.
+
+### What UEFI analysis capabilities are in preview?
+
+The following UEFI analysis capabilities are currently provided in **Preview** and might have limited coverage:
+- SBOM and weakness signals (limited OpenSSL detection and CVE association)
+- Binary hardening attributes (detection of NX / DEP are supported)
+- Extractor path enhancements
+
+Preview results should be interpreted as **security signals**, not guarantees of vulnerability or protection.
+
+For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
+
+
+
+

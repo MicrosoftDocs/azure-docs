@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="600" height="220" fill="#fafafa"/>
+  
+  <!-- Title: Review Mode -->
+  <text x="150" y="25" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#333" font-weight="600">Review Mode</text>
+  
+  <!-- Review flow -->
+  <rect x="20" y="40" width="80" height="35" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1">Agent</text>
+  
+  <path d="M100 57 L130 57" stroke="#0078d4" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  
+  <rect x="140" y="40" width="90" height="35" rx="6" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="185" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#e65100">Proposes</text>
+  <text x="185" y="67" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#e65100">action</text>
+  
+  <path d="M230 57 L260 57" stroke="#0078d4" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  
+  <rect x="270" y="40" width="60" height="35" rx="6" fill="#e1bee7" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#4a148c">User</text>
+  
+  <!-- Title: Autonomous Mode -->
+  <text x="150" y="120" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#333" font-weight="600">Autonomous Mode</text>
+  
+  <!-- Autonomous flow -->
+  <rect x="20" y="135" width="80" height="35" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="60" y="157" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#0d47a1">Agent</text>
+  
+  <path d="M100 152 L130 152" stroke="#0078d4" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  
+  <rect x="140" y="135" width="90" height="35" rx="6" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="185" y="150" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="white">Executes</text>
+  <text x="185" y="162" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="white">immediately</text>
+  
+  <path d="M230 152 L260 152" stroke="#0078d4" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  
+  <rect x="270" y="135" width="60" height="35" rx="6" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="157" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#2e7d32">Done</text>
+  
+  <!-- Right side labels -->
+  <rect x="380" y="40" width="200" height="35" rx="6" fill="#fff" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">User approves or denies</text>
+  <text x="480" y="67" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">before agent acts</text>
+  
+  <rect x="380" y="135" width="200" height="35" rx="6" fill="#fff" stroke="#ddd" stroke-width="1" filter="url(#shadow)"/>
+  <text x="480" y="150" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">Agent completes task</text>
+  <text x="480" y="162" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">independently</text>
+</svg>

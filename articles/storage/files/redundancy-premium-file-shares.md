@@ -5,28 +5,19 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 03/25/2025
+ms.date: 03/13/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a cloud storage administrator, I want to identify Azure regions that support locally redundant storage (LRS) and zone redundant storage (ZRS) for SSD file shares, so that I can ensure optimal data redundancy and availability for my organization's storage needs."
 ---
 
 # Azure Files redundancy support for SSD file shares
-Azure Files supports SSD file shares in a subset of all Azure regions. Use this article to determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for SSD file shares.
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the SSD media tier
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
+Azure Files supports SSD file shares in a subset of all Azure regions. Use this article to determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for SSD file shares.
 
 ## LRS support for SSD Azure file shares
 
@@ -62,6 +53,7 @@ LRS for SSD file shares is supported in the following Azure regions:
 - (Asia Pacific) West India
 - (Europe) Austria East
 - (Europe) Belgium Central
+- (Europe) Denmark East
 - (Europe) France Central
 - (Europe) France South
 - (Europe) Germany North
@@ -112,40 +104,42 @@ ZRS for SSD file shares is supported in the following subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
-- (Asia Pacific) New Zealand North
+- (Asia Pacific) Central India
 - (Asia Pacific) China North 3
-- (Asia Pacific) Southeast Asia
-- (Asia Pacific) Korea Central
-- (Asia Pacific) Malaysia West
 - (Asia Pacific) East Asia
 - (Asia Pacific) Indonesia Central
 - (Asia Pacific) Japan East
 - (Asia Pacific) Japan West  
-- (Asia Pacific) Central India
+- (Asia Pacific) Korea Central
+- (Asia Pacific) Malaysia West
+- (Asia Pacific) New Zealand North
+- (Asia Pacific) Southeast Asia
 - (Canada) Canada Central
+- (Europe) Austria East
+- (Europe) Belgium Central
 - (Europe) France Central
 - (Europe) Germany West Central
+- (Europe) Italy North
 - (Europe) North Europe
-- (Europe) West Europe
-- (Europe) UK South
-- (Europe) Poland Central
 - (Europe) Norway East
+- (Europe) Poland Central
 - (Europe) Spain Central
 - (Europe) Sweden Central
 - (Europe) Switzerland North
-- (Europe) Italy North
-- (Europe) Austria East
-- (Middle East) Qatar Central
+- (Europe) UK South
+- (Europe) West Europe
 - (Middle East) Israel Central
+- (Middle East) Qatar Central
 - (Middle East) UAE North
+- (North America) Central US
 - (North America) East US
 - (North America) East US 2
+- (North America) Mexico Central
+- (North America) South Central US
 - (North America) West US 2
 - (North America) West US 3
-- (North America) Central US
-- (North America) South Central US
-- (North America) Mexico Central
 - (South America) Brazil South
+- (South America) Chile Central
 - (US Government) US Gov Virginia
   
 ## See also

@@ -51,8 +51,8 @@ Storage accounts have slightly different limits depending on the SKU and kind of
 
 - **HDD pay-as-you-go storage accounts**, which are represented by the `StorageV2` storage account kind and the `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_RAGRS`, or `Standard_RAGZRS` storage account SKUs. These storage accounts can contain classic file shares or other storage resources such as blob containers, queues, and tables. Classic file shares deployed in these storage accounts are always on the HDD media tier and billed using the pay-as-you-go billing model. 
 
-    > [!NOTE]  
-    > Although you can deploy classic file shares into storage accounts with the `Standard_RAGRS` or `Standard_RAGZRS` storage account SKUs, Azure Files doesn't support read-accessibility mode for geo-redundant storage accounts. These classic file shares will implicitly use the `Standard_GRS` or `Standard_GZRS` storage account SKUs. Other storage resources, such as blob containers, do support read-accessibility mode, and can be intermingled in these storage accounts.
+> [!NOTE]  
+> Although you can deploy classic file shares into storage accounts with the `Standard_RAGRS` or `Standard_RAGZRS` storage account SKUs, Azure Files doesn't support read-accessibility mode for geo-redundant storage accounts. These classic file shares will implicitly use the `Standard_GRS` or `Standard_GZRS` storage account SKUs. Other storage resources, such as blob containers, do support read-accessibility mode, and can be intermingled in these storage accounts.
 
 The following limits apply to the data plane of the storage account. Everything in the storage account, including classic file shares, blob containers, tables, or queues, share these limits.
 
@@ -104,7 +104,7 @@ The following limits apply at the classic file share level. All classic file sha
 
 - **SSD provisioned v1 storage accounts**: You can't provision more storage than the storage account supports, however you can provision more IOPS or throughput than the storage account supports. If the total usage of IOPS or throughput exceeds the storage account's limits, requests are throttled at the storage account level.
 
-- **HDD pay-as-you-go storage accounts**: You can create an unlimited number of classic file shares, each up to 100 TiB but while each classic file share can theoretically consume up to the storage account's limit for IOPS and throughput, if the combined usage of all the resources in the storage account (classic file shares, blob containers, tables, and queues) exceeds those limits, requests are throttled.
+- **HDD pay-as-you-go storage accounts**: You can create an unlimited number of classic file shares. While each classic file share can theoretically consume up to the storage account's limit for IOPS and throughput, if the combined usage of all the resources in the storage account (classic file shares, blob containers, tables, and queues) exceeds those limits, requests are throttled. Today, all pay-as-you-go Azure file shares can grow up to 100 TiB. The *large file share* feature in Azure Files is a legacy setting that enabled pay-as-you-go file shares to grow beyond 5 TiB. If you have an old storage account that predates the introduction of this feature, you might need to [increase your file share quota](modify-file-share.md#change-the-cost-and-performance-characteristics-of-a-pay-as-you-go-classic-file-share).
 
 | Attribute | SSD provisioned v2 | HDD provisioned v2 | SSD provisioned v1 | HDD pay-as-you-go |
 |-|-|-|-|-|
@@ -140,11 +140,11 @@ File scale targets apply to individual files stored in classic file shares. Your
 \* The maximum number of concurrent handles per file and directory is a soft limit for classic file shares on the SSD media tier using the SMB protocol. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ## File share scale targets (Microsoft.FileShares)
-There are two types of limits that apply to file shares:
+Two types of limits apply to file shares created with the `Microsoft.FileShares` resource provider (preview):
 
 - Control plane limits, which are enforced by the `Microsoft.FileShares` resource provider and apply to management requests such as creating, updating, or deleting the file share or child resources such as file share snapshots.
 
-- Data plane limits, which are enforced by the Azure storage platform, and apply to things like creating and deleting files and folders via the NFS file sharing protocol.
+- Data plane limits, which are enforced by the Azure storage platform, and apply to actions like creating and deleting files and folders via the NFS file sharing protocol.
 
 ### Microsoft.FileShares control plane limits
 The following limits apply to the file share and to child resources of the file share such as file share snapshots. 
@@ -160,7 +160,7 @@ The following limits apply to the file share and to child resources of the file 
 <sup>1</sup> `Microsoft.FileShares` uses a similar throttling algorithm for management requests as Azure Resource Manager itself uses. API throttling is managed using a [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket). The token bucket represents the maximum number of requests that you can send for each second. When you reach the maximum number of requests, the refill rate determines how quickly new requests are added to the 'bucket'.
 
 ### File share data plane targets
-The following limits apply at the file share level and are enforced at the data plane. File shares use the provisioned v2 billing model.
+The following limits apply at the file share level and are enforced at the data plane. File shares created with the `Microsoft.FileShares` resource provider use the provisioned v2 billing model.
 
 | Attribute | SSD value |
 |-|-|

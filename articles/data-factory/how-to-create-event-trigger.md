@@ -7,7 +7,7 @@ ms.custom: synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ---
 

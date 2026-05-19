@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Document Intelligence with Foundry Tools
 
-[Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) is a [Foundry Tool](/azure/ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](/azure/ai-services/document-intelligence/) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) is a [Microsoft Foundry tool](/azure/ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](/azure/ai-services/document-intelligence/) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
 This tutorial demonstrates using Document Intelligence with [SynapseML](https://github.com/microsoft/SynapseML) to:
 

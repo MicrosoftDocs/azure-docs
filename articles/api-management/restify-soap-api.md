@@ -1,18 +1,18 @@
 ---
-title: Import a SOAP API to Azure API Management and convert it to REST using the portal | Microsoft Docs
-description: Learn how to import a SOAP API into Azure API Management as a WSDL specification and convert it to a REST API. Then test the API in the Azure portal.
+title: Import a SOAP API into API Management and Convert it to REST
+description: Learn how to import a SOAP API into Azure API Management as a WSDL specification and convert it to a REST API.
 services: api-management
 author: dlepow
 ms.custom: devdivchpfy22
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 03/13/2026
 ms.author: danlep
 
 #customer intent: As a developer, I want to import a SOAP API into API Management and convert it to REST.
 
 ---
-# Import a SOAP API to API Management and convert it to REST
+# Import a SOAP API into Azure API Management and convert it to REST
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -28,37 +28,42 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
+- Create an [Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-api"> </a>Import and publish a backend API
 
-1. In the left pane, in the **APIs** section, select **APIs**.
+1. In the sidebar menu, in the **APIs** section, select **APIs**.
+
 1. On the APIs page, select **+ Add API**.
-1. Under **Create from definition**, select **WSDL**:
+
+1. Under **Create from definition**, select the **WSDL** tile:
 
     :::image type="content" source="./media/restify-soap-api/wsdl-api.png" alt-text="Screenshot that shows the WSDL tile in the Azure portal.":::
 
-1. In **WSDL specification**, enter the URL to your SOAP API, or click **Select a file** to select a local WSDL file.
-1. Under **Import method**, select **SOAP to REST**. 
+1. In **WSDL specification**, enter the URL to your SOAP API, or choose **Select a file** to select a local WSDL file.
+
+1. Under **Import method**, select **SOAP to REST**.
+
     When this option is selected, API Management attempts to make an automatic transformation between XML and JSON. In this case, consumers should call the API as a RESTful API, which returns JSON. API Management converts each request to a SOAP call.
 
     :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option." lightbox="./media/restify-soap-api/soap-to-rest.png":::
 
 1. The **Display name** and **Name** boxes are filled automatically with information from the SOAP API. 
-   
-   **Display name**, **URL**, and **Description** information is automatically entered for operations. Operations also receive a system-generated **Name**.
+
 1. Enter other API settings, and then select **Create**. You can also configure these values later by going to the **Settings** tab. 
 
-    For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api).
+    For more information about API settings, see [Import and publish a backend API](import-and-publish.md#import-and-publish-a-backend-api).
 
 ## Test the new API in the Azure portal
 
 You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
+
 1. Select the **Test** tab.
+
 1. Select an operation.
 
     The page shows fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**. This header is for the subscription key of the product that's associated with this API. If you created the API Management instance, you're an admin already, so the key is filled in automatically. 

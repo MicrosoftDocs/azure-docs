@@ -202,9 +202,9 @@ To acquire the access token:
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
 
-This article uses the [bruno](https://www.usebruno.com/) application to create the token request, but you can use a different API development environment.
+This article uses the [Bruno](https://www.usebruno.com/) application to create the token request, but you can use a different API development environment.
 
-1. Open the bruno app, select **NEW REQUEST** to create the request.
+1. Open the Bruno app, select **NEW REQUEST** to create the request.
 
 1. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request, such as *POST Token Request*.
 

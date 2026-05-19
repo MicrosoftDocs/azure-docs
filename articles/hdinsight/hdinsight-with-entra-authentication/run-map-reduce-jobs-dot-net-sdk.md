@@ -3,8 +3,8 @@ title: Run MapReduce jobs using HDInsight .NET SDK for Entra Authentication enab
 description: Learn how to run MapReduce jobs using HDInsight .NET SDK  for Entra Auth enabled Azure HDInsight clusters
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 09/19/2025
 ---

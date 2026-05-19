@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Get Imagery Metadata API to Azure Maps Get Map Tile API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Get Imagery Metadata API to the Azure Maps Get Map Tile API.
+description: Learn how to migrate the Bing Maps Get Imagery Metadata API to the Azure Maps Get Map Tile API.
 author: faterceros
 ms.author: aterceros 
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: render
 ---
@@ -44,7 +44,7 @@ The following table lists the Bing Maps _Get Imagery Metadata_ request parameter
 
 | Bing Maps request parameter  | Bing Maps request parameter alias  | Azure Maps request parameter  | Required in Azure Maps  | Azure Maps data type  | Description|
 |------------------------------|------------------------------------|-------------------------------|-------------------------|-----------------------|------------|
-| imagerySet   | None   | tilesetId  | True   | TilesetID      | Azure Maps has some map styles that Bing Maps Get Imagery Metadata API doesn’t have. Bing Maps Get Imagery Metadata API has some map styles that Azure Maps doesn’t have. For more information on the map styles offered by Azure Maps, see [TilesetID].|
+| imagerySet   | None   | tilesetId  | True   | TilesetID      | Azure Maps has some map styles that Bing Maps Get Imagery Metadata API doesn't have. Bing Maps Get Imagery Metadata API has some map styles that Azure Maps doesn't have. For more information on the map styles offered by Azure Maps, see [TilesetID].|
 | centerPoint  | None   | x<br>y    | True   | integer int32  | For more information on X, Y coordinates, see [Zoom levels and tile grid]. |
 | culture      | c      | language   | False  | string         | For more information, see [Azure Maps Supported Languages].|
 | include      | incl   | NA         | NA     | NA             | The only option for this parameter in Bing Maps is `ImageryProviders`. When specified, attribution information about the imagery providers is returned in the response, which should be displayed on the map. For Azure Maps Get Map Tile API, map copyright attribution information can be obtained from Azure Maps [Get Map Attribution] API. Copyright attribution information should be displayed on the map as per the [Azure Maps Product Terms]. |
@@ -84,7 +84,7 @@ The following table lists the fields that can appear in the HTTP response when r
 | zoomMax (JSON)<BR>ZoonMax (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].|
 | zoomMin (JSON)<BR>ZoomMin (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].  |
 
-<SUP>**1**</SUP> When using Azure Maps API to obtain RGB satellite images, you can also retrieve information about the acquisition date. The HTTP response includes a header called **Data-Capture-Date-Range**, which provides a date range indicating when the image was captured. For instance, it might appear as “7/31/2022-9/1/2023”. Keep in mind that satellite imagery often spans a date range due to batch processing and the stitching together of multiple images from different dates to create seamless maps. So, while a single date isn’t always applicable, the date range gives you insight into when the image data was collected.
+<SUP>**1**</SUP> When using Azure Maps API to obtain RGB satellite images, you can also retrieve information about the acquisition date. The HTTP response includes a header called **Data-Capture-Date-Range**, which provides a date range indicating when the image was captured. For instance, it might appear as "7/31/2022-9/1/2023". Keep in mind that satellite imagery often spans a date range due to batch processing and the stitching together of multiple images from different dates to create seamless maps. So, while a single date isn't always applicable, the date range gives you insight into when the image data was collected.
 
 For more information about the Azure Maps Get Map Tile API response fields, see [Response].
 
@@ -96,7 +96,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
 { 
     "authenticationResultCode": "ValidCredentials", 
     "brandLogoUri": "https://dev.virtualearth.net/Branding/logo_powered_by.png", 
-    "copyright": "Copyright © 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.", 
+    "copyright": "Copyright &copy; 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.", 
     "resourceSets": [ 
         { 
             "estimatedTotal": 1, 
