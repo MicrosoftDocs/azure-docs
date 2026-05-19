@@ -64,7 +64,7 @@ diskspd.exe -c100G -b4K -r -o64 -t8 -w0 -d120 -Sh -L E:\esan_test.dat
 - -d120 – 120 second runtime
 - -c100G – 100GB test file
 
-:::image type="content" source="../media/diskspd-io-test.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload."::
+:::image type="content" source="../media/diskspd-io-test.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload.":::
 
 **Results:**
 
