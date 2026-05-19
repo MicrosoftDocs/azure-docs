@@ -101,6 +101,8 @@ After associating the configuration store with the network security perimeter, y
 
 1. Review the network security perimeter configuration to confirm that your configuration store is associated with the expected perimeter and profile.
 
+   :::image type="content" source="./media/network-security-perimeter/verify-association-nsp.png" alt-text="Screenshot of the Azure portal, showing the network security perimeter configuration for an App Configuration store." lightbox="./media/network-security-perimeter/verify-association-nsp.png":::
+
 ### [Azure CLI](#tab/azure-cli)
 
 Run the following command to view the network security perimeter configuration for your configuration store.
