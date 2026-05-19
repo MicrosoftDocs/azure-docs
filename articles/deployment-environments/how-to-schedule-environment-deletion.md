@@ -34,7 +34,7 @@ You can schedule an expiration date and time when you create an environment by u
 
 1. Select **New environment**.
  
-   :::image type="content" source="media/how-to-schedule-environment-deletion/new-environment.png" alt-text="Screenshot of that shows the New environment button.:::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/new-environment.png" alt-text="Screenshot that shows the button to create a new environment.":::
  
 1. In the **Add an environment** pane, enter or select the following values:
 
@@ -96,7 +96,7 @@ Developers might not always know when an environment is no longer needed. As a p
  
 1. In the list of environments, for the environment you want to schedule for deletion, scroll right, and then select **...** > **Change expiration**.
 
-   :::image type="content" source="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png" alt-text="Screenshot showing the initial steps for changing an expiration." lightbox="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png":::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png" alt-text="Screenshot showing the initial steps for changing an expiration.":::
 
 1. In the **Change \<environment> expiration date** pane, select **Enable scheduled deletion**.
  
