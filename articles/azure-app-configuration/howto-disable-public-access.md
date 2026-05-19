@@ -42,8 +42,8 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 Azure App Configuration offers four public access options:
 
-- Enabled: all networks can access this resource.
 - Automatic public access: public network access is enabled, as long as you don't have a private endpoint present. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating the store.
+- Enabled: all networks can access this resource.
 - Secured by perimeter: public access is disabled. Only traffic from a private endpoint or traffic allowed by the associated network security perimeter can access this resource.
 - Disabled: public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 
