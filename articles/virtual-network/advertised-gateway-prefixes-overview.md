@@ -39,6 +39,8 @@ When you set `summarizedGatewayPrefixes`:
 
 - Azure VPN Gateway and ExpressRoute Gateway ignore the address space of the virtual network with the gateway (hub) and publish the summarized prefixes instead.
 
+- When configuring summarized CIDRs, ensure that the summarized prefix includes the gateway virtual network address space.
+
 - For each peered virtual network (spoke), Azure VPN Gateway and ExpressRoute Gateway check whether the spoke's address space is covered by the summarized space. If it's covered, the spoke address space isn't advertised.
 
 ## Prerequisites and applicability
