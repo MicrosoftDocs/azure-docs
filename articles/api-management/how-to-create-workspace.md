@@ -20,12 +20,13 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace and associate a workspace gateway using the Azure portal
-* Optionally, isolate the workspace gateway in an Azure virtual network
+* Create an API Management workspace using the Azure portal (with a dedicated workspace gateway)
+* Create an API Management workspace using the REST API (using the service's default managed gateway)
+* Optionally, isolate a dedicated workspace gateway in an Azure virtual network
 * Assign permissions to the workspace
 
 > [!NOTE]
-> * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
+> * Currently, creating a dedicated workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
 > * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
@@ -69,11 +70,50 @@ After the deployment completes, the new workspace appears in the list on the **W
 > * To view the gateway runtime hostname and other gateway details, select the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
 > * While the workspace gateway is being created, runtime calls to the workspace's APIs won't succeed.
 
+## Create a workspace using the default managed gateway - REST API
+
+In the **Premium v2** tier, you can create a workspace that routes API traffic through the service's default managed gateway instead of a dedicated workspace gateway. This option avoids the extra cost and deployment time of a separate gateway resource. API traffic routes through the service's default hostname (for example, `<service-name>.azure-api.net`).
+
+> [!NOTE]
+> Creating a workspace using the default managed gateway is currently only supported via the REST API. Portal support is not yet available.
+
+### Prerequisites
+
+* An API Management instance in the **Premium v2** tier.
+* Authorization to call the REST API. You can use [Azure CLI](/cli/azure/authenticate-azure-cli) or [Azure PowerShell](/powershell/azure/authenticate-azureps) to acquire a bearer token, or use a tool such as [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in Visual Studio Code.
+
+### Create the workspace
+
+Use the [Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API to create a workspace. Don't include a gateway association in the request body; the workspace uses the service's default managed gateway automatically.
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}?api-version=2024-05-01
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "properties": {
+    "displayName": "my workspace",
+    "description": "Workspace using default managed gateway"
+  }
+}
+```
+
+Replace:
+- `{subscriptionId}` with your Azure subscription ID
+- `{resourceGroupName}` with the resource group name of your API Management instance
+- `{serviceName}` with the name of your API Management instance
+- `{workspaceId}` with a unique workspace identifier (alphanumeric, hyphens allowed)
+
+A successful response returns HTTP `201 Created` with the workspace resource. The workspace routes API traffic through the service's default hostname.
+
+After the workspace is created, proceed to [Assign users to workspace - portal](#assign-users-to-workspace---portal) to configure access permissions.
+
 ## Assign users to workspace - portal
 
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
-To manage the workspace gateway, we recommend also assigning workspace users an Azure-provided RBAC role scoped to the workspace gateway. 
+If the workspace uses a dedicated workspace gateway, we also recommend assigning workspace users an Azure-provided RBAC role scoped to the workspace gateway. 
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.

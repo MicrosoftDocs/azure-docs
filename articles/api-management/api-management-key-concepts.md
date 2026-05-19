@@ -191,7 +191,7 @@ API Management service owners can also create custom groups or use external grou
 
 ### Workspaces
 
-Workspaces support a federated API management model by allowing decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with one or more workspace gateways that route API traffic to its backend services.
+Workspaces support a federated API management model by allowing decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). In the Premium v2 tier, each workspace routes API traffic through either the service's default managed gateway or one or more dedicated workspace gateways. In the Premium tier, a dedicated workspace gateway is required.
 
 **More information**:
 
