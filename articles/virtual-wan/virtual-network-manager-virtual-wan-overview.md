@@ -10,7 +10,9 @@ ms.author: wellee
 ms.custom:
 ---
 
-# Virtual Network Manager and Virtual WAN overview
+# Virtual Network Manager and Virtual WAN (Public Preview)
+
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 ## Overview
 
@@ -22,6 +24,19 @@ Virtual Network Manager **connection configurations** also assign your network g
 * Route maps: assign which route maps are applied to Virtual Network connections.
 * Routing configuration: specify which Virtual WAN route table the Virtual Network connection learns routes from and which route tables the Virtual Network propagates to.
 
+For detailed instructions on how to use this integration, reference [Configure Virtual WAN hub for Network Manager](../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md).
+
+## Key Considerations about Virtual WAN and Network Manager interactions
+
+* A single Virtual Network Manager Network Group and connection policy can only be applied to a single Virtual WAN hub. If you're using Virtual Network Manager to manage connectivity to multiple Virtual WAN hubs, create separate Network Groups and connection policies for each Virtual WAN hub.
+* Virtual Network Manager allows you to update the Virtual WAN connection policy used by a connectivity configuration in two ways:
+    * **Edit currently associated connection policy:** Edit the routing settings within the currently associated connection policy. These changes are immediately applied to all Virtual Networks in the network group upon saving the connection policy.
+    * **Associate a different connection policy with a connection configuration:** Use a brand-new connection policy with the desired settings and assign it to the connectivity configuration. This approach allows you to stage and deploy changes to your network group in an incremental fashion.
+* Removing a Virtual Network from a network group that is connected to Virtual WAN **disconnects** the Virtual Network from the Virtual WAN hub.
+* Virtual Network Manager allows you to enable **direct connectivity** between Virtual Networks in a Network Group connected to a Virtual WAN hub, forming a connected group or mesh. When this setting is turned **on**, Virtual Network to Virtual Network traffic within the Network Group routes directly between Virtual Networks instead of transiting the Virtual WAN hub. Connected group and mesh configurations are prioritized over any routing intent or routing configurations that send Virtual Network-to-Virtual Network traffic to a security solution deployed in the Virtual WAN hub.
+* Properties managed by connection policies override any conflicting settings configured directly on individual Virtual WAN connections. See [connection policy](how-to-connection-policy.md) for more information.
+* Virtual Network Manager connectivity configurations **don't** enforce peering or connectivity to the Virtual WAN hub. This means that any Virtual Network connections created by Virtual Network Manager to the Virtual WAN hub can be removed. Virtual Network Manager automatically attempts to reconnect the Virtual Network to the Virtual WAN the **next** time the connectivity configuration is deployed in the spoke Virtual Network's region.
+
 ## Known issues
 
 The following table describes known issues with the Virtual Network Manager and Virtual WAN integration.
@@ -29,21 +44,10 @@ The following table describes known issues with the Virtual Network Manager and 
 |Issue| Description| Mitigation|
 |--|--|--|
 |Connectivity configurations don't apply properly to cross-tenant network group members.| Deployed connectivity configurations do not properly apply to Virtual Networks in a different tenant than Virtual WAN hub.| Use Terraform, Azure CLI, or Azure PowerShell to manually connect and manage cross-tenant members to the Virtual WAN hub.|
-| Virtual Network manager doesn't automatically detect manual connection policy changes for Virtual WAN Virtual Network connections.| If a Virtual Network spoke Virtual Network is assigned to a connection policy through a deployed Virtual Network Manager connectivity configuration, the assigned connection policy may be changed to a **different** connection policy by directly calling Virtual WAN connection policy API's using Azure Portal, CLI etc. This change is not detected by Virtual Network Manager and isn't automatically reverted to the correct connection policy specified in the Virtual Network connectivity configuration state on the next deploy or commit.| None|
 | [High-scale private endpoints](../private-link/increase-private-endpoint-vnet-limits.md)| when more than 4000 private endpoints are deployed in Virtual Networks connected to a single Virtual WAN hub, Private Link connectivity transiting the hub, either from a virtual network or on-premises, might be impacted. For more information, see [Use Private Link in Virtual WAN](howto-private-link.md).| Ensure the number of Private Endpoints across all Virtual Networks connected to a single Virtual WAN hub does not exceed 4000.|
-|Slow loading for connection policy in Azure portal.|The connection policy experience in Azure portal can take a long time to load. | Allow additional time for the Azure portal experience to load before retrying the operation.|
+|Slow loading for connection policy in Azure portal.| Connection policy experience in Azure Virtual Network Manager runs a few validation checks before allowing users to assign a connection policy to Network Manager connectivity configuration.| Allow additional time for the Azure portal experience to load before retrying the operation.|
 
-
-## Key Considerations about Virtual WAN and Network Manager interactions
-
-* A single Virtual Network Manager Network Group and connection policy can only be applied to a single Virtual WAN hub. If you're using Virtual Network Manager to manage connectivity to multiple Virtual WAN hubs, create separate Network Groups and connection policies for each Virtual WAN hub.
-* Virtual Network Manager allows you to update the Virtual WAN connection policy used by a connectivity configuration in two ways:
-    * **Edit currently associated connection policy:** Edit the routing settings within the currently associated connection policy. These changes are immediately applied to all Virtual Networks in the network group upon saving the connection policy.
-    * **Associate a different connection policy with a connection configuration:** Use a brand-new connection policy with the desired settings and associate it with the connectivity configuration. This approach allows you to stage and deploy changes to your network group in an incremental fashion.
-* Removing a Virtual Network from a network group that is connected to Virtual WAN **disconnects** the Virtual Network from the Virtual WAN hub.
-* Virtual Network Manager allows you to enable **direct connectivity** between Virtual Networks in a Network Group connected to a Virtual WAN hub, forming a connected group or mesh. When this setting is turned **on**, Virtual Network toVirtual Network traffic within the Network Group routes directly between Virtual Networks instead of transiting the Virtual WAN hub. Connected group and mesh configurations are prioritized over any routing intent or routing configurations that send Virtual Network-to-Virtual Network traffic to a security solution deployed in the Virtual WAN hub.
-* Properties managed by connection policies override any conflicting settings configured directly on individual Virtual WAN connections. See [connection policy](how-to-connection-policy.md) for more information.
-* Virtual Network Manager connectivity configurations **don't** enforce peering or connectivity to the Virtual WAN hub. This means that any Virtual Network connections created by Virtual Network Manager to the Virtual WAN hub can be removed. Virtual Network Manager automatically attempts to reconnect the Virtual Network to the Virtual WAN the **next** time the connectivity configuration is deployed in the spoke Virtual Network's region.
+In addition, reference [connection policy known issues](how-to-connection-policy.md#known-issues) for more information regarding connection policy limitations and considerations.
 
 ## Use cases
 
