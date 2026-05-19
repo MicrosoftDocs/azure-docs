@@ -639,8 +639,46 @@ df.app.entity('counter', (context) => {
 ```
 ::: zone-end 
 ::: zone pivot="programming-language-java" 
-> [!NOTE]
-> Entity triggers aren't yet supported for Java.
+You can define an entity trigger by using the `@DurableEntityTrigger` annotation. Use `EntityRunner.loadAndRun` to dispatch operations to your entity class.
+
+```java
+import com.microsoft.durabletask.AbstractTaskEntity;
+import com.microsoft.durabletask.TaskEntityOperation;
+import com.microsoft.durabletask.azurefunctions.DurableEntityTrigger;
+import com.microsoft.durabletask.azurefunctions.EntityRunner;
+
+public class CounterEntity extends AbstractTaskEntity<Integer> {
+
+    public void add(int value) {
+        this.state += value;
+    }
+
+    public int get() {
+        return this.state;
+    }
+
+    public void reset() {
+        this.state = 0;
+    }
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+
+// Entity function
+@FunctionName("Counter")
+public String counterEntity(
+    @DurableEntityTrigger(name = "req", entityName = "Counter") String req) {
+    return EntityRunner.loadAndRun(req, CounterEntity::new);
+}
+```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 > [!NOTE]
@@ -710,8 +748,50 @@ Instead of registering an entity client, you use `signalEntity` or `callEntity` 
 You can define an entity client by using the `durable_client_input` decorator directly in your Python function code. 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-> [!NOTE]
-> Entity clients aren't yet supported for Java.
+You can use the `@DurableClientInput` annotation to bind to a `DurableClientContext`, which provides methods for signaling entities and reading entity state.
+
+- Signal an entity from an HTTP-triggered function:
+
+  ```java
+  @FunctionName("SignalCounter")
+  public HttpResponseMessage signalCounter(
+      @HttpTrigger(name = "req", methods = {HttpMethod.POST},
+          authLevel = AuthorizationLevel.ANONYMOUS)
+      HttpRequestMessage<Void> request,
+      @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+      EntityInstanceId entityId = new EntityInstanceId("Counter", "myCounter");
+      durableContext.signalEntity(entityId, "add", 5);
+
+      return request.createResponseBuilder(HttpStatus.ACCEPTED)
+          .body("Signal sent")
+          .build();
+  }
+  ```
+
+- Read entity state from an HTTP-triggered function:
+
+  ```java
+  @FunctionName("GetCounter")
+  public HttpResponseMessage getCounter(
+      @HttpTrigger(name = "req", methods = {HttpMethod.GET},
+          authLevel = AuthorizationLevel.ANONYMOUS)
+      HttpRequestMessage<Void> request,
+      @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+      EntityInstanceId entityId = new EntityInstanceId("Counter", "myCounter");
+      EntityMetadata metadata = durableContext.getEntityMetadata(entityId, true);
+
+      if (metadata == null) {
+          return request.createResponseBuilder(HttpStatus.NOT_FOUND).build();
+      }
+
+      Integer state = metadata.readStateAs(Integer.class);
+      return request.createResponseBuilder(HttpStatus.OK)
+          .body(state)
+          .build();
+  }
+  ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 > [!NOTE]
