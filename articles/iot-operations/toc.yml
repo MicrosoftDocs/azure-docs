@@ -24,22 +24,21 @@ items:
           - name: Deployment planning
             href: deploy-iot-ops/deployment-planning.md
             displayName: planning, sizing, broker, MQTT, topology, memory, production
-            items:
-              - name: Disk-backed message buffer
-                href: deploy-iot-ops/deployment-planning-disk-buffer.md
-                displayName: MQTT, broker, persistence, storage, buffer, disk
-              - name: Persistence
-                href: deploy-iot-ops/deployment-planning-persistence.md
-                displayName: MQTT, broker, persistence, storage, volume
-              - name: Diagnostics
-                href: deploy-iot-ops/deployment-planning-diagnostics.md
-                displayName: MQTT, broker, metrics, logs, self-check
-              - name: Advanced MQTT options
-                href: deploy-iot-ops/deployment-planning-mqtt-options.md
-                displayName: MQTT, broker, session expiry, message expiry, subscriber queue
-              - name: Internal traffic encryption
-                href: deploy-iot-ops/deployment-planning-encryption.md
-                displayName: MQTT, broker, certificates, TLS, internal
+          - name: Disk-backed message buffer
+            href: deploy-iot-ops/deployment-planning-disk-buffer.md
+            displayName: MQTT, broker, persistence, storage, buffer, disk
+          - name: Persistence
+            href: deploy-iot-ops/deployment-planning-persistence.md
+            displayName: MQTT, broker, persistence, storage, volume
+          - name: Diagnostics
+            href: deploy-iot-ops/deployment-planning-diagnostics.md
+            displayName: MQTT, broker, metrics, logs, self-check
+          - name: Advanced MQTT options
+            href: deploy-iot-ops/deployment-planning-mqtt-options.md
+            displayName: MQTT, broker, session expiry, message expiry, subscriber queue
+          - name: Internal traffic encryption
+            href: deploy-iot-ops/deployment-planning-encryption.md
+            displayName: MQTT, broker, certificates, TLS, internal
       - name: Deploy Azure IoT Operations
         items:
           - name: Deployment overview
