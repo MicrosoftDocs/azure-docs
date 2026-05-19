@@ -41,7 +41,7 @@ You can schedule an expiration date and time when you create an environment by u
    |Field  |Value  |
    |---------|---------|
    |**Name**     | Enter a descriptive name for your environment. |
-   |**Project**  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects.  |
+   |**Project**  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
    |**Type**     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
    |**Definition** | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
    |**Expiration** | Select **Enable scheduled deletion**. |

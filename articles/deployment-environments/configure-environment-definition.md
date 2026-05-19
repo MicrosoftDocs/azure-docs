@@ -145,7 +145,7 @@ You can specify parameters for your environment definitions to allow developers 
 
 Parameters are defined in the *environment.yaml* file. 
 
-The following script is an example for an ARM template that includes two parameters: `location` and `name`. 
+The following script is an example of an *environment.yaml* file for an ARM template that includes two parameters: `location` and `name`. 
 
 ```YAML
 name: WebApp
