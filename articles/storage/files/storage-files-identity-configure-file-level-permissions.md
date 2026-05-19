@@ -19,7 +19,7 @@ Before you can configure directory-level and file-level permissions, you must [a
 
 Consult the following table to determine which tool can be used to configure ACLs for which authentication type.
 
-| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only, preview) |
+| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only) |
 |---------------------------------|:------------------------:|:------------------------------:|:------------------------:|:------------------------------------:|
 | Windows File Explorer           | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
 | icacls                          | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
@@ -28,7 +28,7 @@ Consult the following table to determine which tool can be used to configure ACL
 
 To configure ACLs by using Windows File Explorer or icacls, you need a client machine running Windows. You also need to mount the file share with admin-level access. If the identity source for your storage account is Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos, this machine must have unimpeded network connectivity to an on-premises Active Directory. If the identity source is Microsoft Entra Domain Services, the machine must have unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages; these domain controllers are located in Azure.
 
-To use the Azure portal or the PowerShell `RestSetAcls` module, there's no dependency on domain controllers. However, the identities must be hybrid or cloud-only (preview). For `RestSetAcls`, you need a client machine running Windows.
+To use the Azure portal or the PowerShell `RestSetAcls` module, there's no dependency on domain controllers. However, the identities must be hybrid or cloud-only. For `RestSetAcls`, you need a client machine running Windows.
 
 ## How Azure RBAC and Windows ACLs work together
 
@@ -139,7 +139,7 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 
 The process for configuring Windows ACLs varies depending on whether you're authenticating hybrid or cloud-only identities:
 
-- For cloud-only identities (preview), you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
+- For cloud-only identities, you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
 
 - For hybrid identities, you can configure Windows ACLs by using icacls, or you can use Windows File Explorer. If the identity source for your storage account is Microsoft Entra Kerberos, you can also use the Azure portal or `RestSetAcls` PowerShell module.
 

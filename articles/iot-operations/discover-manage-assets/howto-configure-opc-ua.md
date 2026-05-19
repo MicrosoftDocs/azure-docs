@@ -4,8 +4,8 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 02/09/2026
-
+ms.date: 05/12/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -164,7 +164,19 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 ### Other security options
 

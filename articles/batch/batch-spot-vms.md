@@ -58,7 +58,7 @@ A Batch pool can contain both dedicated and Spot VMs (also referred to as comput
 
 Spot VMs might occasionally be preempted. When preemption happens, tasks that were running on the preempted node VMs are requeued and run again when capacity returns. Batch also performs the following behaviors:
 
-- The preempted VMs have their state updated to *Preempted*.
+- The preempted VMs have their state updated to *Preempted*. In some scenarios, a preempted VM may first have its state updated to *Unusable* before transitioning to *Preempted*.
 - The VM is effectively deleted, leading to loss of any data stored locally on the VM.
 - A list nodes operation on the pool still returns the preempted nodes.
 - The pool continually attempts to reach the target number of Spot nodes available. When replacement capacity is found, the nodes keep their IDs, but are reinitialized, going through *Creating* and *Starting* states before they're available for task scheduling.

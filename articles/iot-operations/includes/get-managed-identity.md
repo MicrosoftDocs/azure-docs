@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 10/22/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 To find the application ID of the managed identity and your tenant ID, run the following commands. Replace the placeholders with your cluster name, resource group, and subscription ID:

@@ -1,10 +1,11 @@
 ---
- title: include file
- description: include file
- author: dominicbetts
- ms.topic: include
- ms.date: 01/14/2025
- ms.author: dobett
+title: include file
+description: include file
+author: dominicbetts
+ms.topic: include
+ms.date: 01/14/2025
+ms.author: dobett
+ms.service: azure-iot-operations
 ms.custom:
   - include file
 ---

@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 01/06/2026
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 The following steps assume you created a .NET project called **MyConnector**.

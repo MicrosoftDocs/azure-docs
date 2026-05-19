@@ -106,6 +106,9 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 | tidalmediainc | windows-server-2022-datacenter | windows-server-2022-datacenter |  |
 | veeam | office365backup | veeamoffice365backup |  |
 | veeam | veeam-backup-replication | veeam-backup-replication-v* |  |
+| microsoft-ads | windows-data-science-vm | * |  |
+| mirantis | windows_2022_with_mirantis_container_runtime | win_2022_mcr_25_0 |  |
+| microsoftwindowsserver | windowsserver2022 | * |  |
 
 
 #### [Supported Linux x64 OS images](#tab/mpir-linos)
@@ -275,6 +278,10 @@ An asterisk (*) in the Offer or Plan columns represents a wildcard character. It
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
+|almalinux| almalinux-x86_64| 9-gen*||
+|center-for-internet-security-inc| cis-ubuntu| cis-ubuntulinux2404-l1-gen*||
+|microsoftcblmariner| azure-linux-3| azure-linux-3-gen2||
+|microsoftcblmariner| cbl-mariner| cbl-mariner-2-arm64 </br> cbl-mariner-2-gen2-fips||
 
 #### [Supported Linux ARM64 OS images](#tab/mpir-arm)
 

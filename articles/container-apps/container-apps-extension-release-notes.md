@@ -122,7 +122,7 @@ ms.custom:
 ## v1.37.7 (October 2024)
 
 - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
-- Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
+- Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcement-introducing-the-logic-apps-hybrid-deployment-model-public-preview/4271568)
 
 ## v1.37.8 (March 2025)
 

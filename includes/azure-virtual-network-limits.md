@@ -34,21 +34,19 @@ The following limits apply only for networking resources managed through **Azure
 | [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500,000 |
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
-| NSG rules per NSG |1,000 |
-| IP addresses and ranges specified for source or destination in a security group (The limit applies separately to source and destination) |4,000 |
+| NSG rules per NSG |2,000 |
+| IP addresses and ranges specified for source or destination in a security group (The limit applies separately to source and destination) |6,000 |
 | Application security groups |3,000 |
 | Application security groups per IP configuration, per NIC | 20 |
 | Application security groups referenced as source/destination per NSG rule | 10 |
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |100 |
-| User-defined route tables |200 |
-| User-defined routes per route table |600<sup>1</sup> |
+| User-defined route tables |600 |
+| User-defined routes per route table |1,000 |
 | Routes with service tag per route table | 25 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
 | Point-to-site revoked client certificates per Azure VPN Gateway |300 |
 | Virtual network TAP configurations per subscription |10 |
-
-<sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). 
 
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |

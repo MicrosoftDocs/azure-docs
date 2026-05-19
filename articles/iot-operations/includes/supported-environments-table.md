@@ -2,7 +2,7 @@
 author: dominicbetts
 ms.author: dobett
 ms.topic: include
-ms.service: iot-operations
+ms.service: azure-iot-operations
 ms.date: 06/20/2025
 ---
 

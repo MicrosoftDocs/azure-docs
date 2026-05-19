@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Enable Azure Change Tracking and Inventory for Single and Multiple Machines from the Portal'
 description: In this quickstart, learn how to enable Azure Change Tracking and Inventory for single and multiple machines from the portal.
-services: automation
 ms.date: 12/09/2025
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use Azure Change Tracking and Inventory.

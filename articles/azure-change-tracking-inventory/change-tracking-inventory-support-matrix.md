@@ -1,7 +1,6 @@
 ---
 title: Azure Change Tracking and Inventory Support Matrix
 description: Get a summary of support settings and limitations for enabling Azure Change Tracking and Inventory and tracking changes.
-services: automation
 ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory

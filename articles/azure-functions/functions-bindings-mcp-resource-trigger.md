@@ -16,6 +16,8 @@ Use the MCP resource trigger to define resource endpoints in a [Model Context Pr
 
 For information on setup and configuration details, see the [overview](functions-bindings-mcp.md).
 
+For a complete end-to-end example of using the MCP resource trigger, see [Build an MCP Apps using Azure Functions](scenario-mcp-apps.md).
+
 ## Example
 ::: zone pivot="programming-language-csharp"
 >[!NOTE]  

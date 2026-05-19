@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: storage
-author: tamram
+author: normesta
 ms.service: azure-storage
 ms.topic: include
-ms.date: 05/02/2023
-ms.author: tamram
+ms.date: 05/18/2026
+ms.author: normesta
 ms.custom: include file
 ---
 
-This reference details scalability and performance targets for Azure Storage. The scalability and performance targets listed here are high-end targets, but are achievable. In all cases, the request rate and bandwidth achieved by your storage account depends upon the size of objects stored, the access patterns utilized, and the type of workload your application performs.
+This reference details scalability and performance targets for Azure Storage. The scalability and performance targets listed here are high-end targets, but they're achievable. In all cases, the request rate and bandwidth that your storage account achieves depend on the size of objects stored, the access patterns used, and the type of workload your application performs.
 
 Make sure to test your service to determine whether its performance meets your requirements. If possible, avoid sudden spikes in the rate of traffic and ensure that traffic is well-distributed across partitions.
 

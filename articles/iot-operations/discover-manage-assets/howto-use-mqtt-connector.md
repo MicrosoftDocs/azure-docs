@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 03/09/2026
+ms.date: 05/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -24,7 +24,7 @@ The following table summarizes the features that the connector for MQTT supports
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 user certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
 | Southbound certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
 | OpenTelemetry integration | Yes | |
@@ -61,7 +61,7 @@ You need credentials to access the MQTT source. If the MQTT source requires auth
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -156,7 +156,19 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 > [!NOTE]
 > Currently, the connector doesn't support intermediate certificates when it connects to external MQTT brokers. 

@@ -31,6 +31,8 @@ Cosmos DB scaling decisions for the Consumption and Premium plans are done via t
 
 ::: zone-end
 
+For a complete end-to-end example of using the Azure Cosmos DB trigger, see [Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"

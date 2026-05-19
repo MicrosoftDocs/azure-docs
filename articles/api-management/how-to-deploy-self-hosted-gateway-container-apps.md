@@ -265,5 +265,5 @@ Azure Container Apps distributes requests linearly across each available and hea
 
 ## Related content
 
-* [Connected microservices with Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/connected-microservices-with-azure-container-apps/ba-p/3072158)
+* [Connected microservices with Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/connected-microservices-with-azure-container-apps/3072158)
 * [Azure API Management's Self-Hosted Gateway on Azure Container Apps](https://github.com/tomkerkhove/azure-apim-on-container-apps)

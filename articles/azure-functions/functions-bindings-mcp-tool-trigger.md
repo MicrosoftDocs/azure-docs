@@ -18,6 +18,8 @@ Use the MCP tool trigger to define tool endpoints in a [Model Context Protocol (
 
 For information on setup and configuration, see the [overview](functions-bindings-mcp.md).
 
+For a complete end-to-end example of using the MCP tool trigger, see [Create a remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"  

@@ -4,6 +4,7 @@ description: Include file with details of currently supported versions
 author: dominicbetts
 ms.topic: include
 ms.date: 05/06/2026
+ms.service: azure-iot-operations
 ms.author: dobett
 ---
 

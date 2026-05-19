@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 06/24/2025
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 - _Devices_ that are the configuration resources that encapsulate the connection information required to connect to one or more physical devices or assets.

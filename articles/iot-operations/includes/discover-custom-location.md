@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 11/12/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 # [Bash](#tab/bash)

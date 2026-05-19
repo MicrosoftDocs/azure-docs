@@ -56,6 +56,6 @@ APIs developed in Postman can then be exported and imported back into API Manage
 
 ## Related content
 
-* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/enhanced-api-developer-experience-with-the-microsoft-postman/ba-p/3650304)
+* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/blog/appsonazureblog/enhanced-api-developer-experience-with-the-microsoft-postman-partnership/3650304)
 * Learn more about [importing API definitions to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
 * Learn more about [authorizing requests in Postman](https://learning.postman.com/docs/sending-requests/authorization/).

@@ -30,6 +30,8 @@ Source code for the timer extension package is in the [azure-webjobs-sdk-extensi
 
 ::: zone-end
 
+For a complete end-to-end example of using the timer trigger, see [Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"

@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 10/22/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 Browse to the [Microsoft Fabric Power BI experience](https://msit.powerbi.com/groups/me/list?experience=power-bi).
