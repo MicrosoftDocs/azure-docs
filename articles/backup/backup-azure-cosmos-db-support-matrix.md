@@ -48,4 +48,4 @@ Azure Backup for Cosmos DB includes the following backup and restore limitations
 
 ## Next steps
 
-[Back up Azure Cosmos DB using Azure portal](backup-azure-cosmos-db.md)
+[Back up Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db.md).
