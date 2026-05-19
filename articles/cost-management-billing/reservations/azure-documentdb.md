@@ -104,12 +104,14 @@ You can exchange or cancel reservations with certain limitations. For more infor
 
 When you exchange an Azure DocumentDB reservation, you can change the following attributes:
 - **Region**: Exchange a reservation from one Azure region to another
-- **vCore tier**: Exchange between different vCore tiers
+- **vCore quantity**: Exchange when you want to increase or decrease the number of vCores (e.g., scale from 8 vCores to 16 vCores, or reduce from 32 vCores to 16 vCores)
 - **Term**: Change between one-year and three-year terms
 - **Payment option**: Change between upfront and monthly payment options
 
 >[!NOTE]
->When exchanging for a different region, tier, term, or payment option, the term is reset for the new reservation.
+>When exchanging for a different region, vCore quantity, term, or payment option, the term is reset for the new reservation.
+>
+>Standard [exchange policies](exchange-and-refund-azure-reservations.md) apply to all Azure DocumentDB reservation exchanges.
 
 If you want to exchange your Azure DocumentDB reservation, you can do so by following these steps:
 
