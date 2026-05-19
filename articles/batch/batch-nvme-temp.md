@@ -11,7 +11,7 @@ ms.date: 05/19/2026
 
 # Use temporary NVMe disks on Batch compute nodes
 
-The v6 virtual machine (VM) families in Azure use [Non-Volatile Memory Express (NVMe)](/azure/virtual-machines/nvme-overview) for local temporary disks instead of the previously used Small Computer System Interface (SCSI) interface. Compared to SCSI, NVMe delivers higher input/output operations per second (IOPS) and higher throughput, which can improve performance for I/O-intensive Batch workloads.
+Some Azure virtual machine (VM) sizes use [Non-Volatile Memory Express (NVMe)](/azure/virtual-machines/nvme-overview) for local temporary disks instead of the Small Computer System Interface (SCSI). NVMe provides higher input/output operations per second (IOPS) and throughput, which can improve performance for I/O-intensive Azure Batch workloads. However, NVMe temporary disks require additional initialization steps before they can be used. This article explains how Azure Batch manages temporary NVMe disks on compute nodes and how to choose the right VM sizes for your workloads.
 
 SCSI temporary disks are pre-initialized and ready to use. NVMe temporary disks are presented as raw, unformatted disks. They aren't visible to applications until the disks are initialized, formatted, and mounted. After a VM is stopped and started, such as after a user-initiated deallocation, planned maintenance event, or recovery event, the NVMe temporary disks are presented as raw disks and need to be initialized again.
 
