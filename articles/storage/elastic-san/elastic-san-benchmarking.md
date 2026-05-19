@@ -15,25 +15,25 @@ ms.date:     05/18/2026
 Benchmarking is the process of simulating different workloads and measuring the performance that a storage system can achieve under those conditions. By running benchmarking tools on virtual machines connected to Azure Elastic SAN, you can measure the IOPS and throughput achievable under different workload patterns.
 
 
-In this article, we provide examples of how to benchmark Azure Elastic SAN volumes from both Linux and Windows virtual machines using common benchmarking tools like fio and DiskSpd. These tools allow you to simulate a variety of workload characteristics, including I/O size, access pattern (sequential or random), and concurrency level, enabling you to evaluate performance across different application scenarios.
+In this article, you find examples of how to benchmark Azure Elastic SAN volumes from both Linux and Windows virtual machines by using common benchmarking tools like `fio` and DiskSpd. These tools enable you to simulate a variety of workload characteristics, including I/O size, access pattern (sequential or random), and concurrency level. You can evaluate performance across different application scenarios.
 
-## Test Environment
+## Test environment
 
-The following environment was used for benchmarking:
+Use the following environment for benchmarking:
 
 - **Virtual machine:** Standard E32bs v5
 - **Operating systems:** Ubuntu 22.04 (Linux) and Windows Server
 - **Elastic SAN capacity:** 20 TiB
-- **Volume Size(s):** 1024 GiB
-- **Deployment:** Windows/Linux VM and Elastic SAN deployed in the same region and availability zone
+- **Volume sizes:** 1,024 GiB
+- **Deployment:** Windows and Linux VMs and Elastic SAN deployed in the same region and availability zone
 
-The VM & Elastic SAN setup were configured with the best practices outlined in the [best practices article](elastic-san-best-practices.md).
+Configure the VM and Elastic SAN setup by using the best practices outlined in the [best practices article](elastic-san-best-practices.md).
 
-## Benchmark Tooling
+## Benchmark tooling
 
 **DISKSPD**
 
-DISKSPD is a native Windows benchmarking tool used to evaluate storage performance on Windows virtual machines. [Download the DISKSPD tool](https://github.com/Microsoft/diskspd) on the VM.
+DISKSPD is a native Windows benchmarking tool that you can use to evaluate storage performance on Windows virtual machines. [Download the DISKSPD tool](https://github.com/Microsoft/diskspd) on the VM.
 
 **Baseline test parameters (DiskSpd)**
 
@@ -64,7 +64,7 @@ diskspd.exe -c100G -b4K -r -o64 -t8 -w0 -d120 -Sh -L E:\esan_test.dat
 - -d120 – 120 second runtime
 - -c100G – 100GB test file
 
-:::image type="content" source="../media/diskspdIOTest.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload."::
+:::image type="content" source="../media/diskspd-io-test.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload."::
 
 **Results:**
 
@@ -74,7 +74,7 @@ diskspd.exe -c100G -b4K -r -o64 -t8 -w0 -d120 -Sh -L E:\esan_test.dat
 
 This workload represents **small-block, IOPS-intensive scenarios**, such as transactional databases and metadata-heavy applications where low-latency, high-frequency operations are critical.
 
-### Throughput intensive workload example
+### Throughput-intensive workload example
 
 **Windows (DiskSpd)**
 
@@ -92,7 +92,7 @@ diskspd.exe -c100G -b1M -si -o32 -t4 -w0 -d120 -Sh -L E:\esan_test.dat
 - -d120 → 120 second runtime
 - -c100G → 100 GB test file
 
-:::image type="content" source="../media/diskspdThroughputtest.png" alt-text="Screenshot of DiskSpd output showing approximately 1,567 MB/s for a 1M sequential read workload.":::
+:::image type="content" source="../media/diskspd-throughput-test.png" alt-text="Screenshot of DiskSpd output showing approximately 1,567 MB/s for a 1M sequential read workload.":::
 
 **Results:**
 
@@ -104,7 +104,7 @@ This workload represents **throughput-oriented scenarios**, such as large-scale 
 
 **FIO**
 
-FIO is a commonly used tool for benchmarking storage on Linux virtual machines. It allows you to configure I/O size, access pattern, and concurrency to simulate different workload scenarios. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. We created one job file per scenario illustrated in the examples below.
+FIO is a commonly used tool for benchmarking storage on Linux virtual machines. It allows you to configure I/O size, access pattern, and concurrency to simulate different workload scenarios. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. The following examples show one job file per scenario.
 
 Before starting, download FIO and install it on your virtual machine.
 
@@ -142,7 +142,7 @@ fio --name=randread --rw=randread --bs=4k --iodepth=64 --numjobs=8 --size=100G -
 - size=100G — Test file size
 - direct=1 — Bypass OS cache
 
-:::image type="content" source="../media/fioiotest.png" alt-text="Screenshot of fio output showing approximately 81.8K IOPS and 320 MB/s for a 4K random read workload.":::
+:::image type="content" source="../media/fio-io-test.png" alt-text="Screenshot of fio output showing approximately 81.8K IOPS and 320 MB/s for a 4K random read workload.":::
 
 **Results:**
 
@@ -152,7 +152,7 @@ fio --name=randread --rw=randread --bs=4k --iodepth=64 --numjobs=8 --size=100G -
 
 This workload models **IOPS-driven application patterns**, where high concurrency and small I/O sizes stress the storage system's ability to handle large numbers of operations per second.
 
-### Throughput intensive workload example
+### Throughput-intensive workload example
 
 **Linux (fio)**
 
@@ -170,7 +170,7 @@ fio --name=readseq --rw=read --bs=1M --iodepth=32 --numjobs=4 --size=100G --time
 - size=100G — Test file size
 - direct=1 — Bypass OS cache
 
-:::image type="content" source="../media/fiothroughputtest.png" alt-text="Screenshot of fio output showing approximately 1,488 MB/s for a 1M sequential read workload.":::
+:::image type="content" source="../media/fio-throughput-test.png" alt-text="Screenshot of fio output showing approximately 1,488 MB/s for a 1M sequential read workload.":::
 
 **Results:**
 
