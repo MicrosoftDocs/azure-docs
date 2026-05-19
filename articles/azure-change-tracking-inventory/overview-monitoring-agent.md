@@ -2,7 +2,6 @@
 title: Azure Change Tracking and Inventory Overview by Using Azure Monitor Agent
 description: Learn about the Change Tracking and Inventory feature by using the Azure Monitor Agent, which helps you identify software and Microsoft service changes in your environment.
 #customer intent: As a customer, I want to evaluate the compatibility of Azure Change Tracking and Inventory with my existing infrastructure so that I can ensure seamless integration.
-services: automation
 ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
