@@ -90,4 +90,4 @@ For more information, see the [Azure Backup pricing](https://azure.microsoft.com
 
 ## Next steps
 
-[Back up Azure Cosmos DB using Azure portal](backup-azure-cosmos-db.md)
+[Back up Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db.md).
