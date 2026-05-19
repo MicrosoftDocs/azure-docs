@@ -13,9 +13,7 @@ In this Quickstart, you use Visual Studio Code to build an app that responds to 
 
 The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as and deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-<!--- Very the cost profile
-By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account. The code project creates additional Azure resources, including an Azure Cosmos DB instance.  
--->
+By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account. The code project creates additional Azure resources, including an Azure Cosmos DB instance. Make sure to [clean up resources](#clean-up-resources) when you're done to avoid ongoing charges.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
@@ -164,19 +162,24 @@ Visual Studio Code integrates with [Azure Functions Core tools](functions-run-lo
 
 ## Review the code (optional)
 
-The function is triggered based on the change feed in an Azure Cosmos DB NoSQL database. These environment variables configure how the trigger monitors the change feed:
+The function is triggered based on the change feed in an Azure Cosmos DB NoSQL database.
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+These environment variables configure how the trigger monitors the change feed:
 
 - `COSMOS_CONNECTION__accountEndpoint`: The Cosmos DB account endpoint
 - `COSMOS_DATABASE_NAME`: The name of the database to monitor
 - `COSMOS_CONTAINER_NAME`: The name of the container to monitor
 
 These environment variables are created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation.
-::: zone-end  
+::: zone-end
+::: zone pivot="programming-language-typescript"
+The `COSMOS_CONNECTION` environment variable configures the Cosmos DB account endpoint used by the trigger. This environment variable is created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation. The database and container names are defined in the trigger configuration.
+::: zone-end
 
 You can review the code that defines the Azure Cosmos DB trigger:
      
 ::: zone pivot="programming-language-csharp"  
-:::code language="csharp" source="~/functions-azd-cosmosdb-dotnet/CosmosTrigger.cs" :::
+:::code language="csharp" source="~/functions-azd-cosmosdb-dotnet/CosmosTrigger.cs" range="1-7,35-43,52-66,71-93" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb).
 ::: zone-end  
