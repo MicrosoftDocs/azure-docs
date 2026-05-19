@@ -4,22 +4,22 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 05/14/2026
 ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access SMB Azure file shares with their Microsoft Entra credentials.
 ---
 
-# Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities (preview) on Azure Files
+# Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities on Azure Files
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-This article explains how to enable and configure Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](/entra/identity/hybrid/whatis-hybrid-identity) or cloud-only identities (preview).
+This article explains how to enable and configure Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](/entra/identity/hybrid/whatis-hybrid-identity) or cloud-only identities.
 
 - Hybrid identities are on-premises Active Directory Domain Services (AD DS) identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
 - Cloud-only identities are created and managed only in Microsoft Entra ID.
 
-When you enable Microsoft Entra Kerberos authentication, users can access Azure file shares by using Kerberos authentication. Microsoft Entra ID issues the necessary Kerberos tickets to access the file share by using the SMB protocol. For cloud-only users, this authentication method means that Azure file shares no longer need a domain controller for authorization or authentication (preview). However, for hybrid identities, configuring Windows access control lists (ACLs) and directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
+When you enable Microsoft Entra Kerberos authentication, users can access Azure file shares by using Kerberos authentication. Microsoft Entra ID issues the necessary Kerberos tickets to access the file share by using the SMB protocol. For cloud-only users, this authentication method means that Azure file shares no longer need a domain controller for authorization or authentication. However, for hybrid identities, configuring Windows access control lists (ACLs) and directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
 
 For more information, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md) and [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
@@ -46,20 +46,17 @@ You need the following minimum prerequisites. Without these prerequisites, you c
 
 - If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies) that block symmetric key addition on service principals, or that restrict service principal symmetric key lifetime to a value less than 366 days, you will need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If using the [Entra Admin Center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`.
 
-- This feature currently doesn't support cross-tenant access for B2B users or guest users. Users from an Entra tenant other than the one configured won't be able to access the file share.
-
 - With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
 - Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop. This support applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Scenarios not involving Azure Virtual Desktop aren't supported for business-to-business guest users or users from other Entra tenants.
 
-> [!IMPORTANT]
-> Cloud-only identities support (preview) is only available by using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities).
+- Microsoft Entra Kerberos doesn't currently support cross-tenant access.
 
 ### Operating system and domain prerequisites
 
 The standard Microsoft Entra Kerberos authentication flow described in this article requires the following prerequisites. If some or all of your client machines don't meet these prerequisites, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
-To use Entra Kerberos authentication for cloud-only identities (preview), use one of the following operating systems:
+To use Entra Kerberos authentication for cloud-only identities, use one of the following operating systems:
 
   - Windows 11 Enterprise/Pro single or multi-session.
   - Windows Server 2025 with the latest cumulative updates installed.
@@ -75,11 +72,22 @@ For information about how to create and configure a Windows VM and sign in by us
 
 Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra/identity/devices/hybrid-join-plan). They can't be joined to Microsoft Entra Domain Services or joined to AD only.
 
-## Regional availability
+## Regional availability for Microsoft Entra Kerberos
 
-Support for hybrid identities is available in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+Microsoft Entra Kerberos support for hybrid identities is available for all regions in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
-Support for cloud-only identities (preview) is available only in the Azure Public clouds and is limited to using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) for all authenticated identities.
+Microsoft Entra Kerberos support for cloud-only identities is currently available only for the following subset of regions in the Azure Public cloud.
+
+- Australia Central
+- Australia Central 2
+- Brazil Southeast
+- France South
+- Germany North
+- Norway West
+- South Africa West
+- Switzerland West
+- UAE Central
+- West India
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
@@ -102,7 +110,7 @@ To enable Microsoft Entra Kerberos authentication by using the [Azure portal](ht
 
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" alt-text="Screenshot of the Azure portal showing identity-based access configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-entra-kerberos.png" border="true":::
 
-1. **Optional:** If you're authenticating hybrid identities and want to configure directory and file-level permissions through Windows File Explorer, specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name appears in the output under `DNSRoot` and your domain GUID appears under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using Windows File Explorer isn't currently supported for cloud-only identities (preview).**
+1. **Optional:** If you're authenticating hybrid identities and want to configure directory and file-level permissions through Windows File Explorer, specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name appears in the output under `DNSRoot` and your domain GUID appears under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using Windows File Explorer isn't currently supported for cloud-only identities.**
 
 1. Select **Save**.
 
@@ -114,7 +122,7 @@ To enable Microsoft Entra Kerberos by using Azure PowerShell, run the following 
 Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName <storageAccountName> -EnableAzureActiveDirectoryKerberosForFile $true
 ```
 
-**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through File Explorer, you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using File Explorer isn't currently supported for cloud-only identities (preview).**
+**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through File Explorer, you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using File Explorer isn't currently supported for cloud-only identities.**
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -138,7 +146,7 @@ To enable Microsoft Entra Kerberos by using Azure CLI, run the following command
 az storage account update --name <storageaccountname> --resource-group <resourcegroupname> --enable-files-aadkerb true
 ```
 
-**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through File Explorer, you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using File Explorer isn't currently supported for cloud-only identities (preview).**
+**Optional:** If you're authenticating hybrid identities and you want to configure directory and file-level permissions through File Explorer, you also need to specify the domain name and domain GUID for your on-premises AD. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises AD. **Configuring directory and file-level permissions by using File Explorer isn't currently supported for cloud-only identities.**
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises AD-joined client:
 
@@ -177,7 +185,7 @@ If you're connecting to a storage account through a private endpoint or private 
 
 ## Enable cloud-only groups support (mandatory for cloud-only identities)
 
-Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports Entra-only identities (preview), tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued.
+Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports Entra-only identities, tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued.
 
 If you're using Microsoft Entra Kerberos to authenticate cloud-only identities, update the Tags in your application manifest file, or authentication fails.  
 
@@ -203,7 +211,7 @@ For guidance on disabling MFA, see the following articles:
 
 When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This permission system allows for fine-grained control over permissions, similar to an SMB share on a Windows Server.
 
-To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md). Cloud-only identities can only be assigned a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
+To set share-level permissions for hybrid or cloud-only identities, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ## Configure directory and file-level permissions
 
