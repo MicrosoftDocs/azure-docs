@@ -66,12 +66,12 @@ The following is a sample workflow for creating and using a workspace.
 
 ## Workspace gateway
 
-Each workspace is configured with one ore more gateways to enable runtime of APIs managed within the workspace. Depending on the service tier and your requirements, you can use the service's **default managed gateway** or one or more **dedicated workspace gateways**.
+Each workspace is configured with one or more gateways to enable runtime of APIs managed within the workspace. Depending on the service tier and your requirements, you can use the service's **default managed gateway** or one or more **dedicated workspace gateways**.
 
 | Option | Availability | Benefits | Considerations |
 |---|---|---|---|
 | Default managed gateway | Premium v2 | No additional gateway resource or cost; workspaces benefit from the full capabilities of the default gateway including managed identities and CA certificates | Less isolation; all workspaces share the gateway's capacity and configuration |
-| Dedicated workspace gateway | Premium and Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace | Additional cost; longer deployment time; additional [limitations](#gateway-constraints) apply |
+| Dedicated workspace gateway | Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace | Additional cost; longer deployment time; additional [limitations](#gateway-constraints) apply |
 
 ### Default managed gateway
 
@@ -79,7 +79,7 @@ In the Premium v2 tier, you can configure a workspace to route API traffic throu
 
 - API traffic routes through the service's default hostname (for example, `<service-name>.azure-api.net`).
 - The workspace shares the gateway's capacity and configuration with other workspaces and service-level APIs.
-- The [constraints](#gateway-constraints) that apply to dedicated workspace gateways don't apply; the workspace has access to the full capabilities of the default managed gateway.
+- Most [constraints](#gateway-constraints) that apply to dedicated workspace gateways don't apply; the workspace has access to the full capabilities of the default managed gateway.
 
 > [!NOTE]
 > Configuring a workspace to use the default managed gateway is currently only available via the REST API.
