@@ -52,11 +52,10 @@ For more information on change tracking and how it's used by applications such a
 
 For a complete end-to-end example of using the Azure SQL trigger, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
 
-::: zone pivot="programming-language-csharp"
-
 ## Example usage
 <a id="example"></a>
 
+::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -180,8 +179,6 @@ namespace AzureSQL.ToDo
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-java).
 
@@ -299,8 +296,6 @@ public class ProductsTrigger {
 
 
 ::: zone pivot="programming-language-powershell"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
 
@@ -355,8 +350,6 @@ Write-Host "SQL Changes: $changesJson"
 ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
 
@@ -412,8 +405,6 @@ module.exports = async function (context, todoChanges) {
 
 
 ::: zone pivot="programming-language-python"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
 
