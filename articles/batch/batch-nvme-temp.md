@@ -2,6 +2,8 @@
 title: Use temporary NVMe disks on Batch compute nodes
 description: Learn how Azure Batch manages temporary NVMe disks on compute nodes.
 ms.topic: concept-article
+author: zhaoyiluo
+ms.author: padmalathas
 ms.service: azure-batch
 ms.date: 05/19/2026
 # Customer intent: "As a cloud solutions architect, I want to deploy Batch workloads on compute nodes with temporary NVMe disks, so that I can provide high-throughput local storage for I/O-intensive workloads."
@@ -31,7 +33,7 @@ A Batch compute node can have one of the following temporary disk configurations
 
 ## Initialization behavior
 
-For VMs with only NVMe temporary disks, Batch provides a single ready-to-use volume that backs the node root directory (`AZ_BATCH_NODE_ROOT_DIR`). Batch handles disk initialization and formatting, and combines multiple NVMe temporary disks into one volume when needed.
+For VMs with only NVMe temporary disks, Batch provides a single ready-to-use volume that backs the node root directory (`AZ_BATCH_NODE_ROOT_DIR`). Batch handles disk initialization and formatting, and it combines multiple NVMe temporary disks into one volume when needed.
 
 The mount point and node root directory path depend on the operating system:
 
