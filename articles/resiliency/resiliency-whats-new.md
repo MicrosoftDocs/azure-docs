@@ -15,7 +15,7 @@ ms.author: v-mallicka
 
 Resiliency in Azure continues to evolve with new capabilities that help you strengthen your business continuity and disaster recovery (BCDR) posture. These updates expand support across workloads and environments, enhance protection and security, and improve the availability and recoverability of your applications and data. The service also introduces new capabilities for unified management, monitoring, and automation across your resiliency estate.
 
-You can learn more about the new releases by bookmarking this page.
+Bookmark this page to learn more about the new releases.
 
 ## Updates summary
 
@@ -32,7 +32,7 @@ Availability Zone Down Drills (preview) is now available in Infrastructure Resil
 
 Key capabilities include:
 
-- **Availability zone fault simulation**: Simulates availability zone failures across supported Azure resource types using Azure-recommended faults. This simulation automatically injects faults such as Virtual Machine shutdown, Virtual Machine Scale Set zone shutdown, Azure Kubernetes Service (AKS) node pool shutdown, forced database failovers, and more.
+- **Availability zone fault simulation**: Simulates availability zone failures across supported Azure resource types by using Azure-recommended faults. This simulation automatically injects faults such as Virtual Machine shutdown, Virtual Machine Scale Set zone shutdown, Azure Kubernetes Service (AKS) node pool shutdown, forced database failovers, and more.
 
 - **Custom fault definition**: Defines custom fault logic for unsupported resource by integrating with Azure Runbooks.
 
@@ -74,7 +74,7 @@ Azure Recovery Orchestration Plan enables you to orchestrate application recover
 
 Key benefits include:
 
-- **Zonal failover orchestration**: Orchestrates failover across multiple (+18) Azure resource types and services, including Virtual Machines, Virtual Machine Scale Sets, SQL databases, Azure SQL Managed Instance (SQL - MI) Cosmos DB, PostgreSQL database, AKS, Storage accounts and more.
+- **Zonal failover orchestration**: Orchestrates failover across multiple (+18) Azure resource types and services, including Virtual Machines, Virtual Machine Scale Sets, SQL databases, Azure SQL Managed Instance (SQL - MI) Cosmos DB, PostgreSQL database, AKS, Storage accounts, and more.
 
 - **Failover sequencing**: Defines recovery order by using customizable groups to control the execution sequence.
 
