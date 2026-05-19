@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 05/12/2026
 ms.author: dobett
+ms.service: azure-iot-operations
 ai-usage: ai-assisted
 ---
 

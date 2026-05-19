@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 07/25/2025
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 When you deploy Azure IoT Operations, the deployment includes various connectors. Before you can use the connectors (such as ONVIF, media, and HTTP/REST) in the operations experience web UI, an administrator must add connector template instances to your Azure IoT Operations instance.
