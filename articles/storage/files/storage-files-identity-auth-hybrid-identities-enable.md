@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/14/2026
+ms.date: 05/19/2026
 ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access SMB Azure file shares with their Microsoft Entra credentials.
 ---
@@ -13,7 +13,7 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-This article explains how to enable and configure Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid](/entra/identity/hybrid/whatis-hybrid-identity) or cloud-only identities.
+This article explains how to enable and configure Microsoft Entra ID for authenticating [hybrid](/entra/identity/hybrid/whatis-hybrid-identity) or cloud-only identities.
 
 - Hybrid identities are on-premises Active Directory Domain Services (AD DS) identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
@@ -76,7 +76,7 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra
 
 Microsoft Entra Kerberos support for hybrid identities is available for all regions in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
-Microsoft Entra Kerberos support for cloud-only identities is currently available only for the following subset of regions in the Azure Public cloud.
+Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
 - Australia Central
 - Australia Central 2
