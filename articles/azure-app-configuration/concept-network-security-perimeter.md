@@ -17,16 +17,11 @@ ms.date: 05/18/2026
 > [!IMPORTANT]
 > Network security perimeter is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms of use.
 
-When you associate a configuration store with a network security perimeter, you gain the following capabilities:
-
-- **Inbound access rules**: Control which IP addresses or subscriptions can access your configuration store.
-- **Outbound access rules**: Control which resources your configuration store can communicate with (for example, an Azure Key Vault when using [customer-managed key encryption](./concept-customer-managed-keys.md)).
-- **Shared configuration across PaaS resources**: Share a collection of access rules across multiple PaaS resources using network security perimeter profiles.
-- **Diagnostic logging**: Monitor network traffic to and from your configuration store through network security perimeter diagnostic logs.
+Associating a configuration store with a network security perimeter lets you control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts#why-use-a-network-security-perimeter).
 
 ## Transitioning to a network security perimeter
 
-A resource association supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP.
+A resource association with a network security perimeter supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP.
 
 ## Access mode and public network access
 
@@ -36,7 +31,7 @@ For a complete breakdown of how these settings interact, see [Moving new resourc
 
 ## Considerations for customer-managed key encryption
 
-If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter _or_ the NSP association is in Enforced mode), outbound communication to Azure Key Vault must be permitted by the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter _or_ the NSP association is in Enforced mode), outbound communication to the Azure Key Vault resource must be permitted by the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
 - **FQDN outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
@@ -45,7 +40,7 @@ If neither condition is met, the configuration store can't access the encryption
 
 ## Considerations for monitoring
 
-If your configuration store has [monitoring](./monitor-app-configuration.md) enabled through diagnostic settings, log destinations (such as Log Analytics workspaces, storage accounts, and event hubs) must be in the same network security perimeter as the configuration store. FQDN outbound access rules don't apply to monitoring destinations, so any destination outside the perimeter won't receive diagnostic data.
+If your configuration store has [monitoring](./monitor-app-configuration.md) enabled through diagnostic settings, log destinations (such as log analytics workspaces, storage accounts, and event hubs) must be in the same network security perimeter as the configuration store. FQDN-based outbound access rules don't apply to monitoring destinations, so any destination outside the perimeter won't receive diagnostic data.
 
 ## Limitations
 

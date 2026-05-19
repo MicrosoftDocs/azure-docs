@@ -17,8 +17,8 @@ Azure App Configuration integrates with Azure's network security offerings, lett
 ## Public network access
 
 The key component of network security in Azure App Configuration is the ability to restrict public network access. Azure App Configuration offers four public network access options:
-- **Enabled**: All networks can access this resource.
 - **Automatic public access**: Public network access is enabled, as long as you don't have a private endpoint present. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating a store.
+- **Enabled**: All networks can access this resource.
 - **Secured by perimeter**: Public access is disabled. Only traffic from a private endpoint or traffic allowed by the associated network security perimeter can access this resource.
 - **Disabled**: Public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 
@@ -27,13 +27,13 @@ The key component of network security in Azure App Configuration is the ability 
 
 ## Accessing a configuration store with public network access disabled
 
-If you restrict network access to your configuration store (public network access set to "Disabled" or "Secured by perimeter"), there are two ways your clients can access your configuration store:
+If you restrict network access to your configuration store through the public network access setting or association with a network security perimeter, there are two ways your clients can access your configuration store:
 
-1. **Private endpoint**: A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link, such as Azure App Configuration. By creating a private endpoint for your configuration store, you can access it privately from your virtual network, without exposing it to the public internet. For more information, see [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md).
+1. **Private endpoint**: A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link, such as Azure App Configuration. By creating a private endpoint for your configuration store, you can access the configuration store privately from your virtual network, without exposing it to the public internet. For more information, see [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md).
 2. **Network security perimeter**: A network security perimeter is a security boundary that you can define to restrict access to your configuration store based on client IP address, Azure subscription, or network security perimeter membership. By associating a network security perimeter with your configuration store, you can allow access from specific clients while blocking all other traffic. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
 > [!NOTE]
-> Private endpoints and network security perimeters can be combined for defense in depth. You can use both features simultaneously to provide layered security for your configuration store. For example, you can use a private endpoint to connect to your store from clients within a virtual network, while also using a network security perimeter to allow access to specific IP addresses.
+> Private endpoints and network security perimeters can be combined for defense in depth. You can use both features simultaneously to provide layered security for your configuration store. For example, you can use a private endpoint to connect to your store from clients within a virtual network, while also using a network security perimeter to allow access to specific IP addresses outside of a virtual network.
 
 ## Related content
 
