@@ -1,8 +1,8 @@
 ---
 title:       Benchmarking Azure Elastic SAN
-description: Learn how Azure Elastic SAN simplifies storage management for multiple compute resources with high performance and cost optimization.
+description: Learn how to benchmark Azure Elastic SAN performance by measuring IOPS and throughput using DiskSpd and fio on Windows and Linux virtual machines.
 author:      eshanchomsft
-ms.author:   roygara
+ms.author:   rogarana
 ms.service:  azure-elastic-san-storage
 ms.topic:    concept-article
 ms.date:     05/18/2026
