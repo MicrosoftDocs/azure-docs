@@ -43,6 +43,7 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
+| Feature | S2S | [S2S VPN Gateway certificate authentication connection](site-to-site-certificate-authentication-gateway-about.md) |Azure VPN Gateway supports site-to-site VPN with digital certificate authentication. View the [portal](site-to-site-certificate-authentication-gateway-portal.md) and [Powershell](site-to-site-certificate-authentication-gateway-powershell.md) instructions to enable it. | May 2026 | N/A |
 | Feature | P2S | [User Groups and client address pools](point-to-site-user-groups-create.md) | Azure VPN Gateway supports user groups and client address pools. View the [portal](point-to-site-user-groups-create-portal.md) and [Powershell](point-to-site-user-groups-create.md) instructions to enable it. | May 2026 | N/A |
 | IPv6 Preview | N/A | [VPN Gateway IPv6](ipv6-configuration.md) | Azure VPN Gateway supports IPv6 in dual stack. View the announcement [here](https://aka.ms/vpnipv6preview). | May 2025 | N/A |
 | SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](gateway-sku-consolidation.md) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026). | Sep 2024 | N/A |

@@ -20,39 +20,43 @@ Some scenarios where task dependencies are useful include:
 
 By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can optionally specify a [dependency action](#dependency-actions) to override the default behavior and run the dependent task even if the parent task fails.
 
-In this article, we discuss how to configure task dependencies by using the [Batch .NET](/dotnet/api/microsoft.azure.batch) library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). We also describe how to specify a dependency action to run dependent tasks if the parent fails. Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
+In this article, we discuss how to configure task dependencies by using the [Batch .NET](/dotnet/api/azure.compute.batch) library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). We also describe how to specify a dependency action to run dependent tasks if the parent fails. Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
 
 ## Enable task dependencies
 
-To use task dependencies in your Batch application, you must first configure the job to use task dependencies. In Batch .NET, enable it on your [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) by setting its [UsesTaskDependencies](/dotnet/api/microsoft.azure.batch.cloudjob.usestaskdependencies) property to `true`:
+To use task dependencies in your Batch application, you must first configure the job to use task dependencies. In Batch .NET, enable it on your [BatchJobCreateOptions](/dotnet/api/azure.compute.batch.batchjobcreateoptions) by setting its [UsesTaskDependencies](/dotnet/api/azure.compute.batch.batchjobcreateoptions.usestaskdependencies) property to `true`:
 
-```csharp
-CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
-    new PoolInformation { PoolId = "pool001" });
-
-// IMPORTANT: This is REQUIRED for using task dependencies.
-unboundJob.UsesTaskDependencies = true;
+```C# Snippet:task_deps_enable_job
+BatchJobCreateOptions unboundJob = new BatchJobCreateOptions("job001", new BatchPoolInfo() { PoolId = "pool001" })
+{
+    // IMPORTANT: This is REQUIRED for using task dependencies.
+    UsesTaskDependencies = true
+};
+await batchClient.CreateJobAsync(unboundJob);
 ```
 
-In the preceding code snippet, "batchClient" is an instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
+In the preceding code snippet, "batchClient" is an instance of the [BatchClient](/dotnet/api/azure.compute.batch.batchclient) class.
 
 ## Create dependent tasks
 
-To create a task that depends on the completion of one or more parent tasks, you can specify that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property with an instance of the [TaskDependencies](/dotnet/api/microsoft.azure.batch.taskdependencies) class:
+To create a task that depends on the completion of one or more parent tasks, you can specify that the task "depends on" the other tasks. In Batch .NET, configure the [BatchTaskCreateOptions.DependsOn](/dotnet/api/azure.compute.batch.batchtaskcreateoptions.dependson) property with an instance of the [BatchTaskDependencies](/dotnet/api/azure.compute.batch.batchtaskdependencies) class:
 
-```csharp
+```C# Snippet:task_deps_flowers
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
 // before it is run.
-new CloudTask("Flowers", "cmd.exe /c echo Flowers")
+BatchTaskCreateOptions flowers = new BatchTaskCreateOptions("Flowers", "cmd.exe /c echo Flowers")
 {
-    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
-},
+    DependsOn = new BatchTaskDependencies()
+    {
+        TaskIds = { "Rain", "Sun" }
+    }
+};
 ```
 
 This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" are completed successfully.
 
 > [!NOTE]
-> By default, a task is considered to be completed successfully when it is in the completed state and its exit code is `0`. In Batch .NET, this means a [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state) property value is `Completed` and the CloudTask's [TaskExecutionInformation.ExitCode](/dotnet/api/microsoft.azure.batch.taskexecutioninformation.exitcode) property value is `0`. To learn how to change this, see the [Dependency actions](#dependency-actions) section.
+> By default, a task is considered to be completed successfully when it is in the completed state and its exit code is `0`. In Batch .NET, this means a [BatchTask.State](/dotnet/api/azure.compute.batch.batchtask.state) property value is `Completed` and the BatchTask's [BatchTaskExecutionInfo.ExitCode](/dotnet/api/azure.compute.batch.batchtaskexecutioninfo.exitcode) property value is `0`. To learn how to change this, see the [Dependency actions](#dependency-actions) section.
 
 ## Dependency scenarios
 
@@ -71,34 +75,40 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 
 ### One-to-one
 
-In a one-to-one relationship, a task depends on the successful completion of one parent task. To create the dependency, provide a single task ID to the [TaskDependencies.OnId](/dotnet/api/microsoft.azure.batch.taskdependencies.onid) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
+In a one-to-one relationship, a task depends on the successful completion of one parent task. To create the dependency, set [BatchTaskDependencies.TaskIds](/dotnet/api/azure.compute.batch.batchtaskdependencies.taskids) with a single task ID when you populate the [BatchTaskCreateOptions.DependsOn](/dotnet/api/azure.compute.batch.batchtaskcreateoptions.dependson) property.
 
-```csharp
-// Task 'taskA' doesn't depend on any other tasks
-new CloudTask("taskA", "cmd.exe /c echo taskA"),
-
-// Task 'taskB' depends on completion of task 'taskA'
-new CloudTask("taskB", "cmd.exe /c echo taskB")
+```C# Snippet:task_deps_one_to_one
+IList<BatchTaskCreateOptions> tasks = new List<BatchTaskCreateOptions>
 {
-    DependsOn = TaskDependencies.OnId("taskA")
-},
+    // Task 'taskA' doesn't depend on any other tasks
+    new BatchTaskCreateOptions("taskA", "cmd.exe /c echo taskA"),
+
+    // Task 'taskB' depends on completion of task 'taskA'
+    new BatchTaskCreateOptions("taskB", "cmd.exe /c echo taskB")
+    {
+        DependsOn = new BatchTaskDependencies() { TaskIds = { "taskA" } }
+    },
+};
 ```
 
 ### One-to-many
 
-In a one-to-many relationship, a task depends on the completion of multiple parent tasks. To create the dependency, provide a collection of specific task IDs to the [TaskDependencies.OnIds](/dotnet/api/microsoft.azure.batch.taskdependencies.onids) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
+In a one-to-many relationship, a task depends on the completion of multiple parent tasks. To create the dependency, populate [BatchTaskDependencies.TaskIds](/dotnet/api/azure.compute.batch.batchtaskdependencies.taskids) with the parent task IDs when you populate the [BatchTaskCreateOptions.DependsOn](/dotnet/api/azure.compute.batch.batchtaskcreateoptions.dependson) property.
 
-```csharp
-// 'Rain' and 'Sun' don't depend on any other tasks
-new CloudTask("Rain", "cmd.exe /c echo Rain"),
-new CloudTask("Sun", "cmd.exe /c echo Sun"),
-
-// Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
-// before it is run.
-new CloudTask("Flowers", "cmd.exe /c echo Flowers")
+```C# Snippet:task_deps_one_to_many
+IList<BatchTaskCreateOptions> tasks = new List<BatchTaskCreateOptions>
 {
-    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
-},
+    // 'Rain' and 'Sun' don't depend on any other tasks
+    new BatchTaskCreateOptions("Rain", "cmd.exe /c echo Rain"),
+    new BatchTaskCreateOptions("Sun", "cmd.exe /c echo Sun"),
+
+    // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
+    // before it is run.
+    new BatchTaskCreateOptions("Flowers", "cmd.exe /c echo Flowers")
+    {
+        DependsOn = new BatchTaskDependencies() { TaskIds = { "Rain", "Sun" } }
+    },
+};
 ```
 
 > [!IMPORTANT]
@@ -108,7 +118,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 
 In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range that you specify.
 
-To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies.OnIdRange](/dotnet/api/microsoft.azure.batch.taskdependencies.onidrange) static method when you populate the [CloudTask.DependsOn](/dotnet/api/microsoft.azure.batch.cloudtask.dependson) property.
+To create the dependency, populate [BatchTaskDependencies.TaskIdRanges](/dotnet/api/azure.compute.batch.batchtaskdependencies.taskidranges) with a [BatchTaskIdRange](/dotnet/api/azure.compute.batch.batchtaskidrange) when you populate the [BatchTaskCreateOptions.DependsOn](/dotnet/api/azure.compute.batch.batchtaskcreateoptions.dependson) property.
 
 > [!IMPORTANT]
 > When you use task ID ranges for your dependencies, only tasks with IDs representing integer values are selected by the range. For example, the range `1..10` selects tasks `3` and `7`, but not `5flamingoes`.
@@ -117,22 +127,28 @@ To create the dependency, provide the first and last task IDs in the range to th
 >
 > For the dependent task to run, every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that is mapped to a [dependency action](#dependency-actions) set to **Satisfy**.
 
-```csharp
-// Tasks 1, 2, and 3 don't depend on any other tasks. Because
-// we will be using them for a task range dependency, we must
-// specify string representations of integers as their ids.
-new CloudTask("1", "cmd.exe /c echo 1"),
-new CloudTask("2", "cmd.exe /c echo 2"),
-new CloudTask("3", "cmd.exe /c echo 3"),
-
-// Task 4 depends on a range of tasks, 1 through 3
-new CloudTask("4", "cmd.exe /c echo 4")
+```C# Snippet:task_deps_range
+IList<BatchTaskCreateOptions> tasks = new List<BatchTaskCreateOptions>
 {
-    // To use a range of tasks, their ids must be integer values.
-    // Note that we pass integers as parameters to TaskIdRange,
-    // but their ids (above) are string representations of the ids.
-    DependsOn = TaskDependencies.OnIdRange(1, 3)
-},
+    // Tasks 1, 2, and 3 don't depend on any other tasks. Because
+    // we will be using them for a task range dependency, we must
+    // specify string representations of integers as their ids.
+    new BatchTaskCreateOptions("1", "cmd.exe /c echo 1"),
+    new BatchTaskCreateOptions("2", "cmd.exe /c echo 2"),
+    new BatchTaskCreateOptions("3", "cmd.exe /c echo 3"),
+
+    // Task 4 depends on a range of tasks, 1 through 3
+    new BatchTaskCreateOptions("4", "cmd.exe /c echo 4")
+    {
+        // To use a range of tasks, their ids must be integer values.
+        // Note that we pass integers as parameters to BatchTaskIdRange,
+        // but their ids (above) are string representations of the ids.
+        DependsOn = new BatchTaskDependencies()
+        {
+            TaskIdRanges = { new BatchTaskIdRange(1, 3) }
+        }
+    },
+};
 ```
 
 ## Dependency actions
@@ -149,9 +165,9 @@ A dependency action is based on an exit condition for the parent task. You can s
 - Whenever the task exits with an exit code that falls within a range specified by the **ExitCodeRanges** property.
 - The default case, if the task exits with an exit code not defined by **ExitCodes** or **ExitCodeRanges**, or if the task exits with a pre-processing error and the **PreProcessingError** property isn't set, or if the task fails with a file upload error and the **FileUploadError** property isn't set. 
 
-For .NET, these conditions are defined as properties of the [ExitConditions](/dotnet/api/microsoft.azure.batch.exitconditions) class.
+For .NET, these conditions are defined as properties of the [ExitConditions](/dotnet/api/azure.compute.batch.exitconditions) class.
 
-To specify a dependency action, set the [ExitOptions.DependencyAction](/dotnet/api/microsoft.azure.batch.exitoptions.dependencyaction) property for the exit condition to one of the following options:
+To specify a dependency action, set the [ExitOptions.DependencyAction](/dotnet/api/azure.compute.batch.exitoptions.dependencyaction) property for the exit condition to one of the following options:
 
 - **Satisfy**: Indicates that dependent tasks are eligible to run if the parent task exits with a specified error.
 - **Block**: Indicates that dependent tasks aren't eligible to run.
@@ -160,37 +176,40 @@ The default setting for the **DependencyAction** property is **Satisfy** for exi
 
 The following code snippet sets the **DependencyAction** property for a parent task. If the parent task exits with a preprocessing error, or with the specified error codes, the dependent task is blocked. If the parent task exits with any other nonzero error, the dependent task is eligible to run.
 
-```csharp
-// Task A is the parent task.
-new CloudTask("A", "cmd.exe /c echo A")
+```C# Snippet:task_deps_exit_codes
+IList<BatchTaskCreateOptions> tasks = new List<BatchTaskCreateOptions>
 {
-    // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions
+    // Task A is the parent task.
+    new BatchTaskCreateOptions("A", "cmd.exe /c echo A")
     {
-        // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
-        PreProcessingError = new ExitOptions
+        // Specify exit conditions for task A and their dependency actions.
+        ExitConditions = new ExitConditions()
         {
-            DependencyAction = DependencyAction.Block
-        },
-        // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>
-        {
-            new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
-            new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
-        },
-        // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
-        // (in this example, task B).
-        Default = new ExitOptions
-        {
-            DependencyAction = DependencyAction.Satisfy
+            // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
+            PreProcessingError = new ExitOptions()
+            {
+                DependencyAction = DependencyAction.Block
+            },
+            // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
+            ExitCodes =
+            {
+                new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
+                new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
+            },
+            // If task A succeeds or fails with any other error, any downstream tasks become eligible to run
+            // (in this example, task B).
+            DefaultExitOptions = new ExitOptions()
+            {
+                DependencyAction = DependencyAction.Satisfy
+            }
         }
-    }
-},
-// Task B depends on task A. Whether it becomes eligible to run depends on how task A exits.
-new CloudTask("B", "cmd.exe /c echo B")
-{
-    DependsOn = TaskDependencies.OnId("A")
-},
+    },
+    // Task B depends on task A. Whether it becomes eligible to run depends on how task A exits.
+    new BatchTaskCreateOptions("B", "cmd.exe /c echo B")
+    {
+        DependsOn = new BatchTaskDependencies() { TaskIds = { "A" } }
+    },
+};
 ```
 
 ## Code sample

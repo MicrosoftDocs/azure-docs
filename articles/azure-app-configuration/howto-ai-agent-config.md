@@ -29,7 +29,7 @@ Here are some agent settings that can be stored on Azure App Configuration:
 
 
 ## Example agent settings
-1. Follow the [Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code) to create a project in Foundry with a deployed gpt-4.1 model. Note down the Foundry project endpoint for later use.
+1. Follow the [Microsoft Foundry Quickstart](/azure/ai-foundry/quickstarts/get-started-code) to create a project in Foundry with a deployed gpt-5 model. Note down the Foundry project endpoint for later use.
 
 1. Navigate to your App Configuration store and add the following key-values. Leave **Label** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -47,7 +47,7 @@ Here are some agent settings that can be stored on Azure App Configuration:
     description: Agent example with web search
     instructions: You are a helpful assistant with access to web search.
     model:
-        id: gpt-4.1
+        id: gpt-5
         connection:
             kind: remote
     tools:
