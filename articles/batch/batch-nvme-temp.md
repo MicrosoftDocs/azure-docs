@@ -43,6 +43,5 @@ For other temporary disk configurations and the corresponding `AZ_BATCH_NODE_ROO
 
 ## Related content
 
-- [Files and directories in Azure Batch](files-and-directories.md)
 - [Choose a VM size and image for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md)
 - [FAQ for Temp NVMe disks](/azure/virtual-machines/enable-nvme-temp-faqs)
