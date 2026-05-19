@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 05/11/2026
+ms.date: 05/19/2026
 ai-usage: ai-assisted
 ---
 
@@ -125,9 +125,5 @@ Backup and recovery for Azure Load Balancer focuses on preserving the configurat
 
 ## Next steps
 
-- [Azure Load Balancer overview](load-balancer-overview.md)
-- [Azure Load Balancer best practices](load-balancer-best-practices.md)
-- [Monitor Azure Load Balancer](monitor-load-balancer.md)
 - [Azure Load Balancer security baseline](/security/benchmark/azure/baselines/azure-load-balancer-security-baseline)
-- [Upgrade from Basic to Standard Load Balancer](load-balancer-basic-upgrade-guidance.md)
 - [What is Azure network security?](../networking/security/network-security.md)
