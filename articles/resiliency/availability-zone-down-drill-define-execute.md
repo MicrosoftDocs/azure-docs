@@ -94,7 +94,7 @@ The zone down drill allows you to review the resources included in the drill. Th
 To include resources in the drill, follow these steps:
 
 1. On the selected drill instance pane, select **Settings** > **Drills scope**.
-1. On the **Drill scope** pane, on the **Resiliency solutions** tab, under **Resources excluded from drill**, select **View details*.
+1. On the **Drill scope** pane, on the **Resiliency solutions** tab, under **Resources excluded from drill**, select **View details**.
 1. On the **View details and include resources** pane, to add an excluded resource, select the resource from the list, and select **Include resources**.
 
 ### Review the metrics
@@ -173,4 +173,4 @@ To end the drill execution, follow these steps:
 
 ## Related content
 
-[About Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-about.md).
+[About Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-about.md)
