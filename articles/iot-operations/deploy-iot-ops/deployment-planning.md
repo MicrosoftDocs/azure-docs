@@ -11,7 +11,7 @@ ms.date: 04/21/2026
 
 # Deployment planning for Azure IoT Operations
 
-Many MQTT broker settings in Azure IoT Operations are configured at deployment time and can't be changed afterward. A new deployment is required if broker configuration changes are needed. This constraint makes pre-deployment planning critical -- you need to make informed decisions about cluster topology, memory profiles, disk buffering, persistence, diagnostics, and security before you deploy. This guide consolidates the key decisions you should review before deployment.
+Many settings in Azure IoT Operations are configured at deployment time and can't be changed afterward. For example, a new deployment is required if broker configuration changes are needed. This constraint makes pre-deployment planning critical -- you need to make informed decisions about cluster topology, memory profiles, disk buffering, persistence, diagnostics, and security before you deploy. This guide consolidates the key decisions you should review before deployment.
 
 ## Understand the architecture
 

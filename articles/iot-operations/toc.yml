@@ -62,9 +62,15 @@ items:
             displayName: Kubernetes, Arc-enable, secure settings
           - name: Configure observability
             items:
+              - name: Unified health status reporting
+                href: configure-observability-monitoring/health-status-reporting.md
+                displayName: health, status, reporting, monitoring, diagnostics
               - name: Deploy observability resources
                 href: configure-observability-monitoring/howto-configure-observability.md
                 displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
+              - name: Cleanup observability resources
+                href: configure-observability-monitoring/howto-clean-up-observability-resources.md
+                displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics, cleanup, remove
           - name: Secure your deployment
             items:
               - name: Enable secure settings
