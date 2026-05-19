@@ -51,13 +51,13 @@ To restore Azure Cosmos DB account, follow these steps:
 
    :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-restore-parameter-added.png" alt-text="Screenshot shows the selected restore parameters." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-restore-parameter-added.png"::: 
  
-7. To check the restore parameters permissions before the final review and restore , select **Validate**. After validation is successful, select **Review + restore**.
+7. To check the restore parameters permissions before the final review and restore, select **Validate**. After validation is successful, select **Review + restore**.
 
    :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-restore-parameter-validated.png" alt-text="Screenshot shows the restore parameters validation." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-restore-parameter-validated.png"::: 
 
 8. On the **Review + restore** tab, select **Restore** to restore the selected Azure Cosmos DB account backup in a target Azure Cosmos DB account.
 
-   :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png" alt-text="Screenshot to review and restore backup" lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png"::: 
+   :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png" alt-text="Screenshot to review and restore backup." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png"::: 
    
 9. You can track the restore job under **Backup jobs**.
                           

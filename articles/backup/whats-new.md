@@ -78,7 +78,8 @@ Key benefits include:
 - **Policy-based scheduled backups:** Defines and manages backup schedules and long-term retention (up to 10 years) for Azure Cosmos DB by using Azure Backup policies.
 - **Built-in security protections:** Protects backups with encryption, soft delete, immutability, and role-based access control.
 
-**Note**: Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
+   >[!Note]
+   >Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
 
 For more information, see [About Azure Cosmos DB vaulted backup (preview)](backup-azure-cosmos-db-overview.md).
 

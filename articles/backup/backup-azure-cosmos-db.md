@@ -34,11 +34,11 @@ To create a backup policy, follow these steps:
 4. On the **Create Backup Policy** pane, on the **Basics** tab,  enter a **Policy name** for the new backup policy.
 5. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
    
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
 
    The preview feature supports weekly backup frequency only.
 
-6. Under **Retention rules**, select **Add retention rule** to define retention rules for specific backups and set retention duration..
+6. Under **Retention rules**, select **Add retention rule** to define retention rules for specific backups and set retention duration.
 
    >[!Note]
    >You can apply rules in priority order: yearly, monthly, then weekly. When a recovery point matches multiple rules, apply the highest-priority rule—for example, apply monthly retention over weekly. The default retention rule (with a period of 1 year) applies when no rule matches.
@@ -92,7 +92,7 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
 
 8. On the **Review + configure** tab, select **Configure backup**.
 
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png" alt-text="Screenshot to review and configure backup" lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png":::
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png" alt-text="Screenshot to review and configure backup." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-configure-backup-review.png":::
 
 ## Next steps
 
