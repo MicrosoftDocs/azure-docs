@@ -135,4 +135,4 @@ To delete an Azure Cosmos DB protected instance, follow these steps:
 
 ## Related content
 
-[Manage backups of Azure Database for PostgreSQL flexible server using Azure portal](backup-azure-database-postgresql-flex-manage.md)
+[Manage backups of Azure Database for PostgreSQL flexible server using Azure portal](backup-azure-database-postgresql-flex-manage.md).
