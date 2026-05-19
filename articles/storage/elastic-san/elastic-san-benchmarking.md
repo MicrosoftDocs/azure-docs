@@ -1,8 +1,4 @@
 ---
-# Required metadata
-# For more information, see https://learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata
-# For valid values of ms.service, ms.prod, and ms.topic, see https://learn.microsoft.com/en-us/help/platform/metadata-taxonomies
-
 title:       Benchmarking Azure Elastic SAN
 description: Learn how Azure Elastic SAN simplifies storage management for multiple compute resources with high performance and cost optimization.
 author:      eshanchomsft
@@ -31,7 +27,7 @@ The following environment was used for benchmarking:
 - **Volume Size(s):** 1024 GiB
 - **Deployment:** Windows/Linux VM and Elastic SAN deployed in the same region and availability zone
 
-The VM & Elastic SAN setup were configured with the best practices outlined in the [best practices article](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-best-practices).
+The VM & Elastic SAN setup were configured with the best practices outlined in the [best practices article](elastic-san-best-practices.md).
 
 ## Benchmark Tooling
 
@@ -184,8 +180,8 @@ fio --name=readseq --rw=read --bs=1M --iodepth=32 --numjobs=4 --size=100G --time
 
 **Next steps**
 
-- Review Elastic SAN performance behavior and allocation: [How performance works when VMs connect to Elastic SAN volumes](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-performance)
-- Review configuration guidance and client optimizations: [Optimize the performance of your Elastic SAN](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-best-practices)
-- Review scale and performance targets: [Scale targets for Elastic SAN](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-scale-targets)
-- Learn how to connect from Linux: [Connect to an Azure Elastic SAN volume - Linux](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-connect-linux)
-- Learn about available Elastic SAN metrics (including E2E latency): [Metrics for Azure Elastic SAN](https://learn.microsoft.com/en-us/azure/storage/elastic-san/elastic-san-metrics)
+- Review Elastic SAN performance behavior and allocation: [How performance works when VMs connect to Elastic SAN volumes](elastic-san-performance.md)
+- Review configuration guidance and client optimizations: [Optimize the performance of your Elastic SAN](elastic-san-best-practices.md)
+- Review scale and performance targets: [Scale targets for Elastic SAN](elastic-san-scale-targets.md)
+- Learn how to connect from Linux: [Connect to an Azure Elastic SAN volume - Linux](elastic-san-connect-linux.md)
+- Learn about available Elastic SAN metrics (including E2E latency): [Metrics for Azure Elastic SAN](elastic-san-metrics.md)
