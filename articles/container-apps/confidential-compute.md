@@ -5,7 +5,7 @@ services: container-apps
 author: jefmarti
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 2026-05-19
+ms.date: 05/19/2026
 ms.author: jefmarti
 ---
 
@@ -56,9 +56,9 @@ The following example creates a Container Apps environment with a DC-series work
 
    ```azurecli
    az containerapp env create \
-     --name <environment-name> \
-     --resource-group <resource-group-name> \
-     --location <supported-region> \
+     --name <ENVIRONMENT_NAME> \
+     --resource-group <RESOURCE_GROUP_NAME> \
+     --location <SUPPORTED_REGION> \
      --workload-profile-type DC4 \
      --workload-profile-name my-wp-confidential
    ```
@@ -67,11 +67,11 @@ The following example creates a Container Apps environment with a DC-series work
 
    ```azurecli
    az containerapp create \
-     --name <container-app-name> \
-     --resource-group <resource-group-name> \
-     --environment <environment-name> \
+     --name <CONTAINER_APP_NAME> \
+     --resource-group <RESOURCE_GROUP_NAME> \
+     --environment <ENVIRONMENT_NAME> \
      --workload-profile-name my-wp-confidential \
-     --image <container-image>
+     --image <CONTAINER_IMAGE>
    ```
 
 The `--workload-profile-name my-wp-confidential` parameter assigns the app to the DC-series workload profile, which enables confidential compute.
@@ -88,8 +88,8 @@ Use this quick check to confirm the app is assigned to a DC-series workload prof
 
    ```azurecli
    az containerapp show \
-     --name <container-app-name> \
-     --resource-group <resource-group-name> \
+     --name <CONTAINER_APP_NAME> \
+     --resource-group <RESOURCE_GROUP_NAME> \
      --query properties.workloadProfileName \
      -o tsv
    ```
@@ -104,8 +104,8 @@ Use this quick check to confirm the app is assigned to a DC-series workload prof
 
    ```azurecli
    az containerapp env workload-profile list \
-     --name <environment-name> \
-     --resource-group <resource-group-name> \
+     --name <ENVIRONMENT_NAME> \
+     --resource-group <RESOURCE_GROUP_NAME> \
      --query "[].{name:name,workloadProfileType:workloadProfileType}"
    ```
 
