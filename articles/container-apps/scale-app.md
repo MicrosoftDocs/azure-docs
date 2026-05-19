@@ -65,7 +65,7 @@ Three categories of triggers determine how scaling occurs:
 If you define more than one scale rule, the container app begins to scale once the first condition of any rules is met.
 
 > [!NOTE]
-> If you're using [Functions on Container Apps](../container-apps/functions-overview.md) , scale rules are automatically configured based on the function triggers and bindings. As a result, the “Add scale rules” button in the Azure portal will be disabled for these apps. Manual scale rule configuration is not required or supported in this scenario.
+> If you're using [Functions on Container Apps](../container-apps/functions-overview.md), scale rules are automatically configured based on function triggers and bindings in the default experience. The "Add scale rules" button in the Azure portal is disabled for these apps. If you need customer-defined rules, use `allowScalingRuleOverride` as described in [Override auto-generated KEDA scale rules for Azure Functions on Container Apps](functions-scale-rule-override.md).
 
 ## HTTP
 

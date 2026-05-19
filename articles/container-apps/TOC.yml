@@ -230,6 +230,8 @@ items:
               href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads

@@ -285,3 +285,4 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 ## Related content
 
 - [Azure Functions on Azure Container Apps overview](../../articles/container-apps/functions-overview.md)
+- [Override auto-generated KEDA scale rules for Azure Functions on Container Apps](functions-scale-rule-override.md)
