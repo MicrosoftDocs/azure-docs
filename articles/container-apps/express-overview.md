@@ -72,7 +72,7 @@ Use the following table to determine if express is the right fit for your worklo
 | Scenario | Use express | Alternative |
 |---|---|---|
 | Web apps and REST APIs | ✅ Yes | |
-| SaaS frontends and AI gateways | ✅ Yes | |
+| SaaS frontends and AI gateways | �� Yes | |
 | Rapid prototyping and startups | ✅ Yes | |
 | Web dashboards and admin panels | ✅ Yes | |
 | GPU workloads | ❌ No | Use [serverless GPUs](gpu-serverless-overview.md) with dedicated workload profiles |
@@ -108,54 +108,54 @@ The express deployment model supports the following features. This list is updat
 | Region restriction | ✅ Yes |
 | Logs (Log Analytics) | ✅ Yes |
 | Rolling updates | ⚠️ Partial |
-| Secrets | 🔜 Coming soon |
-| Billing | 🔜 Coming soon |
-| Secrets from Key Vault | 🔜 Coming soon |
-| Autoscale (KEDA-based) | 🔜 Coming soon |
-| Managed identity (app runtime) | 🔜 Coming soon |
-| Managed identity (image pull) | 🔜 Coming soon |
-| VNet integration | 🔜 Coming soon |
-| Quota | 🔜 Coming soon |
-| Health probes | 🔜 Coming soon |
-| Exec access | 🔜 Coming soon |
-| Easy Auth | 🔜 Coming soon |
-| Metrics (Azure Monitor) | 🔜 Coming soon |
-| Custom domain (managed certificate) | 🔜 Coming soon |
-| IP restrictions | 🔜 Coming soon |
-| CORS | 🔜 Coming soon |
-| Logs (Azure Monitor) | 🔜 Coming soon |
-| Session affinity | 🔜 Coming soon |
-| Sidecar container | 🔜 Coming soon |
-| Init container | 🔜 Coming soon |
-| Volume mount | 🔜 Coming soon |
-| Ephemeral storage | 🔜 Coming soon |
-| GPU | 🔜 Coming soon |
-| Insecure HTTP ingress | 🔜 Coming soon |
-| Additional ports | 🔜 Coming soon |
-| App-to-app communication | 🔜 Coming soon |
-| Debug console | 🔜 Coming soon |
-| Deployment label | 🔜 Coming soon |
-| Language stack | 🔜 Coming soon |
-| Multi revision / traffic splitting | 🔜 Coming soon |
-| Resiliency | 🔜 Coming soon |
-| Source-to-cloud deployment | 🔜 Coming soon |
-| TCP protocol | 🔜 Coming soon |
-| Aspire | 🔜 Coming soon |
-| Maintenance window | 🔜 Coming soon |
-| OpenTelemetry | 🔜 Coming soon |
-| Premium ingress | 🔜 Coming soon |
-| Private endpoint | 🔜 Coming soon |
-| Workload profiles | 🔜 Coming soon |
-| Peer-to-peer encryption | 🔜 Coming soon |
-| Job | 🔜 Coming soon |
-| Single revision management | 🔜 Coming soon |
-| Custom domain (BYOC) | 🔜 Coming soon |
-| Environment custom domain suffix (BYOC) | 🔜 Coming soon |
-| Environment custom domain suffix (managed certificate) | 🔜 Coming soon |
-| Azure file storage | 🔜 Coming soon |
-| Zone redundancy | 🔜 Coming soon |
-| App-to-app (internal FQDN) | 🔜 Coming soon |
-| Internal vs. external apps | 🔜 Coming soon |
+| Secrets | 🔜 In development |
+| Billing | 🔜 In development |
+| Secrets from Key Vault | 🔜 In development |
+| Autoscale (KEDA-based) | 🔜 In development |
+| Managed identity (app runtime) | 🔜 In development |
+| Managed identity (image pull) | 🔜 In development |
+| VNet integration | 🔜 In development |
+| Quota | 🔜 In development |
+| Health probes | 🔜 In development |
+| Exec access | 🔜 In development |
+| Easy Auth | 🔜 In development |
+| Metrics (Azure Monitor) | 🔜 In development |
+| Custom domain (managed certificate) | 🔜 In development |
+| IP restrictions | 🔜 In development |
+| CORS | �� In development |
+| Logs (Azure Monitor) | 🔜 In development |
+| Session affinity | 🔜 In development |
+| Sidecar container | 🔜 In development |
+| Init container | 🔜 In development |
+| Volume mount | 🔜 In development |
+| Ephemeral storage | 🔜 In development |
+| GPU | 🔜 In development |
+| Insecure HTTP ingress | 🔜 In development |
+| Additional ports | 🔜 In development |
+| App-to-app communication | 🔜 In development |
+| Debug console | 🔜 In development |
+| Deployment label | 🔜 In development |
+| Language stack | 🔜 In development |
+| Multi revision / traffic splitting | 🔜 In development |
+| Resiliency | 🔜 In development |
+| Source-to-cloud deployment | 🔜 In development |
+| TCP protocol | 🔜 In development |
+| Aspire | 🔜 In development |
+| Maintenance window | �� In development |
+| OpenTelemetry | 🔜 In development |
+| Premium ingress | 🔜 In development |
+| Private endpoint | 🔜 In development |
+| Workload profiles | 🔜 In development |
+| Peer-to-peer encryption | 🔜 In development |
+| Job | 🔜 In development |
+| Single revision management | 🔜 In development |
+| Custom domain (BYOC) | 🔜 In development |
+| Environment custom domain suffix (BYOC) | 🔜 In development |
+| Environment custom domain suffix (managed certificate) | 🔜 In development |
+| Azure file storage | 🔜 In development |
+| Zone redundancy | 🔜 In development |
+| App-to-app (internal FQDN) | 🔜 In development |
+| Internal vs. external apps | 🔜 In development |
 
 ## Region availability
 
