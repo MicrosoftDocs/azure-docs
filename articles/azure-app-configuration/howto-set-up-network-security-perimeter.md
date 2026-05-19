@@ -113,6 +113,40 @@ az appconfig network-security-perimeter-configuration list --name <app-config-st
 
 ---
 
+## Dissociate your configuration store from a network security perimeter
+
+Use the portal or Azure CLI to remove an existing association between your configuration store and a network security perimeter.
+
+### [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your App Configuration store. Under **Settings**, select **Networking**.
+
+1. Under **Network security perimeter (preview)**, select **Manage**.
+
+1. Select **Dissociate**.
+
+1. In the **Dissociate network security perimeter** pane, select **Dissociate**.
+
+   :::image type="content" source="./media/network-security-perimeter/dissociate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Dissociate network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/dissociate-nsp.png":::
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Run the following command to dissociate your configuration store from the network security perimeter. Replace the placeholder values with your own information.
+
+    ```azurecli-interactive
+    az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group> 
+    ```
+
+    > [!div class="mx-tdBreakAll"]
+    > | Placeholder | Description | Example |
+    > |---|---|---|
+    > | `<association-name>` | The name of the association resource to delete. | `my-association-name` |
+    > | `<nsp-name>` | The name of your network security perimeter. | `my-nsp` |
+    > | `<nsp-resource-group>` | The resource group of your network security perimeter. | `my-resource-group` |
+
+
+---
+
 ## Related content
 
 - [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md)
