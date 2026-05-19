@@ -155,28 +155,40 @@ The function is triggered based on the change feed in an Azure Cosmos DB NoSQL d
 - `COSMOS_CONTAINER_NAME`: The name of the container to monitor
 
 These environment variables are created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation.
-::: zone-end  
+
+You can review the code that defines the Azure Cosmos DB trigger:
+     
 ::: zone pivot="programming-language-csharp"  
-You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger.cs project file](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb/blob/main/CosmosTrigger.cs).
-::: zone-end 
-<!--- replace when available 
-::: zone pivot="programming-language-java" 
-:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
+:::code language="csharp" source="~/functions-azd-cosmosdb-dotnet/CosmosTrigger.cs" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb).
 ::: zone-end  
-::: zone pivot="programming-language-javascript" 
-:::code language="javascript" source="~/functions-quickstart-javascript-azd/src/functions/httpGetFunction.js" :::
-::: zone-end   
-::: zone pivot="programming-language-powershell" 
-This `function.json` file defines the `httpget` function:
-:::code language="json" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/function.json" :::
-This `run.ps1` file implements the function code:
-:::code language="powershell" source="~/functions-quickstart-powershell-azd/src/httpGetFunction/run.ps1" :::
-::: zone-end  -->
+::: zone pivot="programming-language-java"  
+:::code language="java" source="~/functions-azd-cosmosdb-java/src/main/java/com/function/CosmosTrigger.java" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb).
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+:::code language="javascript" source="~/functions-azd-cosmosdb-javascript/src/functions/cosmosTrigger.js" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb).
+::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger.ts project file](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb/blob/main/src/functions/cosmos_trigger.ts).
-::: zone-end 
+:::code language="typescript" source="~/functions-azd-cosmosdb-typescript/src/functions/cosmos_trigger.ts" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb).
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+:::code language="powershell" source="~/functions-azd-cosmosdb-powershell/cosmos_trigger/run.ps1" :::
+
+The trigger is defined in the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb/blob/main/cosmos_trigger/function.json).
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb).
+::: zone-end  
 ::: zone pivot="programming-language-python" 
-You can review the code that defines the Azure Cosmos DB trigger in the [function_app.py project file](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb/blob/main/function_app.py).
+:::code language="python" source="~/functions-azd-cosmosdb-python/function_app.py" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb).
 ::: zone-end  
 
 After you review and verify your function code locally, it's time to publish the project to Azure. 
