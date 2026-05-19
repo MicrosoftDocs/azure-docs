@@ -72,7 +72,7 @@ Use the following table to determine if express is the right fit for your worklo
 | Scenario | Use express | Alternative |
 |---|---|---|
 | Web apps and REST APIs | ✅ Yes | |
-| SaaS frontends and AI gateways | �� Yes | |
+| SaaS frontends and AI gateways | ✅ Yes | |
 | Rapid prototyping and startups | ✅ Yes | |
 | Web dashboards and admin panels | ✅ Yes | |
 | GPU workloads | ❌ No | Use [serverless GPUs](gpu-serverless-overview.md) with dedicated workload profiles |
@@ -108,54 +108,54 @@ The express deployment model supports the following features. This list is updat
 | Region restriction | ✅ Yes |
 | Logs (Log Analytics) | ✅ Yes |
 | Rolling updates | ⚠️ Partial |
-| Secrets | 🔜 In development |
-| Billing | 🔜 In development |
-| Secrets from Key Vault | 🔜 In development |
-| Autoscale (KEDA-based) | 🔜 In development |
-| Managed identity (app runtime) | 🔜 In development |
-| Managed identity (image pull) | 🔜 In development |
-| VNet integration | 🔜 In development |
-| Quota | 🔜 In development |
-| Health probes | 🔜 In development |
-| Exec access | 🔜 In development |
-| Easy Auth | 🔜 In development |
-| Metrics (Azure Monitor) | 🔜 In development |
-| Custom domain (managed certificate) | 🔜 In development |
-| IP restrictions | 🔜 In development |
-| CORS | �� In development |
-| Logs (Azure Monitor) | 🔜 In development |
-| Session affinity | 🔜 In development |
-| Sidecar container | 🔜 In development |
-| Init container | 🔜 In development |
-| Volume mount | 🔜 In development |
-| Ephemeral storage | 🔜 In development |
-| GPU | 🔜 In development |
-| Insecure HTTP ingress | 🔜 In development |
-| Additional ports | 🔜 In development |
-| App-to-app communication | 🔜 In development |
-| Debug console | 🔜 In development |
-| Deployment label | 🔜 In development |
-| Language stack | 🔜 In development |
-| Multi revision / traffic splitting | 🔜 In development |
-| Resiliency | 🔜 In development |
-| Source-to-cloud deployment | 🔜 In development |
-| TCP protocol | 🔜 In development |
-| Aspire | 🔜 In development |
-| Maintenance window | �� In development |
-| OpenTelemetry | 🔜 In development |
-| Premium ingress | 🔜 In development |
-| Private endpoint | 🔜 In development |
-| Workload profiles | 🔜 In development |
-| Peer-to-peer encryption | 🔜 In development |
-| Job | 🔜 In development |
-| Single revision management | 🔜 In development |
-| Custom domain (BYOC) | 🔜 In development |
-| Environment custom domain suffix (BYOC) | 🔜 In development |
-| Environment custom domain suffix (managed certificate) | 🔜 In development |
-| Azure file storage | 🔜 In development |
-| Zone redundancy | 🔜 In development |
-| App-to-app (internal FQDN) | 🔜 In development |
-| Internal vs. external apps | 🔜 In development |
+| Secrets | In development |
+| Billing | In development |
+| Secrets from Key Vault | In development |
+| Autoscale (KEDA-based) | In development |
+| Managed identity (app runtime) | In development |
+| Managed identity (image pull) | In development |
+| VNet integration | In development |
+| Quota | In development |
+| Health probes | In development |
+| Exec access | In development |
+| Easy Auth | In development |
+| Metrics (Azure Monitor) | In development |
+| Custom domain (managed certificate) | In development |
+| IP restrictions | In development |
+| CORS | In development |
+| Logs (Azure Monitor) | In development |
+| Session affinity | In development |
+| Sidecar container | In development |
+| Init container | In development |
+| Volume mount | In development |
+| Ephemeral storage | In development |
+| GPU | In development |
+| Insecure HTTP ingress | In development |
+| Additional ports | In development |
+| App-to-app communication | In development |
+| Debug console | In development |
+| Deployment label | In development |
+| Language stack | In development |
+| Multi revision / traffic splitting | In development |
+| Resiliency | In development |
+| Source-to-cloud deployment | In development |
+| TCP protocol | In development |
+| Aspire | In development |
+| Maintenance window | In development |
+| OpenTelemetry | In development |
+| Premium ingress | In development |
+| Private endpoint | In development |
+| Workload profiles | In development |
+| Peer-to-peer encryption | In development |
+| Job | In development |
+| Single revision management | In development |
+| Custom domain (BYOC) | In development |
+| Environment custom domain suffix (BYOC) | In development |
+| Environment custom domain suffix (managed certificate) | In development |
+| Azure file storage | In development |
+| Zone redundancy | In development |
+| App-to-app (internal FQDN) | In development |
+| Internal vs. external apps | In development |
 
 ## Region availability
 
