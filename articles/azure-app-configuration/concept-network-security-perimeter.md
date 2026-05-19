@@ -14,9 +14,6 @@ ms.date: 05/18/2026
 
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources, such as a configuration store, that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
-> [!IMPORTANT]
-> Network security perimeter is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms of use.
-
 Associating a configuration store with a network security perimeter lets you control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts#why-use-a-network-security-perimeter).
 
 ## Transitioning to a network security perimeter

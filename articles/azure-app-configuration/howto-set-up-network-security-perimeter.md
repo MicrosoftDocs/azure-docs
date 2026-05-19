@@ -14,9 +14,6 @@ ms.custom: template-how-to, devx-track-azurecli
 
 In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). Associating a network security perimeter with your configuration store lets you define a logical network isolation boundary for your configuration store and other PaaS resources. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
-> [!IMPORTANT]
-> Network security perimeter is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms of use.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -88,7 +85,7 @@ Use the portal or Azure CLI to create an association between your configuration 
 ---
 
 > [!NOTE]
-> Allow up to 15 minutes for any changes to network security perimeter configuration to take effect at the data plane level.
+> Allow up to 15 minutes for any changes to network security perimeter configuration to take effect.
 
 If you encounter errors while associating your configuration store with a network security perimeter, see [Troubleshooting](./concept-network-security-perimeter.md#troubleshooting) for guidance on resolving common issues.
 
