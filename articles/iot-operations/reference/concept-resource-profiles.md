@@ -125,7 +125,6 @@ Based on these idle baseline measurements, the following minimum hardware recomm
 
 ## Related content
 
-- [Choose your cluster topology](../deploy-iot-ops/operational-manual-day-zero-deployment.md#choose-your-cluster-topology)
+- [Deployment planning](../deploy-iot-ops/deployment-planning.md)
 - [Production deployment guidelines](../deploy-iot-ops/concept-production-guidelines.md)
 - [Production deployment examples](../deploy-iot-ops/concept-production-examples.md)
-- [Configure availability and scale](../manage-mqtt-broker/howto-configure-availability-scale.md)
