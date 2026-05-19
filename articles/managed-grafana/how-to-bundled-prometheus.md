@@ -24,11 +24,6 @@ Bundled Prometheus integrates seamlessly with Azure Monitor workspaces, enabling
 
 This article walks you through enabling bundled Prometheus, configuring recording rules, and creating dashboards to visualize your Prometheus data in Azure Managed Grafana.
 
-> [!IMPORTANT]
-> For alerting and monitoring scenarios that use Azure Monitor managed Prometheus data, Microsoft recommends using Azure Monitor native alerting capabilities. Grafana-based alerting or recording rules in bundled Prometheus aren't the primary recommended approach.
-
-While Grafana recording rules are supported through bundled Prometheus, they're best suited for advanced or Grafana-centric scenarios, such as workflows that combine Prometheus metrics with other Grafana data sources or require Grafana-native processing. For most Azure-native monitoring scenarios, Azure Monitor provides better integration with Azure Monitor workflows and governance.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -75,6 +70,17 @@ For more details, see [Create Grafana-managed alert rules](https://grafana.com/d
 
 > [!NOTE]
 > Bundled Prometheus (preview) only supports Grafana-managed recording rules, which you configure directly in the Grafana interface. Data source-managed recording rules aren't supported.
+
+### When to use Grafana-managed recording rules
+
+The following table summarizes how Grafana recording rules compare with Azure managed recording rules to help explain when Grafana-managed recording rules are useful in bundled Prometheus scenarios:
+
+| Feature | Azure managed recording rules | Grafana recording rules |
+|---------|------|---------|
+| **Scalability** | Evaluated in the Azure Monitor platform architected to autoscale to your needs and don't depend on Azure Managed Grafana compute. | Depend on Azure Managed Grafana compute resources. |
+| **Resource management** | Managed as Azure resources using Azure APIs, ARM templates, Azure CLI, or SDKs alongside other Azure resources. | Managed through the Grafana UI. |
+| **Non-Prometheus data sources** | Can only process Prometheus metrics. | Process non-Prometheus metrics and record them as Prometheus metrics for later use. |
+| **Management interface** | Azure tools and APIs | Grafana UI |
 
 Follow these steps to create a new recording rule:
 
