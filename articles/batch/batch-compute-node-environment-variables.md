@@ -27,7 +27,6 @@ To get the current value of an environment variable, launch `cmd.exe` on a Windo
 The command lines executed by tasks on compute nodes don't run under a shell. This means that these command lines can't natively use shell features such as environment variable expansion (including the `PATH`). To use such features, you must invoke the shell in the command line. For example, launch `cmd.exe` on Windows compute nodes or `/bin/sh` on Linux nodes:
 
 `cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
-
 `/bin/sh -c "MyTaskApplication $MY_ENV_VAR"`
 
 ## Environment variables
