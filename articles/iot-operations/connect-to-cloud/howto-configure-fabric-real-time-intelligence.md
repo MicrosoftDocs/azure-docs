@@ -1,6 +1,6 @@
 ---
 title: Configure Data Flow Endpoints for Microsoft Fabric Real-Time Intelligence
-description: Learn how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations.
+description: Learn how to configure data flow endpoints for Microsoft Fabric Real-Time Intelligence in Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -23,7 +23,7 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 
 - Use an [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) instance.
 - [Create a Fabric workspace](/fabric/get-started/create-workspaces). The default *my workspace* isn't supported.
-- [Create an event stream](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream#create-an-eventstream).
+- [Create an eventstream](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream#create-an-eventstream).
 - [Add a custom endpoint as a source](/fabric/real-time-intelligence/event-streams/add-source-custom-app#add-custom-endpoint-data-as-a-source).
 
 > [!NOTE]
@@ -35,9 +35,9 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
 
 # [Entra ID authentication](#tab/entra-id)
 
-This method uses a managed identity to authenticate with the event stream. Use either system-assigned managed identity or user-assigned managed identity when you configure the data flow endpoint.
+This method uses a managed identity to authenticate with the eventstream. Use either system-assigned managed identity or user-assigned managed identity when you configure the data flow endpoint.
 
-1. Got to the connection details in the Fabric portal under the **Sources** section of your event stream.
+1. Got to the connection details in the Fabric portal under the **Sources** section of your eventstream.
 1. In the **Details** pane for the custom endpoint, select the **Kafka** protocol.
 1. Select the **Entra ID Authentication** section to view the connection details.
 1. Copy the details for the **Bootstrap server** and **Topic name** values. You use these values to configure the data flow endpoint.
@@ -46,12 +46,12 @@ This method uses a managed identity to authenticate with the event stream. Use e
     
     | Settings                | Description                                                                                                   |
     | ----------------------- | ------------------------------------------------------------------------------------------------------------- |
-    | Bootstrap server        | The bootstrap server address is used for the host name property in data flow endpoint.                         |
-    | Topic name              | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
+    | **Bootstrap server**        | The bootstrap server address is used for the host name property in the data flow endpoint.                         |
+    | **Topic name**              | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
 
 # [SASL authentication](#tab/sasl)
 
-1. Go to the connection details in the Fabric portal under the **Sources** section of your event stream.
+1. Go to the connection details in the Fabric portal under the **Sources** section of your eventstream.
 1. In the **Details** pane for the custom endpoint, select the **Kafka** protocol.
 1. Select the **SAS Key Authentication** section to view the connection details.
 1. Copy the details for the **Bootstrap server**, **Topic name**, and **Connection string-primary key** values. You use these values to configure the data flow endpoint.
@@ -60,9 +60,9 @@ This method uses a managed identity to authenticate with the event stream. Use e
     
     | Settings                      | Description                                                                                                   |
     | ----------------------------- | ------------------------------------------------------------------------------------------------------------- |
-    | Bootstrap server              | The bootstrap server address is used for the host name property in data flow endpoint.                         |
-    | Topic name                    | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
-    | Connection string-primary key | The connection string with the primary key.                                                                   |
+    | **Bootstrap server**              | The bootstrap server address is used for the host name property in the data flow endpoint.                         |
+    | **Topic name**                    | The event hub name is used as the Kafka topic and is in the format *es_aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb*. |
+    | **Connection string-primary key** | The connection string with the primary key.                                                                   |
 
 ---
 
@@ -74,19 +74,19 @@ This method uses a managed identity to authenticate with the event stream. Use e
 1. Under **Create new data flow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
 1. Enter the following settings for the endpoint.
 
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot that shows using the operations experience tab to create a new Real-Time Intelligence data flow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot that shows creating a new Real-Time Intelligence data flow endpoint.":::
 
     | Setting               | Description                                                                                                                                                                                                               |
     | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the data flow endpoint.                                                                                                                                                                                       |
-    | Host                  | The host name of the event stream custom endpoint in the format `<bootstrap-server>.servicebus.windows.net:9093`. Use the bootstrap server address noted previously.                                                       |
-    | Authentication method | The method used for authentication. Choose [**System-assigned managed identity**](#system-assigned-managed-identity), [**User-assigned managed identity**](#user-assigned-managed-identity), or [**SASL**](#sasl).              |
+    | **Name**                  | The name of the data flow endpoint.                                                                                                                                                                                       |
+    | **Host**                  | The host name of the eventstream custom endpoint in the format `<bootstrap-server>.servicebus.windows.net:9093`. Use the bootstrap server address noted previously.                                                       |
+    | **Authentication method** | The method used for authentication. Choose [**System-assigned managed identity**](#system-assigned-managed-identity), [**User-assigned managed identity**](#user-assigned-managed-identity), or [**SASL**](#sasl).              |
 
-    Use the authentication method that matches how you want Azure IoT Operations to connect to the Fabric event stream custom endpoint:
+    Use the authentication method that matches how you want Azure IoT Operations to connect to the Fabric eventstream custom endpoint:
 
-    - **System-assigned managed identity**: Use the Azure IoT Operations Azure Arc extension identity to authenticate with the event stream. Before you create the endpoint, add the extension identity to the Fabric workspace with permissions of Contributor or higher. To learn more, see [System-assigned managed identity](#system-assigned-managed-identity).
+    - **System-assigned managed identity**: Use the Azure IoT Operations Azure Arc extension identity to authenticate with the eventstream. Before you create the endpoint, add the extension identity to the Fabric workspace with permissions of Contributor or higher. To learn more, see [System-assigned managed identity](#system-assigned-managed-identity).
     - **User-assigned managed identity**: Use a user-assigned managed identity configured for Azure IoT Operations cloud connections. Before you create the endpoint, add the user-assigned managed identity to the Fabric workspace with permissions of Contributor or higher. To learn more, see [User-assigned managed identity](#user-assigned-managed-identity).
-    - **SASL**: Use the custom endpoint connection string of the Fabric event stream. This method requires SASL settings and a synced Kubernetes secret with the username and password values. To learn more, see [SASL](#sasl).
+    - **SASL**: Use the custom endpoint connection string of the Fabric eventstream. This method requires Simple Authentication and Security Layer (SASL) settings and a synced Kubernetes secret with the username and password values. To learn more, see [SASL](#sasl).
 
 1. Select **Apply** to provision the endpoint.
 
@@ -188,7 +188,7 @@ resource fabricRealtimeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpo
 }
 ```
 
-Then deploy the file via the Azure CLI:
+Deploy the file via the Azure CLI:
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -225,7 +225,7 @@ spec:
       mode: Enabled
 ```
 
-Then apply the manifest file to the Kubernetes cluster:
+Apply the manifest file to the Kubernetes cluster:
 
 ```bash
 kubectl apply -f <FILE>.yaml
@@ -239,22 +239,22 @@ The following authentication methods are available for Real-Time Intelligence da
 
 ### System-assigned managed identity
 
-Before you configure the data flow endpoint, give the Azure IoT Operations managed identity access to the Fabric workspace that contains your event stream. Custom endpoints for the Fabric event stream authorize managed identities through Fabric workspace access, not through the Azure portal identity and access management (IAM) on an Azure resource.
+Before you configure the data flow endpoint, give the Azure IoT Operations managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal identity and access management (IAM) on an Azure resource.
 
 1. In the Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, copy **azure-iot-operations-xxxx7**.
-1. In Fabric, go to the workspace that contains your event stream.
+1. In Fabric, go to the workspace that contains your eventstream.
 1. Select **Manage access** > **Add people or groups**.
 1. Search for the Azure IoT Operations Azure Arc extension identity that you copied. An example is **azure-iot-operations-xxxx7**.
 1. Assign workspace permission of Contributor or higher to the identity.
 
 For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
-Then configure the data flow endpoint with system-assigned managed identity settings.
+Configure the data flow endpoint with system-assigned managed identity settings.
 
 # [Operations experience](#tab/portal)
 
-On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **System assigned managed identity**.
+On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **System-assigned managed identity**.
 
 # [Azure CLI](#tab/cli)
 
@@ -317,20 +317,20 @@ kafkaSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your event stream. Custom endpoints for the Fabric event stream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource.
+Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource.
 
-1. In Fabric, go to the workspace that contains your event stream.
+1. In Fabric, go to the workspace that contains your eventstream.
 1. Select **Manage access** > **Add people or groups**.
 1. Search for your user-assigned managed identity.
 1. Assign workspace permission of Contributor or higher to the identity.
 
 For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
-Then configure the data flow endpoint with user-assigned managed identity settings.
+Configure the data flow endpoint with user-assigned managed identity settings.
 
 # [Operations experience](#tab/portal)
 
-On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **User assigned managed identity**.
+On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **User-assigned managed identity**.
 
 # [Azure CLI](#tab/cli)
 
@@ -411,26 +411,26 @@ We recommend that you use Azure Key Vault to sync the connection string to the K
 
 # [Operations experience](#tab/portal)
 
-On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **SASL**.
+1. On the operations experience tab for the data flow endpoint settings page, select the **Basic** tab, and then select **Authentication method** > **SASL**.
 
-Enter the following settings for the endpoint:
+1. Enter the following settings for the endpoint:
 
-| Setting                            | Description                                                                                       |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------- |
-| SASL type                          | The type of SASL authentication to use. For Fabric custom endpoints, select `Plain`.              |
-| Synced secret name                 | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
-| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                       |
-| Password reference or token secret | The reference to the password or token secret used for SASL authentication.                       |
+    | Setting                            | Description                                                                                       |
+    | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+    | **SASL type**                          | The type of SASL authentication to use. For Fabric custom endpoints, select `Plain`.              |
+    | **Synced secret name**                 | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
+    | **Username reference of token secret** | The reference to the username or token secret used for SASL authentication.                       |
+    | **Password reference of token secret** | The reference to the password or token secret used for SASL authentication.                       |
 
-Select **Add reference** to create a new or choose an existing Key Vault reference for the username and password references:
+1. Select **Add reference** to create a new Key Vault reference or choose an existing Key Vault reference for the username and password references:
 
-- **Username reference or token secret**: Store a Key Vault secret whose value is the literal string `$ConnectionString` (including the leading `$`).
+   - **Username reference of token secret**: A Key Vault secret whose value is the literal string `$ConnectionString` (including the leading `$`).
 
-   :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/username-reference.png" alt-text="Screenshot that shows creating a username reference in Azure Key Vault.":::
+     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/username-reference.png" alt-text="Screenshot that shows creating a username reference in Azure Key Vault.":::
 
-- **Password reference or token secret**: The secret value must be the connection string with the primary key from the event stream custom endpoint.
+   - **Password reference of token secret**: The secret value must be the connection string with the primary key from the eventstream custom endpoint.
 
-   :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/password-reference.png" alt-text="Screenshot that shows creating a password reference in Azure Key Vault.":::
+     :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/password-reference.png" alt-text="Screenshot that shows creating a password reference in Azure Key Vault.":::
 
 # [Azure CLI](#tab/cli)
 
