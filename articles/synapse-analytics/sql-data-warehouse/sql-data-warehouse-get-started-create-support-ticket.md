@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Request quota increases and get support for Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article describes how to submit a support ticket in the Azure portal for Azure Synapse Analytics. This process enables you to request a quota increase or to submit a technical support request for the engineering support team.
 
 ## Create a support ticket

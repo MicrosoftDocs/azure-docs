@@ -168,9 +168,6 @@ To see  when the password was last updated on the Azure NetApp Files SMB compute
 
 ![Screenshot that shows the Active Directory Users and Computers utility](./media/faq-smb/active-directory-users-computers-utility.png)
 
->[!NOTE] 
-> Due to an interoperability issue with the [April 2022 Monthly Windows Update](
-https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43d16-5b5d-43ea-9c52-9174177c6277), the policy that automatically updates the Active Directory computer account password for SMB volumes has been suspended until a fix is deployed.
 
 ## How do Azure NetApp Files Continuous Availability Shares behave when there's an underlying storage hardware maintenance event?
 

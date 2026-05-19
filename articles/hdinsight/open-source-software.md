@@ -4,8 +4,8 @@ description: Microsoft Azure provides a general level of support for open-source
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 02/03/2025
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: hgowrisankar
 ---
 

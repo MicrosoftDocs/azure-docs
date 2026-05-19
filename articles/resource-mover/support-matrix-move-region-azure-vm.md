@@ -3,7 +3,7 @@ title: Support matrix for moving Azure VMs to another region with Azure Resource
 description: Review support for moving Azure VMs between regions with Azure Resource Mover.
 author: RochakSingh-blr
 ms.author: v-rochak2
-ms.date: 03/05/2026
+ms.date: 04/30/2026
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.update-cycle: 365-days
@@ -19,7 +19,7 @@ This article summarizes support and prerequisites when you move virtual machines
 
 Resource Mover supports Azure VMs running these Windows operating systems.
 
-[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 **Operating system** | **Details**
 --- | ---
@@ -184,7 +184,7 @@ If you're using a network security group (NSG) rules to control outbound connect
 - Create a Storage tag rule for the source region.
 - Create an *AzureSiteRecovery* tag rule, to allow access to the Site Recovery service in any region. This tag has dependencies on these other tags, so you need to create rules for them to:
     - *AzureActiveDirectory*
-    - **EventHub*
+    - *EventHub*
     - *AzureKeyVault*
     - *GuestAndHybridManagement*
 - We recommend you test rules in a nonproduction environment. [Review some examples](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).

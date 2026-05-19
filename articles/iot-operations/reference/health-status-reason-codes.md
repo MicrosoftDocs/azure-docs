@@ -1,9 +1,8 @@
 ---
 title: Health status reason codes reference
 description: Reference guide for health status reason codes used by Azure IoT Operations components to report runtime health issues.
-author: sethmanheim
-ms.author: sethm
-ms.reviewer: vakavali
+author: dominicbetts
+ms.author: dobett
 ms.date: 04/29/2026
 ms.topic: reference
 ai-usage: ai-assisted

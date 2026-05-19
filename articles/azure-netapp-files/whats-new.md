@@ -17,7 +17,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2026 
+
+* [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
+
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
+
 ## April 2026 
+
+* [Backup enabled by default](protect-volumes.md) (preview)
+    
+    Azure NetApp Files now enables backup by default when creating new volumes, delivering a more seamless and secure data protection experience. Backups are automatically provisioned during volume creation, reducing setup effort while still allowing customers to opt out when needed. This enhancement improves usability and strengthens data resilience. This feature is available in all Azure NetApp Files supported regions.
 
 * Azure NetApp Files supports [one Active Directory connection per NetApp account](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) as the new default (GA)
 
