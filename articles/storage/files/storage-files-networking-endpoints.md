@@ -77,11 +77,11 @@ In the **Basics** blade, select the desired subscription, resource group, name, 
 
 If you're using classic file shares: 
 
-In the **Resource** blade, choose **Microsoft.Storage/storageAccounts** from the drop down menu for the resource type. Then select the specific storage account you want to connect to as Resource. The target sub-resource will auto-populate with `file`. Then select **Next: Virtual Network**.
+In the **Resource** blade, choose **Microsoft.Storage/storageAccounts** from the drop-down menu for the resource type. Then select the specific storage account you want to connect to as Resource. The target sub-resource will auto-populate with `file`. Then select **Next: Virtual Network**.
 
 If you're using the new file share: 
 
-In the **Resource** blade, choose **Microsoft.FileShares/fileShares** from the drop down menu for the resource type. Then select the specific file share you want to connect to as Resource. The target sub-resource will auto-populate with `FileShare`. Then select **Next: Virtual Network**.
+In the **Resource** blade, choose **Microsoft.FileShares/fileShares** from the drop-down menu for the resource type. Then select the specific file share you want to connect to as Resource. The target sub-resource will auto-populate with `FileShare`. Then select **Next: Virtual Network**.
 
 The **Virtual Network** blade allows you to select the specific virtual network and subnet you would like to add your private endpoint to. Select dynamic or static IP address allocation for the new private endpoint. If you select static, you'll also need to provide a name and a private IP address. You can also optionally specify an application security group. When you're finished, select **Next: DNS**.
 
