@@ -12,7 +12,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Associate Azure App Configuration with a network security perimeter
 
-In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). Associating a network security perimeter with your configuration store lets you define a logical network isolation boundary for your configuration store and other PaaS resources. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
+In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
 ## Prerequisites
 
@@ -48,9 +48,9 @@ Use the portal or Azure CLI to create an association between your configuration 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your App Configuration store. Under **Settings**, select **Networking**.
 
-1. Under **Network security perimeter**, select **Associate**.
+1. Under **Network security perimeter (preview)**, select **Associate**.
 
-1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdowns, then select **Associate**.
+1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdown, then select **Associate**.
 
    :::image type="content" source="./media/network-security-perimeter/associate-nsp.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/associate-nsp.png":::
 
@@ -67,7 +67,7 @@ Use the portal or Azure CLI to create an association between your configuration 
 1. Run the following command to associate your configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association create --name <association-name> --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}" -o none
+    az network perimeter association create --name <association-name> --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}"
     ```
 
     > [!div class="mx-tdBreakAll"]
