@@ -35,7 +35,7 @@ The MQTT broker uses a persistent volume (PV) to store data on disk. Two setting
 
 ## Configuring persistence
 
-To configure the persistence for MQTT broker with the minimum required settings, use the `--broker-mem-profile` parameter to of `az iot ops create` command to specify the maximum size of the persistent volume.
+To configure the persistence for MQTT broker with the minimum required settings, use the `--persist-max-size` parameter of the `az iot ops create` command to specify the maximum size of the persistent volume.
 
 ```azurecli
 az iot ops create ... --persist-max-size 10Gi

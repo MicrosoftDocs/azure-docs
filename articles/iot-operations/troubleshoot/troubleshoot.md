@@ -86,7 +86,7 @@ A deployment might fail if the cluster doesn't have sufficient resources for the
 > [!TIP]
 > If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
-To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
+To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
 
 ## Troubleshoot Azure IoT Operations uninstall
 

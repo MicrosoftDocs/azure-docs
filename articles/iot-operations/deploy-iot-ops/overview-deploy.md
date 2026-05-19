@@ -74,7 +74,7 @@ The following table describes Azure IoT Operations deployment and management tas
 
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
-| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](../secure-iot-ops/built-in-rbac.md#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
+| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
 | Register resource providers | [Contributor role](/azure/role-based-access-control/built-in-roles/privileged#contributor) at subscription level| Only required to do once per subscription. You need to register the following resource providers: `Microsoft.ExtendedLocation`, `Microsoft.SecretSyncController`, `Microsoft.Kubernetes`, `Microsoft.KubernetesConfiguration`, `Microsoft.IoTOperations`, and `Microsoft.DeviceRegistry`. |
 | Create secrets in Key Vault | [Key Vault Secrets Officer role](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) at the resource level | Only required for secure settings deployment to synchronize secrets from Azure Key Vault. |
 | Create and manage storage accounts | [Storage Account Contributor role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor) | Required for Azure IoT Operations deployment. |
