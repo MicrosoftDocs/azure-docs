@@ -20,6 +20,15 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
+## Using health status for troubleshooting
+
+Azure IoT Operations provides [built-in health status reporting](../configure-observability-monitoring/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
+
+1. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem.
+1. **Look up the recommended action**: Check the [health status reason codes](../reference/health-status-reason-codes.md) for detailed descriptions and recommended actions for every reason code.
+1. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update.
+1. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior.
+
 ## Troubleshoot Azure IoT Operations deployment
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
