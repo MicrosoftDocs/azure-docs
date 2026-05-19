@@ -28,6 +28,8 @@ landingContent:
             url: resiliency-overview.md
       - linkListType: concept
         links:
+          - text: What's new
+            url: resiliency-whats-new.md  
           - text: Resiliency support matrix
             url: resiliency-support-matrix.md
           
