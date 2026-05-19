@@ -210,8 +210,6 @@
   items:
   - name: Overview
     href: concept-feature-management.md
-  - name: Experimentation
-    href: concept-experimentation.md
   - name: Enable conditional features with feature filters
     items:
     - name: Overview

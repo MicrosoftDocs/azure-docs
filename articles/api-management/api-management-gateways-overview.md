@@ -39,7 +39,7 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 API Management offers both managed and self-hosted gateways:
 
-* **Built-in managed gateway** - API Management provides a single, default built-in managed gateway for every API Management instance in every service tier. When the managed gateway is used, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted.  
+* **Built-in managed gateway** - API Management provides a single, default built-in managed gateway for every API Management instance in every service tier. When the managed gateway is used, all API traffic flows through Azure regardless of where backends implementing the APIs are hosted. In the Premium tier, optionally add and distribute gateway capacity across multiple regions.
 
     > [!NOTE]
     > Because of differences in the underlying service architecture, the gateways provided in the different API Management service tiers have some differences in capabilities. For details, see the section [Feature comparison: Managed versus self-hosted gateways](#feature-comparison-managed-versus-self-hosted-gateways).
