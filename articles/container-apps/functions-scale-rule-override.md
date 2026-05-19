@@ -5,7 +5,7 @@ services: container-apps
 author: deepganguly
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/14/2026
+ms.date: 05/19/2026
 ms.author: deepganguly
 ---
 
@@ -37,7 +37,7 @@ Set `properties.template.scale.allowScalingRuleOverride` when you want to disabl
 
 ## Enable override and provide custom scale rules
 
-This example starts with platform-managed scaling (`allowScalingRuleOverride=false`) and switches to manual rule control. The PATCH includes one Azure Queue rule and one HTTP concurrency rule.
+This example starts with platform-managed scaling (`allowScalingRuleOverride=false`) and switches to manual rule control. The PATCH request includes one Azure Queue rule and one HTTP concurrency rule.
 
 1. Create a PATCH body file named `patch-enable-override.json`.
 
