@@ -11,14 +11,14 @@ ms.author: deepganguly
 
 # Override auto-generated KEDA scale rules for Azure Functions on Container Apps
 
-Functions on Container Apps normally runs in platform-managed scaling mode. At startup, the Functions host inspects triggers (for example HTTP, Queue, or Timer), and Azure Container Apps creates the matching KEDA trigger configuration for the app revision.
+Functions on Container Apps normally runs in platform-managed scaling mode. At startup, the Functions host inspects triggers (for example, HTTP, Queue, or Timer), and Azure Container Apps creates the matching KEDA trigger configuration for the app revision.
 
 Set `properties.template.scale.allowScalingRuleOverride` when you want to disable that automatic mapping and provide your own scale rules in `template.scale.rules`.
 
 ## Prerequisites
 
 - A Container Apps resource deployed as a Functions app (`kind=functionapp`).
-- Azure CLI, with permission to call `az rest` against the app resource.
+- The Azure CLI, with permission to call `az rest` against the app resource.
 - REST API version `2026-03-02-preview` or newer.
 
 ## Property definition
@@ -37,7 +37,7 @@ Set `properties.template.scale.allowScalingRuleOverride` when you want to disabl
 
 ## Enable override and provide custom scale rules
 
-This example starts from platform-managed scaling (`allowScalingRuleOverride=false`) and switches to manual rule control. The PATCH includes one Azure Queue rule and one HTTP concurrency rule.
+This example starts with platform-managed scaling (`allowScalingRuleOverride=false`) and switches to manual rule control. The PATCH includes one Azure Queue rule and one HTTP concurrency rule.
 
 1. Create a PATCH body file named `patch-enable-override.json`.
 
@@ -87,7 +87,7 @@ Expected outcome:
 
 - Trigger-derived rules aren't generated for the new revision.
 - The custom rules (`my-queue-rule` and `my-http-rule`) are attached to the revision.
-- Scale-out now follows queue depth (`queueLength=20`) and HTTP concurrency (`concurrentRequests=50`).
+- Scale-out behavior now follows queue depth (`queueLength=20`) and HTTP concurrency (`concurrentRequests=50`).
 
 ## Disable override and revert to platform-generated rules
 
