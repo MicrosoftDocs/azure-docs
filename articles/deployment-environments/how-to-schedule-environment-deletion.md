@@ -1,11 +1,11 @@
 ---
-title: Schedule an environment for automatic deletion
+title: Schedule an Environment for Automatic Deletion
 description: Learn how to schedule a deletion date and time for an environment. Set an expiration date to specify when the environment and its resources are deleted.  
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to 
-ms.date: 07/25/2025
+ms.date: 05/19/2026
 
 # customer intent: As a developer, I want to automatically delete my environment on a specific date so that I can keep resources current.
 
@@ -23,25 +23,25 @@ Deployment Environments provides platform engineers with a centralized way of vi
 
 ## Prerequisites
 
-- To schedule your own environment for automatic deletion, you must have the [Deployment Environments User](how-to-manage-deployment-environments-access.md) role.
-- To schedule any environment in your project for automatic deletion, you must have the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role.
+- To schedule your own environment for automatic deletion, you need the [Deployment Environments User](how-to-manage-deployment-environments-access.md) role.
+- To schedule any environment in your project for automatic deletion, you need the [DevCenter Project Admin](how-to-manage-deployment-environments-access.md) role.
 
 ## Add an environment
 
-You can schedule an expiration date and time when you create an environment via the developer portal.
+You can schedule an expiration date and time when you create an environment by using the developer portal.
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
 
-1. From the **New** menu at the top left, select **New environment**.
+1. Select **New environment**.
  
-   :::image type="content" source="media/how-to-schedule-environment-deletion/new-environment.png" alt-text="Screenshot of that shows the New menu. New environment is highlighted.":::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/new-environment.png" alt-text="Screenshot of that shows the New environment button.:::
  
 1. In the **Add an environment** pane, enter or select the following values:
 
    |Field  |Value  |
    |---------|---------|
    |**Name**     | Enter a descriptive name for your environment. |
-   |**Project**  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects. |
+   |**Project**  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of the available projects.  |
    |**Type**     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of the available types. |
    |**Definition** | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
    |**Expiration** | Select **Enable scheduled deletion**. |
@@ -50,7 +50,8 @@ You can schedule an expiration date and time when you create an environment via 
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
-1. Under **Expiration**, select a **deletion date**, and then select a **deletion time**. 
+1. Under **Expiration**, select a **deletion date**, and then select a **deletion time**.
+
    The date and time you select is the date and time that the environment and all its resources are deleted. If you want to change the date or time, you can do so later.
 
    :::image type="content" source="media/how-to-schedule-environment-deletion/set-expiration-date-time.png" alt-text="Screenshot showing the Add an environment pane. The select deletion date and time boxes are highlighted.":::
@@ -71,7 +72,7 @@ Plans change, projects change, and timelines change. If you need to change the e
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
  
-1. Select the the environment that you want to change, select the **Actions** menu (**...**), and then select **Change expiration**.
+1. Select the environment that you want to change, select the **Actions** menu (**...**), and then select **Change expiration**.
  
    :::image type="content" source="media/how-to-schedule-environment-deletion/environment-tile-actions.png" alt-text="Screenshot of the developer portal, showing an environment tile with the actions menu open, and Change expiration highlighted." lightbox="media/how-to-schedule-environment-deletion/environment-tile-actions.png":::
 
@@ -105,8 +106,7 @@ Developers might not always know when an environment is no longer needed. As a p
 
    The environment is now scheduled for deletion on the date and time you specified.
 
-## Related content
+## Next step
 
-* [Quickstart: Create and access Azure Deployment Environments by using the developer portal](quickstart-create-access-environments.md)
-
-
+> [!div class="nextstepaction"]
+> [Quickstart: Create and access an environment in Azure Deployment Environments](quickstart-create-access-environments.md)

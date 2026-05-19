@@ -6,7 +6,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 05/04/2026
+ms.date: 05/19/2026
 ms.custom:
   - devdivchpfy22
   - build-2023
@@ -116,7 +116,7 @@ The following example shows a `runner` property that references the sample Bicep
 
 ### Specify a custom container image
 
-To use a custom container image stored in a repository, use the following `runner` format in the environment.yaml file:
+To use a custom container image stored in a repository, use the following `runner` format in the *environment.yaml* file:
 
 ```yaml
 runner: "<your-registry>.azurecr.io/<your-repository>:<your-tag>"
@@ -201,7 +201,7 @@ To update any metadata related to the template, modify *environment.yaml*, and t
 
 ## Delete an environment definition
 
-To delete an environment definition, in the repository, delete the subfolder that contains the template file and the associated *environment.yaml* file. Then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
+To delete an environment definition, delete the subfolder in the repository that contains the template file and the associated *environment.yaml* file. Then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
 After you delete an environment definition, development teams can no longer use it to deploy a new environment. Update the environment definition reference for any existing environments that use the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
