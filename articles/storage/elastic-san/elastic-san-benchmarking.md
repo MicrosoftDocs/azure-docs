@@ -12,7 +12,7 @@ ms.date:     05/18/2026
 
 **Applies to:** ✔️ Linux VMs ✔️ Windows VMs
 
-Benchmarking is the process of simulating different workloads and measuring the performance that a storage system can achieve under those conditions. By running benchmarking tools on virtual machines connected to Azure Elastic SAN, you can measure the IOPS and throughput achievable under different workload patterns.
+Benchmarking is the process of simulating different workloads and measuring the performance that a storage system can achieve under those conditions. By running benchmarking tools on virtual machines connected to Azure Elastic SAN, you can measure the IOPS (Input/Output Operations Per Second) and throughput achievable under different workload patterns.
 
 
 In this article, you find examples of how to benchmark Azure Elastic SAN volumes from both Linux and Windows virtual machines by using common benchmarking tools like `fio` and DiskSpd. These tools enable you to simulate various workload characteristics, including I/O size, access pattern (sequential or random), and concurrency level. You can evaluate performance across different application scenarios.
@@ -62,7 +62,7 @@ diskspd.exe -c100G -b4K -r -o64 -t8 -w0 -d120 -Sh -L E:\esan_test.dat
 - -o64 – Queue depth of 64 per thread
 - -w0 – 100% read workload
 - -d120 – 120 second runtime
-- -c100G – 100GB test file
+- -c100G – 100 GB test file
 
 :::image type="content" source="../media/diskspd-io-test.png" alt-text="Screenshot of DiskSpd output showing approximately 77,959 IOPS and 304 MB/s for a 4K random read workload.":::
 
