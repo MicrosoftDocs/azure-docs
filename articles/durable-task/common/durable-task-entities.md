@@ -4,7 +4,7 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 05/19/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -38,7 +38,7 @@ Entity functions and related features are available in [Durable Functions 2.0](.
 | -------------------- | ---------------------------- |
 | .NET isolated | ✅ |
 | .NET in-process | ✅ |
-| Java | ❌ |
+| Java | ✅ |
 | Python | ✅ |
 | JavaScript | ✅ |
 | PowerShell | ❌ |
@@ -319,7 +319,55 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+The Durable Functions for Java supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+
+The following example shows a `Counter` entity implemented as a durable function in Java.
+
+**Entity class:**
+
+```java
+import com.microsoft.durabletask.AbstractTaskEntity;
+import com.microsoft.durabletask.TaskEntityOperation;
+
+public class CounterEntity extends AbstractTaskEntity<Integer> {
+
+    public void add(int value) {
+        this.state += value;
+    }
+
+    public void subtract(int value) {
+        this.state -= value;
+    }
+
+    public int get() {
+        return this.state;
+    }
+
+    public void reset() {
+        this.state = 0;
+    }
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+```
+
+**Entity function:**
+
+```java
+@FunctionName("Counter")
+public String counterEntity(
+    @DurableEntityTrigger(name = "req", entityName = "Counter") String req) {
+    return EntityRunner.loadAndRun(req, CounterEntity::new);
+}
+```
 
 ---
 
@@ -629,7 +677,32 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("SignalCounter")
+public HttpResponseMessage signalCounter(
+    @HttpTrigger(name = "req", methods = {HttpMethod.POST},
+        authLevel = AuthorizationLevel.ANONYMOUS)
+    HttpRequestMessage<Void> request,
+    @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String entityKey = request.getQueryParameters().getOrDefault("key", "myCounter");
+    String operation = request.getQueryParameters().getOrDefault("op", "add");
+    String valueStr = request.getQueryParameters().getOrDefault("value", "1");
+
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    if ("reset".equals(operation)) {
+        durableContext.signalEntity(entityId, operation);
+    } else {
+        int value = Integer.parseInt(valueStr);
+        durableContext.signalEntity(entityId, operation, value);
+    }
+
+    return request.createResponseBuilder(HttpStatus.ACCEPTED)
+        .body("Signal sent: " + operation + " on entity '" + entityKey + "'")
+        .build();
+}
+```
 
 ---
 
@@ -762,7 +835,32 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("GetCounter")
+public HttpResponseMessage getCounter(
+    @HttpTrigger(name = "req", methods = {HttpMethod.GET},
+        authLevel = AuthorizationLevel.ANONYMOUS)
+    HttpRequestMessage<Void> request,
+    @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String entityKey = request.getQueryParameters().getOrDefault("key", "myCounter");
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    EntityMetadata metadata = durableContext.getEntityMetadata(entityId, true);
+
+    if (metadata == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+            .body("Entity '" + entityKey + "' not found")
+            .build();
+    }
+
+    Integer state = metadata.readStateAs(Integer.class);
+    return request.createResponseBuilder(HttpStatus.OK)
+        .header("Content-Type", "application/json")
+        .body("{\"key\": \"" + entityKey + "\", \"value\": " + state + "}")
+        .build();
+}
+```
 
 ---
 
@@ -906,7 +1004,25 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("CounterOrchestration")
+public String counterOrchestration(
+    @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+
+    String entityKey = ctx.getInput(String.class);
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    // Signal entity operations (fire-and-forget)
+    ctx.signalEntity(entityId, "add", 10);
+    ctx.signalEntity(entityId, "add", 5);
+    ctx.signalEntity(entityId, "subtract", 3);
+
+    // Call entity and wait for result
+    int value = ctx.callEntity(entityId, "get", Integer.class).await();
+
+    return "Counter '" + entityKey + "' final value: " + value;
+}
+```
 
 ---
 
@@ -1069,7 +1185,37 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+The following example shows entity-to-entity signaling. When a large deposit occurs, the `Account` entity signals an `Audit` entity to record the transaction.
+
+```java
+public class AccountEntity extends AbstractTaskEntity<Integer> {
+    private static final int LARGE_TRANSACTION_THRESHOLD = 500;
+
+    public void deposit(int amount) {
+        this.state += amount;
+        String key = this.context.getId().getKey();
+
+        // Entity signals another entity: notify the audit entity of large deposits
+        if (amount >= LARGE_TRANSACTION_THRESHOLD) {
+            EntityInstanceId auditEntityId = new EntityInstanceId("Audit", "ledger");
+            String message = String.format("Large deposit of %d into account '%s'", amount, key);
+            this.context.signalEntity(auditEntityId, "record", message);
+        }
+    }
+
+    // ... other operations ...
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+```
 
 ---
 
