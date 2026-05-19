@@ -26,7 +26,7 @@ The following table compares the two pricing models at a glance.
 | **High availability** | Supported (requires 3 CUs) | Not available |
 | **Best for** | Production workloads with predictable volume | Dev/test and variable workloads |
 
-For current pricing, see the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/durable-task-scheduler/).
+For current pricing, see the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 ## What is an action?
 

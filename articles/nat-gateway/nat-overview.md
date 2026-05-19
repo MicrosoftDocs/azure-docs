@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 04/14/2026
+ms.date: 05/15/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -64,21 +64,7 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
   * Malaysia West
   * Qatar Central
   * Sweden South
-  * West Central US
   * West India
-
-* A StandardV2 NAT gateway doesn't support and can't be attached to delegated subnets for the following services:
-
-  * Azure SQL Managed Instance
-  * Azure Container Instances
-  * Azure Database for PostgreSQL
-  * Azure Database for MySQL  
-  * Azure Data Factory (data movement)
-  * Microsoft Power Platform
-  * Azure Stream Analytics
-  * Azure Container Apps
-  * Web Apps feature of Azure App Service
-  * Azure DNS Private Resolver
 
 ### Known issues of StandardV2
 
@@ -87,7 +73,6 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
   * Load balancer outbound rules for both IPv4 and IPv6 traffic
   * A Standard NAT gateway for IPv4 traffic and load balancer outbound rules for IPv6 traffic
 
-* Attaching a StandardV2 NAT gateway to an empty subnet created before April 2025 without any virtual machines (VMs) might cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove the StandardV2 NAT gateway, create and add a VM to the subnet, and then reattach the StandardV2 NAT gateway.
 
 * Outbound connections that use a load balancer, Azure Firewall, or VM instance-level public IPs might be interrupted when you add a StandardV2 NAT gateway to a subnet. All net new outbound connections use the StandardV2 NAT gateway.
 

@@ -7,7 +7,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 02/24/2025
+ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
@@ -15,6 +15,11 @@ ms.custom: mvc, engagement-fy25
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
+
+## Update (May 2026)
+
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+
 
 ## Update (April 2026)
  
@@ -248,7 +253,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (January 2023)
 
-- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
+- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
 - Support is available for the export of a business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
 - Azure Migrate is now supported in Sweden geography. [Learn more](supported-geographies.md#public-cloud).
 

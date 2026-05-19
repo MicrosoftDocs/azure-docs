@@ -1,8 +1,8 @@
 ---
 title: Use schemas in data flow graphs
 description: Configure input and output schemas on node connections in data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
