@@ -97,11 +97,11 @@ You can add up to 10 vCenter servers per collector
 > - For the collection of data about installed software, web apps and for identifying SQL/PostgreSQL server instances, the collector doesn’t need network line of sight to guest machines. The guest data collection is done via the ESXi hosts using the installed VMware tools. However, for collecting readiness data directly from database instances, the collector must have network line of sight to the target SQL server instances. 
 > - Identifying server dependencies and in-depth discovery of MySQL and PostgreSQL instances isn't supported in this version of Collector.
 
-## Collect data from physical servers: 
+## Collect data from physical servers
 
 You can use the same Azure migrate collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical. 
 
-### Provide credentials for Windows and Linux servers:
+### Provide credentials for Windows and Linux servers
 
 1. Provide credentials for discovery of Windows and Linux physical or virtual servers, and then select **Add credentials**.
 2. For a Windows server:
@@ -126,16 +126,17 @@ You can use the same Azure migrate collector to discover both VMware machines an
 > -It supports SSH private key files in OpenSSH format.
 > -To add multiple credentials at once, select Add more to save and enter more credentials. 
 
-### Provide Windows and Linux server details:
-1.	Provide physical or virtual server details by adding discovery sources using Add single item, Add multiple items, or Import CSV (default). You can enter the server IP address or FQDN along with a friendly name for the credentials used to connect. 
-2.	For Add single item, select the OS type, enter the server IP address or FQDN, provide a friendly credential name, and select Save. For Add multiple items, enter multiple server records at once, specify the credential name, verify the records, and then save. 
-3.	For Import CSV, download the CSV template, fill in the server IP address or FQDN and credential friendly name, import the file into the appliance, verify the records, and select Save. 
-4.	The collector communicates with Windows servers using WinRM port 5986 (HTTPS) and Linux servers using port 22 (TCP). If HTTPS prerequisites aren't configured on Hyper‑V servers, it automatically switches to WinRM port 5985 (HTTP). 
-5.	When you save, the collector validates connectivity to each server and shows the Validation status in the table. If validation fails, select Validation failed to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting Delete. 
-6.	Before starting data collection, you can optionally turn off the workload discovery slider for the added servers. This setting can be changed at any time. 
-7.	Add additional credentials (Windows domain, Windows non‑domain, or SQL authentication) to discover SQL Server instances and databases. The appliance automatically maps these credentials to SQL servers. 
-8. Provide domain credentials in Down‑Level format (domain\username). UPN format isn't supported.Domain credentials are authenticated against Active Directory to prevent account lockouts. 
-9.	Domain credential validation status is shown in the credentials table. If validation fails, select the failed status to view details, fix the issue, and select Revalidate credentials.
+### Provide Windows and Linux server details
+
+1. Provide physical or virtual server details by adding discovery sources using Add single item, Add multiple items, or Import CSV (default). You can enter the server IP address or FQDN along with a friendly name for the credentials used to connect.
+1. For Add single item, select the OS type, enter the server IP address or FQDN, provide a friendly credential name, and select Save. For Add multiple items, enter multiple server records at once, specify the credential name, verify the records, and then save. 
+1. For Import CSV, download the CSV template, fill in the server IP address or FQDN and credential friendly name, import the file into the appliance, verify the records, and select Save. 
+1. The collector communicates with Windows servers using WinRM port 5986 (HTTPS) and Linux servers using port 22 (TCP). If HTTPS prerequisites aren't configured on Hyper‑V servers, it automatically switches to WinRM port 5985 (HTTP). 
+1. When you save, the collector validates connectivity to each server and shows the Validation status in the table. If validation fails, select Validation failed to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting Delete. 
+1. Before starting data collection, you can optionally turn off the workload discovery slider for the added servers. This setting can be changed at any time. 
+1. Add additional credentials (Windows domain, Windows non‑domain, or SQL authentication) to discover SQL Server instances and databases. The appliance automatically maps these credentials to SQL servers. 
+1. Provide domain credentials in Down‑Level format (domain\username). UPN format isn't supported.Domain credentials are authenticated against Active Directory to prevent account lockouts. 
+1. Domain credential validation status is shown in the credentials table. If validation fails, select the failed status to view details, fix the issue, and select Revalidate credentials.
 
 ### Start data collection
 
