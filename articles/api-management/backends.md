@@ -317,11 +317,11 @@ You can use API Management policies to help set cookies for session awareness. F
   <inbound>
     <base />
     <set-backend-service backend-id="APIMBackend" />
-</inbound>
-<backend>
+  </inbound>
+  <backend>
     <base />
-</backend>
-<outbound>
+  </backend>
+  <outbound>
     <base />
     <set-variable name="gwSetCookie" value="@{
       var payload = context.Response.Body.As<JObject>(preserveContent: true);
