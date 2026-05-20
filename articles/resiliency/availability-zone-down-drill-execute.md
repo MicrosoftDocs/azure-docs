@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: resiliency
 ---
 
-# Execute a Zone Down Drill (preview)
+# Execute a Zone Down Drill in Infrastructure Resiliency Manager (preview)
 
 This article describes how to execute a Zone Down Drill (preview) in Infrastructure Resiliency Manager. This capability simulates an Availability Zone failure and validates application resiliency. It also covers tracking drill execution progress, analyzing resource health, and ending the drill execution process.
 
