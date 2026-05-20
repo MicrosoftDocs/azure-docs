@@ -186,7 +186,7 @@ In the *du-config.json* file, set all values that have a `Place value here` plac
 
 For full configuration details, see the [Azure Device Update Agent Configuration Guide](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/configuration-guide.md).
 
-For more information, see: [Device Update configuration file](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/device-update-configuration-file). For an example, see [Example "du-config.json" file contents](./device-update-configuration-file.md#example-du-configjson-file-contents).
+For more information, see: [Device Update configuration file](/azure/iot-hub-device-update/device-update-configuration-file). For an example, see [Example "du-config.json" file contents](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
 ## Start the Device Update agent
 
