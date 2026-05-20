@@ -184,7 +184,7 @@ You can review the code that defines the Azure Cosmos DB trigger:
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-:::code language="java" source="~/functions-azd-cosmosdb-java/src/main/java/com/function/CosmosTrigger.java" :::
+:::code language="java" source="~/functions-azd-cosmosdb-java/src/main/java/com/function/CosmosTrigger.java" range="1-6,32-33,40-57" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb).
 ::: zone-end  
@@ -221,7 +221,9 @@ After you review and verify your function code locally, it's time to publish the
 
 You can run the `azd deploy` command from Visual Studio Code to deploy the project code to your already provisioned resources in Azure.
 
-- Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
+1. Press <kbd>F1</kbd> to open the command palette.
+
+1. Search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
     
     The `azd deploy` command packages and deploys your code to the deployment container. The app is then started and runs in the deployed package. 
 
