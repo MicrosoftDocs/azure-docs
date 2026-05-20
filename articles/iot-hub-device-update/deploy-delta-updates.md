@@ -14,13 +14,12 @@ ms.service: azure-iot-hub
 This article shows how to generate delta update files, import them into Azure Device Update for IoT Hub, and deploy them to devices. Delta files can be generated either by using the DiffGen tool or as part of a Yocto-based build. For an overview, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
 
 > [!NOTE]
-> Delta updates are available starting with Device Update agent version 1.3 or later.
-
+> Delta update support is provided through the Device Update agent reference implementation, which can be integrated and adapted as part of your device update workflow. Delta updates are available starting with Device Update agent reference implementation version 1.3.0 or later. 
 
 ## Prerequisites
 
 - An Azure Device Update for IoT Hub account and instance.
-- An IoT device or simulator provisioned for Device Update with agent version 1.3 or later. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
+- An IoT device or simulator provisioned for Device Update with agent reference implementation version 1.3.0 or later integrated. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
 - Source and target update files in **SWUpdate (SWU) format**, with a raw image inside. The Microsoft reference sample uses the **Ext4** filesystem, but **Ext2** and **Ext3** are also supported.
 
 ## Configure the device
@@ -34,7 +33,7 @@ The update handler integrates with the Device Update agent to perform the actual
 For delta updates, start with the [microsoft/swupdate:2 update handler](https://github.com/Azure/iot-hub-device-update/blob/develop/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have a custom SWUpdate update handler.
 
 > [!NOTE]
-> The SWUpdate handler isn't installed or registered by default when you install the Device Update agent package. Include or register it as part of your device image.
+> The SWUpdate handler is not included by default. When integrating the Device Update agent reference implementation, ensure that the handler is included or registered as part of your device image or build.
 
 ## Delta processor extension
 
@@ -339,4 +338,3 @@ If you can't resolve the issue by using the error code, collect logs from the de
 - [Azure Device Update for IoT Hub delta updates](delta-updates.md)
 - [Azure Device Update for IoT Hub import manifest schema](import-schema.md)
 - [Troubleshoot common issues](troubleshoot-device-update.md)
-
