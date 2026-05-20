@@ -113,7 +113,7 @@ Follow these instructions to provision the Device Update agent on Linux IoT devi
 
 1. Install the latest version of the IoT Identity Service by following instructions in [Installing the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/installation.html#install-from-packagesmicrosoftcom).
 
-1. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html).
+1. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html). Ensure that the service is configured with the appropriate device or module identity so it can provide connection information to the Device Update agent.
 
 1. Install the Device Update agent by running the following command:
 
@@ -172,6 +172,9 @@ In the *du-config.json* file, set all values that have a `Place value here` plac
 **Azure IoT Identity Service (AIS)**
 - `"connectionType"`: `"AIS"`
 - `"connectionData"`: `""` (empty string)
+
+> [!NOTE]
+> When using Azure IoT Identity Service (AIS), the service must be configured to provide the correct identity to the Device Update agent. This includes configuring identities in `config.toml` and ensuring the agent is associated with the appropriate device or module identity. If the Device Update agent runs as a module, a corresponding module identity must be configured so AIS can return the module’s connection information to the agent. For configuration details, see [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html).
 
 **Connection string**
 - `"connectionType"`: `"string"`    
