@@ -101,4 +101,4 @@ After the readiness check completes, review any new Needs Attention items in the
 
 ## Related content
 
-- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-howto-createconfigure.md)
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md)

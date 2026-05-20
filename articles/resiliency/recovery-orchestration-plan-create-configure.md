@@ -128,5 +128,5 @@ After a successful update, the plan transitions to the **Ready** state if no res
 
 ## Related content
 
-- [Execute failover and reprotect operations](recovery-orchestration-plan-howto-execute.md)
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md)
 - [Support matrix for Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md)
