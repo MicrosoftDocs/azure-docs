@@ -244,7 +244,7 @@ Both properties refer to the source update used as input to the DiffGen tool whe
 
 The delta components on the device use this metadata about the source image to locate that image on the device after downloading the delta update.
 
-Use the `downloadHandler` object to specify how the Device Update agent orchestrates the delta update using the related files feature. Unless you use a custom Device Update agent, use the following `downloadHandler`:
+Use the following `downloadHandler` unless your implementation of the Device Update agent has been modified in a way that changes the expected delta download and installation behavior:
 
 ```json
 "downloadHandler": {
