@@ -645,7 +645,7 @@ You can define an entity trigger by using the `@DurableEntityTrigger` annotation
 import com.microsoft.durabletask.AbstractTaskEntity;
 import com.microsoft.durabletask.TaskEntityOperation;
 import com.microsoft.durabletask.azurefunctions.DurableEntityTrigger;
-import com.microsoft.durabletask.azurefunctions.EntityRunner;
+import com.microsoft.durabletask.EntityRunner;
 
 public class CounterEntity extends AbstractTaskEntity<Integer> {
 

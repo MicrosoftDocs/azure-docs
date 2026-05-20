@@ -319,7 +319,7 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Durable Functions for Java supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+Durable Functions for Java (from version 1.9.0) supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented as a durable function in Java.
 
