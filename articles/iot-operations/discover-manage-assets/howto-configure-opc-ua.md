@@ -32,7 +32,11 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 ## Prerequisites
 
-To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+- The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 

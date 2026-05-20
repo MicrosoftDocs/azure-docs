@@ -3,10 +3,10 @@ title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
 author: dominicbetts
 ms.service: azure-iot-operations
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.author: dobett
-ms.topic: how-to
-ms.date: 11/15/2024
+ms.topic: tutorial
+ms.date: 05/19/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
@@ -21,6 +21,8 @@ However, it's also possible to send the data directly to a storage endpoint with
 This tutorial builds on the quickstart setup and demonstrates how to bifurcate the data to Azure Data Lake Storage Gen 2. This approach allows you to store the data directly in a scalable and secure data lake, which can be used for further analysis and processing.
 
 ## Prerequisites
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hubs.
 
