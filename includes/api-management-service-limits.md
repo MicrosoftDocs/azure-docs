@@ -35,3 +35,4 @@ ms.custom: Include file
 
 <sup>1</sup> Applies to v2 tiers only.<br/>
 <sup>2</sup> Applies to Premium tier only.
+<!-- Is there a separate limit of workspaces per instance? -->
