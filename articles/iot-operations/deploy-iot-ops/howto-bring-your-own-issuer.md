@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
+ai-usage: ai-assisted
 #customer intent: As an IT administrator, I want to set up my own CA issuer for internal communications so that my Azure IoT Operations deployment uses my enterprise PKI.
 ---
 

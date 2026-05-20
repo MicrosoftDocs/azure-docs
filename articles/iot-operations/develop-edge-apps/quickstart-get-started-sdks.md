@@ -5,6 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart-sdk
 ms.date: 05/08/2025
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Start developing with the Azure IoT Operations SDKs

@@ -34,7 +34,7 @@ Azure IoT Operations supports the following upgrade scenarios:
 > Azure IoT Operations doesn't support live upgrades. Expect some downtime during the upgrade process.
 
 > [!NOTE]
-> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](health-status-reporting.md).
+> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](../deploy-iot-ops/health-status-reporting.md).
 
 ## Upgrade
 

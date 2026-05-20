@@ -5,6 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
 ms.date: 11/10/2025
+ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---

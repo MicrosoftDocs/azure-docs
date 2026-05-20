@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
+ai-usage: ai-assisted
 #customer intent: As an IT administrator or platform engineer, I want to understand the planning decisions I need to make before deploying Azure IoT Operations.
 ---
 

@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 11/18/2025
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster for testing and evaluation scenarios, so that I can evaluate the solution before deploying it to production.
 ---

@@ -7,6 +7,7 @@ ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 05/15/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how I can configure a data flow profile to control data flow behavior.
 ---

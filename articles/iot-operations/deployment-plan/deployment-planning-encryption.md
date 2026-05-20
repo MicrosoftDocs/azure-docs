@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
+ai-usage: ai-assisted
 #customer intent: As an IT administrator, I want to understand internal traffic encryption options so I can decide whether to change the defaults before deploying Azure IoT Operations.
 ---
 

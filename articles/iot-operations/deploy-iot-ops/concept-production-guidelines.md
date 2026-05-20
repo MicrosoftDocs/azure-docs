@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.date: 03/13/2025
 ms.service: azure-iot-operations
+ai-usage: ai-assisted
 
 #CustomerIntent: I want to understand system, configuration, and security best practices before deploying to production.
 ---
