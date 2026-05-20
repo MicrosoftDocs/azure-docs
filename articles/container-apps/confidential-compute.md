@@ -14,9 +14,9 @@ ms.author: jefmarti
 Confidential compute in Azure Container Apps helps protect containerized workloads while data is being processed. In this article, you learn when to use confidential compute, how it works with dedicated workload profiles, how to enable it for a container app, and how to verify that your app runs on confidential compute infrastructure.
 
 > [!IMPORTANT]
-> Confidential compute is currently available as a public preview and is supported only in specific regions and workload profile configurations.
+> Confidential compute is currently available in preview and is supported only in specific regions and workload profile configurations.
 
-## Benefits
+## Benefits of confidential compute
 
 Confidential compute complements Azure encryption at rest and encryption in transit by protecting data while it's being processed. When you run workloads on a confidential compute workload profile, you get:
 
@@ -34,7 +34,7 @@ Use confidential compute in Azure Container Apps when:
 - Protecting data while it's being processed is a requirement.
 - You want the security benefits of confidential computing without managing infrastructure or modifying application code.
 
-## How it works
+## How confidential compute works
 
 You enable confidential compute at the workload profile level, not at the individual container app or revision level. When you add a DC-series dedicated workload profile to your environment, any container apps assigned to that profile automatically run on confidential compute infrastructure backed by confidential VM SKUs.
 
@@ -42,11 +42,11 @@ You don't need to configure any per-app or per-container settings. Deploy contai
 
 ## Prerequisites
 
-Before you enable confidential compute, make sure all of the following conditions are met:
+Before you enable confidential compute, check that you have the following items:
 
-1. You create an Azure Container Apps environment in a supported region.
-1. You add a dedicated workload profile that uses a DC-series workload profile type.
-1. You create or update a container app with the DC-series workload profile assigned.
+1. An Azure Container Apps environment in a supported region.
+1. A dedicated workload profile that uses a DC-series workload profile type.
+1. A container app with the DC-series workload profile assigned.
 
 ## Enable confidential compute
 
@@ -78,7 +78,7 @@ The `--workload-profile-name my-wp-confidential` parameter assigns the app to th
 
 For steps on adding and managing workload profiles, see [Manage workload profiles with the Azure CLI](workload-profiles-manage-cli.md).
 
-## Verify confidential compute
+## Verify confidential compute configuration
 
 Use this quick check to confirm the app is assigned to a DC-series workload profile.
 
@@ -126,8 +126,8 @@ If the profile assigned to your app has a `workloadProfileType` value that start
 
 ### Azure portal
 
-1. In the Azure portal, open your container app.
-1. On the **Overview** page, note the **Environment** value and open that environment.
+1. In the Azure portal, go to your container app.
+1. On the **Overview** page, note the **Environment** value and go to that environment.
 1. In the Container Apps environment, go to **Workload profiles**.
 1. Find the workload profile used by your app and verify that the profile type and size starts with `DC`, such as `DC4` or `DC8`.
 
@@ -147,7 +147,7 @@ Availability of these workload profiles depends on the region. Not all regions w
 
 ## Supported regions
 
-Azure Container Apps supports confidential compute in the UAE North region. To request a region, open an issue on [GitHub](https://github.com/microsoft/azure-container-apps/issues).
+Azure Container Apps supports confidential compute in the UAE North region. To request region, submit an issue on [GitHub](https://github.com/microsoft/azure-container-apps/issues).
 
 ## Related content
 
