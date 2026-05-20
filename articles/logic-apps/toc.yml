@@ -208,6 +208,8 @@ items:
             href: connector-namespace/connector-namespace-overview.md
           - name: Create connector namespace
             href: connector-namespace/create-connector-namespace.md
+          - name: Create connector namespace connection
+            href: connector-namespace/create-connector-namespace-connection.md
       - name: Migrate
         items:
           - name: Migration from Power Automate

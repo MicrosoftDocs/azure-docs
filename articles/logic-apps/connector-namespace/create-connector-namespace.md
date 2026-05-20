@@ -11,7 +11,12 @@ ms.service: azure-logic-apps
 ms.custom: ai-assisted
 ---
 
-# Create and manage connector namespaces in Azure
+# Create and manage connector namespaces in Azure (preview)
+
+> [!NOTE]
+>
+> This preview feature is subject to the
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A connector namespace is a logical container within Azure Logic Apps that you use to organize and manage your integration components securely and efficiently. It provides an isolated environment where you can create and maintain connections, triggers, and MCP (Managed Connector Platform) servers that facilitate communication between your applications and external services. 
 
@@ -19,9 +24,11 @@ This article shows you how to create a connector namespace resource in Azure, us
 
 ## Prerequisites
 
-- You must have an active Azure subscription.
-- You need permissions to create resources and resource groups in your Azure subscription.
-- Sign in to the [Azure portal](https://portal.azure.com) by using your Microsoft account.
+* An Azure account and subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/).
+
+* Permissions to create resources and resource groups in your Azure subscription.
+
+* Access to the [Azure portal](https://portal.azure.com).
 
 ## Create a connector namespace resource
 
