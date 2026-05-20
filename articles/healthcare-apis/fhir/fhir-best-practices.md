@@ -1,13 +1,14 @@
 ---
 title: FHIR service best practices for performance
-description: Improve Azure Health Data Services FHIR service performance with proven best practices for import, bundles, search, and export operations.
+description: Improve Azure Health Data Services FHIR service performance with proven best practices.
 services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: best-practice
-ms.date: 05/15/2026
+ms.date: 05/19/2026
 ms.author: kesheth
+ai-usage: ai-assisted
 ---
 
 # FHIR service best practices for better performance
@@ -58,8 +59,9 @@ After ingesting data, it's crucial to optimize query performance. To ensure opti
 
 * **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
 * **Consider** using the most selective search parameters (for example, `identifier`) over parameters with low cardinality to optimize index usage.
-* **Consider** performing deterministic searches by using logical identifiers. FHIR service provides two ways to identify a resource: logical identifiers and business identifiers.<br>
-Logical identifiers are deterministic because FHIR operations that use them are predictable. Business identifiers are conditional because their operations have different behavior depending on the state of the system. Use deterministic operations by using logical identifiers.
+* **Consider** performing deterministic searches using logical identifiers. FHIR service provides two ways to identify a resource: logical identifiers and business identifiers.
+
+    Logical identifiers are deterministic because FHIR operations that use them are predictable. Business identifiers are conditional because their operations have different behavior depending on the state of the system. Use deterministic operations using logical identifiers.
 * **Consider** using the `PUT` HTTP verb instead of `POST` where applicable. `PUT` requests can help maintain data integrity and optimize resource management. `POST` requests can lead to duplication of resources, poor data quality, and increase FHIR data size unnecessarily.
 * **Avoid** the use of `_revinclude` in search queries, as it can result in unbounded result sets and higher latencies.
 * **Avoid** using complex searches (for example: `_has`, or chained search parameters), as they impact query performance.
