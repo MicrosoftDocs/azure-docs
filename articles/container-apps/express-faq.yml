@@ -13,7 +13,7 @@ summary: |
   Find answers to frequently asked questions about Azure Container Apps express.
 
   > [!IMPORTANT]
-  > Azure Container Apps express is currently in **public preview**. Preview features are provided without an Service Level Agreements (SLA) and aren't recommended for production workloads. Some features may not be supported or may have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  > Azure Container Apps express is currently in preview. Preview features are provided without a Service Level Agreements (SLA) and aren't recommended for production workloads. Some features may not be supported or may have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 sections:
   - name: General
@@ -21,7 +21,7 @@ sections:
       - question: |
           What is Azure Container Apps express?
         answer: |
-          Azure Container Apps express is a streamlined environment tier currently in **public preview**, purpose-built for web applications. It delivers the fastest provisioning, instant scale-from-zero, and the simplest developer experience in Azure Container Apps. Express removes infrastructure decisions: no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and express handles everything else.
+          Azure Container Apps express is a streamlined environment tier currently in preview, purpose-built for web applications. It delivers the fastest provisioning, instant scale-from-zero, and the simplest developer experience in Azure Container Apps. Express removes infrastructure decisions: no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and express handles everything else.
 
       - question: |
           How is Azure Container Apps express different from Azure Container Apps?
@@ -108,7 +108,7 @@ sections:
       - question: |
           What features are available in express today?
         answer: |
-          Express is in public preview. The following features are available:
+          Express is in preview. The following features are available:
 
           - Deploy container images from any registry (anonymous or token-based pull)
           - Automatic scale from zero with no configuration required
@@ -124,7 +124,7 @@ sections:
       - question: |
           What features aren't yet available in express?
         answer: |
-          Express is in public preview with a meaningful feature gap compared to Azure Container Apps. Features not yet available include:
+          Express is in preview with a meaningful feature gap compared to Azure Container Apps. Features not yet available include:
 
           - VNet integration
           - Custom domains
@@ -138,14 +138,14 @@ sections:
       - question: |
           When will express reach feature parity with Azure Container Apps?
         answer: |
-          Express is shipping new features on a rapid cadence throughout the public preview. The [express documentation](https://aka.ms/aca/express) includes a current feature support matrix that is updated frequently.
+          Express is shipping new features on a rapid cadence throughout the preview. The [express documentation](https://aka.ms/aca/express) includes a current feature support matrix that is updated frequently.
 
   - name: Regions
     questions:
       - question: |
           Which Azure regions support express?
         answer: |
-          Express is available in the following regions during public preview:
+          Express is available in the following regions during preview:
 
           - East Asia
           - West Central US
@@ -155,7 +155,7 @@ sections:
       - question: |
           Why can't I create an express environment in my preferred region?
         answer: |
-          During public preview, express is available in a specific set of regions. The portal and CLI may display regions where express isn't yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't yet supported. Region availability is expanding as the preview progresses.
+          During preview, express is available in a specific set of regions. The portal and CLI may display regions where express isn't yet supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't yet supported. Region availability is expanding as the preview progresses.
 
   - name: Pricing and billing
     questions:
@@ -176,7 +176,7 @@ sections:
         answer: |
           Some existing environments may be eligible for migration to express. Migration is performed in phases, starting with environments that are inactive, empty (no running apps or jobs), and belong to subscriptions with low Azure Container Apps usage. The criteria are designed to minimize disruption.
 
-          If your environment is selected for migration, you aren'tified in advance with details about the timeline and any action required. You can to opt-out of any migration if you choose.
+          If your environment is selected for migration, you are notified in advance with details about the timeline and any action required. You can opt-out of any migration if you choose.
 
       - question: |
           What criteria are used to select environments for migration?
@@ -221,12 +221,12 @@ sections:
       - question: |
           Is express ready for production workloads?
         answer: |
-          Express is currently in **public preview**. While it provides production-ready defaults (ingress, scaling, secrets, observability), preview services do not come with an SLA guarantee. Express is suitable for development, testing, prototyping, and production workloads that don't require features only available in Azure Container Apps with workload profiles (such as VNet integration or managed identity).
+          Express is currently in preview. While it provides production-ready defaults (ingress, scaling, secrets, observability), preview services do not come with an SLA guarantee. Express is suitable for development, testing, prototyping, and production workloads that don't require features only available in Azure Container Apps with workload profiles (such as VNet integration or managed identity).
 
       - question: |
           Does express have an SLA?
         answer: |
-          Express is in public preview and doesn't currently have an SLA. SLA commitments are emerging as express moves toward General Availability. For workloads that require an SLA today, use Azure Container Apps with workload profiles.
+          Express is in preview and doesn't currently have an SLA. SLA commitments are emerging as express moves toward General Availability. For workloads that require an SLA today, use Azure Container Apps with workload profiles.
 
       - question: |
           How do I provide feedback or report issues?
