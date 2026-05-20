@@ -75,7 +75,7 @@ Azure Backup for Cosmos DB functions parallelly with the native Cosmos DB backup
 
 | **Capability** | **Description** |
 |-----------|-------------|
-| Native backups (continuous / periodic) | Provide short-term operational recovery (up to 35 days) |
+| Native backups – continuous or periodic | Provide short-term operational recovery (up to 35 days) |
 | Azure Backup | Provides long-term, vaulted backups for compliance, audit, and ransomware recovery |
 
 ## Backup costs

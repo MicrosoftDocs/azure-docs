@@ -32,7 +32,7 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 - Cosmos DB accounts with partitions upto 2,500 are supported (approximately 125 TB). 
 - On-demand backups support full backups of the source Cosmos DB account. 
 
-## Limitation
+## Limitations
 
 Azure Backup for Cosmos DB includes the following backup and restore limitations:
 

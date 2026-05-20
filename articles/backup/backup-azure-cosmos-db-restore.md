@@ -58,7 +58,9 @@ To restore Azure Cosmos DB account, follow these steps:
 8. On the **Review + restore** tab, select **Restore** to restore the selected Azure Cosmos DB account backup in a target Azure Cosmos DB account.
 
    :::image type="content" source="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png" alt-text="Screenshot to review and restore backup." lightbox="./media/backup-azure-cosmos-db-restore/backup-cosmos-restore-review.png":::
-                          
+        
+   You can track the restore job under **Backup jobs**.
+                 
 ## Next steps
 
 [Manage vaulted backup of Azure Cosmos DB account using Azure portal (preview)](backup-azure-cosmos-db-manage.md).

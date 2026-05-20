@@ -26,9 +26,9 @@ To change the backup policy for an Azure Cosmos DB account, follow these steps:
 
 2. On the **Protected items** pane, select **Datasource type** as **Azure Cosmos DB (Preview)** and select a protected instance from the list for which you want to change the backup policy. 
 
-3. On the selected protected instance pane, select an associated item. 
+3. On the selected **Protected Instance** pane, select an associated item. 
 
-4. On the associated item pane, select **Change Policy**.
+4. On the **Associated item** pane, select **Change Policy**.
    
 5. On the **Change Policy** pane, search and select the new policy that you want to apply, and select **Apply**. 
 
