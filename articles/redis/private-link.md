@@ -31,7 +31,7 @@ The process is accomplished in two steps:
 - Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 > [!IMPORTANT]
-> If the private endpoint is created in a **different subscription** than the Azure Managed Redis instance, you must register the `Microsoft.Cache` resource provider in the subscription that contains the private endpoint. Otherwise, subsequent private endpoint operations on the cache might fail. For more information on how to register `Microsoft.Cache`, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+> If the private endpoint is created in a **different subscription** than the Azure Managed Redis instance, you must register the `Microsoft.Cache` resource provider in the subscription that contains the private endpoint. Otherwise, subsequent private endpoint operations on the cache might fail. For more information on how to register, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ## Create a virtual network with a subnet
 
