@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -41,7 +41,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Autoscaling                                                    | ❌         | ❌       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
 | API analytics                                     | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
-| [Workspaces](workspaces-overview.md)                                                         | ❌          | ❌       | ❌    | ❌     | ❌     | ❌       | ✔️     |  ✔️ |
+| [Workspaces](workspaces-overview.md)                                                         | ❌          | ❌       | ❌    | ✔️     | ❌     | ✔️       | ✔️     |  ✔️ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | ✔️         | ✔️       | ✔️   | ✔️      | ✔️     | ✔️      |✔️     | ✔️ |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
