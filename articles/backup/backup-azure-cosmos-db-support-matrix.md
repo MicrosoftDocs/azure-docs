@@ -17,14 +17,14 @@ This article summarizes supported regions, scenarios, and the limitations for Az
 
 ## Supported regions
 
-Azure Backup for Cosmos DB (preview) is available in all Azure public cloud regions. Sovereign regions are currently not supported. 
+Azure Backup for Cosmos DB (preview) is available in all Azure public cloud regions. National clouds and sovereign regions are currently not supported. 
 
 ## Support scenarios
 
 Azure Backup supports the following backup and restore scenarios for Azure Cosmos DB accounts during preview:
 
 - Cosmos DB accounts with either NoSQL or MongoDB API using [Request Units (RUs)](/azure/cosmos-db/request-units) are supported. 
-- Only weekly backups are supported providing a 7-day recovery point objective (RPO).
+- Only weekly backups are supported by providing a 7-day recovery point objective (RPO).
 - Cosmos DB accounts on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction) are only supported. 
 - Cross subscription restores are supported.
 - Restore operation to an empty Cosmos DB account is supported. 
@@ -41,7 +41,7 @@ Azure Backup for Cosmos DB includes the following backup and restore limitations
 - Backup and restore aren’t supported if the Cosmos DB account’s primary write region differs from the Backup Vault region.
 - Cosmos DB account with hierarchical partition keys isn't supported.
 - Cosmos DB account with Per-Partition Automatic Failover (PPAF) enabled isn't supported.
-- Item level backup and item level restore aren't supported. 
+- Item-level backup and item level restore aren't supported. 
 - Restore operation isn't supported to a Serverless target Cosmos DB account. 
 - Restore operation isn't supported to a target Cosmos DB account with throughput limit configured.
 
