@@ -63,7 +63,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 ### Usage notes
 
-If your API Management instance is deployed (injected) in a VNet in *internal* mode and you use this policy to send an API request to an API that's exposed in the same API Management instance, you may encounter a timeout with an HTTP 500 BackendConnectionFailure error. This is the result of an [Azure Load Balancer limitation](../load-balancer/load-balancer-troubleshoot-backend-traffic.md).  
+If your API Management instance is deployed (injected) in a VNet in *internal* mode and you use this policy to send an API request to an API that's exposed in the same API Management instance, you may encounter a timeout with an HTTP 500 BackendConnectionFailure error. This is the result of an [Azure Load Balancer limitation](https://learn.microsoft.com/azure/load-balancer/components#limitations).  
   
 To chain API requests to the gateway in this scenario, configure `set-url` to use the localhost loopback URL `https://127.0.0.1`. Additionally, set the `HOST` header to specify this API Management instance's gateway host. You may use the default `azure-api.net` or your custom domain host. For example:  
    
