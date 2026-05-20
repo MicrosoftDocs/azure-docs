@@ -11,9 +11,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this Quickstart, you use Visual Studio Code to build an app that responds to database changes in a No SQL database in Azure Cosmos DB. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions. 
 
-The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as and deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
+The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account. The code project creates additional Azure resources, including an Azure Cosmos DB instance. Make sure to [clean up resources](#clean-up-resources) when you're done to avoid ongoing charges.
+While the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, this code project creates additional Azure resources, including an Azure Cosmos DB instance. Make sure to [clean up resources](#clean-up-resources) when you're done to avoid ongoing charges.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
