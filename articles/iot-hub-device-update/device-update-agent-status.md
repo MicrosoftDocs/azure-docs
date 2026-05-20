@@ -13,27 +13,29 @@ ms.subservice: device-update
 
 The Device Update agent status API enables other processes on the device to query the Device Update (ADU) agent’s current high-level state—such as Idle, Downloading, Installing, or Rebooting—without requiring a round-trip to Azure IoT Hub. 
 
-This API is available starting in Device Update agent version 1.3.0 and is designed for device-local orchestration, where an application, supervisor, or power manager running on the device needs a reliable signal about what the ADU agent is doing right now.
+This API is available starting in Device Update agent reference implementation version 1.3.0. It is designed for device-local coordination, where applications such as supervisors, power managers, or orchestration services running on the device need to understand what the update process is doing in real time.
+
+By exposing the agent’s current state locally, the API helps device software avoid interrupting updates, coordinate operations safely, and reduce disruptions during update workflows.
 
 > [!IMPORTANT]
 > This is a device-local API for on-device apps. It does not report status to IoT Hub or provide granular progress updates in IoT Hub.
 
 ## When to use the agent status API
 
-Use this API when other device software must coordinate with the ADU agent lifecycle to avoid disrupting updates or to sequence operations safely. Common scenarios include:
+Use this API when device software must coordinate with the Device Update agent workflow to avoid disrupting updates or to sequence operations safely. Common scenarios include:
 
 - **Power management (battery-powered / low-power devices)**  
-  Before entering sleep/low-power mode, a device can check the agent’s current state (for example, `Downloading` or `Installing`) and delay sleep until the agent is idle, reducing the risk of pausing an update or dropping a download mid-transfer.
+  Before entering sleep or low-power mode, a device can check the agent’s current state (for example, `Downloading` or `Installing`) and delay sleep until the agent is idle. This helps prevent interrupted downloads, incomplete installs, or unnecessary retries.
 
 - **Orchestration and supervision**  
-  A device orchestrator can wait until the agent is idle before triggering its own firmware update, factory reset, or configuration change.
+  A device orchestrator or supervisor can wait until the agent is idle before triggering its own firmware update, factory reset, or configuration change. This reduces the risk of conflicting operations that could disrupt the device or update workflow.
 
 - **Local monitoring and diagnostics**  
-  A local dashboard or logging daemon can poll the agent state and forward it to a device-local UI or a separate fleet management system.
+  A local dashboard, logging service, or edge monitoring component can poll the agent state and surface it to a device-local UI or external system, improving visibility into what the device is doing during update workflows.
 
 ## How it works (high level)
 
-Starting in Device Update agent 1.3.0, the agent status API is exposed to other on-device processes through a small client SDK:
+Starting in Device Update agent reference implementation version 1.3.0, the agent status API is made available to other on-device processes through a small client SDK:
 
 - **Your app links to a static library.**  
   The SDK is shipped as a static library (`libaducsdk.a`) that your application links against. Your app also includes the SDK header (for example, `aducsdk.h`) to access the API and status types.
@@ -41,7 +43,7 @@ Starting in Device Update agent 1.3.0, the agent status API is exposed to other 
 - **Your app calls a simple function to get the current state.**  
   For example, your app calls `GetAduServiceStatus()` and receives a value that represents the agent’s current high-level state (like `Idle`, `Downloading`, or `Installing`).
 
-- **The library talks to the running Device Update agent locally.**  
+- **The library communicates with the running Device Update agent locally.**  
   At runtime, the library communicates with the Device Update agent on the same device using a local communication channel. This is why the call is fast and does not require a network request or a cloud round-trip.
 
 Because this is a device-local call, it can return the agent’s current state even if the device is temporarily offline. 
@@ -57,7 +59,6 @@ The API returns an enum-like value that represents the agent’s current activit
 - **Paused:** The agent is in a quiet/hold period. See [Quiet period and the `Paused` state](#quiet-period-and-the-paused-state).
 
 For the authoritative list of states and their definitions, refer to [Service Status API — GetAduServiceStatus](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/GetAduServiceStatus.md)
-
 
 ### Guidance for safe interpretation
 
