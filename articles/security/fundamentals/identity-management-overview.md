@@ -8,7 +8,7 @@ ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 # Customer intent: As an IT Pro or decision maker, I want to learn about identity management capabilities in Azure
 ---
@@ -62,9 +62,9 @@ You can also create custom roles tailored to your specific needs.
 
 Learn more:
 
-* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
-* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
-* [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+* [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+* [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 ## Application Proxy
 
@@ -179,7 +179,7 @@ Learn more:
 
 ## Next steps
 
-* [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)
-* [Network security overview](/azure/security/fundamentals/network-overview)
-* [Threat detection and protection](/azure/security/fundamentals/threat-detection)
-* [Key management in Azure](/azure/security/fundamentals/key-management)
+* [Azure security best practices and patterns](best-practices-and-patterns.md)
+* [Network security overview](network-overview.md)
+* [Threat detection and protection](threat-detection.md)
+* [Key management in Azure](key-management.md)

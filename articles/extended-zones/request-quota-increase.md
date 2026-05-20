@@ -1,11 +1,13 @@
 ---
-title: Request Quota Increase - Azure Portal
+title: Request Quota Increase
+titleSuffix: Azure Extended Zones
 description: Learn how to request a quota increase for your Azure Extended Zones resources by using the Azure portal.
 author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 04/30/2026
+
 #customer intent: As a user, I want to request a quota increase for my Azure Extended Zones resources so that I can manage my resources effectively.
 ---
 

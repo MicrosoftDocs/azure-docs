@@ -78,7 +78,7 @@
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
     - name: Encryption at rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/file-sync/toc.json
+      href: ../files/customer-managed-keys.md?toc=/azure/storage/file-sync/toc.json
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account

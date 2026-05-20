@@ -1,9 +1,9 @@
 ---
 author: hhunter-ms
-title: OpenTelemetry and distributed tracing with Durable Task Scheduler
-description: Learn how to enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler.
+title: "OpenTelemetry Distributed Tracing with Durable Task Scheduler"
+description: Enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler. Get started now.
 ms.topic: how-to
-ms.date: 03/03/2026
+ms.date: 05/01/2026
 ms.author: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-task-sdks
@@ -11,7 +11,7 @@ ms.devlang: csharp
 zone_pivot_groups: azure-durable-approach
 ---
 
-# OpenTelemetry and distributed tracing with Durable Task Scheduler
+# Enable OpenTelemetry distributed tracing with Durable Task Scheduler
 
 Distributed tracing provides end-to-end visibility into orchestration execution. When you enable OpenTelemetry with [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), each orchestration, activity, and sub-orchestration produces linked spans that show timing, ordering, and errors across the entire workflow. You can export these traces to any OpenTelemetry-compatible backend, like [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview), [Jaeger](https://www.jaegertracing.io/), or [Zipkin](https://zipkin.io/).
 
@@ -244,6 +244,17 @@ import {
   DurableTaskAzureManagedClientBuilder,
   DurableTaskAzureManagedWorkerBuilder,
 } from "@microsoft/durabletask-js-azuremanaged";
+
+// 3. Create the worker and client using the builders
+const connectionString = process.env.DTS_CONNECTION_STRING
+  || "Endpoint=http://localhost:8080;Authentication=None";
+
+const worker = new DurableTaskAzureManagedWorkerBuilder(connectionString)
+  .addOrchestrator(myOrchestrator)
+  .addActivity(myActivity)
+  .build();
+
+const client = new DurableTaskAzureManagedClientBuilder(connectionString).build();
 ```
 
 The Durable Task JS SDK automatically emits spans when you register a `TracerProvider` globally.
@@ -259,7 +270,7 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-import durabletask.worker as worker
+from durabletask.azuremanaged.worker import DurableTaskSchedulerWorker
 import durabletask.task as task
 
 # Configure OpenTelemetry
@@ -296,10 +307,11 @@ if __name__ == "__main__":
     endpoint = os.environ.get("ENDPOINT", "http://localhost:8080")
     taskhub = os.environ.get("TASKHUB", "default")
 
-    with worker.DurableTaskWorker(
+    with DurableTaskSchedulerWorker(
         host_address=endpoint,
         secure_channel=not endpoint.startswith("http://localhost"),
         taskhub=taskhub,
+        token_credential=None,
     ) as w:
         w.add_orchestrator(order_processing)
         w.add_activity(validate_order)
@@ -363,6 +375,71 @@ Tracer tracer = openTelemetry.getTracer("durable-worker");
 The `buildAndRegisterGlobal()` call registers the OpenTelemetry SDK globally. The Durable Task SDK uses `GlobalOpenTelemetry.getTracer("Microsoft.DurableTask")` internally, so it picks up this configuration automatically and creates spans for orchestrations and activities.
 
 ---
+
+::: zone-end
+
+### Configure the OTLP endpoint
+
+The code snippets above reference the `OTEL_EXPORTER_OTLP_ENDPOINT` environment variable to set the destination for trace data. Set this variable based on your backend:
+
+| Backend | Endpoint value | Protocol |
+| ------- | -------------- | -------- |
+| Jaeger (local) | `http://localhost:4317` | gRPC |
+| Jaeger (local, HTTP) | `http://localhost:4318` | HTTP/protobuf |
+| OpenTelemetry Collector | `http://<collector-host>:4317` | gRPC |
+| Azure Monitor (via OTLP) | Use the Azure Monitor exporter instead | N/A |
+
+For local development with Jaeger, the default `http://localhost:4317` works when Jaeger is running with OTLP gRPC enabled (port 4317). The JavaScript SDK uses HTTP/protobuf by default, so it targets port `4318` with the `/v1/traces` path.
+
+## View traces locally with Jaeger UI
+
+::: zone pivot="durable-task-sdks"
+
+For local development, use the [Durable Task Scheduler emulator](../scheduler/durable-task-scheduler.md#emulator-for-local-development) with [Jaeger](https://www.jaegertracing.io/) to view traces. Use a `docker-compose.yml` to start both services:
+
+```yaml
+services:
+  dts-emulator:
+    image: mcr.microsoft.com/dts/dts-emulator:latest
+    ports:
+      - "8080:8080"  # gRPC
+      - "8082:8082"  # Dashboard
+  jaeger:
+    image: jaegertracing/jaeger:latest
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "4317:4317"    # OTLP gRPC
+      - "4318:4318"    # OTLP HTTP
+```
+
+Start the infrastructure:
+
+```bash
+docker compose up -d
+```
+
+After you run your application, open the Jaeger UI at `http://localhost:16686` and search for your service name (for example, `durable-worker`) to view traces.
+
+::: zone-end
+
+::: zone pivot="durable-functions"
+
+For local development with Durable Functions, distributed tracing data is sent to Application Insights by default. To view traces locally without deploying, you can add an OTLP exporter alongside Application Insights in your function app's `Program.cs`:
+
+```csharp
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracing =>
+    {
+        tracing
+            .AddSource("Microsoft.DurableTask")
+            .AddOtlpExporter(opts =>
+            {
+                opts.Endpoint = new Uri("http://localhost:4317");
+            });
+    });
+```
+
+Then run Jaeger locally with `docker run -d -p 16686:16686 -p 4317:4317 jaegertracing/jaeger:latest` and open the Jaeger UI at `http://localhost:16686`.
 
 ::: zone-end
 
@@ -466,45 +543,6 @@ AzureMonitorTraceExporter azureExporter = new AzureMonitorTraceExporter(
 
 ::: zone-end
 
-## View traces locally with Jaeger
-
-::: zone pivot="durable-task-sdks"
-
-For local development, use the [Durable Task Scheduler emulator](../scheduler/durable-task-scheduler.md#emulator-for-local-development) with [Jaeger](https://www.jaegertracing.io/) to view traces. Use a `docker-compose.yml` to start both services:
-
-```yaml
-services:
-  dts-emulator:
-    image: mcr.microsoft.com/dts/dts-emulator:latest
-    ports:
-      - "8080:8080"  # gRPC
-      - "8082:8082"  # Dashboard
-  jaeger:
-    image: jaegertracing/jaeger:latest
-    ports:
-      - "16686:16686"  # Jaeger UI
-      - "4317:4317"    # OTLP gRPC
-      - "4318:4318"    # OTLP HTTP
-```
-
-Start the infrastructure:
-
-```bash
-docker compose up -d
-```
-
-After you run your application, open the Jaeger UI at `http://localhost:16686` and search for your service name (for example, `durable-worker`) to view traces.
-
-::: zone-end
-
-::: zone pivot="durable-functions"
-
-For local development with Durable Functions, distributed tracing data is sent to Application Insights. To view traces in Application Insights, go to **Transaction search** or **Application Map** in the Azure portal.
-
-For local visibility, you can also set up an OTLP exporter alongside Application Insights by adding the appropriate OpenTelemetry packages and exporter configuration to your function app's `Program.cs`.
-
-::: zone-end
-
 ## What trace data shows
 
 The trace data produced by the Durable Task SDKs includes:
@@ -545,18 +583,20 @@ Each span includes attributes like `durabletask.type`, `durabletask.task.name`, 
 
 ::: zone-end
 
-## Next steps
+## Related content
 
 ::: zone pivot="durable-functions"
 
-> [!div class="nextstepaction"]
-> [Learn about diagnostics in Durable Functions](../../azure-functions/durable-functions/durable-functions-diagnostics.md)
+- [Diagnostics in Durable Functions](../../azure-functions/durable-functions/durable-functions-diagnostics.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Troubleshoot Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md)
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-> [!div class="nextstepaction"]
-> [Learn about diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
+- [Diagnostics in Durable Task SDKs](./durable-task-diagnostics.md)
+- [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
+- [Troubleshoot Durable Task SDK issues](./durable-task-sdk-troubleshooting.md)
 
 ::: zone-end

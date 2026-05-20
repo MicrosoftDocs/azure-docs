@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/24/2026
+ms.date: 05/11/2026
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -19,15 +19,16 @@ ms.custom:
 
 API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [workspace gateways](workspaces-overview.md#workspace-gateway) are available in a subset of the regions where the classic tiers are available. For information about the availability of the API Management classic tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-
 ## Supported regions for v2 tiers and workspace gateways
 
 Information in the following table is updated regularly. Capacity availability in Azure regions may vary.
 
 > [!IMPORTANT]
 > **Temporary capacity limitations**
-> - Creation of new Basic v2 and Standard v2 instances in **UK South** is currently unavailable due to capacity constraints. We're actively working to restore availability in this region. In the meantime, consider deploying to an alternative region such as **UK West** or **North Europe**. Existing instances in UK South are not affected.
-> - Creation of new Premium v2 instances in **East US 2** is currently unavailable. Existing instances in East US 2 are not affected.
+> - **UK South** - Creation of new Basic v2, Standard v2, and Premium v2 instances is currently unavailable.
+> - **East US 2** - Creation of new Premium v2 instances is currently unavailable.
+>
+> We're actively working to restore availability in these regions. Existing instances are not affected. In the meantime, consider deploying to an alternative region or choose a different tier.
 
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
 |-----|:---:|:---:|:---:|:---:|
@@ -36,6 +37,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Australia Southeast | ✅ | ✅ | | |
 | Brazil South | ✅ | ✅ | |  |
 | Canada Central  | ✅ | ✅ | ✅ |  |
+| Canada East  | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
 | Central US  | ✅ | ✅ | ✅ |  |
 | East Asia | ✅ | ✅ | | ✅ |
@@ -52,11 +54,12 @@ Information in the following table is updated regularly. Capacity availability i
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
+| Southeast Asia | ✅ | ✅ |  |  |
+| Spain Central | ✅ | ✅ |  |  |
 | Sweden Central | ✅ | ✅ | ✅ | |
-| South India | ✅ | ✅ |  |  |
-| Switzerland North | ✅ |✅ |  | |
+| Switzerland North | ✅ |✅ |  |  |
 | UAE North | ✅ | ✅ | |  |
-| UK South | ✅ ¹ | ✅ ¹ | ✅ | ✅ |
+| UK South | ✅ ¹ | ✅ ¹ | ✅ ¹ | ✅ ¹ |
 | UK West | ✅  | ✅ | | |
 | West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |

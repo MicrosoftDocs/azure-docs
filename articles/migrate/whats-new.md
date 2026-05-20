@@ -7,7 +7,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 02/24/2025
+ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
@@ -16,15 +16,17 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (May 2026)
+
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+
+
 ## Update (April 2026)
  
-- Public preview: Azure Migrate now supports **Reserved tags** that help enrich discovered data with business context, such as **environment** and **migration intent**. You can use the Environment reserved tag to classify workloads as Production, Development, Test, or UAT. You can also use the Migration Intent reserved tag to indicate the intended action for workloads, such as Migrate, Retain, or Retire. Reserved tags influence how Azure Migrate performs assessments, calculates target SKUs, estimates pricing and sizing, and plans workloads for migration to Azure.
-
-You can apply reserved tags from:
-
-  - The inventory pane in the Azure portal.
-  - Dedicated columns during CSV export and import.
-  - Natural language interactions with the Azure Copilot migration agent.
+- Public preview: Azure Migrate now supports **Reserved tags** that help enrich discovered data with business context, such as **environment** and **migration intent**. You can use the Environment reserved tag to classify workloads as Prod, Dev, Test, and UAT. You can also use the Migration Intent reserved tag to indicate the intended action for workloads, such as Migrate, Retain, or Retire. Reserved tags influence how Azure Migrate performs assessments, calculates target SKUs, estimates pricing and sizing, and plans workloads for migration to Azure. You can apply reserved tags from:
+    - The inventory pane in the Azure portal.
+    - Dedicated columns during CSV export and import.
+    - Natural language interactions with the Azure Copilot migration agent.
 
 If no tags are applied, workloads default to Production for the environment type and Migrate for the migration intent. [Learn more](resource-tagging.md).
 
@@ -251,7 +253,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (January 2023)
 
-- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
+- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
 - Support is available for the export of a business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
 - Azure Migrate is now supported in Sweden geography. [Learn more](supported-geographies.md#public-cloud).
 

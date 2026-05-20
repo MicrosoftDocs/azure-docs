@@ -2,13 +2,13 @@
 title: Azure IoT Hub extension for Visual Studio Code
 titleSuffix: Azure IoT Hub
 description: Reference documentation containing information about the Azure IoT Hub extension for Visual Studio Code.
-author: cwatson-cat
+author: sethmanheim
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: reference
 ms.date: 04/24/2023
-ms.author: cwatson
+ms.author: sethm
 ms.custom:
   - mvc
   - 'Role: Cloud Development'

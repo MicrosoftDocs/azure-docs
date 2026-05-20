@@ -1,8 +1,8 @@
 ---
 title: Configure a data flow destination
 description: Configure destination endpoints, data destinations, and dynamic topic routing for data flows and data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
