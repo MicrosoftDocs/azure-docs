@@ -5,11 +5,11 @@ ms.service: azure-deployment-environments
 ms.topic: troubleshooting-general
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/28/2024
+ms.date: 05/20/2026
 ---
 # Troubleshoot custom image deployment errors
 
-Azure Deployment Environments stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
+Azure Deployment Environments stores error details for a failed deployment in the *$ADE_ERROR_LOG* file in the container. 
 
 To troubleshoot a failed deployment:
 
@@ -18,11 +18,12 @@ To troubleshoot a failed deployment:
 
     :::image type="content" source="./media/custom-image-logs-errors/failed-deployment-card.png" alt-text="Screenshot showing failed deployment error details, specifically an invalid name for a storage account." lightbox="./media/custom-image-logs-errors/failed-deployment-card-big.png":::
 
-1. Review the error details in the **Error Details** section.
+1. Review the error details in the **Error details** section.
 
     :::image type="content" source="./media/custom-image-logs-errors/deployment-error-details.png" alt-text="Screenshot showing a failed deployment of an environment with the See Details button displayed." lightbox="./media/custom-image-logs-errors/deployment-error-details-big.png":::
 
-Additionally, you can use the Azure CLI to view an environment's error details using the following command:
+You can use the Azure CLI to view an environment's error details using the following command:
+
 ```bash
 az devcenter dev environment show --environment-name {YOUR_ENVIRONMENT_NAME} --project-name {YOUR_PROJECT_NAME}
 ```
