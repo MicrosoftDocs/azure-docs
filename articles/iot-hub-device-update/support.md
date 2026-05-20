@@ -27,7 +27,7 @@ If you experience problems while using the Device Update service, there are seve
 
 Device Update can run on a wide range of Linux operating systems; however, not all operating systems are supported by Microsoft. The systems listed in the following table are supported, either generally available or in public preview, and are validated through automated testing with each release.
 
-For some platforms, prebuilt installation packages may be available. Customers can also build or integrate the Device Update agent from source or use release artifacts. For more information about how to build the Device Update agent from source, see [how to build the device update agent](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-build-agent-code.md).
+For some platforms, prebuilt installation packages might be available. Customers can also build or integrate the Device Update agent from source or use release artifacts. For more information about how to build the Device Update agent from source, see [how to build the device update agent](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-build-agent-code.md).
 
 It's possible to port the open-source Device Update agent to other operating systems. However, these builds aren't tested or maintained by Microsoft.
 
