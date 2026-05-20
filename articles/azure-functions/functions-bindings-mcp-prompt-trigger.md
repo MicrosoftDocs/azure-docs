@@ -107,9 +107,72 @@ For the complete code example, see [FunctionsMcpPrompts](https://github.com/Azur
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-> [!NOTE]
-> Prompt trigger support for Java is coming soon.
+This code creates an endpoint to expose a code review prompt with multiple arguments (one required, one optional):
 
+```java
+@FunctionName("CodeReviewPrompt")
+public String codeReviewPrompt(
+        @McpPromptTrigger(
+                name = "code_review",
+                description = "Generates a code review prompt for the given code snippet",
+                title = "Code Review")
+        String context,
+        @McpPromptArgument(
+                name = "code",
+                description = "The code to review",
+                isRequired = true)
+        String code,
+        @McpPromptArgument(
+                name = "language",
+                description = "The programming language")
+        String language,
+        final ExecutionContext executionContext) {
+
+    executionContext.getLogger().info("Generating code review prompt");
+
+    String lang = (language != null && !language.isEmpty()) ? language : "unknown";
+    String snippet = (code != null && !code.isEmpty()) ? code : "// no code provided";
+
+    return "Please review the following " + lang + " code and suggest improvements:\n\n```"
+            + lang + "\n" + snippet + "\n```";
+}
+```
+
+This code creates an endpoint to expose a summarize prompt with a single required argument:
+
+```java
+@FunctionName("SummarizePrompt")
+public String summarizePrompt(
+        @McpPromptTrigger(
+                name = "summarize",
+                description = "Summarizes the provided text",
+                title = "Summarize Text")
+        String context,
+        @McpPromptArgument(
+                name = "text",
+                description = "The text to summarize",
+                isRequired = true)
+        String text,
+        final ExecutionContext executionContext) {
+
+    executionContext.getLogger().info("Generating summarize prompt");
+
+    String input = (text != null && !text.isEmpty()) ? text : "No text provided";
+    return "Please provide a concise summary of the following text:\n\n" + input;
+}
+```
+
+For the complete code example, see [PromptExamples.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/samples/FunctionsMcpTool/src/main/java/com/function/PromptExamples.java) sample on GitHub.
+
+> [!NOTE]
+> MCP prompt support requires `azure-functions-java-library` version 3.3.0 or later and `azure-functions-maven-plugin` version 1.42.0 or later. Update your `pom.xml` to use the preview extension bundle:
+>
+> ```xml
+> <extensionBundle>
+>   <id>Microsoft.Azure.Functions.ExtensionBundle.Preview</id>
+>   <version>[4.41, 5.0.0)</version>
+> </extensionBundle>
+> ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
@@ -286,6 +349,35 @@ The attribute also supports the following named properties:
 See [Usage](#usage) to learn how to define arguments of the prompt as input parameters.
 
 ::: zone-end  
+::: zone pivot="programming-language-java"  
+
+## Annotations
+
+Use the `@McpPromptTrigger` annotation to create a function that exposes a prompt endpoint in your remote MCP server.
+
+The annotation supports the following configuration options:
+
+| Parameter | Description |
+|---------|----------------------|
+| **name** | (Required) The binding parameter name and unique prompt identifier. |
+| **description** | (Optional) A friendly description of the prompt endpoint for clients. |
+| **title** | (Optional) A human-readable title for display purposes in MCP client interfaces. |
+| **promptArguments** | (Optional) An inline JSON array of argument definitions as an alternative to `McpPromptArgument` annotations. |
+| **metadata** | (Optional) A JSON-serialized string of metadata for the prompt. |
+| **icons** | (Optional) A JSON-serialized string of icon definitions for display in client interfaces. |
+
+Use the `@McpPromptArgument` annotation to define individual prompt arguments. Annotate each argument parameter in your function with this annotation.
+
+The `@McpPromptArgument` annotation supports the following configuration options:
+
+| Parameter | Description |
+|---------|----------------------|
+| **name** | (Required) The binding parameter name. |
+| **argumentName** | (Optional) The argument name exposed in the MCP protocol. Defaults to the value of `name`. |
+| **description** | (Optional) A description of what the argument represents. |
+| **isRequired** | (Optional) If set to `true`, the argument is required when invoking the prompt. Defaults to `false`. |
+
+::: zone-end  
 
 ::: zone pivot="programming-language-python"
 ## Decorators
@@ -318,7 +410,7 @@ Define the trigger's binding options in your code. The following table describes
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 For complete examples, see the [Example section](#example).
 
@@ -347,9 +439,13 @@ The `PromptInvocationContext` type provides the following properties:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-java"
 
-The `mcp_prompt_trigger` decorator binds to a context parameter that represents the prompt request from the MCP client. The trigger binds to a `PromptInvocationContext` type, which provides access to the prompt arguments through the `arguments` property.
+The `@McpPromptTrigger` annotation binds to a `String` parameter that contains the prompt invocation context as a JSON string. The trigger function receives argument values through parameters annotated with `@McpPromptArgument`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
 
 ::: zone-end
 
@@ -364,7 +460,7 @@ The prompt handler function has two parameters:
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Prompt arguments
 
@@ -437,10 +533,13 @@ The fields of a `PromptArgument` are:
 | **required** | (Optional) If set to `True`, the argument is required when invoking the prompt. Defaults to `False`. |
 
 ::: zone-end  
+::: zone pivot="programming-language-java"
+In Java, define prompt arguments by using the `@McpPromptArgument` annotation on individual function parameters. Annotate each parameter that represents a prompt argument with this annotation. Specify the argument name, description, and whether it's required.
+
+You can see these annotations used in the [Examples](#example).
+::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-
-You provide the `promptArguments` field as an object where each key is the argument name, and the value uses the `promptArg` helpers from `@azure/functions` to define the argument:
 
 ```typescript
   promptArguments: {
@@ -451,7 +550,7 @@ You provide the `promptArguments` field as an object where each key is the argum
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Return types
 
@@ -464,6 +563,16 @@ The MCP prompt trigger supports the following return types:
 | Type | Description |
 | --- | --- |
 | `string` | Returned as a single user-role text message in the MCP `GetPromptResult`. |
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+The MCP prompt trigger supports the following return types:
+
+| Type | Description |
+| --- | --- |
+| `String` | Returned as a single user-role text message in the MCP `GetPromptResult`. |
 
 ::: zone-end
 
@@ -482,7 +591,7 @@ The MCP prompt trigger supports the following return types:
 The function should return a `string` containing the prompt message text. The string is wrapped as a single user-role text message in the MCP `GetPromptResult`.
 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-javascript,programming-language-typescript"
 
 ### Prompt discovery
 
@@ -498,7 +607,7 @@ The `SessionId` property on `PromptInvocationContext` identifies the MCP session
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript"
 
 ## host.json settings
 
