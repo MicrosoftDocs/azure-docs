@@ -22,7 +22,7 @@ This article supports version 4 of the Node.js programming model for Azure Funct
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
 
-[!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
+[!INCLUDE [functions-scenario-quickstarts-prerequisites-full](../../includes/functions-scenario-quickstarts-prerequisites-full.md)]
 
 + [Azure Databases extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
