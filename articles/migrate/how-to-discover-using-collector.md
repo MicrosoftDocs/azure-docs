@@ -22,7 +22,7 @@ Azure Migrate collector can discover your VMware estate or individual Windows an
 
 ### Prerequisites
 
-Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where the collector will be installed has network line-of-sight to the AVS vCenter.
+Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where the collector is installed has network line-of-sight to the AVS vCenter.
 
 | Requirement | Details |
 |---|---|
@@ -50,7 +50,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 ### Download the Azure Migrate Collector
 
 1.	In the Azure Migrate project, select **Discover** > **Using Collector** and then select **Download**.  
-2.	Alternatively, download the Azure Migrate collector installer script from:[here](https://aka.ms/Migrate/DownloadCollector). 
+2.	Alternatively, download the Azure Migrate collector installer script from: [here](https://aka.ms/Migrate/DownloadCollector). 
 3.	Extract the installer ZIP file to a folder on the server that hosts the Azure Migrate collector.
 
 ### Run the installer script
@@ -171,7 +171,7 @@ You can use the same Azure migrate collector to discover both VMware machines an
 
 ## Upload the collected data to an Azure Migrate project
 
-1.	[Create a new Azure Migrate project](../azure-compute-fleet/quickstart-create-portal.md) as Inventory Import from collector is supported only for newly created projects. 
+1.	[Create a new Azure Migrate project](quickstart-create-project.md) as Inventory Import from collector is supported only for newly created projects. 
 2.	After creating the project, select Start discovery using collector. 
 
 ### Import the ZIP file generated using collector
@@ -193,10 +193,9 @@ You can use the same Azure migrate collector to discover both VMware machines an
 1.	To discover more inventory with the Azure migrate collector after your initial import, follow these steps to add the new data to your Azure Migrate project:
 2.	Go to **All inventory** view. You can see your existing discovery data.
 3.	Select **Discover** > **Using collector** and go to import page.
-4.	You'll be able to navigate to the import page. 
-5.	Select **Azure migrate collector (ZIP)** in the file type dropdown
-6.	Select Browse and select the ZIP file exported from your collector.
-7.	After select the right file, select Import to ingest the file. 
+4.	Select **Azure migrate collector (ZIP)** in the file type dropdown
+5.	Select **Browse** and select the **ZIP** file exported from your collector.
+6.	After you select the right file, select **Import** to ingest the file. 
 
 > [!NOTE]
 > You can import multiple ZIP files of different hypervisor types (VMware, physical) to the same project. 
