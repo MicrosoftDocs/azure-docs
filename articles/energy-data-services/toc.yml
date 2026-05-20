@@ -95,7 +95,7 @@ items:
           href: how-to-enable-legal-tags-restricted-country-of-origin.md
         - name: How to manage upgrade settings
           href: how-to-manage-upgrade-settings.md
-        - name: How to enable analytics consumption zone (ACZ)
+        - name: How to enable the Analytics Consumption Zone (ACZ)
           href: how-to-enable-analytics-consumption-zone.md
     - name: Monitoring
       items:

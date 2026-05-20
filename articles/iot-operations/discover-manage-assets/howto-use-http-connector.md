@@ -45,7 +45,9 @@ This article explains how to use the connector for HTTP/REST to perform tasks su
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
