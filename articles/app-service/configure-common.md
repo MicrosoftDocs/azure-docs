@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/13/2026
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
@@ -60,7 +60,7 @@ App settings are always encrypted when they're stored (encrypted at rest).
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
    > [!NOTE]
-   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
+   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone wouldn't be allowed to access this page.
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
@@ -222,8 +222,8 @@ There's one case where you might want to use connection strings instead of app s
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
 - SQL Server: `SQLCONNSTR_`  
-- MySQL: `MYSQLCONNSTR_` 
-- Azure SQL: `SQLAZURECONNSTR_` 
+- MySQL: `MYSQLCONNSTR_`
+- Azure SQL: `SQLAZURECONNSTR_`
 - Custom: `CUSTOMCONNSTR_`
 - PostgreSQL: `POSTGRESQLCONNSTR_`
 - Azure Notification Hubs: `NOTIFICATIONHUBCONNSTR_`
@@ -299,7 +299,7 @@ $PropertiesObject = @{
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -ConnectionStrings $PropertiesObject
 ```
 
-Each connection string contains a name (`<string-name1>`), a value (`<connection-string1>`), and the type. The type is a numerical value that corresponds to one of the [ConnectionStringType](/dotnet/api/microsoft.azure.management.websites.models.connectionstringtype) enumerator fields. For example, for Azure SQL, specify `type="2"`.
+Each connection string contains a name (`<string-name1>`), a value (`<connection-string1>`), and the type. The type is a numerical value that corresponds to one of the [ConnectionStringType](/dotnet/api/microsoft.azure.powershell.cmdlets.websites.support.connectionstringtype) enumerator fields. For example, for Azure SQL, specify `type="2"`.
 
 This cmdlet replaces the entire set of connection strings with the ones that you specify. To add or edit an app setting within an existing set, include the existing app settings in your input hash table by using the [Get-AzWebApp](/powershell/module/az.websites/get-azwebapp) cmdlet. For example:
 
@@ -439,10 +439,6 @@ To configure general settings, follow the steps for your preferred tools.
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
-- **Stack settings**: Configure settings for the software stack to run the app, including the language and SDK versions.
-
-  For Linux apps, you can select the language runtime version and set an optional startup command.
-
 - **Platform settings**: Configure settings for the hosting platform, including:
 
   - **Platform**: Choose 32-bit or 64-bit. For Windows apps only.
@@ -466,8 +462,10 @@ Here, you can configure some common settings for the app. Some settings require 
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
 
-- **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
+- **Debugging**: Enable remote debugging for [ASP.NET](/visualstudio/debugger/remote-debugging-azure-app-service#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: Require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
+
+You may also choose the **Stack settings** tab to configure settings for the software stack to run the app, including the language and SDK versions. For Linux apps, you can select the language runtime version and set an optional startup command.
 
 # [Azure CLI](#tab/cli)
 
@@ -501,7 +499,7 @@ The setting to configure default documents is only for Windows apps.
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 1. On the app's left menu, select **Configuration**. Then select **Default documents**.
-1. To add a default document, select **New document**. To remove a default document, select **Delete** to its right.
+1. To add a default document, add a list item, and select **Apply**. To remove a default document, select the **Delete** icon to its right.
 
 # [Azure CLI](#tab/cli)
 
@@ -535,14 +533,14 @@ The feature of mapping a virtual directory to a physical path is available only 
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 1. On the app's left menu, select **Settings** > **Configuration**. Then select **Path mappings**.
-1. Select **New virtual application or directory**. Then take one of these actions:
+1. Select **Add virtual application or directory**. Then take one of these actions:
 
-   - To map a virtual directory to a physical path, leave **Directory** selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
-   - To mark a virtual directory as a web application, unselect **Directory**.
+   - To map a virtual directory to a physical path, select **Directory**. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
+   - To mark a virtual directory as a web application, select **Virtual application**.
 
    :::image type="content" source="./media/configure-common/directory-check-box.png" alt-text="Screenshot that shows selections for displaying the Directory checkbox." lightbox="./media/configure-common/directory-check-box.png":::
 
-1. Select **Ok**. Then select **Save** on the **Configuration** page.
+1. Select **Add** to save.
 
 # [Azure CLI](#tab/cli)
 
@@ -565,7 +563,7 @@ The following example sets the root path `/` to the `public` subdirectory, which
 ]
 ```
 
-Change `<group-name>` and `<app-name>` for your resources and run the following command. Be aware of escape characters when you run this command. For more information on escape characters, see [Tips for using the Azure CLI successfully](/cli/azure/use-cli-effectively).
+Change `<group-name>` and `<app-name>` for your resources and run the following command. Be aware of escape characters when you run this command. For more information on escape characters, see [Tips for using the Azure CLI successfully](/cli/azure/use-azure-cli-successfully-tips).
 
 ```azurecli-interactive
 az resource update --resource-group <group-name> --resource-type Microsoft.Web/sites/config --name <app-name>/config/web --set properties.virtualApplications="@json.txt"
@@ -602,13 +600,13 @@ To add a custom handler:
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 1. On the app's left menu, select **Settings** > **Configuration**. Then select **Path mappings**.
-1. Select **New handler mapping**. Configure the handler as follows:
+1. Select **Add handler mapping**. Configure the handler as follows:
 
    - **Extension**. The file extension that you want to handle, such as `*.php` or `handler.fcgi`.
    - **Script processor**. The absolute path of the script processor to you. The script processor processes requests to files that match the file extension. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
    - **Arguments**. Optional command-line arguments for the script processor.
 
-1. Select **Ok**. Then select **Save** on the **Configuration** page.
+1. Select **Add** to save.
 
 ## Configure custom containers
 
@@ -628,7 +626,7 @@ To add a custom handler:
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: https://www.asp.net/signalr
+[ASP.NET SignalR]: https://dotnet.microsoft.com/apps/aspnet/signalr
 [Azure portal]: https://portal.azure.com/
 [Set up an existing custom domain in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
