@@ -94,6 +94,43 @@ No. When following the recommended migration order, migrating the VPN gateway fi
 
 ### Active-Active VpnGw1-5 gateway SKUs 
 
+
+#### Why does my Active‑Active VPN Gateway with Point‑to‑Site (P2S) require a third Public IP?
+For Active‑Active VPN Gateways with P2S enabled, a third Public IP is required to support the P2S endpoint alongside the two IPs used for Active‑Active instances.
+
+#### Documentation says the third Public IP must be non‑zonal. Is this still required?
+Yes.  
+For this scenario, the third Public IP must be configured **without zones (non‑zonal)** to ensure compatibility with the VPN Gateway configuration and future update operations.
+
+
+#### When should I create the third Public IP during migration?
+The third Public IP must be created and attached to the VPN Gateway **before starting the migration (Basic → Standard IP)**.
+
+This ensures:
+- The gateway configuration is complete prior to migration  
+- The migration process proceeds without validation or update issues  
+
+
+#### How do I create the required non‑zonal Public IP?
+In regions where zone‑redundant IPs are the default, you should create the third Public IP **using Azure CLI or PowerShell**, ensuring that **no availability zones are specified**.
+
+This allows the Public IP to be created in a **non‑zonal configuration**, which is required for this scenario.
+
+
+#### Can I use a zone‑redundant Public IP instead of a non‑zonal IP for the third P2S IP?
+No.
+
+All Public IPs associated with a VPN Gateway must use a **consistent configuration**. Using a zone‑redundant Public IP for the third IP may result in deployment or update failures.
+
+
+#### Does this behavior impact all VPN Gateway migrations?
+No.
+
+This requirement specifically applies to:
+
+- **Active‑Active VPN Gateways**  
+- **With Point‑to‑Site (P2S) enabled**  
+
 #### How does migration behave for an Active‑Active VPN gateway using a Basic Public IP? Does it cause a full gateway outage?
 
 No. During migration from a Basic Public IP to a Standard Public IP, the VPN gateway is transitioned as a unit and re‑establishes connectivity as part of the migration process. The migration doesn't move traffic from one gateway instance to another instance, and it doesn't result in a full gateway outage.

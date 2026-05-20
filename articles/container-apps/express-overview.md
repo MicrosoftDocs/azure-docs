@@ -108,54 +108,54 @@ The express deployment model supports the following features. This list is updat
 | Region restriction | ✅ Yes |
 | Logs (Log Analytics) | ✅ Yes |
 | Rolling updates | ⚠️ Partial |
-| Secrets | ❌ No |
-| Billing | ❌ No |
-| Secrets from Key Vault | ❌ No |
-| Autoscale (KEDA-based) | ❌ No |
-| Managed identity (app runtime) | ❌ No |
-| Managed identity (image pull) | ❌ No |
-| VNet integration | ❌ No |
-| Quota | ❌ No |
-| Health probes | ❌ No |
-| Exec access | ❌ No |
-| Easy Auth | ❌ No |
-| Metrics (Azure Monitor) | ❌ No |
-| Custom domain (managed certificate) | ❌ No |
-| IP restrictions | ❌ No |
-| CORS | ❌ No |
-| Logs (Azure Monitor) | ❌ No |
-| Session affinity | ❌ No |
-| Sidecar container | ❌ No |
-| Init container | ❌ No |
-| Volume mount | ❌ No |
-| Ephemeral storage | ❌ No |
-| GPU | ❌ No |
-| Insecure HTTP ingress | ❌ No |
-| Additional ports | ❌ No |
-| App-to-app communication | ❌ No |
-| Debug console | ❌ No |
-| Deployment label | ❌ No |
-| Language stack | ❌ No |
-| Multi revision / traffic splitting | ❌ No |
-| Resiliency | ❌ No |
-| Source-to-cloud deployment | ❌ No |
-| TCP protocol | ❌ No |
-| Aspire | ❌ No |
-| Maintenance window | ❌ No |
-| OpenTelemetry | ❌ No |
-| Premium ingress | ❌ No |
-| Private endpoint | ❌ No |
-| Workload profiles | ❌ No |
-| Peer-to-peer encryption | ❌ No |
-| Job | ❌ No |
-| Single revision management | ❌ No |
-| Custom domain (BYOC) | ❌ No |
-| Environment custom domain suffix (BYOC) | ❌ No |
-| Environment custom domain suffix (managed certificate) | ❌ No |
-| Azure file storage | ❌ No |
-| Zone redundancy | ❌ No |
-| App-to-app (internal FQDN) | ❌ No |
-| Internal vs. external apps | ❌ No |
+| Secrets | In development |
+| Billing | In development |
+| Secrets from Key Vault | In development |
+| Autoscale (KEDA-based) | In development |
+| Managed identity (app runtime) | In development |
+| Managed identity (image pull) | In development |
+| VNet integration | In development |
+| Quota | In development |
+| Health probes | In development |
+| Exec access | In development |
+| Easy Auth | In development |
+| Metrics (Azure Monitor) | In development |
+| Custom domain (managed certificate) | In development |
+| IP restrictions | In development |
+| CORS | In development |
+| Logs (Azure Monitor) | In development |
+| Session affinity | In development |
+| Sidecar container | In development |
+| Init container | In development |
+| Volume mount | In development |
+| Ephemeral storage | In development |
+| GPU | In development |
+| Insecure HTTP ingress | In development |
+| Additional ports | In development |
+| App-to-app communication | In development |
+| Debug console | In development |
+| Deployment label | In development |
+| Language stack | In development |
+| Multi revision / traffic splitting | In development |
+| Resiliency | In development |
+| Source-to-cloud deployment | In development |
+| TCP protocol | In development |
+| Aspire | In development |
+| Maintenance window | In development |
+| OpenTelemetry | In development |
+| Premium ingress | In development |
+| Private endpoint | In development |
+| Workload profiles | In development |
+| Peer-to-peer encryption | In development |
+| Job | In development |
+| Single revision management | In development |
+| Custom domain (BYOC) | In development |
+| Environment custom domain suffix (BYOC) | In development |
+| Environment custom domain suffix (managed certificate) | In development |
+| Azure file storage | In development |
+| Zone redundancy | In development |
+| App-to-app (internal FQDN) | In development |
+| Internal vs. external apps | In development |
 
 ## Region availability
 

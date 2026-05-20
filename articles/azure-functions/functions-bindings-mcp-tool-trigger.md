@@ -332,7 +332,7 @@ def get_snippet(file: func.InputStream, context) -> str:
     return snippet_content
 ```
 
-For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/function_app.py).  
+For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/FunctionsMcpTool/function_app.py).  
 ::: zone-end  
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
 ::: zone pivot="programming-language-csharp"  
