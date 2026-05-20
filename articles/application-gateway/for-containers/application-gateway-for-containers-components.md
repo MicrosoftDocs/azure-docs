@@ -55,7 +55,7 @@ For associations created **before April 23, 2026**, inbound NSG rules can be con
 
 #### User defined routes on the association subnet
 
-Fine-grain control over the Application Gateway subnet via route table rules is possible. This can be useful when using a virtual network appliance between Aplication Gateway for Containers and an AKS cluster.
+Fine-grain control over the Application Gateway for Containers' association subnet with route table rules is possible. This can be useful when using a virtual network appliance between Aplication Gateway for Containers and an AKS cluster.
 
 > [!WARNING]
 > An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway for Containers. Ensure internet ingress is returned to the internet and not through a virtual appliance.
