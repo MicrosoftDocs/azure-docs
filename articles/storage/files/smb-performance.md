@@ -84,8 +84,6 @@ On Windows clients, SMB Multichannel is enabled by default. You can verify your 
 Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
 ```
 
-If SMB Multichannel isn't enabled on your Azure storage account, see [SMB Multichannel status](files-smb-protocol.md#smb-multichannel).
-
 ### Verify SMB Multichannel is enabled on your storage account
 
 You can view the status of SMB Multichannel and enable or disable it on a storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
