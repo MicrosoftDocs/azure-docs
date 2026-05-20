@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/28/2026
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -78,7 +78,6 @@ The following features are currently unavailable in the v2 tiers.
 
 **Infrastructure and configuration**
 * Multi-region deployment 
-* Multiple custom domain names 
 * Sending events to Event Grid
 * Event Hubs event metrics
 * API Management service configuration using Git
