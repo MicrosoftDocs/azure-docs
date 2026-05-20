@@ -249,7 +249,7 @@ Do a test migration as follows:
 3. In **Test migration**, select the Azure VNet in which the Azure VM will be located during testing. We recommend you use a non-production VNet. 
 4. Select the subnet to associate with each Network Interface Cards (NICs) of themigrated VM.
 5. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-6. After you select **Test migration**, the job starts. Monitor the status in the portal under **Execution status**. After the test migration finishes, ensure you clean up the test resources by navigating to the server and selecting **Clean up test migration** under the **Testing** drop-down.
+6. Select the **Test migration** to start the job. Monitor the job status in the portal under **Execution status**. After the test migration completes, clean up the test resources by navigating to the server and selecting **Clean up test migration** from the **Testing** drop-down.
 
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
