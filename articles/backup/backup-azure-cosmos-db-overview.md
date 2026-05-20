@@ -26,7 +26,7 @@ Learn about the [supported regions, scenarios, and the limitations](backup-azure
 
 ## Why use Azure Backup for Cosmos DB? 
 
-The native capabilities of Azure Cosmos DB supports continuous (PITR) and periodic backups with up to **35 days** of retention, optimized for operational recovery scenarios. For scenarios that require longer retention, vault isolation, immutability guarantees, and stronger security controls, use Azure Backup for Cosmos DB that goes beyond native capabilities.
+The native capabilities of Azure Cosmos DB support continuous (PITR) and periodic backups with up to **35 days** of retention, optimized for operational recovery scenarios. For scenarios that require longer retention, vault isolation, immutability guarantees, and stronger security controls, use Azure Backup for Cosmos DB that goes beyond native capabilities.
 
 Azure Backup for Cosmos DB provides: 
 

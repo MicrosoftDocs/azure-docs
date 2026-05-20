@@ -36,7 +36,7 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 
 Azure Backup for Cosmos DB includes the following backup and restore limitations:
 
-- Cosmos DB account within a NSP isn't supported.
+- Cosmos DB account within an NSP isn't supported.
 - Cross region restore of backups isn't supported.
 - Backup and restore aren’t supported if the Cosmos DB account’s primary write region differs from the Backup Vault region.
 - Cosmos DB account with hierarchical partition keys isn't supported.

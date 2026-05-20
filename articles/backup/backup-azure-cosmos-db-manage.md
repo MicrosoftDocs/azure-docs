@@ -66,7 +66,7 @@ To stop protection for Azure Cosmos DB (preview), follow these steps:
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**. 
 
-2. On the **Protected items** pane, apply the filters to view  the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
+2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
 
 3. On the **Protected instance** pane, select the **Associated Items** for which you want to stop protection. 
 
@@ -109,7 +109,7 @@ To resume protection for an Azure Cosmos DB backup instance (preview), follow th
 
 2. On the **Protected items** pane, apply the filters to view the protected instances for Azure Cosmos DB (preview), and select the required instance from the list.
 
-3.  On the selected protected instance pane, select the **Associated Items** for which you want to resume protection.
+3. On the selected protected instance pane, select the **Associated Items** for which you want to resume protection.
 
 4. On the selected associated item pane, select **Resume Backup**.
 

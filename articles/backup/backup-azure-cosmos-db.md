@@ -89,7 +89,7 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
    | **User cannot assign roles** | This message appears when you (the backup admin) don’t have the **write access** on the Cosmos DB account as listed under **View details**. | To assign the necessary permissions on the required resources, select **Download role assignment template** to fetch the ARM template,  and run the template as an administrator. |
    | **Role assignment not done** | This message appears when you (the backup admin) have the **write access** on the Cosmos DB account to assign missing permissions as listed under **View details**. | To grant permissions inline, select **Assign missing roles**. |
 
-   Once the permission assigment process starts, the missing access permissions on the Cosmos DB account are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
+   Once the permission assignment process starts, the missing access permissions on the Cosmos DB account are granted to the backup vault. You can define the scope at which the access permissions must be granted. When the action is complete, revalidation starts.
  
 7. After the role assignment validation shows **Success**,  select **Next**.
 
