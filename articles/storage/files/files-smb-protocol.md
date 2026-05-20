@@ -66,13 +66,13 @@ The following table shows Windows support for SMB version, SMB Multichannel<sup>
 | Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
 | Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](files-smb-protocol.md#windows-10-version-1507) | AES-128-GCM |
-| Windows Server 2012 R2 <sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2012 <sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows 8.1 <sup>3</sup> | SMB 3.0 | No | AES-128-CCM |
-| Windows Server 2008 R2 <sup>3</sup> | SMB 2.1 | No | Not supported |
-| Windows 7 <sup>3</sup> | SMB 2.1 | No | Not supported |
+| Windows Server 2012 R2<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2012<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows 8.1<sup>3</sup> | SMB 3.0 | No | AES-128-CCM |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | No | Not supported |
+| Windows 7<sup>3</sup> | SMB 2.1 | No | Not supported |
 
-<sup>1</sup>Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares only.
+<sup>1</sup>Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD (premium) file shares only.
 
 <sup>2</sup>Regular Microsoft support for Windows Server 2012 and Windows Server 2012 R2 has ended. You can purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates).
 
@@ -80,7 +80,7 @@ The following table shows Windows support for SMB version, SMB Multichannel<sup>
 
 ## SMB protocol settings
 
-Azure Files offers multiple settings that affect the behavior, performance, and security of the SMB protocol. These are configured for all Azure file shares within a storage account.
+Azure Files offers multiple settings that affect the behavior, performance, and security of the SMB protocol. These are configured for all Azure classic file shares within an Azure storage account.
 
 ### SMB Continuous Availability
 
