@@ -2,7 +2,7 @@
 title: Submit a large number of tasks to a Batch job
 description: Learn how to efficiently submit a very large number of tasks in a single Azure Batch job.
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 05/20/2026
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
@@ -34,7 +34,7 @@ When using these APIs, you need to provide logic to divide the number of tasks t
 
 Other Batch APIs support much larger task collections, limited only by RAM availability on the submitting client. These APIs transparently handle dividing the task collection into "chunks" for the lower-level APIs and retries for task addition failures.
 
-- [.NET API](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
+- [.NET API](/dotnet/api/azure.compute.batch.batchclient.createtaskasync)
 - [Java API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
 - [Azure Batch CLI extension](batch-cli-templates.md) with Batch CLI templates
 - [Python SDK extension](https://pypi.org/project/azure-batch-extensions/)
@@ -51,7 +51,7 @@ For example, instead of using a large number of resource files, install task dep
 
 ### Number of parallel operations
 
-Depending on the Batch API, you can increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property in the .NET API, or the `threads` parameter of methods such as [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations) in the Batch Python SDK extension. (This property is not available in the native Batch Python SDK.)
+Depending on the Batch API, you can increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) property in the .NET API, or the `threads` parameter of methods such as [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations) in the Batch Python SDK extension. (This property is not available in the native Batch Python SDK.)
 
 By default, this property is set to 1, but you can set it higher to improve throughput of operations. You trade off increased throughput by consuming network bandwidth and some CPU performance. Task throughput increases by up to 100 times the `MaxDegreeOfParallelism` or `threads`. In practice, you should set the number of concurrent operations to below 100.
 
@@ -65,23 +65,22 @@ Having many concurrent HTTP connections can throttle the performance of the Batc
 
 The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API.
 
-To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient). For example:
+To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/azure.compute.batch.createtasksoptions) property of the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) passed to [BatchClient.CreateTasksAsync](/dotnet/api/azure.compute.batch.batchclient). For example:
 
-```csharp
-BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
-  {
+```C# Snippet:large_tasks_parallel_options
+CreateTasksOptions parallelOptions = new CreateTasksOptions()
+{
     MaxDegreeOfParallelism = 15
-  };
-...
+};
 ```
 
-Add a task collection to the job using the appropriate overload of the [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) or [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask) method. For example:
+Add a task collection to the job using the appropriate overload of the [CreateTasksAsync](/dotnet/api/azure.compute.batch.batchclient) method. For example:
 
-```csharp
+```C# Snippet:large_tasks_add_collection
 // Add a list of tasks as a collection
-List<CloudTask> tasksToAdd = new List<CloudTask>(); // Populate with your tasks
-...
-await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions);
+List<BatchTaskCreateOptions> tasksToAdd = new List<BatchTaskCreateOptions>(); // Populate with your tasks
+// ...
+await batchClient.CreateTasksAsync(jobId, tasksToAdd, parallelOptions);
 ```
 
 ## Example: Batch CLI extension
@@ -139,7 +138,7 @@ pip install azure-batch-extensions
 
 After importing the package using `import azext.batch as batch`, set up a `BatchExtensionsClient` that uses the SDK extension:
 
-```python
+```python Snippet:large_tasks_extensions_client
 
 client = batch.BatchExtensionsClient(
     base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
@@ -148,7 +147,7 @@ client = batch.BatchExtensionsClient(
 
 Create a collection of tasks to add to a job. For example:
 
-```python
+```python Snippet:large_tasks_collection
 tasks = list()
 # Populate the list with your tasks
 ...
@@ -156,7 +155,7 @@ tasks = list()
 
 Add the task collection using [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations). Set the `threads` parameter to increase the number of concurrent operations:
 
-```python
+```python Snippet:large_tasks_add_collection
 try:
     client.task.add_collection(job_id, threads=100)
 except Exception as e:
@@ -165,7 +164,7 @@ except Exception as e:
 
 The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding Batch CLI template example:
 
-```python
+```python Snippet:large_tasks_parameter_sweep
 parameter_sweep = {
     "job": {
         "type": "Microsoft.Batch/batchAccounts/jobs",
@@ -202,7 +201,7 @@ job_parameter = client.job.jobparameter_from_json(job_json)
 
 Add the job parameters to the job. Set the `threads` parameter to increase the number of concurrent operations:
 
-```python
+```python Snippet:large_tasks_job_add
 try:
     client.job.add(job_parameter, threads=50)
 except Exception as e:
