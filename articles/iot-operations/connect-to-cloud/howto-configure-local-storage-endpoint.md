@@ -22,7 +22,7 @@ To send data to local storage in Azure IoT Operations, you can configure a data 
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
-- A [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+- A [PersistentVolumeClaim (PVC) request](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## Create a local storage data flow endpoint
 
@@ -187,4 +187,4 @@ Finally, when you create the data flow, the [data destination](howto-configure-d
 
 ## Next step
 > [!div class="nextstepaction"]
-> [Create a data flow](how-to-create-dataflow.md)
+> [Create a data flow](howto-create-dataflow.md)
