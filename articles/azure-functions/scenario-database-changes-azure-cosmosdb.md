@@ -201,7 +201,9 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 ::: zone pivot="programming-language-powershell"  
 :::code language="powershell" source="~/functions-azd-cosmosdb-powershell/cosmos_trigger/run.ps1" :::
 
-The trigger is defined in the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb/blob/main/cosmos_trigger/function.json).
+The trigger is defined in the corresponding _function.json_ file:
+
+:::code language="json" source="~/functions-azd-cosmosdb-powershell/cosmos_trigger/function.json" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb).
 ::: zone-end  
