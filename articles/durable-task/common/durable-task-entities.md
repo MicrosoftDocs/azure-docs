@@ -364,7 +364,7 @@ public class CounterEntity extends AbstractTaskEntity<Integer> {
 ```java
 @FunctionName("Counter")
 public String counterEntity(
-    @DurableEntityTrigger(name = "req", entityName = "Counter") String req) {
+    @DurableEntityTrigger(name = "req") String req) {
     return EntityRunner.loadAndRun(req, CounterEntity::new);
 }
 ```
