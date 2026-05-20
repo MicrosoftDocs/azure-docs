@@ -3,7 +3,7 @@ title: Support matrix for Azure Recovery Orchestration Plan
 description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
 ms.topic: overview
 ms.service: resiliency
-ms.date: 05/13/2026
+ms.date: 06/03/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 #customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview), so that I can effectively utilize the service for my disaster recovery needs.
