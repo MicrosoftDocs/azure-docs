@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 04/08/2026
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -33,7 +33,7 @@ The cost of a deployment of Azure Files is determined by four key factors: billi
 - **Resource model**: Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
     - **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. Storage accounts are offered by the `Microsoft.Storage` resource provider.
 
-    - **File shares** (preview) are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
+    - **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
 
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -686,4 +686,4 @@ For more information on how to purchase reservations, see [Optimize costs for Az
 - [Cost estimation examples](./file-estimate-cost.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 - [Create a classic file share](./create-classic-file-share.md)
-- [Create a file share (preview)](./create-file-share.md)
+- [Create a file share](./create-file-share.md)
