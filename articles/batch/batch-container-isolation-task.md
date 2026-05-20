@@ -2,7 +2,7 @@
 title: Configure container isolation in Azure Batch task
 description: Learn how to configure isolation at task level in Azure Batch.
 ms.topic: how-to
-ms.date: 01/06/2026
+ms.date: 05/19/2026
 ms.devlang: csharp
 ms.custom: batch
 # Customer intent: As an Azure Batch user, I want to configure task-level container isolation, so that I can customize data paths and enhance security by preventing data leakage between containers.
@@ -93,24 +93,22 @@ POST {batchUrl}/jobs/{jobId}/tasks?api-version=2024-07-01.20.0
 
 # [SDK / C#](#tab/csharp)
 
-The following code snippet shows an example of how to use the [Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) client library to create a container data isolation task using C#. For more details about Batch .NET, see the [reference documentation](/dotnet/api/microsoft.azure.batch).
+The following code snippet shows an example of how to use the [Azure.Compute.Batch](https://www.nuget.org/packages/Azure.Compute.Batch/) client library to create a container data isolation task using C#. For more details, see the [reference documentation](/dotnet/api/azure.compute.batch).
 
-```csharp
-private async Task CreateExampleContainerIsolationTask(BatchServiceClient client, string jobId)
+```C# Snippet:container_isolation_task
+BatchTaskCreateOptions containerIsolationTask = new BatchTaskCreateOptions(
+    "test-container-isolation", "printenv")
 {
-    var containerIsolationTask = new CloudTask("test-container-isolation", "printenv")
+    ContainerSettings = new BatchTaskContainerSettings("docker.io/ubuntu:22.04")
     {
-        ContainerSettings = new TaskContainerSettings("docker.io/ubuntu:22.04")
+        ContainerHostBatchBindMounts =
         {
-            ContainerHostBatchBindMounts = new List<ContainerHostBatchBindMountEntry>()
+            new ContainerHostBatchBindMountEntry()
             {
-                new()
-                {
-                    Source = Microsoft.Azure.Batch.Protocol.Models.ContainerHostDataPath.Task,
-                }
+                Source = ContainerHostDataPath.Task
             }
         }
-    };
-    await client.JobOperations.AddTaskAsync(jobId, containerIsolationTask);
-}
+    }
+};
+await client.CreateTaskAsync(jobId, containerIsolationTask);
 ```

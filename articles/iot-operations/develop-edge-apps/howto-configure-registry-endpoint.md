@@ -23,7 +23,8 @@ Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebA
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 or later.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+- Azure IoT Operations version 1.2 or later.
 - Access to a container registry, such as ACR.
 
 ## Create a registry endpoint

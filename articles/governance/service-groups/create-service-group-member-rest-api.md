@@ -39,9 +39,6 @@ The `[scope]` in the URLs below refers to the full Azure Resource Manager path o
 | Resource group | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 | Resource | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` |
 
-For REST API, use the
-[Service Groups Member - Create or Update](/rest/api/resources/service-group-member/create-or-update) endpoint to create a new service group member.
-
 In this example, we're adding a Virtual Machine [VM1] to a service group [Contoso].
 
 1. Service Group: **groupId** is _Contoso_
@@ -77,9 +74,6 @@ specify the service group as the parent, use the **TargetID** property.
   ```
 
 ## Clean up resources
-
-To remove the service group created in this document, use the
-[Service Group Member - Delete](/rest/api/resources/service-group-member/delete) endpoint:
 
 - REST API URI
 

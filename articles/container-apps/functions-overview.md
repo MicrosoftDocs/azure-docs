@@ -107,7 +107,9 @@ For detailed billing mechanics and examples, refer to the [Billing in Azure Cont
 
 Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, and Custom containers (bring your own image).
 
-Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions. That’s why the "Add scale rules" button on the Azure portal is disabled for Functions on Container Apps. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
+Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions in the default experience. That's why the "Add scale rules" button on the Azure portal is disabled for Functions on Container Apps. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
+
+If you need to provide your own scale rules, you can opt out of platform-generated rules by using `allowScalingRuleOverride`. For more information, see [Override auto-generated KEDA scale rules for Azure Functions on Container Apps](functions-scale-rule-override.md).
 
 The platform automatically translates your Functions trigger parameters (from `host.json` configuration or trigger attributes) into appropriate KEDA scaler parameters. For a detailed reference of how Functions trigger configurations map to KEDA scaling parameters, see [Azure Functions KEDA scaling mappings](functions-keda-mappings.md).
 
@@ -128,7 +130,7 @@ For unsupported triggers, use fixed replica counts (that is, set minReplicas > 0
 
 ## Scaling and performance
 
-Azure Functions on Container Apps scale automatically based on events using KEDA, with no need to configure scale rules manually. You can still set min/max replicas to control scaling behavior.
+Azure Functions on Container Apps scale automatically based on events using KEDA by default. You can still set min/max replicas to control scaling behavior. You can also use `allowScalingRuleOverride` to provide custom scale rules.
 
 - **Event-driven scaling**: Automatically scales based on triggers like Event Grid, Service Bus, or HTTP.
 - **Scale to zero**: Idle apps scale-in to zero to save costs.
@@ -153,7 +155,7 @@ These capabilities make Container Apps-hosted Functions ideal for enterprise-gra
 
 ## Monitoring and logging
 
-Azure Functions on Container Apps integrate seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
+Azure Functions on Container Apps integrates seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
 
 - **Application Insights:** Provides telemetry for requests, dependencies, exceptions, and custom traces. For more information, see [Monitor Azure Functions](../azure-functions/monitor-functions.md#application-insights).
 - **Log analytics:** Captures container lifecycle and scaling events (for example, FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  

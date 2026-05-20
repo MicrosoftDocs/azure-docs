@@ -388,6 +388,17 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and si
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
+### Can I control which Azure prefixes are advertised to my on-premises network?
+
+For gateway-enabled virtual networks, you can configure advertised gateway prefixes using the `summarizedGatewayPrefixes` property on the virtual network. This property lets you provide summarized (aggregated) CIDR prefixes that Azure VPN Gateway and ExpressRoute Gateway use when determining the routing prefix list to advertise to on-premises.
+
+By default, Azure VPN Gateway and ExpressRoute Gateway advertise the address space of the hub and the address spaces of peered virtual networks. When the `summarizedGatewayPrefixes` property is populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead and suppress advertisement of spoke address spaces that are covered by the summarized space.
+
+> [!NOTE]
+> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
+
 ### Can I configure forced tunneling?
 
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).

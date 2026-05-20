@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 You can deploy [Azure Files](storage-files-introduction.md) in two ways: by directly mounting the serverless Azure file shares or by caching file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
-- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares (preview) as your management model.
+- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares as your management model.
 
 - **Cache Azure file shares on-premises with Azure File Sync** (SMB only): [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
@@ -26,7 +26,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB or need to use customer-managed keys for encryption at rest, choose classic file shares.
+- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
@@ -51,7 +51,7 @@ To learn more, see [Create a classic file share](./create-classic-file-share.md)
 
 ### File shares (Microsoft.FileShares)
 
-File shares (preview) are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. These file shares offer the following advantages over classic file shares:
+File shares are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. These file shares offer the following advantages over classic file shares:
 
 - **Simplified management**: File shares are created directly as top-level resources in the Azure portal or through management APIs. This removes the requirement to manage a storage account and streamlines the deployment experience.
 
@@ -65,7 +65,7 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 
 #### Regional availability
 
-Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions. Private endpoint support for file share with Microsoft.FileShares (preview) is available in all Azure public cloud regions.
+Currently, you can create a file share with Microsoft.FileShares in the following regions. Private endpoint support for file share with Microsoft.FileShares is available in all Azure public cloud regions.
 
 - Australia Central
 - Australia East
@@ -95,9 +95,13 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
+We encourage you to evaluate the new file share experience with Microsoft.FileShares for all your new Azure Files NFS protocol deployments.
+
+If a specific feature requirement isn't yet available in the new file share experience, or the workload requires SMB protocol support, the classic file share experience remains the recommended approach. Deprecation of the classic experience won't begin until the remaining feature gaps are closed. Currently, there's no automation migration support from classic file shares to file shares. 
+
 | Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
-| Support guarantee | Generally available | Public preview |
+| Support guarantee | Generally available | Generally available |
 | Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 | SMB protocol  | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | NFS protocol | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -117,6 +121,12 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 | Single vnet configuration for multiple file shares | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | AKS CSI driver | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Soft delete support | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Snapshots support | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Encryption in transit | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Customer managed keys | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Zonal pinning | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 
 ## Available protocols
 
@@ -209,7 +219,7 @@ For more information about encryption in transit, see [requiring secure transfer
 
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-You can't use customer-managed keys for encryption at rest with Azure file shares created using the Microsoft.FileShares resource provider (preview). You have to use Microsoft-managed keys.
+You can't use customer-managed keys for encryption at rest with Azure file shares created using the Microsoft.FileShares resource provider. You have to use Microsoft-managed keys.
 
 ## Data protection
 

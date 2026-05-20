@@ -22,7 +22,7 @@ Examples of secrets that you might store in Azure Key Vault for use by Azure IoT
 
 ## Prerequisites
 
-To manage secrets, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 ## Configure Azure Key Vault permissions
 

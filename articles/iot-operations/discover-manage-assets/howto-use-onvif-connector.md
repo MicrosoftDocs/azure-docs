@@ -69,6 +69,8 @@ This article describes how to use the operations experience web UI and Azure CLI
 
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 An ONVIF compliant camera that you can reach from your Azure IoT Operations cluster.

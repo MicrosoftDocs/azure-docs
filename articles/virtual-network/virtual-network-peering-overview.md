@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/16/2025
+ms.date: 03/31/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
@@ -111,6 +111,17 @@ Both virtual network peering and global virtual network peering support gateway 
 Gateway transit between virtual networks created through different deployment models is supported. The gateway must be in the virtual network in the Azure Resource Manager model. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you peer virtual networks that share a single ExpressRoute connection, the traffic between them goes through the peering relationship. That traffic uses the Azure backbone network. You can still use local gateways in each virtual network to connect to the on-premises circuit. Otherwise, you can use a shared gateway and configure transit for on-premises connectivity.
+
+### Advertised gateway prefixes
+
+In hub-and-spoke designs that use gateway transit, Azure VPN Gateway and ExpressRoute Gateway can advertise a large number of prefixes to on-premises because the default behavior is to advertise the address space of the hub and the address spaces of peered virtual networks.
+
+To reduce the number of advertised prefixes, you can configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When this property is populated on the hub virtual network, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead of the hub's address space and suppress advertisement of spoke address spaces that are covered by the summarized space.
+
+> [!NOTE]
+> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
+
+For more information, see [Advertised gateway prefixes overview](advertised-gateway-prefixes-overview.md).
 
 ## Troubleshoot
 

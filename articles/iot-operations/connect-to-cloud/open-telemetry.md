@@ -22,8 +22,12 @@ This feature is for routing device and asset data, not for collecting Azure IoT 
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An OpenTelemetry collector deployed and accessible from your Azure IoT Operations cluster.
+
 - Administrative access to your Azure IoT Operations cluster.
 
 ## Terminology

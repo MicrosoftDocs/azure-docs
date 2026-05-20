@@ -20,7 +20,7 @@ The [Azure API Management](../../api-management/api-management-key-concepts.md) 
 
 While the two portals share some features, they also have distinct differences. The following table compares current capabilities to help determine which portal to use. Some organizations might prefer one portal, while others might need both.
 
-| Feature | API Management developer portal | API Center portal (preview) |
+| Feature | API Management developer portal | API Center portal |
 | --- | --- | --- |
 | Search and filter API inventory | API Management instance only | All APIs<sup>1</sup> |
 | View API details and definitions | ✔️ | ✔️ |

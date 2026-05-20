@@ -32,7 +32,7 @@ Messages enter from the Kafka source, such as an Azure Event Hubs namespace, and
 
 ## Prerequisites
 
-- A running instance of Azure IoT Operations with the MQTT broker enabled.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - An Azure Event Hubs namespace with one or more event hubs that contain the data you want to ingest. Event Hubs exposes a Kafka-compatible endpoint at `<namespace>.servicebus.windows.net:9093`. For more information, see [Use Azure Event Hubs from Apache Kafka applications](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview). This article uses a set of four event hubs called `factory-f1-robot-r1`, `warehouse-w1-machine-m1`, `warehouse-w1-machine-m2`, and `warehouse-w1-machine-m3` for the examples, but you can use any number of event hubs with your own naming convention.
 - The user-assigned managed identity for your Azure IoT Operations instance must be assigned the **Azure Event Hubs Data Receiver** role on the Event Hubs namespace. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 - The [MQTT connector template](howto-use-mqtt-connector.md#deploy-the-connector-for-mqtt) configured for your Azure IoT Operations instance in the Azure portal. Contact your IT administrator to complete this step.

@@ -2,7 +2,7 @@
 title: Use ephemeral OS disk nodes for Azure Batch pools
 description: Learn how and why to create a Batch pool that uses ephemeral OS disk nodes.
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 05/19/2026
 ms.devlang: csharp
 # Customer intent: "As a cloud architect, I want to configure Azure Batch pools with ephemeral OS disks, so that I can reduce costs and improve application performance for stateless workloads."
 ---
@@ -42,17 +42,15 @@ The following example shows how to create a Batch pool where the nodes use ephem
 
 This code snippet shows how to create a pool with ephemeral OS disks using the azure-mgmt-batch Python SDK with the ephemeral OS disk using the temporary disk (cache).
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagementClient
-from azure.mgmt.batch.models import (
-    BatchAccountPoolData,
-    DeploymentConfiguration,
-    VirtualMachineConfiguration,
-    ImageReference,
-    OSDisk,
-    DiffDiskSettings,
-    DiffDiskPlacement,
+```python Snippet:ephemeral_os_disk_vm_config
+virtual_machine_configuration = models.VirtualMachineConfiguration(
+    image_reference=image_ref_to_use,
+    node_agent_sku_id=node_sku_id,
+    os_disk=models.BatchOsDisk(
+        ephemeral_os_disk_settings=models.BatchDiffDiskSettings(
+            placement=models.DiffDiskPlacement.CACHE_DISK
+        )
+    )
 )
 
 

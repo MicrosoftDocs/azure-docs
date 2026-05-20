@@ -22,7 +22,7 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Configure a registry endpoint to enable your Azure IoT Operations instance to access a container registry. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
 If you want to use a private registry like Azure Container Registry (ACR), you also need:

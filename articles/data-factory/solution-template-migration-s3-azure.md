@@ -21,6 +21,8 @@ Use the templates to migrate petabytes of data consisting of hundreds of million
  > [!NOTE]
  > If you want to copy small data volume from AWS S3 to Azure (for example, less than 10 TB), it's more efficient and easy to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than what you need.
 
+If you plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws), which includes [migration guides](/azure/migration/migrate-storage-from-aws#migration-guides) that might align to your use case.
+
 ## About the solution templates
 
 Data partition is recommended especially when migrating more than 10 TB of data. To partition the data, leverage the ‘prefix’ setting to filter the folders and files on Amazon S3 by name, and then each ADF copy job can copy one partition at a time. You can run multiple ADF copy jobs concurrently for better throughput.

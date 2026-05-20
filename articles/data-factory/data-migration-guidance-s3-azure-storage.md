@@ -71,6 +71,8 @@ Migrate data over private link:
 
 ## Implementation best practices 
 
+If you plan to migrate a workload from AWS to Azure, we suggest you have a methodical approach to that initiative. Component selection and Azure fundamentals are important parts of that larger process. To fine tune your migration plan using Microsoft's guidance, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws).
+
 ### Authentication and credential management 
 
 - To authenticate to Amazon S3 account, you must use [access key for IAM account](./connector-amazon-simple-storage-service.md#linked-service-properties). 

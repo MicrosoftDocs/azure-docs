@@ -4,7 +4,7 @@ description: Learn about the factors that can impact Azure file share performanc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/12/2026
+ms.date: 04/08/2026
 ms.author: kendownie
 # Customer intent: "As a cloud storage administrator, I want to understand the factors affecting Azure file share performance, so that I can optimize configurations for IOPS, throughput, and latency to meet application demands."
 ---
@@ -13,7 +13,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Files can satisfy performance requirements for most applications and use cases. This article explains the different factors that can affect file share performance and how to optimize the performance of Azure file shares for your workload.
 

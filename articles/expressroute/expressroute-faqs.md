@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 01/10/2025
+ms.date: 03/31/2026
 ms.author: duau
 
 ---
@@ -47,7 +47,7 @@ If you plan to use only your primary link to transmit traffic, the bandwidth for
 
 ### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
 
-If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute will only skip charing egress data. Egress data will still be charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
+If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute skips charges for egress data. Egress data is still charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
@@ -66,6 +66,17 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 ### What happens if the prefix limit on an ExpressRoute connection gets exceeded?
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
+
+### How can I reduce the number of prefixes advertised from Azure to on-premises?
+
+ExpressRoute private peering has a maximum number of IPv4 prefixes that can be advertised on a single ExpressRoute connection (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+For hub-and-spoke topologies, the default behavior is to advertise the hub address space and peered spoke address spaces to on-premises. To reduce the number of prefixes advertised from Azure to on-premises, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead and suppress advertisement of covered spoke address spaces.
+
+> [!NOTE]
+> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
 
 ## How can I adjust the number of prefixes advertised to the gateway to ensure it's within the maximum limitation?
 
@@ -359,12 +370,12 @@ The following diagram shows the connectivity scope of different ExpressRoute cir
 
 ## ExpressRoute FastPath
 
-### What happens when the IP address limits are reached ?
+### What happens when the IP address limits are reached?
 When the limit is reached, new routes don't get programmed on FastPath, and instead traffic flows through the ExpressRoute gateway.
 All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
- 
-### Can I use Azure Firewall with FastPath ?
-Yes. To support traffic traversing from On-Premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
+
+### Can I use Azure Firewall with FastPath?
+Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
 
 ## ExpressRoute premium
 
@@ -458,7 +469,7 @@ Refer to [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/ur
 
 Microsoft 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
 
-### What regions is ExpressRoute for Microsoft 365 supported in?
+### What regions are ExpressRoute for Microsoft 365 supported in?
 
 See [ExpressRoute partners and locations](expressroute-locations.md) for information.
 

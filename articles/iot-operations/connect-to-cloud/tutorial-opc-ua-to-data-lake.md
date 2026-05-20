@@ -22,6 +22,8 @@ This tutorial builds on the quickstart setup and demonstrates how to bifurcate t
 
 ## Prerequisites
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hubs.
 
 ## Create a storage account with Data Lake Storage capability

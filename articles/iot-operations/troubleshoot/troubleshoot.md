@@ -24,7 +24,7 @@ For information about known issues and temporary workarounds, see [Known issues:
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
-[Azure CLI version 2.53.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[Azure CLI version 2.62.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 

@@ -125,7 +125,7 @@ With push delivery, Event Grid sends events to a destination configured in a *pu
 
 ### Event Hubs event delivery
 
-Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what). Events are sent as a byte array with every element in the array containing a CloudEvent.
+Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what.html). Events are sent as a byte array with every element in the array containing a CloudEvent.
 
 [!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
