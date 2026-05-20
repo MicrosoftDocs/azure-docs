@@ -22,20 +22,21 @@ Azure Migrate collector can discover your VMware estate or individual Windows an
 
 ### Prerequisites
 
-Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure the machine you plan to install the collector on, has line-of-sight visibility to the AVS vCenter.
+Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where the collector will be installed has network line-of-sight to the AVS vCenter.
 
 | Requirement | Details |
 |---|---|
-| Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS |
+| Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS role installed. |
 | Compute and storage | A server with 16 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage. |
 | Supported vCenter versions | 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5. |
 | Networking - vCenter | Network line of sight from collector to vCenter with inbound access allowed on TCP port 443. <br><br> If the server running vCenter server listens on a different port, you can modify the port when you provide the vCenter server details in the collector configuration manager. |
 | Networking – ESXi hosts | Network line of sight from collector to all ESXi hosts with inbound access allowed on TCP port 443. |
 | Networking – Windows/Linux | To collect data about installed software, webapps and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |
 | SQL | For deeper discovery of SQL readiness data, network line of sight is required from collector to SQL instances. SQL metadata is collected using TCP connection to SQL instances over custom port. |
-| vCenter statistical level | Verify Performance Statistics Level in vCenter is set to Level 1 or above: <br> Level 1: CPU and memory metrics only. (recommended) <br> Level 2: CPU, memory, disk, and network metrics. <br> <br> If the level is disabled, it collects only real-time data (No historical data). Change it to level 1 or above and wait for 24 hours before starting data collection using collector. |
+| vCenter statistical level | Verify Performance Statistics Level in vCenter is set to Level 1 or above: <br> Level 1: CPU and memory metrics only. (recommended) <br> Level 2: CPU, memory, disk, and network metrics. <br> <br> If the level is disabled, no historical data is collected. Change it to level 1 or above and wait for 24 hours before starting data collection using collector. |
 
 ### Prepare vCenter, guest and database accounts 
+
 | Account | Permissions | Purpose |
 |---|---|---|
 | vCenter account | Read only and guest operations | To collect server configurations and performance data of VMware machines. |
@@ -107,17 +108,18 @@ You can use the same Azure migrate collector to discover both VMware machines an
 2. For a Windows server:
     - Select the source type as **Windows Server**.
     - Enter a friendly name for the credentials.
-    - Add the username and password.
+    - Sign in using your credentials.
     - Select **Save**.
-3. If you use password-based authentication for a Linux server, select the source type as Linux Server (Password-based).
-    Enter a friendly name for the credentials.
-    Add the username and password, and then select **Save**.
-4. If you use SSH key-based authentication for a Linux server:
-    Select the source type as Linux Server (SSH key-based).
-    Enter a friendly name for the credentials.
-    Add the username.
-    Browse and select the SSH private key file.
-    Select **Save**.
+3. For Linus server:
+    - If you use password-based authentication. Select the source type as Linux Server (Password-based).
+    - Enter a friendly name for the credentials.
+    - Sign in using your credentials.
+    - Select **Save**.
+    - If you use SSH key-based authentication, select the source type as Linux Server (SSH key-based).
+    - Enter a friendly name for the credentials.
+    - Sign in using your credentials.
+    - Browse and select the SSH private key file.
+    - Select **Save**.
 
 > [!NOTE]
 > -Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
@@ -128,38 +130,38 @@ You can use the same Azure migrate collector to discover both VMware machines an
 
 ### Provide Windows and Linux server details
 
-1. Provide physical or virtual server details by adding discovery sources using Add single item, Add multiple items, or Import CSV (default). You can enter the server IP address or FQDN along with a friendly name for the credentials used to connect.
+1. Provide physical or virtual server details by adding discovery sources using Add single item, Add multiple items, or Import CSV (default). Enter the server IP address or FQDN along with a friendly name for the credentials used to connect.
 1. For Add single item, select the OS type, enter the server IP address or FQDN, provide a friendly credential name, and select Save. For Add multiple items, enter multiple server records at once, specify the credential name, verify the records, and then save. 
 1. For Import CSV, download the CSV template, fill in the server IP address or FQDN and credential friendly name, import the file into the appliance, verify the records, and select Save. 
-1. The collector communicates with Windows servers using WinRM port 5986 (HTTPS) and Linux servers using port 22 (TCP). If HTTPS prerequisites aren't configured on Hyper‑V servers, it automatically switches to WinRM port 5985 (HTTP). 
-1. When you save, the collector validates connectivity to each server and shows the Validation status in the table. If validation fails, select Validation failed to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting Delete. 
-1. Before starting data collection, you can optionally turn off the workload discovery slider for the added servers. This setting can be changed at any time. 
+1. The collector communicates with Windows servers using WinRM port 5986 (HTTPS) and Linux servers by using port 22 (TCP). If HTTPS prerequisites aren't configured on Hyper‑V servers, it automatically switches to WinRM port 5985 (HTTP). 
+1. When you save, the collector validates connectivity to each server and shows the validation status in the table. If validation fails, select Validation failed to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting Delete. 
+1. Before starting data collection, you can optionally turn off the workload discovery slider for the added servers. You can change this setting at any time. 
 1. Add additional credentials (Windows domain, Windows non‑domain, or SQL authentication) to discover SQL Server instances and databases. The appliance automatically maps these credentials to SQL servers. 
-1. Provide domain credentials in Down‑Level format (domain\username). UPN format isn't supported.Domain credentials are authenticated against Active Directory to prevent account lockouts. 
-1. Domain credential validation status is shown in the credentials table. If validation fails, select the failed status to view details, fix the issue, and select Revalidate credentials.
+1. Provide domain credentials in Down‑Level format (domain\username). UPN format isn't supported. Domain credentials are authenticated against Active Directory to prevent account lockouts. 
+1. The credentials table shows the domain credential validation status. If validation fails, select the failed status to view details, fix the issue, and select Revalidate credentials.
 
 ### Start data collection
 
 > [!IMPORTANT]
-> Ensure you are using the latest version of Collector before starting data collection.
+> Ensure you are using the latest version of Collector before you start data collection.
 
 1. After adding all credentials, select **Start Data Collection**.
 2. After validating vCenter credentials, if you skip adding any guest or DB credentials, **Start Data Collection** is disabled. To proceed, disable the **Guest discovery** toggle.
-3. After starting data collection, it may take 2–4 hours depending on environment scale and number of credentials.
+3. After starting data collection, it might take 2–4 hours depending on environment scale and number of credentials.
 4. Track progress in the collection progress bar.
 5. After completion, a summary of data collection is displayed.
 
 ### Review collected data
 
-1. Review the summary to understand status and proportion of machines/workloads that failed.
+1. Review the summary to understand the status and proportion of machines or workloads that failed.
 2. Download the CSV file to review detailed error messages per server.
 3. Diagnose errors by fixing network access issues, modifying user privileges, or adding new credentials.
 4. After resolving issues, select **Start Data Collection** to run again.
 
 ### Collect incremental data
 
-1. After addressing issues, enable **Incremental data** to attempt collection only on workloads where previous attempts failed.
-2. When enabled, VMware configuration and performance data collection is skipped. Software inventory, databases, and webapps collections are attempted on previously failed workloads.
+1. After addressing the issues, enable **Incremental data** to collect data only on workloads where previous attempts failed.
+2. When enabled, VMware configuration and performance data collection is skipped. It attempts Software inventory, databases, and webapps collections on previously failed workloads.
 3. If disabled, full data collection runs.
 
 ### Export collected data
@@ -168,38 +170,39 @@ You can use the same Azure migrate collector to discover both VMware machines an
 2. Select **Export**. A ZIP file is created at: `C:\ProgramData\Microsoft Azure\OfflineData\Azure-Migrate-Discovery-YYYY-MM-DD-HH-MM-SS.zip`.
 
 ## Upload the collected data to an Azure Migrate project
-1.	Refer this article to create a new Azure Migrate project. Inventory Import from collector is supported only for newly created projects. 
+
+1.	[Create a new Azure Migrate project](../azure-compute-fleet/quickstart-create-portal.md) as Inventory Import from collector is supported only for newly created projects. 
 2.	After creating the project, select Start discovery using collector. 
 
-### Import the zip file generated using collector
+### Import the ZIP file generated using collector
 
 1.	Select Browse and select the ZIP file exported from your collector.
-2.	Once you have selected the right file, select import. 
-3.	You'll be able to see the import status as it proceeds. 
+2.	After you select the right file, select Import. 
+3.	You can see the import status as it proceeds. 
 
 > [!NOTE]
-> Discovery may take up to 30 minutes. 
+> Discovery can take up to 30 minutes. 
 
 ### Create business cases and assessments
 
-1. After upload is successful, create business cases and assessments.
-2. After a successful upload, wait 45 minutes before creating a business case or assessment to ensure all discovery data is updated.
+1. After the upload is successful, create business cases and assessments.
+2. After a successful upload, wait 45 minutes before you create a business case or assessment to ensure all discovery data is updated.
 
 ### Import more inventory
 
-1.	If you wish to discover more inventory with the Azure migrate collector after your initial import, follow these steps to add the new data to your Azure Migrate project:
-2.	Navigate to **All inventory** view. You'll be able to see your existing discovery data here.
-3.	Select **Discover** option at the top and select **Using collector**. 
+1.	To discover more inventory with the Azure migrate collector after your initial import, follow these steps to add the new data to your Azure Migrate project:
+2.	Go to **All inventory** view. You can see your existing discovery data.
+3.	Select **Discover** > **Using collector** and go to import page.
 4.	You'll be able to navigate to the import page. 
 5.	Select **Azure migrate collector (ZIP)** in the file type dropdown
 6.	Select Browse and select the ZIP file exported from your collector.
-7.	Once you have selected the right file, select import to ingest the file. 
+7.	After select the right file, select Import to ingest the file. 
 
 > [!NOTE]
-> Multiple zip files of different hypervisor type (VMware, physical) can be imported to the same project. 
+> You can import multiple ZIP files of different hypervisor types (VMware, physical) to the same project. 
 
 ## Next steps
 
 - Review the [discovered inventory](how-to-review-discovered-inventory.md).
-- Generate a [a business case](migrate-appliance.md).
+- Generate a [business case](migrate-appliance.md).
 - Create an [assessment](tutorial-discover-import.md).
