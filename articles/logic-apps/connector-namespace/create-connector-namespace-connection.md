@@ -47,7 +47,7 @@ This article shows you how to create a new connection in an Azure Connector Name
 
 1. Select **Create Connection**.
 
-   :::image type="content" source="media/create-connector-namespace-connection/create-connection-autheticate-connector.png" alt-text="Create Connection dialog with Office 365 Outlook selected and a connection name entered.":::
+   :::image type="content" source="media/create-connector-namespace-connection/create-connection-authenticate-connector.png" alt-text="Create Connection dialog with a connection name entered.":::
 
 1. Sign in with your credentials for the external service to authorize the connection.
 
