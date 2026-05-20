@@ -63,9 +63,9 @@ The following table shows Windows support for SMB version, SMB Multichannel<sup>
 | Windows 10, version 2004 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server 2019 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
 | Windows 10, version 1809 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
-| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
-| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](files-smb-protocol.md#windows-10-version-1507) | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](smb-performance.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](smb-performance.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](smb-performance.md#windows-10-version-1507) | AES-128-GCM |
 | Windows Server 2012 R2<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
 | Windows Server 2012<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
 | Windows 8.1<sup>3</sup> | SMB 3.0 | No | AES-128-CCM |
