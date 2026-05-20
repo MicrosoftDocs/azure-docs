@@ -122,7 +122,7 @@ Follow these instructions to provision the Device Update agent on Linux IoT devi
    ```
 
 >[!NOTE]
->If your IoT device isn't able to run the IoT Identity Service or IoT Edge, which bundles the IoT Identity Service, you can still install the Device Update agent and configure it by [using a connection string](#use-a-connection-string) or [x.509 certificates](#use-x.509-certificates).
+>If your IoT device isn't able to run the IoT Identity Service or IoT Edge, which bundles the IoT Identity Service, you can still install the Device Update agent and configure it by [using a connection string](#use-a-connection-string) or [x.509 certificates](#use-x509-certificates).
 
 ### Use a connection string
 
