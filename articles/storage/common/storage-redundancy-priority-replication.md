@@ -52,18 +52,9 @@ These limitations are critical to understanding how and when the SLA applies, an
 
 ## Monitor compliance
 
-> [!IMPORTANT]
-> Geo Blob Lag metrics are currently in PREVIEW and available in all regions where Geo priority replication is supported.
-> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowGeoPriorityReplicationMetricsInPortal as the feature name. The provider name for this preview feature is Microsoft.Storage.
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 To ensure transparency and empower customers to track the performance of Geo priority replication, Azure provides a new monitoring tool integrated directly into Azure Monitor Metrics. After geo priority replication is enabled, you have the ability to view the new **Geo Blob Lag metric (preview)** for Blob data on a per-account basis. You can check your "Geo blob lag" performance throughout the month via the **Redundancy** and **Metrics** panes. The **Geo Blob Lag metric (preview)** allows you to monitor the lag, or the number of seconds since the last full data copy between the primary and secondary regions, of your block blob data. This metric allows you to assess the performance trends and identify potential SLA breaches for your account.
 
 After geo priority replication is enabled and you register for the Geo Blob Lag metric (preview) you have the ability to view the new metric.
-
-> [!IMPORTANT]
-> Geo Blob Lag metrics can take up to 24 hours to begin displaying after registering for the feature.
 
 :::image type="content" source="media/storage-redundancy-priority-replication/replication-enabled-sml.png" alt-text="Screenshot showing the geo priority replication enabled status for existing accounts." lightbox="media/storage-redundancy-priority-replication/replication-enabled-lrg.png":::
 

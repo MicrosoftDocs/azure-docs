@@ -1832,6 +1832,132 @@ You might also need to use these settings when your function app has network res
 
 When you restrict access to the storage account through the private endpoints, you can't access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security-set-default-access.md).
 ::: zone-end
+::: zone pivot="flex-consumption-plan"
+### Site-scoped certificates
+
+Flex Consumption apps use _site-scoped certificates_, where TLS/SSL certificates are scoped to your individual function app rather than shared across all apps in the same webspace. Site-scoped certificates use the [`Microsoft.Web/sites/certificates`](/azure/templates/microsoft.web/sites/certificates) resource type, which is a child resource of the function app site. This is different from the webspace-level `Microsoft.Web/certificates` resource used by other hosting plans. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
+
+To use site-scoped certificates, you must first enable the feature on your function app by setting `siteScopedCertificatesEnabled` to `true` in the site `properties`:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2024-11-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    serverFarmId: serverFarmResourceId
+    siteScopedCertificatesEnabled: true
+    functionAppConfig: {
+      // ...other configuration...
+    }
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites",
+  "apiVersion": "2024-11-01",
+  "name": "[parameters('functionAppName')]",
+  "location": "[parameters('location')]",
+  "kind": "functionapp,linux",
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "properties": {
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('functionPlanName'))]",
+    "siteScopedCertificatesEnabled": true,
+    "functionAppConfig": {
+      // ...other configuration...
+    }
+  }
+}
+```
+
+---
+
+After the function app is created with site-scoped certificates enabled, you can add certificates as child resources using `Microsoft.Web/sites/certificates`. This example uploads a PFX certificate:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource certificate 'Microsoft.Web/sites/certificates@2024-11-01' = {
+  parent: functionApp
+  name: 'my-certificate'
+  location: location
+  properties: {
+    password: pfxPassword
+    pfxBlob: pfxBlobBase64
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites/certificates",
+  "apiVersion": "2024-11-01",
+  "name": "[concat(parameters('functionAppName'), '/my-certificate')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+  ],
+  "properties": {
+    "password": "[parameters('pfxPassword')]",
+    "pfxBlob": "[parameters('pfxBlobBase64')]"
+  }
+}
+```
+
+---
+
+To import a certificate from Azure Key Vault instead of uploading a PFX blob, use the `keyVaultId` and `keyVaultSecretName` properties:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource kvCertificate 'Microsoft.Web/sites/certificates@2024-11-01' = {
+  parent: functionApp
+  name: 'my-kv-certificate'
+  location: location
+  properties: {
+    keyVaultId: keyVaultId
+    keyVaultSecretName: keyVaultSecretName
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites/certificates",
+  "apiVersion": "2024-11-01",
+  "name": "[concat(parameters('functionAppName'), '/my-kv-certificate')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+  ],
+  "properties": {
+    "keyVaultId": "[parameters('keyVaultId')]",
+    "keyVaultSecretName": "[parameters('keyVaultSecretName')]"
+  }
+}
+```
+
+---
+
+For a complete end-to-end Bicep deployment example that includes site-scoped certificates, see the [Flex Consumption site-scoped certificates sample](https://github.com/Azure-Samples/Flex-Consumption-Site-Scoped-Certificates).
+
+::: zone-end
 ## Function access keys
 
 Define host-level [function access keys](function-keys-how-to.md) as Azure resources. This approach lets you create and manage host keys in your ARM templates and Bicep files. A host key is defined as a resource of type `Microsoft.Web/sites/host/functionKeys`. The following example creates a host-level access key named `my_custom_key` when the function app is created:
