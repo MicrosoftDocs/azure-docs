@@ -43,7 +43,9 @@ items:
     - name: Networking requirements
       href: device-update-networking.md
     - name: Components enumerator
-      href: components-enumerator.md 
+      href: components-enumerator.md
+    - name: Agent status API
+      href: device-update-agent-status.md
   - name: Updates and deployments
     items:
     - name: Import updates

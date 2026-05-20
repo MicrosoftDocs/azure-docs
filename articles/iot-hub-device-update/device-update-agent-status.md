@@ -1,5 +1,5 @@
 ---
-title: Device Update for Azure IoT Hub agent status API | Microsoft Docs
+title: Device Update agent status API for on-device coordination | Microsoft Docs
 description: Device-side API for querying the Device Update agent’s current state.
 author: isabellaecr
 ms.author: isabellac
@@ -9,8 +9,7 @@ ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Device Update for Azure IoT Hub agent status API (GetAduServiceStatus)
-
+# Device Update agent status API for on-device coordination
 The Device Update agent status API enables other processes on the device to query the Device Update (ADU) agent’s current high-level state—such as Idle, Downloading, Installing, or Rebooting—without requiring a round-trip to Azure IoT Hub. 
 
 This API is available starting in Device Update agent reference implementation version 1.3.0. It is designed for device-local coordination, where applications such as supervisors, power managers, or orchestration services running on the device need to understand what the update process is doing in real time.
