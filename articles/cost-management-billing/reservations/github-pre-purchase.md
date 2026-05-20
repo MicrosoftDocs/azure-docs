@@ -85,6 +85,8 @@ Purchase GitHub Prepurchase Plans in the [Azure portal reservations](https://por
 3. On the **Purchase reservations page**, select **GitHub Prepurchase Plan**.
 4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the purchase. The payment method of the subscription is charged the upfront cost for the reservation.
 5. Select a scope. The scope determines which Azure subscriptions' GitHub usage is covered by this prepurchase plan. Make sure the scope includes the subscription where your GitHub usage is billed.
+6. Select the discount tier you want to purchase.
+    :::image type="content" source="./media/github-pre-purchase/select-github-pre-purchase-plan.png" border="true" alt-text="Screenshot showing the Select the product you want to purchase page with GitHub Pre-Purchase Plan tiers." lightbox="./media/github-pre-purchase/select-github-pre-purchase-plan.png" :::
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
    - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
