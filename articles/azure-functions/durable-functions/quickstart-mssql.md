@@ -4,8 +4,9 @@ description: Learn how to create a Durable Functions app with the MSSQL storage 
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 02/04/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.custom:
   - devx-track-dotnet

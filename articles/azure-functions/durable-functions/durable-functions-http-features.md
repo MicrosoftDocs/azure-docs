@@ -3,8 +3,9 @@ title: "HTTP Features in Durable Functions - Azure Functions"
 description: Discover how to use HTTP APIs, async operation tracking, and managed identities in Durable Functions for Azure Functions. Start building durable HTTP workflows today.
 author: cgillum
 ms.topic: feature-guide
-ms.service: azure-functions
-ms.date: 04/22/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python

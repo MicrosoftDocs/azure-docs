@@ -3,8 +3,9 @@ title: "Versioning in Durable Functions - Azure"
 description: Explore versioning challenges and mitigation strategies for Durable Functions in Azure Functions. Discover how to safely deploy breaking changes to orchestrations.
 author: cgillum
 ms.topic: concept-article
-ms.service: azure-functions
-ms.date: 12/07/2022
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

@@ -4,10 +4,10 @@ description: Step-by-step guide to migrate your .NET Durable Functions app from 
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 04/27/2026
+ms.date: 05/20/2026
 ms.topic: concept-article
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 # CustomerIntent: As a .NET developer using Durable Functions with the in-process model, I want to migrate to the isolated worker model so that I have continued support and access to new features.
 ---
 

@@ -4,10 +4,10 @@ description: "Learn how Durable Functions extends Azure Functions to build relia
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 04/22/2026
+ms.date: 05/20/2026
 ms.topic: get-started
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 ---
 
 # Durable Functions overview

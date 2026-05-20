@@ -3,8 +3,9 @@ title: "Overview of Durable Functions in .NET Isolated Worker"
 description: "Discover how Durable Functions in the Azure Functions .NET isolated worker process lets you run apps on any .NET version. Explore features, class-based models, and migration guidance."
 author: jviau
 ms.topic: overview
-ms.service: azure-functions
-ms.date: 04/22/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 ms.custom: devx-track-dotnet

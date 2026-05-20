@@ -3,10 +3,10 @@ title: "Unit testing Durable Functions and Durable Task SDKs"
 description: "Learn how to unit test orchestrator, activity, and client functions for Azure Durable Functions and Durable Task SDKs. Catch bugs early and prevent regressions with these testing patterns."
 author: cgillum
 ms.topic: how-to
-ms.date: 04/27/2026
+ms.date: 05/20/2026
 ms.author: cgillum
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 zone_pivot_groups: azure-durable-approach
 #Customer intent: As a developer, I want to learn how to write unit tests for my durable orchestrations and activities so that I can catch bugs early and prevent regressions.
 ---

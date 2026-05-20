@@ -4,8 +4,9 @@ description: "Learn how to configure a Durable Functions app to use the Netherit
 author: sebastianburckhardt
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 07/24/2024
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.custom:
   - devx-track-dotnet

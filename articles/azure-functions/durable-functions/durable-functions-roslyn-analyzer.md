@@ -3,10 +3,10 @@ title: "Durable Task Roslyn Analyzer for C# Code Analysis"
 description: "Use the Durable Task Roslyn Analyzer to detect orchestrator code constraint violations in C# Durable Functions and Durable Task SDK apps at build time. Get started with zero configuration."
 author: cgillum
 ms.topic: reference
-ms.date: 05/04/2026
+ms.date: 05/20/2026
 ms.author: azfuncdf
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 zone_pivot_groups: azure-durable-approach
 #Customer intent: As a C# developer, I want to use static code analysis to catch orchestrator code constraint violations at build time so that I can avoid runtime bugs.
 ---

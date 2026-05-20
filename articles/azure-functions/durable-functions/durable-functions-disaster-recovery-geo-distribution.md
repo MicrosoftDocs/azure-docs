@@ -3,8 +3,9 @@ title: "Disaster Recovery and Geo-Distribution in Durable Functions"
 description: "Explore disaster recovery and geo-distribution strategies for Durable Functions, including active/passive failover patterns and geo-redundant storage options to minimize downtime."
 author: MS-Santi
 ms.topic: concept-article
-ms.service: azure-functions
-ms.date: 04/30/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

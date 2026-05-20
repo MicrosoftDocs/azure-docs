@@ -4,8 +4,9 @@ description: "Create and publish a Java Durable Functions app in Azure Functions
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 04/23/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: mode-api, devx-track-extended-java

@@ -3,8 +3,9 @@ title: "Zero-Downtime Deployment for Durable Functions"
 description: "Learn how to achieve zero-downtime deployment for Durable Functions using orchestration versioning, slot swaps, and application routing. Explore strategies to deploy updates without interrupting running orchestrations."
 author: tsushi
 ms.topic: concept-article
-ms.service: azure-functions
-ms.date: 04/23/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.

@@ -4,9 +4,9 @@ ms.author: hannahhunter
 title: "Host a Durable Functions app with MSSQL backend in Azure Container Apps (Preview)"
 description: "Learn how to containerize and deploy a Durable Functions app using the Microsoft SQL (MSSQL) storage provider to Azure Container Apps with autoscaling and managed identity."
 ms.topic: how-to
-ms.service: azure-functions
-ms.subservice: durable
-ms.date: 04/27/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 # CustomerIntent: As a .NET developer using Durable Functions with the MSSQL backend, I want to deploy my app to Azure Container Apps so that I can take advantage of autoscaling and run alongside other containerized services.
 ---
 

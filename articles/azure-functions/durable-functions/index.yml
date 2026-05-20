@@ -6,11 +6,12 @@ summary: Durable Functions is an extension of Azure Functions that lets you writ
 metadata:
   title: Durable Functions documentation
   description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows using an orchestrator function and stateful entities using an entity function. Behind the scenes, the extension manages state, checkpoints, and restarts for you.
-  ms.service: azure-functions
+  ms.service: durable-task
+  ms.subservice: durable-functions
   ms.topic: landing-page
   author: hhunter-ms
   ms.author: hannahhunter
-  ms.date: 03/12/2026
+  ms.date: 05/20/2026
 
 landingContent:
   - title: Get started with Durable Functions
