@@ -80,10 +80,6 @@ For information about how delta components are packaged and made available as pa
 
 After building the image with these layers included, the delta processor extension is already available on the device and no additional installation steps are required.
 
----
-
-After building the image with these layers included, the delta processor extension is already available on the device and no additional installation steps are required.
-
 After completing either option, the delta processor extension is installed on the device and ready to reconstruct delta updates during deployment.
 
 ## Prepare the source update on the device
