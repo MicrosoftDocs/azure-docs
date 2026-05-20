@@ -13,7 +13,7 @@ ms.custom: ai-assisted
 
 # Create and manage connector namespaces in Azure (preview)
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

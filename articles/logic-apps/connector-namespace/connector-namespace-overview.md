@@ -9,9 +9,10 @@ ms.date: 05/20/2026
 ms.topic: concept-article
 ---
 
-# What is Azure Connector Namespace?
+# What is Azure Connector Namespace? (preview)
 
 > [!IMPORTANT]
+> 
 > This capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews. During preview, this capability is only available in Azure public regions.
 
 Azure Connector Namespace is a fully managed service that hosts a catalog of *connectors-reusable, typed integrations to SaaS, data, and line-of-business systems. Each connector exposes actions, event triggers, and AI-agent tools through a shared connection model. The namespace handles:

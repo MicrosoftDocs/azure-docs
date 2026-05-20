@@ -12,10 +12,9 @@ ms.custom: ai-assisted
 
 # Create a connection in Azure Connector Namespace (preview)
 
-> [!NOTE]
->
-> This preview feature is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT]
+> 
+> This capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews. During preview, this capability is only available in Azure public regions.
 
 This article shows you how to create a new connection in an Azure Connector Namespace to integrate external services such as Office 365 Outlook with your applications.
 
