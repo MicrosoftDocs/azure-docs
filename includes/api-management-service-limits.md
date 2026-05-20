@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/12/2026
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -29,7 +29,9 @@ ms.custom: Include file
 | Subscriptions | N/A | 10,000 | 15,000 | 25,000 | 75,000 |
 | Users | N/A | 20,000 | 20,000 | 50,000 | 75,000 |
 | User-assigned managed identities | 10 | 10 | 10 | 10 | 10 |
+| Workspaces on default managed gateway<sup>1</sup> | N/A | N/A | 1 | 5 | 30 |
 | Workspaces per workspace gateway | N/A | N/A | N/A | N/A | 30 |
-| Self-hosted gateways | N/A | 5 | N/A | N/A | 100<sup>1</sup> |
+| Self-hosted gateways | N/A | 5 | N/A | N/A | 100<sup>2</sup> |
 
-<sup>1</sup> Applies to Premium tier only.
+<sup>1</sup> Applies to v2 tiers only.<br/>
+<sup>2</sup> Applies to Premium tier only.
