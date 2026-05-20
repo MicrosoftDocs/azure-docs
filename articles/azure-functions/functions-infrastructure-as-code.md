@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: how-to
-ms.date: 04/21/2026
+ms.date: 05/15/2026
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -177,7 +177,7 @@ The function app needs a connection to this storage account. Configure this conn
 
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"  
-### Deployment container
+### Deployment storage container
 
 To deploy to an app running in the Flex Consumption plan, you need a container in Azure Blob Storage as the deployment source. You can use either the default storage account or specify a separate storage account. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings). 
 
@@ -269,7 +269,7 @@ You can use the same workspace for the Application Insights resource defined lat
 
 ## Create Application Insights
 
-Use Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
+Use Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace, which uses the format `/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
 
 In this example section, define the Application Insights resource with the type `Microsoft.Insights/components` and the kind `web`:
 
@@ -316,9 +316,20 @@ You must provide the connection to the function app by using the [`APPLICATIONIN
 
 The examples in this article get the connection string value for the created instance. Older versions might instead use [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) to set the instrumentation key, which is no longer recommended. 
 
-::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan"  
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,consumption-plan"  
 ## Create the hosting plan
 
+All Functions hosting plans use a `Microsoft.Web/serverfarms` resource type. The `sku` property values depend on the hosting plan:
+
+| Property | [Flex Consumption](./flex-consumption-plan.md) | [Premium](./functions-premium-plan.md) | [Dedicated](./dedicated-plan.md) | [Consumption](consumption-plan.md) (legacy) |
+| --- | --- | --- | --- | --- |
+| `sku` name | `FC1` | `EP1`, `EP2`, or `EP3` | Varies (`B1`, `S1`, `P1v2`, etc.) | `Y1` |
+| `sku` tier | `FlexConsumption` | `ElasticPremium` | Varies | `Dynamic` |
+| `computeMode` | — | — | — | `Dynamic` |
+| Linux | `reserved: true` (required) | `reserved: true` | `reserved: true` | `reserved: true` |
+
+::: zone-end  
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan"  
 You must explicitly define the hosting plan for apps hosted in an Azure Functions [Flex Consumption plan](./flex-consumption-plan.md), [Premium plan](./functions-premium-plan.md), or [Dedicated (App Service) plan](./dedicated-plan.md). 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
@@ -546,7 +557,7 @@ For more context, see the complete [azuredeploy.json](https://github.com/Azure-S
 
 ::: zone-end
 ::: zone pivot="consumption-plan"
-## Create the hosting plan
+### Create the hosting plan (optional)
 
 You don't need to explicitly define a Consumption hosting plan resource. When you skip this resource definition, the portal automatically creates or selects a plan on a per-region basis when you create the function app resource itself.
 
@@ -1112,9 +1123,9 @@ The Flex Consumption plan maintains your project code in a zip-compressed packag
 
 You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM template or Bicep deployment, you can do this step by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package isn't automatically deployed.
 
-### Deployment container
+### Configure the deployment container
 
-Set the specific storage account and container used for deployments, the authentication method, and credentials in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when you create the app. For an example of how to create the storage container, see [Deployment container](#deployment-container).
+Set the specific storage account and container used for deployments, the authentication method, and credentials in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when you create the app. For an example of how to create the storage container, see [Deployment storage container](#deployment-storage-container).
 
 This example uses a system assigned managed identity to access the specified blob storage container, which is created elsewhere in the deployment:
 
@@ -1820,6 +1831,132 @@ You might also need to use these settings when your function app has network res
 ### Considerations for network restrictions
 
 When you restrict access to the storage account through the private endpoints, you can't access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security-set-default-access.md).
+::: zone-end
+::: zone pivot="flex-consumption-plan"
+### Site-scoped certificates
+
+Flex Consumption apps use _site-scoped certificates_, where TLS/SSL certificates are scoped to your individual function app rather than shared across all apps in the same webspace. Site-scoped certificates use the [`Microsoft.Web/sites/certificates`](/azure/templates/microsoft.web/sites/certificates) resource type, which is a child resource of the function app site. This is different from the webspace-level `Microsoft.Web/certificates` resource used by other hosting plans. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
+
+To use site-scoped certificates, you must first enable the feature on your function app by setting `siteScopedCertificatesEnabled` to `true` in the site `properties`:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource functionApp 'Microsoft.Web/sites@2024-11-01' = {
+  name: functionAppName
+  location: location
+  kind: 'functionapp,linux'
+  identity: {
+    type: 'SystemAssigned'
+  }
+  properties: {
+    serverFarmId: serverFarmResourceId
+    siteScopedCertificatesEnabled: true
+    functionAppConfig: {
+      // ...other configuration...
+    }
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites",
+  "apiVersion": "2024-11-01",
+  "name": "[parameters('functionAppName')]",
+  "location": "[parameters('location')]",
+  "kind": "functionapp,linux",
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "properties": {
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('functionPlanName'))]",
+    "siteScopedCertificatesEnabled": true,
+    "functionAppConfig": {
+      // ...other configuration...
+    }
+  }
+}
+```
+
+---
+
+After the function app is created with site-scoped certificates enabled, you can add certificates as child resources using `Microsoft.Web/sites/certificates`. This example uploads a PFX certificate:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource certificate 'Microsoft.Web/sites/certificates@2024-11-01' = {
+  parent: functionApp
+  name: 'my-certificate'
+  location: location
+  properties: {
+    password: pfxPassword
+    pfxBlob: pfxBlobBase64
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites/certificates",
+  "apiVersion": "2024-11-01",
+  "name": "[concat(parameters('functionAppName'), '/my-certificate')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+  ],
+  "properties": {
+    "password": "[parameters('pfxPassword')]",
+    "pfxBlob": "[parameters('pfxBlobBase64')]"
+  }
+}
+```
+
+---
+
+To import a certificate from Azure Key Vault instead of uploading a PFX blob, use the `keyVaultId` and `keyVaultSecretName` properties:
+
+#### [Bicep](#tab/bicep)
+
+```bicep
+resource kvCertificate 'Microsoft.Web/sites/certificates@2024-11-01' = {
+  parent: functionApp
+  name: 'my-kv-certificate'
+  location: location
+  properties: {
+    keyVaultId: keyVaultId
+    keyVaultSecretName: keyVaultSecretName
+  }
+}
+```
+
+#### [ARM template](#tab/json)
+
+```json
+{
+  "type": "Microsoft.Web/sites/certificates",
+  "apiVersion": "2024-11-01",
+  "name": "[concat(parameters('functionAppName'), '/my-kv-certificate')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+  ],
+  "properties": {
+    "keyVaultId": "[parameters('keyVaultId')]",
+    "keyVaultSecretName": "[parameters('keyVaultSecretName')]"
+  }
+}
+```
+
+---
+
+For a complete end-to-end Bicep deployment example that includes site-scoped certificates, see the [Flex Consumption site-scoped certificates sample](https://github.com/Azure-Samples/Flex-Consumption-Site-Scoped-Certificates).
+
 ::: zone-end
 ## Function access keys
 

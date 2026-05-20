@@ -1,7 +1,7 @@
 ---
 title: Respond to database changes in Azure Cosmos DB using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure Cosmos DB trigger function that runs in response to changes in an Azure Cosmos DB database."
-ms.date: 12/01/2025
+ms.date: 05/19/2026
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure Cosmos DB triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -11,11 +11,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this Quickstart, you use Visual Studio Code to build an app that responds to database changes in a No SQL database in Azure Cosmos DB. After testing the code locally, you deploy it to a new serverless function app you create running in a Flex Consumption plan in Azure Functions. 
 
-The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as and deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
+The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, as well as deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-<!--- Very the cost profile
-By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means to complete this quickstart incurs a small cost of a few USD cents or less in your Azure account. The code project creates additional Azure resources, including an Azure Cosmos DB instance.  
--->
+While the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, this code project creates additional Azure resources, including an Azure Cosmos DB instance. Make sure to [clean up resources](#clean-up-resources) when you're done to avoid ongoing charges.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
@@ -24,7 +22,7 @@ This article supports version 4 of the Node.js programming model for Azure Funct
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
 
-[!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
+[!INCLUDE [functions-scenario-quickstarts-prerequisites-full](../../includes/functions-scenario-quickstarts-prerequisites-full.md)]
 
 + [Azure Databases extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 
@@ -164,31 +162,57 @@ Visual Studio Code integrates with [Azure Functions Core tools](functions-run-lo
 
 ## Review the code (optional)
 
-The function is triggered based on the change feed in an Azure Cosmos DB NoSQL database. These environment variables configure how the trigger monitors the change feed:
+The function is triggered based on the change feed in an Azure Cosmos DB NoSQL database.
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
+These environment variables configure how the trigger monitors the change feed:
 
 - `COSMOS_CONNECTION__accountEndpoint`: The Cosmos DB account endpoint
 - `COSMOS_DATABASE_NAME`: The name of the database to monitor
 - `COSMOS_CONTAINER_NAME`: The name of the container to monitor
 
 These environment variables are created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation.
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger.cs project file](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb/blob/main/CosmosTrigger.cs).
-::: zone-end 
-::: zone pivot="programming-language-java" 
-You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb/blob/main/src/main/java/com/function/CosmosTrigger.java).
-::: zone-end  
-::: zone pivot="programming-language-javascript" 
-You can review the code that defines the Azure Cosmos DB trigger in the [cosmosTrigger.js project file](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb/blob/main/src/functions/cosmosTrigger.js).
-::: zone-end   
-::: zone pivot="programming-language-powershell" 
-You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger project folder](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb/tree/main/cosmos_trigger).
 ::: zone-end
+::: zone pivot="programming-language-typescript"
+The `COSMOS_CONNECTION` environment variable configures the Cosmos DB account endpoint used by the trigger. This environment variable is created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation. The database and container names are defined in the trigger configuration.
+::: zone-end
+
+You can review the code that defines the Azure Cosmos DB trigger:
+     
+::: zone pivot="programming-language-csharp"  
+:::code language="csharp" source="~/functions-azd-cosmosdb-dotnet/CosmosTrigger.cs" range="1-7,35-43,52-66,71-93" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb).
+::: zone-end  
+::: zone pivot="programming-language-java"  
+:::code language="java" source="~/functions-azd-cosmosdb-java/src/main/java/com/function/CosmosTrigger.java" range="1-6,32-33,40-57" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb).
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+:::code language="javascript" source="~/functions-azd-cosmosdb-javascript/src/functions/cosmosTrigger.js" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb).
+::: zone-end  
 ::: zone pivot="programming-language-typescript" 
-You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger.ts project file](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb/blob/main/src/functions/cosmos_trigger.ts).
-::: zone-end 
+:::code language="typescript" source="~/functions-azd-cosmosdb-typescript/src/functions/cosmos_trigger.ts" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb).
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+The trigger is defined in this _function.json_ file:
+
+:::code language="json" source="~/functions-azd-cosmosdb-powershell/cosmos_trigger/function.json" :::
+
+The following code runs when the trigger executes:  
+
+:::code language="powershell" source="~/functions-azd-cosmosdb-powershell/cosmos_trigger/run.ps1" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb).
+::: zone-end  
 ::: zone pivot="programming-language-python" 
-You can review the code that defines the Azure Cosmos DB trigger in the [function_app.py project file](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb/blob/main/function_app.py).
+:::code language="python" source="~/functions-azd-cosmosdb-python/function_app.py" :::
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb).
 ::: zone-end  
 
 After you review and verify your function code locally, it's time to publish the project to Azure. 
@@ -197,7 +221,9 @@ After you review and verify your function code locally, it's time to publish the
 
 You can run the `azd deploy` command from Visual Studio Code to deploy the project code to your already provisioned resources in Azure.
 
-- Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
+1. Press <kbd>F1</kbd> to open the command palette.
+
+1. Search for and run the command `Azure Developer CLI (azd): Deploy to Azure (deploy)`. 
     
     The `azd deploy` command packages and deploys your code to the deployment container. The app is then started and runs in the deployed package. 
 

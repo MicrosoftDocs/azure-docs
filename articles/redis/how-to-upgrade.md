@@ -1,7 +1,7 @@
 ---
 title: Upgrade Your Redis Version in Azure Managed Redis
 description: Learn how to upgrade your Redis version in Azure Managed Redis.
-ms.date: 05/18/2025
+ms.date: 05/11/2026
 ms.topic: how-to
 ms.custom:
   - ignite-2024
@@ -24,10 +24,10 @@ This article details how to upgrade your Redis instance in Azure Managed Redis t
 
 These Redis versions are available for each tier.
 
-| Tier                         |        Available Redis version       |
-|:------------------------------------------------- |:------------------------------------:|
-| Memory Optimized, Balanced, Compute Optimized     |   Redis 7.4 |
-| Flash Optimized | Redis 7.4 (preview)  |
+| Tier                                          | Available Redis version |
+|:----------------------------------------------|:-----------------------:|
+| Memory Optimized, Balanced, Compute Optimized | Redis 7.4               |
+| Flash Optimized                               | Redis 7.4               |
 
 ## Upgrade options
 

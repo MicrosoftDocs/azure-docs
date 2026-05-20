@@ -1,8 +1,8 @@
 ---
 title: Configure OpenTelemetry data flow endpoints in Azure IoT Operations (preview)
 description: Learn how to configure data flow endpoints for OpenTelemetry destinations to send metrics and logs to observability platforms.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -22,8 +22,12 @@ This feature is for routing device and asset data, not for collecting Azure IoT 
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An OpenTelemetry collector deployed and accessible from your Azure IoT Operations cluster.
+
 - Administrative access to your Azure IoT Operations cluster.
 
 ## Terminology

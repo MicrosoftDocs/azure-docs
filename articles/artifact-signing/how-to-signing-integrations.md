@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 01/06/2026 
+ms.date: 05/14/2026 
 ms.custom: template-how-to-pattern 
 ---
 
@@ -217,13 +217,51 @@ To invoke SignTool to sign a file:
 
 Artifact Signing certificates have a three-day validity, so time stamping is critical for continued successful validation of a signature beyond that three-day validity period. Artifact Signing recommends the use of Artifact Signing’s Microsoft Public RSA Time Stamping Authority: `http://timestamp.acs.microsoft.com/`.
 
+## Set up Azure DevOps tasks to use Artifact Signing
+
+Use the **Artifact Signing** Azure DevOps task to sign your build output
+from Azure Pipelines. The task runs on both Microsoft-hosted and
+self-hosted build agents — no per-agent install is required after the
+extension is added to your Azure DevOps organization.
+
+> [!IMPORTANT]
+> Install the Artifact Signing Azure DevOps extension only from the
+> [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning)
+> into an Azure DevOps organization. Don't download the `.vsix` and run it
+> through `VSIXInstaller.exe` on a workstation or self-hosted build agent —
+> that installer is for Visual Studio IDE extensions and fails with a
+> misleading `InvalidSignature` / `NullReferenceException` even though the
+> signature is valid. To sign without using Azure Pipelines, use
+> [SignTool](#set-up-signtool-to-use-artifact-signing) or one of the
+> [other supported integrations](#use-other-signing-integrations-with-artifact-signing)
+> instead. For more details, see the
+> [Artifact Signing FAQ](faq.yml#why-does-double-clicking-the-artifact-signing--vsix-fail-with--invalidsignature--or-a-nullreferenceexception).
+
+### Install the extension into your Azure DevOps organization
+
+1. Sign in to your Azure DevOps organization with an account that has the
+   **Manage Extensions** permission. For details, see
+   [Install extensions](/azure/devops/marketplace/install-extension) in the
+   Azure DevOps documentation.
+1. Open the
+   [Artifact Signing extension](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning)
+   on the Visual Studio Marketplace.
+1. Select **Get it free**, choose your Azure DevOps organization, and select
+   **Install**.
+
+### Use the task in a pipeline
+
+Reference the `AzureArtifactSigning@<version>` task from any pipeline in the
+organization where you installed the extension. For full task input
+reference, parameter examples, and authentication setup, see
+[Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning)
+on the Visual Studio Marketplace.
+
 ## Use other signing integrations with Artifact Signing
 
 You can also use the following tools or platforms to set up signing integrations with Artifact Signing.
 
 - **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/artifact-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
-
-- **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning) in Visual Studio Marketplace. Complete the instructions for setup.
 
 - **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [Artifact Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 

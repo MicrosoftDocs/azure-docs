@@ -20,7 +20,7 @@ This article shows you how to configure managed identity authentication for Serv
 
 To use managed identities with Azure Service Bus, you need:
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - An Azure Service Bus namespace. To create one, see [Create a Service Bus namespace](service-bus-create-namespace-portal.md).
 

@@ -5,8 +5,12 @@ items:
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Express overview
+      href: express-overview.md
     - name: Introduction to containers
       href: start-containers.md
+    - name: "Deploy an express container app"
+      href: deploy-express-cli.md
     - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts
@@ -226,6 +230,14 @@ items:
               href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -660,6 +672,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/16/2025
+ms.date: 05/14/2026
 ms.author: danlep
 ms.custom:
   - fasttrack-edit
@@ -184,3 +184,4 @@ Use capacity metrics for making decisions whether to scale an API Management ins
 - [Upgrade and scale an Azure API Management service instance](upgrade-and-scale.md)
 - [Automatically scale an Azure API Management instance](api-management-howto-autoscale.md)
 - [Plan and manage costs for API Management](plan-manage-costs.md)
+- [Azure Advisor recommendations](/azure/advisor/advisor-overview)
