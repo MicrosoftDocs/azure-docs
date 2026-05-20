@@ -113,6 +113,7 @@ Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 This section describes how to set up the simplified appliance with a downloaded Open Virtualization Application (OVA) template. If you can't use this method, you can set up the appliance [using a script](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
 
 ### Download the replication appliance OVF template or PowerShell installer script
+
 > [!NOTE]
 > Azure migrate appliance based discovery is a prerequisite to set up replication appliance and track agent-based migrations in the new portal. To execute migrations using replication appliance directly without installing Azure Migrate appliance, You must redirect to classic Azure Migrate Portal by navigating to your **Azure Migrate Project > Execute > Migrations** and clicking on the link available in the banner.
 
@@ -246,13 +247,9 @@ Do a test migration as follows:
 2. In the drill-down blade, under **Testing** drop-down, select **Start test migration**.
 
 3. In **Test migration**, select the Azure VNet in which the Azure VM will be located during testing. We recommend you use a non-production VNet. 
-4. Select the subnet to which you would like to associate each of the Network Interface Cards (NICs) of the migrated VM.
-
-    :::image type="content" source="./media/tutorial-migrate-vmware/test-migration-subnet-selection.png" alt-text="Screenshot shows subnet selection during test migration.":::
+4. Select the subnet to associate with each Network Interface Cards (NICs) of themigrated VM.
 5. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-6. Once you click **Test migration**, the job starts. Monitor the status in the portal under **Execution status**. After the test migration finishes, ensure you clean up the test resources by navigating to the server and selecting **Clean up test migration** under the **Testing** drop-down.
-
-    :::image type="content" source="./media/tutorial-migrate-vmware/clean-up-inline.png" alt-text="Screenshot of Clean up migration." lightbox="./media/tutorial-migrate-vmware/clean-up-expanded.png":::
+6. After you select **Test migration**, the job starts. Monitor the status in the portal under **Execution status**. After the test migration finishes, ensure you clean up the test resources by navigating to the server and selecting **Clean up test migration** under the **Testing** drop-down.
 
     > [!NOTE]
     > You can now register your servers running SQL server with SQL VM RP to take advantage of automated patching, automated backup and simplified license management using SQL IaaS Agent Extension.
