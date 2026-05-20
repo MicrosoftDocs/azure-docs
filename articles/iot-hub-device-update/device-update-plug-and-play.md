@@ -23,11 +23,11 @@ Device Update has several defined IoT Plug and Play models that support Device U
 
 The other supported model is `**dtmi:azure:iot:deviceUpdateModel;3**`, which extends `**deviceUpdateContractModel;3**` and also uses IoT Plug and Play interfaces that send device property information and enable diagnostic features. For these and other versions, see [Azure IoT Plug and Play Device Update Models](https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot).
 
-The Device Update agent uses `**dtmi:azure:iot:deviceUpdateModel;3**`, which is supported in Device Update agent version 1.1.0 and later. This model supports [import manifest version 5.0](import-concepts.md). Older manifests work with the latest agents, but new features require the latest manifest version.
+Device Update agents use `dtmi:azure:iot:deviceUpdateModel;3`, which is supported in Device Update agent reference implementation version 1.1.0 and later. This model supports [import manifest version 5.0](import-concepts.md). Older manifests continue to work with newer versions of the reference implementation, but new features require the latest manifest version.
 
 ### Agent metadata
 
-The Device Update agent uses the following agent metadata fields to send information to Device Update services.
+Device Update agents report the following metadata fields to the Device Update service.
 
 |Name|Schema|Direction|Description|
 |----|------|---------|-----------|
