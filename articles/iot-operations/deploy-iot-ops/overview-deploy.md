@@ -51,7 +51,7 @@ To deploy Azure IoT Operations with test settings, follow these articles:
 1. Then, follow the steps in [Deploy Azure IoT Operations to a test cluster](./howto-deploy-iot-test-operations.md).
 
 > [!TIP]
-> At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
+> At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
@@ -62,7 +62,7 @@ A deployment with secure settings has the following characteristics:
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
-1. Start with [Deployment planning](./deployment-planning.md) to review architecture, sizing, and broker configuration decisions. Many MQTT broker settings can't be changed after deployment.
+1. Start with [Deployment planning](../deployment-plan/deployment-planning.md) to review architecture, sizing, and broker configuration decisions. Many MQTT broker settings can't be changed after deployment.
 1. Then, [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, follow the steps in [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
 
@@ -191,4 +191,4 @@ The following diagram shows an example deployment that illustrates how to mainta
 
 ## Next steps
 
-[Plan your deployment](./deployment-planning.md) to review architecture, sizing, and broker configuration decisions before deploying.
+[Plan your deployment](../deployment-plan/deployment-planning.md) to review architecture, sizing, and broker configuration decisions before deploying.

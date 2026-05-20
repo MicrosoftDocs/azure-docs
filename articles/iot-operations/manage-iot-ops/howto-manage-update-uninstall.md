@@ -18,7 +18,7 @@ Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Ope
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
+* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 

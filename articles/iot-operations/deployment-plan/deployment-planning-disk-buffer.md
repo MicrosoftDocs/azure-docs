@@ -1,8 +1,8 @@
 ---
 title: Deployment planning - Disk-backed message buffer
 description: Plan disk-backed message buffer settings for your Azure IoT Operations MQTT broker before deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -163,4 +163,4 @@ If you don't want to use the disk-backed message buffer, don't include the `disk
 - [Review persistence settings](deployment-planning-persistence.md)
 - [Review diagnostics settings](deployment-planning-diagnostics.md)
 - [Review advanced MQTT options](deployment-planning-mqtt-options.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)

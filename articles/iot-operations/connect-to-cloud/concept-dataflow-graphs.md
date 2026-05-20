@@ -202,7 +202,7 @@ Common causes of processing errors:
 - An expression references an incompatible data type (for example, using a JSON object in arithmetic).
 - A state store used for enrichment is unreachable.
 
-To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
 
 ## Scaling limitation for stateful graphs
 

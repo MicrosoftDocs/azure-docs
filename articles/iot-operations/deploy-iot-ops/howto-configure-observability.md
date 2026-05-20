@@ -307,5 +307,5 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 ## Next steps
 
-- [Enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) to set up secrets management and managed identities.
+- [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md) to set up secrets management and managed identities.
 - [Manage certificates](../secure-iot-ops/howto-manage-certificates.md) for external communications.

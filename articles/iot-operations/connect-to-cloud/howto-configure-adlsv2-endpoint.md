@@ -35,7 +35,7 @@ Then, go to the Azure Storage account > **Access control (IAM)** > **Add role as
 1. On the **Role** tab, select an appropriate role, such as `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 1. On the **Members** tab:
     1. If you're using a system-assigned managed identity, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If you're using a user-assigned managed identity, for **Assign access to**, select **Managed identity**, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+    1. If you're using a user-assigned managed identity, for **Assign access to**, select **Managed identity**, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 ## Create data flow endpoint for Azure Data Lake Storage Gen2
 
@@ -461,7 +461,7 @@ dataLakeStorageSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the storage account:
 
@@ -586,7 +586,7 @@ To enhance security and follow the principle of least privilege, you can generat
 # [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
 

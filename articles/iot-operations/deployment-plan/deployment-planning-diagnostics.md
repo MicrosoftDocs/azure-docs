@@ -1,8 +1,8 @@
 ---
 title: Deployment planning - Diagnostics
 description: Plan MQTT broker diagnostics settings for your Azure IoT Operations deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -76,4 +76,4 @@ az iot ops create ... --broker-config-file <FILE>.json
 - [Review advanced MQTT options](deployment-planning-mqtt-options.md)
 - [Review internal traffic encryption options](deployment-planning-encryption.md)
 - [Review persistence settings](deployment-planning-persistence.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)

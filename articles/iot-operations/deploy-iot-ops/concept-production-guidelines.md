@@ -42,7 +42,7 @@ Consider the following measures to ensure your cluster setup is secure before de
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
 * When doing TLS encryption, [bring your own issuer](howto-bring-your-own-issuer.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
-* Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
+* Use [user-assigned managed identities](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
 [!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
@@ -53,7 +53,7 @@ If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoi
 
 ### Observability
 
-For production deployments, [deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md) on your cluster before deploying Azure IoT Operations. We also recommend setting up [Prometheus alerts in Azure Monitor](/azure/azure-monitor/alerts/prometheus-alerts).
+For production deployments, [deploy observability resources](howto-configure-observability.md) on your cluster before deploying Azure IoT Operations. We also recommend setting up [Prometheus alerts in Azure Monitor](/azure/azure-monitor/alerts/prometheus-alerts).
 
 ## Deployment
 
@@ -103,7 +103,7 @@ For more information, see [Configure Azure Storage firewalls and virtual network
 
 ### Secure settings
 
-During deployment, you have the option to use test settings or secure settings. For production deployments, choose secure settings. If you're upgrading an existing test settings deployment for production, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+During deployment, you have the option to use test settings or secure settings. For production deployments, choose secure settings. If you're upgrading an existing test settings deployment for production, follow the steps in [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## Post-deployment
 

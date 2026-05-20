@@ -36,7 +36,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 Go to Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**. 
 
-1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
+1. Search for the name of your [user-assigned managed identity set up for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
 1. Select **Contributor** as the role, then select **Add**. This gives the managed identity the necessary permissions to write to the Fabric lakehouse. To learn more, see [Roles in workspaces in Microsoft Fabric](/fabric/get-started/roles-workspaces).
 
 ## Create data flow endpoint for Microsoft Fabric OneLake
@@ -449,7 +449,7 @@ fabricOneLakeSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Fabric lakehouse.
 

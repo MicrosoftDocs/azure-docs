@@ -1,8 +1,8 @@
 ---
 title: Metrics for data flows
 description: Available observability metrics for data flows to monitor the health and performance of your solution.
-author: vadim-kovalyov
-ms.author: vakavali
+author: dominicbetts
+ms.author: dobett
 ms.topic: reference
 ms.date: 03/27/2026
 
@@ -119,4 +119,4 @@ Boolean string (`"true"` or `"false"`) indicating whether the operation associat
 
 ## Related content
 
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
+- [Configure observability](../deploy-iot-ops/howto-configure-observability.md)

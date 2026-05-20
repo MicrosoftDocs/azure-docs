@@ -46,7 +46,7 @@ A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
 
-  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#uninstall).
+  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](../manage-iot-ops/howto-manage-update-uninstall.md#uninstall).
 
 
 ## Deploy in Azure portal
@@ -76,7 +76,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deploy-iot-ops/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deploy-iot-ops/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-configuration.png":::
@@ -181,7 +181,7 @@ az iot ops get-versions
 
 ## Next steps
 
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) to set up monitoring and dashboards.
-- The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure settings and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
+- [Configure observability](howto-configure-observability.md) to set up monitoring and dashboards.
+- The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure settings and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](../secure-iot-ops/howto-enable-secure-settings.md).
 
 

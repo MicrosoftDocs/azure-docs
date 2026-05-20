@@ -1,8 +1,8 @@
 ---
 title: Set up your own certificate issuer for Azure IoT Operations
 description: Set up your own certificate authority issuer for internal communications in Azure IoT Operations instead of using the default self-signed issuer.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.date: 04/21/2026

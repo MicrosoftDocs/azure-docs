@@ -22,7 +22,7 @@ For information about known issues and temporary workarounds, see [Known issues:
 
 ## Using health status for troubleshooting
 
-Azure IoT Operations provides [built-in health status reporting](../configure-observability-monitoring/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
+Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
 
 1. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem.
 1. **Look up the recommended action**: Check the [health status reason codes](../reference/health-status-reason-codes.md) for detailed descriptions and recommended actions for every reason code.
@@ -86,7 +86,7 @@ A deployment might fail if the cluster doesn't have sufficient resources for the
 > [!TIP]
 > If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
-To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
+To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
 ## Troubleshoot Azure IoT Operations uninstall
 

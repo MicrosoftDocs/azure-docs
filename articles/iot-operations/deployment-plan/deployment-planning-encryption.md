@@ -1,8 +1,8 @@
 ---
 title: Deployment planning - Internal traffic encryption
 description: Plan internal traffic encryption settings for your Azure IoT Operations MQTT broker before deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -65,4 +65,4 @@ Then, deploy IoT Operations by using the `az iot ops create` command with `--bro
 
 - [Review advanced MQTT options](deployment-planning-mqtt-options.md)
 - [Review diagnostics settings](deployment-planning-diagnostics.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)

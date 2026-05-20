@@ -1,8 +1,8 @@
 ---
 title: Deployment planning - Advanced MQTT options
 description: Plan advanced MQTT client options for your Azure IoT Operations MQTT broker before deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -87,4 +87,4 @@ By default, `maxMessageExpirySeconds` is not set. In this case, retained message
 
 - [Review internal traffic encryption options](deployment-planning-encryption.md)
 - [Review disk-backed message buffer settings](deployment-planning-disk-buffer.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)

@@ -243,4 +243,4 @@ The `endpoint` dimension identifies the type of internal connection. Values are 
 ## Related content
 
 - [Configure MQTT broker diagnostic settings](../manage-mqtt-broker/howto-broker-diagnostics.md).
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
+- [Configure observability](../deploy-iot-ops/howto-configure-observability.md)

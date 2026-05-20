@@ -1,8 +1,8 @@
 ---
 title: Deployment planning - Persistence
 description: Plan MQTT broker persistence settings for your Azure IoT Operations deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -94,4 +94,4 @@ Some persistence options -- retained messages, subscriber queues, and state stor
 - [Review diagnostics settings](deployment-planning-diagnostics.md)
 - [Review advanced MQTT options](deployment-planning-mqtt-options.md)
 - [Review disk-backed message buffer settings](deployment-planning-disk-buffer.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)

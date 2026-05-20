@@ -183,12 +183,12 @@ Each IoT Operations deployment can have only one broker, and it must be named *d
 
 Customizing the default broker resource isn't required for most setups. The settings that require customization include:
 
-- [Cardinality](../deploy-iot-ops/deployment-planning.md#understand-broker-cardinality): Determines the broker's capacity to handle more connections and messages, and it enhances high availability if there are pod or node failures.
-- [Memory profile](../deploy-iot-ops/deployment-planning.md#choose-your-memory-profile): Sets the maximum memory usage of the broker and how to handle memory usage as the broker scales up.
-- [Disk-backed message buffer](../deploy-iot-ops/deployment-planning-disk-buffer.md): Configuration for buffering messages to disk as RAM fills up.
-- [Diagnostics settings](../deploy-iot-ops/deployment-planning-diagnostics.md): Configuration for diagnostic settings like log level and metrics endpoint.
-- [Advanced MQTT client options](../deploy-iot-ops/deployment-planning-mqtt-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
-- [Encryption of internal traffic](../deploy-iot-ops/deployment-planning-encryption.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
+- [Cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality): Determines the broker's capacity to handle more connections and messages, and it enhances high availability if there are pod or node failures.
+- [Memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile): Sets the maximum memory usage of the broker and how to handle memory usage as the broker scales up.
+- [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md): Configuration for buffering messages to disk as RAM fills up.
+- [Diagnostics settings](../deployment-plan/deployment-planning-diagnostics.md): Configuration for diagnostic settings like log level and metrics endpoint.
+- [Advanced MQTT client options](../deployment-plan/deployment-planning-mqtt-options.md): Configuration for advanced MQTT client options like session expiry, message expiry, and keep-alive settings.
+- [Encryption of internal traffic](../deployment-plan/deployment-planning-encryption.md): Configuration for encrypting internal traffic between broker frontend and backend pods.
 
 You can customize the default broker only during the initial deployment, by using the Azure CLI or the Azure portal. A new deployment is required if you need different broker configuration settings.
 
@@ -196,11 +196,11 @@ To customize the default Broker during deployment, follow the instructions for y
 
 # [Portal](#tab/portal)
 
-When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can customize [cardinality](../deploy-iot-ops/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deploy-iot-ops/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings, including disk-backed message buffer, and advanced MQTT client options, use the Azure CLI.
+When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can customize [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings, including disk-backed message buffer, and advanced MQTT client options, use the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure settings like the disk-backed message buffer and advanced MQTT client options, use the `--broker-config-file` flag with the `az iot ops create` command. For more information, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
+To configure settings like the disk-backed message buffer and advanced MQTT client options, use the `--broker-config-file` flag with the `az iot ops create` command. For more information, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
 # [Bicep](#tab/bicep)
 
@@ -217,7 +217,7 @@ Use the Azure portal or the Azure CLI to customize the default broker resource.
 > [!IMPORTANT] 
 > You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or the disk buffer aren't allowed post-deployment.
 >
-> As a workaround, when deploying Azure IoT Operations with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
+> As a workaround, when deploying Azure IoT Operations with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
 ### View default broker settings
 

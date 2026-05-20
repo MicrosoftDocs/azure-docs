@@ -244,4 +244,4 @@ The type of managed service (OPC UA Commander).
 
 ## Related content
 
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
+- [Configure observability](../deploy-iot-ops/howto-configure-observability.md)

@@ -1,8 +1,8 @@
 ---
 title: Metrics for Akri and connectors
 description: Available observability metrics for Akri and connectors to monitor the health and performance of your solution.
-author: vadim-kovalyov
-ms.author: vakavali
+author: dominicbetts
+ms.author: dobett
 ms.topic: reference
 ms.date: 03/30/2026
 
@@ -162,4 +162,4 @@ Status of the WASM graph operation. For processing latency, values are `forwarde
 
 ## Related content
 
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
+- [Configure observability](../deploy-iot-ops/howto-configure-observability.md)

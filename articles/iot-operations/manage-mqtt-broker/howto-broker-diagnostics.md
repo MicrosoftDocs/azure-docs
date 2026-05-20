@@ -20,7 +20,7 @@ Set up diagnostic settings to configure metrics, logs, and self-check for the MQ
 > The diagnostics are set on the Broker resource. Configure diagnostics during initial deployment by using the Azure CLI or the Azure portal. If you want to change broker settings, deploy a new broker resource. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 ## Metrics
 
-Metrics show the current and past health and status of the MQTT broker. These metrics use the OpenTelemetry Protocol (OTLP) format. Convert them to Prometheus format with an OpenTelemetry Collector, and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+Metrics show the current and past health and status of the MQTT broker. These metrics use the OpenTelemetry Protocol (OTLP) format. Convert them to Prometheus format with an OpenTelemetry Collector, and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
 
 For a full list of available metrics, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
 
@@ -28,7 +28,7 @@ For a full list of available metrics, see [MQTT broker metrics](../reference/obs
 
 Logs show information about actions the MQTT broker performs. These logs are in the Kubernetes cluster as container logs. Set them up to send to Azure Monitor Logs with Container Insights.
 
-To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+To learn more, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
 
 ## Self-check
 
@@ -89,4 +89,4 @@ Learn more in [Azure CLI support for advanced MQTT broker configuration](https:/
 
 ## Related content
 
-- [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md)
+- [Deploy observability resources and set up logs](../deploy-iot-ops/howto-configure-observability.md)

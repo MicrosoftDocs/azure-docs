@@ -21,7 +21,7 @@ Examples of secrets that you might store in Azure Key Vault for use by Azure IoT
 
 ## Prerequisites
 
-To manage secrets, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+To manage secrets, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](howto-enable-secure-settings.md).
 
 ## Configure Azure Key Vault permissions
 
@@ -34,7 +34,7 @@ Secrets management for Azure IoT Operations uses the Azure Key Vault secret stor
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-After the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints** using the [operations experience](https://iotoperations.azure.com) web UI. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
+After the [set up secrets management](howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints** using the [operations experience](https://iotoperations.azure.com) web UI. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
 
 Secrets are used in device inbound endpoints and data flow endpoints for authentication. This section uses device inbound endpoints as an example. The same process can be applied to data flow endpoints. You can directly create the secret in Azure Key Vault and have it automatically synchronize to the cluster, or use an existing secret reference from the key vault:
 

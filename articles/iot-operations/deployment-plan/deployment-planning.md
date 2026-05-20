@@ -1,8 +1,8 @@
 ---
 title: Deployment planning for Azure IoT Operations
 description: Plan your Azure IoT Operations deployment by reviewing architecture, sizing, broker configuration, and security decisions that must be made before deployment.
-author: huguesbouvier
-ms.author: hubouvie
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
@@ -289,7 +289,7 @@ The following broker settings are also configured at deployment time and can't b
 
 ## Next steps
 
-- [Prepare your cluster](howto-prepare-cluster.md)
-- [Deploy to a production cluster](howto-deploy-iot-operations.md)
-- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
-- [Secure your deployment](howto-enable-secure-settings.md)
+- [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md)
+- [Deploy to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- [Configure observability](../deploy-iot-ops/howto-configure-observability.md)
+- [Secure your deployment](../secure-iot-ops/howto-enable-secure-settings.md)
