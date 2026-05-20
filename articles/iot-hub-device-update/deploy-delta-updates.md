@@ -1,6 +1,6 @@
 ---
-title: Deploy delta updates with Azure Device Update for IoT Hub | Microsoft Learn
-description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub
+title: Deploy Delta Updates with Azure Device Update for IoT Hub | Microsoft Learn
+description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub.
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 02/14/2025
@@ -82,6 +82,8 @@ After building the image with these layers included, the delta processor extensi
 
 ---
 
+After building the image with these layers included, the delta processor extension is already available on the device and no additional installation steps are required.
+
 After completing either option, the delta processor extension is installed on the device and ready to reconstruct delta updates during deployment.
 
 ## Prepare the source update on the device
@@ -95,7 +97,7 @@ This behavior is the same regardless of how you install the delta processor exte
 > [!NOTE]
 > A device receiving its first update can't apply a delta, since no source update is cached yet. After the first full update is installed and cached, subsequent updates can use the delta path.
 
-If you need to pre-stage the source update manually instead of relying on the cache, place the image at:`<BASE_SOURCE_DOWNLOAD_CACHE_PATH>/sha256-<ENCODED HASH>`
+If you need to pre-stage the source update manually instead of relying on the cache, place the image at: `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>/sha256-<ENCODED HASH>`
 
 Where:
 
@@ -139,7 +141,7 @@ Before running DiffGen, install the following on your build machine:
 
 | Dependency       | Where to get it | How to install |
 |----------------|-----------------|----------------|
-| DiffGen tool   | [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta) | Download the version that matches your OS and architecture |
+| DiffGen tool   | [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta) | Download the version that matches your OS and architecture. |
 | .NET runtime   | Package manager or terminal | See [Install .NET on Linux](/dotnet/core/install/linux). Only the runtime is required. |
 
 
@@ -213,8 +215,6 @@ sudo ./DiffGenTool
 /mnt/o/temp/<recompressed target file to create>.swu  
 /mnt/o/temp/<path to script>/<sign_file>.sh
 ```  
-
----
 
 ## Import the delta update
 

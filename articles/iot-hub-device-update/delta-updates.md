@@ -1,6 +1,6 @@
 ---
-title: Device Update for IoT Hub delta updates | Microsoft Learn
-description: Understand Azure Device Update for IoT Hub delta updates | Microsoft Learn
+title: Device Update for IoT Hub Delta Updates | Microsoft Learn
+description: Understand Azure Device Update for IoT Hub delta updates.
 author: isabellaecr
 ms.author: isabellac
 ms.date: 04/22/2026
@@ -27,7 +27,7 @@ Delta updates trade additional on-device storage and processing for reduced netw
 
 ## Supported update formats
 
-The current implementation of delta updates in Device Update for IoT Hub supports image-based updates delivered in SWUpdate (SWU) format. Microsoft provides this functionality as a  a [reference implementation](https://github.com/Azure/iot-hub-device-update-delta), including the source code for delta generation and the on-device reconstruction logic. This reference implementation demonstrates how delta updates can be integrated into a device update workflow and can be extended or adapted to support other update formats or alternative delta and reconstruction approaches as needed.
+The current implementation of delta updates in Device Update for IoT Hub supports image-based updates delivered in SWUpdate (SWU) format. Microsoft provides this functionality as a [reference implementation](https://github.com/Azure/iot-hub-device-update-delta), including the source code for delta generation and the on-device reconstruction logic. This reference implementation demonstrates how delta updates can be integrated into a device update workflow and can be extended or adapted to support other update formats or alternative delta and reconstruction approaches as needed.
 
 ## How delta updates work
 
@@ -42,7 +42,7 @@ Before deployment, you generate delta updates using [Microsoft-provided referenc
 
 Because a delta update depends on the source version, the corresponding source version must be available on the device. The Device Update agent typically caches previously installed updates for future use. If needed, you can also pre-stage source versions on the device before deployment.
 
-The following diagram illustrates this process at a high level. On the device, the delta update is applied by downloading a delta artifact, combining it with a cached source version to reconstruct the full target update, and then installing that update
+The following diagram illustrates this process at a high level. On the device, the delta update is applied by downloading a delta artifact, combining it with a cached source version to reconstruct the full target update, and then installing that update.
 
 ![Diagram showing the delta update process on the device, where a delta update is combined with a cached source version to reconstruct the full target update before installation.](./media/delta-updates/device-update-delta-flow.png)
 
