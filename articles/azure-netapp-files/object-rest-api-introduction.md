@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 10/13/2025
 ms.author: anfdocs
 ---
-# Understand Azure NetApp Files object REST API (preview)
+# Understand Azure NetApp Files object REST API
 
 Azure NetApp Files supports the Object REST API, an S3-compatible REST API. The object REST API extends your file-based storage, enabling native S3 read and write access. You can integrate Azure NetApp Files with services including Azure AI Search, Microsoft Foundry, Azure Databricks, OneLake and more.
 

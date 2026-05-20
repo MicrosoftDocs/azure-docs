@@ -83,3 +83,5 @@
       href: ../backup/azure-elastic-storage-area-network-backup-restore.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
     - name: Manage
       href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
+  - name: Define and execute Zone Down Drill
+    href: availability-zone-down-drill-define-execute.md    
