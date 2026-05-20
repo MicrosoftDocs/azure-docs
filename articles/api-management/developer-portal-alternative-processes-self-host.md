@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 04/24/2026
+ms.date: 05/20/2026
 ms.service: azure-api-management
 ms.topic: how-to
 #customer intent: As an API developer, I want to understand the alternative approaches using a self-hosted developer portal to see which might fit my needs.
