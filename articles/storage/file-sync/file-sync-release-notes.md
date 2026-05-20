@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 01/22/2026
+ms.date: 05/12/2026
 ms.author: wgries
 ms.custom:
   - build-2025
@@ -24,21 +24,21 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| v22.3 Release - [KB5087090](https://support.microsoft.com/topic//azure-file-sync-agent-v22-3-april-2026-e56f2bc6-30f3-42b6-93b3-a89429cdb88c) |22.3.0.0| April 17, 2026 | Supported
+| v22.3 Release - [KB5087090](https://support.microsoft.com/topic/e56f2bc6-30f3-42b6-93b3-a89429cdb88c) |22.3.0.0| April 17, 2026 | Supported |
 | V22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported |
 | V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
 | v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update |
 | V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported |
 | v19.2 Release - [KB5040925](https://support.microsoft.com/topic/5b457dbd-7615-490b-84ea-235fde9d65c8) |19.2.0.0 | August 11, 2025 | Supported - Security Update - Agent version will expire on May 13, 2026 |
-| V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported - Agent version will expire on May 13, 2026|
-| V18.3 Release - [KB5063613](https://support.microsoft.com/topic/8c8bc089-6f56-44d5-90b0-5cb33f66663c)| 18.3.0.0 | August 11, 2025 | Supported - Security Update- Agent version will expire on May 13, 2026|
+| V19 Release - [KB5040924](https://support.microsoft.com/topic/e44fc142-8a24-4dea-9bf9-6e884b4b342e)| 19.1.0.0 | September 3, 2024 | Supported - Agent version will expire on May 13, 2026 |
+| V18.3 Release - [KB5063613](https://support.microsoft.com/topic/8c8bc089-6f56-44d5-90b0-5cb33f66663c)| 18.3.0.0 | August 11, 2025 | Supported - Security Update- Agent version will expire on May 13, 2026 |
 | V18.2 Release - [KB5023059](https://support.microsoft.com/topic/613d00dc-998b-4885-86b9-73750195baf5)| 18.2.0.0 | July 9, 2024 | Supported - Agent version will expire on May 13, 2026 |
 | V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported - Security Update - Agent version will expire on May 13, 2026 |
-| V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported - Agent version will expire on May 13, 2026|
+| V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported - Agent version will expire on May 13, 2026 |
 
->[!Note]
->The Azure File Sync v18 and v19 agents will both expire on May 13, 2026. If you are running either v18 or v19, you must upgrade to the latest >supported agent version before May 13, 2026. After this date, servers with the v18 or V19 agent will stop syncing to your Azure file shares.
+> [!NOTE]
+> The Azure File Sync v18 and v19 agents will both expire on May 13, 2026. If you are running either v18 or v19, you must upgrade to the latest supported agent version before May 13, 2026. After this date, servers with the v18 or V19 agent will stop syncing to your Azure file shares.
 
 ## Unsupported versions
 

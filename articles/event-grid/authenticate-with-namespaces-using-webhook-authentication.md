@@ -1,10 +1,10 @@
 ---
-title: Authenticate with Namespaces by using Webhook Auth
+title: Authenticate with Namespaces by using Webhook Authentication
 description: This article shows you how to authenticate with Azure Event Grid namespaces by using a webhook or an Azure function. 
 ms.topic: how-to
 ms.custom:
   - build-2025
-ms.date: 03/23/2026
+ms.date: 05/07/2026
 author: Connected-Seth
 ms.author: seshanmugam
 ---
@@ -51,7 +51,7 @@ For information on how to configure system and user-assigned identities by using
 
 ### Option 1: Webhook Via Azure Functions implementation (Microsoft Entra App) 
 
-Azure Functions can host the webhook logic using `Microsoft.Identity.Web` to validate token automatically. We need Microsoft Entra app registration for Webhook API for validating Event Grid caller tokens, which has an Application ID URI for token issuance. Client side (Event Grid) already has managed identity. 
+Azure Functions can host the webhook logic by using `Microsoft.Identity.Web` to validate the token automatically. You need a Microsoft Entra app registration for the webhook API to validate Event Grid caller tokens. The app registration has an Application ID URI for token issuance. The client side (Event Grid) already has a managed identity. 
 
 **Pros:**
 
@@ -61,22 +61,22 @@ Azure Functions can host the webhook logic using `Microsoft.Identity.Web` to val
 
 Function must do the following operations: 
 
-- Validate caller token from Event Grid Managed Identity 
-- Validate client Json Web Token (JWT)
-- Return allow or deny JSON 
+- Validate the caller token from the Event Grid managed identity.
+- Validate the client JSON Web Token (JWT).
+- Return an allow or deny JSON response. 
 
 ### Option 2: External HTTPS endpoint implementation 
 
 This implementation can be any external HTTPS Endpoint (any cloud, any backend), using Microsoft Entra ID JWT validation with `Microsoft.IdentityModel` libraries. 
 
-Use any runtime: .NET / Node / Java / Python. 
+Use any runtime: .NET, Node.js, Java, or Python. 
 
 Key requirements: 
 
-- Must be HTTPS 
-- Must validate caller JWT 
-- Must validate device JWT 
-- Must respond within timeout (~5 sec recommended) 
+- The endpoint must be HTTPS.
+- It must validate the caller JWT.
+- It must validate the device JWT.
+- It must respond within the timeout (approximately 5 seconds is recommended). 
 
     :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/custom-webhook-implementations.svg" alt-text="Diagram that shows custom webhook implementations." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/custom-webhook-implementations.svg":::
 
@@ -114,7 +114,7 @@ If you have a basic Azure function created from the Azure portal, set up authent
         :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png" alt-text="Screenshot that shows the Add an identity provider with Microsoft as an identity provider." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png":::
 1. In the **Token allowed audiences** section, enter allowed token audiences. To be specific, enter the Application ID URI of the Microsoft Entra app that you noted earlier. The token audience is used to validate the incoming token from Event Grid. 
 1. In the **Additional checks** section, follow these steps:
-    1. For **Client application requirement**, select **Allowed requestions from specific client applications**, and then enter the application ID you noted earlier. 
+    1. For **Client application requirement**, select **Allowed requests from specific client applications**, and then enter the application ID you noted earlier.
     1. For **Identity requirement**, select **Allow requests from any identity**.    
     
         :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png" alt-text="Screenshot that shows the Add an identity provider with token audience and additional checks." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png":::        
@@ -169,7 +169,7 @@ az eventgrid namespace update \
         properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.azureActiveDirectoryTenantId="XXXXXXXXXXX" 
 ```
 
-Replace `<NAMESPACE_NAME>` and `<RESOURCE_GROUP_NAME>` with your actual values. Fill in the placeholders in the subscription, resource group, identity, app ID, URL, and tenant ID. To enhance the performance and reliability of webhook-based authentication for the Event Grid MQTT broker, we strongly recommend that you enable HTTP/2 support for your webhook endpoint.
+Replace `<NAMESPACE_NAME>` and `<RESOURCE_GROUP_NAME>` with your actual values. Fill in the placeholders in the subscription, resource group, identity, app ID, URL, and tenant ID. To enhance the performance and reliability of webhook-based authentication for the Event Grid MQTT broker, we recommend that you enable HTTP/2 support for your webhook endpoint.
 
 ## Webhook API details
 
@@ -178,7 +178,7 @@ Replace `<NAMESPACE_NAME>` and `<RESOURCE_GROUP_NAME>` with your actual values. 
 Azure Event Grid sends the following headers in the request to the webhook:
 
 ```
-**Authorization**: Bearer token
+Authorization: Bearer <token>
 ```
 
 The token is a Microsoft Entra token for the managed identity that was configured to call the webhook.
@@ -231,7 +231,7 @@ Content-Type: application/json
 #### Denied response 
 
 ```json
-HTTP/1.1 200 Bad Request 
+HTTP/1.1 200 OK 
 Content-Type: application/json 
 
 { 
@@ -244,7 +244,7 @@ Content-Type: application/json
 
  
 
-| Authentication Outcome | Function response | Event Grid MQTT reason code |
+| Authentication outcome | Function response | Event Grid MQTT reason code |
 |------------------------|-----------------|------------------|
 | Explicit authorization denial | `"decision": "deny"` | Not authorized |
 | Invalid / expired token | `"decision": "deny"` | Not authorized |
@@ -256,13 +256,13 @@ Content-Type: application/json
 
 ### Response field descriptions
 
-| Field             | Description  |
-|---------------------------|------------------------------------|
-| `decision` (required)       | Authentication decision is either `allow` or `deny`. |
-| `clientAuthenticationName`  | Client authentication name (identity name). (Required when `decision` is set to `allow`.)  |
-| `attributes`                | Dictionary with attributes. Key is the attribute name, and the value is an int/string/array. (Optional when `decision` is set to `allow`.) |
-| `expiration`                | Expiration date in Unix time format. (Optional when `decision` is set to `allow`.) |
-| `errorReason`               | Error message if `decision` is set to `deny`. This error is logged. (Optional when `decision` is set to `deny`.) |
+| Field | Type | Required When | Description |
+|-------|------|---------------|-------------|
+| `decision` | string (`allow` \| `deny`) | Always required | Authentication decision returned by the service. Allowed values are `allow` or `deny`. |
+| `clientAuthenticationName` | string | Required if `decision` = `allow` | Identity name of the client (for example, device ID or client ID). |
+| `attributes` | object (dictionary) | Optional if `decision` = `allow` | Key-value pairs representing additional attributes. Values can be int, string, or array of strings. |
+| `expiration` | integer (Unix timestamp, seconds) | Optional if `decision` = `allow` | Expiration time for the authorization decision, expressed as Unix time (seconds since epoch). Example: `1713782400`. |
+| `errorReason` | string | Optional if `decision` = `deny` | Error message describing why the request was denied. This value is logged for diagnostics. |
 
 ### Examples of supported attribute types
 

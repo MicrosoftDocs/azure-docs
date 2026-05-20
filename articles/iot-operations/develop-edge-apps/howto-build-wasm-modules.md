@@ -62,8 +62,8 @@ Docker images:
 docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.5
 docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.5 host-app
 
-docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
+docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
+docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx
 
 docker pull mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2
 docker tag mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2 statestore-cli
@@ -83,8 +83,8 @@ Docker images:
 docker pull mcr.microsoft.com/azureiotoperations/processor-app:1.1.5
 docker tag mcr.microsoft.com/azureiotoperations/processor-app:1.1.5 host-app
 
-docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
+docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
+docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx
 
 docker pull mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2
 docker tag mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2 statestore-cli
@@ -397,7 +397,7 @@ target = "wasm32-wasip2"
 ```
 
 > [!TIP]
-> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-dataflow-dev-graphs) uses this pattern.
+> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-aio-dataflow-graphs) uses this pattern.
 
 Edit `Cargo.toml`:
 

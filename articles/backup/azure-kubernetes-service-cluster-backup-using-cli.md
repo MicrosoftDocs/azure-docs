@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 05/29/2025
+ms.date: 04/15/2026
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

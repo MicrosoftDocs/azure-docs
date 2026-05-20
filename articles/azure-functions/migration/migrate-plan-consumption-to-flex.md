@@ -488,13 +488,17 @@ If your function app is currently using deployment slots, you can't currently re
 
 ### Verify the use of certificates
 
-Transport Layer Security (TLS) certificates, previously known as Secure Sockets Layer (SSL) certificates, help secure internet connections. The Flex Consumption plan doesn't currently support TLS/SSL certificates, which include managed certificates, bring-your-own certificates (BYOC), or public-key certificates.
+The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped certificate model](../flex-consumption-how-to.md#configure-site-scoped-certificates), currently in preview. Unlike other hosting plans where certificates are shared across apps in the same region and resource group, Flex Consumption certificates are scoped to each individual app. If your existing app uses certificates, be aware of these differences:
+
+- The `WEBSITE_LOAD_CERTIFICATES` app setting isn't used in the Flex Consumption plan. Instead, you make each certificate accessible to your code by using the **Accessible to app code** toggle in the portal. For more information, see [Make a certificate accessible to your code](../flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code).
+- Because Flex Consumption runs on Linux, your code must load certificates from file paths (`/var/ssl/certs` for public, `/var/ssl/private` for private) rather than from the Windows certificate store.
+- Each app supports a maximum of three private certificates and three public certificates (.cer).
 
 :::zone pivot="platform-linux"
 
->**Confirmed:** If the `az functionapp flex-migration list` command or Copilot assessment includes your app in the `eligible_apps` list, your Linux Consumption app isn't using certificates, and you can continue to [Verify your Blob storage triggers](#verify-your-blob-storage-triggers).
+>**Confirmed:** If the `az functionapp flex-migration list` command or Copilot assessment includes your app in the `eligible_apps` list, your Linux Consumption app is compatible and you can continue to [Verify your Blob storage triggers](#verify-your-blob-storage-triggers). If your app uses certificates, you need to add them to the new app after migration.
 
->**Action required:** If the output includes your app in the `ineligible_apps` list with an error message stating `The site '<name>' is using TSL/SSL certificates. TSL/SSL certificates are not supported in Flex Consumption.` or `The site '<name>' has the WEBSITE_LOAD_CERTIFICATES app setting configured. Certificate loading is not supported in Flex Consumption.`, your Linux Consumption app isn't compatible with Flex Consumption.
+>**Action required:** If the output includes your app in the `ineligible_apps` list with a certificate-related error, review the [site-scoped certificate considerations](../flex-consumption-how-to.md#considerations-for-site-scoped-certificates) and verify your app can work within the certificate limits.
 
 :::zone-end
 
@@ -512,7 +516,7 @@ Use the [`az webapp config ssl list`](/cli/azure/webapp/config/ssl#az-webapp-con
 az webapp config ssl list --resource-group <RESOURCE_GROUP>  
 ```
 
-In this example, replace `<RESOURCE_GROUP>` with your resource group name. If this command returns output, your app is likely using certificates. 
+In this example, replace `<RESOURCE_GROUP>` with your resource group name. If this command returns output, your app is using certificates that you need to re-add to the new Flex Consumption app after migration.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -528,7 +532,7 @@ To determine whether your function app is using TLS/SSL certificates:
 
 :::zone-end
 
-If your app currently relies on TLS/SSL certificates, don't proceed with the migration until support for certificates is added to the Flex Consumption plan.
+If your app uses certificates, plan to re-add them to the new Flex Consumption app after migration using the [site-scoped certificate process](../flex-consumption-how-to.md#add-a-certificate). Make sure your app's certificate needs fit within the [site-scoped limits](../flex-consumption-how-to.md#considerations-for-site-scoped-certificates) (3 private + 3 public per app).
 
 ### Verify your Blob storage triggers
 
@@ -868,7 +872,7 @@ You can set [inbound access restrictions](../functions-networking-options.md#inb
 
 #### [Azure CLI](#tab/azure-cli)
 
-This [`az functionapp config access-restriction show`]() command returns a list of any existing IP-based access restrictions:
+This [`az functionapp config access-restriction show`](/cli/azure/functionapp/config/access-restriction#az-functionapp-config-access-restriction-show) command returns a list of any existing IP-based access restrictions:
 
 ```azurecli
 az functionapp config access-restriction show --name <APP_NAME> --resource-group <RESOURCE_GROUP>

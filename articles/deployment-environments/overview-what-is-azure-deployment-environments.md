@@ -7,14 +7,16 @@ ms.custom: build-2023
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/05/2026
+ms.date: 05/19/2026
 
 #customer intent: As a platform engineer, I want to understand the purpose and capabilities of Azure Deployment Environments so that I can determine whether the service will benefit my developers.
 ---
 
 # What is Azure Deployment Environments?
 
-This article provides an overview of Azure Deployment Environments, which empowers development teams to quickly and easily spin up app infrastructure with project-based templates that establish consistency and best practices while maximizing security. This on-demand access to secure environments speeds up the stages of the software development lifecycle in a compliant and cost-efficient way.
+[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+
+Azure Deployment Environments empowers development teams to quickly and easily spin up app infrastructure with project-based templates that establish consistency and best practices while maximizing security. This on-demand access to secure environments speeds up the stages of the software development lifecycle in a compliant and cost-efficient way. This article provides an overview of Azure Deployment Environments
 
 A [*deployment environment*](./concept-environments-key-concepts.md#environments) is a collection of Azure infrastructure resources defined in a template called an [*environment definition*](./concept-environments-key-concepts.md#environment-definitions). Developers can deploy infrastructure defined in the templates in subscriptions where they have access and build their applications on the infrastructure. For example, you can define a deployment environment that includes a web app, a database, and a storage account. Your web developer can begin coding the web app without worrying about the underlying infrastructure.
 
