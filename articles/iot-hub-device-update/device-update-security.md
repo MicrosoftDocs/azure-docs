@@ -66,7 +66,7 @@ Every Device Update device must contain a set of root keys. These keys are the r
 
 The set of root keys will change over time as it is proper to periodically rotate signing keys for security purposes. As a result, the Device Update agent software must be updated with the latest set of root keys at intervals specified by the Device Update team. For guidance on preparing for root key rotations, see [How to prepare for the rotation of a Device Update for IoT Hub root key](device-update-root-key-rotation.md).
 
-Starting with version 1.1.0 of the Device Update agent, the agent automatically checks for any changes to root keys each time a deployment of an update to that device occurs. Possible changes:
+Starting with version 1.1.0, the Device Update agent reference implementation automatically checks for any changes to root keys each time an update is deployed to the device. Possible changes:
 
 * A new root key is available.
 * An existing root key is disabled (effectively "revoked"), meaning it is no longer valid for establishing trust.

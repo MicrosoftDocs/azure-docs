@@ -25,11 +25,13 @@ If you experience problems while using the Device Update service, there are seve
 
 ## Linux Operating Systems
 
-Device Update can run on a wide range of Linux operating systems; however, not all operating systems are supported by Microsoft. The systems listed in the following table are supported, either generally available or in public preview, and are validated through automated testing with each release.
+Device Update can be used with a wide range of Linux operating systems; however, not all operating systems are supported by Microsoft. The systems listed in the following table are Linux distributions where the Device Update agent reference implementation can be built and run, and have been validated through automated testing with each release.
 
-For some platforms, prebuilt installation packages may be available. Customers can also build or integrate the Device Update agent from source or use release artifacts. For more information about how to build the Device Update agent from source, see [how to build the device update agent](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-build-agent-code.md).
+You can build the Device Update agent from source using the Device Update agent reference implementation, which serves as a starting point that can be adapted or extended for your device update needs. For more information, see [how to build the device update agent](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-build-agent-code.md).
 
 It's possible to port the open-source Device Update agent to other operating systems. However, these builds aren't tested or maintained by Microsoft.
+
+For some platforms, prebuilt installation packages may also be available.
 
 | Operating System | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
@@ -48,7 +50,7 @@ The following table summarizes support for APIs, IoT Plug and Play (PnP) models,
 
 Device Update agents use IoT Plug and Play (PnP) models to communicate with the service. The models listed in the following table identify the interfaces required for each agent version. For more information, see [IoT Plug and Play in Azure Device Update for IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/device-update-plug-and-play).
 
-Customers should use the Device Update agent version 1.0.0 or later and are encouraged to use the latest available version 1.3.0, which includes ongoing improvements and expanded platform support. 
+ Use a current 1.x version of the Device Update agent reference implementation and consider the latest available version to benefit from improvements. The latest Device Update agent reference implementation version is 1.3.0.
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
