@@ -9,29 +9,33 @@ ms.author: shsangal
 # Customer intent: "As a cloud administrator, I want to execute failover and reprotect operations using a Recovery Orchestration Plan so that I can recover my application during a zonal outage."
 ---
 
-# Execute failover and reprotect operations
+# Execute failover and reprotect operations (preview)
 
-In this article, you execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan.
+This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan (preview).
 
 ## Prerequisites
 
-- A Recovery Orchestration Plan in **Ready** or **Warning** state.
-- At least one resource included in the plan with no Needs Attention status.
-- Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role.
-- Resources protected using Azure Site Recovery with healthy replication status.
+Before you execute failover and reprotect operations, review the following prerequisites:
+
+- Check if a Recovery Orchestration Plan in **Ready** or **Warning** state.
+- Verify that at least one resource included in the plan has no Needs Attention status.
+- Ensure that the Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role is assigned.
+- Ensure that resources protected using Azure Site Recovery have healthy replication status.
 
 ## Execute failover
 
 Perform a zonal failover operation to recover your application resources from the affected zone.
 
-1. From the Recovery Plan page, select **Execute** > **Failover**.
-1. Select the **active location** (region) whose resources you want to fail over.
-1. Select the **active physical zone** in the selected region. To determine the correct physical zone, select **Review zone mapping** to see the subscription-wise mapping of logical zones to physical zones.
+To execute a failover operation, follow these steps:
 
-After you selected the location and zone, resources are categorized into two tabs:
+1. On the Recovery Plan pane, select **Execute** > **Failover**.
+1. Select the **active location** (region) under which you want to failover the resources.
+1. Select the **active physical zone** in the selected region. To determine the correct physical zone, select **Review zone mapping** to check the subscription-wise mapping of logical zones to physical zones.
+
+After you selected the location and zone, resources are categorized in the following tabs:
 
 - **Resources qualified for operation**: Resources that meet all criteria for failover.
-- **Resources skipped for operation**: Resources that don't qualify, with a skip reason displayed for each.
+- **Resources skipped for operation**: Resources that don't qualify appear with a skip reason.
 
 A resource qualifies for failover if it meets all of the following criteria:
 
@@ -41,7 +45,7 @@ A resource qualifies for failover if it meets all of the following criteria:
 - Doesn't have a Needs Attention status.
 - Has valid recovery points available for failover.
 
-Common reasons a resource might be skipped:
+The following table lists the common reasons for which resource might be skipped from execution:
 
 | Skip reason | Description |
 |---|---|
@@ -53,51 +57,50 @@ Common reasons a resource might be skipped:
 | Resource not in the active zone | The resource isn't in the selected physical zone. |
 | Failover not allowed for the resource | The resource might already be in a failed-over state or lacks recovery points. |
 
-4. In the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
-1. Check the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
+4. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
+1. Select the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
 1. Select **Execute** to start the failover.
 
 ### Failover execution behavior
 
-Once failover starts:
+After failover starts:
 
 - Resources fail over in the order defined by your groups. Group 1 resources must all complete before Group 2 begins.
 - Resources within the same group failover in parallel.
-- **Pre-scripts** execute before the group's resources begin failover. **Post-scripts** execute after all resources in the group complete.
-- **Manual actions** pause the failover job. Navigate to the Recovery Plan execution page to view the manual step instructions, complete the required action, and resume the failover.
+- **Prescripts** execute before the group's resources begin failover. **Post-scripts** execute after all resources in the group complete.
+- **Manual actions** pause the failover job. To view the manual step instructions, complete the required action, and resume the failover, go to the Recovery Plan execution pane.
 
 > [!NOTE]
-> After failover completes, the Recovery Plan automatically adds the failed-over resource back to the Service Group and plan (if the managed identity has sufficient permissions). If permissions are insufficient, the resource is marked with the Needs Attention code `FailedOverResourceNeedsToBeAddedToServiceGroupAndRecoveryPlan`.
+> After failover completes, the Recovery Plan automatically adds the failed-over resource to the Service Group and Recovery Plan when the managed identity has sufficient permissions. If permissions are insufficient, the system marks the resource with the **Needs Attention** code `FailedOverResourceNeedsToBeAddedToServiceGroupAndRecoveryPlan`.
 
 ## Reprotect resources after failover
 
 After failover completes, reprotect your resources to ensure they resume active replication and are protected for any future zone failure.
 
-1. From the Recovery Plan page, select **Execute** > **Re-protect**.
-1. The reprotect page shows resources under **Resources qualified for operation**—resources that successfully completed failover and are eligible for Reprotect.
-1. Select the resources you want to Reprotect.
-1. Check the confirmation checkbox.
+To reprotect resources, follow these steps:
+
+1. On the Recovery Plan pane, select **Execute** > **Reprotect**. You can view all the resources that successfully complete failover and are eligible for reprotection.
+1. On the **Re-protect** pane, under **Resources qualified for operation**, select the resources you want to reprotect.
+1. Select the confirmation checkbox.
 1. Select **Execute** to start the Reprotect operation.
 
 > [!NOTE]
-> Complete reprotect as soon as possible after failover to minimize the window during which resources are unprotected. If a resource doesn't appear as qualified for reprotect, verify that failover completed successfully and the resource are added back to the plan.
+> After failover, complete reprotect to minimize the duration during which resources remain unprotected. If a resource doesn't appear as qualified for reprotect, verify that failover completes successfully and that you add the resource back to the plan.
 
 ## Run an on-demand readiness check
 
-Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. You can also run them on demand.
-
-1. From the Recovery Plan page, select **Execute** > **Plan readiness check (on demand)**.
-1. Review the description of checks.
-1. Select **Execute** to run the checks.
-
-### Types of readiness checks
-
-The following checks are performed:
+Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. The following checks occur during the readiness check:
 
 - **Application Modification check**: Detects if new resource is added to or removed from the Service Group since the last check. Newly added resources appear with "State not selected" inclusion state (or are automatically excluded if HA-protected).
 - **Protection health check**: Validates the protection solution and health status for each resource. If a resource's protection health is degraded or the protection solution changed, the resource is marked with an appropriate Needs Attention code.
 
-After the readiness check completes, review any new Needs Attention items in the **Configure Plan** > **Manage resource protection** page and resolve them to maintain the plan in **Ready** state.
+To run an on-demand readiness check, follow these steps:
+
+1. On the Recovery Plan pane, select **Execute** > **Plan readiness check (on demand)**.
+1. Review the description of checks.
+1. Select **Execute** to run the checks.
+
+After the readiness check completes, to review any new Needs Attention items and resolve them to maintain the plan in **Ready** state, go to **Configure Plan** > **Manage resource protection**.
 
 ## Related content
 
