@@ -35,7 +35,7 @@ When you create a virtual machine image reference, you must specify the followin
 
 ### List of virtual machine images
 
-Not all Marketplace images are compatible with the currently available Batch node agents. To list all supported Marketplace virtual machine images for the Batch service and their corresponding node agent SKUs, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [BatchClient.GetSupportedImagesAsync](/dotnet/api/azure.compute.batch.batchclient) (Azure.Compute.Batch), or the corresponding API in another language SDK.
+Not all Marketplace images are compatible with the currently available Batch node agents. To list all supported Marketplace virtual machine images for the Batch service and their corresponding node agent SKUs, use [list_supported_images](/python/api/azure-batch/azure.batch.batchclient) (Python), [BatchClient.GetSupportedImagesAsync](/dotnet/api/azure.compute.batch.batchclient) (Azure.Compute.Batch), or the corresponding API in another language SDK.
 
 ### Node agent SKU
 
@@ -53,7 +53,7 @@ For more information, you can refer to [Account - List Supported Images - REST A
 
 The following code snippet shows an example of how to use the [Microsoft Azure Batch Client Library for Python](https://pypi.python.org/pypi/azure-batch) to create a pool of Ubuntu Server compute nodes. For more details about the Batch Python module, view the [reference documentation](/python/api/overview/azure/batch).
 
-This snippet creates an [BatchVmImageReference](/python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference) explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) method to select from the available image and node agent SKU combinations at runtime.
+This snippet creates an [BatchVmImageReference](/python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference) explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_supported_images](/python/api/azure-batch/azure.batch.batchclient) method to select from the available image and node agent SKU combinations at runtime.
 
 ```python Snippet:linux_nodes_pool_create_python
 # Import the required modules from the
@@ -114,7 +114,7 @@ new_pool = models.BatchPoolCreateOptions(
 client.create_pool(pool=new_pool)
 ```
 
-As mentioned earlier, we recommend using the [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) method to dynamically select from the currently supported node agent/Marketplace image combinations (rather than creating an [BatchVmImageReference](/python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference) explicitly). The following Python snippet shows how to use this method.
+As mentioned earlier, we recommend using the [list_supported_images](/python/api/azure-batch/azure.batch.batchclient) method to dynamically select from the currently supported node agent/Marketplace image combinations (rather than creating an [BatchVmImageReference](/python/api/azure-mgmt-batch/azure.mgmt.batch.models.imagereference) explicitly). The following Python snippet shows how to use this method.
 
 ```python Snippet:linux_nodes_image_reference_python
 # Get the list of supported images from the Batch service
@@ -292,7 +292,7 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 Instead of a password, you can specify an SSH public key when you create a user on a node.
 ::: zone pivot="programming-language-python"
-In the Python SDK, use the **ssh_public_key** parameter on [ComputeNodeUser](/python/api/azure-batch/azure.batch.models.computenodeuser).
+In the Python SDK, use the **ssh_public_key** parameter on [BatchNodeUserCreateOptions](/python/api/azure-batch/azure.batch.models.batchnodeusercreateoptions).
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 In .NET, use the [BatchNodeUserCreateOptions.SshPublicKey](/dotnet/api/azure.compute.batch.batchnodeusercreateoptions.sshpublickey) property.
