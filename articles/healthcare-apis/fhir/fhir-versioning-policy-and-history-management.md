@@ -56,11 +56,11 @@ After you browse to **Versioning Policy Configuration**, you can configure the s
 
 When you configure resource level configuration, you select the FHIR resource type (annotated as 1) and the specific versioning policy for this specific resource (annotated as 2). Select the **Add** button (annotated as 3) to queue up this setting for saving.
 
-:::image type="content" source="media/versioning-policy/resource-versioning.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing resource level configuration." lightbox="media/versioning-policy/resource-versioning.jpg":::
+:::image type="content" source="media/versioning-policy/resource-versioning.png" alt-text="Screenshot of Azure portal versioning policy configuration showing resource level configuration." lightbox="media/versioning-policy/resource-versioning.png":::
 
 **Make sure** to select **Save** after you complete your versioning policy configuration.
 
-:::image type="content" source="media/versioning-policy/save-button.jpg" alt-text="Screenshot of Azure portal versioning policy configuration showing save button." lightbox="media/versioning-policy/save-button.jpg":::
+:::image type="content" source="media/versioning-policy/save-button.png" alt-text="Screenshot of Azure portal versioning policy configuration showing save button." lightbox="media/versioning-policy/save-button.png":::
 
 ## History management
 
