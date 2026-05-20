@@ -177,7 +177,11 @@ Use the Azure portal to specify private IP address ranges for the firewall.
 You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. These learned address ranges are considered to be internal to the network, so traffic to destinations in the learned ranges isn't SNATed. Auto-learn SNAT routes are supported on both virtual network deployments (hub virtual network) and secured virtual hub (vHub) deployments. You can currently use an ARM template, Azure PowerShell, or the Azure portal to configure autolearn SNAT routes.
 
 > [!NOTE]
-> For VNet Firewalls, this capability requires Azure Route Server to be deployed in the same virtual network as the Azure Firewall. The firewall must be associated with the Azure Route Server and configured to autolearn SNAT ranges in the Azure Firewall Policy. For secured virtual hub deployments, Azure Route Server is enabled by default. For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
+> - Auto-learn SNAT requires Azure Firewall to be associated with Azure Route Server.
+> - For virtual network (VNet) deployments, Azure Route Server must be deployed in the same virtual network as Azure Firewall.
+> - For secured virtual hub (vHub) deployments, Azure Route Server is associated by default.
+> - After the association is complete, enable auto-learn SNAT in the Azure Firewall Policy to start using the feature.
+> - For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
 
 ### Configure by using an ARM template
 
