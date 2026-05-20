@@ -180,7 +180,7 @@ You can configure Azure Firewall to autolearn both registered and private ranges
 > - Auto-learn SNAT requires Azure Firewall to be associated with Azure Route Server.
 > - For virtual network (VNet) deployments, Azure Route Server must be deployed in the same virtual network as Azure Firewall.
 > - For secured virtual hub (vHub) deployments, Azure Route Server is associated by default.
-> - After the association is complete, enable auto-learn SNAT in the Azure Firewall Policy to start using the feature.
+> - For both deployment models, auto-learn SNAT must be enabled in the Azure Firewall Policy after the association is complete.
 > - For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
 
 ### Configure by using an ARM template
