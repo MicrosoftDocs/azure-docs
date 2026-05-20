@@ -44,7 +44,7 @@ When you're building Copilot agents (whether they're integrated in Microsoft 365
 
 ![Diagram that shows a high-level overview of Copilot with SAP.](../media/high-level-overview.jpg)
 
-Microsoft and SAP provide a wide range of integration options to realize this end-to-end flow. The choice of which flow to use depends on the approach and available skill set. It also depends on the existing setup that you have in place. For example:
+Microsoft and SAP provide a wide range of integration options. The choice of which integration flow to use depends on the approach and available skill set, but also on the existing setup that you have in place:
 
 * Are you using SAP Business Technology Platform?
 * Do you use Azure Integration Services?
@@ -230,7 +230,7 @@ Authentication options vary, depending on the protocol and application. Here's a
 
 ## Recommended integration patterns
 
-The following list provides an overview of reference architectures. There isn't only one architecture, because it depends on your existing infrastructure and what components you're using. In the simplest form (for a first percentage of completion), you can use Copilot Studio and the SAP OData connector to connect directly to your SAP system in the cloud ([Option #1](https://github.com/hobru/Microsoft-Learning/blob/main/architecture-demo.md)).
+The following list provides an overview of reference architectures. There isn't only one architecture, because it depends on your existing infrastructure and what components you're using. In the simplest form (for a first percentage of completion), you can use Copilot Studio and the SAP OData connector to connect directly to your SAP system in the cloud ([Option #1](https://github.com/MicrosoftDocs/azure-docs-pr/compare/architecture-demo.md?expand=1).
 
 * Are you running your SAP system on Azure and RISE? Do you have a good in-house Azure practice? See [Azure API Management and virtual network peering](architecture-apim-virtual-network.md).
 * Do you want to use BAPI or RFC? See [On-premises data gateway with access to BAPIs, RFCs, and OData services](architecture-on-premises-data-gateway.md).
