@@ -6,6 +6,9 @@ items:
       - name: What is Azure Deployment Environments?
         href: overview-what-is-azure-deployment-environments.md
         displayName: Azure Deployment Environments overview
+      - name: Maintenance mode for Azure Deployment Environments
+        href: maintenance-mode.md
+        displayName: maintenance mode, service status, support
   - name: Quickstarts
     displayName: Quickstarts
     items:

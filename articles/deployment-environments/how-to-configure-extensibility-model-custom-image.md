@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/17/2025
+ms.date: 05/06/2026
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -69,11 +69,11 @@ For more information about how to create environment definitions that use the AD
 ### [Create a custom image by using a script](#tab/custom-script/)
 ### Create a custom container image by using a script
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create and build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments repo](https://aka.ms/ade/arm-bicep-repo-script). To use the quick start script, fork the repo and then run the script locally.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create and build an image based on the ADE standard image and use a quick start script provided by Microsoft to push it to your container registry. You can find the script in the [Deployment Environments repo](https://aka.ms/ade/arm-bicep-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
-The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. 
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository *ade* and the tag *latest*. This script requires the registry name and directory for your custom image and that you have permissions to push to the specified registry. It also requires that you have the Azure CLI and Docker Desktop installed and in your PATH variables.  
 
-To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you need to:
 
 - Fork this repository into your personal account.
 - Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
@@ -91,7 +91,7 @@ Additionally, if you would like to push to a specific repository and tag name, y
 .\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
 ```
 
-To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition). You might also need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
 ### [Create a custom image manually](#tab/custom-manual/)
 ### Create a custom container image manually
@@ -112,8 +112,8 @@ After you complete the image customization, you can build the image and push it 
 
 <!-- =========== TERRAFORM ======================================================================================================== -->
 
-
 ::: zone pivot="terraform"
+
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
@@ -129,13 +129,13 @@ You can take one of the following approaches to use container images with ADE:
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments with Terraform repo](https://aka.ms/ade/terraform-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
-To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you need to:
 
 - Fork this repository into your personal account.
 - Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
 - Ensure you have permissions to push images to your selected Azure Container Registry.
 
-The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. You can call the script using the following command in PowerShell:
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository *ade* and the tag *latest*. This script requires the registry name and directory for your custom image and that you have permissions to push to the specified registry. It also requires that you have the Azure CLI and Docker Desktop installed and in your PATH variables. You can call the script using the following command in PowerShell:
 
 ```azurepowershell
 .\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
@@ -147,7 +147,7 @@ Additionally, if you would like to push to a specific repository and tag name, y
 .\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
 ```
 
-To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition). You might also need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
 ### [Create an image using a GitHub workflow](#tab/github-workflow/)
 
@@ -155,16 +155,16 @@ To use the image in your environment deployments, you need to add the location o
 
 To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
 
-In order to use the workflow, you will need to:
+In order to use the workflow, you need to:
 
 - Fork this repository into your personal account
-- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OIDC. For more information, see [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure).
+- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OpenID Connect (OIDC). For more information, see [Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 - Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
-- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
+- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories, and tags.
  
 Run the workflow by navigating to the Actions tab in your forked repository and selecting the workflow you would like to run. You can then select the Run workflow button to start the workflow.
 
-To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition). You might also need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
 ### [Create an image manually](#tab/terraform-manual/)
 
@@ -179,6 +179,7 @@ You can build and push the image manually, or use a script provided by Microsoft
 The published GitHub Action helps to build and push an image to an Azure Container Registry (ACR). You can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
 
 To create an image configured for ADE, follow these steps:
+
 1. Create a custom image based on a GitHub workflow.
 1. Install desired packages.
 1. Configure operation shell scripts.
@@ -187,7 +188,6 @@ To create an image configured for ADE, follow these steps:
 **1. Create a custom image based on a GitHub workflow**
 
 Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
-
 
 **2. Install required packages**
 In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
@@ -203,12 +203,11 @@ RUN mv terraform /usr/bin/terraform
 > [!Tip]
 > You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
 
-
 **3. Configure operation shell scripts**
 
 Within the standard images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
-To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository in the [scripts folder for Terraform](https://github.com/Azure/ade-extensibility-model-terraform/tree/main/scripts).
+To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The *deploy.sh* shell script runs when your environment is created or redeployed, and the *delete.sh* shell script runs when your environment is deleted. You can see examples of shell scripts in the repository in the [scripts folder for Terraform](https://github.com/Azure/ade-extensibility-model-terraform/tree/main/scripts).
 
 To ensure these shell scripts are executable, add the following lines to your Dockerfile:
 
@@ -220,12 +219,14 @@ RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 
 **4. Create operation shell scripts that use the Terraform CLI**
 
-There are three steps to deploy infrastructure via Terraform: 
+There are three steps to deploy infrastructure via Terraform:
+ 
 1. `terraform init` - initializes the Terraform CLI to perform actions within the working directory
-1. `terraform plan` - develops a plan based on the incoming Terraform infrastructure files and variables, and any existing state files, and develops steps needed to create or update infrastructure specified in the *.tf* files
+1. `terraform plan` - develops a plan based on the incoming Terraform infrastructure files and variables, and any existing state files, and develops steps needed to create or update infrastructure specified in the `.tf` files
 1. `terraform apply` - applies the plan to create new or update existing infrastructure in Azure
 
 During the core image's entrypoint, any existing state files are pulled into the container and the directory saved under the environment variable ```$ADE_STORAGE```. Additionally, any parameters set for the current environment stored under the variable ```$ADE_OPERATION_PARAMETERS```. In order to access the existing state file, and set your variables within a *.tfvars.json* file, run the following commands:
+
 ```bash
 set -e #set script to exit on error
 EnvironmentState="$ADE_STORAGE/environment.tfstate"
@@ -235,7 +236,8 @@ EnvironmentVars="/environment.tfvars.json"
 echo "$ADE_OPERATION_PARAMETERS" > $EnvironmentVars
 ```
 
-Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use the managed identity when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE managed identity:
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use the managed identity when provisioning infrastructure by using the Terraform AzureRM provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that's being used for your environment deployment. ADE sets the relevant environment variables, such as the client ID, tenant ID, and subscription ID within the core image's entrypoint. So, run the following commands to ensure the provider uses the ADE managed identity:
+
 ```bash
 export ARM_USE_MSI=true
 export ARM_CLIENT_ID=$ADE_CLIENT_ID
@@ -244,6 +246,7 @@ export ARM_SUBSCRIPTION_ID=$ADE_SUBSCRIPTION_ID
 ```
 
 If you have other variables to reference within your template that aren't specified in your environment's parameters, set environment variables using the prefix *TF_VAR*. A list of provided ADE environment variables is provided [Azure Deployment Environment CLI variables reference](./reference-deployment-environment-variables.md). An example of those commands could be;
+
 ```bash
 export TF_VAR_resource_group_name=$ADE_RESOURCE_GROUP_NAME
 export TF_VAR_ade_env_name=$ADE_ENVIRONMENT_NAME
@@ -267,7 +270,8 @@ terraform plan -no-color -compact-warnings -destroy -refresh=true -lock=true -st
 terraform apply -no-color -compact-warnings -auto-approve -lock=true -state=$EnvironmentState $EnvironmentPlan
 ```
 
-Finally, to make the outputs of your deployment uploaded and accessible when accessing your environment via the Azure CLI, transform the output object from Terraform to the ADE-specified format through the JQ package. Set the value to the $ADE_OUTPUTS environment variable, as shown in the following example:
+Finally, to make the outputs of your deployment uploaded and accessible when accessing your environment via the Azure CLI, transform the output object from Terraform to the ADE-specified format through the jq package. Set the value to the $ADE_OUTPUTS environment variable, as shown in the following example:
+
 ```bash
 tfOutputs=$(terraform output -state=$EnvironmentState -json)
 # Convert Terraform output format to ADE format.
@@ -361,7 +365,7 @@ RUN apk add nodejs npm
 RUN npm install typescript -g
 ```
 
-The ADE standard images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
+The ADE standard images are based on the Azure CLI image, and have the ADE CLI and jq packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [jq package](https://devdocs.io/jq/).
 
 To install any more packages you need within your image, use the RUN statement.
 
@@ -405,7 +409,7 @@ echo "$ADE_OPERATION_PARAMETERS" | jq -r 'to_entries|.[]|[.key, .value] | @tsv' 
   done
 ```
 
-Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE managed identity when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses the ADE managed identity:
+Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE managed identity when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that's being used for your environment deployment. ADE sets the relevant environment variables, such as the client ID, tenant ID, and subscription ID within the core image's entrypoint. So, run the following commands to ensure the provider uses the ADE managed identity:
 
 ```bash
 export ARM_USE_MSI=true
@@ -424,7 +428,8 @@ During your deletion script, you can instead run the `destroy` command, as shown
 pulumi destroy --refresh --yes --config-file $PULUMI_CONFIG_FILE
 ```
 
-Finally, to make the outputs of your deployment uploaded and accessible when accessing your environment via the Azure CLI, transform the output object from Pulumi to the ADE-specified format through the JQ package. Set the value to the $ADE_OUTPUTS environment variable, as shown in the following example:
+Finally, to make the outputs of your deployment uploaded and accessible when accessing your environment via the Azure CLI, transform the output object from Pulumi to the ADE-specified format through the jq package. Set the value to the $ADE_OUTPUTS environment variable, as shown in the following example:
+
 ```bash
 stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "string", value: (.value)}}')
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
@@ -438,7 +443,7 @@ echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 
 ## Make the custom image available to ADE
 
-In order to use custom images, you need to store them in a container registry. You can use a public container registry or a private container registry. Azure Container Registry (ACR) is highly recommended, due to its tight integration with ADE, the image can be published without allowing public anonymous pull access. You must build your custom container image and push it to a container registry to make it available for use in ADE. 
+In order to use custom images, you need to store them in a container registry. You can use a public container registry or a private container registry. Azure Container Registry (ACR) is highly recommended due to its tight integration with ADE. The image can be published without allowing public anonymous pull access. You must build your custom container image and push it to a container registry to make it available for use in ADE. 
 
 It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
 
@@ -459,7 +464,7 @@ Select the appropriate tab to learn more about each approach.
 
 By default, access to pull or push content from an Azure Container Registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
 
-To create  an instance of ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+To create an instance of ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more. Follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
 
 #### Limit network access
 
@@ -472,11 +477,11 @@ To disable access from public networks:
 1. On the left menu, under **Settings**, select **Networking**.
 1. On the Networking page, on the **Public access** tab, under **Public network access**, select **Disabled**.
 
-   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-settings.png" alt-text="Screenshot of the Azure portal, showing the ACR network settings, with Public access and Disabled highlighted."::: 
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-settings.png" alt-text="Screenshot of the Azure portal, showing the ACR network settings, with Public access and Disabled highlighted." lightbox="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-settings.png"::: 
 
 1. Under **Firewall exception**, check that **Allow trusted Microsoft services to access this container registry** is selected, and then select **Save**.
 
-   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-disable-public.png" alt-text="Screenshot of the ACR network settings, with Allow trusted Microsoft services to access this container registry and Save highlighted.":::
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-disable-public.png" alt-text="Screenshot of the ACR network settings, with Allow trusted Microsoft services to access this container registry and Save highlighted." lightbox="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-disable-public.png":::
 
 #### Assign the AcrPull role
 
@@ -497,7 +502,7 @@ To assign the AcrPull role to the Project Environment Type:
 
    The project environment type displays like the following example:
 
-   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-access-control.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted.":::
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-access-control.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted." lightbox="media/how-to-configure-extensibility-bicep-container-image/container-registry-access-control.png":::
 
 In this configuration, ADE uses the Managed Identity for the PET, whether system assigned or user assigned.
 
@@ -507,12 +512,12 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 > [!Tip]
 > If your ACR uses Microsoft Entra attribute-based access control (ABAC) for repository permissions, you may need to make additional role assignments like `Container Registry Repository Reader` to the PET identity. For more information, see [Microsoft Entra ABAC for repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
 
-
 When you're ready to push your image to your registry, run the following command:
 
 ```docker
 docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
+
 ### [Public registry](#tab/public-registry/)
 
 ### Use a public registry with anonymous pull
@@ -548,5 +553,5 @@ To learn more about how to create environment definitions that use the ADE conta
 - [ADE CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference)
 - [ADE CLI variables reference](reference-deployment-environment-variables.md)
 ::: zone pivot="pulumi"
-- [Pulumi's azure-deployment-environments repository](https://github.com/pulumi/azure-deployment-environments)
+- [The pulumi/azure-deployment-environments repository](https://github.com/pulumi/azure-deployment-environments)
 ::: zone-end
