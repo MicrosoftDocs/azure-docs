@@ -2,7 +2,7 @@
 title: "Quickstart: Create an Azure Native Arize AI Cloud Service resource"
 description: Learn how to create a resource for Arize AI using the Azure portal.
 author: shijojoy
-ms.author: shijojoy
+ms.author: shijoy
 ms.topic: quickstart
 ms.date: 04/21/2025
 ms.custom:
