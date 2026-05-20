@@ -3,10 +3,10 @@ title: Deployment planning for Azure IoT Operations
 description: Plan your Azure IoT Operations deployment by reviewing architecture, sizing, broker configuration, and security decisions that must be made before deployment.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator or platform engineer, I want to understand the planning decisions I need to make before deploying Azure IoT Operations.
+#customer intent: As an IT administrator or platform engineer, I want to understand the planning decisions I need to make before deploying Azure IoT Operations.
 ---
 
 # Deployment planning for Azure IoT Operations
@@ -195,11 +195,11 @@ The following cardinality requests significantly more CPU resources:
 - **Backend CPU**: 3 partitions x 2 RF x 2 workers x 2.0 = **24.0 CPU**
 - **Total broker CPU**: **30.0 CPU**
 
-### Configure CPU resource limits
+### CPU resource limit configuration
 
-To enable or disable CPU resource limits, set the `generateResourceLimits.cpu` field in the Broker resource. Currently, this configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+CPU resource limits are controlled by the `generateResourceLimits.cpu` field in the Broker resource. This configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
-To get started, prepare a Broker configuration file by following the [GenerateResourceLimits](/rest/api/iotoperations/broker/create-or-update#generateresourcelimits) API reference.
+Prepare a Broker configuration file by following the [GenerateResourceLimits](/rest/api/iotoperations/broker/create-or-update#generateresourcelimits) API reference. The following examples show the two possible values:
 
 
 ```json
@@ -265,11 +265,11 @@ In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB a
 
 *2 * 99 MB + (2 * 2) * 102 MB * 2 = 198 MB + 816 MB* = 1.014 GB.
 
-### Configure the memory profile
+### Memory profile configuration
 
-When you deploy IoT Operations by using the `az iot ops create` command, use the `--broker-mem-profile` parameter to specify the memory profile settings.
+When you deploy IoT Operations by using the `az iot ops create` command, the `--broker-mem-profile` parameter specifies the memory profile settings.
 
-For example, to specify the memory profile as `Tiny`, see the following command (other parameters are omitted for brevity):
+For example, the following command sets the memory profile to `Tiny` (other parameters are omitted for brevity):
 
 ```azurecli
 az iot ops create ... --broker-mem-profile Tiny

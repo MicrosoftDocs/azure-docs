@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 03/25/2026
 ms.service: azure-iot-operations
 
-#CustomerIntent: As a platform engineer or IT administrator planning capacity for Azure IoT Operations deployments, I want to see scaling recommendations before deploying to production.
+#customer intent: As a platform engineer or IT administrator planning capacity for Azure IoT Operations deployments, I want to see scaling recommendations before deploying to production.
 ---
 
 # Baseline resource profiles for Azure IoT Operations

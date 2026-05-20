@@ -51,7 +51,7 @@ items:
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable
-          - name: Bring your own issuer
+          - name: Set up your own certificate issuer
             href: deploy-iot-ops/howto-bring-your-own-issuer.md
             displayName: TLS, certificate, root CA, issuer, cert-manager, trust-manager
           - name: Deploy to a test cluster

@@ -3,15 +3,15 @@ title: Deployment planning - Persistence
 description: Plan MQTT broker persistence settings for your Azure IoT Operations deployment.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator, I want to understand MQTT broker persistence options so I can decide whether to enable data persistence before deploying Azure IoT Operations.
+#customer intent: As an IT administrator, I want to understand MQTT broker persistence options so I can decide whether to enable data persistence before deploying Azure IoT Operations.
 ---
 
 # Deployment planning - Persistence
 
-Decide before deployment whether you need data persistence for the MQTT broker. Data persistence writes critical data to disk and preserves it across cluster restarts.
+Data persistence is a feature that writes critical MQTT broker data to disk to preserve it across cluster restarts. Decide before deployment whether you need data persistence for the MQTT broker.
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss. This data persistence feature is different from the [disk-backed message buffer](deployment-planning-disk-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
 

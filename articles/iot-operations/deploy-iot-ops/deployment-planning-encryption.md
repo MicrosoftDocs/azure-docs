@@ -3,15 +3,15 @@ title: Deployment planning - Internal traffic encryption
 description: Plan internal traffic encryption settings for your Azure IoT Operations MQTT broker before deployment.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator, I want to understand internal traffic encryption options so I can decide whether to change the defaults before deploying Azure IoT Operations.
+#customer intent: As an IT administrator, I want to understand internal traffic encryption options so I can decide whether to change the defaults before deploying Azure IoT Operations.
 ---
 
 # Deployment planning - Internal traffic encryption
 
-Decide before deployment whether you need to change the default internal traffic encryption settings.
+Internal traffic encryption is a security feature that encrypts communication between MQTT broker frontend and backend pods. Decide before deployment whether you need to change the default internal traffic encryption settings.
 
 > [!IMPORTANT]
 > This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](../manage-mqtt-broker/overview-broker.md#customize-default-broker).

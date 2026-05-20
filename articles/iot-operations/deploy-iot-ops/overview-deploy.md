@@ -9,7 +9,7 @@ ms.date: 11/10/2025
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
 
-# Deployment details
+# Deployment overview
 
 When you deploy Azure IoT Operations, you install a suite of services on an Azure Arc-enabled Kubernetes cluster. This article provides an overview of the different deployment options to consider for your scenario.
 

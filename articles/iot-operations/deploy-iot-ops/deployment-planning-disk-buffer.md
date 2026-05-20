@@ -3,15 +3,15 @@ title: Deployment planning - Disk-backed message buffer
 description: Plan disk-backed message buffer settings for your Azure IoT Operations MQTT broker before deployment.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator, I want to understand disk-backed message buffer options so I can decide whether to enable this feature before deploying Azure IoT Operations.
+#customer intent: As an IT administrator, I want to understand disk-backed message buffer options so I can decide whether to enable this feature before deploying Azure IoT Operations.
 ---
 
 # Deployment planning - Disk-backed message buffer
 
-Decide before deployment whether you need disk-backed message buffering for your MQTT broker.
+The disk-backed message buffer is a feature that enables the MQTT broker to spill subscriber message queues to disk when they exceed available memory. Decide before deployment whether you need disk-backed message buffering for your MQTT broker.
 
 > [!IMPORTANT]
 > This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](../manage-mqtt-broker/overview-broker.md#customize-default-broker).
@@ -63,9 +63,9 @@ To get a better disk-backed message buffer configuration, specify an ephemeral v
 
 ```json
 {
-  "persistentVolumeClaimSpec": {
+  "diskBackedMessageBuffer": {
     "maxSize": "1G",
-    "ephemeralVolumeClaimSpec": {
+    "persistentVolumeClaimSpec": {
       "storageClassName": "foo",
       "accessModes": [
         "ReadWriteOnce"

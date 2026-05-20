@@ -1,17 +1,17 @@
 ---
-title: Bring your own issuer
+title: Set up your own certificate issuer for Azure IoT Operations
 description: Set up your own certificate authority issuer for internal communications in Azure IoT Operations instead of using the default self-signed issuer.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator, I want to understand certificate management options for internal communications so I can decide whether to bring my own CA issuer before deploying Azure IoT Operations.
+#customer intent: As an IT administrator, I want to set up my own CA issuer for internal communications so that my Azure IoT Operations deployment uses my enterprise PKI.
 ---
 
-# Bring your own issuer
+# Set up your own certificate issuer
 
-Decide before deployment whether you need to bring your own certificate authority (CA) issuer for internal communications, or whether the default self-signed issuer is sufficient for your use case.
+This article shows you how to bring your own certificate authority (CA) issuer for internal communications in Azure IoT Operations, instead of using the default self-signed issuer.
 
 ## Default self-signed issuer and root CA certificate
 

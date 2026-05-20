@@ -3,15 +3,15 @@ title: Deployment planning - Diagnostics
 description: Plan MQTT broker diagnostics settings for your Azure IoT Operations deployment.
 author: huguesbouvier
 ms.author: hubouvie
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.date: 04/21/2026
-#CustomerIntent: As an IT administrator, I want to understand MQTT broker diagnostics configuration so I can decide what settings to use before deploying Azure IoT Operations.
+#customer intent: As an IT administrator, I want to understand MQTT broker diagnostics configuration so I can decide what settings to use before deploying Azure IoT Operations.
 ---
 
 # Deployment planning - Diagnostics
 
-Decide before deployment what diagnostics configuration you need for the MQTT broker.
+The MQTT broker diagnostics system is a set of built-in tools that monitor broker health through metrics, logs, and self-check probes. Decide before deployment what diagnostics configuration you need for the MQTT broker.
 
 > [!IMPORTANT]
 > The diagnostics are set on the Broker resource. Configure diagnostics during initial deployment by using the Azure CLI or the Azure portal. If you want to change broker settings, deploy a new broker resource. To learn more, see [Customize default Broker](../manage-mqtt-broker/overview-broker.md#customize-default-broker).
