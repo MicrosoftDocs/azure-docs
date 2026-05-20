@@ -172,7 +172,7 @@ Connector Namespace is in preview. Conside the following when planning a deploym
 
 - [Create your first Connector Namespace](create-connector-namespace.md).
 
-- Configure a connection to an external service.
+- [Configure a connection to an external service](create-connector-namespace-connection.md).
 
 - Call a connector action from Azure Functions using the Connectors SDK for C#, Node.js, or Python.
 

@@ -14,7 +14,7 @@ ms.custom: ai-assisted
 
 > [!IMPORTANT]
 > 
-> This capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews. During preview, this capability is only available in Azure public regions.
+> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
 
 This article shows you how to create a new connection in an Azure Connector Namespace to integrate external services such as Office 365 Outlook with your applications.
 
@@ -61,6 +61,6 @@ Your new connection is ready to use by your applications or logic apps to execut
 ## Next steps
 
 - [Create and manage connector namespaces in Azure](create-connector-namespace.md)  
-- [Understand Azure Connector Namespace and its capabilities](azure-connector-namespace-overview.md)  
+- [Understand Azure Connector Namespace and its capabilities](connector-namespace-overview.md)  
 - Call connector actions from Azure Functions using Connectors SDK
 - Subscribe to connector triggers
