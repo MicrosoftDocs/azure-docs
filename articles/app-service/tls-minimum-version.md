@@ -10,9 +10,12 @@ ms.service: azure-app-service
 
 # Manage minimum TLS versions for Azure App Service, Azure Functions, and Logic Apps (Standard)
 
+> [!IMPORTANT]
+> TLS 1.0 and TLS 1.1 are retired for inbound connections to Azure App Service, Azure Functions, Azure Logic Apps (Standard), and App Service Environments on **May 31, 2027**. Update your clients and your app settings to TLS 1.2 or later before that date. See [About the TLS 1.0 and 1.1 retirement](#about-the-tls-10-and-11-retirement) for details and required steps.
+
 ## Overview
 
-Transport Layer Security (TLS) 1.0 and 1.1 are legacy security protocols with known vulnerabilities. Microsoft recommends configuring your apps to require TLS 1.2 or later for all inbound connections.
+Transport Layer Security (TLS) 1.0 and 1.1 are legacy security protocols with known vulnerabilities. The App Service platform retires support for TLS 1.0 and 1.1 for inbound connections on **May 31, 2027**. Configure your apps and clients to use TLS 1.2 or later before that date.
 
 You can enforce a minimum TLS version for the following App Service platform resources:
 
@@ -21,7 +24,22 @@ You can enforce a minimum TLS version for the following App Service platform res
 - **Azure Logic Apps (Standard)**
 - **App Service Environments (ASE)**
 
-New apps are created with a default minimum TLS version of 1.2. If your app is already configured for TLS 1.2 or later, your app meets current security best practices.
+New apps default to a minimum TLS version of 1.2; this default meets the retirement requirement. If you explicitly set `minTlsVersion` or `scmMinTlsVersion` to 1.0 or 1.1 on any app or deployment slot, change it to 1.2 or later before May 31, 2027. See [About the TLS 1.0 and 1.1 retirement](#about-the-tls-10-and-11-retirement).
+
+## About the TLS 1.0 and 1.1 retirement
+
+On **May 31, 2027**, the App Service platform stops accepting inbound TLS 1.0 and 1.1 handshakes on both the app endpoint and the SCM (Kudu) endpoint. Rejection occurs at the platform front end regardless of the `minTlsVersion` and `scmMinTlsVersion` values configured on the app. Any client that negotiates TLS 1.0 or 1.1 fails to connect after that date.
+
+After May 31, 2027, requests to create new apps or update existing apps with `minTlsVersion` or `scmMinTlsVersion` set to 1.0 or 1.1 may also fail.
+
+### Prepare for the retirement
+
+Before **May 31, 2027**, take these steps for every App Service, Azure Functions, Azure Logic Apps (Standard), and App Service Environment app in your subscription:
+
+1. Use the [Azure services retirement workbook](#audit-with-the-azure-services-retirement-workbook) to find apps that *allow* TLS 1.0 or 1.1 — apps where `minTlsVersion` or `scmMinTlsVersion` is set to 1.0 or 1.1.
+1. For each app surfaced by the workbook, use the [Minimum TLS Version Checker](#check-for-tls-10-and-11-traffic) detector to see whether clients are *actually* connecting over TLS 1.0 or 1.1.
+1. Update or replace clients still using TLS 1.0 or 1.1. See [Common scenarios that use TLS 1.0 or 1.1](#common-scenarios-that-use-tls-10-or-11).
+1. Set both **Minimum Inbound TLS Version** and **SCM Minimum Inbound TLS Version** to **1.2** (or **1.3**) on every app and on every deployment slot. See [Update your minimum TLS version](#update-your-minimum-tls-version).
 
 ## Check your minimum TLS version
 
@@ -106,7 +124,7 @@ If you see TLS 1.0 or 1.1 traffic, identify those clients before updating your m
 
 ## Update your minimum TLS version
 
-After you confirm that your clients support TLS 1.2 or later, update both the site and SCM minimum TLS version settings.
+After you confirm that your clients support TLS 1.2 or later, update both the site and SCM minimum TLS version settings. This step is required before **May 31, 2027** to avoid disruption when TLS 1.0 and 1.1 are retired from the App Service platform.
 
 ### [Portal](#tab/portal)
 
@@ -178,6 +196,12 @@ Set-AzWebApp -Name <app-name> -ResourceGroupName <resource-group> -MinTlsVersion
 
 Azure Resource Graph and list APIs (such as `az webapp list` and `Get-AzWebApp`) don't return `siteConfig` properties. To audit minimum TLS versions across your subscription, use Azure Policy.
 
+### Audit with the Azure services retirement workbook
+
+The [Azure services retirement workbook](https://aka.ms/ServicesRetirementWorkbook) lists Azure resources that **allow** inbound TLS 1.0 or 1.1 — that is, resources where the minimum TLS version is configured to permit those versions. Filter the workbook to App Service to see your apps with `minTlsVersion` or `scmMinTlsVersion` set to 1.0 or 1.1.
+
+This view is configuration-based: it shows which resources *accept* TLS 1.0 or 1.1, not which resources are actually receiving TLS 1.0 or 1.1 traffic. To see which clients are actually connecting to a specific app over TLS 1.0 or 1.1, use the [Minimum TLS Version Checker](#check-for-tls-10-and-11-traffic) detector on that app instead.
+
 ### Audit with Azure Policy
 
 Azure Policy evaluates your resources server-side and reports which apps don't meet the required TLS version, without making any changes.
@@ -242,6 +266,14 @@ Both. The minimum TLS version setting applies to all inbound traffic to your app
 ### Does this apply to Azure Functions and Logic Apps?
 
 Yes. Azure Functions and Logic Apps (Standard) run on the App Service platform and support the same TLS version settings. Logic Apps Consumption (multitenant) runs on a separate platform and is not covered in this article.
+
+### What if I don't update my app before May 31, 2027?
+
+Clients that connect using TLS 1.0 or 1.1 — including browsers, SDKs, scripts, IoT devices, and CI/CD agents — fail to connect after that date. See [About the TLS 1.0 and 1.1 retirement](#about-the-tls-10-and-11-retirement) for details.
+
+### Does this retirement apply to App Service Environments?
+
+Yes. App Service Environments follow the same May 31, 2027 retirement date as multitenant App Service.
 
 ## Related content
 

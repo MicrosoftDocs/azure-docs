@@ -62,7 +62,7 @@ Having many concurrent HTTP connections can throttle the performance of the Batc
 
 ## Example: Batch .NET
 
-The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API.
+The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API. For a complete walkthrough, see [Creating Multiple Tasks](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/batch/Azure.Compute.Batch/samples/Sample2_Creating_Multiple_Tasks.md) in the Azure SDK for .NET samples.
 
 To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/azure.compute.batch.createtasksoptions) property of the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) passed to [BatchClient.CreateTasksAsync](/dotnet/api/azure.compute.batch.batchclient). For example:
 
