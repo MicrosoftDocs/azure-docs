@@ -13,7 +13,7 @@ summary: |
   Find answers to frequently asked questions about Azure Container Apps express.
 
   > [!IMPORTANT]
-  > Azure Container Apps express is currently in preview. Preview features are provided without a Service Level Agreements (SLA) and aren't recommended for production workloads. Some features may not be supported or may have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  > Azure Container Apps express is currently in preview. Preview features are provided without a Service Level Agreement (SLA) and aren't recommended for production workloads. Some features may not be supported or may have limited capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 sections:
   - name: General
