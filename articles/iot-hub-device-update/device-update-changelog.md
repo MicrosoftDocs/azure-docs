@@ -52,7 +52,6 @@ This table provides recent version history for the Device Update for IoT Hub ser
 
 | Release notes and assets | Type | Release Date | Summary |
 | ------------------------ | ---- | ------------ | ---------- |
-
 | [Agent v1.3.0](https://github.com/Azure/iot-hub-device-update/releases/tag/1.3.0) | Agent release | May 2026 | This release introduces enhanced delta download support for production scenarios, a device-side status API, improved update diagnostics, and expanded platform support (Ubuntu 24.04, Debian 13). |
 | [Agent v1.2.6](https://github.com/Azure/iot-hub-device-update/releases/tag/1.2.6) | Agent patch | March 23, 2026 | This agent patch includes bug fixes and stability improvements, along with updates to platform support and tooling. |
 | [Agent v1.2.0](https://github.com/Azure/iot-hub-device-update/releases/tag/1.2.0) | Agent release | April 8, 2025 | This release focuses on reliability and security fixes, along with improvements to update workflows and platform compatibility (including Debian 12 support). |
