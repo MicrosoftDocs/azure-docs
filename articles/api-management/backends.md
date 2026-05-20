@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/19/2026
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom:
   - build-2024
@@ -314,32 +314,32 @@ You can use API Management policies to help set cookies for session awareness. F
 
 ```xml
 <policies>
-  <inbound>
-    <base />
-    <set-backend-service backend-id="APIMBackend" />
-  </inbound>
-  <backend>
-    <base />
-  </backend>
-  <outbound>
-    <base />
-    <set-variable name="gwSetCookie" value="@{
-      var payload = context.Response.Body.As<JObject>(preserveContent: true);
-      var threadId = payload["id"];
-      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("Set-Cookie", string.Empty);
-      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
-      {
-        gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
-      }
-      return gwSetCookieHeaderValue;
-    }" />
-    <set-header name="Set-Cookie" exists-action="override">
-      <value>@((string)context.Variables["gwSetCookie"])</value>
-    </set-header>
-  </outbound>
-  <on-error>
-    <base />
-  </on-error>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="APIMBackend" />
+</inbound>
+<backend>
+    <base />
+</backend>
+<outbound>
+    <base />
+    <set-variable name="gwSetCookie" value="@{
+      var payload = context.Response.Body.As<JObject>(preserveContent: true);
+      var threadId = payload["id"];
+      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("Set-Cookie", string.Empty);
+      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
+          {
+            gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
+          }
+      return gwSetCookieHeaderValue;
+    }" />
+    <set-header name="Set-Cookie" exists-action="override">
+        <value>@((string)context.Variables["gwSetCookie"])</value>
+    </set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
 </policies>
 ```
 
