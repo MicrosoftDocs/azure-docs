@@ -1,5 +1,5 @@
 ---
-title: Define and Execute a Zone Down Drill in Azure
+title: Define and Execute Zone Down Drill in Azure
 description: Learn how to define and execute a Zone Down Drill in Azure. Configure Chaos Workspaces, manage identities, design faults, and verify Service Group readiness.
 #customer intent: As a site reliability engineer, I want to define and execute a Zone Down Drill so that I can validate my service group's resiliency to zonal failures.
 author: AbhishekMallick-MS
