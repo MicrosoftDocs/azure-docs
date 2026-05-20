@@ -171,7 +171,7 @@ Start the Device Update agent and verify that it's running successfully on your 
 
 Devices running the Device Update agent send HTTPS requests to communicate with IoT Hub. If you connected your device to a network that uses a proxy server, you need to configure the Device Update systemd service to communicate through the server.
 
-Before configuring Device Update, ensure that you have the the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
+Before configuring Device Update, ensure that you have the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
 
 Create a systemd override configuration directory and the override file by running the following command:
 
