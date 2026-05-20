@@ -25,8 +25,7 @@ The maximum size of the task collection that you can add in a single call depend
 These Batch APIs limit the collection to 100 tasks. The limit could be smaller depending on the size of the tasks (for example, if the tasks have a large number of resource files or environment variables).
 
 - [REST API](/rest/api/batchservice/task/addcollection)
-- [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations)
-- [Node.js API](/javascript/api/@azure/batch/task)
+- [Node.js API](/javascript/api/@azure-rest/batch/)
 
 When using these APIs, you need to provide logic to divide the number of tasks to meet the collection limit, and to handle errors and retries in case of task addition failures. If a task collection is too large to add, the request generates an error and should be retried again with fewer tasks.
 
@@ -35,9 +34,9 @@ When using these APIs, you need to provide logic to divide the number of tasks t
 Other Batch APIs support much larger task collections, limited only by RAM availability on the submitting client. These APIs transparently handle dividing the task collection into "chunks" for the lower-level APIs and retries for task addition failures.
 
 - [.NET API](/dotnet/api/azure.compute.batch.batchclient.createtaskasync)
+- [Python API](/python/api/azure-batch/azure.batch.batchclient) (`create_tasks` method, v15.x and later)
 - [Java API](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
 - [Azure Batch CLI extension](batch-cli-templates.md) with Batch CLI templates
-- [Python SDK extension](https://pypi.org/project/azure-batch-extensions/)
 
 ## Increase throughput of task submission
 
@@ -51,9 +50,9 @@ For example, instead of using a large number of resource files, install task dep
 
 ### Number of parallel operations
 
-Depending on the Batch API, you can increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) property in the .NET API, or the `threads` parameter of methods such as [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations) in the Batch Python SDK extension. (This property is not available in the native Batch Python SDK.)
+Depending on the Batch API, you can increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) property in the .NET API, or the `max_concurrency` parameter of the [BatchClient.create_tasks](/python/api/azure-batch/azure.batch.batchclient) method in the Batch Python SDK (v15.x and later).
 
-By default, this property is set to 1, but you can set it higher to improve throughput of operations. You trade off increased throughput by consuming network bandwidth and some CPU performance. Task throughput increases by up to 100 times the `MaxDegreeOfParallelism` or `threads`. In practice, you should set the number of concurrent operations to below 100.
+By default, this property is set to 1, but you can set it higher to improve throughput of operations. You trade off increased throughput by consuming network bandwidth and some CPU performance. Task throughput increases by up to 100 times the `MaxDegreeOfParallelism` or `max_concurrency`. In practice, you should set the number of concurrent operations to below 100.
 
  The Azure Batch CLI extension with Batch templates increases the number of concurrent operations automatically based on the number of available cores, but this property is not configurable in the CLI.
 
@@ -63,7 +62,7 @@ Having many concurrent HTTP connections can throttle the performance of the Batc
 
 ## Example: Batch .NET
 
-The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API.
+The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API. For a complete walkthrough, see [Creating Multiple Tasks](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/batch/Azure.Compute.Batch/samples/Sample2_Creating_Multiple_Tasks.md) in the Azure SDK for .NET samples.
 
 To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/azure.compute.batch.createtasksoptions) property of the [CreateTasksOptions](/dotnet/api/azure.compute.batch.createtasksoptions) passed to [BatchClient.CreateTasksAsync](/dotnet/api/azure.compute.batch.batchclient). For example:
 
@@ -127,89 +126,51 @@ The following is a sample job template for a one-dimensional parametric sweep jo
 
 To run a job with the template, see [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
 
-## Example: Batch Python SDK extension
+## Example: Batch Python SDK
 
-To use the Azure Batch Python SDK extension, first install the Python SDK and the extension:
+The following Python snippets show how to submit a large number of tasks using the [azure-batch](https://pypi.org/project/azure-batch/) v15.x SDK. Version 15.x introduces a unified `BatchClient` and a `create_tasks` method that performs bulk task submission with built-in chunking, retries, and configurable concurrency. For details on migrating from earlier versions, see the [Azure Batch Python migration guide](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/batch/azure-batch/migration_guide.md).
+
+Install the [azure-batch](https://pypi.org/project/azure-batch/) and [azure-identity](https://pypi.org/project/azure-identity/) packages:
 
 ```
-pip install azure-batch
-pip install azure-batch-extensions
+pip install azure-batch azure-identity
 ```
 
-After importing the package using `import azext.batch as batch`, set up a `BatchExtensionsClient` that uses the SDK extension:
+Import the packages and create a `BatchClient` that authenticates with [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential):
 
-```python Snippet:large_tasks_extensions_client
+```python Snippet:large_tasks_client
+from azure.batch import BatchClient, models
+from azure.identity import DefaultAzureCredential
 
-client = batch.BatchExtensionsClient(
-    base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
-...
+credential = DefaultAzureCredential()
+client = BatchClient(endpoint=BATCH_ACCOUNT_ENDPOINT, credential=credential)
 ```
 
-Create a collection of tasks to add to a job. For example:
+Build a collection of [BatchTaskCreateOptions](/python/api/azure-batch/azure.batch.models.batchtaskcreateoptions) objects to add to a job:
 
 ```python Snippet:large_tasks_collection
-tasks = list()
-# Populate the list with your tasks
-...
+tasks = []
+for i in range(250000):
+    tasks.append(
+        models.BatchTaskCreateOptions(
+            id=f"task-{i}",
+            command_line=f"/bin/bash -c 'echo Hello world from task {i}'"
+        )
+    )
 ```
 
-Add the task collection using [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations). Set the `threads` parameter to increase the number of concurrent operations:
+Submit the task collection in a single call using [BatchClient.create_tasks](/python/api/azure-batch/azure.batch.batchclient). The method transparently splits the collection into service-supported chunks and retries failed requests. Set the `max_concurrency` parameter to increase the number of parallel submission threads:
 
 ```python Snippet:large_tasks_add_collection
-try:
-    client.task.add_collection(job_id, threads=100)
-except Exception as e:
-    raise e
-```
-
-The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding Batch CLI template example:
-
-```python Snippet:large_tasks_parameter_sweep
-parameter_sweep = {
-    "job": {
-        "type": "Microsoft.Batch/batchAccounts/jobs",
-        "apiVersion": "2016-12-01",
-        "properties": {
-            "id": "myjob",
-            "poolInfo": {
-                "poolId": "mypool"
-            },
-            "taskFactory": {
-                "type": "parametricSweep",
-                "parameterSets": [
-                    {
-                        "start": 1,
-                        "end": 250000,
-                        "step": 1
-                    }
-                ],
-                "repeatTask": {
-                    "commandLine": "/bin/bash -c 'echo Hello world from task {0}'",
-                    "constraints": {
-                        "retentionTime": "PT1H"
-                    }
-                }
-            },
-            "onAllTasksComplete": "terminatejob"
-        }
-    }
-}
-...
-job_json = client.job.expand_template(parameter_sweep)
-job_parameter = client.job.jobparameter_from_json(job_json)
-```
-
-Add the job parameters to the job. Set the `threads` parameter to increase the number of concurrent operations:
-
-```python Snippet:large_tasks_job_add
-try:
-    client.job.add(job_parameter, threads=50)
-except Exception as e:
-    raise e
+result = client.create_tasks(
+    job_id="my-job",
+    task_collection=tasks,
+    max_concurrency=10
+)
 ```
 
 ## Next steps
 
 - Learn more about using the Azure Batch CLI extension with [Batch CLI templates](batch-cli-templates.md).
-- Learn more about the [Batch Python SDK extension](https://pypi.org/project/azure-batch-extensions/).
+- Learn more about the [Azure Batch Python SDK](https://pypi.org/project/azure-batch/) and the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/batch/azure-batch/migration_guide.md).
 - Read about [best practices for Azure Batch](best-practices.md).

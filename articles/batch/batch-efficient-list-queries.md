@@ -144,7 +144,6 @@ Property names in filter, select, and expand strings must reflect their REST API
 
 | Azure.Compute.Batch types | REST API entities |
 | --- | --- |
-| [BatchCertificate](/dotnet/api/azure.resourcemanager.batch.models.batchaccountcertificatedata) |[Get information about a certificate](/rest/api/batchmanagement/certificate/get) |
 | [BatchJob](/dotnet/api/azure.compute.batch.batchjob) |[Get information about a job](/rest/api/batchservice/jobs/get-job) |
 | [BatchJobSchedule](/dotnet/api/azure.compute.batch.batchjobschedule) |[Get information about a job schedule](/rest/api/batchservice/jobs/get-job) |
 | [BatchNode](/dotnet/api/azure.compute.batch.batchnode) |[Get information about a node](/rest/api/batchservice/computenode/get) |
