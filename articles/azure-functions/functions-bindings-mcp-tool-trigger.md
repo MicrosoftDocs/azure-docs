@@ -18,6 +18,8 @@ Use the MCP tool trigger to define tool endpoints in a [Model Context Protocol (
 
 For information on setup and configuration, see the [overview](functions-bindings-mcp.md).
 
+For a complete end-to-end example of using the MCP tool trigger, see [Create a remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
@@ -330,7 +332,7 @@ def get_snippet(file: func.InputStream, context) -> str:
     return snippet_content
 ```
 
-For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/function_app.py).  
+For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/FunctionsMcpTool/function_app.py).  
 ::: zone-end  
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
 ::: zone pivot="programming-language-csharp"  

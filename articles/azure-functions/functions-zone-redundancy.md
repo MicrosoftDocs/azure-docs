@@ -1,8 +1,8 @@
 ---
 title: Configure Zone Redundancy for Azure Functions
 description: Learn how to configure zone redundancy for Azure Functions, create zone-redundant Function Apps, and migrate existing function apps to use multiple availability zones.
-author: glynnniall
-ms.author: glynnniall
+author: ggailey777
+ms.author: glenga
 ms.topic: how-to
 ms.date: 02/19/2026
 zone_pivot_groups: reliability-functions-hosting-plan
@@ -35,7 +35,7 @@ Availability zone configuration for Azure Functions depends on your [Functions h
 > [!IMPORTANT]  
 > Before configuring zone redundancy, review the requirements and details listed in [Reliability in Azure Functions - Resilience to availability zone failures](/azure/reliability/reliability-functions?pivots=premium#resilience-to-availability-zone-failures).
 > 
-> You can enable or disable availability zones on existing Elastic Premium plans using the Azure CLI. See [Enable zone redundancy on an existing plan](#enable-zone-redundancy-on-an-existing-plan) for important details about Elastic Premium-specific capacity behavior.
+> You can enable or disable availability zones on existing Elastic Premium plans using the Azure CLI. For more information, including important details about Elastic Premium-specific capacity behaviors, see [Enable zone redundancy on an existing plan](#enable-zone-redundancy-on-an-existing-plan).
 
 ::: zone-end
 

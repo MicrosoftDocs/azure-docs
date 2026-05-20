@@ -309,6 +309,42 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-azd-cosmosdb-dotnet",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-cosmosdb-python",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-cosmosdb-typescript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-cosmosdb-java",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-cosmosdb-javascript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-cosmosdb-powershell",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-event-hub-azd-dotnet",
             "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub",
             "branch": "main",
