@@ -26,7 +26,7 @@ The following items are required to run your express app locally:
 
 ## Local development workflow
 
-Azure Container Apps express runs standard Open Container Initiative (OCI) containers, so your local development workflow is follow this process:
+Azure Container Apps express runs standard Open Container Initiative (OCI) containers, so your local development workflow follows this process:
 
 - Code your application
 - Build the container
@@ -68,7 +68,7 @@ docker build -t <CONTAINER_APP_NAME>:dev .
 
 ## Test locally with Docker
 
-Run your container image locally with Docker to verify it works before deploying.
+To verify it works before deploying, run your container image locally with Docker.
 
 Run your container with the following command:
 
