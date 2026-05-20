@@ -50,7 +50,7 @@ Use the portal or Azure CLI to create an association between your configuration 
 
 1. Under **Network security perimeter (preview)**, select **Associate**.
 
-1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the dropdown, then select **Associate**.
+1. In the **Associate a network security perimeter** pane, select a network security perimeter and a profile from the drop-down list, then select **Associate**.
 
    :::image type="content" source="./media/network-security-perimeter/associate-network-security-perimeter.png" alt-text="Screenshot of the Azure portal, showing the Associate a network security perimeter pane for an App Configuration store." lightbox="./media/network-security-perimeter/associate-network-security-perimeter.png":::
 
@@ -134,7 +134,7 @@ Use the portal or Azure CLI to remove an existing association between your confi
 1. Run the following command to dissociate your configuration store from the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group> 
+    az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group>
     ```
 
     > [!div class="mx-tdBreakAll"]
