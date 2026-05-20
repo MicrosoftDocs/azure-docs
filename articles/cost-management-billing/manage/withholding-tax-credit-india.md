@@ -103,9 +103,7 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 **For customers paying by credit card:** After your claim is approved, your overpayment is refunded to your credit card.
 
 > [!IMPORTANT]
->
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
-> - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
 ## Related content
 
