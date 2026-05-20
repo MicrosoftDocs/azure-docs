@@ -68,7 +68,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
    - Installs agents and web applications.
    - Enables Windows features: Windows Activation Service, Web-Server, Web-Mgmt-Service.
    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-   - Creates the followingfiles:
+   - Creates the following files:
      - Config: `%ProgramData%\Microsoft Azure\Config`
      - Logs: `%ProgramData%\Microsoft Azure\OfflineData`
 
@@ -161,7 +161,7 @@ You can use the same Azure migrate collector to discover both VMware machines an
 ### Collect incremental data
 
 1. After addressing the issues, enable **Incremental data** to collect data only on workloads where previous attempts failed.
-2. When enabled, VMware configuration and performance data collection is skipped. It attempts Software inventory, databases, and webapps collections on previously failed workloads.
+2. When enabled, VMware configuration and performance data collection are skipped. It attempts Software inventory, databases, and webapps collections on previously failed workloads.
 3. If disabled, full data collection runs.
 
 ### Export collected data
