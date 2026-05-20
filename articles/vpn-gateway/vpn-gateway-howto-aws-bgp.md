@@ -18,6 +18,8 @@ ms.custom: sfi-image-nochange
 
 This article walks you through the setup of a BGP-enabled connection between Azure and Amazon Web Services (AWS). You'll use an Azure VPN gateway with BGP and active-active enabled and an AWS virtual private gateway with two site-to-site connections.
 
+If you plan to migrate an AWS workload to Azure, see [Migrate networking from Amazon Web Services (AWS) to Azure](/azure/migration/migrate-networking-from-aws), which includes [migration guides](/azure/migration/migrate-networking-from-aws#migration-guides) that might align to your use case.
+
 ## <a name="architecture"></a>Architecture
 
 In this setup, you create the following resources:
