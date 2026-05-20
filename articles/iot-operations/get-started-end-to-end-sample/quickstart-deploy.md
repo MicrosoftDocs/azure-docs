@@ -91,6 +91,9 @@ To create your codespace and cluster, use the following steps:
 
    Use this terminal to run all of the CLI commands for managing your cluster.
 
+> [!IMPORTANT]
+> The codespace in this article uses an 8-core compute instance. This can impact your budget if you keep the codespace running for a long time. To avoid unexpected costs, make sure to stop your codespace if you pause for extended periods between steps or articles in this quickstart. You can restart it when you're ready to continue. For more information, see [Stopping and starting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=vscode).
+
 ## Connect cluster to Azure Arc
 
 To connect your cluster to Azure Arc:

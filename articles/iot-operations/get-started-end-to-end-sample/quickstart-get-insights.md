@@ -38,7 +38,7 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). 
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer). 
 
 Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page). As you add the data source, keep the following notes in mind:
 
