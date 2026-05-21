@@ -3,7 +3,7 @@ title: Device Update for IoT Hub release notes and version history
 description: Release notes and version history for Device Update for IoT Hub.
 author: cwatson-cat
 ms.author: cwatson
-ms.date: 02/22/2023
+ms.date: 05/21/2026
 ms.topic: release-notes
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -17,30 +17,37 @@ Device Update for IoT Hub is an Azure service designed to work with an on-device
 
 The Device Update agent reference implementation version 1.3.0 includes improvements to update workflows, reliability, and platform support. It adds capabilities such as enhanced delta download support to help reduce the amount of data transferred during updates, a device-side status API to improve visibility and coordination with device workloads, and expanded support for newer Linux versions to build on.
 
-## Improvements
+### Delta updates
 
-**Delta updates and download enhancements**
-  - Introduced enhanced support for delta downloads to help reduce the amount of data transferred during updates, along with improvements to caching behavior and reliability and support for component-based packaging.
+- Delta updates enable devices to transfer only what changed between versions, reducing update payload size and bandwidth usage.
+- Added Microsoft Delta Download Handler with component-based packaging.
+- Improved caching behavior and download reliability.
+  
+### Device coordination and update control
 
-**Update workflow visibility and diagnostics**
-  - Improved reporting of update results, including more detailed failure information.
-  - Added extended result codes to help diagnose update outcomes in IoT Hub.
+- Added a new device-side status API that lets local processes coordinate with active updates, helping avoid conflicts and improve update reliability.
+- Workflow data can now be passed to script handlers, enabling more flexible update scenarios.
+- Improved restart coordination ensures reporting and cache operations complete before reboot.
+  
+### Update visibility and diagnostics
 
-**Device-side agent status API**
-  - Introduced a device-side status API that allows device processes to understand and coordinate with ongoing updates, helping avoid conflicts and improve update reliability.
+- More detailed failure reporting for update workflows.
+- Extended result codes now surface in IoT Hub for deeper troubleshooting.
+  
+### Platform and environment support
 
-**Reboot coordination improvements**
-  - Improved coordination of system restarts to help ensure updates complete cleanly and reporting is not interrupted.
+- Added support for Ubuntu 24.04 and Debian 13, giving more flexibility to build and integrate on newer Linux environments.
+- The curl handler is now the default content download handler.
+  
+### Security and authentication
 
-**Platform support updates**
-  - Added support for newer Linux distributions, including Ubuntu 24.04 LTS and Debian 13 (Trixie), allowing you to build and integrate on more recent platform environments.
+- Added support for X.509 client certificate authentication.
+  *X.509 authentication support in the Device Update agent uses standard Azure IoT Hub identity configuration. This capability isn't integrated with Azure Device Registry (ADR) certificate management (preview).*
+  
+### Reliability
 
-**Script and workflow enhancements**
-  - Enabled passing workflow data to script handlers for more flexible update scenarios.
-
-**Authentication options**
-  - Added support for X.509-based authentication using client certificates.
-
+- Improved agent logging, error handling, and overall workflow stability.
+- Includes fixes to memory handling, thread safety, and platform stability.
 
 ## Version history
 
