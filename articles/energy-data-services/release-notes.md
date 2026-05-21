@@ -22,6 +22,13 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
 
+## May 2026
+### External Data Services (EDS) - Generally Available
+External Data Services (EDS) is now generally available on Azure Data Manager for Energy. EDS allows data from an OSDU&reg; compliant external data sources to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand. To enable EDS, see [Enable External Data Services (EDS) in Azure Data Manager for Energy](how-to-enable-external-data-services.md).
+
+### Manifest Ingestion by Reference DAG - Preview
+In OSDU&reg; M26, Manifest Ingestion by Reference DAG transitioned to the Graduated maturity state ([issue #121](https://community.opengroup.org/osdu/platform/data-flow/ingestion/ingestion-dags/-/issues/121)) after multi-release validation. On Azure Data Manager for Energy, it remains in preview on Developer SKU for customer testing before general availability. The DAG references large manifests instead of embedding payloads, improving performance and removing payload-size limitations of traditional manifest ingestion workflows.
+
 ## March 2026
 ### Manage OSDU milestone upgrade settings
 Milestone upgrades are major version upgrades to Azure Data Manager for Energy, such as moving from a release compatible with OSDU milestone M25 to M26. ADME now allows customers to choose whether to upgrade the instance immediately as the upgrade becomes available or defer the upgrade for up to 30 days. To learn more, see [Manage upgrade settings in Azure Data Manager for Energy](how-to-manage-upgrade-settings.md).
