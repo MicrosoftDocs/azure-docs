@@ -22,7 +22,7 @@ No. The data path for NFS or SMB doesn't go over the Internet. Azure NetApp File
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 
-### Can I connect a VNet that I already created to the Azure NetApp Files service?
+### Can I connect a virtual network that I already created to the Azure NetApp Files service?
 
 Yes, you can connect VNets that you created to the service. 
 
@@ -75,7 +75,7 @@ No. After the enforcement date, new volumes can't be created with Basic Networki
 
 ### Is there a cost difference between Basic and Standard networking? 
 
-No. Moving from Basic to Standard networking doesn't increase Azure NetApp Files costs unless you choose other Azure networking features, which involve costs like peering. 
+There is no difference when moving from Basic to Standard networking unless you choose other Azure networking features, which involve costs like peering. 
 
 ### Will this change affect the functionality of my scripts or ARM template? 
 
@@ -83,13 +83,13 @@ Your scripts and ARM templates remain operational as currently implemented. All 
 
 ### Why do I see an "insufficient resources" error when creating a Standard networking volume? 
 
-This can occur if the selected VNet contains volumes using Basic networking, and the region or availability zone has limited Azure NetApp Files capacity. 
+This can occur if the selected virtual network contains volumes using Basic networking, and the region or availability zone has limited Azure NetApp Files capacity. 
 
 ### How can I fix the "insufficient resources" error when creating a Standard networking volume? 
-Create the volume in a different VNet, or upgrade all existing volumes in the VNet to Standard networking and retry. Contact Microsoft Support if assistance is needed. 
+Create the volume in a different VNet, or upgrade all existing volumes in the virtual network to Standard networking and retry. Contact Microsoft Support if assistance is needed. 
 
 ### How can I avoid the "insufficient resources" error? 
-Use Standard networking for all new Azure NetApp Files volumes and avoid mixing Basic and Standard networking in the same VNet and transition existing volumes to Standard networking. 
+Use Standard networking for all new Azure NetApp Files volumes and avoid mixing Basic and Standard networking in the same virtual network and transition existing volumes to Standard networking. 
 
 ### Do I need to migrate my existing volumes to Standard networking now? 
 
@@ -97,7 +97,7 @@ No immediate action is required. However, we recommend you to transition existin
 
 ### How does this retirement affect future volume creation?
 
-There's no impact on your workload or volume creation ability. With the upgrade to Standard networking, you'll get NSGs on Azure NetApp Files, UDRs on Azure NetApp Files subnet, and many other features at no added cost.   
+There's no impact on your workload or volume creation ability. With the upgrade to Standard networking, you'll get NSGs on Azure NetApp Files, UDRs on Azure NetApp Files subnet, and many other features.  
 
 ### What is Microsoft’s recommendation going forward? 
 
