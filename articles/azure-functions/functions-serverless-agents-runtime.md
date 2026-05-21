@@ -14,22 +14,22 @@ ms.collection:
 
 # Serverless agents runtime in Azure Functions
 
-The Azure Functions serverless agents runtime is a markdown-first programming model for building AI agents as a first-class workload on Azure Functions. Instead of stitching together a hosting layer, trigger handling, model client, tool wiring, session storage, identity, and observability, you define agents in `.agent.md` files and deploy them as a function app.
+The Azure Functions serverless agents runtime is a markdown-first programming model for building AI agents as Azure Functions apps. Instead of stitching together hosting, triggers, model clients, tools, session storage, identity, and observability, you define agents in `.agent.md` files and deploy them as a function app.
 
-The runtime is designed for agents that react to events, call tools, and run on serverless infrastructure. You can trigger agents from HTTP requests, schedules, queues, messages, database changes, and other events; connect them to MCP servers, MCP-enabled connections, reusable skills, and sandboxed execution; and operate them with the same deployment, identity, monitoring, and scale features used by other Azure Functions apps. When those capabilities don't cover your scenario, you can write custom Python tools in the same function app.
+The runtime is designed for agents that react to events, call tools, and run on serverless infrastructure. Agents can start from HTTP requests, schedules, queues, messages, database changes, and other events; use MCP servers, MCP-enabled connections, reusable skills, and sandboxed execution; and run with the same deployment, identity, monitoring, and scale features used by other Azure Functions apps. For app-specific logic, you can write custom Python tools in the same function app.
 
 > [!NOTE]
 > The serverless agents runtime is in preview. Features, configuration names, and supported connectors can change before general availability.
 
 ## Why build agents on Azure Functions
 
-Production agents need more than a prompt and a model. They need reliable ways to start work, call external systems, persist conversation history, run untrusted code safely, authenticate without secrets, emit telemetry, and scale with demand.
+Production agents need more than a prompt and a model. They need reliable ways to start work, call external systems, persist conversation history, run untrusted code safely, authenticate without secrets, emit telemetry, and scale on demand.
 
 Azure Functions already provides an event-driven compute model for those operational concerns. The serverless agents runtime applies that model to agents:
 
 + **Agents are the unit of work.** A `.agent.md` file defines the trigger and the instructions for one agent.
 + **Events start agents.** Functions triggers let agents run on a schedule, react to queues and events, or expose HTTP endpoints.
-+ **Capabilities are configured first, with code when you need it.** Agents can use remote MCP servers, MCP-enabled connections, skills, and sandboxed code execution from configuration. When those options don't cover your scenario, write custom Python tools in the same function app.
++ **Capabilities are configured first, with code when you need it.** Agents can use remote MCP servers, MCP-enabled connections, skills, and sandboxed code execution from configuration. Use custom Python tools for app-specific logic.
 + **Hosting is serverless.** Flex Consumption supports scale-to-zero, per-second billing, managed identity, virtual network integration, and Application Insights.
 + **Operational plumbing is built in.** The runtime handles agent discovery, trigger registration, tool assembly, session history, and optional debug endpoints.
 
@@ -41,9 +41,9 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 | --- | --- | --- |
 | `function_app.py` | Yes | Imports `create_function_app()` and returns the configured Azure Functions app. |
 | `*.agent.md` | Yes | Defines agents. YAML front matter configures the agent, and the markdown body becomes the instructions. |
-| `agents.config.yaml` | Yes | Defines required app-wide runtime defaults, including model settings, sandbox settings, and other runtime defaults. |
+| `agents.config.yaml` | Yes | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
 | `mcp.json` | When using MCP servers | Defines remote HTTP MCP servers that agents can use as tools. This file exists only at the root of the function app project when the app uses MCP servers. |
-| `tools/` | No | Contains custom Python tools that you write when MCP servers, connections, skills, or sandboxed execution don't cover your scenario. |
+| `tools/` | No | Contains custom Python tools for capabilities that aren't covered by MCP servers, connections, skills, or sandboxed execution. |
 | `skills/` | No | Contains reusable `SKILL.md` prompt assets that agents can load as needed. |
 | `host.json` | Yes | Configures the Azure Functions host. |
 | `requirements.txt` | Yes | Includes the serverless agents runtime package and any app-specific Python dependencies. |
@@ -75,7 +75,7 @@ You are a news assistant. When triggered, do the following:
 
 The front matter declares how the agent is invoked. The markdown body is the instruction block that the runtime passes to the model during execution. Environment variable substitution lets instructions and configuration values reference app settings such as `$TO_EMAIL`.
 
-Every `.agent.md` file defines one agent. The file name is used to derive the Azure Function name and optional debug route slug. The `name` field is a display name used in logs, labels, and documentation.
+Each `.agent.md` file defines one agent. The file name is used to derive the Azure Function name and optional debug route slug. The `name` field is a display name used in logs, labels, and documentation.
 
 Use these front matter fields to configure an agent:
 
@@ -125,9 +125,9 @@ tools:
 
 ### Runtime defaults in agents.config.yaml
 
-Use `agents.config.yaml` for app-wide runtime defaults that every agent in the app can inherit. In the preview templates, this file is required because it configures runtime settings such as the model deployment and sandbox execution endpoint.
+Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. In the preview templates, this file is required because it configures settings such as the model deployment and sandbox execution endpoint.
 
-This file is one of several app-level inputs. The runtime also discovers MCP servers from `mcp.json`, skills from `skills/`, and custom Python tools from `tools/`; those capabilities are enabled on agents by default. Agent front matter can override runtime defaults or filter inherited MCP servers, skills, and tools where needed.
+This file is one app-level input. The runtime also discovers MCP servers from `mcp.json`, skills from `skills/`, and custom Python tools from `tools/`. Those capabilities are enabled on agents by default. Agent front matter can override runtime defaults or filter inherited MCP servers, skills, and tools.
 
 ```yaml
 system_tools:
@@ -155,7 +155,7 @@ Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remo
 
 ### Variable substitution
 
-The runtime can substitute app settings and environment variables into string values in agent front matter, agent instruction bodies, `agents.config.yaml`, and `mcp.json`. Use `$SETTING_NAME` or `%SETTING_NAME%` syntax. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
+The runtime can substitute app settings and environment variables into string values in agent front matter, agent instruction bodies, `agents.config.yaml`, and `mcp.json`. Use `$SETTING_NAME` or `%SETTING_NAME%`. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
 
 ```yaml
 model: $AZURE_OPENAI_DEPLOYMENT
@@ -187,7 +187,7 @@ To disable substitution for one agent's front matter and instructions, set `subs
 
 ### MCP servers and connections
 
-When your app uses remote MCP servers, add `mcp.json` to the root of the function app project. The runtime discovers remote HTTP or streamable HTTP MCP servers from this file and makes their tools available to agents, subject to any per-agent filters.
+When an app uses remote MCP servers, add `mcp.json` to the root of the function app project. The runtime discovers remote HTTP or streamable HTTP MCP servers from this file and makes their tools available to agents, subject to any per-agent filters.
 
 ```json
 {
@@ -210,10 +210,10 @@ Use these fields in each `servers` entry:
 | `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP endpoints. |
 | `authorization` | For connection MCP endpoints | Managed identity authorization settings for Azure connection MCP endpoints. |
 
-Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The serverless agents runtime uses connections in two ways:
+Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The runtime uses connections in two ways:
 
 + **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
-+ **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add that endpoint to `mcp.json`.
++ **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
 
 A connection MCP server entry stores the endpoint, optional tool allowlist, and managed identity authorization settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
 
@@ -238,7 +238,7 @@ Use `"identity": "system"` for the system-assigned managed identity. In apps tha
 
 ## How the runtime starts an app
 
-When the Azure Functions host imports your app, `create_function_app()` builds a configured `FunctionApp` from the files in the project:
+When the Azure Functions host imports the app, `create_function_app()` builds a configured `FunctionApp` from the project files:
 
 1. Resolve the app root.
 1. Load `agents.config.yaml`.
@@ -253,7 +253,7 @@ After startup, the Azure Functions host indexes the registered triggers just lik
 
 ## Trigger agents from events
 
-Serverless agents are useful when the event that starts the work is as important as the model call itself. The runtime supports defining one trigger per agent file.
+Serverless agents are useful when the event that starts work is as important as the model call. The runtime supports one trigger per agent file.
 
 Common trigger patterns include:
 
@@ -269,17 +269,17 @@ Because each agent is registered as an Azure Function, the app can use Functions
 
 ## Give agents tools
 
-Agents become useful when they can act. Start with configured capabilities: remote MCP servers, MCP-enabled connections, skills, and sandboxed execution. Use custom Python tools when those options don't provide the capability your agent needs.
+Agents become useful when they can act. Start with configured capabilities: remote MCP servers, MCP-enabled connections, skills, and sandboxed execution. Use custom Python tools for app-specific capabilities that don't fit those options.
 
 ### Remote MCP servers
 
 MCP servers provide tools over a standard protocol. The runtime discovers remote HTTP or streamable HTTP MCP servers from `mcp.json` and passes them to the agent during execution.
 
-Use remote MCP servers when you want agents to call tools hosted by another service, use an MCP-enabled connection, or compose agents and tools across app boundaries.
+Use remote MCP servers when agents need to call tools hosted by another service, use an MCP-enabled connection, or compose agents and tools across app boundaries.
 
 ### Azure connectors
 
-Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, SQL, and many others. In a serverless agents app, infrastructure can create a connection from a connector, enable the connection's MCP endpoint, and grant the function app identity access to call it.
+Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, and SQL. In a serverless agents app, infrastructure can create a connection from a connector, enable the connection's MCP endpoint, and grant the function app identity access to call it.
 
 This approach keeps connection authorization and service-specific API details out of your agent instructions and custom code.
 
@@ -287,7 +287,7 @@ This approach keeps connection authorization and service-specific API details ou
 
 Skills are reusable prompt assets stored under `skills/`. They help keep the base agent instructions small while making domain-specific instructions available when needed. The runtime uses the [Agent Skills](https://agentskills.io/) format.
 
-The runtime scans `skills/` in the function app project root and recursively discovers folders that contain `SKILL.md`. Each skill is a folder that contains a required `SKILL.md` file:
+The runtime scans `skills/` in the function app project root and recursively discovers folders that contain `SKILL.md`:
 
 ```text
 skills/
@@ -332,7 +332,7 @@ skills:
 
 ### Sandboxed execution
 
-For work that needs code execution or browser automation, the runtime can use [Azure Container Apps dynamic sessions](../container-apps/sessions.md). Dynamic sessions provide isolated environments from [session pools](../container-apps/session-pool.md). The serverless agents runtime uses [code interpreter sessions](../container-apps/sessions-code-interpreter.md) to provide an `execute_python` tool to agents.
+For code execution or browser automation, the runtime can use [Azure Container Apps dynamic sessions](../container-apps/sessions.md). Dynamic sessions provide isolated environments from [session pools](../container-apps/session-pool.md). The runtime uses [code interpreter sessions](../container-apps/sessions-code-interpreter.md) to provide an `execute_python` tool to agents.
 
 Configure sandboxed execution in `agents.config.yaml`:
 
@@ -350,7 +350,7 @@ Use these sandbox requirements:
 + When running locally, your developer identity must have the same required access to the session pool.
 + In apps with multiple managed identities, set `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime falls back to `AZURE_CLIENT_ID` and then to the default credential chain.
 
-The sandbox tool runs Python in an isolated session. Python variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session for the invocation so unrelated executions don't share state.
+The sandbox tool runs Python in an isolated session. Variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session so unrelated executions don't share state.
 
 Agents inherit sandboxed execution when it's configured globally. Disable it for a specific agent when that agent shouldn't run code:
 
@@ -361,7 +361,7 @@ system_tools:
 
 ### Custom Python tools
 
-Use custom Python tools when MCP servers, MCP-enabled connections, skills, and sandboxed execution don't provide the capability your agent needs. Custom tools let you use the full power of Azure Functions and Python packages from the same function app.
+Use custom Python tools for app-specific capabilities that don't fit MCP servers, MCP-enabled connections, skills, or sandboxed execution. Custom tools let you use Azure Functions and Python packages from the same function app.
 
 Add tool files to the `tools/` folder in the function app project root:
 
@@ -439,7 +439,7 @@ For production apps, prefer managed identity where supported. If an app uses mor
 
 ## Configure managed identities
 
-The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the global default identity selector for the app. Use feature-specific settings when a model provider, sandbox pool, or connection MCP endpoint should use a different identity.
+The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Use feature-specific settings when a model provider, sandbox pool, or connection MCP endpoint should use a different identity.
 
 The runtime uses this precedence pattern for Azure SDK credentials:
 
@@ -465,7 +465,7 @@ Session history uses the same storage identity configuration as the Azure Functi
 
 ## Sessions and state
 
-Multi-turn agent interactions need session history. In Azure, the runtime persists session history by using Blob Storage in the function app's `AzureWebJobsStorage` account. This design avoids a separate session database for many apps and works with connection-string or identity-based storage configuration.
+Multi-turn agent interactions need session history. In Azure, the runtime stores session history in Blob Storage by using the function app's `AzureWebJobsStorage` account. This design avoids a separate session database for many apps and works with connection-string or identity-based storage configuration.
 
 For local development without Azure storage configuration, the runtime can fall back to file-based session history under the local agents configuration directory.
 

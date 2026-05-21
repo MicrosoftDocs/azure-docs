@@ -14,11 +14,11 @@ ms.custom:
 
 # Quickstart: Build a serverless agent using Azure Functions
 
-In this quickstart, you deploy a serverless agent to Azure Functions by using the Azure Developer CLI (`azd`). The sample agent runs on a timer, gathers the day's top technology news, summarizes the stories, and sends the summary by email through a Microsoft 365 connection exposed as Model Context Protocol (MCP) tools.
+In this quickstart, you deploy a serverless agent to Azure Functions by using the Azure Developer CLI (`azd`). The sample agent runs on a timer, gathers the day's top technology news, summarizes the stories, and emails the summary through a Microsoft 365 connection exposed as Model Context Protocol (MCP) tools.
 
-The project uses the Azure Functions serverless agents runtime, which lets you define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app. The template provisions a function app in the Flex Consumption plan, a storage account, monitoring resources, a Microsoft Foundry project and model deployment, a Microsoft 365 connection, and the identity assignments needed by the app.
+The project uses the Azure Functions serverless agents runtime. You define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app. The template provisions a Flex Consumption function app, storage, monitoring, a Microsoft Foundry project and model deployment, a Microsoft 365 connection, and the required identity assignments.
 
-Because the new app runs on the Flex Consumption plan, which follows a pay-for-what-you-use billing model, completing this quickstart incurs a small cost in your Azure account.
+Completing this quickstart can incur a small cost in your Azure account because the app uses the Flex Consumption plan and related Azure resources.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Use the `azd init` command to create a local project from the sample repository.
     azd init --template Azure-Samples/serverless-agents-functions -e serverless-agent
     ```
 
-    This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/serverless-agents-functions) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app and is also used in the names of resources created in Azure.
+    This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/serverless-agents-functions) and initializes the project in the current folder. The `-e` flag names the current `azd` environment, which tracks deployment state and is used in Azure resource names.
 
 1. Set the recipient email address used by the agent:
 
@@ -49,7 +49,7 @@ Use the `azd init` command to create a local project from the sample repository.
     azd env set TO_EMAIL <recipient@example.com>
     ```
 
-    Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block messages to addresses outside the company, so sending the test message to yourself is the most reliable way to complete this quickstart.
+    Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block external recipients, so sending the test message to yourself is the most reliable option.
 
 ## Review the project
 
@@ -59,11 +59,11 @@ Before you deploy, review the project files that define the serverless agent app
 | --- | --- |
 | `src/function_app.py` | Creates the Azure Functions app by calling `create_function_app()` from the serverless agents runtime. |
 | `src/*.agent.md` | Defines each agent. The YAML front matter declares the trigger, and the markdown body contains the agent instructions. |
-| `src/agents.config.yaml` | Defines required app-wide runtime defaults, including the model deployment and sandbox settings used by agents in the app. |
+| `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and sandbox settings used by agents in the app. |
 | `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the MCP endpoint for the Microsoft 365 connection. |
-| `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, connector, and identity configuration. |
+| `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, connector namespace, connection, and identity configuration. |
 
-The timer-triggered agent is defined entirely in the `.agent.md` file. The front matter declares the timer schedule, and the markdown instructions tell the agent to gather news, create an HTML summary, and send the email to the address stored in the `TO_EMAIL` app setting.
+The timer-triggered agent is defined in the `.agent.md` file. The front matter declares the timer schedule, and the markdown instructions tell the agent to gather news, create an HTML summary, and send the email to the address stored in the `TO_EMAIL` app setting.
 
 ## Deploy to Azure
 
@@ -79,23 +79,23 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
 1. If the template prompts for model deployment settings, accept the provided defaults or choose a model deployment supported in your selected region.
 
-After the command completes successfully, your app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
+After the command completes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 
 ## Authorize the connection
 
-The deployment creates a connector namespace and a Microsoft 365 connection that the agent uses to send email. A connector defines an integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. Before the agent can call the connection's MCP tools, you need to authorize the connection.
+The deployment creates a connector namespace and a Microsoft 365 connection that the agent uses to send email. A connector defines an integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. Before the agent can call the connection's MCP tools, authorize the connection.
 
 1. In the [Azure portal](https://portal.azure.com), search for `Connector Namespace`.
 
 1. Open the connector namespace created by `azd`. The resource is in the resource group created by `azd`, whose name starts with `rg-` and includes the environment name you chose during `azd init`.
 
-    The connector namespace opens a connector management experience in a new portal.
+    The connector namespace opens the connector management experience.
 
 1. In the connector namespace, open the Microsoft 365 or Office 365 connection created by the deployment.
 
 1. Select **Authorize**, and then sign in with the Microsoft 365 account that can send the email.
 
-After authorization succeeds, the function app's managed identity can use the connection's MCP endpoint during agent execution.
+After authorization succeeds, the function app's managed identity can use the connection's MCP endpoint.
 
 ## Run the agent on demand
 
@@ -134,7 +134,7 @@ curl -X POST "https://<FUNCTION_APP_NAME>.azurewebsites.net/admin/functions/dail
 
 ## Monitor the execution
 
-Return to the **Logs** pane in **Code + Test** for the timer-triggered function. The logs show the function execution and runtime messages. Depending on the runtime log level, you might also see model and tool activity from the agent run.
+Return to the **Logs** pane in **Code + Test** for the timer-triggered function. The logs show function execution and runtime messages. Depending on the runtime log level, you might also see model and tool activity.
 
 You can also use Application Insights to review the execution after telemetry is ingested:
 
@@ -144,11 +144,11 @@ You can also use Application Insights to review the execution after telemetry is
 
 1. Use **Transaction search** or **Logs** to find the execution that started when you manually ran the function.
 
-The run is complete when the logs show that the function execution finished successfully. Check the recipient inbox for an email with a daily technology news summary.
+The run is complete when the logs show that the function execution finished successfully. Check the recipient inbox for the daily technology news summary.
 
 ## Clean up resources
 
-When you're done working with your serverless agent app, use this command to delete the function app and related resources from Azure to avoid incurring further costs:
+When you're done, use this command to delete the function app and related resources from Azure:
 
 ```console
 azd down
