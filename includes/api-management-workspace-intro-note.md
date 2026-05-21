@@ -13,6 +13,5 @@ ms.custom: Include file
 ---
 
 > [!NOTE]
-> * New! The workspaces feature is now available in the Basic v2 and Standard v2 tiers, in addition to the Premium and Premium v2 tiers. Workspaces in the v2 tiers can be associated with either a managed workspace gateway or a dedicated workspace gateway, providing flexibility in how you configure and scale your workspaces. 
-> * For limits on the number of workspaces, see [API Management limits](/azure/azure-resource-manager/management/azure-subscription-service-limits). 
+> * New! The workspaces feature is now available in the Basic v2 and Standard v2 tiers, in addition to the Premium and Premium v2 tiers. Workspaces in the v2 tiers can be associated with either the default API Management managed gateway or a separate workspace gateway resource, providing flexibility in how you configure and scale your workspaces. 
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).

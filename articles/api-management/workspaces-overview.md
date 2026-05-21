@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 05/21/2026
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -70,8 +70,8 @@ Each workspace is configured with one or more gateways to enable runtime of APIs
 
 | Option | Availability | Benefits | Considerations |
 |---|---|---|---|
-| Default managed gateway | Currently only in v2 tiers | No extra gateway resource or cost; workspaces benefit from most capabilities of the default gateway including private endpoints if available in the service tier | Less isolation; all workspaces share the gateway's capacity and configuration |
-| Workspace gateway | Premium, Basic v2, Standard v2, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace | Extra cost; longer deployment time|
+| Default managed gateway | Currently in v2 tiers | No extra cost for gateway resource; availability in all regions where the tier is available; workspaces can take advantage of built-in gateway capabilities that aren't available in workspace gateways, such as multi-region deployments, custom hostnames, or private link connectivity if supported in the service tier | Less isolation; all workspaces share the gateway's capacity and configuration |
+| Workspace gateway | Basic v2, Standard v2, Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace | Extra cost; longer deployment time; support in fewer regions |
 
 ### Default managed gateway
 
@@ -81,7 +81,7 @@ In the v2 tiers, you can configure a workspace to route API traffic through the 
 - The workspace shares the gateway's capacity and configuration with other workspaces and service-level APIs.
 
 > [!NOTE]
-> You can configure a workspace to use the default managed gateway only in the v2 service tiers and through the [API Management Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API.
+> Currently you can configure a workspace to use the default managed gateway only in the v2 service tiers and through the [API Management Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API.
 
 ### Workspace gateway
 
@@ -134,7 +134,7 @@ For detailed requirements, see [Network resource requirements for workspace gate
 
 ### Scale capacity for workspace gateways
 
-Manage the capacity of a dedicated workspace gateway by adding or removing scale units, similar to the [units](upgrade-and-scale.md) that you can add to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
+Manage the capacity of a workspace gateway by adding or removing scale units, similar to the [units](upgrade-and-scale.md) that you can add to the API Management instance in certain service tiers. The costs of a workspace gateway are based on the number of units you select.
 
 ### Regional availability of workspace gateways
 
