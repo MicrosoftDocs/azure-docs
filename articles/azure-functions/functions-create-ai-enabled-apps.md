@@ -21,6 +21,7 @@ Consider using Azure Functions in your AI-enabled experiences for these scenario
 
 | Scenario | Description |
 | ----- | ----- |
+| [Serverless agents runtime](#serverless-agents-runtime) | Functions lets you build event-driven agents that use models, MCP tools, connectors, sandboxed execution, and Functions triggers while running on serverless infrastructure. |
 | [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Context Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
@@ -28,6 +29,17 @@ Consider using Azure Functions in your AI-enabled experiences for these scenario
 Select one of these scenarios to learn more in this article. 
 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
+
+## Serverless agents runtime
+
+The Azure Functions serverless agents runtime is a preview programming model for building event-driven agents as function apps. With this runtime, an agent is defined in a `.agent.md` file, shared runtime settings are configured in `agents.config.yaml`, and remote MCP servers are listed in `mcp.json`. The runtime discovers these files, registers the required Azure Functions triggers and endpoints, and runs the agent through Microsoft Agent Framework when an event starts the function.
+
+Use the serverless agents runtime when you want agents that are triggered by events, schedules, messages, or HTTP requests and can call tools across connected systems. Agents can use MCP-enabled Azure connectors, remote MCP servers, custom Python tools, skills, and sandboxed execution while the app runs on Flex Consumption with managed identity, monitoring, and scale-to-zero hosting.
+
+To get started, see these articles:
+
++ [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
++ [Build a serverless agent using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Tools and MCP servers
 
