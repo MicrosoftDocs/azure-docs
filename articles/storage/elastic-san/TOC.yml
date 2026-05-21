@@ -75,7 +75,7 @@ items:
         href: elastic-san-scale-targets.md
       - name: Performance
         href: elastic-san-performance.md
-      - name: Benchmarking Performance
+      - name: Benchmarking performance
         href: elastic-san-benchmarking.md
         displayName: Performance, DiskSPD, FIO, Elastic SAN
       - name: Performance on Azure VMware Solution

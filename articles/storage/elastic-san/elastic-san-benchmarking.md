@@ -178,7 +178,7 @@ fio --name=readseq --rw=read --bs=1M --iodepth=32 --numjobs=4 --size=100G --time
 |------------------------|----------|----------------|-------------|---------------|-----------------|
 | Sequential (Read 100%) | 1M       | 4              | 128         | **~1,488**    | **~1,488 MB/s** |
 
-**Next steps**
+## Next steps
 
 - Review Elastic SAN performance behavior and allocation: [How performance works when VMs connect to Elastic SAN volumes](elastic-san-performance.md)
 - Review configuration guidance and client optimizations: [Optimize the performance of your Elastic SAN](elastic-san-best-practices.md)
