@@ -33,7 +33,7 @@ See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-ne
 Yes, you can, if you create the required DNS entries. Azure NetApp Files supplies the service IP for the provisioned volume. 
 
 > [!NOTE] 
-> Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
+> Azure NetApp Files can deploy other IPs for the service as needed.  DNS entries may need to be updated periodically.
 
 ### Can I set or select my own IP address for an Azure NetApp Files volume?  
 
@@ -59,7 +59,7 @@ This section answers questions about Azure NetApp Files Standard network feature
 
 ### What is changing with Basic Networking in Azure NetApp Files? 
 
-All new Azure NetApp Files volumes will use Standard Networking by default. Basic network features will no longer be an option. Existing volumes are unaffected, and no customer action is required. 
+All new Azure NetApp Files volumes will use Standard networking by default. Basic network features will no longer be an option. Existing volumes are unaffected, and no customer action is required. 
 
 ### What actions are required from the customer? 
 
@@ -67,41 +67,41 @@ No Action is required from the customer.
 
 ### Will my existing Azure NetApp Files volumes be impacted? 
 
-No. Existing volumes using Basic Networking are not impacted and will continue to operate normally. 
+No. Existing volumes using Basic Networking aren't impacted and will continue to operate normally. 
 
 ### Can I still create new volumes using Basic Networking? 
 
-No. After the enforcement date, new volumes cannot be created with Basic Networking via the Portal, CLI, or APIs. 
+No. After the enforcement date, new volumes can't be created with Basic Networking via the Portal, CLI, or APIs. 
 
-### Is there a cost difference between Basic and Standard Networking? 
+### Is there a cost difference between Basic and Standard networking? 
 
-No. Moving from Basic to Standard Networking does not increase Azure NetApp Files costs unless you choose additional Azure networking features which involve costs like peering. 
+No. Moving from Basic to Standard networking doesn't increase Azure NetApp Files costs unless you choose other Azure networking features, which involve costs like peering. 
 
 ### Will this change affect the functionality of my scripts or ARM template? 
 
-Your scripts and ARM templates will remain operational as currently implemented. All requests for basic networking will be set up using Standard networking configurations. 
+Your scripts and ARM templates remain operational as currently implemented. All requests for basic networking will be set up using Standard networking configurations. 
 
-### Why do I see an "insufficient resources" error when creating a Standard Networking volume? 
+### Why do I see an "insufficient resources" error when creating a Standard networking volume? 
 
-This can occur if the selected VNet contains volumes using Basic Networking, and the region or availability zone has limited Azure NetApp Files capacity. 
+This can occur if the selected VNet contains volumes using Basic networking, and the region or availability zone has limited Azure NetApp Files capacity. 
 
-### How can I fix the "insufficient resources" error when creating a Standard Networking volume? 
-Create the volume in a different VNet, or upgrade all existing volumes in the VNet to Standard Networking and retry. Contact Microsoft Support if assistance is needed. 
+### How can I fix the "insufficient resources" error when creating a Standard networking volume? 
+Create the volume in a different VNet, or upgrade all existing volumes in the VNet to Standard networking and retry. Contact Microsoft Support if assistance is needed. 
 
 ### How can I avoid the "insufficient resources" error? 
-Use Standard Networking for all new Azure NetApp Files volumes and avoid mixing Basic and Standard networking in the same VNet and transition existing volumes to standard networking. 
+Use Standard networking for all new Azure NetApp Files volumes and avoid mixing Basic and Standard networking in the same VNet and transition existing volumes to Standard networking. 
 
-### Do I need to migrate my existing volumes to Standard Networking now? 
+### Do I need to migrate my existing volumes to Standard networking now? 
 
-No immediate action is required. However, we recommend you to transition existing environments to standard networking over time as part of normal lifecycle management.
+No immediate action is required. However, we recommend you to transition existing environments to Standard networking over time as part of normal lifecycle management.
 
-### How does this retirement affects future volume creation?
+### How does this retirement affect future volume creation?
 
-There is no impact on your workload or volume creation ability. With the upgrade to Standard networking, you will get NSGs on Azure NetApp Files, UDRs on Azure NetApp Files subnet, and many other features at no added cost.   
+There's no impact on your workload or volume creation ability. With the upgrade to Standard networking, you'll get NSGs on Azure NetApp Files, UDRs on Azure NetApp Files subnet, and many other features at no added cost.   
 
 ### What is Microsoft’s recommendation going forward? 
 
-Use Standard Networking for all new deployments and plan to transition existing environments over time as part of normal lifecycle management. 
+Use Standard networking for all new deployments and plan to transition existing environments over time as part of normal lifecycle management. 
 
 ## Next steps  
 
