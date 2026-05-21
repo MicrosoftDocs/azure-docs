@@ -6,7 +6,7 @@ groups:
   prompt: Choose a version
   pivots:
   - id: func-cli-v4
-    title: Core Tools (v4)
+    title: Azure Functions Core Tools (v4)
   - id: func-cli-v5
     title: Azure Functions CLI (v5)
 # Owner: estfan
