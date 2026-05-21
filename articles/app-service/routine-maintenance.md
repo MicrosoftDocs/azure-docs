@@ -108,6 +108,10 @@ You can use health check to inform the platform that your application isn't read
 
 Updates and maintenance events have been happening to the platform since its inception. The frequency of updates decreased over time. The number of interruptions also decreased and uptime increased. However, you now have more visibility into all changes. Increased visibility might cause the perception that more changes are happening.
 
+### Why did I not receive a 7-day advance notification before receiving in-progress notifications?
+
+This upgrade was likely an unplanned maintenance event, either a hotfix or critical security patch. As Microsoft commits to ensuring security of resources, we may not always have 7 days lead time when pushing an update to address these concerns. These notifications will specify unplanned maintenance in the title.
+
 ## Related content
 
 - [Routine Planned Maintenance Notifications for Azure App Service](https://azure.github.io/AppService/2022/02/01/App-Service-Planned-Notification-Feature.html)
