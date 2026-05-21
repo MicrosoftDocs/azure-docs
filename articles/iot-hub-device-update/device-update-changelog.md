@@ -1,8 +1,8 @@
 ---
 title: Device Update for IoT Hub release notes and version history
 description: Release notes and version history for Device Update for IoT Hub.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 02/22/2023
 ms.topic: release-notes
 ms.service: azure-iot-hub
