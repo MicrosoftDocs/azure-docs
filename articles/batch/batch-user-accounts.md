@@ -2,7 +2,7 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 05/20/2026
 ms.custom:
 ms.devlang: csharp
 # ms.devlang: csharp, java, python
@@ -79,8 +79,15 @@ The following code snippets show how to configure the auto-user specification. T
 
 #### Batch .NET
 
-```csharp
-task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
+```C# Snippet:user_accounts_admin_autouser
+task.UserIdentity = new UserIdentity()
+{
+    AutoUser = new AutoUserSpecification()
+    {
+        ElevationLevel = ElevationLevel.Admin,
+        Scope = AutoUserScope.Task
+    }
+};
 ```
 
 #### Batch Java
@@ -96,16 +103,16 @@ taskToAdd.withId(taskId)
 
 #### Batch Python
 
-```python
-user = batchmodels.UserIdentity(
-    auto_user=batchmodels.AutoUserSpecification(
-        elevation_level=batchmodels.ElevationLevel.admin,
-        scope=batchmodels.AutoUserScope.task))
-task = batchmodels.TaskAddParameter(
+```python Snippet:user_accounts_admin_autouser_python
+user = models.UserIdentity(
+    auto_user=models.AutoUserSpecification(
+        elevation_level=models.ElevationLevel.ADMIN,
+        scope=models.AutoUserScope.TASK))
+task = models.BatchTaskCreateOptions(
     id='task_1',
     command_line='cmd /c "echo hello world"',
     user_identity=user)
-batch_client.task.add(job_id=jobid, task=task)
+batch_client.create_task(job_id=jobid, task=task)
 ```
 
 ### Run a task as an auto-user with pool scope
@@ -123,8 +130,14 @@ Another scenario where you may want to run tasks under an auto-user account with
 
 The following code snippet sets the auto-user's scope to pool scope for a task in Batch .NET. The elevation level is omitted, so the task runs under the standard pool-wide auto-user account.
 
-```csharp
-task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
+```C# Snippet:user_accounts_pool_scope
+task.UserIdentity = new UserIdentity()
+{
+    AutoUser = new AutoUserSpecification()
+    {
+        Scope = AutoUserScope.Pool
+    }
+};
 ```
 
 ## Named user accounts
@@ -145,94 +158,108 @@ To create named user accounts in Batch, add a collection of user accounts to the
 
 #### Batch .NET example (Windows)
 
-```csharp
-CloudPool pool = null;
+```C# Snippet:user_accounts_pool_windows
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using Virtual Machine Configuration.
-pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 2,
-    virtualMachineSize: "standard_d2s_v3",
-    VirtualMachineConfiguration: new VirtualMachineConfiguration(
-    imageReference: new ImageReference(
-                        publisher: "MicrosoftWindowsServer",
-                        offer: "WindowsServer",
-                        sku: "2022-datacenter-core",
-                        version: "latest"),
-    nodeAgentSkuId: "batch.node.windows amd64");
-
-// Add named user accounts.
-pool.UserAccounts = new List<UserAccount>
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    new UserAccount("adminUser", "A1bC2d", ElevationLevel.Admin),
-    new UserAccount("nonAdminUser", "A1bC2d", ElevationLevel.NonAdmin),
+    VmSize = "standard_d2s_v3",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2022-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+    },
+    UserAccounts =
+    {
+        new BatchUserAccount("adminUser", "A1bC2d") { ElevationLevel = BatchUserAccountElevationLevel.Admin },
+        new BatchUserAccount("nonAdminUser", "A1bC2d") { ElevationLevel = BatchUserAccountElevationLevel.NonAdmin },
+    }
 };
 
-// Commit the pool.
-await pool.CommitAsync();
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, poolId, poolData);
 ```
 
 #### Batch .NET example (Linux)
 
-```csharp
-CloudPool pool = null;
-
+```C# Snippet:user_accounts_pool_linux
 // Obtain a collection of all available node agent SKUs.
-List<NodeAgentSku> nodeAgentSkus =
-    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
+List<BatchSupportedImage> images = new List<BatchSupportedImage>();
+await foreach (BatchSupportedImage img in batchClient.GetSupportedImagesAsync())
+{
+    images.Add(img);
+}
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu2404 = imageRef =>
+bool IsUbuntu2404(Azure.Compute.Batch.BatchVmImageReference imageRef) =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "ubuntu-24_04-lts" &&
     imageRef.Sku.Contains("server");
 
-// Obtain the first node agent SKU in the collection that matches
-NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu2404));
+// Pick the first supported image that matches.
+BatchSupportedImage ubuntuImage = null;
+foreach (var img in images)
+{
+    if (IsUbuntu2404(img.ImageReference)) { ubuntuImage = img; break; }
+}
 
-// Select an ImageReference from those available for node agent.
-ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2404);
-
-// Create the virtual machine configuration to use to create the pool.
-VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
+// Create the BatchVmConfiguration to use to create the pool.
+BatchVmConfiguration vmConfiguration = new BatchVmConfiguration(
+    imageReference: new BatchImageReference()
+    {
+        Publisher = ubuntuImage.ImageReference.Publisher,
+        Offer = ubuntuImage.ImageReference.Offer,
+        Sku = ubuntuImage.ImageReference.Sku,
+        Version = ubuntuImage.ImageReference.Version
+    },
+    nodeAgentSkuId: ubuntuImage.NodeAgentSkuId);
 
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create the unbound pool.
-pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 2,
-    virtualMachineSize: "Standard_d2s_v3",
-    virtualMachineConfiguration: virtualMachineConfiguration);
-// Add named user accounts.
-pool.UserAccounts = new List<UserAccount>
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    new UserAccount(
-        name: "adminUser",
-        password: "A1bC2d",
-        elevationLevel: ElevationLevel.Admin,
-        linuxUserConfiguration: new LinuxUserConfiguration(
-            uid: 12345,
-            gid: 98765,
-            sshPrivateKey: new Guid().ToString()
-            )),
-    new UserAccount(
-        name: "nonAdminUser",
-        password: "A1bC2d",
-        elevationLevel: ElevationLevel.NonAdmin,
-        linuxUserConfiguration: new LinuxUserConfiguration(
-            uid: 45678,
-            gid: 98765,
-            sshPrivateKey: new Guid().ToString()
-            )),
+    VmSize = "Standard_d2s_v3",
+    DeploymentConfiguration = new BatchDeploymentConfiguration() { VmConfiguration = vmConfiguration },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+    },
+    UserAccounts =
+    {
+        new BatchUserAccount("adminUser", "A1bC2d")
+        {
+            ElevationLevel = BatchUserAccountElevationLevel.Admin,
+            LinuxUserConfiguration = new BatchLinuxUserConfiguration()
+            {
+                Uid = 12345,
+                Gid = 98765,
+                SshPrivateKey = Guid.NewGuid().ToString()
+            }
+        },
+        new BatchUserAccount("nonAdminUser", "A1bC2d")
+        {
+            ElevationLevel = BatchUserAccountElevationLevel.NonAdmin,
+            LinuxUserConfiguration = new BatchLinuxUserConfiguration()
+            {
+                Uid = 45678,
+                Gid = 98765,
+                SshPrivateKey = Guid.NewGuid().ToString()
+            }
+        },
+    }
 };
 
-// Commit the pool.
-await pool.CommitAsync();
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, poolId, poolData);
 ```
 
 #### Batch Java example
@@ -252,26 +279,26 @@ batchClient.poolOperations().createPool(addParameter);
 
 #### Batch Python example
 
-```python
+```python Snippet:user_accounts_pool_python
 users = [
-    batchmodels.UserAccount(
+    models.UserAccount(
         name='pool-admin',
         password='A1bC2d',
-        elevation_level=batchmodels.ElevationLevel.admin)
-    batchmodels.UserAccount(
+        elevation_level=models.ElevationLevel.ADMIN),
+    models.UserAccount(
         name='pool-nonadmin',
         password='A1bC2d',
-        elevation_level=batchmodels.ElevationLevel.non_admin)
+        elevation_level=models.ElevationLevel.NON_ADMIN),
 ]
-pool = batchmodels.PoolAddParameter(
+pool = models.BatchPoolCreateOptions(
     id=pool_id,
     user_accounts=users,
-    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+    virtual_machine_configuration=models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         node_agent_sku_id=sku_to_use),
     vm_size=vm_size,
-    target_dedicated=vm_count)
-batch_client.pool.add(pool)
+    target_dedicated_nodes=vm_count)
+batch_client.create_pool(pool=pool)
 ```
 
 ### Run a task under a named user account with elevated access
@@ -280,9 +307,11 @@ To run a task as an elevated user, set the task's **UserIdentity** property to a
 
 This code snippet specifies that the task should run under a named user account. This named user account was defined on the pool when the pool was created. In this case, the named user account was created with admin permissions:
 
-```csharp
-CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
-task.UserIdentity = new UserIdentity(AdminUserAccountName);
+```C# Snippet:user_accounts_task_named
+BatchTaskCreateOptions task = new BatchTaskCreateOptions("1", "cmd.exe /c echo 1")
+{
+    UserIdentity = new UserIdentity() { Username = AdminUserAccountName }
+};
 ```
 
 ## Update your code to the latest Batch client library
