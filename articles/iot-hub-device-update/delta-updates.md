@@ -3,7 +3,7 @@ title: Device Update for IoT Hub Delta Updates | Microsoft Learn
 description: Understand Azure Device Update for IoT Hub delta updates.
 author: isabellaecr
 ms.author: isabellac
-ms.date: 04/22/2026
+ms.date: 05/21/2026
 ms.topic: feature-guide
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -44,7 +44,7 @@ Because a delta update depends on the source version, the corresponding source v
 
 The following diagram illustrates this process at a high level. On the device, the delta update is applied by downloading a delta artifact, combining it with a cached source version to reconstruct the full target update, and then installing that update.
 
-![Diagram showing the delta update process on the device, where a delta update is combined with a cached source version to reconstruct the full target update before installation.](./media/delta-updates/device-update-delta-flow.png)
+:::image type="content" source="./media/delta-updates/device-update-delta-flow.png" alt-text="Diagram of device delta update flow - delta artifact plus cached source image reconstructs target image, then installs it." lightbox="./media/delta-updates/device-update-delta-flow.png" border="false":::
 
 ### Deployment contents
 
