@@ -20,7 +20,7 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace associated with a new or existing workspace gateway, or associated with the instance's default managed gateway.
+* Create an API Management workspace associated with the instance's default managed gateway, or associated with a new or existing workspace gateway.
 * Optionally, isolate a workspace gateway in an Azure virtual network.
 * Assign permissions to the workspace.
 
@@ -35,6 +35,39 @@ Follow the steps in this article to:
 * (Optional) A subnet in a new or existing Azure virtual network to isolate a workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
 * (Optional, for associating the default managed gateway with a workspace) A REST client to call the API Management REST API. 
     
+## Create a workspace and associate the default managed gateway - REST API
+
+You can create a workspace that routes API traffic through the service's default managed gateway instead of to a  workspace gateway. This option avoids the extra cost and complexity of a separate gateway resource. API traffic routes through the service's default hostname (for example, `<service-name>.azure-api.net`).
+
+> [!NOTE]
+> Currently, creating a workspace and associating the default managed gateway is only supported in the v2 tiers and via the API Management REST API.
+
+Use the [Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API to create a workspace. 
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}?api-version=2024-05-01
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "properties": {
+    "displayName": "my workspace",
+    "description": "Workspace using default managed gateway",
+    "serveOn": "workspaceAndDefault"
+  }
+}
+```
+
+Replace:
+- `{subscriptionId}` with your Azure subscription ID
+- `{resourceGroupName}` with the resource group name of your API Management instance
+- `{serviceName}` with the name of your API Management instance
+- `{workspaceId}` with a unique workspace identifier (alphanumeric, hyphens allowed)
+
+A successful response returns HTTP `201 Created` with the workspace resource. By default, the workspace routes API traffic through the service's default hostname.
+
+After the workspace is created, proceed to [Assign users to workspace - portal](#assign-users-to-workspace---portal) to configure access permissions.
+
 ## Create a workspace and associate a workspace gateway - portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
@@ -69,39 +102,6 @@ After the deployment completes, the new workspace appears in the list on the **W
 > [!NOTE]
 > * To view the gateway runtime hostname and other gateway details, select the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
 > * While the workspace gateway is being created, runtime calls to the workspace's APIs don't succeed.
-
-## Create a workspace and associate the default managed gateway - REST API
-
-You can create a workspace that routes API traffic through the service's default managed gateway instead of to a  workspace gateway. This option avoids the extra cost and deployment time of a separate gateway resource. API traffic routes through the service's default hostname (for example, `<service-name>.azure-api.net`).
-
-> [!NOTE]
-> Currently, creating a workspace using the default managed gateway is only supported in the v2 tiers and via the API Management REST API.
-
-Use the [Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API to create a workspace. 
-
-```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}?api-version=2024-05-01
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "properties": {
-    "displayName": "my workspace",
-    "description": "Workspace using default managed gateway",
-    "serveOn": "workspaceAndDefault"
-  }
-}
-```
-
-Replace:
-- `{subscriptionId}` with your Azure subscription ID
-- `{resourceGroupName}` with the resource group name of your API Management instance
-- `{serviceName}` with the name of your API Management instance
-- `{workspaceId}` with a unique workspace identifier (alphanumeric, hyphens allowed)
-
-A successful response returns HTTP `201 Created` with the workspace resource. By default, the workspace routes API traffic through the service's default hostname.
-
-After the workspace is created, proceed to [Assign users to workspace - portal](#assign-users-to-workspace---portal) to configure access permissions.
 
 ## Assign users to workspace - portal
 

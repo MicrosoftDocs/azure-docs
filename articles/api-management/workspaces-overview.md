@@ -71,7 +71,7 @@ Each workspace is configured with one or more gateways to enable runtime of APIs
 | Option | Availability | Benefits | Considerations |
 |---|---|---|---|
 | Default managed gateway | Currently in v2 tiers | No extra cost for gateway resource; availability in all regions where the tier is available; workspaces can take advantage of built-in gateway capabilities that aren't available in workspace gateways, such as multi-region deployments, custom hostnames, or private link connectivity if supported in the service tier | Less isolation; all workspaces share the gateway's capacity and configuration |
-| Workspace gateway | Basic v2, Standard v2, Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace | Extra cost; longer deployment time; support in fewer regions |
+| Workspace gateway | Basic v2, Standard v2, Premium, Premium v2 | Strong runtime isolation; independent scaling, hostname, and network configuration per workspace gateway | Extra cost; longer deployment time; support in fewer regions |
 
 ### Default managed gateway
 
@@ -81,7 +81,7 @@ In the v2 tiers, you can configure a workspace to route API traffic through the 
 - The workspace shares the gateway's capacity and configuration with other workspaces and service-level APIs.
 
 > [!NOTE]
-> Currently you can configure a workspace to use the default managed gateway only in the v2 service tiers and through the [API Management Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API.
+> Currently you can associate a workspace with the default managed gateway only in the v2 service tiers and through the [API Management Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API.
 
 ### Workspace gateway
 
@@ -116,8 +116,6 @@ Consider reliability, security, and cost when choosing a deployment model for wo
 > * All workspaces associated with a workspace gateway must be in the same API Management instance.
 > * You can associate up to 30 workspaces with a workspace gateway. Contact support to increase this limit.
 
-<!-- Is this limit also valid for workspaces in Basic v2 and Standard v2 tiers? -->
-
 ### Workspace gateway hostname
 
 Each workspace gateway provides a unique hostname for APIs managed in an associated workspace. Default hostnames follow the pattern `<gateway-name>-<hash>.gateway.<region>.azure-api.net`. Use the gateway hostname to route API requests to your workspace's APIs.
@@ -140,22 +138,28 @@ Manage the capacity of a workspace gateway by adding or removing scale units, si
 
 For a current list of regions where workspace gateways are available, see [Availability of v2 tiers and workspace gateways](api-management-region-availability.md).
 
+## Workspace and workspace gateway constraints
+
 ### Workspaces constraints
 
-<!-- Need to clarify which of these are specific to workspace gateways vs. workspaces in general -->
+- A workspace can't be associated with a self-hosted gateway
+- APIs in workspaces aren't covered by Defender for APIs
+- Workspaces don't support credential manager
+- Workspaces support only internal cache; external cache isn't supported
+- Workspaces don't support synthetic GraphQL APIs
+- Workspaces don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on in the Azure portal
+- Workspaces don't support MCP servers
+- Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
+- Workspaces don't support CA certificates
+- Workspaces don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
 
-* A workspace can't be associated with a self-hosted gateway
-* Workspace gateways don't support inbound private endpoints
-* APIs in workspace gateways can't be assigned custom hostnames
-* APIs in workspaces aren't covered by Defender for APIs
-* Workspace gateways don't support the API Management service's credential manager
-* Workspace gateways support only internal cache; external cache isn't supported 
-* Workspace gateways don't support synthetic GraphQL APIs
-* Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
-* Workspace gateways don't support MCP servers
-* Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
-* Workspace gateways don't support CA certificates
-* Workspace gateways don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
+### Workspace gateway constraints
+
+The following constraints apply to the managed workspace gateway resource. They don't apply when using workspaces on the service's default managed gateway.
+
+- Workspace gateways don't support inbound private endpoints
+- Workspace gateways don't support custom hostnames
+- Workspaces can only be associated with workspace gateways located in the same region and subscription as the API Management resource
 
 ### Global policy inheritance in workspace gateways
 
