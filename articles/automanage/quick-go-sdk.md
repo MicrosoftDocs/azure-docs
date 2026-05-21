@@ -22,7 +22,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 
 ## Prerequisites 
 
-- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]

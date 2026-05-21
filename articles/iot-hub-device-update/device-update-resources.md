@@ -1,8 +1,8 @@
 ---
 title: Understand Device Update for Azure IoT Hub resources
 description: Understand Device Update for Azure IoT Hub resources
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 11/02/2022
 ms.topic: concept-article
 ms.service: azure-iot-hub

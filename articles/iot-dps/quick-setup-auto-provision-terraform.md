@@ -5,8 +5,8 @@ keywords: azure, devops, terraform, device provisioning service, DPS, IoT, IoT H
 ms.topic: quickstart
 ms.date: 08/12/2025
 ms.custom: devx-track-terraform
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-dps
 ms.subservice: azure-iot-hub-dps

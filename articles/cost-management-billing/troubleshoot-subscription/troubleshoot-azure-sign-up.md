@@ -67,7 +67,7 @@ How about InPrivate browsing?
 
 #### Free trial isn't available
 
-Did you have an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you had any other type of Azure subscription, you can't activate a free trial. Consider signing up for a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/).
+Did you have an Azure subscription in the past? The Azure Terms of Use agreement limits free trial activation only for a user that's new to Azure. If you had any other type of Azure subscription, you can't activate a free trial. Consider signing up for a [pay-as-you-go subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn).
 
 #### You see the message 'You are not eligible for an Azure subscription'
 
