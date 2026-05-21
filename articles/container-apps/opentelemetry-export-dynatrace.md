@@ -1,11 +1,11 @@
 ---
 title: Configure Azure Container Apps OpenTelemetry export to Dynatrace
 description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
-services: container-apps
 author: jefmarti
 ms.service: azure-container-apps
 ms.date: 05/21/2026
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
@@ -16,7 +16,7 @@ This configuration guide shows how to configure Azure Container Apps to forward 
 
 For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/opentelemetry-agents?tabs=arm%2Carm-example).
 
-## In this guide, you learn how to:
+## What you learn
 
 - Create a Dynatrace ingest token with the required scopes.
 - Configure a Dynatrace OTLP destination by using Bicep or the Azure portal.
@@ -51,23 +51,23 @@ For token creation steps and permission details, see [Dynatrace token and permis
 Use one of the following options to configure Dynatrace as an OTel endpoint in your Container Apps environment.
 
 > [!IMPORTANT]
-> Configuring a managed OpenTelemetry destination does not automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
+> Configuring a managed OpenTelemetry destination doesn't automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
 
 # [Bicep](#tab/bicep)
 
 Set CLI variables for the deployment command:
 
 ```powershell
-$RESOURCE_GROUP = "<resource-group-name>"
-$DYNATRACE_OTLP_ENDPOINT = "https://<tenant>.live.dynatrace.com/api/v2/otlp"
-$DYNATRACE_API_TOKEN = "<dynatrace-ingest-token>"
+$RESOURCE_GROUP = "<RESOURCE_GROUP_NAME>"
+$DYNATRACE_OTLP_ENDPOINT = "https://<TENANT>.live.dynatrace.com/api/v2/otlp"
+$DYNATRACE_API_TOKEN = "<DYNATRACE_INGEST_TOKEN>"
 ```
 
-Use only the OTLP base endpoint (`/api/v2/otlp`). Do not append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
+Use only the OTLP base endpoint (`/api/v2/otlp`). Don't append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
 
 ```bicep
-var dynatraceEndpoint = 'https://<tenant>.live.dynatrace.com/api/v2/otlp'
-var dynatraceApiKey = '<dynatrace-ingest-token>'
+var dynatraceEndpoint = 'https://<TENANT>.live.dynatrace.com/api/v2/otlp'
+var dynatraceApiKey = '<DYNATRACE_INGEST_TOKEN>'
 var dynatraceAuthHeader = 'Api-Token ${dynatraceApiKey}'
 var dynatraceOtlpDestinationName = 'dynatrace-otlp'
 
@@ -112,23 +112,23 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
 }
 ```
 
-Use a container app resource block like the following to set required environment variables:
+Use a container app resource block like the following example to set required environment variables:
 
 ```bicep
 resource app 'Microsoft.App/containerApps@2023-05-01' = {
-  name: '<container-app-name>'
-  location: '<region>'
+  name: '<CONTAINER_APP_NAME>'
+  location: '<REGION>'
   properties: {
     managedEnvironmentId: environment.id
     template: {
       containers: [
         {
-          name: '<container-name>'
-          image: '<image-name>'
+          name: '<CONTAINER_NAME>'
+          image: '<IMAGE_NAME>'
           env: [
             {
               name: 'OTEL_SERVICE_NAME'
-              value: '<service-name>'
+              value: '<SERVICE_NAME>'
             }
             {
               name: 'OTEL_TRACES_EXPORTER'
@@ -179,35 +179,35 @@ Use the same endpoint and token values shown earlier in this guide, including th
 
 Use the Azure portal path shown in the screenshots:
 
-1. Open your Container Apps environment.
-2. In the left menu, under Monitoring, select OTel endpoints.
-3. Select Dynatrace, and then select Update.
-4. In Update Dynatrace endpoint, set Endpoint to `https://<tenant>.live.dynatrace.com/api/v2/otlp`.
-5. In Key, paste your Dynatrace ingest token.
-6. Select the checkboxes for Logs, Traces, and Metrics.
-7. Save the configuration.
-8. Open your Container App, and then go to Revisions and replicas > Edit and deploy new revision.
-9. Under Environment variables, add or confirm the following values:
+1. Go to your Container Apps environment.
+1. In the left menu, under **Monitoring**, select **OTel endpoints**.
+1. Select **Dynatrace**, and then select **Update**.
+1. In **Update Dynatrace endpoint**, set **Endpoint** to `https://<TENANT>.live.dynatrace.com/api/v2/otlp`.
+1. In **Key**, paste your Dynatrace ingest token.
+1. Select the checkboxes for **Logs**, **Traces**, and **Metrics**.
+1. Save the configuration.
+1. Go to your Container App, and then go to **Revisions and replicas** > **Edit and deploy new revision**.
+1. Under **Environment variables**, add or confirm the following values:
    - `OTEL_SERVICE_NAME` = your app/service name
    - `OTEL_TRACES_EXPORTER` = `otlp`
    - `OTEL_METRICS_EXPORTER` = `otlp`
    - `OTEL_LOGS_EXPORTER` = `otlp`
    - `OTEL_EXPORTER_OTLP_METRICS_PROTOCOL` = `http/protobuf`
    - `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE` = `DELTA`
-10. Deploy the new revision.
+1. Deploy the new revision.
 
-In the update panel, if you are not rotating the token, you can leave Key blank to keep the existing token.
+In the update panel, if you're not rotating the token, you can leave **Key** blank to keep the existing token.
 
 `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` is required for metrics to be ingested by Dynatrace.
 
 ---
 
-Your Container App should now be configured to send telemetry to Dynatrace.
+Your Container App is now configured to send telemetry to Dynatrace.
 
-## Verify telemetry in Dynatrace
+## Verify OpenTelemetry data in Dynatrace
 
-After you complete the configuration, your Container App should begin sending telemetry to Dynatrace through the managed OpenTelemetry agent. Use Dynatrace to confirm that logs, traces, and metrics are arriving from the application and that the data appears under the expected service or environment context.
+After you complete the configuration, your Container App starts sending telemetry to Dynatrace through the managed OpenTelemetry agent. Use Dynatrace to check that logs, traces, and metrics are arriving from the application and that the data appears under the expected service or environment context.
 
-You can validate the result by checking the Dynatrace experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path may vary depending on the data you want to inspect.
+You can validate the result by checking the Dynatrace experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path might vary depending on the data you want to inspect.
 
-For more information about data exploration in Dynatrace, visit [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate).
+For more information about data exploration in Dynatrace, see [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate).
