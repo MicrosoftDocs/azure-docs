@@ -74,7 +74,7 @@ Azure Recovery Orchestration Plan enables you to orchestrate application recover
 
 Key benefits include:
 
-- **Zonal failover orchestration**: Orchestrates failover across multiple (+18) Azure resource types and services, including Virtual Machines, Virtual Machine Scale Sets, SQL databases, Azure SQL Managed Instance (SQL - MI) Cosmos DB, PostgreSQL database, AKS, Storage accounts, and more.
+- **Zonal failover orchestration**: Orchestrates failover across multiple (+18) Azure resource types and services, including Virtual Machines, Virtual Machine Scale Sets, SQL databases, Azure SQL Managed Instance (SQL - MI) Cosmos DB, PostgreSQL database, AKS, Storage accounts, and more. Resources configured with a Highly Available (HA) solution perform self-managed failover, and orchestration excludes these resources from its workflow.
 
 - **Failover sequencing**: Defines recovery order by using customizable groups to control the execution sequence.
 
