@@ -18,7 +18,15 @@ ms.custom: ai-assisted
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A connector namespace is a logical container within Azure Logic Apps that you use to organize and manage your integration components securely and efficiently. It provides an isolated environment where you can create and maintain connections, triggers, and MCP (Managed Connector Platform) servers that facilitate communication between your applications and external services. 
+Azure Connector Namespace is a fully managed service that hosts a catalog of connectors - reusable, typed integrations to SaaS, data, and line-of-business systems. Each connector exposes actions, event triggers, and AI-agent tools through a shared connection model. The namespace handles:
+
+-  Authentication 
+-  Credential management 
+-  End systems polling 
+-  Webhook delivery
+-  Model Context Protocol (MCP) server hosting
+
+With that, your applications and AI agents can integrate with external services without writing custom API client code or tool wrappers.
 
 This article shows you how to create a connector namespace resource in Azure, use the Azure portal to manage your namespaces, and create the essential components needed for your integrations.
 
