@@ -36,7 +36,7 @@ After creation, the plan appears in the Recovery Plans list pane showing the pla
 
 After the plan creation is complete, you can open the plan from the Recovery Plans list. The plan is initially in the **Warning** state, indicating that resources require attention. The **Configure plan** tab shows the following key sections - **Manage resource protection** and **Plan readiness check**.
 
-### Manage resource protection
+### View resource protection
 
 To view and manage the protection status of resources in your plan, follow these steps:
 
