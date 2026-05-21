@@ -34,7 +34,7 @@ Some exclusions apply, and usage may not be covered by your startup credits. If 
 
 ### How can I estimate costs of Azure services?
 
-Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate monthly costs. While your startup credits are active, your Azure usage is 100% off standard published [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) rates for the duration of your offer.
+Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate monthly costs. While your startup credits are active, your Azure usage is 100% off standard published [pay-as-you-go](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) rates for the duration of your offer.
 
 ### How can I monitor my Azure usage and spending?
 
