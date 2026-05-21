@@ -5,14 +5,10 @@ author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 05/21/26
 ---
 
 # Send client events to Event Hubs
-
-> [!NOTE]
-> Event listener feature is in preview.
-> Sending MQTT client events to event listener is not supported yet.
 
 ## Overview
 
