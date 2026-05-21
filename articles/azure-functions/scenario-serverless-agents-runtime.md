@@ -16,7 +16,7 @@ ms.custom:
 
 In this quickstart, you deploy a serverless agent to Azure Functions by using the Azure Developer CLI (`azd`). The sample agent runs on a timer, gathers the day's top technology news, summarizes the stories, and sends the summary by email through a Microsoft 365 connection exposed as Model Context Protocol (MCP) tools.
 
-The project uses the Azure Functions serverless agents runtime, which lets you define agents in markdown files, configure shared runtime settings in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app. The template provisions a function app in the Flex Consumption plan, a storage account, monitoring resources, a Microsoft Foundry project and model deployment, a Microsoft 365 connection, and the identity assignments needed by the app.
+The project uses the Azure Functions serverless agents runtime, which lets you define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app. The template provisions a function app in the Flex Consumption plan, a storage account, monitoring resources, a Microsoft Foundry project and model deployment, a Microsoft 365 connection, and the identity assignments needed by the app.
 
 Because the new app runs on the Flex Consumption plan, which follows a pay-for-what-you-use billing model, completing this quickstart incurs a small cost in your Azure account.
 
@@ -59,7 +59,7 @@ Before you deploy, review the project files that define the serverless agent app
 | --- | --- |
 | `src/function_app.py` | Creates the Azure Functions app by calling `create_function_app()` from the serverless agents runtime. |
 | `src/*.agent.md` | Defines each agent. The YAML front matter declares the trigger, and the markdown body contains the agent instructions. |
-| `src/agents.config.yaml` | Defines required shared runtime configuration, including the model deployment and sandbox settings used by agents in the app. |
+| `src/agents.config.yaml` | Defines required app-wide runtime defaults, including the model deployment and sandbox settings used by agents in the app. |
 | `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the MCP endpoint for the Microsoft 365 connection. |
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, connector, and identity configuration. |
 
