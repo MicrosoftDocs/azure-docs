@@ -12,16 +12,16 @@ ms.service: resiliency
 
 # Use the Resiliency agent in Infrastructure Resiliency Manager (preview)
 
-The Resiliency agent is a conversational AI experience integrated into Azure Copilot that provides guided resiliency improvements for your applications.
+The Resiliency agent is a conversational AI experience integrated into Azure Copilot that provides guided resiliency improvements for your applications. This article describes how to use Resiliency agent in Infrastructure Resiliency Manager (preview).
 
 ## Prerequisites
 
-- Your tenant must be allowlisted for the Resiliency agent. Contact [azureresiliency@microsoft.com](mailto:azureresiliency@microsoft.com) to request access.
+- Tenant must be allowlisted for the Resiliency agent. Contact [azureresiliency@microsoft.com](mailto:azureresiliency@microsoft.com) to request access.
 - **Agents (Preview)** must be enabled in the Azure Copilot admin center:
   1. Go to **Azure Copilot admin center** > **Settings** > **Access management**.
   2. Toggle **Agents (Preview)** to **On**.
 
-## Start Resilient — for greenfield applications
+## Start Resilient for greenfield applications
 
 Use the Resiliency agent to design new applications with resiliency best practices from the start.
 
@@ -32,10 +32,6 @@ Describe your application architecture to the agent. The agent evaluates your de
 ### Generate Infrastructure as Code (IaC) templates
 
 Ask the agent to generate ARM, Bicep, or Terraform templates with resiliency configurations already included.
-
-### Validate existing templates
-
-Upload a template to the agent. The agent analyzes it, flags any resiliency gaps, and suggests fixes.
 
 ## Get Resilient — for existing applications
 
@@ -54,7 +50,7 @@ The agent assigns resiliency goals and evaluates your current posture, showing w
 The agent provides step-by-step remediation guidance, including cost and downtime insights, for resources that don't meet your goals.
 
 > [!NOTE]
-> The Resiliency agent does not make changes to your resources automatically. All actions require your confirmation and manual execution.
+> The Resiliency agent doesn't make changes to your resources automatically. All actions require your confirmation and manual execution.
 
 ## Related content
 

@@ -12,7 +12,7 @@ ms.service: resiliency
 
 # Review recommendations in Infrastructure Resiliency Manager (preview)
 
-After goals are assigned to a service group, Infrastructure Resiliency Manager surfaces targeted recommendations for resources that don't meet your resiliency goals. You can also view resiliency at scale across all your service groups from a centralized overview.
+After you assign goals to a service group, Infrastructure Resiliency Manager shows targeted recommendations for resources that don't meet your resiliency goals. You can also view resiliency at scale across all your service groups from a centralized overview.
 
 ## Prerequisites
 
@@ -22,11 +22,15 @@ After goals are assigned to a service group, Infrastructure Resiliency Manager s
 
 ## View recommendations
 
-1. Navigate to your service group and open the **Goals and Recommendations** page.
+To view recommendations, follow these steps:
 
-2. Scroll to the **Recommendations** section. The list shows all recommendations for resources that aren't zone-resilient.
+1.	Navigate to your service group and select **Goals and Recommendations**.
+
+2. Scroll to the **Recommendations** section. The list shows all recommendations for resources that aren't zone resilient.
 
 ## View recommendation details
+
+To view recommendation details, follow these steps:
 
 1. Select a recommendation to view its details, including:
    - Impacted resources
@@ -41,6 +45,8 @@ Infrastructure Resiliency Manager provides a centralized overview that lets you 
 
 ### Resource-level view
 
+To view resiliency status at scale for your resources, follow these steps:
+
 1. In the Azure portal, search for **Resiliency** and navigate to the Resiliency dashboard. In the left navigation, expand **Infrastructure Resiliency** to see the following menu items: **Overview**, **Resource Resiliency**, **Service Group Resiliency**, **Recommendations**, **Recovery Plans**, **Drills**, and **Usage Plans**.
 
 2. Under **Resource resiliency**, view the counts of resources across all service groups by resiliency status.
@@ -51,22 +57,21 @@ Infrastructure Resiliency Manager provides a centralized overview that lets you 
 
 ### Create a service group from the at-scale view
 
+To create a service group from the at-scale view, follow these steps:
+
 1. In the resource-level view, select the resources you want to group and select **Create Service group**.
 
 2. Enter the service group name and parent service group.
 
-3. Review the pre-populated members and select **Create**.
+3.	Review the prepopulated members and select **Create**.
 
 ### Service group–level view
 
-1. In the resiliency overview, navigate to the **Service group resiliency** section.
+1. In the resiliency overview, navigate to **Service group resiliency**.
 
 2. View the counts of service groups by their resiliency status.
 
 3. Select a tile to view the detailed list of service groups and their posture.
-
-> [!NOTE]
-> Manually attested resources may display differently across the resource-level and service group–level views.
 
 ## Related content
 
