@@ -180,6 +180,6 @@ Connector Namespace is in preview. Conside the following when planning a deploym
 
 - Publish a connector as a managed MCP server and connect it to an AI agent.
 
-- Add a hosted MCP server from the catalog and configure it for your scenario.
+- Add a [hosted MCP server](hosted-mcp-quickstart.md) from the catalog and configure it for your scenario.
 
 - Review the catalog of available connectors and MCP servers.

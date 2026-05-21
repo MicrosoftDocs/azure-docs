@@ -210,6 +210,8 @@ items:
             href: connector-namespace/create-connector-namespace.md
           - name: Create connector namespace connection
             href: connector-namespace/create-connector-namespace-connection.md
+          - name: Create a hosted MCP server
+            href: connector-namespace/hosted-mcp-quickstart.md
       - name: Migrate
         items:
           - name: Migration from Power Automate
