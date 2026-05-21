@@ -88,7 +88,7 @@ No. Azure Virtual Network Manager doesn't automatically replace user-defined rou
 
 Yes, spoke virtual networks can connect to Virtual WAN hubs while in the mesh connectivity configuration. Those virtual networks in the meshed group have direct connectivity with each other.
 
-[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 ### Will operations to the IP prefixes in virtual networks that are a part of the Azure Virtual Network Manager mesh propagate automatically? 
 

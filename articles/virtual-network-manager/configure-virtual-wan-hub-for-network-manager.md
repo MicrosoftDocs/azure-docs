@@ -8,6 +8,7 @@ ms.reviewer: mbender
 ms.date: 05/15/2026
 ms.topic: article
 ms.service: azure-virtual-network-manager
+ms.custom: references_regions
 ---
 # Configure Azure Virtual WAN hub for Azure Virtual Network Manager
 
@@ -17,8 +18,7 @@ In environments that use Azure Virtual WAN, the central network transit point is
 
 For more information, see [**Virtual WAN and Virtual Network manager use cases**](../virtual-wan/virtual-network-manager-integration.md#use-cases) and [**known issues and limitations**](../virtual-wan/virtual-network-manager-integration.md#known-issues).
 
-[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
-
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 ## Prerequisites
 
 Before you begin, make sure you have:
