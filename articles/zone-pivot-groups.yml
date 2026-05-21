@@ -1,13 +1,13 @@
 ### YamlMime:ZonePivotGroups
 groups:
 # Owner: liliankasem
-- id: core-tools-versions
+- id: func-cli-versions
   title: Version
   prompt: Choose a version
   pivots:
-  - id: core-tools-v4
+  - id: func-cli-v4
     title: Core Tools (v4)
-  - id: core-tools-v5
+  - id: func-cli-v5
     title: Azure Functions CLI (v5)
 # Owner: estfan
 - id: azure-logic-apps

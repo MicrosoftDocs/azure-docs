@@ -6,7 +6,7 @@ ms.date: 05/21/2026
 ms.custom:
   - ignite-2023
   - sfi-ropc-nochange
-zone_pivot_groups: core-tools-versions
+zone_pivot_groups: func-cli-versions
 ---
 
 # Azure Functions CLI reference
@@ -20,7 +20,7 @@ Two versions of the CLI are available. Use the version selector to choose which 
 
 To learn more about using the CLI, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-::: zone pivot="core-tools-v4"
+::: zone pivot="func-cli-v4"
 
 Core Tools commands are organized into the following contexts, each providing a unique set of actions.
 
@@ -840,7 +840,7 @@ These options are available for most Core Tools commands:
 
 ::: zone-end
 
-::: zone pivot="core-tools-v5"
+::: zone pivot="func-cli-v5"
 
 > [!IMPORTANT]
 > The v5 Azure Functions CLI is a ground-up rebuild. The set of commands and options documented here reflects what is currently implemented. Commands available in Azure Functions Core Tools v4 (such as `func azure functionapp publish`, `func azurecontainerapps deploy`, `func durable`, `func kubernetes`, and `func extensions`) aren't yet ported. Continue to use Core Tools v4 for those workflows.
