@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/08/2025
+  - references_regions
 #customer intent: As an infrastructure architect, I want to understand the differences between mesh and hub-and-spoke topologies, so that I can choose the best option for my organization's needs. And I want to learn how to configure these topologies in Azure Virtual Network Manager using connectivity configurations, so that I can optimize network performance and security.
 ---
 

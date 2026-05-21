@@ -8,6 +8,7 @@ ms.reviewer: mbender
 ms.date: 05/15/2026
 ms.topic: article
 ms.service: azure-virtual-network-manager
+ms.custom: references_regions
 ---
 # Configure Azure Virtual WAN hub for Azure Virtual Network Manager
 

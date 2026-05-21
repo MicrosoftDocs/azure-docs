@@ -6,7 +6,10 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 07/11/2025
-ms.custom: template-concept, engagement-fy23
+ms.custom:
+  - template-concept
+  - engagement-fy23
+  - references_regions
 ---
 
 # Create a hub-and-spoke topology in Azure - Portal

@@ -7,7 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/25/2026
 ms.author: wellee
-ms.custom:
+ms.custom: references_regions
 ---
 
 # Azure Virtual Network Manager integration with Virtual WAN (Public Preview)
