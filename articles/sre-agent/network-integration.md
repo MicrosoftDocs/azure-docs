@@ -42,7 +42,7 @@ After you configure VNet integration, agent traffic:
 Once the SRE Agent joins the VNet, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
 
 > [!IMPORTANT]
-> VNet integration controls **outbound (egress) traffic only**. Inbound connections and private endpoint support aren't in scope for this release.
+> VNet integration controls **outbound (egress) traffic only**.
 
 ## Network control modes
 
