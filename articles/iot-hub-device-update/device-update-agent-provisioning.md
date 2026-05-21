@@ -14,7 +14,7 @@ ms.subservice: device-update
 The Device Update module agent can run along with other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This article describes how to provision the Device Update agent as a module identity.
 
 >[!NOTE]
-> Use a current 1.x version of the Device Update agent reference implementation and consider the latest available version to benefit from improvements. The latest Device Update agent reference implementation version is 1.3.0. You can check the installed version in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For details, see the [Device Update for IoT Hub supported platforms](support.md).
+> Use the latest 1.x version of the Device Update agent reference implementation to benefit from the latest improvements. Check the installed version in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For information, see the [Device Update for IoT Hub supported platforms](support.md).
 
 ## Module identity and device identity
 
