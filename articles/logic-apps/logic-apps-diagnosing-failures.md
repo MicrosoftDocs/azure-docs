@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 05/04/2026
+ms.date: 05/20/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -143,11 +143,15 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * Consumption workflows run on multitenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
-* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md). You'll have more control to scale up or out to improve performance.
+* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md). You'll have more control to scale up or out to improve performance. Please note, **Maximum Burst** needs to be at least 2 to get app level SLA for production. The **Logic App Down or Reporting Errors** tool in the **Diagnose and solve problems** blade will flag a warning if your system is unable to scale further due to your **Maximum Burst** setting. 
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
 The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, see [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
+
+### Without any running workflows, my host memory usuage is already quite high in Azure Logic Apps (Standard). What/who is consuming these memory?
+
+There is no waste of memory. A host machine has the operating system (OS) and a number of system processes that come with the OS itself. On top of that Logic Apps backend requires a number of processes to handle several platform operations and features, such as security updates, availability of the SCM console, application monitoring, authentication, job scheduling, and many other vital features of your Logic App. These processes will run on App Service Plans even if there are no Logic Apps running or if the App Service Plan contains no Logic Apps. They will consume certain amount of resources (such as CPU, Memory and Disk space).
 
 ### My host memory stays elevated after processing messages in Azure Logic Apps (Standard). Could this be a memory leak?
 
