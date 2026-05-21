@@ -14,7 +14,7 @@ ms.subservice: device-update
 The Device Update module agent can run along with other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This article describes how to provision the Device Update agent as a module identity.
 
 >[!NOTE]
->If you use the Device Update agent, make sure you're on the version 1.0.0 general availability (GA) version. You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For more information, see [Migrate devices and groups to the latest Device Update release](migration-public-preview-refresh-to-ga.md).
+> Use a current 1.x version of the Device Update agent reference implementation and consider the latest available version to benefit from improvements. The latest Device Update agent reference implementation version is 1.3.0. You can check the installed version in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For details, see the [Device Update for IoT Hub supported platforms](support.md).
 
 ## Module identity and device identity
 
@@ -217,7 +217,7 @@ Start the Device Update agent and verify that it's running successfully on your 
 
 Devices running the Device Update agent send HTTPS requests to communicate with IoT Hub. If you connected your device to a network that uses a proxy server, you need to configure the Device Update systemd service to communicate through the server.
 
-Before configuring Device Update, ensure that you have the the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
+Before configuring Device Update, ensure that you have the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
 
 Create a systemd override configuration directory and the override file by running the following command:
 
