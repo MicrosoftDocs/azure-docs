@@ -16,7 +16,7 @@ This article provides reference documentation for the Azure Functions CLI, which
 Two versions of the CLI are available. Use the version selector to choose which version to view.
 
 - **Core Tools (v4)**: The current generally available release, distributed as **Azure Functions Core Tools**. It supports the full set of commands for local development, publishing, container deployments, Durable Functions, Kubernetes, and extension management.
-- **Azure Functions CLI (v5)**: The next major version, rebranded from Core Tools to **Azure Functions CLI**. It introduces a workload-based architecture and is a ground-up rebuild. The set of commands and options reflects what is currently implemented; some Core Tools v4 workflows aren't yet ported.
+- **Azure Functions CLI (v5)**: The next major version, currently in **preview**. Rebranded from Core Tools to **Azure Functions CLI**, it introduces a workload-based architecture and is a ground-up rebuild. The set of commands and options reflects what is currently implemented; some Core Tools v4 workflows aren't yet ported.
 
 To learn more about using the CLI, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
@@ -843,7 +843,7 @@ These options are available for most Core Tools commands:
 ::: zone pivot="func-cli-v5"
 
 > [!IMPORTANT]
-> The v5 Azure Functions CLI is a ground-up rebuild. The set of commands and options documented here reflects what is currently implemented. Commands available in Azure Functions Core Tools v4 (such as `func azure functionapp publish`, `func azurecontainerapps deploy`, `func durable`, `func kubernetes`, and `func extensions`) aren't yet ported. Continue to use Core Tools v4 for those workflows.
+> The v5 Azure Functions CLI is currently in **preview** and is a ground-up rebuild. The set of commands and options documented here reflects what is currently implemented. Commands available in Azure Functions Core Tools v4 (such as `func azure functionapp publish`, `func azurecontainerapps deploy`, `func durable`, `func kubernetes`, and `func extensions`) aren't yet ported. Continue to use Core Tools v4 for those workflows.
 
 ## Commands at a glance
 

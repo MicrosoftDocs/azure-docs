@@ -8,7 +8,7 @@ groups:
   - id: func-cli-v4
     title: Azure Functions Core Tools (v4)
   - id: func-cli-v5
-    title: Azure Functions CLI (v5)
+    title: Azure Functions CLI (v5 preview)
 # Owner: estfan
 - id: azure-logic-apps
   title: Experience
