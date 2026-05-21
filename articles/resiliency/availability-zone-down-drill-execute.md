@@ -18,6 +18,8 @@ This article describes how to execute a Zone Down Drill (preview) in Infrastruct
 
 Before you execute the down drill operation, ensure that you [define a Zone Down Drill (preview)](availability-zone-down-drill-define.md).
 
+Learn about the [supported scenarios and limitations for Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
+
 ## Execute the drill
 
 When the Drill execution readiness shows the status as **Ready**, you can execute the drill. 
@@ -29,6 +31,8 @@ To execute the drill, follow these steps:
 1. On the **Drill execution** pane, after completion of Recovery Plan readiness, select the source region and zone on which you want to execute the fault injection and failover operation.
 
 1. Select **Execute fault injection** to confirm execution.
+
+   :::image type="content" source="./media/availability-zone-down-drill-execute/execute-fault-injection.png" alt-text="Screenshot that shows how to start executing fault injection." lightbox="./media/availability-zone-down-drill-execute/execute-fault-injection.png":::
 
 ## Track the drill execution progress
 
@@ -45,6 +49,8 @@ To proceed through the drill and review the system state, follow these steps:
 
    The **Service Group health details** pane shows individual metrics and the downtime for each resource across Fault Injection, Failover, and Reprotection steps.
 
+   :::image type="content" source="./media/availability-zone-down-drill-execute/service-group-health-details.png" alt-text="Screenshot that shows the Service Group health details." lightbox="./media/availability-zone-down-drill-execute/service-group-health-details.png":::
+
 ## End the drill execution process
 
 After executing all drill operations, you can end the drill execution process. Ending the drill execution allows you to attest the final status of the drill, and review notes added during execution.
@@ -52,6 +58,8 @@ After executing all drill operations, you can end the drill execution process. E
 To end the drill execution, follow these steps:
 
 1. On the **Drill run details** pane, select **OK**.
+
+   :::image type="content" source="./media/availability-zone-down-drill-execute/end-drill-execution.png" alt-text="Screenshot that shows how to end the drill execution." lightbox="./media/availability-zone-down-drill-execute/end-drill-execution.png":::
 
 1. On the **End execution and complete attestation** pane, select **End execution**. 
 
