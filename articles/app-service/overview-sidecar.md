@@ -17,7 +17,7 @@ In Linux App Service apps (code-only apps and custom containers), a sidecar is a
 Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or custom logic, without modifying your main application code (in code-only apps) or your main container (in custom containers). Benefits include:
 
 - **Separation of concerns:** Add or update services independently of your main app.
-- **Extensibility:** Integrate prebuilt or custom extensions (e.g., OpenTelemetry, Redis, Datadog, Phi-3/4 AI models).
+- **Extensibility:** Integrate prebuilt or custom extensions (e.g., OpenTelemetry, Redis, Phi-3/4 AI models).
 - **Operational flexibility:** Manage, upgrade, or scale sidecars together with your app.
 - **Migration path:** Move from Docker Compose or multi-container solutions to a managed, scalable platform (see [Migrate Docker Compose apps to sidecars in Azure App Service](migrate-sidecar-multi-container-apps.md)).
 
@@ -36,7 +36,6 @@ Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or
 - **Prebuilt extensions:** Officially supported containers for:
   - **AI (Phi-3, Phi-4):** Add local SLM (small language model) inference to your app.
   - **Redis:** Add a local Redis cache for fast data access.
-  - **Datadog:** Integrate Datadog monitoring and observability.
   - And more as Azure expands the catalog.
 
 ## Frequently Asked Questions
