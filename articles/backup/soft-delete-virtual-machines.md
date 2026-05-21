@@ -16,6 +16,10 @@ This article describes how soft delete for virtual machines (VMs) in Azure Backu
 > Soft delete only protects deleted backup data. If a VM is deleted without a backup, the soft delete feature won't preserve the data. All resources should be protected with Azure Backup to ensure full resilience.
 >
 
+> [!NOTE]
+> Soft delete can also be used during a mock drill to validate recovery steps. A mock drill doesn't permanently delete backup data; the backup item remains recoverable during the soft-delete retention period.
+
+
 ## Supported regions for soft delete of Azure VM backups
 
 Soft delete is available in all Azure Public and National regions.
