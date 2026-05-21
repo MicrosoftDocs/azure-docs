@@ -16,9 +16,9 @@ ms.custom: generated
 This article lists the Azure built-in roles in the AI + machine learning category.
 
 
-## Azure AI Account Owner
+## Foundry Account Owner
 
-Grants full access to manage AI projects and accounts. Includes an ABAC condition to constrain role assignments. Grants conditional assignment of the Azure AI User role to other user principles. Applies for new Foundry resources.
+Grants full access to manage AI projects and accounts. Includes an ABAC condition to constrain role assignments. Grants conditional assignment of the Foundry User role to other user principles. Applies for new Foundry resources.
 
 [Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
 
@@ -52,14 +52,14 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Azure AI User |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Foundry User |
 
 ```json
 {
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to manage AI projects and accounts. Grants conditional assignment of the Azure AI User role to other user principles.",
+  "description": "Grants full access to manage AI projects and accounts. Grants conditional assignment of the Foundry User role to other user principles.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/e47c6f54-e4a2-4754-9501-8e0985b135e1",
   "name": "e47c6f54-e4a2-4754-9501-8e0985b135e1",
   "permissions": [
@@ -93,7 +93,7 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
       "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d}))"
     }
   ],
-  "roleName": "Azure AI Account Owner",
+  "roleName": "Foundry Account Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -559,7 +559,7 @@ Can perform all actions required to create a resource deployment within a resour
 }
 ```
 
-## Azure AI Owner
+## Foundry Owner
 
 Grants full to manage AI project and accounts. Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources.
 
@@ -630,15 +630,15 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
       "notDataActions": []
     }
   ],
-  "roleName": "Azure AI Owner",
+  "roleName": "Foundry Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Azure AI Project Manager
+## Foundry Project Manager
 
-Lets you perform developer actions and management actions on Foundry Projects. Includes an ABAC condition to constrain role assignments. Allows for making role assignments, but limited to Azure AI User role. Applies for new Foundry resources.
+Lets you perform developer actions and management actions on Foundry Projects. Includes an ABAC condition to constrain role assignments. Allows for making role assignments, but limited to Foundry User role. Applies for new Foundry resources.
 
 [Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
 
@@ -661,7 +661,7 @@ Lets you perform developer actions and management actions on Foundry Projects. I
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Azure AI User |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Foundry User |
 
 ```json
 {
@@ -693,13 +693,13 @@ Lets you perform developer actions and management actions on Foundry Projects. I
       "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d}))"
     }
   ],
-  "roleName": "Azure AI Project Manager",
+  "roleName": "Foundry Project Manager",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Azure AI User
+## Foundry User
 
 Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project.
 
@@ -762,7 +762,7 @@ Grants reader access to AI projects, reader access to AI accounts, and data acti
       "notDataActions": []
     }
   ],
-  "roleName": "Azure AI User",
+  "roleName": "Foundry User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

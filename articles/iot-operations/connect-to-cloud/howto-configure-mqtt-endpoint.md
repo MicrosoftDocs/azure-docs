@@ -6,11 +6,11 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/13/2025
+ms.date: 05/15/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an operator, I want to understand how to understand how to configure data flow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
 ---
 
 # Configure MQTT data flow endpoints
@@ -19,7 +19,9 @@ MQTT data flow endpoints are used for MQTT sources and destinations. You can con
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 ## Azure IoT Operations local MQTT broker
 

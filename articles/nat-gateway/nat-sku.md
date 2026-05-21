@@ -1,7 +1,7 @@
 ---
 title: Azure NAT Gateway SKUs
 description: Overview of available Azure NAT Gateway SKUs and their differences.
-ms.date: 11/04/2025
+ms.date: 05/15/2026
 ms.topic: overview
 ms.service: azure-nat-gateway
 author: alittleton
@@ -84,23 +84,9 @@ A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs pro
   * Malaysia West  
   * Qatar Central
   * Sweden South
-  * West Central US
   * West India
 
 * Deployment of a StandardV2 NAT gateway as a managed NAT gateway for Azure Kubernetes Service (AKS) is now in preview. A StandardV2 NAT gateway can also be configured as a user-assigned NAT gateway for AKS workloads. For more information, see [Create a NAT gateway for your AKS cluster](/azure/aks/nat-gateway).
-
-* A StandardV2 NAT gateway doesn't support and can't be attached to delegated subnets for the following services:
-
-  * Azure SQL Managed Instance
-  * Azure Container Instances
-  * Azure Database for PostgreSQL
-  * Azure Database for MySQL  
-  * Azure Data Factory (data movement)
-  * Microsoft Power Platform
-  * Azure Stream Analytics
-  * Azure Container Apps
-  * Web Apps feature of Azure App Service
-  * Azure DNS Private Resolver
 
 ### Known issues
 
@@ -108,8 +94,6 @@ A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs pro
   
   * Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic
   * A Standard NAT gateway to provide outbound connectivity for IPv4 traffic and load balancer outbound rules for IPv6 traffic
-
-* Attaching a StandardV2 NAT gateway to an empty subnet created before April 2025 without any virtual machines (VMs) might cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove the StandardV2 NAT gateway, create and add a VM to the subnet, and then reattach the StandardV2 NAT gateway.
 
 * Outbound connections that use a load balancer, Azure Firewall, or VM instance-level public IPs might be interrupted when you add a StandardV2 NAT gateway to a subnet. All net new outbound connections use the StandardV2 NAT gateway.
 
