@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This configuration guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
 
-For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/opentelemetry-agents?tabs=arm%2Carm-example).
+For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](./opentelemetry-agents.md).
 
 ## What you learn
 
@@ -32,7 +32,7 @@ For more information about the managed OpenTelemetry agent, see [Set up OpenTele
 - Azure CLI installed and signed in.
 - Azure Container Apps CLI extension installed.
 
-```powershell
+```azurecli
 az extension add --name containerapp --upgrade
 ```
 
@@ -166,11 +166,11 @@ For production deployments, pass token values through secure Bicep parameters or
 After you update the template, deploy the Bicep configuration from the repository root:
 
 ```powershell
-az deployment group create \
-  --resource-group $RESOURCE_GROUP \
-  --template-file infra/main.bicep \
-  --parameters @infra/main.parameters.json \
-  dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" \
+az deployment group create `
+  --resource-group $RESOURCE_GROUP `
+  --template-file infra/main.bicep `
+  --parameters @infra/main.parameters.json `
+  dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" `
   dynatraceApiKey="$DYNATRACE_API_TOKEN"
 ```
 
