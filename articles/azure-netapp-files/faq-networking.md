@@ -18,13 +18,13 @@ This section answers generic questions about Azure NetApp Files networking.
 
 ### Does the data path for NFS or SMB go over the Internet?  
 
-No. The data path for NFS or SMB doesn't go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
+No. The data path for NFS or SMB doesn't go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the virtual network. 
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 
 ### Can I connect a virtual network that I already created to the Azure NetApp Files service?
 
-Yes, you can connect VNets that you created to the service. 
+Yes, you can connect virtual networks that you created to the service. 
 
 See [Guidelines for Azure NetApp Files network planning](./azure-netapp-files-network-topologies.md) for details.  
 
@@ -39,9 +39,9 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 
 No. IP assignment of Azure NetApp Files volumes is automatic. Manual IP assignment isn't supported. 
 
-### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
+### Does Azure NetApp Files support dual stack (IPv4 and IPv6) virtual network?
 
-No. Azure NetApp Files doesn't currently support deploying volumes in a dual-stack (IPv4 and IPv6) delegated subnet. The delegated subnet for the Azure NetApp Files service must be an IPv4-only subnet. However, Azure NetApp Files is accessible over IPv4 through a dual-stack subnet or (peered) VNet.
+No. Azure NetApp Files doesn't currently support deploying volumes in a dual-stack (IPv4 and IPv6) delegated subnet. The delegated subnet for the Azure NetApp Files service must be an IPv4-only subnet. However, Azure NetApp Files is accessible over IPv4 through a dual-stack subnet or (peered) virtual network.
 
 ### Is the number of the IP addresses using Azure VMware Solution for Guest OS mounts limited to 1000?
 
@@ -86,7 +86,7 @@ Your scripts and ARM templates remain operational as currently implemented. All 
 This can occur if the selected virtual network contains volumes using Basic networking, and the region or availability zone has limited Azure NetApp Files capacity. 
 
 ### How can I fix the "insufficient resources" error when creating a Standard networking volume? 
-Create the volume in a different VNet, or upgrade all existing volumes in the virtual network to Standard networking and retry. Contact Microsoft Support if assistance is needed. 
+Create the volume in a different virtual network, or upgrade all existing volumes in the virtual network to Standard networking and retry. Contact Microsoft Support if assistance is needed. 
 
 ### How can I avoid the "insufficient resources" error? 
 Use Standard networking for all new Azure NetApp Files volumes and avoid mixing Basic and Standard networking in the same virtual network and transition existing volumes to Standard networking. 
