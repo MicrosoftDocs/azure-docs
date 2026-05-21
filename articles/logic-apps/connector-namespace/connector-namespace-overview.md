@@ -85,7 +85,7 @@ A *trigger* is an event subscription that your application registers on a connec
 
 An *MCP server* is a first-class resource in your namespace that exposes tools to AI agents over the Model Context Protocol. The namespace supports two types of MCP servers, both hosted by the service:
 
-- **Managed MCP servers.** Created and configured by the namespace, either from a curated list of managed servers or by publishing any connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime.
+- **Managed MCP servers.** A list of managed servers and connectors created and configured by the namespace. Deploy a managed server or connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime.
 
 - **Hosted MCP servers.** Off-the-shelf MCP servers from a curated catalog that you add to your namespace and configure yourself. You keep control over server settings, environment, and parameters; the namespace handles hosting, scale, and credentials.
 
