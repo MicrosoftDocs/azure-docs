@@ -23,10 +23,10 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
-|  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  25 TiB  |  Yes  |
+|  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  100 TiB  |  Yes  |
 |  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
-|  Number of volumes per subscription   |    500     |   Yes   |
+|  Number of volumes per subscription   |    2000     |   Yes   |
 |  Number of volumes per capacity pool  |    500   |    Yes     |
 |  Number of snapshots per volume  |    255     |    No        |
 |  Number of IPs in a virtual network (including immediately peered virtual networks [VNets]) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
@@ -51,16 +51,16 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    500    |    Yes    |     
-|  Number of cross-zone replication data protection volumes (destination volumes)     |    500    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
+|  Number of cross-zone replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 0 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 0 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
-|  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
+|  Maximum number of volumes that can be backed up per subscription   |  2000  |  No  |
 |  Maximum number of manual backups per volume per day |  5  |  No  |
-|  Maximum number of volumes supported for cool access per subscription per region |  500  |  Yes  |
+|  Maximum number of volumes supported for cool access per subscription per region |  2000  |  Yes  |
 | Maximum number of [short-term clones](create-short-term-clone.md) per volume | 5 | No | 
 | Maximum number of [short-term clones](create-short-term-clone.md) per subscription | 16 | No | 
-| Advanced ransomware protection volumes per subscription | 10 | Yes | 
+| Advanced ransomware protection volumes per subscription | 100 | Yes | 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
