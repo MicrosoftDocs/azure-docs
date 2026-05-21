@@ -5,7 +5,7 @@ author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 05/21/26
+ms.date: 05/21/2026
 ---
 
 # Send client events to Event Hubs

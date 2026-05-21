@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: concept-article
-ms.date: 05/21/26
+ms.date: 05/21/2026
 ---
 
 # Azure Web PubSub service internals

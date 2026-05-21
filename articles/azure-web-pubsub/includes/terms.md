@@ -3,7 +3,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 21/05/26
+ms.date: 05/21/2026
 ---
 
 - **Connection**: A connection, also known as a client or a **client connection**, it's a logical relationship between a client and the Web PubSub service. Over a 'connection', the client and the service engage in a series of stateful interactions. **Connections** using different protocols might behave differently, for example, some **connections** are limited to the duration of a network connection, while others can extend across multiple successive network connections between a client and the service.
