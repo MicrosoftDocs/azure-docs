@@ -151,24 +151,8 @@ The MCP Apps weather tool includes a frontend application that you must build be
     cd src/McpWeatherApp/app
     npm install
     npm run build
-    cd ..
+    cd ../../..
     ```
-
-1. In the `src/McpWeatherApp` directory, create a virtual environment for running the app:
-
-    ### [Bash](#tab/bash)
-
-    ```bash
-    python -m venv .venv
-    ```
-
-    ### [cmd](#tab/cmd)
-
-    ```cmd
-    python -m venv .venv
-    ```
-
-    ---
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
