@@ -115,7 +115,7 @@ This section describes how to set up the simplified appliance with a downloaded 
 ### Download the replication appliance OVF template or PowerShell installer script
 
 > [!NOTE]
-> Azure migrate appliance based discovery is a prerequisite to set up replication appliance and track agent-based migrations in the new portal. To execute migrations using replication appliance directly without installing Azure Migrate appliance, You must redirect to classic Azure Migrate Portal by navigating to your **Azure Migrate Project > Execute > Migrations** and clicking on the link available in the banner.
+> Azure migrate appliance-based discovery is a prerequisite to set up replication appliance and track agent-based migrations in the new portal. To execute migrations using replication appliance directly without installing Azure Migrate appliance, You must redirect to classic Azure Migrate Portal by navigating to your **Azure Migrate Project > Execute > Migrations** and clicking on the link available in the banner.
 
 1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
 2. In **Specify intent**, > **What do you want to migrate**, select **Servers or Virtual Machines(VM)**. Under **Where do you want to migrate to**, select **Azure VM**.
@@ -126,6 +126,7 @@ This section describes how to set up the simplified appliance with a downloaded 
 7. In **Target region**, select the Azure region to which you want to migrate the machines.
 8. Select **Confirm that the target region for migration is region-name**.
 9. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
+    
     > [!NOTE]
     > You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
    

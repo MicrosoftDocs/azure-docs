@@ -118,7 +118,7 @@ Enable replication as follows:
 10. In **Review and start execution**, review the settings, and select **Review and start execution** to start the initial replication for the servers.
 
    > [!NOTE]
-   > If there's a connectivity issue with Azure or if the appliance services are down for more than 90 minutes, the active replication cycles for replicating servers are reset to 0% and the respective cycle runs from the beginning.  
+   > If Azure connectivity is disrupted or apppliance services are unavailable for more than 90 minutes, replication cycles resets from 0%.
 
 ## Track and monitor
 
