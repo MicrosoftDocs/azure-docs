@@ -29,7 +29,7 @@ Azure Functions already provides an event-driven compute model for those operati
 
 + **Agents are the unit of work.** A `.agent.md` file defines the trigger and the instructions for one agent.
 + **Events start agents.** Functions triggers let agents run on a schedule, react to queues and events, or expose HTTP endpoints.
-+ **Tools are declared, not hand-wired.** Agents can use remote MCP servers, MCP-enabled Azure connectors, custom tools, skills, and sandboxed code execution.
++ **Tools are declared, not hand-wired.** Agents can use remote MCP servers, MCP-enabled connections, custom tools, skills, and sandboxed code execution.
 + **Hosting is serverless.** Flex Consumption supports scale-to-zero, per-second billing, managed identity, virtual network integration, and Application Insights.
 + **Operational plumbing is built in.** The runtime handles agent discovery, trigger registration, tool assembly, session history, and optional debug endpoints.
 
@@ -105,7 +105,7 @@ When your app uses remote MCP servers, add `mcp.json` to the root of the functio
 }
 ```
 
-For Azure connectors, infrastructure can create a connection, enable its MCP endpoint, and provide that endpoint to the app. The agent then calls the connection through MCP tools instead of using service-specific integration code.
+For Azure connectors, infrastructure can create a connection, enable its MCP endpoint, and provide that endpoint to the app. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The agent then calls the connection through MCP tools instead of using service-specific integration code.
 
 ## How the runtime starts an app
 
@@ -146,13 +146,13 @@ Agents become useful when they can act. The serverless agents runtime provides s
 
 MCP servers provide tools over a standard protocol. The runtime discovers remote HTTP or streamable HTTP MCP servers from `mcp.json` and passes them to the agent during execution.
 
-Use remote MCP servers when you want agents to call tools hosted by another service, use an MCP-enabled Azure connector, or compose agents and tools across app boundaries.
+Use remote MCP servers when you want agents to call tools hosted by another service, use an MCP-enabled connection, or compose agents and tools across app boundaries.
 
 ### Azure connectors
 
-Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, SQL, and many others. In a serverless agents app, infrastructure can create the connection, enable its MCP endpoint, and grant the function app identity access to call it.
+Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, SQL, and many others. In a serverless agents app, infrastructure can create a connection from a connector, enable the connection's MCP endpoint, and grant the function app identity access to call it.
 
-This approach keeps connector authentication and service-specific API details out of your agent instructions and custom code.
+This approach keeps connection authorization and service-specific API details out of your agent instructions and custom code.
 
 ### Custom Python tools
 
@@ -218,7 +218,7 @@ If you only need to expose deterministic functions as tools for another AI clien
 
 ## Get started
 
-Start with the quickstart to deploy a complete serverless agent app with a timer trigger, model deployment, connector MCP tools, and email output:
+Start with the quickstart to deploy a complete serverless agent app with a timer trigger, model deployment, connection MCP tools, and email output:
 
 > [!div class="nextstepaction"]
 > [Build a serverless agent using Azure Functions](scenario-serverless-agents-runtime.md)

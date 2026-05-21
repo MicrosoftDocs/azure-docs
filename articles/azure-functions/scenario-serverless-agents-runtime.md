@@ -1,6 +1,6 @@
 ---
 title: Build a serverless agent using Azure Functions
-description: "Learn how to create and deploy a serverless agent that runs on a schedule, uses a model deployment, calls MCP tools from a Microsoft 365 connector, and sends an email by using Azure Functions."
+description: "Learn how to create and deploy a serverless agent that runs on a schedule, uses a model deployment, calls MCP tools from a Microsoft 365 connection, and sends an email by using Azure Functions."
 ms.date: 05/20/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.custom:
 
 # Quickstart: Build a serverless agent using Azure Functions
 
-In this quickstart, you deploy a serverless agent to Azure Functions by using the Azure Developer CLI (`azd`). The sample agent runs on a timer, gathers the day's top technology news, summarizes the stories, and sends the summary by email through a Microsoft 365 connector exposed as Model Context Protocol (MCP) tools.
+In this quickstart, you deploy a serverless agent to Azure Functions by using the Azure Developer CLI (`azd`). The sample agent runs on a timer, gathers the day's top technology news, summarizes the stories, and sends the summary by email through a Microsoft 365 connection exposed as Model Context Protocol (MCP) tools.
 
 The project uses the Azure Functions serverless agents runtime, which lets you define agents in markdown files, configure shared runtime settings in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app. The template provisions a function app in the Flex Consumption plan, a storage account, monitoring resources, a Microsoft Foundry project and model deployment, a Microsoft 365 connection, and the identity assignments needed by the app.
 
@@ -25,9 +25,9 @@ Because the new app runs on the Flex Consumption plan, which follows a pay-for-w
 + [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/install-azd).
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-+ Permissions to create resource groups, function apps, managed identities, Microsoft Foundry resources, model deployments, and API connections in your subscription.
-+ A Microsoft 365 account that can authorize the email connector and send email.
-+ A recipient email address that you can use to verify the agent output. We recommend using the same email account that you use to authorize the connector.
++ Permissions to create resource groups, function apps, managed identities, Microsoft Foundry resources, model deployments, connector namespaces, and connections in your subscription.
++ A Microsoft 365 account that can authorize the email connection and send email.
++ A recipient email address that you can use to verify the agent output. We recommend using the same email account that you use to authorize the connection.
 
 ## Initialize the project
 
@@ -60,7 +60,7 @@ Before you deploy, review the project files that define the serverless agent app
 | `src/function_app.py` | Creates the Azure Functions app by calling `create_function_app()` from the serverless agents runtime. |
 | `src/*.agent.md` | Defines each agent. The YAML front matter declares the trigger, and the markdown body contains the agent instructions. |
 | `src/agents.config.yaml` | Defines required shared runtime configuration, including the model deployment and sandbox settings used by agents in the app. |
-| `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the MCP endpoint for the Microsoft 365 connector. |
+| `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the MCP endpoint for the Microsoft 365 connection. |
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, connector, and identity configuration. |
 
 The timer-triggered agent is defined entirely in the `.agent.md` file. The front matter declares the timer schedule, and the markdown instructions tell the agent to gather news, create an HTML summary, and send the email to the address stored in the `TO_EMAIL` app setting.
@@ -81,19 +81,21 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
 After the command completes successfully, your app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 
-## Authenticate the connector
+## Authorize the connection
 
-The deployment creates the Microsoft 365 connection that the agent uses to send email. Before the agent can call the connector MCP tools, you need to authorize the connection.
+The deployment creates a connector namespace and a Microsoft 365 connection that the agent uses to send email. A connector defines an integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. Before the agent can call the connection's MCP tools, you need to authorize the connection.
 
-1. In the [Azure portal](https://portal.azure.com), open the resource group created by `azd`. The resource group name starts with `rg-` and includes the environment name you chose during `azd init`.
+1. In the [Azure portal](https://portal.azure.com), search for `Connector Namespace`.
 
-1. Open the API Connection resource for the Microsoft 365 or Office 365 connector.
+1. Open the connector namespace created by `azd`. The resource is in the resource group created by `azd`, whose name starts with `rg-` and includes the environment name you chose during `azd init`.
 
-1. In the left menu, select **Edit API connection**.
+    The connector namespace opens a connector management experience in a new portal.
 
-1. Select **Authorize**, sign in with the Microsoft 365 account that can send the email, and then select **Save**.
+1. In the connector namespace, open the Microsoft 365 or Office 365 connection created by the deployment.
 
-After authorization succeeds, the function app's managed identity can use the connector's MCP endpoint during agent execution.
+1. Select **Authorize**, and then sign in with the Microsoft 365 account that can send the email.
+
+After authorization succeeds, the function app's managed identity can use the connection's MCP endpoint during agent execution.
 
 ## Run the agent on demand
 

@@ -34,7 +34,7 @@ This article is language-specific, so make sure you choose your programming lang
 
 The Azure Functions serverless agents runtime is a preview programming model for building event-driven agents as function apps. With this runtime, an agent is defined in a `.agent.md` file, shared runtime settings are configured in `agents.config.yaml`, and remote MCP servers are listed in `mcp.json`. The runtime discovers these files, registers the required Azure Functions triggers and endpoints, and runs the agent through Microsoft Agent Framework when an event starts the function.
 
-Use the serverless agents runtime when you want agents that are triggered by events, schedules, messages, or HTTP requests and can call tools across connected systems. Agents can use MCP-enabled Azure connectors, remote MCP servers, custom Python tools, skills, and sandboxed execution while the app runs on Flex Consumption with managed identity, monitoring, and scale-to-zero hosting.
+Use the serverless agents runtime when you want agents that are triggered by events, schedules, messages, or HTTP requests and can call tools across connected systems. Agents can use MCP-enabled connections based on Azure connectors, remote MCP servers, custom Python tools, skills, and sandboxed execution while the app runs on Flex Consumption with managed identity, monitoring, and scale-to-zero hosting.
 
 To get started, see these articles:
 
