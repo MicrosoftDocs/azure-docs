@@ -66,7 +66,7 @@ If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, netw
 ## Special tag deployment scenarios
 
 ### NVAs with on-demand capacity reservation (ODCR)
-If you use the `LegacyVMNVA` tag on VMs with an [on-demand capacity reservation (ODCR)](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview) to temporarily avoid deployment on MANA-enabled hardware, the available capacity pool for placement is reduced, and ODCR SLA guarantees do not apply to those VMs.
+If you use the `LegacyVMNVA` tag on VMs with an [on-demand capacity reservation (ODCR)](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview) to temporarily avoid deployment on MANA-enabled hardware, the available capacity pool for placement is reduced, and [ODCR SLA guarantees](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#sla-for-capacity-reservation) do not apply to those VMs.
 
 To restore ODCR SLA eligibility, remove the opt-out tag and ensure your NVA is compatible with MANA.
 
