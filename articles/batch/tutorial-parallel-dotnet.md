@@ -3,7 +3,7 @@ title: "Tutorial: Run a parallel workload using the .NET API"
 description: Learn how to transcode media files in parallel using ffmpeg in Azure Batch with the Batch .NET client library.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/02/2025
+ms.date: 05/13/2026
 ms.custom: mvc, devx-track-csharp, devx-track-dotnet
 # Customer intent: As a developer, I want to implement a parallel media transcoding process using the .NET API with Azure Batch, so that I can efficiently convert multiple media files from MP4 to MP3 format.
 ---
@@ -127,7 +127,7 @@ Uri accountUri = new Uri("https://<storage-account-name>.blob.core.windows.net/"
 BlobServiceClient blobClient = new BlobServiceClient(accountUri, new DefaultAzureCredential());
 ```
 
-The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource manager's [ArmClient](/dotnet/api/azure.resourcemanager.armclient) to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
+The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource Manager's [ArmClient](/dotnet/api/azure.resourcemanager.armclient) to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
 
 ```csharp
 ArmClient _armClient = new ArmClient(new DefaultAzureCredential());
@@ -182,7 +182,7 @@ The number of nodes and VM size are set using defined constants. Batch supports 
 >[!Note]
 >Be sure you check your node quotas. See [Batch service quotas and limits](batch-quota-limit.md#increase-a-quota) for instructions on how to create a quota request.
 
-The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool configuration.
+The ffmpeg application is deployed to the compute nodes by adding an [BatchApplicationPackageReference](/dotnet/api/azure.compute.batch.batchapplicationpackagereference) to the pool configuration.
 
 ```csharp
 var credential = new DefaultAzureCredential();
@@ -245,8 +245,8 @@ if (collection.Exists(poolId) == false)
 A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The sample creates a job with a call to `CreateJobAsync`. This defined method uses the [BatchClient.CreateJobAsync](/dotnet/api/azure.compute.batch.batchclient.createjobasync) method to create a job on your pool.
 
 ```csharp
- BatchJobCreateContent batchJobCreateContent = new BatchJobCreateContent(jobId, new BatchPoolInfo { PoolId = poolId });
- await batchClient.CreateJobAsync(batchJobCreateContent);
+ BatchJobCreateOptions batchJobCreateOptions = new BatchJobCreateOptions(jobId, new BatchPoolInfo { PoolId = poolId });
+ await batchClient.CreateJobAsync(batchJobCreateOptions);
 ```
 
 ### Create tasks
@@ -261,7 +261,7 @@ Replace the executable's file path with the name of the version that you downloa
 
 ```csharp
 // Create a collection to hold the tasks added to the job:
-List<BatchTaskCreateContent> tasks = new List<BatchTaskCreateContent>();
+List<BatchTaskCreateOptions> tasks = new List<BatchTaskCreateOptions>();
 
 for (int i = 0; i < inputFiles.Count; i++)
 {
@@ -272,7 +272,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Note that ffmpeg syntax specifies the format as the file extension of the input file
     // and the output file respectively. In this case inputs are MP4.
     string appPath = String.Format("%AZ_BATCH_APP_PACKAGE_{0}#{1}%", appPackageId, appPackageVersion);
-    string inputMediaFile = inputFiles[i].StorageContainerUrl;
+    string inputMediaFile = inputFiles[i].StorageContainerUri.ToString();
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
@@ -280,12 +280,12 @@ for (int i = 0; i < inputFiles.Count; i++)
 
     // Create a batch task (with the task ID and command line) and add it to the task list
 
-    BatchTaskCreateContent batchTaskCreateContent = new BatchTaskCreateContent(taskId, taskCommandLine);
-    batchTaskCreateContent.ResourceFiles.Add(inputFiles[i]);
+    BatchTaskCreateOptions batchTaskCreateOptions = new BatchTaskCreateOptions(taskId, taskCommandLine);
+    batchTaskCreateOptions.ResourceFiles.Add(inputFiles[i]);
 
     // Task output file will be uploaded to the output container in Storage.
     // TODO: Replace <storage-account-name> with your actual storage account name
-    OutputFileBlobContainerDestination outputContainer = new OutputFileBlobContainerDestination("https://<storage-account-name>.blob.core.windows.net/output/" + outputMediaFile)
+    OutputFileBlobContainerDestination outputContainer = new OutputFileBlobContainerDestination(new Uri("https://<storage-account-name>.blob.core.windows.net/output/" + outputMediaFile))
     {
         IdentityReference = inputFiles[i].IdentityReference,
     };
@@ -293,9 +293,9 @@ for (int i = 0; i < inputFiles.Count; i++)
     OutputFile outputFile = new OutputFile(outputMediaFile,
                                            new OutputFileDestination() { Container = outputContainer },
                                            new OutputFileUploadConfig(OutputFileUploadCondition.TaskSuccess));
-    batchTaskCreateContent.OutputFiles.Add(outputFile);
+    batchTaskCreateOptions.OutputFiles.Add(outputFile);
 
-    tasks.Add(batchTaskCreateContent);
+    tasks.Add(batchTaskCreateOptions);
 }
 
 // Call BatchClient.CreateTaskCollectionAsync() to add the tasks as a collection rather than making a

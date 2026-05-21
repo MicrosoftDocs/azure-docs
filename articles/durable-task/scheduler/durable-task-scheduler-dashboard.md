@@ -1,33 +1,37 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: Debug and manage orchestrations using the Durable Task Scheduler dashboard
+title: "Durable Task Scheduler Dashboard: Debug and Manage Orchestrations"
 titleSuffix: Durable Task
 description: Learn how to debug and manage your orchestrations using the Durable Task Scheduler dashboard.
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/06/2025
+ms.date: 05/04/2026
 zone_pivot_groups: dts-devexp
 ---
 
 # Debug and manage orchestrations using the Durable Task Scheduler dashboard
 
-Observe, manage, and debug your task hub or scheduler's orchestrations using the Durable Task Scheduler dashboard. The dashboard is available when you run the [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
+The Durable Task Scheduler dashboard lets you observe running orchestrations, inspect execution history and activity inputs/outputs, and manage orchestration lifecycle (pause, resume, terminate), all from a browser.
 
-Running the emulator locally doesn't require authentication. 
+The dashboard is available in two environments:
 
-Creating a scheduler resource on Azure requires [assigning the *Durable Task Data Contributor* role to your identity](./durable-task-scheduler-identity.md). You can then access the dashboard via either:
-- The task hub's dashboard endpoint URL in the Azure portal
-- Navigate to `https://dashboard.durabletask.io/` combined with your task hub endpoint.  
+| Environment | URL | Authentication |
+| --- | --- | --- |
+| **Local emulator** | `http://localhost:8082` | None required |
+| **Azure** | `https://dashboard.durabletask.io/?endpoint=<SCHEDULER_ENDPOINT>&taskhub=<TASK_HUB_NAME>` | Requires [Durable Task Data Contributor role](./durable-task-scheduler-identity.md) |
+
+For more about the emulator, see [Emulator for local development](./durable-task-scheduler.md#emulator-for-local-development).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Assign one of the Durable Task roles to your developer identity. 
-> - Access the Durable Task Scheduler dashboard.
-> - View orchestration status and history via the Durable Task Scheduler dashboard.
+> - Access the dashboard locally or on Azure.
+> - Assign the Durable Task Data Contributor role to your developer identity.
+> - Monitor orchestration status, filter instances, and inspect execution history.
+> - Manage orchestrations (pause, resume, terminate, raise events).
 
 ## Prerequisites
 
@@ -37,9 +41,19 @@ Before you begin:
 - [Create a scheduler and task hub resource](./develop-with-durable-task-scheduler.md)
 - [Configure managed identity for your Durable Task Scheduler resource](./durable-task-scheduler-identity.md)
 
-## Access the Durable Task Scheduler dashboard
+## Access the dashboard locally
 
-Assign the required role to your *developer identity (email)* to gain access to the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
+If you're using the [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development), the dashboard is available at:
+
+```
+http://localhost:8082
+```
+
+No authentication or role assignment is needed for local development.
+
+## Assign dashboard access roles (Azure)
+
+To access the dashboard for an Azure-hosted scheduler, assign the *Durable Task Data Contributor* role to your developer identity (email). 
 
 ::: zone pivot="az-cli" 
 
@@ -98,7 +112,15 @@ Assign the required role to your *developer identity (email)* to gain access to 
     }
     ```
 
-1. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+1. After granting access, open the dashboard at:
+
+    ```
+    https://dashboard.durabletask.io/?endpoint=<SCHEDULER_ENDPOINT>&taskhub=<TASK_HUB_NAME>
+    ```
+
+    Replace `<SCHEDULER_ENDPOINT>` with your scheduler's endpoint (for example, `https://myscheduler.westus2.durabletask.io`) and `<TASK_HUB_NAME>` with the name of your task hub.
+
+    Alternatively, navigate to `https://dashboard.durabletask.io/` and enter your scheduler endpoint and task hub name in the connection form. 
  
 ::: zone-end 
 
@@ -108,43 +130,178 @@ Assign the required role to your *developer identity (email)* to gain access to 
 
 ::: zone-end 
 
-## Monitor orchestration progress and execution history
+## Monitor your task hub via the dashboard
 
-The dashboard allows you to monitor orchestration progress and review execution history. You can also filter by orchestration metadata, such as state and timestamps.
+The dashboard allows you to monitor orchestration progress and review execution history. From the dashboard home page, you can find your task hub's orchestrations, entities, schedules, workers and metrics, and AI agents (currently in preview). 
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/track-orchestration-progress.png" alt-text="Screenshot of the dashboard listing orchestration history and status.":::
+<details>
+<summary><b>Orchestrations overview pane</b></summary>
 
-View orchestration inputs and outputs:
+View orchestrations by clicking either on the task hub name or **Orchestrations** from the side menu.
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-input-outputs.png" alt-text="Screenshot of the dashboard listing orchestration history and status inputs and outputs.":::
+:::image type="content" source="media/durable-task-scheduler-dashboard/dashboard-home.png" alt-text="Screenshot of the dashboard home page with links to task hubs, orchestration history, entities, schedules, workers, metrics, and AI agents.":::
 
-## Detailed view of orchestration execution
+From the **Orchestrations** overview pane, you can:
+- Review a list of orchestration instances. 
+- Narrow down the orchestrations via search bar or filters.
+- Create a new orchestration.
+- Copy a shareable link to the dashboard.
+- Set autorefresh intervals of the orchestration list.
 
-You can drill into orchestration instances to view execution details and activity progress. This view helps you diagnose problems or gain visibility into the status of an orchestration.
+:::image type="content" source="media/durable-task-scheduler-dashboard/orchestrations.png" alt-text="Screenshot of the dashboard listing orchestrations.":::
 
-In the following image, the *Timeline* view of an orchestration execution. In this "ProcessDocument" orchestration, the "WriteDoc" activity retried three times (unsuccessfully) with five seconds in between retry.
+Orchestration information is presented with the following default columns. 
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-timeline.png" alt-text="Screenshot of the dashboard showing the orchestration execution timeline.":::
+| Category | Description |
+| -------- | ----------- |
+| Instance ID | Search for a specific orchestration instance by its unique ID. |
+| Name | Filter by the orchestration type name. |
+| Status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
+| Tags | Filter by the tags applied to the orchestration instance. |
+| Created | Date and time that the orchestration was created. |
 
-You can also view inputs and outputs of activities in an orchestration:
+You can filter the orchestration list using the following criteria.
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/activity-input-output.png" alt-text="Screenshot of the dashboard showing activity inputs and outputs.":::
+:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-filters.png" alt-text="Screenshot of the dashboard listing orchestration history and status with filter options.":::
 
-### Other views of orchestration execution sequence
+| Category | Description |
+| -------- | ----------- |
+| Orchestration name | Filter by the orchestration type name. |
+| Runtime status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
+| Tag filter | Search for orchestrations by tag key *or* value. |
+| Created from/Created to | Narrow results to a time window. |
 
-The *History* view shows detailed event sequence, timestamps, and payload:
+Trigger a refresh of the orchestration list by:
+- Clicking the refresh icon for a manual refresh.
+- Toggle **Auto** and select interval to automatically refresh the list. 
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/instance-details.png" alt-text="Screenshot of the dashboard showing orchestration instance details.":::
+   :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestrations.png" alt-text="Screenshot of the autorefresh toggle and manual refresh icon.":::
 
-The *Sequence* view gives another way of visualizing event sequence:
+**Create a new orchestration**
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-sequence.png" alt-text="Screenshot of the dashboard showing orchestration sequence view.":::
+You can create a new orchestration from the Durable Task Scheduler dashboard. 
 
-## Orchestration management 
+1. From the **Orchestrations** overview pane, click **+ New Orchestration**. 
+1. Fill out the information in the **New Orchestration** form.
 
-The dashboard includes features for managing orchestrations on demand, such as starting, pausing, resuming, and terminating.
+   :::image type="content" source="media/durable-task-scheduler-dashboard/create-new-orchestration.png" alt-text="Screenshot of the Create new orchestration form.":::
 
-:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration.png" alt-text="Screenshot of the dashboard showing the buttons you use to manage the orchestration.":::
+   | Field | Description |
+   | ----- | ----------- |
+   | Orchestration Name | Select an orchestration from the drop-down, or type a custom orchestration name. |
+   | Instance ID | *Optional.* Instance IDs are autogenerated. Whether you create one yourself or let it autogenerate, instance IDs are in ASCII format. |
+   | Version | *Optional.* Enter applicable version number. |
+   | Input | *Optional.* Enter input in JSON format. |
+   | Scheduled start | *Optional.* Select the start date and time for the orchestration. |
+   | Tags | *Optional.* Enter key and/or value tags associated with the orchestration. |
+
+1. Click **Create**.
+
+   You can see your new orchestration in the list.
+
+**Orchestration details**
+
+Click an orchestration instance to diagnose problems or gain visibility into the status of an orchestration. 
+
+Use the **Timeline**, **History**, and **Flow** tabs to view its execution details and activity progress. The Timeline tab is open by default.  
+
+- The *Timeline* tab shows the intervals of a running orchestration. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-details.png" alt-text="Screenshot of the orchestration execution timeline.":::
+
+   Select an activity to view its input and output.
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/view-activity.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status.":::
+
+- The *History* tab provides a feed of all events in an orchestration, complete with timestamps. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-history-details.png" alt-text="Screenshot of the dashboard showing an individual orchestration's event history.":::
+
+- The *Flow* tab visually plots out the orchestration's execution flow. 
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-flow.png" alt-text="Screenshot of an individual orchestration's event flow.":::
+
+   You can also view an activity's input and output by clicking **View**.
+
+   :::image type="content" source="media/durable-task-scheduler-dashboard/view-task.png" alt-text="Screenshot of the pane where you can view an activity's input, output, and status via the flow view.":::
+
+**Manage orchestrations**
+
+You can manage your orchestration lifecycle via the dashboard. In the **Orchestrations** pane, select an instance ID to access the following actions:
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status-2.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, Suspend, and Resume buttons for managing orchestrations.":::
+
+- **Resume:** Continue a previously suspended orchestration.
+- **Suspend:** Pause a running orchestration. It remains in memory, but stops processing events until resumed.
+- **Restart:** Restart a previously running orchestration.
+- **Terminate:** Immediately stop an orchestration with an optional reason string.
+- **Purge:** Purge the orchestration instance.
+
+Drill into an individual orchestration to access the **Raise event** action. This action sends a named external event (with optional JSON payload) to a running or suspended orchestration.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration-status.png" alt-text="Screenshot of the dashboard showing the Purge, Restart, Terminate, and Raise Event buttons for managing orchestrations.":::
+
+
+</details>
+
+<details>
+<summary><b>Entities</b></summary>
+
+Select **Entities** from the left side menu to view entities you created.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/entities.png" alt-text="Screenshot of the entities you created and some management tools for them.":::
+
+Click an individual entity from the list to view its details. From here, you can review:
+- When it was last modified
+- When the last operation ran
+- Whether it's locked, and who locked it
+- Its backlog size
+- The entity state in either JSON or raw code
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/individual-entity-details.png" alt-text="Screenshot of an individual entity being tracked in the Durable Task Scheduler dashboard.":::
+
+You can also send a signal to the entity. Click **Signal** in the top right corner and create the signal message.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/send-signal-to-entity.png" alt-text="Screenshot of the window for sending a signal to your individual entity.":::
+
+</details>
+
+<details>
+<summary><b>Agents (preview)</b></summary>
+
+> [!NOTE]
+> Reviewing agent sessions via the Durable Task Scheduler dashboard is currently in preview.
+
+Select **Agents** from the left side menu to monitor agent sessions triggered by your application in the scheduler. Click into an agent session to view your token usage data, such as:
+- The number of prompt tokens you've used.
+- The number of completion tokens you've used.
+- The total number of tokens used during the agent session.
+
+You can also view the agent chat history and timeline.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/agents-history.png" alt-text="Screenshot of the agent sessions triggered by your application.":::
+
+</details>
+
+<details>
+<summary><b>Schedules</b></summary>
+
+Select **Schedules** from the left side menu to view schedules you created. From the schedules pane, you can pause, resume, or delete a schedule. You can also click **+ Create Schedule** to create a schedule via the dashboard UI.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/schedules-thumb.png" alt-text="Screenshot of the schedules you created and some management tools for them." lightbox="media/durable-task-scheduler-dashboard/schedules-large.png":::
+
+</details>
+
+<details>
+<summary><b>Workers & metrics</b></summary>
+
+Select **Workers & Metrics** from the left side menu to view:
+- All of your pending, active, or stored activities, orchestrators, and entities.
+- Connected workers.
+
+:::image type="content" source="media/durable-task-scheduler-dashboard/workers-and-metrics.png" alt-text="Screenshot of an overview of the work item queues and connected workers.":::
+
+</details>
 
 ## Next steps
 

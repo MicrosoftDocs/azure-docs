@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 05/13/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -21,7 +21,7 @@ The *AI gateway* in Azure API Management is a set of capabilities that help you 
 
 Use the AI gateway to manage a wide range of AI endpoints, including:
 
-* **Lanaguage model APIs** that conform to one of the following API schemas:
+* **Language model APIs** that conform to one of the following API schemas:
     * OpenAI Chat Completions or Responses API
     * Anthropic Messages API (currently supported in API Management v2 tiers)
 
@@ -33,10 +33,12 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 :::image type="content" source="media/genai-gateway-capabilities/capabilities-summary.png" alt-text="Diagram summarizing AI gateway capabilities of Azure API Management.":::
 
 > [!NOTE]
-> The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing [API gateway](api-management-key-concepts.md#api-gateway); it's not a separate offering. Related governance and developer features are in [Azure API Center](../api-center/overview.md).
+> * The AI gateway, including [MCP server capabilities](mcp-server-overview.md), extends API Management's existing [API gateway](api-management-key-concepts.md#api-gateway); it's not a separate offering. 
+> * Capability availability varies by API Management service tier. See the linked documentation articles for details. 
+> * Related governance and developer features are in [Azure API Center](../api-center/overview.md). 
 
-> [!NOTE]
-> New! AI gateway can now be integrated directly into Microsoft Foundry, enabling you to govern AI models, agents, and tools from within your Foundry environment. Learn more in the [AI gateway in Microsoft Foundry](#ai-gateway-in-microsoft-foundry-preview) section.
+> [!TIP]
+> AI gateway can now be integrated directly into Microsoft Foundry, enabling you to govern AI models, agents, and tools from within your Foundry environment. Learn more in the [AI gateway in Microsoft Foundry](#ai-gateway-in-microsoft-foundry-preview) section.
 
 ## Why use an AI gateway?
 
@@ -62,7 +64,7 @@ By using the AI gateway, you can:
 * Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock
 * Govern chat completions, responses, and real-time APIs
 * Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
-* Import and manage A2A agent APIs (preview)
+* Import and manage A2A agent APIs
 
 For example, to onboard a model deployed in Microsoft Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
@@ -114,7 +116,7 @@ In API Management, enable semantic caching by using [Azure Managed Redis](/azure
 More information:
 
 * [Set up an external cache in Azure API Management](api-management-howto-cache-external.md)
-* [Enable semantic caching for AI APIs in Azure API Management](azure-openai-enable-semantic-caching.md)
+* [Enable semantic caching for LLM APIs in Azure API Management](azure-openai-enable-semantic-caching.md)
 
 
 ### Native scaling features in API Management
@@ -201,10 +203,10 @@ More information:
 
 ## Developer experience
 
-Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamline development and deployment of your AI APIs and MCP servers. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
+Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamline development and deployment of your AI APIs, MCP servers, and other AI assets. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
 
-* Easy registration of APIs and MCP servers in an organizational catalog in Azure API Center
-* Self-service API and MCP server access through developer portals in API Management and API Center
+* Easy registration of APIs, MCP servers, skills, and other assets in an organizational catalog in Azure API Center
+* Self-service access through developer portals in API Management and API Center
 * API Management policy toolkit for customization
 * API Center Copilot Studio connector to extend the capabilities of AI agents
 
@@ -221,7 +223,12 @@ More information:
 
 ## AI gateway in Microsoft Foundry (preview)
 
-You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI traffic from within your Foundry environment. When you create or associate an AI gateway instance with your Foundry resource, you can govern, secure, and monitor your Foundry resources through the gateway.
+You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI traffic from within your Foundry environment. You can associate a single AI gateway with a Foundry resource.
+
+> [!NOTE]
+> See the [Microsoft Foundry documentation](/azure/foundry/configuration/enable-ai-api-management-gateway-portal#requirements-for-using-an-existing-api-management-instance) for detailed requirements to use an API Management instance as an AI gateway in Foundry, including required permissions and supported service tiers. From the Foundry portal, you can also create a new API Management instance to use as an AI gateway.
+
+When you create or associate an AI gateway instance with your Foundry resource, you can govern, secure, and monitor your Foundry resources through the gateway.
 
 **Models**: Configure token quotas and rate limits directly in the Foundry interface for all model deployments, including Azure OpenAI and other providers.
 
@@ -240,7 +247,7 @@ More information:
 
 ## Early access to AI gateway features    
 
-As an API Management customer, you can get early access to new features and capabilities through the *AI Gateway release channel*. This access lets you try out the latest AI gateway innovations before they're generally available and provide feedback to help shape the product. 
+As an API Management customer, you can get early access to new features and capabilities through the *AI Gateway Early release channel*. This access lets you try out the latest AI gateway innovations before they're generally available and provide feedback to help shape the product. Currently, the AI gateway early release channel is available in the classic tiers of Azure API Management.
 
 More information:
 
@@ -264,7 +271,7 @@ More information:
 ## Related content
 
 * [Blog: AI gateway in Azure API Management is now available in Microsoft Foundry](https://techcommunity.microsoft.com/blog/integrationsonazureblog/ai-gateway-in-azure-api-management-is-now-available-in-microsoft-foundry-preview/4470676)
-* [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
-* [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
+* [Blog: Introducing AI capabilities in Azure API Management](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-genai-gateway-capabilities-in-azure-api-management/4146525)
+* [Blog: Integrating Azure Content Safety with API Management](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/integrating-azure-ai-content-safety-with-api-management-for-azure-openai-endpoin/4202505)
 * [Training: Manage your generative AI APIs](/training/modules/api-management)
-* [Smart load balancing for OpenAI endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
+* [Smart load balancing for OpenAI endpoints](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/%F0%9F%9A%80-smart-load-balancing-for-openai-endpoints-and-azure-api-management/3991616)

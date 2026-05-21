@@ -21,9 +21,10 @@ The following table lists the Azure regions where you can deploy Azure SRE Agent
 
 | Region | Canonical name | Geographic area |
 |---|---|---|
+| Australia East | `australiaeast` | Asia Pacific |
 | East US 2 | `eastus2` | United States |
 | Sweden Central | `swedencentral` | Europe |
-| Australia East | `australiaeast` | Asia Pacific |
+| UK South | `uksouth` | Europe |
 
 ## Check your available regions
 
