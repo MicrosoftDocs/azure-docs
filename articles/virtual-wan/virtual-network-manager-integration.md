@@ -12,7 +12,7 @@ ms.custom:
 
 # Azure Virtual Network Manager integration with Virtual WAN (Public Preview)
 
-[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 ## Overview
 

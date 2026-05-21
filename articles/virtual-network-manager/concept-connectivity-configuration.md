@@ -87,7 +87,7 @@ This topology is useful for isolating a virtual network while maintaining connec
 
 ### Use a Virtual WAN hub as the hub
 
-[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 When you select a Virtual WAN hub as the hub in a hub-and-spoke connectivity configuration, Azure Virtual Network Manager connects virtual networks in the selected spoke network groups to the Virtual WAN hub and applies the selected connection policy.
 

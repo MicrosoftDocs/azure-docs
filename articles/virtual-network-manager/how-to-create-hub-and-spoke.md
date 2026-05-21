@@ -108,7 +108,7 @@ To have this configuration take effect in your environment, you need to deploy t
 
 ## Use a Virtual WAN hub as the hub
 
-[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../networking/includes/azure-virtual-network-manager/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
 This section shows how to create an Azure Virtual Network Manager hub-and-spoke connectivity configuration where the hub is a Virtual WAN hub.
 
