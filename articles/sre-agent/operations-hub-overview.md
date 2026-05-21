@@ -10,9 +10,9 @@ ms.service: azure-sre-agent
 
 # Overview of operations hub in Azure SRE Agent
 
-The SRE Agent operations hub gives you real-time visibility into how your Azure SRE Agent performs across incidents, automations, integrations, and operational health in one place. Instead of checking individual threads, setup pages, and automation runs separately, you see the unified signals that matter: agent health, pending actions, connector readiness, and automation reliability.
+The SRE Agent operations hub gives you real-time visibility into how your Azure SRE Agent performs across incidents, automations, integrations, and operational health in one place. Instead of checking individual threads, setup pages, and automations separately, you see the unified signals that matter: agent health, pending actions, connector readiness, and automation reliability.
 
-## What is operations hub?
+## What is the operations hub?
 
 Operations hub consolidates operational intelligence about your SRE Agent into three focused dashboards. Without a central view, teams rebuild agent state manually by opening individual incident threads, checking automations one by one, and reviewing integrations across separate pages. This manual approach becomes unmanageable as your environment grows. Operations hub moves your team from reactive investigation to proactive management by surfacing leading indicators of issues before they impact incident response.
 
@@ -37,7 +37,7 @@ Key signals include:
 
 **Question:** Is the agent actually helping during incidents?
 
-Incident analytics measures effectiveness, not just activity. You evaluate whether your SRE Agent saves time, improves mitigation speed, and improves incident response across all your incident sources (Azure Monitor, ServiceNow, PagerDuty and others).
+Incident analytics measures effectiveness, not just activity. You evaluate whether your SRE Agent saves time, improves mitigation speed, and improves incident response across all your incident sources (Azure Monitor, ServiceNow, and PagerDuty).
 
 A busy agent isn't necessarily a useful agent. Incident analytics helps you distinguish between work performed and value delivered to your incident response process.
 
@@ -79,12 +79,11 @@ Use operations hub when you need to:
 
 ## Limitations
 
-- Operations hub displays data for the last 30 days by default. To access historical data beyond this period requires archival queries.
+- Operations hub displays data for the last 30 days by default. Access to historical data beyond this period requires archival queries.
 
-- Automation analytics currently support runs triggered from operations hub UI; webhook and programmatic triggers have limited visibility in early releases.
+- Automation analytics currently support runs triggered from the operations hub UI. Webhook and programmatic triggers show limited visibility in early releases.
 
 ## Related content
 
 - [Overview of Azure SRE Agent](overview.md): Learn about SRE Agent core capabilities and use cases.
 - [Connectors in Azure SRE Agent](connectors.md): Set up incident sources and automation integrations.
-- [MCP connectors and tools](mcp-connectors.md): Understand the Model Context Protocol integration for agent extensibility.
