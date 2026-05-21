@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub and IoT Plug and Play
 description: Understand how Azure Device Update for IoT Hub uses IoT Plug and Play interfaces to discover and manage devices that are over-the-air update capable.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

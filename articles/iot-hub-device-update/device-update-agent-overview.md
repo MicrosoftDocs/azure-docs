@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub agent overview
 description: Understand the structure and functions of the Azure Device Update for IoT Hub agent.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 12/19/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub
