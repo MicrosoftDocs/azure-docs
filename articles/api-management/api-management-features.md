@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 05/21/2026
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -33,7 +33,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Outbound virtual network integration support                                                             | ❌          | ❌       | ❌    | ❌       | ❌       | ✔️       | ❌    | ✔️ |
 | Multi-region deployment                                                                      | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
 | Availability zones                                                                           | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ✔️  |
-| Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ❌ |
+| Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ✔️ |
 | Developer portal<sup>2</sup>                                                                 | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | Scale units | ❌ (automatic scaling)     | 1                                             | 2           | 10        | 4    | 10       | 12 per region      | 30 |
 | Built-in cache | ❌      | 10 MB                                            | 50 MB          | 250 MB       | 1 GB   | 1 GB      | 5 GB     | 5 GB |
