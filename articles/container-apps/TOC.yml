@@ -317,6 +317,8 @@ items:
           href: aspire-dashboard.md
         - name: OpenTelemetry agents
           href: opentelemetry-agents.md
+        - name: OpenTelemetry export to Dynatrace
+          href: opentelemetry-export-dynatrace.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
     - name: Troubleshoot and resolve issues with SRE agent
