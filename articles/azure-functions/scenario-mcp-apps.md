@@ -148,13 +148,13 @@ The MCP Apps weather tool includes a frontend application that you must build be
 1. In the terminal, go to the UI app folder and build the application:
 
     ```console
-    cd src/app
+    cd src/McpWeatherApp/app
     npm install
     npm run build
     cd ..
     ```
 
-1. In the `src` directory, create a virtual environment for running the app:
+1. In the `src/McpWeatherApp` directory, create a virtual environment for running the app:
 
     ### [Bash](#tab/bash)
 
@@ -171,7 +171,7 @@ The MCP Apps weather tool includes a frontend application that you must build be
     ---
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-javascript"  
 
 1. In the terminal, go to the UI app folder and build the application:
 
@@ -180,6 +180,18 @@ The MCP Apps weather tool includes a frontend application that you must build be
     npm install
     npm run build
     cd ../..
+    ```
+
+::: zone-end
+::: zone pivot="programming-language-typescript"  
+
+1. In the terminal, go to the UI app folder and build the application:
+
+    ```console
+    cd mcp-weather-app/src/app
+    npm install
+    npm run build
+    cd ../../..
     ```
 
 ::: zone-end  
