@@ -2,9 +2,9 @@
 title:  Access control and security for Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Overview on controlling access to Azure IoT Hub Device Provisioning Service, links to articles on Microsoft Entra integration and SAS options.
-author: jesusbar
+author: sethmanheim
 
-ms.author: jesusbar
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/20/2022
