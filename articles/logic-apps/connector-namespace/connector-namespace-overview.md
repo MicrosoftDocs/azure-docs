@@ -87,7 +87,7 @@ An *MCP server* is a first-class resource in your namespace that exposes tools t
 
 - **Managed MCP servers.** A list of managed servers and connectors created and configured by the namespace. Deploy a managed server or connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime.
 
-- **Hosted MCP servers.** Off-the-shelf MCP servers from a curated catalog that you add to your namespace and configure yourself. You keep control over server settings, environment, and parameters; the namespace handles hosting, scale, and credentials.
+- **Hosted MCP servers.** Off-the-shelf MCP servers from a curated catalog that you deploy to your namespace and configure yourself. You keep control over server settings, environment, and parameters; the namespace handles hosting, scale, and credentials.
 
 In both cases, AI agents - Copilot, custom agents, or any MCP-aware client - discover and call the tools using the namespace’s connection model. Servers can be enabled, disabled, or rotated independently of the underlying connection.
 
@@ -121,9 +121,9 @@ Action invocations are synchronous calls. Trigger delivery uses webhooks or pull
 ### Typical workflow with MCP servers
 
 1.  You create a Connector Namespace in your Azure subscription.
-1.  You add an MCP server to the namespace - either a managed MCP server (from the curated list, or by publishing an existing connector) or a hosted MCP server from the catalog.
+1.  You add an MCP server to the namespace - either a managed MCP server or a hosted MCP server from the catalog.
 
-1.  You authenticate the underlying connection. , you also set any server-specific configuration.
+1.  You authenticate the underlying connection and set any server-specific configuration.
 
 1.  The namespace publishes the MCP endpoint and runs the server, handling authentication, scale, and credential rotation.
 
