@@ -11,7 +11,7 @@ ms.author: shsangal
 
 # Create and configure a Recovery Orchestration Plan (preview)
 
-This article describes how to create a Recovery Orchestration Plan within a Service Group, configure resource protection, define recovery groups, and add group actions to automate failover operations.
+This article describes how to create a Recovery Orchestration Plan (preview) within a Service Group, configure resource protection, define recovery groups, and add group actions to automate failover operations.
 
 ## Create a Recovery Orchestration Plan
 
