@@ -181,7 +181,7 @@ items:
               - name: Kafka and Event Hubs
                 href: connect-to-cloud/howto-configure-kafka-endpoint.md
                 displayName: data flow, endpoint, northbound
-              - name: Azure Data Lake Storage Gen2 Blob Storage
+              - name: Azure Data Lake Storage Gen2
                 href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
                 displayName: data flow, endpoint, northbound
               - name: Microsoft Fabric Real-Time Intelligence
