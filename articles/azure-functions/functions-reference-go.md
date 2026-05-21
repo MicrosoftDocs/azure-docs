@@ -398,6 +398,7 @@ The Azure Functions Go worker includes built-in observability features that inte
 During the public preview, the following limitations apply:
 
 - `func new` isn't supported. Add functions by editing `main.go` directly.
+- Durable Functions isn't supported for Go during the public preview.
 - Go function apps run on Linux only in Azure.
 - Only the triggers listed in [Triggers](#triggers) are supported during the preview.
 - Go packaging in Core Tools currently targets Linux x64 apps.
