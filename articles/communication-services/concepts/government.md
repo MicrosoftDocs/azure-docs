@@ -35,7 +35,7 @@ The following features are available in Azure Government:
 - Email 
 
 > [!IMPORTANT]  
-> Azure Communication Services Email supports [email sending through SDK-based integration](./email/sdk-features.md). SMTP relay is not supported in Azure US Government Cloud at this time.
+> Azure Communication Services Email supports [email sending through SDK-based integration](./email/sdk-features.md). SMTP endpoint is not supported in Azure US Government Cloud at this time.
 
 ## Related articles
 
