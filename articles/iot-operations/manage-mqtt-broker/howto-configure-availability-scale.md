@@ -127,6 +127,7 @@ The backend chain subfield defines the settings for the backend partitions. The 
 - **Redundancy factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 - **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica might increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
+<a id="backend-redundancy-factor"></a>
 > [!IMPORTANT]
 > The backend redundancy factor must be set to **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support. Setting the redundancy factor to `1` results in a deployment validation error.
 
@@ -134,7 +135,54 @@ The backend chain subfield defines the settings for the backend partitions. The 
 
 When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. This increased capacity also leads to higher resource consumption. So when you adjust cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU utilization is a bottleneck.
 
-For example, if your cluster has three nodes, each with eight CPU cores, then set the number of frontend replicas to match the number of nodes (3) and set the number of workers to 1. Set the number of backend partitions to match the number of nodes (3) and set the backend workers to 1. Set the redundancy factor as desired (2 or 3). Increase the number of frontend workers if you discover that frontend CPU utilization is a bottleneck. Remember that backend and frontend workers might compete for CPU resources with each other and other pods.
+#### Single-node recommendations
+
+- **Frontend replicas**: Set to at least **1**
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
+- **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
+
+*Example — single node with 4 CPU cores:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 1 |
+| frontendWorkers | 2 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 1 |
+| backendPartitions | 1 |
+
+#### Multi-node recommendations
+
+The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections. It is always recommended to test your configuration with the expected workload to verify the desired performance.
+
+- **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
+- **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
+- **Backend partitions**: Set equal to the **number of nodes** in the cluster.
+- **Backend workers**: Set to **half the number of CPU cores** per node.
+
+*Example - 3-node cluster, 8 CPU cores per node:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 3 |
+| frontendWorkers | 4 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 4 |
+| backendPartitions | 3 |
+
+*Example - 5-node cluster, 16 CPU cores per node:*
+
+| Setting | Recommended value |
+|---|---|
+| frontendReplicas | 5 |
+| frontendWorkers | 8 |
+| backendRedundancyFactor | 2 |
+| backendWorkers | 8 |
+| backendPartitions | 5 |
+
+> [!IMPORTANT]
+> The total number of frontend and backend workers per node should not exceed the number of CPU cores available on that node. Over-provisioning workers beyond available cores may lead to CPU contention and degrade performance.
 
 ## Configure memory profile
 
@@ -173,6 +221,8 @@ Use this profile when you have limited memory resources and client publish traff
 
 When you use this profile:
 
+- Idle memory usage of each frontend replica is approximately 29 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 41 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 99 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 4 MB.
@@ -189,6 +239,8 @@ Use this profile when you have limited memory resources and clients publish smal
 
 When you use this profile:
 
+- Idle memory usage of each frontend replica is approximately 33 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 66 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 387 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 390 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 16 MB.
@@ -205,6 +257,8 @@ Use this profile when you need to handle a moderate number of client messages.
 
 Medium is the default profile.
 
+- Idle memory usage of each frontend replica is approximately 169 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 211 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 64 MB.
@@ -214,6 +268,8 @@ Medium is the default profile.
 
 Use this profile when you need to handle a large number of client messages.
 
+- Idle memory usage of each frontend replica is approximately 4.9 GiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 5.8 GiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 256 MB.
@@ -222,7 +278,7 @@ Use this profile when you need to handle a large number of client messages.
 
 ## Calculate total memory usage
 
-The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula: 
+The memory profile setting specifies the memory usage for each frontend and backend replica and interacts with the cardinality settings. You can calculate the total memory usage using the formula:
 
 *M_total = R_fe * M_fe + (P_be * RF_be) * M_be * W_be*
 
@@ -248,6 +304,18 @@ In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB a
 
 > [!IMPORTANT]
 > The MQTT broker starts rejecting messages when memory is 75% full.
+
+## Performance
+The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions.
+
+Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks.
+Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it is running on.
+
+With these considerations in mind, a ballpark throughput per partition is on the order of 5–6K messages per second for QoS 1 with 8 KB payloads on 2Ghz base frequency cpu(~4Ghz turbo). This estimate is intentionally approximate—real-world performance depends on many factors—but it can serve as a rule of thumb for capacity planning.
+
+More details are available here:
+https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528
+
 
 ## Cardinality and Kubernetes resource limits
 
