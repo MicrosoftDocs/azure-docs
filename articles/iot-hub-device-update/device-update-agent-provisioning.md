@@ -3,7 +3,7 @@ title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
 author: cwatson-cat
 ms.author: cwatson
-ms.date: 12/19/2024
+ms.date: 5/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -156,8 +156,8 @@ Device Provisioning Service (DPS) can be used to provision device identities and
 
 For step-by-step configuration instructions, including advanced scenarios such as hardware-backed keys (for example, hardware security modules (HSMs) or PKCS#11-based key storage for secure key handling), see the X.509 authentication guide: [How to Use X.509 Client Certificate Authentication](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-x509-authentication.md).
 
-> [!IMPORTANT]
-> X.509 authentication support in the Device Update agent uses standard Azure IoT Hub identity configuration 
+> [!Note]
+> X.509 authentication support in the Device Update agent uses standard Azure IoT Hub identity configuration. 
 > This capability isn't integrated with Azure Device Registry (ADR) certificate management (preview).
 
 ## Configure the Device Update agent
