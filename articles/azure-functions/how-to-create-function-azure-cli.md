@@ -28,7 +28,11 @@ Make sure to select your preferred development language at the top of the articl
 ::: zone pivot="programming-language-go"
 + [Go 1.24](https://go.dev/dl/) or later.
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x from a release that includes Go support.
++ The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) preview package. Go support requires the preview version of Core Tools for local development and deployment:
+
+    ```console
+    npm install -g azure-functions-core-tools@preview --unsafe-perm true
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-other"  
 ### [Rust](#tab/rust)
@@ -42,7 +46,9 @@ Make sure to select your preferred development language at the top of the articl
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
+::: zone-end
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 

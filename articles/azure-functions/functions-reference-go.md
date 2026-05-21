@@ -35,7 +35,11 @@ Choose the environment that fits your workflow and get started with Azure Functi
 ## Prerequisites
 
 - [Go 1.24](https://go.dev/dl/) or later
-- [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x from a release that includes Go support
+- The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) preview package. Go support requires the preview version of Core Tools for local development and deployment:
+
+    ```console
+    npm install -g azure-functions-core-tools@preview --unsafe-perm true
+    ```
 - [Azure CLI](/cli/azure/install-azure-cli), when you deploy packages to Azure
 
 ## Programming model
@@ -337,7 +341,7 @@ The generated `AzureWebJobsStorage` value is empty for Go projects. Set it to a 
 
 ### Compilation and packaging
 
-Core Tools handle Go builds for the common local and Azure deployment flows:
+The preview version of Core Tools handles Go builds for the common local and Azure deployment flows:
 
 - `func start` builds your project as *bin/app* for your local operating system before starting the local Functions host.
 - `func azure functionapp publish` builds, packages, and deploys your project to an existing function app in Azure.

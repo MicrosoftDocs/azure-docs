@@ -157,6 +157,14 @@ You can skip this section if you choose to instead [create and deploy your app u
 
 You can choose to deploy your project code to an existing function app using various tools:
 
+::: zone pivot="programming-language-go"
+Go deployment requires the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) preview package:
+
+```console
+npm install -g azure-functions-core-tools@preview --unsafe-perm true
+```
+::: zone-end
+
 ### [Azure CLI](#tab/azure-cli-publish)
 
 You can use the Azure CLI to upload a deployment package file to the deployment share for a function app in Azure. To make this deployment, you must produce a .zip package file that can run when the package is mounted to your app.
