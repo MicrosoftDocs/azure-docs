@@ -22,7 +22,7 @@ In this article, you learn how to associate your Azure App Configuration store w
 
 ## Sign in to Azure
 
-You need to sign in to Azure to access the App Configuration service.
+Sign in to Azure to access the App Configuration service.
 
 ### [Portal](#tab/azure-portal)
 
@@ -36,7 +36,7 @@ Sign in to Azure using the `az login` command in the [Azure CLI](/cli/azure/inst
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command prompts your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ---
 

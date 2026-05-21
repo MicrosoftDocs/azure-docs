@@ -14,7 +14,7 @@ ms.date: 05/18/2026
 
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources, such as a configuration store, that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
-Associating a configuration store with a network security perimeter lets you control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter).
+When you associate a configuration store with a network security perimeter, you can control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter).
 
 ## Transitioning to a network security perimeter
 
@@ -28,12 +28,12 @@ For a complete breakdown of how these settings interact, see [Moving new resourc
 
 ## Considerations for customer-managed key encryption
 
-If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter _or_ the NSP association is in Enforced mode), outbound communication to the Azure Key Vault resource must be permitted by the perimeter's access rules. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the App Configuration service communicates with an Azure Key Vault resource to access your encryption key. When the store's outbound requests are subject to NSP rules (public network access is Secured by perimeter _or_ the NSP association is in Enforced mode), the perimeter's access rules must permit outbound communication to the Azure Key Vault resource. To ensure the App Configuration service can continue to access the encryption key, you must configure your network security perimeter in either of the following ways:
 
 - **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
-- **FQDN outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
+- **FQDN-based outbound access rule**: Add a fully qualified domain name (FQDN) outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault holding the customer-managed key (for example, `mykeyvault.vault.azure.net`).
 
-If neither condition is met, the configuration store can't access the encryption key, and requests to the store will fail.
+If neither condition is met, the configuration store can't access the encryption key, and requests to the store fail.
 
 ## Considerations for monitoring
 
