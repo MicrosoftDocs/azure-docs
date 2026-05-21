@@ -152,12 +152,12 @@ sections:
       - question: Why does my Application Gateway show "SKU family Generation_1" even though I'm using a v2 SKU (WAF_v2 or Standard_v2)?
         answer: |
           This is expected and doesn't mean your gateway is running on v1. The "SKU family" and "SKU name" are two separate properties:
-        
+          
           | Property | What it means | Example |
           |---|---|---|
           | SKU name | The product tier you selected. Determines features, performance, and behavior. | `Standard_v2`, `WAF_v2` |
           | SKU family | An internal Azure platform label for the underlying hardware generation. Informational only. | `Generation_1` |
-        
+          
           - If your SKU name is `Standard_v2` or `WAF_v2`, you're running Application Gateway v2 with all v2 capabilities — regardless of what **SKU family** shows.
           - **SKU family** is assigned automatically by Azure. You can't change it in the portal, ARM, Bicep, or CLI, and you don't need to. It has no impact on functionality, performance, features, or billing.
           
