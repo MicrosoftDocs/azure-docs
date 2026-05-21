@@ -3,7 +3,7 @@ title: Deploy Delta Updates with Azure Device Update for IoT Hub | Microsoft Lea
 description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub.
 author: cwatson-cat
 ms.author: cwatson
-ms.date: 02/14/2025
+ms.date: 05/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 
@@ -148,7 +148,7 @@ Use this option if you build your device image with Yocto and want to use the to
 During a Yocto-based build, the DiffGen tool and related components are produced along with the device image. You can package and run these 
 tools on a compatible build host.
 
-To get started, see the [iot-hub-device-update-yocto repository](https://github.com/Azure/iot-hub-device-update-yocto), which provides the required layers and build configuration.
+To get started, see the [iot-hub-device-update-yocto repository](https://github.com/Azure/iot-hub-device-update-yocto/blob/feature/vnext-delta/README.md), which provides the required layers and build configuration.
 
 For details on how to package and use the generated tools, see [Delta tools distribution](https://github.com/Azure/iot-hub-device-update-yocto).
 
