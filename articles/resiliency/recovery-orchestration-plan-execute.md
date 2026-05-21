@@ -75,32 +75,30 @@ After failover starts:
 
 ## Reprotect resources after failover
 
-After failover completes, reprotect your resources to ensure they resume active replication and are protected for any future zone failure.
+After failover completes, reprotect your resources to resume active replication and restore protection against future zone failures. Complete reprotect at the earliest to minimize the duration of unprotected state. If a resource isn’t qualified for reprotect, verify that failover succeeds and add the resource back to the plan.
 
 To reprotect resources, follow these steps:
 
-1. On the Recovery Plan pane, select **Execute** > **Reprotect**. You can view all the resources that successfully complete failover and are eligible for reprotection.
+1. On the **Recovery Plan** pane, select **Execute** > **Reprotect**. You can view all the resources that successfully complete failover and are eligible for reprotection.
 1. On the **Re-protect** pane, under **Resources qualified for operation**, select the resources you want to reprotect.
 1. Select the confirmation checkbox.
 1. Select **Execute** to start the Reprotect operation.
 
-> [!NOTE]
-> After failover, complete reprotect to minimize the duration during which resources remain unprotected. If a resource doesn't appear as qualified for reprotect, verify that failover completes successfully and that you add the resource back to the plan.
 
 ## Run an on-demand readiness check
 
-Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. The following checks occur during the readiness check:
+Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. The following validations occur during the readiness check:
 
 - **Application Modification check**: Detects if new resource is added to or removed from the Service Group since the last check. Newly added resources appear with "State not selected" inclusion state (or are automatically excluded if HA-protected).
 - **Protection health check**: Validates the protection solution and health status for each resource. If a resource's protection health is degraded or the protection solution changed, the resource is marked with an appropriate Needs Attention code.
 
 To run an on-demand readiness check, follow these steps:
 
-1. On the Recovery Plan pane, select **Execute** > **Plan readiness check (on demand)**.
-1. Review the description of checks.
+1. On the **Recovery Plan** pane, select **Execute** > **Plan readiness check (on demand)**.
+   Review the description of checks.
 1. Select **Execute** to run the checks.
 
-After the readiness check completes, to review any new Needs Attention items and resolve them to maintain the plan in **Ready** state, go to **Configure Plan** > **Manage resource protection**.
+After the readiness check completes, to review any new **Needs Attention** items and resolve them to maintain the plan in **Ready** state, go to **Configure Plan** > **Manage resource protection**.
 
 ## Related content
 
