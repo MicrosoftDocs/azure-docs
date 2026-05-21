@@ -27,7 +27,7 @@ With that, your applications and AI agents can integrate with external services 
 
 You can consume connectors from Azure Functions, Azure Container Apps, Azure App Service, and other Azure compute services using language-specific software development kits (SDKs), or direct HTTP calls.
 
-You can also use Copilot and other AI agents to interact with connected systems using MCP servers published on the namespace.
+You can also use Copilot and other AI agents to interact with connected systems using MCP servers deployed on the namespace. The namespaces provides and manages the underlying compute for running servers so you don't have to bring your own. 
 
 ## What can you do with Connector Namespaces?
 
