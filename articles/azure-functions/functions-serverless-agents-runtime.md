@@ -21,7 +21,7 @@ The runtime is designed for agents that react to events, call tools, and run on 
 > [!NOTE]
 > The serverless agents runtime is in preview. Features, configuration names, and supported connectors can change before general availability.
 
-## Why build agents on Azure Functions
+## Why build agents on Azure Functions?
 
 Production agents need more than a prompt and a model. They need reliable ways to start work, call external systems, persist conversation history, run untrusted code safely, authenticate without secrets, emit telemetry, and scale on demand.
 
@@ -215,7 +215,7 @@ Azure connectors and connections are related but different. A connector defines 
 + **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
 + **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
 
-A connection MCP server entry stores the endpoint, optional tool allowlist, and managed identity authorization settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
+A connection MCP server entry stores the endpoint, optional tool allow list, and managed identity authorization settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
 
 ```json
 {
