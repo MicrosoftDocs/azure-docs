@@ -1,9 +1,9 @@
 ---
 title: Root Key Rotation for Azure Device Update for IoT Hub | Microsoft Docs
 description: Information about the rotation of Azure Device Update for IoT Hub root keys.
-author: sethmanheim
-ms.author: sethm
-ms.date: 2/21/2025
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 5/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -37,7 +37,7 @@ The Device Update team created a test mechanism to validate if your devices can 
 1. Verify that the update succeeded on your devices. If it did, your devices can receive updates signed with ADU.200703.R and are ready for the next rotation (or possible revocation).
 
 > [!NOTE]
-> Adopting [Device Update Agent version 1.1.0 or later](https://github.com/Azure/iot-hub-device-update/releases) is strongly recommended, which will automatically obtain all future root keys for your devices as needed, including during a revocation event.
+> Customers integrating root key handling are encouraged to use Device Update agent reference implementation version 1.1.0 or later, which includes support for obtaining future root keys, including during revocation events.
 
 ## More information
 
