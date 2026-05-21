@@ -123,7 +123,7 @@ Action invocations are synchronous calls. Trigger delivery uses webhooks or pull
 1.  You create a Connector Namespace in your Azure subscription.
 1.  You add an MCP server to the namespace - either a managed MCP server (from the curated list, or by publishing an existing connector) or a hosted MCP server from the catalog.
 
-1.  You authenticate the underlying connection. , you also set any server-specific configuration.
+1.  You authenticate the underlying connection and set any server-specific configuration.
 
 1.  The namespace publishes the MCP endpoint and runs the server, handling authentication, scale, and credential rotation.
 
