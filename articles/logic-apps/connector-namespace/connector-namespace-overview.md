@@ -45,7 +45,7 @@ Connector Namespaces let you integrate your applications with hundreds of extern
 
 - **Publish connectors as managed MCP servers.** Turn any namespace connector into a Model Context Protocol (MCP) server in one step. The namespace handles hosting, tool definitions, and authentication so Copilot and other AI agents can call the connector’s actions as tools.
 
-- **Add hosted MCP servers from a curated catalog.** Pick off-the-shelf MCP servers and add them to your namespace. You keep control of server configuration, while the namespace takes care of deployment, scale, and credentials with no infrastructure to manage.
+- **Deploy MCP servers from a curated catalog.** Pick off-the-shelf MCP servers and deploy them to your namespace. You keep control of server configuration, while the namespace takes care of deployment, scale, and credentials with no infrastructure to manage.
 
 ## Key concepts
 
