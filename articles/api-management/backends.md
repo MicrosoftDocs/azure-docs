@@ -467,12 +467,12 @@ The following example shows how to set a custom header with the backend type in 
 
 ## Limitations
 
-- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog.
+- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/blog/azurepaasblog/self-chained-apim-request-limitation-in-internal-virtual-network-mode-developer-/1940417) article in the Tech Community blog.
 - Currently, you can configure only one rule for a backend circuit breaker.  
 
 ## Related content
 
-* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
+* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/using-azure-api-management-circuit-breaker-and-load-balancing-with-azure-openai-/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
 * Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance OpenAI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)
 * See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that the gateway generates when a circuit breaker trips or resets. Use these events to take action before backend issues escalate. 

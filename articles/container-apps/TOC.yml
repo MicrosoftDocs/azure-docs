@@ -236,6 +236,8 @@ items:
               href: functions-gpu-container-apps.md
             - name: "Tutorial: GPU image generation with Functions on ACA"
               href: tutorial-gpu-image-generation.md
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -384,6 +386,8 @@ items:
           href: managed-identity-image-pull.md
     - name: Secure deployments
       href: secure-deployment.md
+    - name: Confidential compute
+      href: confidential-compute.md
 - name: Resiliency (preview)
   items:
     - name: Service discovery resiliency

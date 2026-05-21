@@ -47,6 +47,15 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 - Autoforwarding isn't supported for session-enabled queues or subscriptions. 
 - Source queue tries to forward messages to the destination entity in the same order it received, but the destination could be a topic that doesn't support ordering. If either the source or destination entity is a partitioned entity, order isn't guaranteed.
 
+## Autoforwarding and metrics
+
+When a message is successfully auto-forwarded, it counts toward the **Incoming Messages** metric on the destination entity. The source entity's **Outgoing Messages** metric doesn't include auto-forwarded messages.
+
+When an auto-forward attempt fails because the destination has sessions enabled or hits a transient error, Service Bus retries the send. Each retry that reaches the destination is counted in the destination's **Incoming Messages** metric, so one source message that retries can produce more than one entry in the destination's incoming count.
+
+When the destination entity is deleted or disabled, the source dead-letters the message and no incoming count is recorded on the destination.
+
+For the full list of Service Bus metrics, see [Monitoring data reference](monitor-service-bus-reference.md).
 
 ## Related content
 To learn how to enable or disable auto forwarding in different ways (Azure portal, PowerShell, CLI, Azure Resource Management template, etc.), see [Enable auto forwarding for queues and subscriptions](enable-auto-forward.md).
