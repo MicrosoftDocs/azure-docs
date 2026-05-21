@@ -218,13 +218,6 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
 
-## Prerequisites
-
-To use data flow graphs, you need:
-
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- The default registry endpoint that points to `mcr.microsoft.com`, which is created automatically during deployment.
-
 ## Next steps
 
 - [Data flows vs. data flow graphs](overview-dataflow-comparison.md)

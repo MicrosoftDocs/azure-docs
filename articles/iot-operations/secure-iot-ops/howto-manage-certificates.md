@@ -18,7 +18,7 @@ For information about managing certificates for internal communications, includi
 
 ## Prerequisites
 
-To manage certificates for external communications, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](howto-enable-secure-settings.md).
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 ## Manage certificates for external communications
 

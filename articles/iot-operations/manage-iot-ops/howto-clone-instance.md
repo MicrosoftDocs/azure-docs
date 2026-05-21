@@ -27,7 +27,7 @@ Use-case scenarios for clone include:
 
 * An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.62.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Clone is currently compatible with the following IoT Operations instance version range: `1.0.34>=,<1.2.0`. Use the following command to update or install the extension. Replace `<VERSION_NUMBER>` with a version that is compatible with your instance.
 
