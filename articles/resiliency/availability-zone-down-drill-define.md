@@ -43,7 +43,9 @@ To define an Availability Zone Down simulation drill, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Service groups** and select the service group for which you want to define the drill.
 
-1. On the selected service group pane, select **Resiliency** > **Drills**.
+1. On the **selected service group** pane, select **Resiliency** > **Drills**.
+
+   :::image type="content" source="./media/availability-zone-down-drill-define/create-drill-instance.png" alt-text="Screenshot that shows how to start creating a drill instance." lightbox="./media/availability-zone-down-drill-define/create-drill-instance.png":::
 
 1. On the **Drills** pane, select **+ Create drill**.
 
@@ -54,6 +56,8 @@ To define an Availability Zone Down simulation drill, follow these steps:
 1. On the **Permissions** tab, select **System-assigned identity** or **User-assigned identity** that allows you to securely fetch Service Group resources, execute Recovery Plans, and manage metrics.
 
    You can use the same identity for fault injection or select a different one.
+
+   :::image type="content" source="./media/availability-zone-down-drill-define/assign-permission.png" alt-text="Screenshot that shows how to assign permission for the drill instance." lightbox="./media/availability-zone-down-drill-define/assign-permission.png":::
 
 1. On the **Review + create** tab, review the configuration, and select **Create** to confirm creation of the drill instance.
 
@@ -82,6 +86,8 @@ To review drill role assignment status, follow these steps:
 
 If there are errors in Drills Role Assignment status,  reassess the status by selecting **Assess role assignment readiness**.
 
+   :::image type="content" source="./media/availability-zone-down-drill-define/check-role-assignment-readiness.png" alt-text="Screenshot that shows how to check for the drill role assignment readiness." lightbox="./media/availability-zone-down-drill-define/check-role-assignment-readiness.png":::
+
 ### Review the resources included in the drill
 
 The zone down drill allows you to review the resources included in the drill. The drill does the following actions:
@@ -92,7 +98,10 @@ The zone down drill allows you to review the resources included in the drill. Th
 
 To include resources in the drill, follow these steps:
 
-1. On the selected drill instance pane, select **Settings** > **Drills scope**.
+1. On the **selected drill instance** pane, select **Settings** > **Drills scope**.
+
+   :::image type="content" source="./media/availability-zone-down-drill-define/view-drill-details.png" alt-text="Screenshot that shows how to view drill details." lightbox="./media/availability-zone-down-drill-define/view-drill-details.png":::
+
 1. On the **Drill scope** pane, on the **Resiliency solutions** tab, under **Resources excluded from drill**, select **View details**.
 1. On the **View details and include resources** pane, to add an excluded resource, select the resource from the list, and select **Include resources**.
 
@@ -110,6 +119,8 @@ To design faults for supported and unsupported resources in the drill, follow th
 
 1. On the selected drill instance pane, select **Settings** > **Drills scope**.
 1. On the **Drills scope** pane, on the **Fault designer** tab, to review or modify the corresponding fault design status of resources, select a resource from the list and select **Edit fault**.
+
+   :::image type="content" source="./media/availability-zone-down-drill-define/edit-fault.png" alt-text="Screenshot that shows how to edit fault details." lightbox="./media/availability-zone-down-drill-define/edit-fault.png":::
 
 1. For unsupported resource type fault details configuration, on the **Fault details** pane, define custom fault logic using Azure Runbooks and select **Save**.
 
