@@ -3,7 +3,7 @@ title: Azure Device Update for IoT Hub agent overview
 description: Understand the structure and functions of the Azure Device Update for IoT Hub agent.
 author: cwatson-cat
 ms.author: cwatson
-ms.date: 12/19/2024
+ms.date: 05/21/2026
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -60,7 +60,7 @@ Update handlers invoke installers or commands to do over-the-air updates. You ca
 
 You can check the installed versions of the Device Update agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md).
 
-Use a current 1.x version of the Device Update agent reference implementation and consider the latest available version to benefit from improvements. The latest Device Update agent reference implementation version is 1.3.0. For details, see the [Device Update for IoT Hub supported platforms](support.md).
+Use the latest 1.x version of the Device Update agent reference implementation to benefit from the latest improvements. For information, see the [Device Update for IoT Hub supported platforms](support.md).
 
 ## Related content
 
