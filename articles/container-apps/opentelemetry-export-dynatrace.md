@@ -9,6 +9,7 @@ ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
+<!-- TODO: confirm with @jeffwmartinez — ms.author is currently set to cshoe (Craig Shoemaker). If Jeff Martinez is the primary author, update ms.author to Jeff's Microsoft alias before publishing. -->
 
 # Configure Azure Container Apps OpenTelemetry export to Dynatrace
 
