@@ -1,5 +1,5 @@
 ---
-title: What is Napster Companion API?
+title: What is Napster Companion API? (preview)
 description: Learn about Napster Companion API, an Azure Native Integration that lets you build, deploy, and operate persistent multimodal AI agents (Omniagents) across video, voice, text, and telephony channels.
 ms.topic: overview
 ms.date: 05/20/2026
@@ -7,7 +7,7 @@ ms.custom:
   - ignite-2026
 ---
 
-# What is Napster Companion API?
+# What is Napster Companion API? (preview)
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 

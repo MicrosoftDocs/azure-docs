@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get started with Napster Companion API"
+title: "Quickstart: Get started with Napster Companion API (preview)"
 description: Learn how to create a Napster Companion API resource in the Azure portal.
 ms.topic: quickstart
 ms.date: 05/20/2026
@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2026
 ---
 
-# Quickstart: Get started with Napster Companion API
+# Quickstart: Get started with Napster Companion API (preview)
 
 In this quickstart, you create an instance of Napster Companion API.
 

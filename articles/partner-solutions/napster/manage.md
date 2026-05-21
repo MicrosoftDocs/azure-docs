@@ -1,5 +1,5 @@
 ---
-title: Manage a Napster Companion API resource through the Azure portal
+title: Manage a Napster Companion API resource through the Azure portal (preview)
 description: This article describes management functions for Napster Companion API on the Azure portal.
 
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 05/20/2026
 ---
 
-# Manage a Napster Companion API resource
+# Manage a Napster Companion API resource (preview)
 
 This article describes how to manage the settings for Napster Companion API resources.
 

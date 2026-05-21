@@ -1,5 +1,5 @@
 ---
-title: Napster Companion API developer resources and tools
+title: Napster Companion API developer resources and tools (preview)
 description: Learn about resources and developer tools available with Napster Companion API - Azure Native Integrations.
 
 ms.topic: overview
@@ -9,7 +9,7 @@ ms.date: 05/20/2026
 
 ---
 
-# What are some resources and tools you can use with Napster Companion API?
+# What are some resources and tools you can use with Napster Companion API? (preview)
 
 In this article, you learn about resources and tools for use with Napster Companion API - Azure Native Integrations.
 
