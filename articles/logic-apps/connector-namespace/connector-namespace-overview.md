@@ -27,7 +27,7 @@ With that, your applications and AI agents can integrate with external services 
 
 You can consume connectors from Azure Functions, Azure Container Apps, Azure App Service, and other Azure compute services using language-specific software development kits (SDKs), or direct HTTP calls.
 
-You can also use Copilot and other AI agents to interact with connected systems using MCP servers published on the namespace.
+You can also use Copilot and other AI agents to interact with connected systems using MCP servers deployed on the namespace. The namespaces provides and manages the underlying compute for running servers so you don't have to bring your own. 
 
 ## What can you do with Connector Namespaces?
 
@@ -45,7 +45,7 @@ Connector Namespaces let you integrate your applications with hundreds of extern
 
 - **Publish connectors as managed MCP servers.** Turn any namespace connector into a Model Context Protocol (MCP) server in one step. The namespace handles hosting, tool definitions, and authentication so Copilot and other AI agents can call the connector’s actions as tools.
 
-- **Add hosted MCP servers from a curated catalog.** Pick off-the-shelf MCP servers and add them to your namespace. You keep control of server configuration, while the namespace takes care of deployment, scale, and credentials with no infrastructure to manage.
+- **Deploy MCP servers from a curated catalog.** Pick off-the-shelf MCP servers and deploy them to your namespace. You keep control of server configuration, while the namespace takes care of deployment, scale, and credentials with no infrastructure to manage.
 
 ## Key concepts
 
@@ -85,7 +85,7 @@ A *trigger* is an event subscription that your application registers on a connec
 
 An *MCP server* is a first-class resource in your namespace that exposes tools to AI agents over the Model Context Protocol. The namespace supports two types of MCP servers, both hosted by the service:
 
-- **Managed MCP servers.** Created and configured by the namespace, either from a curated list of managed servers or by publishing any connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime.
+- **Managed MCP servers.** A list of managed servers and connectors created and configured by the namespace. Deploy a managed server or connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime.
 
 - **Hosted MCP servers.** Off-the-shelf MCP servers from a curated catalog that you add to your namespace and configure yourself. You keep control over server settings, environment, and parameters; the namespace handles hosting, scale, and credentials.
 
