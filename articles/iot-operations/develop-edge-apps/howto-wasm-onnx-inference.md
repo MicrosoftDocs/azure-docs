@@ -6,6 +6,8 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 02/26/2026
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ai-usage: ai-assisted
 
 ---

@@ -122,10 +122,10 @@ You can use the same Azure migrate collector to discover both VMware machines an
     - Select **Save**.
 
 > [!NOTE]
-> -Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
-> -It doesn't support SSH keys with a passphrase. Use a key without a passphrase.
-> -It doesn't support SSH private key files created by PuTTY.
-> -It supports SSH private key files in OpenSSH format.
+> - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
+> - It doesn't support SSH keys with a passphrase. Use a key without a passphrase.
+> - It doesn't support SSH private key files created by PuTTY.
+> - It supports SSH private key files in OpenSSH format.
 > -To add multiple credentials at once, select Add more to save and enter more credentials. 
 
 ### Provide Windows and Linux server details

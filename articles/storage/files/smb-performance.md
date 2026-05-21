@@ -39,7 +39,182 @@ Higher I/O sizes drive higher throughput and have higher latencies, resulting in
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share, improving throughput and resiliency. Azure Files supports SMB Multichannel on SSD file shares for both Windows and Linux SMB clients. For supported Linux OS versions and detailed configuration, see the Linux SMB Multichannel section.
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share, improving throughput and resiliency. Azure Files supports SMB Multichannel on SSD file shares for both Windows and Linux SMB clients. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. For supported Linux OS versions and detailed configuration, see [Linux SMB Multichannel](#linux-smb-multichannel-support).
+
+### Benefits of SMB Multichannel
+
+SMB Multichannel enables clients to use multiple network connections that provide increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the I/O load across multiple CPUs.
+
+- **Increased throughput**:
+    Multiple connections allow data to be transferred over multiple paths in parallel and thereby significantly benefits workloads that use larger file sizes with larger I/O sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, and financial services risk analysis.
+- **Higher IOPS**:
+    NIC RSS capability allows effective load distribution across multiple CPUs with multiple connections. This helps achieve higher IOPS scale and effective utilization of VM CPUs. This is useful for workloads that have small I/O sizes, such as database applications.
+- **Network fault tolerance**:
+    Multiple connections mitigate the risk of disruption since clients no longer rely on an individual connection.
+- **Automatic configuration**:
+    When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create additional connection paths as necessary.
+- **Cost optimization**:
+    Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD file shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
+- **Linux client performance scaling**:
+    Linux SMB clients can now leverage multichannel to increase throughput and IOPS similar to Windows.
+- **Cross-platform consistency**:
+    Enables hybrid environments with both Windows and Linux clients achieving optimal performance.
+- **Resiliency**:
+    Multiple channels improve fault tolerance over heterogeneous networking.
+
+For more information about SMB Multichannel, see the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
+
+This feature provides greater performance benefits to multi-threaded applications but typically doesn't help single-threaded applications. See the [Performance comparison](#performance-comparison) section for more details.
+
+### Limitations
+
+SMB Multichannel for Azure file shares currently has the following restrictions:
+
+- Only available for SSD file shares. Not available for HDD file shares.
+- Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
+- Maximum number of channels is four. For details, see [here](/troubleshoot/azure/azure-storage/files/performance/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
+
+### Verify SMB Multichannel is enabled on clients
+
+SMB Multichannel only works when the feature is enabled on both client-side (your client) and service-side (your Azure storage account).
+
+On Windows clients, SMB Multichannel is enabled by default. You can verify your configuration by running the following PowerShell command:
+
+```PowerShell
+Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
+```
+
+### Verify SMB Multichannel is enabled on your storage account
+
+You can view the status of SMB Multichannel and enable or disable it on a storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
+
+# [Portal](#tab/azure-portal)
+To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
+
+:::image type="content" source="media/smb-performance/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/smb-performance/smb-multichannel-enabled.png":::
+
+To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
+
+:::image type="content" source="media/smb-performance/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable or disable the SMB Multichannel feature.":::
+
+# [PowerShell](#tab/azure-powershell)
+To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
+
+```PowerShell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName
+
+# If you've never enabled or disabled SMB Multichannel and your file share was created before
+# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
+# null. Null returned values should be interpreted as "default settings are in effect". 
+# To make this more user-friendly, the following PowerShell commands replace null values with 
+# the human-readable default values. 
+$nullSmbMultichannelEnabled = $false
+
+# Get the current value for SMB Multichannel
+Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
+    Select-Object -Property `
+        ResourceGroupName, `
+        StorageAccountName, `
+        @{ 
+            Name = "SmbMultichannelEnabled"; 
+            Expression = { 
+                if ($null -eq $_.ProtocolSettings.Smb.Multichannel.Enabled) { 
+                    $nullSmbMultichannelEnabled 
+                } else { 
+                    $_.ProtocolSettings.Smb.Multichannel.Enabled 
+                } 
+            } 
+        }
+```
+
+To enable or disable SMB Multichannel, use the `Update-AzStorageFileServiceProperty` cmdlet.
+
+```PowerShell
+Update-AzStorageFileServiceProperty `
+    -StorageAccount $storageAccount `
+    -EnableSmbMultichannel $true
+```
+
+# [Azure CLI](#tab/azure-cli)
+To get the status of SMB Multichannel, use the `az storage account file-service-properties show` command. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these commands.
+
+```bash
+RESOURCE_GROUP_NAME="<resource-group>"
+STORAGE_ACCOUNT_NAME="<storage-account>"
+
+# If you've never enabled or disabled SMB Multichannel and your file share was created before
+# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
+# null. Null returned values should be interpreted as "default settings are in effect". 
+# To make this more user-friendly, the following commands replace null values with 
+# the human-readable default values. 
+
+## Search strings
+REPLACESMBMULTICHANNEL="\"smbMultichannelEnabled\": null"
+
+# Replacement values for null parameters. 
+NULLSMBMULTICHANNELENABLED="\"smbMultichannelEnabled\": false"
+
+# Build JMESPath query string
+QUERY="{" 
+QUERY="${QUERY}smbMultichannelEnabled: protocolSettings.smb.multichannel.enabled"
+QUERY="${QUERY}}"
+
+# Get protocol settings from the Azure Files FileService object
+protocolSettings=$(az storage account file-service-properties show \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    --query "${QUERY}")
+
+# Replace returned values if null with default values 
+PROTOCOL_SETTINGS="${protocolSettings/$REPLACESMBMULTICHANNEL/$NULLSMBMULTICHANNELENABLED}"
+
+# Print returned settings
+echo $PROTOCOL_SETTINGS
+```
+
+To enable or disable SMB Multichannel, use the `az storage account file-service-properties update` command.
+
+```azurecli
+az storage account file-service-properties update \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    --enable-smb-multichannel "true"
+```
+---
+
+### Enable SMB Multichannel on older Windows operating systems
+
+To support SMB Multichannel in Azure Files, make sure Windows has all the relevant patches. For several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, set extra registry keys to apply all relevant SMB Multichannel fixes on fully patched installations. If you're running a version of Windows that's newer than these three versions, no extra action is required.
+
+#### Windows Server 2016 and Windows 10 version 1607
+
+To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
+    -Name "2291605642" `
+    -Value 1 `
+    -Force
+```
+
+#### Windows 10 version 1507
+
+To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
+
+```PowerShell
+Set-ItemProperty `
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
+    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
+    -Value 1 `
+    -Force
+```
 
 ### Linux SMB Multichannel support
 
@@ -73,63 +248,16 @@ mount -t cifs //<storageaccount>.file.core.windows.net/<share> /mnt/azfiles \
    multiuser,serverino,actimeo=30,max_channels=4
 ```
 
-### Benefits
+### Verify SMB Multichannel is configured correctly
 
-SMB Multichannel enables clients to use multiple network connections that provide increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the I/O load across multiple CPUs.
-
-- **Increased throughput**:
-    Multiple connections allow data to be transferred over multiple paths in parallel and thereby significantly benefits workloads that use larger file sizes with larger I/O sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, and financial services risk analysis.
-- **Higher IOPS**:
-    NIC RSS capability allows effective load distribution across multiple CPUs with multiple connections. This helps achieve higher IOPS scale and effective utilization of VM CPUs. This is useful for workloads that have small I/O sizes, such as database applications.
-- **Network fault tolerance**:
-    Multiple connections mitigate the risk of disruption since clients no longer rely on an individual connection.
-- **Automatic configuration**:
-    When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create additional connection paths as necessary.
-- **Cost optimization**:
-    Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD file shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
-- **Linux client performance scaling**:
-    Linux SMB clients can now leverage multichannel to increase throughput and IOPS similar to Windows.
-- **Cross-platform consistency**:
-    Enables hybrid environments with both Windows and Linux clients achieving optimal performance.
-- **Resiliency**:
-    Multiple channels improve fault tolerance over heterogeneous networking.
-
-For more information about SMB Multichannel, see the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
-
-This feature provides greater performance benefits to multi-threaded applications but typically doesn't help single-threaded applications. See the [Performance comparison](#performance-comparison) section for more details.
-
-### Limitations
-
-SMB Multichannel for Azure file shares currently has the following restrictions:
-
-- Only available for SSD file shares. Not available for HDD file shares.
-- Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
-- Maximum number of channels is four. For details, see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
-
-### Windows configuration
-
-SMB Multichannel only works when the feature is enabled on both client-side (your client) and service-side (your Azure storage account).
-
-On Windows clients, SMB Multichannel is enabled by default. You can verify your configuration by running the following PowerShell command:
-
-```PowerShell
-Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
-```
-
-If SMB Multichannel isn't enabled on your Azure storage account, see [SMB Multichannel status](files-smb-protocol.md#smb-multichannel).
-
-#### Disable SMB Multichannel
-
-In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [Performance comparison](#performance-comparison) and [SMB Multichannel status](files-smb-protocol.md#smb-multichannel) for more details.
-
-#### Verify SMB Multichannel is configured correctly
+To verify that SMB Multichannel is configured correctly, follow these steps:
 
 1. Create a new SSD file share or use an existing SSD file share.
 1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
-1. Open PowerShell as an admin and use the following command:
+1. Open PowerShell as an admin and run the following command:
 `Get-SmbMultichannelConnection |fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties.
 

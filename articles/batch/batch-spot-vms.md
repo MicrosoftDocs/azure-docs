@@ -2,7 +2,7 @@
 title: Run Batch workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 ms.topic: how-to
-ms.date: 04/14/2026
+ms.date: 05/20/2026
 ms.custom:
 # Customer intent: "As a cloud solutions architect, I want to deploy Batch workloads using Spot VMs, so that I can reduce costs while managing jobs with flexible completion times and efficient resource allocation."
 ---
@@ -68,35 +68,48 @@ Spot VMs might occasionally be preempted. When preemption happens, tasks that we
 
 The following example creates a pool using Azure virtual machines, in this case Linux VMs, with a target of 5 dedicated VMs and 20 Spot VMs:
 
-```csharp
-ImageReference imageRef = new ImageReference(
-    publisher: "Canonical",
-    offer: "ubuntu-24_04-lts",
-    sku: "server",
-    version: "latest");
+```C# Snippet:spot_vms_pool_create
+BatchImageReference imageRef = new BatchImageReference()
+{
+    Publisher = "Canonical",
+    Offer = "ubuntu-24_04-lts",
+    Sku = "server",
+    Version = "latest"
+};
 
 // Create the pool
-VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration("batch.node.ubuntu 24.04", imageRef);
+BatchVmConfiguration vmConfiguration =
+    new BatchVmConfiguration(imageRef, "batch.node.ubuntu 24.04");
 
-pool = batchClient.PoolOperations.CreatePool(
-    poolId: "vmpool",
-    targetDedicatedComputeNodes: 5,
-    targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard_D4s_v3",
-    virtualMachineConfiguration: virtualMachineConfiguration);
+BatchAccountPoolData poolData = new BatchAccountPoolData()
+{
+    VmSize = "Standard_D4s_v3",
+    DeploymentConfiguration = new BatchDeploymentConfiguration() { VmConfiguration = vmConfiguration },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings()
+        {
+            TargetDedicatedNodes = 5,
+            TargetLowPriorityNodes = 20
+        }
+    }
+};
+
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, "vmpool", poolData);
 ```
 
 You can get the current number of nodes for both dedicated and Spot VMs:
 
-```csharp
-int? numDedicated = pool1.CurrentDedicatedComputeNodes;
-int? numLowPri = pool1.CurrentLowPriorityComputeNodes;
+```C# Snippet:spot_vms_pool_node_counts
+BatchAccountPoolResource pool = await batchAccount.GetBatchAccountPools().GetAsync("vmpool");
+int? numDedicated = pool.Data.CurrentDedicatedNodes;
+int? numLowPri = pool.Data.CurrentLowPriorityNodes;
 ```
 
 Pool nodes have a property to indicate if the node is a dedicated or Spot VM:
 
-```csharp
+```C# Snippet:spot_vms_node_dedicated
+BatchNode poolNode = await batchClient.GetNodeAsync("vmpool", "tvm-1");
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
@@ -104,8 +117,17 @@ As with pools solely consisting of dedicated VMs, it's possible to scale a pool 
 
 The pool resize operation takes a second optional parameter that updates the value of `targetLowPriorityNodes`:
 
-```csharp
-pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
+```C# Snippet:spot_vms_pool_resize
+BatchAccountPoolData poolData = pool.Data;
+poolData.ScaleSettings = new BatchAccountPoolScaleSettings()
+{
+    FixedScale = new BatchAccountFixedScaleSettings()
+    {
+        TargetDedicatedNodes = 0,
+        TargetLowPriorityNodes = 25
+    }
+};
+await pool.UpdateAsync(poolData);
 ```
 
 ### Azure CLI

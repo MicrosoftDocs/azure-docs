@@ -63,16 +63,16 @@ The following table shows Windows support for SMB version, SMB Multichannel<sup>
 | Windows 10, version 2004 | SMB 3.1.1 | Yes, with KB5003690 or newer | AES-128-GCM |
 | Windows Server 2019 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
 | Windows 10, version 1809 | SMB 3.1.1 | Yes, with KB5003703 or newer | AES-128-GCM |
-| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
-| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](files-smb-protocol.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
-| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](files-smb-protocol.md#windows-10-version-1507) | AES-128-GCM |
+| Windows Server 2016 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](smb-performance.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1607 | SMB 3.1.1 | Yes, with KB5004238 or newer and [applied registry key](smb-performance.md#windows-server-2016-and-windows-10-version-1607) | AES-128-GCM |
+| Windows 10, version 1507 | SMB 3.1.1 | Yes, with KB5004249 or newer and [applied registry key](smb-performance.md#windows-10-version-1507) | AES-128-GCM |
 | Windows Server 2012 R2<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
 | Windows Server 2012<sup>2</sup> | SMB 3.0 | No | AES-128-CCM |
 | Windows 8.1<sup>3</sup> | SMB 3.0 | No | AES-128-CCM |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | No | Not supported |
 | Windows 7<sup>3</sup> | SMB 2.1 | No | Not supported |
 
-<sup>1</sup>Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD (premium) file shares only.
+<sup>1</sup>Azure Files supports [SMB Multichannel](smb-performance.md#smb-multichannel) on SSD (premium) file shares only.
 
 <sup>2</sup>Regular Microsoft support for Windows Server 2012 and Windows Server 2012 R2 has ended. You can purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates).
 
@@ -120,135 +120,7 @@ This behavior is by design because it helps preserve handle integrity and preven
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions.
-
-# [Portal](#tab/azure-portal)
-To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
-
-:::image type="content" source="media/files-smb-protocol/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/files-smb-protocol/smb-multichannel-enabled.png":::
-
-To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
-
-:::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature.":::
-
-# [PowerShell](#tab/azure-powershell)
-To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
-
-```PowerShell
-$resourceGroupName = "<resource-group>"
-$storageAccountName = "<storage-account>"
-
-# Get reference to storage account
-$storageAccount = Get-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -StorageAccountName $storageAccountName
-
-# If you've never enabled or disabled SMB Multichannel and your file share was created before
-# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
-# null. Null returned values should be interpreted as "default settings are in effect". 
-# To make this more user-friendly, the following PowerShell commands replace null values with 
-# the human-readable default values. 
-$nullSmbMultichannelEnabled = $false
-
-# Get the current value for SMB Multichannel
-Get-AzStorageFileServiceProperty -StorageAccount $storageAccount | `
-    Select-Object -Property `
-        ResourceGroupName, `
-        StorageAccountName, `
-        @{ 
-            Name = "SmbMultichannelEnabled"; 
-            Expression = { 
-                if ($null -eq $_.ProtocolSettings.Smb.Multichannel.Enabled) { 
-                    $nullSmbMultichannelEnabled 
-                } else { 
-                    $_.ProtocolSettings.Smb.Multichannel.Enabled 
-                } 
-            } 
-        }
-```
-
-To enable or disable SMB Multichannel, use the `Update-AzStorageFileServiceProperty` cmdlet.
-
-```PowerShell
-Update-AzStorageFileServiceProperty `
-    -StorageAccount $storageAccount `
-    -EnableSmbMultichannel $true
-```
-
-# [Azure CLI](#tab/azure-cli)
-To get the status of SMB Multichannel, use the `az storage account file-service-properties show` command. Replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these commands.
-
-```bash
-RESOURCE_GROUP_NAME="<resource-group>"
-STORAGE_ACCOUNT_NAME="<storage-account>"
-
-# If you've never enabled or disabled SMB Multichannel and your file share was created before
-# October 24, 2025, the value for the SMB Multichannel property returned by Azure Files will be 
-# null. Null returned values should be interpreted as "default settings are in effect". 
-# To make this more user-friendly, the following commands replace null values with 
-# the human-readable default values. 
-
-## Search strings
-REPLACESMBMULTICHANNEL="\"smbMultichannelEnabled\": null"
-
-# Replacement values for null parameters. 
-NULLSMBMULTICHANNELENABLED="\"smbMultichannelEnabled\": false"
-
-# Build JMESPath query string
-QUERY="{" 
-QUERY="${QUERY}smbMultichannelEnabled: protocolSettings.smb.multichannel.enabled"
-QUERY="${QUERY}}"
-
-# Get protocol settings from the Azure Files FileService object
-protocolSettings=$(az storage account file-service-properties show \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --account-name $STORAGE_ACCOUNT_NAME \
-    --query "${QUERY}")
-
-# Replace returned values if null with default values 
-PROTOCOL_SETTINGS="${protocolSettings/$REPLACESMBMULTICHANNEL/$NULLSMBMULTICHANNELENABLED}"
-
-# Print returned settings
-echo $PROTOCOL_SETTINGS
-```
-
-To enable or disable SMB Multichannel, use the `az storage account file-service-properties update` command.
-
-```azurecli
-az storage account file-service-properties update \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --account-name $STORAGE_ACCOUNT_NAME \
-    --enable-smb-multichannel "true"
-```
----
-
-### Enable SMB Multichannel on older operating systems
-
-To support SMB Multichannel in Azure Files, make sure Windows has all the relevant patches. For several older Windows versions, including Windows Server 2016, Windows 10 version 1607, and Windows 10 version 1507, set extra registry keys to apply all relevant SMB Multichannel fixes on fully patched installations. If you're running a version of Windows that's newer than these three versions, no extra action is required.
-
-#### Windows Server 2016 and Windows 10 version 1607
-
-To enable all SMB Multichannel fixes for Windows Server 2016 and Windows 10 version 1607, run the following PowerShell command:
-
-```PowerShell
-Set-ItemProperty `
-    -Path "HKLM:\SYSTEM\CurrentControlSet\Policies\Microsoft\FeatureManagement\Overrides" `
-    -Name "2291605642" `
-    -Value 1 `
-    -Force
-```
-
-#### Windows 10 version 1507
-
-To enable all SMB Multichannel fixes for Windows 10 version 1507, run the following PowerShell command:
-
-```PowerShell
-Set-ItemProperty `
-    -Path "HKLM:\SYSTEM\CurrentControlSet\Services\MRxSmb\KBSwitch" `
-    -Name "{FFC376AE-A5D2-47DC-A36F-FE9A46D53D75}" `
-    -Value 1 `
-    -Force
-```
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [SMB Multichannel](files-smb-protocol.md#smb-multichannel) for more details.
 
 ### Security
 

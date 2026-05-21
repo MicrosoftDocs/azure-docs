@@ -38,7 +38,7 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 >Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features.
 
 >[!IMPORTANT]
->Starting May 31, 2026, basic networking is no longer available for new volumes and Azure NetApp Files volumes will start using Standard Networking by default. Any requests that that specify Basic Networking will be automatically upgraded to Standard Networking. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard Networking features. Existing volumes are not affected and no customer action is required.
+>Starting July 2026, Basic networking is no longer available for new volumes and Azure NetApp Files volumes will start using Standard networking by default. Any requests that specify Basic networking will be automatically upgraded to Standard networking. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard networking features. Existing volumes are not affected and no customer action is required.
 
 The following table describes what’s supported for each network features configuration:
 
