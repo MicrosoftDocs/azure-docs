@@ -2,8 +2,8 @@
 title: Access control and security for DPS with Microsoft Entra ID
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for back-end apps. Includes information about Microsoft Entra ID and RBAC.
-author: sethmanheim
-ms.author: sethm
+author: jesusbar
+ms.author: jesusbar
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 02/07/2022
