@@ -25,7 +25,7 @@ The maximum size of the task collection that you can add in a single call depend
 These Batch APIs limit the collection to 100 tasks. The limit could be smaller depending on the size of the tasks (for example, if the tasks have a large number of resource files or environment variables).
 
 - [REST API](/rest/api/batchservice/task/addcollection)
-- [Node.js API](/javascript/api/@azure-rest/batch/)
+- [Node.js API](/javascript/api/@azure/batch/)
 
 When using these APIs, you need to provide logic to divide the number of tasks to meet the collection limit, and to handle errors and retries in case of task addition failures. If a task collection is too large to add, the request generates an error and should be retried again with fewer tasks.
 
