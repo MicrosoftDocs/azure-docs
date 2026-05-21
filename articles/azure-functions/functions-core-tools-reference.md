@@ -1149,6 +1149,7 @@ Adds the `python` stack to `func init` and contributes these options:
 | Option | Description |
 | ----- | ----- |
 | **`--no-bundle`** | Skip writing the default extension bundle block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
 
 ### `node` workload
 
@@ -1157,6 +1158,7 @@ Adds the `node` stack to `func init` and contributes these options:
 | Option | Description |
 | ----- | ----- |
 | **`--no-bundle`** | Skip writing the default extension bundle block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
 | **`--skip-npm-install`** | Skip running `npm install` after project creation. |
 
 ### `go` workload
@@ -1165,6 +1167,8 @@ Adds the `go` stack to `func init` and contributes these options:
 
 | Option | Description |
 | ----- | ----- |
+| **`--no-bundle`** | Skip writing the default extension bundle block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
 | **`--skip-go-mod-tidy`** | Skip running `go mod tidy` after project creation. |
 
 ### `quickstart` workload
