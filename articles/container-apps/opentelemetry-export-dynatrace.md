@@ -49,10 +49,10 @@ For token creation steps and permission details, see [Dynatrace token and permis
 
 ## Configure OpenTelemetry destinations
 
-Use one of the following options to configure Dynatrace as an OTel endpoint in your Container Apps environment.
+Use one of the following options to configure Dynatrace as an OpenTelemetry endpoint in your Container Apps environment.
 
 > [!IMPORTANT]
-> Configuring a managed OpenTelemetry destination doesn't automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
+> Configuring a managed OpenTelemetry destination does not automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
 
 # [Bicep](#tab/bicep)
 
@@ -64,7 +64,7 @@ $DYNATRACE_OTLP_ENDPOINT = "https://<TENANT>.live.dynatrace.com/api/v2/otlp"
 $DYNATRACE_API_TOKEN = "<DYNATRACE_INGEST_TOKEN>"
 ```
 
-Use only the OTLP base endpoint (`/api/v2/otlp`). Don't append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
+Use only the OTLP base endpoint (`/api/v2/otlp`). Do not append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
 
 ```bicep
 var dynatraceEndpoint = 'https://<TENANT>.live.dynatrace.com/api/v2/otlp'
@@ -178,7 +178,7 @@ Use the same endpoint and token values shown earlier in this guide, including th
 
 # [Azure portal](#tab/portal)
 
-Use the Azure portal path shown in the screenshots:
+Use the following steps to configure Dynatrace in the Azure portal:
 
 1. Go to your Container Apps environment.
 1. In the left menu, under **Monitoring**, select **OTel endpoints**.
@@ -197,7 +197,7 @@ Use the Azure portal path shown in the screenshots:
    - `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE` = `DELTA`
 1. Deploy the new revision.
 
-In the update panel, if you're not rotating the token, you can leave **Key** blank to keep the existing token.
+In the update panel, if you are not rotating the token, you can leave **Key** blank to keep the existing token.
 
 `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` is required for metrics to be ingested by Dynatrace.
 
@@ -212,3 +212,10 @@ After you complete the configuration, your Container App starts sending telemetr
 You can validate the result by checking the Dynatrace experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path might vary depending on the data you want to inspect.
 
 For more information about data exploration in Dynatrace, see [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate).
+
+## Related content
+
+- [Collect and read OpenTelemetry data in Azure Container Apps](./opentelemetry-agents.md)
+- [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate)
+- [Dynatrace token and permission requirements](https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/tokens-permissions)
+
