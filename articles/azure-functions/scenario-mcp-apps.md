@@ -85,28 +85,28 @@ Use the Azure Developer CLI to create an Azure Functions code project from a tem
 ::: zone pivot="programming-language-typescript"  
 4. Search for and select **Remote MCP Functions with TypeScript**.
 
-5. When prompted, enter `mcpweather-ts` as the environment name.
+5. When prompted in the **Terminal** window, enter `mcpweather-ts` as the environment name.
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure.   
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 4. Search for and select **Remote MCP Functions with JavaScript**.
 
-5. When prompted, enter `mcpweather-js` as the environment name.
+5. When prompted in the **Terminal** window, enter `mcpweather-js` as the environment name.
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-javascript) and initializes the project in the current folder.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 4. Search for and select **Remote MCP Functions with Python**.
 
-5. When prompted, enter `mcpweather-python` as the environment name.
+5. When prompted in the **Terminal** window, enter `mcpweather-python` as the environment name.
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure. 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 4. Search for and select **Remote MCP Functions with Java**.
 
-5. When prompted, enter `mcpweather-java` as the environment name.
+5. When prompted in the **Terminal** window, enter `mcpweather-java` as the environment name.
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
 ::: zone-end
