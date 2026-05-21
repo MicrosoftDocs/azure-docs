@@ -1,8 +1,8 @@
 ---
 title: Datadog overview
 description: Discover Datadog, a monitoring and analytics platform for large-scale applications integrated with Azure for streamlined management and enhanced performance.
-author: piyushdash
-ms.author: pdjokar96
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: overview
 ms.date: 03/10/2025
 ms.custom:

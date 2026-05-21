@@ -1,8 +1,8 @@
 ---
 title: Link to existing Datadog
 description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
-author: piyushdash
-ms.author: pdjokar96
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
 ms.date: 1/29/2026
 ms.custom:
