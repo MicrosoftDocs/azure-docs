@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 05/06/2026
+ms.date: 05/22/2026
 
 # Customer intent: As a developer, I want to use ADE and `azd` together to provision application infrastructure and deploy application code to the new infrastructure.
 
