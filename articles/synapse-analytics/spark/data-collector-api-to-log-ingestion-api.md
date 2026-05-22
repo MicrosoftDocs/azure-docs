@@ -61,7 +61,7 @@ Create a Data Collection Endpoint (DCE) in the Azure portal. The DCE provides th
 1. In the [**Azure portal**](https://portal.azure.com/#home), go to **Monitor** in the left navigation pane.
 1. Under **Settings**, select **Data collection endpoints**, and then select **Create**.
 
-   :::image type="content" source="media\data-collector-api-to-log-ingestion-api\create-a-data-collection-endpoint.png" alt-text="Screenshot showing create a data collection endpoint." lightbox="media\data-collector-api-to-log-ingestion-api\create-a-data-collection-endpoint.png":::
+   :::image type="content" source="media\data-collector-to-log-ingestion\create-a-data-collection-endpoint.png" alt-text="Screenshot showing create a data collection endpoint." lightbox="media\data-collector-to-log-ingestion\create-a-data-collection-endpoint.png":::
 
 1. Create the endpoint, then note the DCE name (for example, `DCEdemo`).
 
@@ -121,7 +121,7 @@ Create a custom table in your Log Analytics workspace with the Log Ingestion API
 1. In the [**Azure portal**](https://portal.azure.com/#home), open your Log Analytics workspace (for example, *loganalyticsworkspacedemo*).
 1. Select **Tables** > **Create** > **New custom log (Direct Ingest)**.
 
-    :::image type="content" source="media\data-collector-api-to-log-ingestion-api\create-custom-table-direct-ingest.png" alt-text="Screenshot showing create custom table direct ingest." lightbox="media\data-collector-api-to-log-ingestion-api\create-custom-table-direct-ingest.png":::
+    :::image type="content" source="media\data-collector-to-log-ingestion\create-custom-table-direct-ingest.png" alt-text="Screenshot showing create custom table direct ingest." lightbox="media\data-collector-to-log-ingestion\create-custom-table-direct-ingest.png":::
 
 1. Enter the table settings:
    - **Table name**: For example, SparkLogTest (suffix "_CL" is auto-added).
@@ -129,7 +129,7 @@ Create a custom table in your Log Analytics workspace with the Log Ingestion API
    - **Data Collection Rule**: Create a new DCR (for example, *SparkLogTestrule*).
    - **Data Collection Endpoint**: Select the DCE from the [Create a Data Collection Endpoint (DCE) step](#step-2-create-a-data-collection-endpoint-dce) (for example, *DCEdemo*).
 
-    :::image type="content" source="media\data-collector-api-to-log-ingestion-api\create-custom-table-direct-ingest-fill-in.png" alt-text="Screenshot showing create custom table direct ingest configure." lightbox="media\data-collector-api-to-log-ingestion-api\create-custom-table-direct-ingest-fill-in.png":::
+    :::image type="content" source="media\data-collector-to-log-ingestion\create-custom-table-direct-ingest-fill-in.png" alt-text="Screenshot showing create custom table direct ingest configure." lightbox="media\data-collector-to-log-ingestion\create-custom-table-direct-ingest-fill-in.png":::
 
 1. Select **Next**.
 1. In **Schema and Transformation**, upload [the JSON schema sample](#step-3-prepare-sample-json-schema). You don't need to configure DCR transformation because the schema is fully stabilized on the client side.
@@ -138,12 +138,12 @@ Create a custom table in your Log Analytics workspace with the Log Ingestion API
 
 1. Register an app in **Microsoft Entra ID**.
 
-   :::image type="content" source="media\data-collector-api-to-log-ingestion-api\tenant-client.png" alt-text="Screenshot showing tenantId and clientId." lightbox="media\data-collector-api-to-log-ingestion-api\tenant-client.png":::
+   :::image type="content" source="media\data-collector-to-log-ingestion\tenant-client.png" alt-text="Screenshot showing tenantId and clientId." lightbox="media\data-collector-to-log-ingestion\tenant-client.png":::
 
 1. Record the **TenantId**, **ClientId**, and **ClientSecret** (if you use client secret authentication). You use these values in the Spark configuration in Step 6.
 1. Grant the app the [**Monitoring Metrics Publisher**](/azure/role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher) role on each table's DCR resource. For role assignment steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-   :::image type="content" source="media\data-collector-api-to-log-ingestion-api\monitoring-metrics-publisher-role.png" alt-text="Screenshot showing the Monitoring Metrics Publisher role assignment." lightbox="media\data-collector-api-to-log-ingestion-api\monitoring-metrics-publisher-role.png":::
+   :::image type="content" source="media\data-collector-to-log-ingestion\monitoring-metrics-publisher-role.png" alt-text="Screenshot showing the Monitoring Metrics Publisher role assignment." lightbox="media\data-collector-to-log-ingestion\monitoring-metrics-publisher-role.png":::
 
 ### Step 6. Configure Spark properties
 
