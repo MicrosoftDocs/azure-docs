@@ -19,6 +19,9 @@ Infrastructure Resiliency Manager (preview) is a self-serve experience that help
 - Run simulated outage drills for outage readiness validation.
 - Recover from zonal outages using recovery plans for applications.
 
+>[!NOTE]
+>Infrastructure Resiliency Manager is a global (non-regional) service. This service isn’t deployed to a specific Azure region and can manage and operate across resources in any Azure region.
+
 ## Goals and Recommendations capability for Infrastructure Resiliency Manager
 
 The Goals and Recommendations capability involves the following scenarios:

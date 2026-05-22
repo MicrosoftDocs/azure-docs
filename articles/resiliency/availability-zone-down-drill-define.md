@@ -124,6 +124,12 @@ To design faults for supported and unsupported resources in the drill, follow th
 
 1. For unsupported resource type fault details configuration, on the **Fault details** pane, define custom fault logic using Azure Runbooks and select **Save**.
 
+   If you use custom faults via runbooks, include the following mandatory parameters to pass to the runbook:
+
+   - `ResourceIds`
+   - `Duration`
+   - `FaultLocation` (`zone` for now) 
+
 1. To complete the role assignment, on the **Fault designer** tab, select a resource type from the list and select **Include and prepare for fault injection** or **Exclude from fault injection**.
 
 All resources appear in the **Needs Attention** state by default. To troubleshoot readiness issues, select **Needs Attention** corresponding to each resource. You can set the Fault duration for the fault injection time configuration (default time is 10 minutes).
@@ -136,9 +142,9 @@ To review and fix configuration drifts, follow these steps:
 
 1. On the selected drill instance pane, select **Overview** > **Resync and check readiness**.
 
-1. If the **Drill execution readiness** status shows **Not Ready**, select the status.
+1. If the **Drill execution readiness** status shows **Not Ready**, select the status and view the errors flagged.
 
-1. On the **Drill execution readiness state** pane, change the status to **Ready**.
+1. On the **Drill execution readiness state** pane, fix the errors shown and re-run a readiness check. The status changes to **Ready**.
 
 Refresh the drill instance after every edit operation.
 
