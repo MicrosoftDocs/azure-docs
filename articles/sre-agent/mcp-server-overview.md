@@ -1,6 +1,6 @@
 ---
-title: SRE Agent MCP server overview
-description: Learn how to use Azure MCP Server to discover SRE Agent resources, start investigation threads, and manage agents from MCP clients.
+title: Azure SRE Agent MCP Server Overview
+description: Learn how to use Azure SRE Agent MCP Server to discover resources, start investigation threads, and manage agents from MCP clients like GitHub Copilot CLI and Claude Code.
 ms.topic: overview
 ms.service: azure-sre-agent
 ms.date: 05/12/2026
@@ -11,13 +11,13 @@ ms.custom: mcp, model context protocol, azure mcp server, copilot, claude code, 
 #customer intent: As an SRE, I want to understand how MCP clients can connect to Azure SRE Agent so that I can investigate and manage agents from my development tools.
 ---
 
-# SRE Agent MCP server overview
+# SRE Agent Model Context Protocol (MCP) server overview
 
-The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you want to work with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client instead of switching to the Azure portal for every action.
+The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you work with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client instead of switching to the Azure portal for every action.
 
 Azure MCP Server doesn't replace SRE Agent. It provides an MCP interface to SRE Agent resources that already exist in Azure.
 
-## What is the SRE Agent MCP server?
+## What is the SRE Agent MCP server experience?
 
 The SRE Agent MCP server experience is a set of SRE Agent tools exposed through [Azure MCP Server](/azure/developer/azure-mcp-server/). Azure MCP Server implements the Model Context Protocol (MCP), so MCP clients can call Azure tools through natural language prompts.
 
@@ -60,7 +60,7 @@ For installation details and client-specific configuration, see [Azure MCP Serve
 
 Azure MCP Server uses the Azure authentication context available on the host. Supported authentication methods include Azure CLI sign-in, VS Code Azure sign-in, Azure PowerShell sign-in, environment credentials, and managed identity.
 
-MCP doesn't grant new permissions. SRE Agent operations run within the caller's existing Azure permissions and SRE Agent access. If the caller doesn't have permission to list resources, open a thread, or change agent configuration, the operation fails with an authorization error.
+The MCP server doesn't grant new permissions. SRE Agent operations run within the caller's existing Azure permissions and SRE Agent access. If the caller lacks permission to list resources, open a thread, or change agent configuration, the operation fails with an authorization error.
 
 > [!IMPORTANT]
 > Interactive authentication fallback is suppressed when Azure MCP Server runs in server mode. Sign in before you start the server, or configure a noninteractive credential such as managed identity or environment credentials.
@@ -150,21 +150,19 @@ Use the SRE Agent MCP server experience for the following scenarios:
 
 ## Limitations
 
-Keep the following limitations in mind:
+Consider the following limitations as you use the MCP server:
 
 - You must create the SRE Agent resource before Azure MCP Server can discover or operate on it.
 
 - Azure MCP Server doesn't elevate permissions. The caller must already have the permissions required for the requested operation.
 
-- HTTP trigger configuration isn't currently available through the MCP server experience. Use the SRE Agent portal for HTTP triggers.
-
 - Client setup differs across MCP hosts. Validate the configuration format for your client before publishing a team-wide setup guide.
 
-## MCP server versus MCP connectors
+## SRE Agent MCP server versus MCP connectors
 
 SRE Agent uses MCP in two different directions:
 
-| Capability | Direction | Use it when |
+| Capability | Direction | When to use |
 |---|---|---|
 | SRE Agent MCP server tools in Azure MCP Server | Your MCP client calls SRE Agent | You want Copilot CLI, Claude Code, VS Code, or another client to discover agents and run investigations. |
 | [MCP connectors](mcp-connectors.md) | SRE Agent calls external MCP servers | You want your agent to use tools from GitHub, Datadog, Splunk, New Relic, or a custom MCP server during investigations. |
