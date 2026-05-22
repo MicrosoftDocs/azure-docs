@@ -47,6 +47,7 @@ The following components are required to successfully enable the customer-manage
   * It isn't expired.
   * It's enabled.
   * It has wrap and unwrap capabilities enabled.
+* If network access from your configuration store is governed by a network security perimeter, ensure that outbound communication to the Key Vault that holds your customer-managed key is allowed. For more information, see [Considerations for customer-managed key encryption](./concept-network-security-perimeter.md#considerations-for-customer-managed-key-encryption).
 
 After this article shows you how to configure these resources, it walks you through the following steps so your App Configuration store can use the Key Vault key:
 
@@ -54,9 +55,6 @@ After this article shows you how to configure these resources, it walks you thro
 1. Grant permissions to the identity so it can access the Key Vault key:
     * For key vaults that use [Azure role-based access control (Azure RBAC)](/azure/key-vault/general/rbac-guide), assign the identity the **Key Vault Crypto Service Encryption User** role on the target key vault.
     * For key vaults that use access policy authorization, grant the identity the `GET`, `WRAP`, and `UNWRAP` permissions in the target key vault's access policy.
-
-> [!NOTE]
-> If network access from your configuration store is governed by a network security perimeter, ensure that outbound communication to the Key Vault that holds your customer-managed key is allowed. For more information, see [Considerations for customer-managed key encryption](./concept-network-security-perimeter.md#considerations-for-customer-managed-key-encryption).
 
 ## Enable customer-managed key encryption
 
