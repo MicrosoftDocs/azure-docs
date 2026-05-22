@@ -24,10 +24,10 @@ This page is updated with the details about the upcoming release approximately a
 
 ## May 2026
 ### External Data Services (EDS) - Generally Available
-External Data Services (EDS) is now generally available on Azure Data Manager for Energy. EDS allows data from an OSDU&reg; compliant external data sources to be shared with an Azure Data Manager for Energy resource. EDS is designed to pull specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand. To enable EDS, see [Enable External Data Services (EDS) in Azure Data Manager for Energy](how-to-enable-external-data-services.md).
+External Data Services (EDS) is now generally available on Azure Data Manager for Energy. EDS ingests metadata from registered external OSDU compliant sources into Azure Data Manager for Energy for discovery via the Search API, while leaving associated files at the external source for on-demand retrieval. To enable EDS, see [Enable External Data Services (EDS) in Azure Data Manager for Energy](how-to-enable-external-data-services.md).
 
 ### Manifest Ingestion by Reference DAG - Preview
-In OSDU&reg; M26, Manifest Ingestion by Reference DAG transitioned to the Graduated maturity state ([issue #121](https://community.opengroup.org/osdu/platform/data-flow/ingestion/ingestion-dags/-/issues/121)) after multi-release validation. On Azure Data Manager for Energy, it remains in preview on Developer SKU for customer testing before general availability. The DAG references large manifests instead of embedding payloads, improving performance and removing payload-size limitations of traditional manifest ingestion workflows.
+Manifest Ingestion by Reference DAG supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing. This DAG is available as a preview feature in the Azure Data Manager for Energy Developer SKU.
 
 ## March 2026
 ### Manage OSDU milestone upgrade settings
