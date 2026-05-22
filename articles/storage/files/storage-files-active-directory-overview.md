@@ -1,6 +1,6 @@
 ---
 title: Overview - Azure Files Identity-Based Authentication
-description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid and cloud-only identities (preview).
+description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid and cloud-only identities.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
@@ -41,7 +41,7 @@ You can enable identity-based authentication over SMB by using one of three iden
 
 - **On-premises AD DS:** The storage account joins to the on-premises AD DS. Identities from AD DS can securely access SMB Azure file shares from a domain-joined client or a client that has uninterrupted connectivity to the domain controller. The on-premises AD DS environment must be [synced to Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-install-roadmap) by using either the on-premises [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) application or [Microsoft Entra Connect cloud sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync), a lightweight agent that can be installed from the Microsoft Entra Admin Center. See the [full list of prerequisites](storage-files-identity-ad-ds-overview.md#prerequisites).
 
-- **Microsoft Entra Kerberos:** You can use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview), allowing end users to access Azure file shares. If you want to authenticate hybrid identities, you need an existing AD DS deployment, which you then sync to your Microsoft Entra tenant. See the [prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites).
+- **Microsoft Entra Kerberos:** You can use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities, allowing end users to access Azure file shares. If you want to authenticate hybrid identities, you need an existing AD DS deployment, which you then sync to your Microsoft Entra tenant. See the [prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites).
 
 - **Microsoft Entra Domain Services:** Cloud-based VMs that are joined to Microsoft Entra Domain Services can access Azure file shares with Microsoft Entra credentials. In this solution, Microsoft Entra ID runs a traditional Windows Server AD domain that is a child of the customer's Microsoft Entra tenant. See the [prerequisites](storage-files-identity-auth-domain-services-enable.md#prerequisites).
 
@@ -53,7 +53,7 @@ Use the following guidelines to determine which identity source you should choos
 
 - If you have an existing on-premises Active Directory but are planning to move applications to the cloud and you want your identities to exist both on-premises and in the cloud (hybrid), choose Microsoft Entra Kerberos.
 
-- If you want to authenticate cloud-only identities without using domain controllers, choose Microsoft Entra Kerberos. This feature is currently in preview.
+- If you want to authenticate cloud-only identities without using domain controllers, choose Microsoft Entra Kerberos.
 
 - If you already use Microsoft Entra Domain Services, choose Microsoft Entra Domain Services as your identity source.
 
@@ -75,7 +75,7 @@ To enable AD DS authentication, first read [Overview - on-premises Active Direct
 
 ### Microsoft Entra Kerberos
 
-By enabling and configuring Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview), Entra users can access Azure file shares by using Kerberos authentication. This configuration uses Entra ID to issue the Kerberos tickets to access the file share by using the industry-standard SMB protocol. This means end users can access Azure file shares without requiring network connectivity to domain controllers.
+By enabling and configuring Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities, Entra users can access Azure file shares by using Kerberos authentication. This configuration uses Entra ID to issue the Kerberos tickets to access the file share by using the industry-standard SMB protocol. This means end users can access Azure file shares without requiring network connectivity to domain controllers.
 
 > [!IMPORTANT]
 > To use Entra Kerberos to authenticate hybrid identities, you need a traditional AD DS deployment. You must sync it to Entra ID by using Microsoft Entra Connect Sync or Microsoft Entra Connect cloud sync. Clients must be Entra joined or [Microsoft Entra hybrid joined](../../active-directory/devices/hybrid-join-plan.md).
@@ -97,7 +97,7 @@ For Microsoft Entra Domain Services authentication, you must enable Microsoft En
 The authentication flow is similar to on-premises AD DS authentication, with the following differences:
 
 - The process automatically creates the storage account identity during enablement.
-- All Entra ID users can authenticate and be authorized. Users can be cloud-only or hybrid. The platform manages user synchronization from Entra ID to Domain Services.
+- All Microsoft Entra ID users can authenticate and be authorized. Users can be cloud-only or hybrid. The platform manages user synchronization from Microsoft Entra ID to Microsoft Entra Domain Services.
 
 #### Access requirements for Microsoft Entra Domain Services
 

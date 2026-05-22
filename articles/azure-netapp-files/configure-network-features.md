@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/08/2025
+ms.date: 03/17/2026
 ms.author: anfdocs
 ms.custom:
   - references_regions
@@ -32,6 +32,9 @@ Two settings are available for network features:
 
 ## Considerations
 
+>[!IMPORTANT]
+>Starting July 2026, Basic network is no longer available for new volumes and Azure NetApp Files volumes will start using Standard network by default. Any requests that specify Basic network will be automatically upgraded to Standard network. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard network features. Existing volumes are not affected and no customer action is required.
+
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
 
 * The ability to locate storage compatible with the desired type of network features depends on the VNet specified. If you can't create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
@@ -40,7 +43,7 @@ Two settings are available for network features:
 
 * When you restore a backup to a new volume, you can configure the new volume with Basic or Standard network features.
 
-* When you change the network features option of existing volumes from Basic to Standard network features, access to existing Basic networking volumes might be lost if your UDR or NSG implementations prevent the Basic networking volumes from connecting to DNS and domain controllers. You might also lose the ability to update information, such as the site name, in the Active Directory connector if all volumes can’t communicate with DNS and domain controllers. For guidance about UDRs and NSGs, see [Configure network features for an Azure NetApp Files volume](azure-netapp-files-network-topologies.md#udrs-and-nsgs).
+* When you change the network features option of existing volumes from Basic to Standard network features, access to existing Basic network volumes might be lost if your UDR or NSG implementations prevent the Basic network volumes from connecting to DNS and domain controllers. You might also lose the ability to update information, such as the site name, in the Active Directory connector if all volumes can’t communicate with DNS and domain controllers. For guidance about UDRs and NSGs, see [Configure network features for an Azure NetApp Files volume](azure-netapp-files-network-topologies.md#udrs-and-nsgs).
 
 >[!NOTE]
 > The networking features of the data protection volume aren't affected by changing the source volume from Basic to Standard network features.
@@ -72,7 +75,7 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### Register the feature
 
-Before upgradeing from Basic to Standard network features, you need to register the feature.
+Before upgrading from Basic to Standard network features, you need to register the feature.
 
 1.  Register the feature:
 

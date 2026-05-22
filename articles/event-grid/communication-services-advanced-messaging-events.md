@@ -3,10 +3,9 @@ title: Azure Communication Services - Advanced Messaging events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for Advanced Messaging Events.
 ms.topic: reference
 ms.date: 07/15/2024
-author: shamkh
-ms.author: shamkh
-ms.service: azure-communication-services
-ms.subservice: advanced-messaging
+author: spelluru
+ms.author: spelluru
+ms.reviewr: osaghaso
 ---
 
 # Azure Communication Services - Advanced Messaging events

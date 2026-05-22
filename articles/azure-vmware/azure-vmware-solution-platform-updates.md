@@ -4,13 +4,30 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 03/30/2026
+ms.date: 05/21/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
+
+## May 2026
+
+**Disaster Recovery**
+
+**VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions.
+This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime.
+Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
+
+**Azure VMware Solution Gen 2 (VNet Injection Service): 7170 Anchor NIC & iBGP Full Mesh Cutover**
+
+Microsoft is migrating workload connectivity on Azure VMware Solution Gen 2 private clouds running the VNet Injection Service architecture from T0 NICs to 7170 Anchor NICs, and enabling iBGP Full Mesh topology. This improves network reliability, network reconvergence, and throughput on the Azure VMware Solution Gen 2 platform. If your private cloud is in scope, your Customer Success Account Manager will reach out to schedule a 4-hour maintenance window, after which you'll open a Support Request so a Cloud Support Specialist can coordinate the cutover with engineering and validate connectivity with you. Expect up to ~2 minutes of north-south connectivity loss during the maintenance window; east-west traffic and your Virtual Machines, datastores, vCenter, NSX, and HCX configurations are not impacted.
+
+**Azure VMware Solution Gen 1(Dell): Firmware Upgrades**
+
+Microsoft is upgrading firmware across Azure VMware Solution Gen 1 Dell hosts to remediate known security vulnerabilities and keep your environment on a supported baseline. If your private cloud is in scope, you'll receive advance notification through Azure Service Health with the scheduled maintenance window for your region, and you can reschedule through the self-serve option in the Azure portal within the available reschedule window. The upgrade is fully managed by Microsoft and runs through the Generalized Host Configuration Update (GHCU) framework. No action is required from you; your VMs, datastores, vCenter, NSX, and HCX configurations are not impacted. Ensure workloads follow standard resiliency patterns (High Availability, retry, load balancing) and avoid scheduling unrelated changes inside the notified window.
+
 
 ## March 2026
 
@@ -21,6 +38,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX 
 **Microsoft Entra ID integration for Azure VMware Solution**
 
 Microsoft Entra ID intergration for Azure VMware Solution is now Generally Available (GA). This feature enables customers to utilize Microsoft Entra ID an an external identity source for vCenter, providing greater security and integration into Azure. [Learn More](configure-identity-source-vcenter.md#microsoft-entra-id-as-an-identity-source).
+
 
 ## January 2026
 

@@ -2,8 +2,8 @@
 title: Create or Edit a Policy with an External Root CA in Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: Create or edit an external CA policy in Azure Device Registry so you can use your external CA to issue IoT device certificates.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
@@ -37,7 +37,7 @@ In Device Registry certificate management, a credential is the namespace-level r
 
 Before you begin, make sure you have the required setup and permissions so you can create, activate, and edit an external CA policy without deployment delays.
 
-- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
 - A configured credential in the Device Registry namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
 - Permissions to manage policies in the Device Registry namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.

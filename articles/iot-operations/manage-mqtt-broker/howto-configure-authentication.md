@@ -1,12 +1,12 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 05/20/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -1215,11 +1215,17 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
     authenticationMethods: [
       {
         method: 'Custom'
-        serviceAccountTokenSettings: {
-          audiences: [
-            'aio-internal'
-            'my-audience'
-          ]
+        customSettings: {
+          endpoint: 'https://auth-server-template'
+          caCertConfigMap: 'custom-auth-ca'
+          auth: {
+            x509: {
+              secretRef: 'custom-auth-client-cert'
+            }
+          }
+          headers: {
+            header_key: 'header_value'
+          }
         }
       }
     ]

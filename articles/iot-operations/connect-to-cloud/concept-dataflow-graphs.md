@@ -1,8 +1,8 @@
 ---
 title: Data flow graphs overview
 description: Learn about data flow graphs in Azure IoT Operations, including built-in transforms for mapping, filtering, branching, windowing, and enrichment.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
@@ -211,13 +211,6 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Prefer fewer transforms with more rules.** If you have many transformation rules that operate on the same structure, put them in a single map transform rather than creating separate transforms for each rule.
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
-
-## Prerequisites
-
-To use data flow graphs, you need:
-
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- The default registry endpoint that points to `mcr.microsoft.com`, which is created automatically during deployment.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/08/2026
+ms.date: 05/22/2026
 
 #customer intent: As a platform engineer, I want to install the devcenter extension so that I can create Deployment Environments resources from the command line.
 ---

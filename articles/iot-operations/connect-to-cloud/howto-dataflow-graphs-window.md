@@ -1,8 +1,8 @@
 ---
 title: Aggregate data over time in data flow graphs
 description: Learn how to compute averages, sums, min/max, counts, and other aggregations over tumbling time windows in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -19,7 +19,7 @@ A window transform collects messages over a fixed time interval and produces a s
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
 ## When to use a window transform

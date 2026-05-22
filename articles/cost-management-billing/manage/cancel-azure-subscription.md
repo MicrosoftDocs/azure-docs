@@ -58,7 +58,7 @@ The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
-|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner  |
+|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn), [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner  |
 |[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Subscription owner       |
 |[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
 
@@ -203,10 +203,14 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 
 ### Qualifications
 
-- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](#create-a-support-request).
-- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.
-- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date.
-- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving Azure Storage data out of Azure are eligible for credits.
+- You must provide advance notice of your intention to leave Azure to Azure Support by creating a support request discussed previously [(Step 1)](/azure/cost-management-billing/manage/cancel-azure-subscription).  For customers with billing address in the UK that transfer data from UK datacenters, your notice to leave may be for any number of single Azure services.
+
+- You must cancel all Azure subscriptions associated with your account after your data is transferred out before you can request your invoice-level credit.  For customers with billing address in the UK transferring data from UK datacenters, you must finish all service consumption for any single Azure services for which you are requesting your invoice-level credit.
+
+- You receive credit for a maximum of 60 calendar days of egress charges starting from the date you specified as your transfer start date. For customers with billing address in the UK transferring data from UK datacenters, you receive credit for a maximum of 180 days of egress.
+
+- Standard charges for Azure services and data transfer out from specialized services including Express Route, Express Route Direct, VPN, Azure Front Door, and Azure Content Delivery Network (CDN) aren't included in this credit offer. Only [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) as a result of moving data out of Azure are eligible for credits.
+
 - Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.

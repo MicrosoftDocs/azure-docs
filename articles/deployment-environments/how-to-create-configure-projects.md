@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
-ms.date: 05/08/2026
+ms.date: 05/22/2026
 
 #customer intent: As a platform engineer, I want to create a project in Azure Deployment Environments so that my teams can deploy applications.
 ---

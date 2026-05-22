@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 07/18/2025
+ms.date: 05/06/2026
 
 #CustomerIntent: As an IT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -17,7 +17,7 @@ Learn how to upgrade an Azure IoT Operations deployment to a newer version.
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+- Azure CLI version 2.62.0 or newer. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ## Understand upgrade support
 
@@ -32,6 +32,9 @@ Azure IoT Operations supports the following upgrade scenarios:
 
 > [!NOTE]
 > Azure IoT Operations doesn't support live upgrades. Expect some downtime during the upgrade process.
+
+> [!NOTE]
+> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](../configure-observability-monitoring/health-status-reporting.md).
 
 ## Upgrade
 

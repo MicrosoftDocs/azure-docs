@@ -3,9 +3,9 @@ title: Troubleshoot and Diagnose Workflow Failures
 description: Learn how to troubleshoot and diagnose problems, errors, and failures in your workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 05/04/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -143,11 +143,18 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * Consumption workflows run on multitenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
-* For more predictable performance, you might consider creating [Standard workflows](single-tenant-overview-compare.md), which run in single-tenant Azure Logic Apps. You'll have more control to scale up or out to improve performance.
+* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md). You'll have more control to scale up or out to improve performance.
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
 The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, see [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
+
+### My host memory stays elevated after processing messages in Azure Logic Apps (Standard). Could this be a memory leak?
+
+Elevated memory usage doesn't always mean a memory leak. During an actual memory leak, memory usage increases under similar traffic load until the system crashes with an out-of-memory exception. You can observe this pattern, which repeats.
+
+Azure Logic Apps (Standard) runs with .NET Server Garbage Collection (GC), which is optimized for throughput, not minimal memory footprint. This garbage collection keeps managed heap segments for future allocation, rather than returns them to the operating system. Memory might stay elevated for hours or even days during idle periods between processing cycles. 
+
 
 ## Common problems - Standard logic apps
 
@@ -235,7 +242,7 @@ The following list includes possible causes for these errors and steps to help t
 
   1. If you use [private Azure DNS zones](../dns/private-dns-privatednszone.md) for your storage account's private endpoint services, check that a [virtual network link](../dns/private-dns-virtual-network-links.md) was created to your logic app's integrated virtual network.
 
-For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/deploying-standard-logic-app-to-storage-account-behind-firewall/ba-p/2626286).
+For more information, see [Deploy Standard logic app to a storage account behind a firewall using service or private endpoints](https://techcommunity.microsoft.com/blog/integrationsonazureblog/deploying-standard-logic-app-to-storage-account-behind-firewall-using-service-or/2626286).
 
 ## Related content
 
