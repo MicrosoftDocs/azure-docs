@@ -293,7 +293,7 @@ The `ToolMetadata` constant declares a `ui.resourceUri` that tells the MCP host 
 
 The `GetWeatherWidget` function serves the bundled HTML file at that URI using `[McpResourceTrigger]`.
 
-You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
+You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/McpWeatherApp) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 The function code for the MCP Apps weather tool is defined in the `src/McpWeatherApp/function_app.py` file. In this function, the `metadata` parameter on `@app.mcp_tool()` adds UI metadata to the `get_weather` tool.
@@ -310,7 +310,7 @@ The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host
 
 The `get_weather_widget` function serves the bundled HTML file at that URI using `@app.mcp_resource_trigger()`.
 
-You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
+You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/McpWeatherApp) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"
 The function code for the MCP Apps weather tool is defined in the `mcp-weather-app/src/functions/weatherMcpApp.ts` file. In this function, the `metadata` property on `app.mcpTool()` adds UI metadata to the `getWeather` tool when it's registered.
@@ -333,7 +333,7 @@ The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host
 
 :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-weather-app/src/functions/weatherMcpApp.ts" range="12-17" :::
 
-You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) GitHub repository.  
+You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/mcp-weather-app) GitHub repository.  
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 The function code for the MCP Apps weather tool is defined in the `samples/McpWeatherApp` folder. In this function, the `@McpMetadata` annotation adds UI metadata to the `GetWeather` tool.
@@ -350,7 +350,7 @@ The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host
 
 The `GetWeatherWidget` function serves the bundled HTML file at that URI using `@McpResourceTrigger`.
 
-You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java) GitHub repository.
+You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java/tree/main/samples/McpWeatherApp) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 After verifying the MCP Apps tools locally, you can publish the project to Azure.

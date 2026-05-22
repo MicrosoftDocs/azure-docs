@@ -200,7 +200,7 @@ The function code for the MCP server tools is defined in the `src` folder. The `
 
 :::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/FunctionsMcpTool/SnippetsTool.cs" range="11-34" :::
 
-You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
+You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/FunctionsMcpTool) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 The function code for the MCP server tools is defined in the `samples/FunctionsMcpTool/src/main/java/com/function/` folder. The `@McpToolTrigger` annotation exposes the functions as MCP Server tools:
@@ -209,7 +209,7 @@ The function code for the MCP server tools is defined in the `samples/FunctionsM
 
 :::code language="java" source="~/functions-scenarios-custom-mcp-java/samples/FunctionsMcpTool/src/main/java/com/function/Snippets.java" range="50-83" :::
 
-You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java) GitHub repository.
+You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java/tree/main/samples/FunctionsMcpTool) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 The function code for the MCP server tools is defined in the `src/function_app.py` file. The MCP function annotations expose these functions as MCP Server tools:
@@ -218,7 +218,7 @@ The function code for the MCP server tools is defined in the `src/function_app.p
 
 :::code language="python" source="~/functions-scenarios-custom-mcp-python/src/FunctionsMcpTool/function_app.py" range="28-42" ::: 
 
-You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
+You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/FunctionsMcpTool) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"
 The function code for the MCP server tools is defined in the `mcp-tools/src` folder. The MCP function registration exposes these functions as MCP Server tools:
@@ -227,7 +227,7 @@ The function code for the MCP server tools is defined in the `mcp-tools/src` fol
 
 :::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-tools/src/functions/snippetsMcpTool.ts" range="81-102" :::
 
-You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) GitHub repository.  
+You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/mcp-tools) GitHub repository.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 After verifying the MCP server tools locally, you can publish the project to Azure.
