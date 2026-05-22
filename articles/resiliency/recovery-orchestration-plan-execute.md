@@ -1,8 +1,8 @@
 ---
-title: Execute failover and reprotect operations in Recovery Orchestration Plan
+title: Execute failover and reprotect operations in Recovery Orchestration Plan in Resiliency
 description: Learn how to execute failover, reprotect resources, and run on-demand readiness checks in Azure Recovery Orchestration Plan.
 ms.topic: how-to
-ms.date: 05/18/2026
+ms.date: 06/02/2026
 ms.service: resiliency
 author: shsangal
 ms.author: shsangal
@@ -32,10 +32,16 @@ To execute a failover operation, follow these steps:
 1. Select the **active location** (region) under which you want to failover the resources.
 1. Select the **active physical zone** in the selected region. To determine the correct physical zone, select **Review zone mapping** to check the subscription-wise mapping of logical zones to physical zones.
 
-After you selected the location and zone, resources are categorized in the following tabs:
+Resources are categorized in the following tabs:
 
 - **Resources qualified for operation**: Resources that meet all criteria for failover.
 - **Resources skipped for operation**: Resources that don't qualify appear with a skip reason.
+
+4. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
+1. Select the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
+1. Select **Execute** to start the failover.
+
+### Resources Failover Qualification
 
 A resource qualifies for failover if it meets all of the following criteria:
 
@@ -45,7 +51,7 @@ A resource qualifies for failover if it meets all of the following criteria:
 - Doesn't have a Needs Attention status.
 - Has valid recovery points available for failover.
 
-The following table lists the common reasons for which resource might be skipped from execution:
+The following table lists the common reasons for which resource might be skipped from failover execution:
 
 | Skip reason | Description |
 |---|---|
@@ -56,10 +62,6 @@ The following table lists the common reasons for which resource might be skipped
 | Resource not in the active location | The resource isn't in the selected region. |
 | Resource not in the active zone | The resource isn't in the selected physical zone. |
 | Failover not allowed for the resource | The resource might already be in a failed-over state or lacks recovery points. |
-
-4. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
-1. Select the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
-1. Select **Execute** to start the failover.
 
 ### Failover execution behavior
 
@@ -102,4 +104,4 @@ After the readiness check completes, to review any new **Needs Attention** items
 
 ## Related content
 
-- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md)
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md) (preview)
