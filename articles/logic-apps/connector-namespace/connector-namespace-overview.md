@@ -99,7 +99,7 @@ Connector Namespaces ship with strongly typed SDKs so you can call connectors us
 
 - **Node.js** - *@azure/connectors-sdk*, a TypeScript-first client with async/await action invocation.
 
-- **Python** - *azure-connectors-sdk*, aligned with Azure SDK for Python conventions.
+- **Python** - [azure-connectors](https://pypi.org/project/azure-connectors) aligned with Azure SDK for Python conventions.
 
 Each SDK exposes the same catalog, the same connection model, and consistent telemetry and retry semantics. You can also call connectors over HTTP when a typed SDK isn’t appropriate.
 
