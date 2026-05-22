@@ -40,6 +40,8 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 ## Create a hosted MCP server
 
+This quickstart uses Playwright as the example, but the process is generally the same for other hosted MCP servers. A few servers require additional configuration artifacts during deployment. For details, see [Server deployment requirements](connector-namespace-hosted-mcp.md#server-deployment-requirements).
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your **Connector Namespace** resource.

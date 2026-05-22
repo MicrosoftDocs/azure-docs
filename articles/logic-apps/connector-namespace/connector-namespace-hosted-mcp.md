@@ -50,11 +50,17 @@ During public preview, a curated set of hosted MCP servers is available. The cat
 |--------|-------------|
 | **Playwright** | Browser automation tools for web navigation, screenshots, and interaction |
 | **Azure SQL** | Exposes SQL operations as MCP tools through [Data API builder](/azure/data-api-builder/mcp/overview), enabling AI agents to interact with SQL databases through a controlled, secure contract with entity abstraction, RBAC, and caching |
-| **Azure Cosmos DB Toolkit** | Enables AI agents to interact with Azure Cosmos DB through enterprise-grade authentication, comprehensive database operations including CRUD, vector search, and schema discovery |
+| **Azure Cosmos DB Toolkit** | Enables AI agents to securely interact with Azure Cosmos DB, comprehensive database operations including CRUD, vector search, and schema discovery |
 > [!NOTE]
 > If there's a server you'd like to see supported, file an issue at aka.ms/hosted-mcp-github.
 >
 > Support for publishing custom-built MCP servers to the catalog is planned for the future.
+
+### Server deployment requirements
+
+Generally speaking, hosted MCP servers don't require additional artifacts during deployment, except for the following: 
+
+- **Azure SQL** — Requires a Data API builder (DAB) configuration file that defines the database connection, entities to expose, and permissions. To generate this file, follow the instructions in [Configure Data API builder](/azure/data-api-builder/quickstart/basic-sql?tabs=mssql%2Crest#configure-data-api-builder).
 
 ## Server authentication
 
