@@ -75,7 +75,7 @@
       href: backup-protection-policy.md
     - name: Manage  
       href: manage-protection-policy.md
-  - name: Recovery-Orchestration-Plan
+  - name: Recovery orchestration plan
     items:
     - name: Create and configure
       href: recovery-orchestration-plan-create-configure.md
