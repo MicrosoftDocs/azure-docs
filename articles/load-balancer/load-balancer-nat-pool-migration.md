@@ -15,7 +15,7 @@ ms.author: mbender
 An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a load balancer’s frontend to one or more instances in the backend pool. These rules provide a 1:1 mapping between the load balancer’s frontend IP address and backend instances. There are currently two versions of Inbound NAT rules, version 1 and version 2.
 
 >[!Important]
-> On September 30, 2027, **Inbound NAT Pools** (the VMSS-specific feature of Inbound NAT rules V1) will be retired. If you are currently using Inbound NAT Pools with Virtual Machine Scale Sets, migrate to Inbound NAT rules V2 prior to the retirement date. **Single VM Inbound NAT rules V1 are not affected by this retirement** and do not need to be migrated.
+> On September 30, 2027, **Inbound NAT Pools** (the Azure Virtual Machine Scale Sets-specific feature of Inbound NAT rules V1) will be retired. If you are currently using Inbound NAT Pools with Virtual Machine Scale Sets, migrate to Inbound NAT rules V2 prior to the retirement date. **Single VM Inbound NAT rules V1 are not affected by this retirement** and do not need to be migrated.
 
 ## NAT rule version 1 
 
@@ -23,7 +23,7 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 - **Single VM Inbound NAT rules** — Provides 1:1 port mapping between a load balancer frontend IP/port and a specific virtual machine. Rules are applied directly to the VM's network interface card (NIC). **These are not being retired and do not need to be migrated.**
 
-- **Inbound NAT Pools (VMSS only)** — This is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Inbound NAT rules are automatically created and deleted per Virtual Machine Scale Set instance as the scale set scales up and down. NAT Pools are defined on the load balancer and referenced by the VMSS NIC configuration via the `loadBalancerInboundNatPools` property. **These are being retired on September 30, 2027 and must be migrated to Inbound NAT rules V2.**
+- **Inbound NAT Pools (Virtual Machine Scale Sets only)** — This is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Inbound NAT rules are automatically created and deleted per Virtual Machine Scale Set instance as the scale set scales up and down. NAT Pools are defined on the load balancer and referenced by the Virtual Machine Scale Sets NIC configuration via the `loadBalancerInboundNatPools` property. **These are being retired on September 30, 2027 and must be migrated to Inbound NAT rules V2.**
 
 ## NAT rule version 2 
 
@@ -94,7 +94,7 @@ The following three steps need to be performed to migrate to version 2 of inboun
 ### Virtual Machine Scale Set
 
 > [!IMPORTANT]
-> This is the required migration path for the Inbound NAT Pools retirement. All VMSS deployments using Inbound NAT Pools must complete this migration before September 30, 2027.
+> This is the required migration path for the Inbound NAT Pools retirement. All Virtual Machine Scale Set deployments using Inbound NAT Pools must complete this migration before September 30, 2027.
 > 
 The following steps are used to migrate from version 1 to version 2 of Inbound NAT rules for a virtual machine scale set. It assumes the virtual machine scale set's upgrade mode is set to Manual. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes)
 
