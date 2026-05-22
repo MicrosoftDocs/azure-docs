@@ -13,7 +13,7 @@ ms.topic: how-to
 
 This configuration guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to New Relic by using the managed OpenTelemetry agent.
 
-For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/opentelemetry-agents?tabs=arm%2Carm-example).
+For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](./opentelemetry-agents.md).
 
 In this guide, you learn how to:
 

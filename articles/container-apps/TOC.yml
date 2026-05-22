@@ -315,18 +315,18 @@ items:
       items:
         - name: Aspire Dashboard
           href: aspire-dashboard.md
-    - name: OpenTelemetry agents
-       items:
-         - name: Overview
-            href: opentelemetry-agents.md
-         - name: Export to Dynatrace
-            href: opentelemetry-export-dynatrace.md
-         - name: Export to Elastic
-            href: opentelemetry-export-elastic.md
-         - name: Export to New Relic
-            href: opentelemetry-export-newrelic.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
+        - name: OpenTelemetry agents
+          items:
+            - name: Overview
+              href: opentelemetry-agents.md
+            - name: Export to Dynatrace
+              href: opentelemetry-export-dynatrace.md
+            - name: Export to Elastic
+              href: opentelemetry-export-elastic.md
+            - name: Export to New Relic
+              href: opentelemetry-export-newrelic.md
     - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
