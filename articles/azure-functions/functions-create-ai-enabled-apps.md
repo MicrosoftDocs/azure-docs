@@ -53,7 +53,7 @@ Functions supports these options for creating and hosting remote MCP servers:
 
 Here's a comparison of the current MCP server hosting options provided by Functions:
 
-| Feature  | [MCP binding extension] | Self-hosted MCP servers |
+| Feature  | [MCP binding extension] | [Self-hosted MCP servers](self-hosted-mcp-servers.md) |
 | ---- | ----- | ----- |
 | Current support level |  GA |Preview<sup>*</sup> |
 | Programming model | [Functions triggers and bindings](./functions-triggers-bindings.md) | Standard MCP SDKs |

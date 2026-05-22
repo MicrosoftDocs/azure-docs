@@ -15,6 +15,9 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Host servers built with MCP SDKs on Azure Functions
 
+> [!IMPORTANT]
+> [Hosted MCP servers in Azure Connector Namespace](../logic-apps/connector-namespace/hosted-mcp-quickstart.md) is the new iteration of hosting MCP SDK-based servers. Hosted MCP provides fully managed infrastructure, scaling, and credential management without the limitations of custom handlers. We recommend trying out that capability currently in preview.
+
 In this quickstart, you learn how to host on Azure Functions Model Context Protocol (MCP) servers that you create by using official MCP SDKs. Flex Consumption plan hosting lets you take advantage of Azure Functions' serverless scale, pay-for-what-you-use billing model, and built-in security features. It's perfect for MCP servers that use the streamable-http transport.
 
 This article uses a sample MCP server project built by using official MCP SDKs. 
