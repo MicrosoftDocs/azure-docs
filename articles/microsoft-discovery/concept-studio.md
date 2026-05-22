@@ -1,18 +1,18 @@
 ---
 title: What is Microsoft Discovery Studio?
-description: Learn about Microsoft Discovery Studio, a web-based research environment built on Visual Studio Code for the web that enables scientists and engineers to work with AI agents, investigations, and scientific tools in a customizable interface.
+description: Learn about Microsoft Discovery Studio, a web-based research environment built on Visual Studio Code for the web that enables scientists and engineers to work with AI agents, shared sessions, and scientific tools in a customizable interface.
 author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/10/2026
+ms.date: 05/20/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand Microsoft Discovery Studio and its interface so that I can navigate the platform and customize it to fit my research workflow.
 ---
 
 # What is Microsoft Discovery Studio?
 
-Microsoft Discovery Studio is the web-based, unified research environment for [Microsoft Discovery](overview-what-is-microsoft-discovery.md). You use Discovery Studio to create and manage workspaces, projects, agents, investigations, knowledge bases, tools, and data—all from a single browser-based interface.
+Microsoft Discovery Studio is the web-based, unified research environment for [Microsoft Discovery](overview-what-is-microsoft-discovery.md). You use Discovery Studio to create and manage workspaces, projects, agents, shared sessions, knowledge bases, tools, and data—all from a single browser-based interface.
 
 You can customize the layout and tailor the environment to match your specific research workflows—all without leaving the browser.
 
@@ -25,7 +25,7 @@ In this article, you learn about the different parts of Microsoft Discovery Stud
 
 ## Home
 
-By default, the first thing you see after you sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) is the **Home** page. This page provides quick access to your most common tasks and recent activity.
+By default, the first thing you see after you sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) is the **Home** page. This page serves as a landing page to list and access your workspaces and projects.
 
 The Home page includes:
 
@@ -45,7 +45,7 @@ The following sections describe the key elements of the Studio interface.
 | Element | Description |
 | --- | --- |
 | **Navigation sidebar** | The left-side menu that provides access to all major sections: Home, Workspaces, Projects, and Resources. |
-| **Resources section** | A group within the sidebar for managing shared platform resources: Tools, Knowledge, and Data. |
+| **Resources section** | A group within the sidebar for managing shared platform resources: Agents, Tools, Project Storage, and Knowledge Bases. |
 | **Main working area** | The central pane that displays content based on your current selection—workspace and project lists and details. |
 | **Breadcrumb bar** | Appears at the top of the working area to show your current location and allow quick navigation back to previous levels. |
 | **Profile menu** | Located in the top-right corner. View your account information, switch Microsoft Entra ID tenants, or sign out. |
@@ -89,52 +89,50 @@ Use the **Refresh** and **Filter** controls above the table to update the list o
 
 ## Projects view
 
-When you open a project, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running investigations, interacting with agents, and managing project resources.
+When you open a project, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
 
 The project includes:
 
-- **Investigations panel**: A sidebar that lists all investigations in the current project. Select an investigation to open it and begin chatting with agents.
-- **Chat interface**: Open an investigation to view the chat interface where you interact with agents through natural language conversations. Use the agent selector dropdown or type `@` to route messages to specific agents.
-- **Welcome tab**: Welcome tab appears when you open a project. It provides an overview of the project with quick actions for creating agents and investigations.
-- **Data**: Browse storage containers and storage assets that are available in the project. You can open storage assets to view the files contained within them and also visualize supported file types.
+- **Home tab**: A sidebar that lists quick actions and all shared sessions in the current project. Select a shared session to open it and begin chatting with agents.
+- **Chat interface**: Open a shared session to view the chat interface where you interact with agents through natural language conversations. Use the agent selector dropdown or type `@` to route messages to specific agents.
 - **Agent logs**: Use agent logs to view a detailed view of your agent interaction including prompts, responses, and tool call logs including raw log output.
-- **Tasks**: Manage Discovery Engine tasks created within investigations in the tasks sidebar.
+- **Tasks**: Manage Discovery Engine tasks created within shared sessions in the tasks sidebar.
 - **Preferences**: Manage user and project preferences, which help you customize agentic behavior to your style.
-- **Resources**: A sidebar that lists all project related resources that you can use such as agents, tools, storage containers, and knowledge bases.
+- **Resources**: A sidebar that lists all project related resources that you can use such as agents, tools, and knowledge bases. The **Project Storage** pane lets you browse storage containers and storage assets available in the project.
 
-:::image type="content" source="media/concept-studio/studio-project-vscode.jpg" alt-text="Screenshot of the project view in Microsoft Discovery Studio showing the Investigation panel and chat." lightbox="media/concept-studio/studio-project-vscode.jpg":::
+:::image type="content" source="media/concept-studio/studio-project-vscode.jpg" alt-text="Screenshot of the project view in Microsoft Discovery Studio showing the shared sessions panel and chat." lightbox="media/concept-studio/studio-project-vscode.jpg":::
 
 ### Customizing your research environment
 
 Because Microsoft Discovery Studio is built on Visual Studio Code for the Web, you get the full flexibility and customization features adapted for scientific research:
 
 - **Themes and appearance**: Change the color theme, font size, and UI layout to suit your preferences. Go to **File > Preferences > Color Theme** or press `Ctrl+K Ctrl+T` to browse themes.
-- **Layout customization**: Drag and drop panels, resize the sidebar and editor panes, and arrange your workspace to match your preferred workflow. Split the editor to view multiple investigations or files side by side.
+- **Layout customization**: Drag and drop panels, resize the sidebar and editor panes, and arrange your workspace to match your preferred workflow. Split the editor to view multiple shared sessions or files side by side.
 
-### Working with investigations
+### Working with shared sessions
 
-Investigations are the primary research sessions in Microsoft Discovery Studio. The Investigations panel in the activity bar lists all investigations in the current project, organized in a tree view. Each investigation contains:
+Shared sessions are the primary research sessions in Microsoft Discovery Studio. The Shared Sessions panel in the **Home** tab lists all shared sessions in the current project. Each shared session contains:
 
 - A conversational thread with one or more agents
 - Agent-generated outputs such as HTML reports, calculations, and data analyses
-- A summary section that updates as the investigation progresses
+- A summary section that updates as the shared session progresses
 
-You can have multiple investigations open simultaneously in separate editor tabs, making it easy to compare results or work on parallel research tracks.
+You can have multiple shared sessions open simultaneously in separate editor tabs, making it easy to compare results or work on parallel research tracks. These are shared between users of the same project.
 
 ## Get started
 
 If you're new to Microsoft Discovery Studio, follow these steps:
 
 1. **Set up infrastructure**: Deploy a workspace and supporting resources using the [Azure portal quickstart](quickstart-infrastructure-portal.md) or [Bicep quickstart](quickstart-infrastructure-bicep.md).
-1. **Create a project**: To organize your agents, investigations, and data, set up a project within your workspace 
-1. **Create agents**: Add prompt agents or workflow agents to your project. You can create them from scratch or use [agent bundles](quickstart-agents-bundles.md).
-1. **Start an investigation**: To conduct AI-powered research, open an investigation and begin chatting with your agents.
+1. **Create a project**: To organize your agents, shared sessions, and data, set up a project within your workspace 
+1. **Create agents**: Add prompt agents to your project. You can create them from scratch or use [agent bundles](quickstart-agents-bundles.md).
+1. **Start a shared session**: To conduct AI-powered research, type a prompt in the chat box on the Welcome page to start a new shared session and begin chatting with your agents.
 
-For a guided walkthrough, see [Quickstart: Get started with agents and investigations in Microsoft Discovery Studio](quickstart-agents-studio.md).
+For a guided walkthrough, see [Quickstart: Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md).
 
 ## Related content
 
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Projects and investigations](concept-projects-investigations.md)
+- [Projects and shared sessions](concept-projects-investigations.md)
 - [Discovery Agent concepts](concept-discovery-agent.md)
-- [Quickstart: Get started with agents and investigations](quickstart-agents-studio.md)
+- [Quickstart: Get started with agents and shared sessions](quickstart-agents-studio.md)

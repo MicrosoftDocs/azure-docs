@@ -1,27 +1,27 @@
 ---
-title: "Quickstart: Get started with agents and investigations in Microsoft Discovery Studio"
-description: Create Microsoft Discovery agents and investigations to run your first AI-powered scientific research.
+title: "Quickstart: Get started with agents and shared sessions in Microsoft Discovery Studio"
+description: Create Microsoft Discovery agents and shared sessions to run your first AI-powered scientific research.
 author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: quickstart
-ms.date: 03/17/2026
+ms.date: 05/20/2026
 ms.custom:
   - template-quickstart
 
-#customer intent: As a scientist or engineer, I want to set up Microsoft Discovery agents and investigations so that I can run AI-powered scientific research.
+#customer intent: As a scientist or engineer, I want to set up Microsoft Discovery agents and shared sessions so that I can run AI-powered scientific research.
 
 ---
 
-# Quickstart: Get started with agents and investigations in Microsoft Discovery Studio
+# Quickstart: Get started with agents and shared sessions in Microsoft Discovery Studio
 
-In this quickstart, you will set up resources for your Microsoft Discovery project, such as agents and investigations to run your first AI-powered scientific research. You will complete the following tasks:
+In this quickstart, you will set up resources for your Microsoft Discovery project, such as agents and shared sessions to run your first AI-powered scientific research. You will complete the following tasks:
 
 - Log in to Microsoft Discovery Studio
 - Access Microsoft Discovery project
-- Create required agents
-- Create an investigation
-- And then start a chat in your investigation
+- (Optional) Create a custom agent
+- Create a shared session
+- And then start a chat in your shared session
 
 ## Prerequisites
 
@@ -36,12 +36,16 @@ After your infrastructure is set up, you can log in to [Microsoft Discovery Stud
 
 :::image type="content" source="media/quickstart-agents-studio/studio-home.jpg" alt-text="Screenshot of the Microsoft Discovery Studio homepage." lightbox="media/quickstart-agents-studio/studio-home.jpg":::
 
+After signing in, you land on the **Home** tab, which provides quick access to recent shared sessions and common actions like creating new shared sessions or tasks.
+
 You must sign in with your Entra ID (work or school account) credentials. Studio supports Single Sign-On (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
 
 > [!NOTE]
 > If you have access to multiple Entra tenants, make sure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
 
-## 2. Create an agent
+## 2. (Optional) Create a custom agent
+
+Every project comes with a default **Discovery** agent that you can use immediately to start chatting. If you want to create a custom agent tailored to a specific domain, follow the steps below. Otherwise, skip to [step 3](#3-create-a-shared-session).
 
 Agents are autonomous, AI-powered systems that perform specific scientific tasks on behalf of users. Powered by large language models (LLMs), agents can use tools, models, and other agents to achieve a goal. In the Microsoft Discovery architecture, agents are the primary functional unit of execution.
 
@@ -52,7 +56,7 @@ In this example, create a basic Chemistry Agent that answers questions about che
    :::image type="content" source="media/quickstart-agents-studio/create-project-list.jpg" alt-text="Screenshot showing the Project list page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/create-project-list.jpg":::
 1. Open the project that we created in the [previous tutorial](./quickstart-infrastructure-portal.md#9-create-a-project) by selecting the name. It will open the project in a new tab.
    :::image type="content" source="media/quickstart-agents-studio/studio-welcome.jpg" alt-text="Screenshot showing the Welcome page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/studio-welcome.jpg":::
-1. In the Welcome tab, under the **Get started** section, select the **Create an agent** button.
+1. In the **Resources** tab in the left navigation pane, select the **+** button next to **Agents** to create a new agent.
 1. In the **New Agent** tab, select **Agent** as the type.
 1. Enter a **Name** and **Description** for the agent. For example:
    - **Name**: `ChemistryAgent`
@@ -69,26 +73,21 @@ In this example, create a basic Chemistry Agent that answers questions about che
 > [!NOTE]
 > Once your agent is created, you can create more agents to the project from the **Resources** pane. Just select the **+** button next to Agents and select **Create new agent** and repeat the process.
 
-## 3. Create an investigation
+## 3. Create a shared session
 
-Investigations are research studies within a project where you can chat with your agents, run computational analyses, and get data-driven insights to scientific questions. Once your agents are created, create an investigation to start a chat.
+Shared sessions are research studies within a project where you can chat with your agents, run computational analyses, and get data-driven insights to scientific questions.
 
-> [!IMPORTANT]
-> Your investigation name must be no more than 20 characters long.
+To create a shared session, simply type a prompt in the chat box on the Welcome page and select **Send**. A new shared session is automatically created and the agent responds to your prompt. By default, the **Discovery** agent is selected.
 
-1. In the left navigation pane, select the **Investigations** tab.
-1. Select the **Create investigation** button or **+** button.
-1. Provide a name and an optional description, then select **Create**.
-   :::image type="content" source="media/quickstart-agents-studio/create-investigation.jpg" alt-text="Screenshot showing the Create investigation dialog in Microsoft Discovery Studio.":::
+Alternatively, you can select **New shared session** from the **Home** tab in the left navigation pane.
 
 ## 4. Start a chat
 
-After your investigation is created, follow these steps:
+After your shared session is created, follow these steps:
 
-1. Select the investigation created in [step 3](#3-create-an-investigation) to open it in a tab.
-1. In the chat input box, select the agent that we just created in [step 2](#2-create-an-agent).
-1. Enter a prompt and select **Send** to get a response using the agent configured in this quickstart.
-   :::image type="content" source="media/quickstart-agents-studio/studio-investigations-chat.jpg" alt-text="Screenshot showing the chat interface in a Microsoft Discovery investigation.":::
+1. In the chat input box, select an agent using the agent selector dropdown. The default **Discovery** agent is preselected, or you can choose a custom agent created in [step 2](#2-optional-create-a-custom-agent).
+1. Enter a prompt and select **Send** to get a response using the selected agent.
+   :::image type="content" source="media/quickstart-agents-studio/studio-investigations-chat.jpg" alt-text="Screenshot showing the chat interface in a Microsoft Discovery shared session.":::
 
 ## Next steps
 

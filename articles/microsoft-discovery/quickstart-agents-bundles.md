@@ -56,19 +56,18 @@ After the deployment process completes, verify that all agents were successfully
 1. Under **Agents**, confirm that all six agents from the Hello Discovery bundle are listed and their status shows as active.
    :::image type="content" source="media/quickstart-agents-bundles/add-agent-bundles-successful.jpg" alt-text="Screenshot showing the resources tab and successful agent deployment." lightbox="media/quickstart-agents-bundles/add-agent-bundles-successful.jpg":::
 
-## 4. Create an investigation
+## 4. Create a shared session
 
-Investigations are research studies within a project where you can chat with your agents, run computational analyses, and get data-driven insights to scientific questions.
+Shared sessions are research studies within a project where you can chat with your agents, run computational analyses, and get data-driven insights to scientific questions.
 
-1. In the left navigation pane, select the **Investigations** tab.
-1. Select the **Create investigation** button or **+** button.
-1. Provide a name and an optional description, then press **Enter** to create.
+To create a shared session, type a prompt in the chat box on the Welcome page and select **Send**. A new shared session is automatically created.
+
+Alternatively, you can select **New shared session** from the **Home** tab in the left navigation pane.
 
 ## 5. Start a chat with the workflow agent
 
-After your investigation is created, test the deployed agents by starting a conversation:
+After your shared session is created, test the deployed agents by starting a conversation:
 
-1. Select the investigation created in [step 4](#4-create-an-investigation) to open it in a tab.
 1. In the chat input box, the **workflow agent** is selected by default in the agent selector.
 1. Enter a sample chemistry question, for example:
 
