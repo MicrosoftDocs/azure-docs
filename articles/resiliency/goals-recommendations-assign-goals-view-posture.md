@@ -17,7 +17,7 @@ This article describes how to  assign resiliency goals to a service group, view 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- A service group created with the required resources. For more information, see [Create a service group](../governance/service-groups/create-service-group-portal).
+- A service group created with the required resources. For more information, see [Create a service group](../governance/service-groups/create-service-group-portal.md).
 - A [usage plan](#enroll-in-a-usage-plan) enrolled for the service group.
 - **Service Group Contributor** (or alternately, **Azure Resilience Management Goals Contributor**) access to the service group for assigning goals. See the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations) for role requirements per scenario.
 
