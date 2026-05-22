@@ -1,19 +1,17 @@
 ---
-title: Configure Azure Container Apps OpenTelemetry export to Dynatrace
+title: Export OpenTelemetry data to Dynatrace
 description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
 author: jefmarti
 ms.service: azure-container-apps
-ms.date: 05/21/2026
+ms.date: 05/22/2026
 ms.author: cshoe
 ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
-<!-- TODO: confirm with @jeffwmartinez — ms.author is currently set to cshoe (Craig Shoemaker). If Jeff Martinez is the primary author, update ms.author to Jeff's Microsoft alias before publishing. -->
+# Export OpenTelemetry data to Dynatrace
 
-# Configure Azure Container Apps OpenTelemetry export to Dynatrace
-
-This configuration guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
+This guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
 
 For more information about the managed OpenTelemetry agent, see [Set up OpenTelemetry agents in Azure Container Apps](./opentelemetry-agents.md).
 
@@ -72,7 +70,7 @@ var dynatraceApiKey = '<DYNATRACE_INGEST_TOKEN>'
 var dynatraceAuthHeader = 'Api-Token ${dynatraceApiKey}'
 var dynatraceOtlpDestinationName = 'dynatrace-otlp'
 
-resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+resource environment 'Microsoft.App/managedEnvironments@2026-01-01' = {
   name: '<managed-environment-name>'
   location: '<region>'
   properties: {
@@ -116,7 +114,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
 Use a container app resource block like the following example to set required environment variables:
 
 ```bicep
-resource app 'Microsoft.App/containerApps@2023-05-01' = {
+resource app 'Microsoft.App/containerApps@2026-01-01' = {
   name: '<CONTAINER_APP_NAME>'
   location: '<REGION>'
   properties: {
@@ -170,8 +168,7 @@ az deployment group create `
   --resource-group $RESOURCE_GROUP `
   --template-file infra/main.bicep `
   --parameters @infra/main.parameters.json `
-  dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" `
-  dynatraceApiKey="$DYNATRACE_API_TOKEN"
+  --parameters dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" dynatraceApiKey="$DYNATRACE_API_TOKEN"
 ```
 
 Use the same endpoint and token values shown earlier in this guide, including the OTLP base endpoint format.
@@ -187,7 +184,7 @@ Use the following steps to configure Dynatrace in the Azure portal:
 1. In **Key**, paste your Dynatrace ingest token.
 1. Select the checkboxes for **Logs**, **Traces**, and **Metrics**.
 1. Save the configuration.
-1. Go to your Container App, and then go to **Revisions and replicas** > **Edit and deploy new revision**.
+1. Go to your container app, and then go to **Revisions and replicas** > **Edit and deploy new revision**.
 1. Under **Environment variables**, add or confirm the following values:
    - `OTEL_SERVICE_NAME` = your app/service name
    - `OTEL_TRACES_EXPORTER` = `otlp`
@@ -203,11 +200,11 @@ In the update panel, if you are not rotating the token, you can leave **Key** bl
 
 ---
 
-Your Container App is now configured to send telemetry to Dynatrace.
+Your container app is now configured to send telemetry to Dynatrace.
 
 ## Verify OpenTelemetry data in Dynatrace
 
-After you complete the configuration, your Container App starts sending telemetry to Dynatrace through the managed OpenTelemetry agent. Use Dynatrace to check that logs, traces, and metrics are arriving from the application and that the data appears under the expected service or environment context.
+After you complete the configuration, your container app starts sending telemetry to Dynatrace through the managed OpenTelemetry agent. Use Dynatrace to check that logs, traces, and metrics are arriving from the application and that the data appears under the expected service or environment context.
 
 You can validate the result by checking the Dynatrace experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path might vary depending on the data you want to inspect.
 
