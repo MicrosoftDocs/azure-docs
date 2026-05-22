@@ -4,7 +4,7 @@ description: Learn how Azure Deployment Environments ensure reliability with ava
 author: RoseHJM
 ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
-ms.date: 05/05/2026
+ms.date: 05/22/2026
 ms.topic: concept-article
 #customer intent: As a cloud architect, I want to understand how availability zones support reliability in Azure Deployment Environments so that I can ensure high availability for my applications.
 ---

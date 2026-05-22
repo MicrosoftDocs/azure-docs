@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: best-practice 
-ms.date: 05/05/2026
+ms.date: 05/22/2026
 
 # customer intent: As a platform engineer, I want to structure my catalog so that Azure Deployment Environments can find and cache environment definitions efficiently.
 
