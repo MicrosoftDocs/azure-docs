@@ -47,12 +47,12 @@ Inbound NAT rule V1 for a single virtual machine provides a 1:1 port mapping bet
 
 :::image type="content" source="./media/inbound-nat-rules/inbound-nat-rule.png" alt-text="Screenshot of single virtual machine inbound NAT rule configuration diagram showing traffic flow forwarding, from load balancer frontend to specific backend instance.":::
 
-### Inbound NAT Pools (VMSS) — Retiring September 30, 2027
+### Inbound NAT Pools (Azure Virtual Machine Scale Sets) — Retiring September 30, 2027
 
-Inbound NAT Pools are a feature of Inbound NAT rules V1 that automatically create Inbound NAT rules per Azure Virtual Machine Scale Set instance. The load balancer's frontend IP address and a range of frontend ports are used to map connections to individual VMSS instances.
+Inbound NAT Pools are a feature of Inbound NAT rules V1 that automatically create Inbound NAT rules per Azure Virtual Machine Scale Set instance. The load balancer's frontend IP address and a range of frontend ports are used to map connections to individual Virtual Machine Scale Sets instances.
 
 > [!IMPORTANT]
-> On September 30, 2027, **Inbound NAT Pools** (the VMSS-specific feature of Inbound NAT rules V1) will be retired and starting November 15, 2026, you will not be able to create new Inbound NAT Pools. If you are currently using Inbound NAT Pools with Virtual Machine Scale Sets, upgrade to Inbound NAT rules V2 prior to the retirement date. **Single VM Inbound NAT rules V1 are not affected by this retirement.**
+> On September 30, 2027, **Inbound NAT Pools** (the  Virtual Machine Scale Sets-specific feature of Inbound NAT rules V1) will be retired and starting November 15, 2026, you will not be able to create new Inbound NAT Pools. If you are currently using Inbound NAT Pools with Virtual Machine Scale Sets, upgrade to Inbound NAT rules V2 prior to the retirement date. **Single VM Inbound NAT rules V1 are not affected by this retirement.**
 
 ## Port mapping retrieval
 
