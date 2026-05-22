@@ -1,8 +1,8 @@
 ---
-title: Create and configure a Recovery Orchestration Plan
+title: Create and configure a Recovery Orchestration Plan in Resiliency
 description: Learn how to create and configure a Recovery Orchestration Plan for zonal resiliency in Azure, including resource protection, groups, and group actions.
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 06/02/2026
 ms.service: resiliency
 author: shsangal
 ms.author: shsangal
@@ -140,5 +140,5 @@ To update the plan, follow the steps:
 
 ## Related content
 
-- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md)
-- [Support matrix for Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md)
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md) (preview)
+- [Support matrix for Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md) (preview)
