@@ -214,7 +214,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncCloudTiering -Path <path>
 ```
 
-<a id="files-skipped"></a>#### Skipped files and folders
+#### Skipped files and folders<a id="files-skipped"></a>
 
 Azure File Sync skips the following temporary files and system folders:
 
