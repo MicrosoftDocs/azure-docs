@@ -203,15 +203,17 @@ If you didn't sign in to Azure, use `Connect-AzAccount` to sign in. Once you sig
 You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with `New-AzResourceGroup`.
 
 ```powershell-interactive
+
 ### variables
 $resourcegroupname="<your resource group name>"
-$location="South Central US"
+$location="southcentralus"
 $workspacename="<your workspace name>"
 $fhirservicename="<your fhir service name>"
 $tenantid="<your tenant id>"
 $subscriptionid="<your subscription id>"
 $storageaccountname="<your storage account name>"
 $storageaccountconfirm=1
+$fhirtemplate="<path to your template file>"
 
 ### login to azure
 Connect-AzAccount 
@@ -224,8 +226,10 @@ Connect-AzAccount -Tenant $tenantid -SubscriptionId $subscriptionid
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ### deploy the resource
-New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFile "src/templates/fhirtemplate.json" -region $location -workspaceName $workspacename -fhirServiceName $fhirservicename -tenantid $tenantid -storageAccountName $storageaccountname -storageAccountConfirm $storageaccountconfirm
+New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFile $fhirtemplate -region $location -workspaceName $workspacename -fhirServiceName $fhirservicename -tenantid $tenantid -storageAccountName $storageaccountname -storageAccountConfirm $storageaccountconfirm
+
 ```
+
 # [CLI](#tab/CLI)
 
 ### Deploy the template: using CLI
@@ -237,6 +241,7 @@ If you didn't sign in to Azure, use `az login` to sign in. Once you sign in, use
 You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with `az group create`.
 
 ```azurecli-interactive
+
 ### variables
 resourcegroupname=<your resource group name>
 location=southcentralus
@@ -246,6 +251,7 @@ tenantid=<your tenant id>
 subscriptionid=<your subscription id>
 storageaccountname=<your storage account name>
 storageaccountconfirm=true
+fhirtemplate=<path to your template file>
 
 ### login to azure
 az login
@@ -256,7 +262,8 @@ az account set --subscription $subscriptionid
 az group create --name $resourcegroupname --location $location
 
 ### deploy the resource
-az deployment group create --resource-group $resourcegroupname --template-file 'src\\templates\\fhirtemplate.json' --parameters region=$location workspaceName=$workspacename fhirServiceName=$fhirservicename tenantid=$tenantid storageAccountName=$storageaccountname storageAccountConfirm=$storageaccountconfirm
+az deployment group create --resource-group $resourcegroupname --template-file $fhirtemplate --parameters region=$location workspaceName=$workspacename fhirServiceName=$fhirservicename tenantid=$tenantid storageAccountName=$storageaccountname storageAccountConfirm=$storageaccountconfirm
+
 ```
 
 ---
@@ -270,13 +277,16 @@ Verify that the FHIR service is running by opening a browser and navigating to `
 When you no longer need the resources created using this template, run the following code to delete the resource group.
 
 # [PowerShell](#tab/PowerShell)
+
 ```powershell-interactive
-$resourceGroupName = “your resource group name”
+$resourceGroupName = "<your resource group name>"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
+
 # [CLI](#tab/CLI)
+
 ```azurecli-interactive
-resourceGroupName = "your resource group name"
+resourceGroupName = "<your resource group name>"
 az group delete --name $resourceGroupName
 ```
 
