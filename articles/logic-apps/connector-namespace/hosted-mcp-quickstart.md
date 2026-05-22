@@ -48,21 +48,21 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
 
-1. In the namespace instance, select **Create MCP Server** under *Quick Actions*
+1. In the namespace instance, select **Create MCP Server** under *Quick Actions*.
 
-1. Search for **Playwright**
+1. Search for **Playwright**.
 
-1. Wait a little for the required connection and resources to be provisioned and deployed. 
+1. Wait for the required connection and resources to be provisioned and deployed.
 
-1. Once the server is created, hit **Done**
+1. Once the server is created, select **Done**.
 
 ### Get server endpoint
 
-1. Go to the **MCP Servers** tab on the left menu
+1. Go to the **MCP Servers** tab on the left menu.
 
-1. Click the name of the server you deployed 
+1. Click the name of the server you deployed.
 
-1. Copy the endpoint from the top 
+1. Copy the endpoint from the top.
 
 ### Connect from GitHub Copilot in Visual Studio Code
 
@@ -81,11 +81,11 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
   Replace `<your-mcp-endpoint-url>` with the endpoint URL you copied from the server details page. 
 
-1. Hit **Start** above the server name, you'll be asked to authenticate with Microsoft. Login with the email you used to log into the Azure Portal. 
+1. Select **Start** above the server name. You're asked to authenticate with Microsoft. Sign in with the email you used to sign in to the Azure portal.
 
-1. You should see the number of tools available above the server name. 
+1. You should see the number of tools available above the server name.
 
-1. Open Copilot agent mode, ask "What is the closest pizzaria to 11 Times Square?" 
+1. Open Copilot agent mode, ask "What is the closest pizzeria to 11 Times Square?" 
 
 ### Connect from MCP Inspector 
 
@@ -116,7 +116,7 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
   ```bash
    npx @modelcontextprotocol/inspector --cli \
-   "https://app-18.brazilus.logic.azure.com/api/connectorGateways/3f205b67a1094e1ba03a67010cc16f79/mcpServerConfigs/test-pw-0520/mcp" \
+   "<your-mcp-endpoint-url>" \
    --transport http \
    --method tools/call \
    --tool-name browser_navigate \

@@ -5,7 +5,7 @@ author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 05/21/2026
-ms.topic: concept-article
+ms.topic: conceptual
 ms.service: azure-logic-apps
 ms.custom: ai-assisted
 # Customer intent: As a developer, I want to understand hosted MCP servers in Connector Namespace so I can choose the right approach for exposing tools to AI agents.
@@ -17,6 +17,8 @@ ms.custom: ai-assisted
 >
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article explains what hosted MCP servers are, how they compare to managed servers, and what servers are available during preview.
 
 ## What are hosted MCP servers?
 
@@ -51,8 +53,8 @@ During public preview, a curated set of hosted MCP servers is available. The cat
 | **Azure Cosmos DB Toolkit** | Enables AI agents to interact with Azure Cosmos DB through enterprise-grade authentication, comprehensive database operations including CRUD, vector search, and schema discovery |
 > [!NOTE]
 > If there's a server you'd like to see supported, file an issue at aka.ms/hosted-mcp-github.
-> 
-> Support for publishing custom-built MCP servers to the catalog is in future plan.
+>
+> Support for publishing custom-built MCP servers to the catalog is planned for the future.
 
 ## Server authentication
 
