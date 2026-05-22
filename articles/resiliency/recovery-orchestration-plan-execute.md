@@ -32,12 +32,12 @@ To execute a failover operation, follow these steps:
 1. Select the **active location** (region) under which you want to failover the resources.
 1. Select the **active physical zone** in the selected region. To determine the correct physical zone, select **Review zone mapping** to check the subscription-wise mapping of logical zones to physical zones.
 
-Resources are categorized in the following tabs:
+   Resources are categorized in the following tabs:
 
-- **Resources qualified for operation**: Resources that meet all criteria for failover.
-- **Resources skipped for operation**: Resources that don't qualify appear with a skip reason.
+   - **Resources qualified for operation**: Resources that meet all criteria for failover.
+   - **Resources skipped for operation**: Resources that don't qualify appear with a skip reason.
 
-4. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
+1. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
 1. Select the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
 1. Select **Execute** to start the failover.
 
