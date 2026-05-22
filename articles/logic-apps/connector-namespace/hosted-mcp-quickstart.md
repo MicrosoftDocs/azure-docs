@@ -68,18 +68,18 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 1. To connect your hosted MCP server to GitHub Copilot in VS Code, add the server configuration to your MCP settings:
 
-  ```json
-    {
-      "servers": {
-        "my-hosted-server": {
-          "url": "<your-mcp-endpoint-url>",
-          "type": "http"
-        }
-      }
-    }
-  ```
+   ```json
+   {
+     "servers": {
+       "my-hosted-server": {
+         "url": "<your-mcp-endpoint-url>",
+         "type": "http"
+       }
+     }
+   }
+   ```
 
-  Replace `<your-mcp-endpoint-url>` with the endpoint URL you copied from the server details page. 
+   Replace `<your-mcp-endpoint-url>` with the endpoint URL you copied from the server details page. 
 
 1. Select **Start** above the server name. You're asked to authenticate with Microsoft. Sign in with the email you used to sign in to the Azure portal.
 
@@ -89,32 +89,35 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 ### Connect from MCP Inspector 
 
-1.  From the terminal, run: 
-  ```bash
-  az login
-  ```
+1. From the terminal, run: 
 
-  You'll get access token from your `az login` session to connect to the server. 
+   ```bash
+   az login
+   ```
+
+   You'll get access token from your `az login` session to connect to the server. 
 
 1. Get access token:
-  ```bash
-  MCP_TOKEN=$(az account get-access-token --resource https://apihub.azure.com --query accessToken -o tsv)
-  ```
+
+   ```bash
+   MCP_TOKEN=$(az account get-access-token --resource https://apihub.azure.com --query accessToken -o tsv)
+   ```
 
 1. Connect to server:
-  ```bash
-  npx @modelcontextprotocol/inspector --cli \
-  "<your-mcp-endpoint-url>" \
-  --transport http \
-  --method tools/list \
-  --header "Authorization: Bearer $MCP_TOKEN"
-  ```
 
-  You should see the list of tools this server supports. 
+   ```bash
+   npx @modelcontextprotocol/inspector --cli \
+   "<your-mcp-endpoint-url>" \
+   --transport http \
+   --method tools/list \
+   --header "Authorization: Bearer $MCP_TOKEN"
+   ```
+
+   You should see the list of tools this server supports. 
 
 1. Call a specific tool. For example, the following calls the `browser_navigate` tool: 
 
-  ```bash
+   ```bash
    npx @modelcontextprotocol/inspector --cli \
    "<your-mcp-endpoint-url>" \
    --transport http \
@@ -122,9 +125,9 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
    --tool-name browser_navigate \
    --tool-arg url="https://www.google.com/search?q=pizza+near+11+Times+Square+New+York" \
    --header "Authorization: Bearer $MCP_TOKEN"
-  ```
+   ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Manually passing access tokens is suitable only for local development and testing. For production scenarios, use managed identities or OAuth flows to acquire tokens automatically.
 
 ## Related articles
