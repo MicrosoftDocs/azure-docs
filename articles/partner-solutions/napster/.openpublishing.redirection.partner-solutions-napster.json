@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/partner-solutions/napster/troubleshoot.md",
-            "redirect_url": "/troubleshoot/azure/partner-solutions/welcome-native-integrations",
+            "redirect_url": "/troubleshoot/azure/partner-solutions/marketplace-purchases-errors",
             "redirect_document_id": false
         }
     ]
