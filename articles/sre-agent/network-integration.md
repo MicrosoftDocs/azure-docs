@@ -70,7 +70,7 @@ Use the following criteria to select a mode:
 
 To select a control mode for your agent, open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
 
-:::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/sre-agent-networking-vnet.png":::
+:::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/azure-sre-agent-networking-vnet.png":::
 
 From this screen you can select your egress mode with the option to provide your own virtual network for your agent to run in.
 
@@ -93,10 +93,6 @@ To configure pre-installed packages:
 ## Bypass controls and governance
 
 Full VNet mode includes bypass controls that let you temporarily disable VNet routing. These bypasses allow you to conduct network troubleshooting. By disabling VNet routing for a test run, you can isolate whether a problem originates in the agent or in the network configuration.
-
-### Enterprise governance with Azure Policy
-
-For enterprises that require all agent traffic to route through the VNet at all times, bypass controls present a compliance gap. Azure Policy addresses this gap. You can apply a policy to restrict or disable bypass controls, ensuring that no operator can circumvent the VNet configuration.
 
 ## Limitations
 
