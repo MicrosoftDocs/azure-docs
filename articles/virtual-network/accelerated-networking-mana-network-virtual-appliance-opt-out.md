@@ -31,7 +31,7 @@ Your NVA VMs running on [existing VM series](./accelerated-networking-mana-exist
 You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑enabled hardware. This tag prevents NVA VMs and Virtual Machine Scale Sets from landing on MANA hardware while you complete your migration. Follow the steps below to apply the tag.
 
 > [!IMPORTANT]
-> The `LegacyVMNVA` tag must be applied before August 1, 2026. VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
+> The `LegacyVMNVA` tag must be applied and enabled before August 1, 2026. VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
 
 1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
      - Using the existing [Compliance and Remediation process](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal), the tag can be applied across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
@@ -65,11 +65,16 @@ If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, netw
 
 ## Special tag deployment scenarios
 
+### NVAs with on-demand capacity reservation (ODCR)
+If you use the `LegacyVMNVA` tag on VMs with an [on-demand capacity reservation (ODCR)](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview) to temporarily avoid deployment on MANA-enabled hardware, the available capacity pool for placement is reduced, and [ODCR SLA guarantees](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#sla-for-capacity-reservation) do not apply to those VMs.
+
+To restore ODCR SLA eligibility, remove the opt-out tag and ensure your NVA is compatible with MANA.
+
 ### NVAs acquired outside of Azure Marketplace
 
 If your NVA was acquired directly from your NVA provider rather than through the Azure Marketplace, work with your provider directly to determine whether changes are required to your deployment templates or mechanisms to ensure the `LegacyVMNVA` tag is applied to both existing and new deployments.
 
-### Managed Service NVAs
+### Managed service NVAs
 
 This change also affects NVAs provided through a managed service. Work with your managed service provider to understand their plans and processes for applying the `LegacyVMNVA` tag to your resources.
 

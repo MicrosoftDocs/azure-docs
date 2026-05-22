@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: quickstart 
-ms.date: 12/31/2025 
+ms.date: 05/21/2026
 ms.custom:
   - references_regions
   - devx-track-azurecli
@@ -29,8 +29,8 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 > For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
 
 >[!Note]
->  For a Public Identity, identity validation details are automatically sourced from your Azure billing account under the subscription used to register this resource provider. The billing account type must match the identity validation type: a billing account with an Account Type of "Individual" (Microsoft Customer Agreement - Individual) can only be used for individual identity validation, and a billing account with an Account Type of "Enterprise/Organization" (Microsoft Customer Agreement - Enterprise, or Enterprise Agreement) can only be used for organizational identity validation. You cannot use an individual billing account to validate an organization identity, or vice versa.
->Before starting the identity validation process, ensure that all billing account information—including legal name, billing address, and organization details—exactly matches the information you intend to appear on your Artifact Signing Public Trust certificate profile. Any discrepancies between the billing profile and the intended certificate subject may result in incorrect information being reflected on the certificate. To review or update your billing account information, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+>  For a Public Identity for individual identity validation details are automatically sourced from your Azure billing account under the subscription used to register this resource provider. The billing account type must match the identity validation type: a billing account with an Account Type of "Individual" can only be used for individual identity validation. You cannot use an individual billing account to validate an organization identity, or vice versa.
+>Before starting the identity validation process, ensure that all billing account information—including legal name, and billing address details—exactly matches the information you intend to appear on your Artifact Signing Public Trust certificate profile. Any discrepancies between the billing profile and the intended certificate subject may result in incorrect information being reflected on the certificate. To review or update your billing account information, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
 
 
 To complete this quickstart, you need:
@@ -285,11 +285,7 @@ To create an identity validation request for an Organization or a DBA:
 1. Select **Organization**, select **New Identity**, and then select either **Public** or **Private**.
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
    - Private identity validation applies only to these certificate profile types: Private Trust, Private Trust CI Policy.
-1. On **New organization validation**,  select the billing account associated to the subscription.
-
-   :::image type="content" source="media/artifact-signing-billing-account-organization.png" alt-text="Screenshot that shows the billing account dropdown for org." lightbox="media/artifact-signing-billing-account-organization.png":::
-
-1. Once a billing account is selected, the form is automatically populated with the billing account information. These fields can be edited within the form. Before proceeding, ensure the populated details meet the required criteria.
+1. On **New organization validation**, enter the below details that meet the requirements.
 
     | Fields       | Details     |
     | :------------------- | :------------------- |
