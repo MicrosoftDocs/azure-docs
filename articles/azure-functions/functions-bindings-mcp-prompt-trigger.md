@@ -372,8 +372,7 @@ The `@McpPromptArgument` annotation supports the following configuration options
 
 | Parameter | Description |
 |---------|----------------------|
-| **name** | (Required) The binding parameter name. |
-| **argumentName** | (Optional) The argument name exposed in the MCP protocol. Defaults to the value of `name`. |
+| **name** | (Required) The argument name used as both the binding parameter name and the MCP protocol argument identifier. |
 | **description** | (Optional) A description of what the argument represents. |
 | **isRequired** | (Optional) If set to `true`, the argument is required when invoking the prompt. Defaults to `false`. |
 
