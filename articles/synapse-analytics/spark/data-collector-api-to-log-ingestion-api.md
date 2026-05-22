@@ -163,7 +163,7 @@ Use this option for quick setup with service principal credentials and a client 
 
 1. Create an Apache Spark configuration.
 
-1. Add the following **Spark properties** to the spark configuration, or select **Import** to import a `.yml` configuration file.
+1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
 
    ```properties
    spark.synapse.diagnostic.emitters: <EMITTER_NAME>
@@ -189,7 +189,7 @@ Use this option when your organization requires certificate-based authentication
 Before you start, ensure that your service principal is created with a certificate. For more information, see [Create a service principal containing a certificate using Azure CLI](/cli/azure/azure-cli-sp-tutorial-3).
 
 1. Create an Apache Spark configuration.
-1. Add the following **Spark properties** to the spark configuration, or select **Import** to import a `.yml` configuration file.
+1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
 
    ```properties
    spark.synapse.diagnostic.emitters: "<EMITTER_NAME>"
@@ -228,6 +228,7 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
     d. Choose your key vault, and select **Create**.
 
 1. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
+1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
 
 ```properties
    spark.synapse.diagnostic.emitters: <EMITTER_NAME>
