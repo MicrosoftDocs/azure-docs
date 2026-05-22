@@ -40,7 +40,7 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
 
 1. Go to the **Resiliency** and select **Protection Inventory** > **Protected items**.
 
-2. On the Protected items pane, apply the filters to view  the backup protected instances for Azure Cosmos DB , and select the required instance from the list.
+2. On the Protected items pane, apply the filters to view  the backup protected instances for Azure Cosmos DB, and select the required instance from the list.
    
    The **Protected items** pane shows all the backup instances created across the subscriptions.
 
