@@ -18,9 +18,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Self-hosted remote MCP server on Azure Functions (public preview)
 
-> [!IMPORTANT]
-> [Hosted MCP servers in Azure Connector Namespace](../logic-apps/connector-namespace/hosted-mcp-quickstart.md) is the new iteration of hosting MCP SDK-based servers. Hosted MCP provides fully managed infrastructure, scaling, and credential management without the limitations of custom handlers. We recommend trying out that capability currently in preview.
-
 Azure Functions provides two ways of hosting remote MCP servers:
 
 - MCP servers created with the [Functions MCP extension](functions-bindings-mcp.md)
