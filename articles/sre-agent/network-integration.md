@@ -1,8 +1,8 @@
 ---
-title: SRE Agent network integration (preview)
+title: Azure SRE Agent network integration (preview)
 description: Learn how VNet integration controls outbound access for the SRE Agent. Understand the three network modes, data-plane operations on private resources, and enterprise governance with Azure Policy.
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 05/22/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -10,9 +10,9 @@ ms.service: azure-sre-agent
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# SRE Agent network integration (preview)
+# Azure SRE Agent network integration (preview)
 
-The SRE Agent can act on your infrastructure, query your databases, and run commands against your clusters. Without network controls, all of that outbound traffic flows unrestricted across the public internet. VNet integration changes that: the agent joins your Azure Virtual Network, and every outbound call routes through your existing security infrastructure.
+The Azure SRE Agent can act on your infrastructure, query your databases, and run commands against your clusters. Without network controls, all of that outbound traffic flows unrestricted across the public internet. Virtual network (VNet) integration changes that by connecting the agent to your Azure Virtual Network so that every outbound call routes through your existing security infrastructure.
 
 This article explains why network-level control matters for enterprise deployments, how VNet integration works, and how to choose the right network control mode for your workload.
 
@@ -65,6 +65,14 @@ Use the following criteria to select a mode:
 - **Limited**: Choose this mode if you want to restrict specific external destinations without routing all traffic through a VNet. This mode works well when you need partial control without the overhead of full VNet configuration.
 
 - **Unrestricted**: Choose this mode if the workload is a short-lived development or test environment with no access to sensitive data. This mode is the default.
+
+## Access network control modes
+
+To select a control mode for your agent, open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
+
+:::image type="content" source="media/network-integration/sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/sre-agent-networking-vnet.png":::
+
+From this screen you can select your egress mode with the option to provide your own virtual network for your agent to run in.
 
 ## Bypass controls and governance
 
