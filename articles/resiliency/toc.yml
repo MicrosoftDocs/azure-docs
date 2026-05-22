@@ -63,6 +63,14 @@
     href: ../backup/azure-elastic-storage-area-network-backup-overview.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
 - name: How-to guides
   items:
+  - name: Goals and recommendations
+    items:
+    - name: Assign goals and view resiliency posture
+      href: goals-recommendations-assign-goals-view-posture.md
+    - name: Review recommendations
+      href: goals-recommendations-review-recommendations.md
+    - name: Use the Resiliency agent
+      href: goals-recommendations-use-agent.md
   - name: Vaults
     items:
     - name: Create 
