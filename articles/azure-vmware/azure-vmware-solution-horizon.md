@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 
 [VMware Horizon](https://www.omnissa.com/products/horizon-8/)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create, and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
-Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
+In this article, learn about how to deploy Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the following Horizon production documentation:
 
 * [What is VMware Horizon?](https://www.omnissa.com/products/horizon-8/)
 
@@ -45,7 +45,7 @@ The _Azure private cloud_ is conceptually the same as the _VMware SDDC_, a term 
 The Horizon Cloud Connector is required for Horizon on Azure VMware Solution to manage subscription licenses. You can deploy Cloud Connector in Azure Virtual Network alongside Horizon Connection Servers.
 
 >[!IMPORTANT]
->Horizon Control Plane support for Horizon on Azure VMware Solution isn't yet available. Be sure to download the VHD version of Horizon Cloud Connector.
+>Horizon Control Plane support for Horizon on Azure VMware Solution isn't yet available. Be sure to download the virtual hard disk (VHD) version of Horizon Cloud Connector.
 
 ## vCenter Server Cloud Admin role
 
