@@ -61,54 +61,93 @@ This article supports version 2 of the Python programming model for Azure Functi
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Initialize the project
 
 Use the Azure Developer CLI to create an Azure Functions code project from a template.
-
-1. In Visual Studio Code, open a folder or workspace where you want to create your project.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
-2. Run the following command in the Terminal: 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
     ```console
     azd init --template remote-mcp-functions-dotnet -e mcpweather-dotnet
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
-::: zone-end  
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript,programming-language-javascript" 
-2. Press <kbd>F1</kbd> to open the command palette. Search for and run `Azure Developer CLI (azd): init`.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in a new folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.
 
-3. When prompted, select **Select a template**.  
+1. Change to the project directory:
+
+    ```console
+    cd remote-mcp-functions-dotnet
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-4. Search for and select **Remote MCP Functions with TypeScript**.
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-5. When prompted in the **Terminal** window, enter `mcpweather-ts` as the environment name.
+    ```console
+    azd init --template remote-mcp-functions-typescript -e mcpweather-ts
+    ```
 
-    The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure.   
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in a new folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd remote-mcp-functions-typescript
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
-4. Search for and select **Remote MCP Functions with JavaScript**.
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-5. When prompted in the **Terminal** window, enter `mcpweather-js` as the environment name.
+    ```console
+    azd init --template remote-mcp-functions-javascript -e mcpweather-js
+    ```
 
-    The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-javascript) and initializes the project in the current folder.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-javascript) and initializes the project in a new folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd remote-mcp-functions-javascript
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-4. Search for and select **Remote MCP Functions with Python**.
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-5. When prompted in the **Terminal** window, enter `mcpweather-python` as the environment name.
+    ```console
+    azd init --template remote-mcp-functions-python -e mcpweather-python
+    ```
 
-    The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in a new folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd remote-mcp-functions-python
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-4. Search for and select **Remote MCP Functions with Java**.
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-5. When prompted in the **Terminal** window, enter `mcpweather-java` as the environment name.
+    ```console
+    azd init --template remote-mcp-functions-java -e mcpweather-java
+    ```
 
-    The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in a new folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd remote-mcp-functions-java
+    ```
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
+3. Open the project in Visual Studio Code:
+
+    ```console
+    code .
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
