@@ -88,13 +88,13 @@ Starting in May 2026, if you upload application packages programmatically by usi
 
 Use the following sequence to upload an application package version:
 
-1. Call [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) to create or update the application package. The response contains `properties.storageUrl`, the URL to which you upload your package file, and `properties.storageUrlExpiry`, which indicates when the URL expires.
+1. Use [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) to create or update the application package. The response contains `properties.storageUrl`, the URL to which you upload your package file, and `properties.storageUrlExpiry`, which indicates when the URL expires.
 1. Upload your application package file (a .zip file) to that `storageUrl`. The URL points to a block blob in the storage account linked to your Batch account.
-1. Call [`ApplicationPackage - Activate`](/rest/api/batchmanagement/application-package/activate) (HTTP `POST`) to activate the package so it can be used by pools and tasks.
+1. Use [`ApplicationPackage - Activate`](/rest/api/batchmanagement/application-package/activate) (HTTP `POST`) to activate the package so it can be used by pools and tasks.
 
 #### Behavior of `storageUrl` and `storageUrlExpiry` in API responses
 
-With this security improvement, Azure Batch returns the upload URL and expiry only in the [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) response. In `ApplicationPackage - Get` (HTTP `GET`) and `ApplicationPackage - Activate` (HTTP `POST`) responses, `properties.storageUrl` and `properties.storageUrlExpiry` are `null`:
+With this security improvement, Azure Batch returns the upload URL and expiry only in the [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) response. In [`ApplicationPackage - Get`](/rest/api/batchmanagement/application-package/get) (HTTP `GET`) and [`ApplicationPackage - Activate`](/rest/api/batchmanagement/application-package/activate) (HTTP `POST`) responses, `properties.storageUrl` and `properties.storageUrlExpiry` are `null`:
 
 - **API versions later than `2025-06-01`**: `properties.storageUrl` and `properties.storageUrlExpiry` are always `null` in HTTP `GET` and HTTP `POST` responses. You can't opt out of this behavior.
 - **API versions `2025-06-01` and earlier**: Beginning in May 2026, a progressive rollout applies the same behavior. To reduce disruption, Azure Batch temporarily exempts users it detects are still using HTTP `GET` to get the upload URL for upload purposes. Plan to migrate to the supported workflow: use HTTP `PUT` to get the upload URL, upload the package file, and then use HTTP `POST` to activate the application package.
@@ -112,8 +112,8 @@ The following table summarizes whether you need to take action for each tool.
 | Azure CLI | None. |
 | Azure PowerShell | Update to Azure PowerShell version **15.2** or later, which includes the **Az.Batch** module version **4.0.1** or later. |
 | Batch Explorer | None. |
-| Batch Management SDK | Review your code. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. For example, in .NET, use `Update()`, upload to the URL, and then use `Activate()`. Don't use `Get()` to get the URL for upload purposes. |
-| Batch Management REST API | Review your code. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. Don't use HTTP `GET` to get the URL for upload purposes. |
+| Batch Management SDK | Review your workflow. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. For example, in .NET, use `Update()`, upload to the URL, and then use `Activate()`. Don't use `Get()` to get the URL for upload purposes. |
+| Batch Management REST API | Review your workflow. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. Don't use HTTP `GET` to get the URL for upload purposes. |
 
 ### Add a new application
 
