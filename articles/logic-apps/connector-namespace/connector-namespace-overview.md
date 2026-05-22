@@ -97,7 +97,7 @@ Connector Namespaces ship with strongly typed SDKs so you can call connectors us
 
 - **C#** - [Azure.Connectors.Sdk](https://www.nuget.org/packages/Azure.Connectors.Sdk) on NuGet, with a Visual Studio Code language service for IntelliSense, completions, and CodeLens.
 
-- **Node.js** - *@azure/connectors-sdk*, a TypeScript-first client with async/await action invocation.
+- **Node.js** - [@azure/connectors](https://www.npmjs.com/package/@azure/connectors) a TypeScript-first client with async/await action invocation.
 
 - **Python** - [azure-connectors](https://pypi.org/project/azure-connectors) aligned with Azure SDK for Python conventions.
 
