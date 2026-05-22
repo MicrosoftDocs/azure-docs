@@ -71,9 +71,9 @@ When creating custom log tables, you must configure a Data Collection Rule (DCR)
 
 The following predefined JSON schema samples each map to a specific data type. Download the sample that fits your scenario, and upload it when you create the associated custom table and DCR.
 
-- Spark event logs - [Event table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-event-schema.json)
-- Spark driver and executor logs - [Log table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-log-schema.json)
-- Spark metrics - [Metric table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-metric-schema.json)
+- Spark event logs - [Event table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/synapse-sample-table-event-schema.json)
+- Spark driver and executor logs - [Log table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/synapse-sample-table-log-schema.json)
+- Spark metrics - [Metric table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/synapse-sample-table-metric-schema.json)
 
 Here's an example log table JSON schema sample for Spark driver and executor logs in Azure Log Analytics. Use this schema as a reference when creating your custom tables and DCRs for log ingestion.
 
