@@ -1,18 +1,18 @@
 ---
-title: Manage certificates
-description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for internal and external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
+title: Manage certificates for external communications
+description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for external communications such as OPC UA server authentication and trust lists.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.date: 05/12/2026
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
+#CustomerIntent: As an operator, I want to configure Azure IoT Operations to use TLS certificates for external communications so that I have secure connections to external servers.
 ---
 
-# Manage certificates for your Azure IoT Operations deployment
+# Manage certificates for external communications
 
-Azure IoT Operations uses TLS to encrypt communication between all components. This article describes how to manage certificates for external communications.
+Azure IoT Operations uses TLS to encrypt all communication. This article describes how to manage certificates for external communications, such as authenticating external OPC UA servers.
 
 For information about managing certificates for internal communications, including the default self-signed issuer and bringing your own CA issuer, see [Bring your own issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md).
 

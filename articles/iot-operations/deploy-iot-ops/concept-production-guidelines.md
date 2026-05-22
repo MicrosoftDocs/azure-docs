@@ -64,7 +64,7 @@ For a production-ready deployment, include the following configurations during t
 
 In the Azure portal deployment wizard, the broker resource is set up in the **Configuration** tab.
 
-* [Configure cardinality settings](deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
+* [Configure cardinality settings](../deployment-plan/deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
 
   | Setting | Single node | Multi node |
   | ------- | ----------- | ---------- |
@@ -73,14 +73,79 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendRedundancyFactor** | 2 | 2 |
   | **backendWorkers** | 1 | 4 |
   | **backendPartitions** | 1 | 5 |
-  | [Memory profile](deployment-planning.md#choose-your-memory-profile) | Low | High |
+  | [Memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) | Low | High |
 
   > [!NOTE]
   > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
 
-* [Encrypt internal traffic](deployment-planning-encryption.md).
+* [Encrypt internal traffic](../deployment-plan/deployment-planning-encryption.md).
 
-* Set [disk-backed message buffer](deployment-planning-disk-buffer.md) with a max size that prevents RAM overflow.
+* Set [disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md) with a max size that prevents RAM overflow.
+
+To specify cardinality settings directly, use the Azure CLI flags or a Broker configuration file.
+
+#### Use CLI flags
+
+When you deploy IoT Operations by using the `az iot ops create` command, use the following parameters to specify broker cardinality directly:
+
+```azurecli
+az iot ops create ... --broker-frontend-replicas 3 --broker-frontend-workers 4 --broker-backend-part 3 --broker-backend-workers 4 --broker-backend-rf 2
+```
+
+#### Use a configuration file
+
+Alternatively, use the `--broker-config-file` flag to specify a JSON file that includes the cardinality settings:
+
+```json
+{
+  "cardinality": {
+    "frontend": {
+      "replicas": 3,
+      "workers": 4
+    },
+    "backendChain": {
+      "partitions": 3,
+      "redundancyFactor": 2,
+      "workers": 4
+    }
+  }
+}
+```
+
+Then deploy (other parameters omitted for brevity):
+
+```azurecli
+az iot ops create ... --broker-config-file <FILE>.json
+```
+
+### Multi-node anti-affinity
+
+For multi-node deployments, the MQTT broker automatically sets [anti-affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) for backend pods. Backend pods from the same partition have anti-affinity with each other, which distributes the load across nodes and provides resilience against node failures.
+
+These rules are predefined and can't be modified.
+
+To verify the anti-affinity settings for a backend pod, use the following command:
+
+```bash
+kubectl get pod aio-broker-backend-1-0 -n azure-iot-operations -o yaml | grep affinity -A 15
+```
+
+The output shows the anti-affinity configuration, similar to:
+
+```yaml
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: chain-number
+            operator: In
+            values:
+            - "1"
+        topologyKey: kubernetes.io/hostname
+      weight: 100
+```
 
 ### Schema registry and storage
 

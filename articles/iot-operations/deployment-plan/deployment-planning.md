@@ -248,6 +248,26 @@ The memory profile controls the maximum MQTT message size the broker accepts, id
 > [!WARNING]
 > The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
+### Incoming buffer and backpressure
+
+Each memory profile defines a maximum incoming buffer size for PUBLISH data per backend worker. When the buffer reaches 75% capacity, the broker activates backpressure mechanisms and begins rejecting incoming messages. Rejected packets receive a PUBACK response with a *Quota exceeded* error code.
+
+The following table shows the per-worker incoming buffer sizes for each profile:
+
+| Memory profile | Max incoming buffer (per worker) | Effective buffer (at 75% backpressure) |
+|---|---|---|
+| **Tiny** | ~16 MiB | ~12 MiB |
+| **Low** | ~64 MiB | ~48 MiB |
+| **Medium** | ~576 MiB | ~432 MiB |
+| **High** | ~2 GiB | ~1.5 GiB |
+
+When choosing a memory profile, consider:
+
+- **Tiny**: Only one frontend should be used. Send only packets smaller than 4 MiB.
+- **Low**: Only one or two frontends should be used. Send only packets smaller than 16 MiB.
+- **Medium**: Suitable for most production workloads with moderate message sizes.
+- **High**: Use when you need to handle large messages or high throughput with large buffers.
+
 Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](../reference/concept-resource-profiles.md).
 
 ### Calculate total memory usage

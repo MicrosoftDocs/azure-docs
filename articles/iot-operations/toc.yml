@@ -22,7 +22,7 @@ items:
       - name: Plan your deployment
         items:
           - name: Deployment planning
-            href: deploy-iot-ops/deployment-planning.md
+            href: deployment-plan/deployment-planning.md
             displayName: sizing, broker, MQTT, topology, memory, production
           - name: Production deployment examples
             href: deploy-iot-ops/concept-production-examples.md

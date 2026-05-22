@@ -49,6 +49,31 @@ A cluster host:
 
   If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](../manage-iot-ops/howto-manage-update-uninstall.md#uninstall).
 
+## Automatic cardinality
+
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the Broker resource. The MQTT broker operator deploys the appropriate number of pods based on the number of available nodes at the time of deployment. This capability is useful for nonproduction scenarios where you don't need to fine-tune high availability or scale settings.
+
+> [!IMPORTANT]
+> Automatic cardinality is not autoscaling. The operator determines the initial number of pods to deploy based only on the cluster hardware at deployment time. A new deployment is required if cardinality settings need to change.
+
+> [!NOTE]
+> Automatic cardinality isn't supported when you deploy IoT Operations through the Azure portal. Use the Azure CLI with the `--broker-config-file` flag instead.
+
+To use automatic cardinality, prepare a Broker configuration file in JSON format that omits the `cardinality` field. For example, set only the memory profile:
+
+```json
+{
+  "memoryProfile": "Medium"
+}
+```
+
+Then deploy with the `--broker-config-file` flag (other parameters omitted for brevity):
+
+```azurecli
+az iot ops create ... --broker-config-file <FILE>.json
+```
+
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ## Deploy in Azure portal
 

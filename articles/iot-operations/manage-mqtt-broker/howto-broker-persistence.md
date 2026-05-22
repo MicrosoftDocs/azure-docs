@@ -14,7 +14,7 @@ ms.date: 10/27/2025
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss.
 
-To mitigate this risk, the MQTT broker supports persistent storage, which lets critical data be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](../deploy-iot-ops/deployment-planning-disk-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
+To mitigate this risk, the MQTT broker supports persistent storage, which lets critical data be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
 
 Storing data on disk introduces a performance cost. The impact varies depending on the type and speed of the underlying storage medium.
 
@@ -183,7 +183,7 @@ Subscriber queues hold messages that are waiting to be delivered to MQTT clients
 
 Persisting subscriber queues to disk ensures that messages waiting for delivery aren't lost during broker restarts. This feature is critical for IoT scenarios where devices can have intermittent connectivity, slow processing, or persistent sessions that need to keep message delivery guarantees across broker restarts. Without persistence, queued messages are lost, which can cause data loss for important device communications.
 
-For more information about subscriber queues and message delivery, see [Advanced MQTT options](../deploy-iot-ops/deployment-planning-mqtt-options.md#subscriber-queue-limit).
+For more information about subscriber queues and message delivery, see [Advanced MQTT options](../deployment-plan/deployment-planning-mqtt-options.md#subscriber-queue-limit).
 
 This setting controls which subscriber message queues are persisted to disk. Session state metadata is always persisted regardless of these settings.
 
@@ -263,7 +263,7 @@ Persisting state store data to disk ensures that the broker can maintain operati
 
 State store persistence is especially valuable in production environments where minimizing recovery time and maintaining service consistency are critical. Without persistence, the broker must rebuild all internal state when it restarts, which can cause temporary service disruptions and performance impacts.
 
-For more information about the state store, see [Learn about the MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
+For more information about the state store, see [Learn about the MQTT broker state store protocol](../develop-edge-apps/reference-state-store-protocol.md).
 
 This setting controls which keys in the internal state store are persisted.
 

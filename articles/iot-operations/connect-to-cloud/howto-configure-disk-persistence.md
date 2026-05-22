@@ -55,10 +55,10 @@ The local MQTT broker subscriber queue is stored in memory by default. You can c
 
 For broker configuration details, see:
 
-- [Deployment planning](../deploy-iot-ops/deployment-planning.md)
-- [Disk-backed message buffer](../deploy-iot-ops/deployment-planning-disk-buffer.md)
+- [Deployment planning](../deployment-plan/deployment-planning.md)
+- [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md)
 - [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md)
-- [Advanced MQTT options](../deploy-iot-ops/deployment-planning-mqtt-options.md#subscriber-queue-limit)
+- [Advanced MQTT options](../deployment-plan/deployment-planning-mqtt-options.md#subscriber-queue-limit)
 
 ## Choose a buffering configuration
 
@@ -212,4 +212,4 @@ spec:
 - [Create a data flow](howto-create-dataflow.md)
 - [Data flow graphs overview](concept-dataflow-graphs.md)
 - [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md)
-- [Disk-backed message buffer](../deploy-iot-ops/deployment-planning-disk-buffer.md)
+- [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md)
