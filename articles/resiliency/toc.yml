@@ -75,6 +75,12 @@
       href: backup-protection-policy.md
     - name: Manage  
       href: manage-protection-policy.md
+  - name: Recovery orchestration plan
+    items:
+    - name: Create and configure
+      href: recovery-orchestration-plan-create-configure.md
+    - name: Execute
+      href: recovery-orchestration-plan-execute.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
     items:
     - name: Backup
@@ -89,3 +95,4 @@
       href: availability-zone-down-drill-define.md    
     - name: Execute
       href: availability-zone-down-drill-execute.md    
+
