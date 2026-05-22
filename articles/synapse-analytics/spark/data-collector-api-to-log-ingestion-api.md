@@ -71,10 +71,9 @@ When creating custom log tables, you must configure a Data Collection Rule (DCR)
 
 The following predefined JSON schema samples each map to a specific data type. Download the sample that fits your scenario, and upload it when you create the associated custom table and DCR.
 
-- Spark event logs - [Event table JSON schema sample](https://raw.githubusercontent.com/microsoft/fabric-samples/refs/heads/main/docs-samples/data-engineering/SparkMonitoring/TableSchemaSamples/fabric-sample-table-event-schema.json)
-- Spark driver and executor logs - [Log table JSON schema sample](https://raw.githubusercontent.com/microsoft/fabric-samples/refs/heads/main/docs-samples/data-engineering/SparkMonitoring/TableSchemaSamples/fabric-sample-table-log-schema.json)
-- Spark metrics - [Metric table JSON schema sample](https://raw.githubusercontent.com/microsoft/fabric-samples/refs/heads/main/docs-samples/data-engineering/SparkMonitoring/TableSchemaSamples/fabric-sample-table-metric-schema.json)
-- Platform metadata - [Platform metadata table JSON schema sample](https://raw.githubusercontent.com/microsoft/fabric-samples/refs/heads/main/docs-samples/data-engineering/SparkMonitoring/TableSchemaSamples/fabric-sample-table-metadata-schema.json)
+- Spark event logs - [Event table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-event-schema.json)
+- Spark driver and executor logs - [Log table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-log-schema.json)
+- Spark metrics - [Metric table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/fabric-sample-table-metric-schema.json)
 
 Here's an example log table JSON schema sample for Spark driver and executor logs in Azure Log Analytics. Use this schema as a reference when creating your custom tables and DCRs for log ingestion.
 
@@ -154,6 +153,7 @@ An Apache Spark Configuration in Azure Synapse Analytics stores Spark settings a
 
 - Choose Option 1 if you want a simpler setup by using a client secret.
 - Choose Option 2 if your organization requires certificate-based authentication and centralized certificate management in Azure Key Vault.
+- Choose Option 3 if you use certificate-based authentication and want to retrieve the certificate from Azure Key Vault through a Synapse linked service (workspace MSI accesses Key Vault).
 
 In both options, you can select Add from .yml in the environment to import a .yml configuration file.
 
@@ -176,11 +176,9 @@ Use this option for quick setup with service principal credentials and a client 
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventStream: <EVENT_STREAM_NAME>
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricDcr: <METRIC_DCR_ID>
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricStream: <METRIC_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metaDcr: <META_DCR_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metaStream: <META_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.secret: <SP_CLIENT_SECRET>
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId: <SP_TENANT_ID>
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId: <SP_CLIENT_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.secret: <SP_CLIENT_SECRET>
    ```
 1. Save and publish the changes.
 
@@ -194,22 +192,20 @@ Before you start, ensure that your service principal is created with a certifica
 1. Add the following **Spark properties** to the spark configuration, or select **Import** to import a `.yml` configuration file.
 
    ```properties
-   spark.synapse.diagnostic.emitters: <EMITTER_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type: AzureLogIngestion
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories: DriverLog,ExecutorLog,EventLog,Metrics
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.dceUri: https://<DCE_NAME>.<REGION>.ingest.monitor.azure.com
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logDcr: <LOG_DCR_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logStream: <LOG_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventDcr: <EVENT_DCR_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventStream: <EVENT_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricDcr: <METRIC_DCR_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricStream: <METRIC_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metaDcr: <META_DCR_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metaStream: <META_STREAM_NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName: <SP_CERT-NAME>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault: https://<KEYVAULT_NAME>.vault.azure.net/
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId: <SP_TENANT_ID>
-   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId: <SP_CLIENT_ID>
+   spark.synapse.diagnostic.emitters: "<EMITTER_NAME>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type: "AzureLogIngestion"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories: "DriverLog,ExecutorLog,EventLog,Metrics"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.dceUri: "https://<DCE_NAME>.<REGION>.ingest.monitor.azure.com"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logDcr: "<LOG_DCR_ID>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logStream: "<LOG_STREAM_NAME>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventDcr: "<EVENT_DCR_ID>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventStream: "<EVENT_STREAM_NAME>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricDcr: "<METRIC_DCR_ID>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricStream: "<METRIC_STREAM_NAME>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId: "<SP_TENANT_ID>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId: "<SP_CLIENT_ID>"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault: "https://<KEYVAULT_NAME>.vault.azure.net/"
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName: "<SP_CERT_NAME>"
    ```
 1. Save and publish changes.
 
@@ -234,11 +230,21 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
 1. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
 
 ```properties
-spark.synapse.logAnalytics.enabled true
-spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
-spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
-spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
-spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
+   spark.synapse.diagnostic.emitters: <EMITTER_NAME>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type: AzureLogIngestion
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories: DriverLog,ExecutorLog,EventLog,Metrics
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.dceUri: https://<DCE_NAME>.<REGION>.ingest.monitor.azure.com
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logDcr: <LOG_DCR_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logStream: <LOG_STREAM_NAME>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventDcr: <EVENT_DCR_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventStream: <EVENT_STREAM_NAME>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricDcr: <METRIC_DCR_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricStream: <METRIC_STREAM_NAME>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId: <SP_TENANT_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId: <SP_CLIENT_ID>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault: https://<KEYVAULT_NAME>.vault.azure.net/
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName: <SP_CERT_NAME>
+   spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService: <AZURE_KEY_VAULT_LINKED_SERVICE>
 ```
 
 Alternatively, use the following properties:
@@ -266,7 +272,7 @@ Use one of the following approaches based on your scope:
 To apply the configuration to notebooks or Spark job definition:
 1. Navigate to your notebook or Spark job definition in Azure Synapse Analytics Studio.
 1. Select or configure the target Apache Spark pool associated with the notebook or Spark job definition.
-1. Ensure the required Spark configurations (for example, diagnostic or Log Ingestion settings) are applied to the Apache Spark pool or session.
+1. Ensure the required Spark configurations (for example, Log Ingestion settings) are applied to the Apache Spark pool or session.
 1. Start or run the Spark session for the configuration to take effect.
 
 
@@ -326,17 +332,17 @@ logger.error("error message")
 The following is an example of querying Apache Spark events:
 
 ```kusto
-SparkListenerEvent_CL
-| where workspaceName_s == "{SynapseWorkspace}" and clusterName_s == "{SparkPool}" and livyId_s == "{LivyId}"
+SparkEventTest_CL
+| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
 | order by TimeGenerated desc
-| limit 100 
+| limit 100
 ```
 
 Here's an example of querying the Apache Spark application driver and executors logs:
 
 ```kusto
-SparkLoggingEvent_CL
-| where workspaceName_s == "{SynapseWorkspace}" and clusterName_s == "{SparkPool}" and livyId_s == "{LivyId}"
+SparkLogTest_CL
+| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
 | order by TimeGenerated desc
 | limit 100
 ```
@@ -344,8 +350,8 @@ SparkLoggingEvent_CL
 And here's an example of querying Apache Spark metrics:
 
 ```kusto
-SparkMetrics_CL
-| where workspaceName_s == "{SynapseWorkspace}" and clusterName_s == "{SparkPool}" and livyId_s == "{LivyId}"
+SparkMetricsTest_CL
+| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
 | where name_s endswith "jvm.total.used"
 | summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
 | order by TimeGenerated asc
@@ -381,18 +387,30 @@ You can follow below steps to create a managed private endpoint connection to Az
 ## Available configurations
 
 | Configuration | Description |
-| --- | --- |
-| `spark.synapse.diagnostic.emitters`                                         | Required. The comma-separated destination names of diagnostic emitters. For example, `MyDest1,MyDest2` |
-| `spark.synapse.diagnostic.emitter.<destination>.type`                       | Required. Built-in destination type. To enable Azure Log Analytics destination, AzureLogAnalytics needs to be included in this field.|
-| `spark.synapse.diagnostic.emitter.<destination>.categories`                 | Optional. The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is **all** categories. |
-| `spark.synapse.diagnostic.emitter.<destination>.workspaceId`                       | Required. To enable Azure Log Analytics destination, workspaceId needs to be included in this field. |
-| `spark.synapse.diagnostic.emitter.<destination>.secret`                        | Optional. The secret (Log Analytics key) content.  To find this, in the Azure portal, go to Azure Log Analytics workspace > Agents > Primary key. |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](/azure/key-vault/general/overview) name where the secret (AccessKey or SAS) is stored. |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret is stored. |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is necessary to obtain the secret from Azure Key vault. (Make sure the MSI has read access to the Azure Key vault). |
-| `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated Log4j logger names, you can specify which logs to collect. For example `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
-| `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
-| `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example:`jvm.heap.used` |
+|---|---|
+| `spark.synapse.diagnostic.emitters` | The comma-separated destination names of diagnostic emitters. For example, `MyDest1,MyDest2`. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.type` | Built-in destination type. To enable Azure Log Analytics via Log Ingestion API, set this value to `AzureLogIngestion`. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.categories` | The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is all categories. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.dceUri` | The Data Collection Endpoint (DCE) URI used for ingestion when routing data via Data Collection Rules (DCRs). |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logDcr` | The Data Collection Rule (DCR) resource ID used to route Spark logs to the destination. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.logStream` | The stream name defined in the Data Collection Rule (DCR) for Spark logs. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventDcr` | The Data Collection Rule (DCR) resource ID used to route Spark event logs. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.eventStream` | The stream name defined in the Data Collection Rule (DCR) for Spark event logs. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricDcr` | The Data Collection Rule (DCR) resource ID used to route Spark metrics. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.metricStream` | The stream name defined in the Data Collection Rule (DCR) for Spark metrics. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.tenantId` | The Microsoft Entra tenant ID used for authentication. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.clientId` | The client (application) ID registered in Microsoft Entra ID. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.secret` | The client secret associated with the Microsoft Entra ID application, used together with the tenant ID and client ID to authenticate the emitter when sending diagnostic data. This setting is mutually exclusive with certificate-based authentication—configure either the client secret or the certificate, but not both. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault` | The Azure Key Vault URI that stores the authentication certificate. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName` | The name of the certificate stored in Azure Key Vault, used for authentication. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService` | The Azure Key Vault linked service name in Synapse. When specified, the workspace managed identity uses this linked service to retrieve the certificate from Azure Key Vault. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.filter.eventName.match` | The comma-separated Spark listener event names; you can specify which events to collect. For example, `SparkListenerApplicationStart,SparkListenerApplicationEnd`. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.filter.loggerName.match` | The comma-separated Log4j logger names; you can specify which logs to collect. For example, `org.apache.spark.SparkContext,org.example.Logger`. |
+| `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.filter.metricName.match` | The comma-separated Spark metric name suffixes; you can specify which metrics to collect. For example, `jvm.heap.used`. |
+
+> [!NOTE]
+> Authentication is mutually exclusive: configure **one** of `secret` (plain text) or `certificate.keyVault` + `certificate.keyVault.certificateName` (optionally with `certificate.keyVault.linkedService`).
+> Retrieving the client `secret` from Azure Key Vault (with or without a linked service) is **not supported** by the Log Ingestion destination. If you need to keep credentials in Key Vault, use the certificate-based path.
 
 ## Related content
 
