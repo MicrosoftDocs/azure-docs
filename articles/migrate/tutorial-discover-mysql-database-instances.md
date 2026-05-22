@@ -23,6 +23,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 |**Geography** | **Region** |
 | ---- | ---- |
 | Asia Pacific | Southeast Asia |
+| Brazil | 
 | Australia | Australia East | 
 | Canada   | Canada Central | 
 | Europe    | North Europe </br> West Europe |
