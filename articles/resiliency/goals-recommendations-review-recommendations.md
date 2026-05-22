@@ -16,7 +16,7 @@ After you assign goals to a service group, Infrastructure Resiliency Manager sho
 
 ## Prerequisites
 
-- A service group with goals assigned. For more information, see [Create a service group](https://learn.microsoft.com/azure/governance/service-groups/create-service-group-portal).
+- A service group with goals assigned. For more information, see [Create a service group](../governance/service-groups/create-service-group-portal).
 - Required RBAC permissions: **Service Group Reader** role to view service group–level recommendations, and **Reader** on resources for resource-level recommendations. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
 - A usage plan enrolled for the service group.
 
