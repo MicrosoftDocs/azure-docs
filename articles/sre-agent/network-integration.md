@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Azure SRE Agent network integration (preview)
 
-The Azure SRE Agent can act on your infrastructure, query your databases, and run commands against your clusters. Without network controls, all of that outbound traffic flows unrestricted across the public internet. Virtual network (VNet) integration changes that by connecting the agent to your Azure Virtual Network so that every outbound call routes through your existing security infrastructure.
+When you grant the SRE Agent's managed identity the appropriate RBAC permissions, it can act on your infrastructure, query your databases, and run commands against your clusters. RBAC is the primary security boundary that controls what the agent can do. Virtual network (VNet) integration adds a complementary layer of protection by controlling where the agent can send traffic. Without VNet integration, outbound traffic from the agent flows over the public internet. With it, every outbound call routes through your Azure Virtual Network and your existing network security infrastructure.
 
 This article explains why network-level control matters for enterprise deployments, how VNet integration works, and how to choose the right network control mode for your workload.
 
