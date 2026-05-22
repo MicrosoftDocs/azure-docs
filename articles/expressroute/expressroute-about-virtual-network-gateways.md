@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/10/2025
+ms.date: 03/31/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -74,6 +74,14 @@ The following table shows the features that each gateway SKU supports and the ma
 
 > [!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
+
+### Advertised prefix scale
+
+ExpressRoute private peering has limits on how many IPv4 prefixes can be advertised from a virtual network to on-premises (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+If you need to reduce the number of prefixes advertised from Azure to on-premises in hub-and-spoke environments, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. With this property set, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes and suppress advertisement of spoke address spaces that are covered by the summarized space.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
 
 <a name="aggthroughput"></a>
 ### Estimated performance by gateway SKU

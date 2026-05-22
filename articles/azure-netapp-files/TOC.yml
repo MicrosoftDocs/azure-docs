@@ -549,6 +549,14 @@
       items: 
         - name: Manage cache volumes 
           href: configure-cache-volumes.md
+        - name: Manage file access logs in Azure NetApp Files cache volumes
+          href: manage-file-access-logs-cache-volumes.md  
+        - name: Change the service level of an Azure NetApp Files cache volume
+          href: change-cache-volume-service-level.md
+        - name: Break file locks for an Azure NetApp Files cache volume 
+          href: break-file-locks-cache-volume.md
+        - name: Reset SMB password for an Azure NetApp Files cache volume
+          href: reset-password-cache-volumes.md
     - name: Manage ransomware protection 
       items: 
       - name: Manage advanced ransomware protection 
@@ -599,6 +607,8 @@
     href: faq-smb.md
   - name: Performance FAQs
     href: faq-performance.md
+  - name: Cloning FAQs
+    href: faq-clone.md
   - name: Application resilience FAQs
     href: faq-application-resilience.md
   - name: Data migration and protection FAQs

@@ -62,6 +62,10 @@ The only exception to this process are requests bound for deregistering instance
 
 To update the connection draining timeout with Azure CLI, run `az network application-gateway http-settings update` and set `--connection-draining-timeout` on the backend HTTP settings. A value of 0 disables connection draining, and values from 1 to 3,600 seconds enable it.
 
+
+> [!NOTE]
+> If you observe intermittent 502 errors during deployments, rolling updates, or scale-in events, the connection draining timeout might be too short. Increase `--connection-draining-timeout` to a value greater than your maximum expected client transfer time.
+
 ### Protocol
 
 Application Gateway supports both HTTP and HTTPS for routing requests to the backend servers. If you choose HTTP, traffic to the backend servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.

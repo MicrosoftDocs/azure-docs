@@ -53,6 +53,9 @@ The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable will
 
 These environment variable values are implementation details and should not be considered immutable. As these values may change at any time, the use of environment variables instead of hardcoding the value is recommended.
 
+> [!NOTE]
+> When a VM's temporary disks are all NVMe, Batch initializes them and uses the resulting storage for the node root directory. For details, see [Use temporary NVMe disks on Batch compute nodes](batch-nvme-temporary.md).
+
 ## Next steps
 
 - Learn about [error handling and detection](error-handling.md) in Azure Batch.
