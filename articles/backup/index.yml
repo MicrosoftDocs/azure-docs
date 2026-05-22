@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 11/01/2025
+  ms.date: 05/15/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -54,6 +54,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Cosmos DB vaulted backup (preview)
+            url: backup-azure-cosmos-db-overview.md
           - text: Confidential VM backup (preview)
             url: confidential-vm-backup.md
           - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
@@ -94,6 +96,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Azure Cosmos DB vaulted backup (preview)
+            url: backup-azure-cosmos-db-overview.md
           - text: Azure Database for PostgreSQL Flexible Server backup
             url: backup-azure-database-postgresql-flex-overview.md
           - text: Azure Database for MySQL Flexible Server backup (preview)

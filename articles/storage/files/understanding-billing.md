@@ -12,30 +12,21 @@ ms.custom:
 # Customer intent: "As a cloud storage administrator, I want to understand the different billing models and cost factors for Azure Files, so that I can accurately estimate and manage storage expenses for our organization's cloud strategy."
 ---
 
-# Understand Azure Files billing models
+# Understand Azure Files billing
 
-Four key factors determine the cost of an Azure Files deployment: billing model, media tier, redundancy, and resource model.
+This article helps you understand the different billings models for Azure Files so you can manage costs and determine total cost of ownership. For pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
-- **Billing model**: Azure Files supports three different billing models that shape the cost structure of an Azure Files deployment:
-    - **Provisioned v2**: A provisioned billing model where you can separately provision storage, IOPS, and throughput. You pay based on what you provision, regardless of how much you actually use. Use the provisioned v2 model for all new Azure Files deployments.
-    - **Provisioned v1**: A provisioned billing model where you provision the amount of storage you need, while IOPS and throughput are determined by how much storage you provision. Use the provisioned v2 model unless you have a specific reason to use the provisioned v1 model.
-    - **Pay-as-you-go**: A usage-based billing model where the cost is determined based on how much you use the file share, in the form of used storage, transaction, and data transfer costs. Use the provisioned v2 model unless you have a specific reason to use the pay-as-you-go model.
+## Determine the cost of an Azure Files deployment
 
-- **Media tier**: Azure Files supports two different media tiers of storage: solid state drives (SSD) and hard disk drives (HDD). This support allows you to tailor your file shares to the performance and price requirements of your scenario.
-    - **SSD (premium)**: File shares hosted on SSD provide consistent high performance and low latency, with single-digit millisecond latency for most IO operations.
-    - **HDD (standard)**: File shares hosted on HDD provide cost-effective storage for general purpose use.
+Four key factors determine the cost of an Azure Files deployment: billing model, media tier, redundancy option, and resource model.
 
-- **Redundancy**: Azure Files supports four different redundancy options that you can use to control how many copies of your data are stored and where those copies are placed within Azure's infrastructure. More resilient options provide greater durability and availability, but come at a higher cost:
-    - **Locally-redundant storage (LRS)** keeps three copies of your data within a single data center in one region.
-    - **Zone-redundant storage (ZRS)** stores three copies of your data across independent datacenters (availability zones) within a region.
-    - **Geo-redundant storage (GRS)** stores three copies of the data in the primary region and asynchronously replicates to a paired region, for a total of six copies. Available on HDD storage only.
-    - **Geo-zone-redundant storage (GZRS)** combines zone redundancy in the primary region with asynchronous replication to a secondary region. Available on HDD storage only.
+### Billing model
 
-- **Resource model**: Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
-    - **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
-    - **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
+Azure Files supports three different billing models: provisioned v2, provisioned v1, and pay-as-you-go.
 
-For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+- **Provisioned v2**: A provisioned billing model where you can separately provision storage, IOPS, and throughput. You pay based on what you provision, regardless of how much you actually use. Use the provisioned v2 model for all new Azure Files deployments.
+- **Provisioned v1**: A provisioned billing model where you provision the amount of storage you need, while IOPS and throughput are determined by how much storage you provision. Use the provisioned v2 model unless you have a specific reason to use the provisioned v1 model.
+- **Pay-as-you-go**: A usage-based billing model where the cost is determined based on how much you use the file share, in the form of used storage, transaction, and data transfer costs. Use the provisioned v2 model unless you have a specific reason to use the pay-as-you-go model.
 
 :::row:::
     :::column:::
@@ -54,6 +45,30 @@ For Azure Files pricing information, see [Azure Files pricing page](https://azur
        This video dives deep into the Azure Files provisioned v2 billing model, offering setup instructions and recommendations to reduce total cost of ownership.
    :::column-end:::
 :::row-end:::
+
+### Media tier
+
+Azure Files supports two different media tiers of storage: solid state drives (SSD) and hard disk drives (HDD). This support allows you to tailor your file shares to the performance and price requirements of your scenario.
+
+- **SSD (premium)**: File shares hosted on SSD provide consistent high performance and low latency, with single-digit millisecond latency for most IO operations.
+- **HDD (standard)**: File shares hosted on HDD provide cost-effective storage for general purpose use.
+
+### Redundancy options
+
+Azure Files supports four different redundancy options that you can use to control how many copies of your data are stored and where those copies are placed within Azure's infrastructure. More resilient options provide greater durability and availability, but come at a higher cost:
+
+- **Locally-redundant storage (LRS)** keeps three copies of your data within a single data center in one region.
+- **Zone-redundant storage (ZRS)** stores three copies of your data across independent datacenters (availability zones) within a region.
+- **Geo-redundant storage (GRS)** stores three copies of the data in the primary region and asynchronously replicates to a paired region, for a total of six copies. Available on HDD storage only.
+- **Geo-zone-redundant storage (GZRS)** combines zone redundancy in the primary region with asynchronous replication to a secondary region. Available on HDD storage only.
+
+### Resource model
+
+Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
+
+- **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
+
+- **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
 
 ## Storage units
 
