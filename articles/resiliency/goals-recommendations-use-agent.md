@@ -16,7 +16,7 @@ The Resiliency agent is a conversational AI experience integrated into Azure Cop
 
 ## Prerequisites
 
-- Tenant must be allowlisted for the Resiliency agent. Contact [azureresiliency@microsoft.com](mailto:azureresiliency@microsoft.com) to request access.
+- Tenant must be allowlisted for the Resiliency agent. [Fill out this form](https://aka.ms/azurecopilot/agents/feedbackprogram) to request access.
 - **Agents (Preview)** must be enabled in the Azure Copilot admin center:
   1. Go to **Azure Copilot admin center** > **Settings** > **Access management**.
   2. Toggle **Agents (Preview)** to **On**.
@@ -31,9 +31,9 @@ Describe your application architecture to the agent. The agent evaluates your de
 
 ### Generate Infrastructure as Code (IaC) templates
 
-Ask the agent to generate ARM, Bicep, or Terraform templates with resiliency configurations already included.
+Ask the agent to generate Azure Resource Manager (ARM), Bicep, or Terraform templates with resiliency configurations already included.
 
-## Get Resilient — for existing applications
+## Get Resilient for existing applications
 
 Use the Resiliency agent to improve the zone resiliency of applications already running in Azure.
 
