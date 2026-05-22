@@ -70,9 +70,25 @@ Use the following criteria to select a mode:
 
 To select a control mode for your agent, open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
 
-:::image type="content" source="media/network-integration/sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/sre-agent-networking-vnet.png":::
+:::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/sre-agent-networking-vnet.png":::
 
 From this screen you can select your egress mode with the option to provide your own virtual network for your agent to run in.
+
+## Pre-installed packages
+
+You can pre-install packages in the sandbox base disk image so they're available every time the agent runs. This feature is useful when your tools or scripts depend on specific packages that aren't included in the default sandbox environment.
+
+To configure pre-installed packages:
+
+1. Open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
+1. Select the **Packages** tab.
+1. Enter the package name, select the package manager (**pip** or **NuGet**), and optionally specify a version.
+1. Select **+ Add package**.
+
+:::image type="content" source="media/network-integration/azure-sre-agent-packages.png" alt-text="Screenshot of the Packages tab in Workspace configuration showing fields for package name, package manager, and version." lightbox="media/network-integration/azure-sre-agent-packages.png":::
+
+> [!NOTE]
+> NuGet entries must be .NET CLI tools (for example, `dotnet-ef`). Library packages can't be installed globally.
 
 ## Bypass controls and governance
 
