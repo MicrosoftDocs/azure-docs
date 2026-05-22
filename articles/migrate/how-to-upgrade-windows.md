@@ -79,7 +79,7 @@ To upgrade Windows during the test migration, follow these steps:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines. To upgrade Windows during the migration, follow these steps:
 
-1.  The **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** or **Completion** stage, select **Completion** drop-down menu and select **Migrate**.
+1.  In the **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** or **Completion** stage, select **Completion** drop-down menu and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
    - By default, Azure Migrate shuts down the on-premises VM to ensure minimum data loss.  
    - If you don't want to shut down the VM, select No.  
