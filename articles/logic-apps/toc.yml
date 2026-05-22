@@ -206,6 +206,8 @@ items:
         items:
           - name: Overview
             href: connector-namespace/connector-namespace-overview.md
+          - name: Hosted MCP servers
+            href: connector-namespace/connector-namespace-hosted-mcp.md
           - name: Create connector namespace
             href: connector-namespace/create-connector-namespace.md
           - name: Create connector namespace connection

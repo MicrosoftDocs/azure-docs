@@ -79,7 +79,7 @@ Keep the following in mind when working with hosted MCP servers during preview:
 
 - **Catalog availability.**  The set of supported servers expands over time based on demand and validation.
 
-- **Region availability.** Limited regions are available during early preview.
+- **Region availability.** Limited regions are available during early preview: **West Central US, East Asia, Central US, North Europe**
 
 - **Cold start.** Servers that haven't received traffic recently might experience a brief cold start delay on the first request.
 

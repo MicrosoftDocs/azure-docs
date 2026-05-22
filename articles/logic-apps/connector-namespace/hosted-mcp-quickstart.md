@@ -24,9 +24,9 @@ In this quickstart, you create a hosted MCP server in Azure Connector Namespace 
 
 Azure Connector Namespace is a fully managed service that hosts connectors, connections, triggers, and MCP servers. Within a namespace, an *MCP server* is a first-class resource that exposes tools to AI agents over the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
 
-A *hosted MCP server* runs the original server implementation without modification, retaining the server's native behavior and capabilities. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model. A curated set of hosted servers is supported during public preview. 
+When you create a [hosted MCP servers](./connector-namespace-hosted-mcp.md) in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model.  
 
-This approach differs from *managed MCP servers*, which are platform-managed implementations built on connectors. The namespace handles tool definitions and configuration automatically for managed servers.
+Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overview.md#mcp-server), which are platform-managed implementations built on connectors. The namespace handles tool definitions and configuration for managed servers.
 
 ## Prerequisites
 
