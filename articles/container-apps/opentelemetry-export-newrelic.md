@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Container Apps OpenTelemetry export to New Relic
+title: Export OpenTelemetry New Relic in Azure Container Apps
 description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to New Relic by using the managed OpenTelemetry agent.
 services: container-apps
 author: jefmarti
@@ -9,7 +9,7 @@ ms.author: cshoe
 ms.topic: how-to
 ---
 
-# Configure Azure Container Apps OpenTelemetry export to New Relic
+# Export OpenTelemetry New Relic in Azure Container Apps
 
 This configuration guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to New Relic by using the managed OpenTelemetry agent.
 

@@ -1,5 +1,5 @@
 ---
-title: Export OpenTelemetry data to Dynatrace
+title: Export OpenTelemetry data to Dynatrace in Azure Container Apps
 description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
 author: jefmarti
 ms.service: azure-container-apps
@@ -9,7 +9,7 @@ ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
-# Export OpenTelemetry data to Dynatrace
+# Export OpenTelemetry data to Dynatrace in Azure Container Apps
 
 This guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to Dynatrace by using the managed OpenTelemetry agent.
 

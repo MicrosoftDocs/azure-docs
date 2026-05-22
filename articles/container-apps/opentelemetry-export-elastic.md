@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Container Apps OpenTelemetry export to Elastic
+title: Export OpenTelemetry Elastic in Azure Container Apps
 description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Elastic by using the managed OpenTelemetry agent.
 #customer intent: As an Azure Container Apps developer, I want to export OpenTelemetry logs, traces, and metrics to Elastic, so that I can monitor my app's health in my existing observability platform.
 services: container-apps
@@ -11,7 +11,7 @@ ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
-# Configure Azure Container Apps OpenTelemetry export to Elastic
+# Export OpenTelemetry Elastic in Azure Container Apps
 
 This configuration guide shows how to configure Azure Container Apps to forward logs, traces, and metrics to Elastic by using the managed OpenTelemetry agent.
 
