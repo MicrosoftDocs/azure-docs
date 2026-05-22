@@ -95,7 +95,7 @@ In both cases, AI agents - Copilot, custom agents, or any MCP-aware client - dis
 
 Connector Namespaces ship with strongly typed SDKs so you can call connectors using your language's normal idioms:
 
-- **C#** - *Microsoft.Azure.Connectors.Sdk* on NuGet, with a Visual Studio Code language service for IntelliSense, completions, and CodeLens.
+- **C#** - [Azure.Connectors.Sdk](https://www.nuget.org/packages/Azure.Connectors.Sdk) on NuGet, with a Visual Studio Code language service for IntelliSense, completions, and CodeLens.
 
 - **Node.js** - *@azure/connectors-sdk*, a TypeScript-first client with async/await action invocation.
 
