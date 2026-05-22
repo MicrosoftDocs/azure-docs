@@ -18,7 +18,7 @@ For more information about the managed OpenTelemetry agent, see [Set up OpenTele
 ## What you learn
 
 - Create a Dynatrace ingest token with the required scopes.
-- Configure a Dynatrace OTLP destination by using Bicep or the Azure portal.
+- Configure a Dynatrace OpenTelemetry Protocol (OTLP) destination by using Bicep or the Azure portal.
 - Configure required app environment variables for metrics export.
 - Apply configuration updates to your existing Container Apps environment and app.
 - Verify telemetry in Dynatrace.
@@ -50,7 +50,7 @@ For token creation steps and permission details, see [Dynatrace token and permis
 Use one of the following options to configure Dynatrace as an OpenTelemetry endpoint in your Container Apps environment.
 
 > [!IMPORTANT]
-> Configuring a managed OpenTelemetry destination does not automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
+> Configuring a managed OpenTelemetry destination doesn't automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
 
 # [Bicep](#tab/bicep)
 
@@ -62,7 +62,7 @@ $DYNATRACE_OTLP_ENDPOINT = "https://<TENANT>.live.dynatrace.com/api/v2/otlp"
 $DYNATRACE_API_TOKEN = "<DYNATRACE_INGEST_TOKEN>"
 ```
 
-Use only the OTLP base endpoint (`/api/v2/otlp`). Do not append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
+Use only the OTLP base endpoint (`/api/v2/otlp`). Don't append `/v1/traces`, `/v1/metrics`, or `/v1/logs`; the managed agent appends signal paths automatically.
 
 ```bicep
 var dynatraceEndpoint = 'https://<TENANT>.live.dynatrace.com/api/v2/otlp'
@@ -111,7 +111,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
 }
 ```
 
-Use a container app resource block like the following example to set required environment variables:
+To set the required environment variables, use a container app resource block like the following example:
 
 ```bicep
 resource app 'Microsoft.App/containerApps@2023-05-01' = {
@@ -157,7 +157,7 @@ resource app 'Microsoft.App/containerApps@2023-05-01' = {
 }
 ```
 
-`OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` is required for metrics to be ingested by Dynatrace.
+Dynatrace requires `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` to ingest metrics.
 
 For production deployments, pass token values through secure Bicep parameters or Key Vault instead of hardcoding secrets.
 
@@ -195,9 +195,9 @@ Use the following steps to configure Dynatrace in the Azure portal:
    - `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE` = `DELTA`
 1. Deploy the new revision.
 
-In the update panel, if you are not rotating the token, you can leave **Key** blank to keep the existing token.
+In the update panel, if you aren't rotating the token, you can leave **Key** blank to keep the existing token.
 
-`OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` is required for metrics to be ingested by Dynatrace.
+Dynatrace requires `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE=DELTA` to ingest metrics.
 
 ---
 
