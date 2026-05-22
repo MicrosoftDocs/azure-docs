@@ -70,7 +70,7 @@ var dynatraceApiKey = '<DYNATRACE_INGEST_TOKEN>'
 var dynatraceAuthHeader = 'Api-Token ${dynatraceApiKey}'
 var dynatraceOtlpDestinationName = 'dynatrace-otlp'
 
-resource environment 'Microsoft.App/managedEnvironments@2026-01-01' = {
+resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
   name: '<managed-environment-name>'
   location: '<region>'
   properties: {
@@ -114,7 +114,7 @@ resource environment 'Microsoft.App/managedEnvironments@2026-01-01' = {
 Use a container app resource block like the following example to set required environment variables:
 
 ```bicep
-resource app 'Microsoft.App/containerApps@2026-01-01' = {
+resource app 'Microsoft.App/containerApps@2023-05-01' = {
   name: '<CONTAINER_APP_NAME>'
   location: '<REGION>'
   properties: {
@@ -168,7 +168,8 @@ az deployment group create `
   --resource-group $RESOURCE_GROUP `
   --template-file infra/main.bicep `
   --parameters @infra/main.parameters.json `
-  --parameters dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" dynatraceApiKey="$DYNATRACE_API_TOKEN"
+  dynatraceEndpoint="$DYNATRACE_OTLP_ENDPOINT" `
+  dynatraceApiKey="$DYNATRACE_API_TOKEN"
 ```
 
 Use the same endpoint and token values shown earlier in this guide, including the OTLP base endpoint format.

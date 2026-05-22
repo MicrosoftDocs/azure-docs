@@ -319,6 +319,10 @@ items:
           href: opentelemetry-agents.md
         - name: OpenTelemetry export to Dynatrace
           href: opentelemetry-export-dynatrace.md
+        - name: OpenTelemetry export to Elastic
+          href: opentelemetry-export-elastic.md
+        - name: OpenTelemetry export to New Relic
+          href: opentelemetry-export-newrelic.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
     - name: Troubleshoot and resolve issues with SRE agent
