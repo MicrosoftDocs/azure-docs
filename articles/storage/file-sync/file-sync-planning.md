@@ -283,13 +283,9 @@ For sync to work correctly, you must install the Azure File Sync agent on every 
 
 ### Data deduplication
 
-#### Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016
+When you enable data deduplication on a volume with cloud tiering enabled, you can cache more files on-premises without provisioning more storage. The system tiers deduplication-optimized files within the server endpoint location just like a normal file, based on the policy settings for cloud tiering. After you tier the deduplication-optimized files, the data deduplication garbage collection job runs automatically. It reclaims disk space by removing unnecessary chunks that other files on the volume no longer reference.
 
-Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016 support data deduplication whether cloud tiering is enabled or disabled on one or more server endpoints on the volume. When you enable data deduplication on a volume with cloud tiering enabled, you can cache more files on-premises without provisioning more storage.
-
-When you enable data deduplication on a volume with cloud tiering enabled, the system tiers deduplication-optimized files within the server endpoint location just like a normal file, based on the policy settings for cloud tiering. After you tier the deduplication-optimized files, the data deduplication garbage collection job runs automatically. It reclaims disk space by removing unnecessary chunks that other files on the volume no longer reference.
-
-In some cases where Data Deduplication is installed, the available volume space can increase more than expected after deduplication garbage collection is triggered. The following example describes how volume space works:
+In some cases where data deduplication is installed, the available volume space can increase more than expected after deduplication garbage collection is triggered. The following example describes how volume space works:
 
 1. The free-space policy for cloud tiering is set to 20%.
 1. Azure File Sync is notified when free space is low (let's say 19%).
@@ -300,11 +296,7 @@ In some cases where Data Deduplication is installed, the available volume space 
 The volume savings apply only to the server. Your data in the Azure file share isn't deduplicated.
 
 > [!NOTE]
-> To support Data Deduplication on volumes with cloud tiering enabled on Windows Server 2019, you must install Windows update [KB4520062 - October 2019](https://support.microsoft.com/help/4520062) or a later monthly rollup update.
-
-#### Windows Server 2012 R2
-
-Azure File Sync doesn't support data deduplication and cloud tiering on the same volume on Windows Server 2012 R2. If you enable data deduplication on a volume, you must disable cloud tiering.
+> Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016 support data deduplication whether cloud tiering is enabled or disabled on one or more server endpoints on the volume. On Windows Server 2019 or Windows Server 2016, you must install Windows update [KB4520062 - October 2019](https://support.microsoft.com/help/4520062) or a later monthly rollup update.
 
 #### Notes
 
@@ -315,12 +307,6 @@ Azure File Sync doesn't support data deduplication and cloud tiering on the same
 - For ongoing deduplication optimization jobs, the data deduplication [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) setting delays cloud tiering with the data policy, if the file isn't already tiered.
   - For example, if the `MinimumFileAgeDays` setting is 7 days and the data policy for cloud tiering is 30 days, the date policy tiers files after 37 days.
   - After Azure File Sync tiers a file, the deduplication optimization job skips the file.
-- If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2025, Windows Server 2022, Windows Server 2019, or Windows Server 2016, you must perform the following steps to support data deduplication and cloud tiering on the same volume:
-  1. Uninstall the Azure File Sync agent for Windows Server 2012 R2 and restart the server.
-  1. Download the Azure File Sync agent for the new server operating system version (Windows Server 2025, Windows Server 2022, Windows Server 2019, or Windows Server 2016).
-  1. Install the Azure File Sync agent and restart the server.
-
-  The server retains its Azure File Sync configuration settings when the agent is uninstalled and reinstalled.
 
 ### Distributed File System
 
@@ -489,7 +475,7 @@ To request access for these regions, follow the process in [this article](/troub
 
 ## Migration
 
-If you have an existing file server in Windows Server 2012 R2 or newer, you can directly install Azure File Sync in place. You don't need to move data to a new server.
+If you have an existing file server in Windows Server 2016 or newer, you can directly install Azure File Sync in place. You don't need to move data to a new server.
 
 If you plan to migrate to a new Windows file server as a part of adopting Azure File Sync, or if your data is currently located on NAS, there are several possible migration approaches to use Azure File Sync with this data. Which migration approach you should choose depends on where your data currently resides.
 
