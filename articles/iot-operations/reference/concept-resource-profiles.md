@@ -27,7 +27,7 @@ Three configurations were measured on single-node clusters at idle (no connected
 | **Config C** | Medium | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~6,088 MiB | ~2,407 MiB | ~6,564 MiB | 58 |
 
 > [!NOTE]
-> The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](../deploy-iot-ops/concept-production-examples.md) for loaded scenarios.
+> The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../deploy-iot-ops/deployment-planning.md#choose-your-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](../deploy-iot-ops/concept-production-examples.md) for loaded scenarios.
 
 ## Namespace breakdown
 

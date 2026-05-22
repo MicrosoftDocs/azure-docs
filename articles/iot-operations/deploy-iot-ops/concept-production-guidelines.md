@@ -64,7 +64,7 @@ For a production-ready deployment, include the following configurations during t
 
 In the Azure portal deployment wizard, the broker resource is set up in the **Configuration** tab.
 
-* [Configure cardinality settings](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-cardinality-directly) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
+* [Configure cardinality settings](deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
 
   | Setting | Single node | Multi node |
   | ------- | ----------- | ---------- |
@@ -73,14 +73,14 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendRedundancyFactor** | 2 | 2 |
   | **backendWorkers** | 1 | 4 |
   | **backendPartitions** | 1 | 5 |
-  | [Memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile) | Low | High |
+  | [Memory profile](deployment-planning.md#choose-your-memory-profile) | Low | High |
 
   > [!NOTE]
   > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
 
-* [Encrypt internal traffic](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
+* [Encrypt internal traffic](deployment-planning-encryption.md).
 
-* Set [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size that prevents RAM overflow.
+* Set [disk-backed message buffer](deployment-planning-disk-buffer.md) with a max size that prevents RAM overflow.
 
 ### Schema registry and storage
 
