@@ -101,3 +101,55 @@ sections:
           answer: > 
             Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new instance.
 
+    - name: Analytics Consumption Zone (ACZ)
+      questions:
+        - question: How do I get access to ACZ during the preview?
+          answer: >
+            ACZ access requires allowlisting during the preview. Follow the step-by-step guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative to get ACZ enabled on your Azure Data Manager for Energy resource.
+
+        - question: Is there a portal experience to create ACZ and how many can I create?
+          answer: >
+            No. During preview, you can't create or manage ACZ in the Azure portal. Use the REST APIs instead. You can create up to three ACZs per data partition. See [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md) for details.
+
+        - question: Can I change the entity types in an ACZ after creation?
+          answer: >
+            No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
+
+        - question: Can I modify the ACZ data directly in ADLS Gen2?
+          answer: >
+            No. ACZ is a one-way, read-only sync from Azure Data Manager for Energy to ADLS Gen2. Do not modify, delete, or add files directly in the ACZ folders in ADLS Gen2. Manual changes to ACZ data corrupt the sync and cause data inconsistencies because ACZ manages all Delta Lake operations including transaction logs, checkpoints, and compaction. For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
+
+        - question: What happens to the data in ADLS if I delete an ACZ?
+          answer: >
+            When you delete an ACZ, the sync stops and ACZ removes the configuration. Data already in your ADLS Gen2 storage account stays intact. You keep full ownership and control of the exported data.
+
+        - question: Can ACZ sync data from Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS?
+          answer: >
+            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. Catalog kinds include master data and reference data from the Storage service. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or RAFS DDMS.
+
+        - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
+          answer: >
+            No. ACZ doesn't carry over ADME entitlements to ADLS Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and ADLS Gen2 permissions to secure the exported data.
+
+        - question: What telemetry and monitoring capabilities are available during the ACZ Preview?
+          answer: >
+            During the ACZ Preview, the following status indicators are available through the ACZ API: **ACZ Status** indicates the overall state of the Analytics Consumption Zone (for example, `ACTIVE`). **Historical Snapshot Status** indicates the progress of the initial data sync (for example, `PROCESSING`, `COMPLETED`). More detailed telemetry and monitoring capabilities, such as sync progress metrics, error diagnostics, and integration with Azure Monitor, are planned for General Availability (GA).
+
+        - question: What are the known issues in the ACZ Preview release?
+          answer: >
+            - During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
+
+            - During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This action may lead to data inconsistencies in ACZ data.
+
+            - During preview, ACZ supports max 100 kinds.
+
+            - During preview, ACZ is only available on Developer Tier instances. Standard Tier instances are not supported.
+
+        - question: How does ACZ differ from the Geospatial Consumption Zone (GCZ)?
+          answer: >
+            ACZ exports ADME entity data to ADLS Gen2 in Delta Parquet format for analytics and reporting. GCZ provides geospatial map services (GIS) for ADME data by using a transformer and provider setup on Azure Kubernetes Service (AKS). Both make ADME data available outside the core platform, but they serve different use cases.
+
+        - question: When is ACZ generally available on Azure Data Manager for Energy?
+          answer: >
+            ACZ is in preview. Microsoft uses customer feedback to validate functionality, performance, and scale before general availability.
+

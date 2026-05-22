@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 Infrastructure Resiliency Manager allows you to assess the resiliency of Service Group resources by simulating zone outages on individual resources. You can evaluate the performance of cross-zone resiliency solutions for your applications and identify resources that require Resiliency improvements to support application continuity.
 
-An Availability Zone Down Drill templates provide Azure-recommended faults for supported resource types and allow you to override them with custom logic through Azure Runbooks. After fault injection, you can perform failover and reprotection for resources configured with active-passive solutions by using integrated Recovery Plans. You can also measure application downtime during outages. You can also monitor Service Group and resource health in real time during drill execution through integrated metrics.
+The Availability Zone Down Drill templates provide Azure-recommended faults for supported resource types and allow you to override them with custom logic through Azure Runbooks. After fault injection, you can perform failover and reprotection for resources configured with active-passive solutions by using integrated Recovery Plans. You can also measure application downtime during outages. You can also monitor Service Group and resource health in real time during drill execution through integrated metrics.
 
 ## Key components for Availability Zone Down Drill
 
@@ -25,12 +25,12 @@ The following table lists the core components you use in Availability Zone Dow
 | Zone Down Drill  | Template that simulates an availability zone outage on Service Group resources to evaluate cross-zone resiliency. |
 | Fault Injection  | The process of introducing controlled failures to simulate zone outages.  |
 | Recovery Plan  | A defined sequence of Failover and Reprotection operations to recover resources after fault injection.  |
-| Fault Designer  | The interface to review and edit the faults applied to each resource in the drill. |
+| Fault Designer  | The interface is to review and edit the faults applied to each resource in the drill. |
 | Health Monitoring  | Integrated metrics experience to track resource health in real time during drill execution. |
 
 ## Drill execution lifecycle
 
-The following sequence outlines each stage in the drill lifecycle and the actions performed at each step.
+The following sequence outlines each stage in the drill lifecycle, and the actions performed at each step.
 
 1. **Fault Injection**: Apply controlled faults to resources in the selected availability zone.
 
@@ -42,6 +42,8 @@ The following sequence outlines each stage in the drill lifecycle and the action
 
 5. **Reprotect (Reverse)**: Re-enable replication in the original direction to restore the baseline configuration.
 
-### Related content
+## Next steps
 
-[Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
+- [Support matrix for Availability Zone Down Drills in Infrastructure Resiliency Manager (preview)](availability-zone-down-drills-support-matrix.md).
+- [Define Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-define.md).
+- [Execute Availability Zone Down Drill in Infrastructure Resiliency Manager (preview)](availability-zone-down-drill-execute.md).

@@ -12,7 +12,7 @@ ms.service: resiliency
 
 # Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)
 
-This article summarizes the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations in Infrastructure Resiliency Manager (preview).
+This article summarizes the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations in the Infrastructure Resiliency Manager (preview).
 
 ## Supported resource types and detected solutions
 
@@ -61,11 +61,11 @@ Certain resource types are excluded from resiliency service's discovery. When re
 
 - **Policy and governance** - such as resource group-level policy assignments and remediations.
 
-- **Storage subresources** - such as blob services, file services, queue services, and table services under storage accounts. Only the top level resource (for example, storage account) is considered to avoid duplicate counting.
+- **Storage subresources** - such as blob services, file services, queue services, and table services under storage accounts. Only the top-level resource (for example, storage account) is considered to avoid duplicate counting.
 
-- **Compute subresources** - such as VM extensions, disk access permissions, and disk encryption sets. Only the top level resource (for example, VM) is considered to avoid duplicate counting.
+- **Compute subresources** - such as VM extensions, disk access permissions, and disk encryption sets. Only the top-level resource (for example, VM) is considered to avoid duplicate counting.
 
-- **Database subresources** - such as SQL firewall rules, failover groups, transparent data encryption settings, and Cosmos DB subresources (sql databases, tables, Cassandra keyspaces). Only the top level resource is considered to avoid duplicate counting.
+- **Database subresources** - such as SQL firewall rules, failover groups, transparent data encryption settings, and Cosmos DB subresources (sql databases, tables, Cassandra keyspaces). Only the top-level resource is considered to avoid duplicate counting.
 
 - **Other infrastructure resources** - such as key vaults (evaluated separately), virtual network gateways, availability sets, SSH public keys, proximity placement groups, and capacity reservation groups.
 
@@ -74,7 +74,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 | Scenario | Required Roles |
 |----|----|
 | Assign goals to service group | Service Group Contributor + Microsoft.Relationship/ServiceGroupMember/read on resources |
-| View counts of resilient / nonresilient / not-evaluated resources | Service Group Reader |
+| View counts of resilient / non-resilient / not-evaluated resources | Service Group Reader |
 | View resource list with zonal resiliency status | Service Group Reader + Reader on resources |
 | Include / Exclude / Attest resources | Service Group Contributor |
 | Rediscover resources | Service Group Contributor + Microsoft.Relationship/ServiceGroupMember/read on resources |

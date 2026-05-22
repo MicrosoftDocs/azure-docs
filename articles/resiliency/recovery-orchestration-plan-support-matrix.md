@@ -3,7 +3,7 @@ title: Support matrix for Azure Recovery Orchestration Plan
 description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
 ms.topic: overview
 ms.service: resiliency
-ms.date: 05/13/2026
+ms.date: 06/02/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 #customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview), so that I can effectively utilize the service for my disaster recovery needs.
@@ -49,6 +49,9 @@ The following table lists the supported protection solutions and their failov
 |----|----|----|
 | Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
 | Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL database, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
+
+>[!NOTE]
+>A recovery plan doesn't orchestrate failover for resources configured with a Highly Available (HA) solution because the resource performs self-managed failover.
 
 ## Role requirements
 

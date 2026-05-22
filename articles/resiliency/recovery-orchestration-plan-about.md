@@ -3,7 +3,7 @@ title: About Azure Recovery Orchestration Plan
 description: Learn about Azure Recovery Orchestration Plan (preview) and how it can help you orchestrate recovery across multiple resources within an application for zonal resiliency in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 05/13/2026
+ms.date: 06/02/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to understand how Azure Recovery Orchestration Plan can help me orchestrate recovery across multiple resources within an application for zonal resiliency."
@@ -57,7 +57,7 @@ Each resource has a protection status and an inclusion state:
 - **Excluded**: Resources not included. HA resources are automatically excluded.
 - **State not selected**: Default state for unprotected or non-HA resources. You must explicitly include or exclude the resources.
 
-### Needs Attention (NOT SURE ABOUT THIS H3)
+### Resources with Needs Attention
 
 Resources with issues preventing failover orchestration are marked **Needs Attention** with an appropriate reason. Resolve all **Needs Attention** items to move the plan to **Ready** state.
 
@@ -82,7 +82,7 @@ The execution operations for plan orchestration are categorized as:
 
 Add Azure Automation Runbooks as prescripts and post-scripts. You can also add manual steps.
 
-- **Prescripts**: Runs before group resources begin failover.
+- **Pre-scripts**: Runs before group resources begin failover.
 - **Post-scripts**: Runs after group resources complete failover.
 - **Manual actions**: Allows resuming the failover job when it’s paused.
 

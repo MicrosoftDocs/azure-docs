@@ -34,6 +34,8 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 ::: zone-end   
 
+For a complete end-to-end example of using the Blob Storage trigger, see [Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
