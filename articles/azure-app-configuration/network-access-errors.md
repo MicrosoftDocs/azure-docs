@@ -52,7 +52,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-**Reason:** The configuration store's public network access is governed by a network security perimeter and the request doesn't meet the criteria for inbound access.
+**Reason:** The App Configuration store's public network access is governed by a network security perimeter and the request doesn't meet the criteria for inbound access.
 
 **Solution:** When a store's public network access is governed by a network security perimeter, requests must originate from within the network security perimeter or the request must match an inbound access rule defined on the network security perimeter profile associated with the store.
 - Verify that the client making the request is within the network security perimeter or that the request matches an inbound access rule defined on the network security perimeter profile associated with the store.

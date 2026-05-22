@@ -40,9 +40,9 @@ This command prompts your web browser to launch and load an Azure sign-in page. 
 
 ---
 
-## Associate your configuration store with a network security perimeter
+## Associate your App Configuration store with a network security perimeter
 
-Use the portal or Azure CLI to create an association between your configuration store and an existing network security perimeter.
+Use the portal or Azure CLI to create an association between your App Configuration store and an existing network security perimeter.
 
 ### [Portal](#tab/azure-portal)
 
@@ -64,7 +64,7 @@ Use the portal or Azure CLI to create an association between your configuration 
 
     Note down the resource ID from the output. For example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`.
 
-1. Run the following command to associate your configuration store with the network security perimeter. Replace the placeholder values with your own information.
+1. Run the following command to associate your App Configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
     az network perimeter association create --name <association-name> --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}"
@@ -87,11 +87,11 @@ Use the portal or Azure CLI to create an association between your configuration 
 > [!NOTE]
 > Allow up to 15 minutes for any changes to network security perimeter configuration to take effect.
 
-If you encounter errors while associating your configuration store with a network security perimeter, see [Troubleshooting](./concept-network-security-perimeter.md#troubleshooting) for guidance on resolving common issues.
+If you encounter errors while associating your App Configuration store with a network security perimeter, see [Troubleshooting](./concept-network-security-perimeter.md#troubleshooting) for guidance on resolving common issues.
 
 ## Verify the association
 
-After associating the configuration store with the network security perimeter, you can verify the association by checking the **Networking** settings of your App Configuration store.
+After associating the App Configuration store with the network security perimeter, you can verify the association by checking the **Networking** settings of your App Configuration store.
 
 ### [Portal](#tab/azure-portal)
 
@@ -99,13 +99,13 @@ After associating the configuration store with the network security perimeter, y
 
 1. Under **Network security perimeter**, select **Manage**.
 
-1. Review the network security perimeter configuration to confirm that your configuration store is associated with the expected perimeter and profile.
+1. Review the network security perimeter configuration to confirm that your App Configuration store is associated with the expected perimeter and profile.
 
    :::image type="content" source="./media/network-security-perimeter/verify-association-network-security-perimeter.png" alt-text="Screenshot of the Azure portal, showing the network security perimeter configuration for an App Configuration store." lightbox="./media/network-security-perimeter/verify-association-network-security-perimeter.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the following command to view the network security perimeter configuration for your configuration store.
+Run the following command to view the network security perimeter configuration for your App Configuration store.
 
 ```azurecli-interactive
 az appconfig network-security-perimeter-configuration list --name <app-config-store-name> --resource-group <resource-group>
@@ -113,9 +113,9 @@ az appconfig network-security-perimeter-configuration list --name <app-config-st
 
 ---
 
-## Dissociate your configuration store from a network security perimeter
+## Dissociate your App Configuration store from a network security perimeter
 
-Use the portal or Azure CLI to remove an existing association between your configuration store and a network security perimeter.
+Use the portal or Azure CLI to remove an existing association between your App Configuration store and a network security perimeter.
 
 ### [Portal](#tab/azure-portal)
 
@@ -131,7 +131,7 @@ Use the portal or Azure CLI to remove an existing association between your confi
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the following command to dissociate your configuration store from the network security perimeter. Replace the placeholder values with your own information.
+1. Run the following command to dissociate your App Configuration store from the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
     az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group>

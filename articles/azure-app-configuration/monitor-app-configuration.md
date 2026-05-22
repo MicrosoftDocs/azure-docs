@@ -62,7 +62,7 @@ Metrics and the activity log are collected and stored automatically, and can be 
 Resource Logs (including audit logs and HTTP request logs) aren't collected and stored until you create a diagnostic setting and route them to one or more locations, such as a Log Analytics workspace. If you don't already have one, create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) and follow these steps to create and enable a diagnostic setting.
 
 > [!NOTE]
-> If network access from your configuration store is governed by a network security perimeter, log destinations must be in the same perimeter as the store. For more information, see [Considerations for monitoring](./concept-network-security-perimeter.md#considerations-for-monitoring).
+> If network access from your App Configuration store is governed by a network security perimeter, log destinations must be in the same perimeter as the store. For more information, see [Considerations for monitoring](./concept-network-security-perimeter.md#considerations-for-monitoring).
 
  #### [Portal](#tab/portal)
 

@@ -47,7 +47,7 @@ The following components are required to successfully enable the customer-manage
   * It isn't expired.
   * It's enabled.
   * It has wrap and unwrap capabilities enabled.
-* If network access from your configuration store is governed by a network security perimeter, ensure that outbound communication to the Key Vault that holds your customer-managed key is allowed. For more information, see [Considerations for customer-managed key encryption](./concept-network-security-perimeter.md#considerations-for-customer-managed-key-encryption).
+* If network access from your App Configuration store is governed by a network security perimeter, ensure that outbound communication to the Key Vault that holds your customer-managed key is allowed. For more information, see [Considerations for customer-managed key encryption](./concept-network-security-perimeter.md#considerations-for-customer-managed-key-encryption).
 
 After this article shows you how to configure these resources, it walks you through the following steps so your App Configuration store can use the Key Vault key:
 
