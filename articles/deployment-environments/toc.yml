@@ -14,7 +14,7 @@ items:
     items:
       - name: Configure Azure Deployment Environments
         href: quickstart-create-and-configure-devcenter.md
-      - name: Create dev center and project (Azure Resource Manager)
+      - name: Create dev center and project by using ARM
         href: quickstart-create-dev-center-project-azure-resource-manager.md
         displayName: Azure Deployment Environments, ADE, environments, quickstart
       - name: Create and access an environment
@@ -85,7 +85,7 @@ items:
         href: how-to-request-quota-increase.md
   - name: Security
     items:
-      - name: Grant access to Azure Deployment Environments
+      - name: Grant and manage access
         href: how-to-manage-deployment-environments-access.md
         displayName: role-based access control, RBAC, permissions, roles, access, manage
       - name: Authenticate to REST APIs

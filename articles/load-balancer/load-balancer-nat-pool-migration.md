@@ -7,7 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: mbender
-# Customer intent: As a cloud architect, I want to migrate inbound NAT rules from version 1 to version 2 in Azure Load Balancer, so that I can ensure compliance with the upcoming retirement timeline and leverage improved deployment efficiency and optimized updates for my backend infrastructure.
+# Customer intent: As a cloud architect, I want to migrate inbound NAT rules from version 1 to version 2 for multiple VMs or VMSS in Azure Load Balancer, so that I can ensure compliance with the upcoming retirement timeline and leverage improved deployment efficiency and optimized updates for my backend infrastructure.
 ---
 
 # Migrate from Inbound NAT rules version 1 to version 2
@@ -15,11 +15,15 @@ ms.author: mbender
 An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a load balancer’s frontend to one or more instances in the backend pool. These rules provide a 1:1 mapping between the load balancer’s frontend IP address and backend instances. There are currently two versions of Inbound NAT rules, version 1 and version 2.
 
 >[!Important]
-> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to  Inbound NAT rules v2 prior to the retirement date.
+> On September 30, 2027, **Inbound NAT Pools** (the Azure Virtual Machine Scale Sets-specific feature of Inbound NAT rules V1) will be retired. If you are currently using Inbound NAT Pools with Virtual Machine Scale Sets, migrate to Inbound NAT rules V2 prior to the retirement date. **Single VM Inbound NAT rules V1 are not affected by this retirement** and do not need to be migrated.
 
 ## NAT rule version 1 
 
-[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instances use the `Inbound NAT Pools` property to manage Inbound NAT rules version 1. 
+[Version 1](inbound-nat-rules.md) of Inbound NAT rules includes two distinct features:
+
+- **Single VM Inbound NAT rules** — Provides 1:1 port mapping between a load balancer frontend IP/port and a specific virtual machine. Rules are applied directly to the VM's network interface card (NIC). **These are not being retired and do not need to be migrated.**
+
+- **Inbound NAT Pools (Virtual Machine Scale Sets only)** — This is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Inbound NAT rules are automatically created and deleted per Virtual Machine Scale Set instance as the scale set scales up and down. NAT Pools are defined on the load balancer and referenced by the Virtual Machine Scale Sets NIC configuration via the `loadBalancerInboundNatPools` property. **These are being retired on September 30, 2027 and must be migrated to Inbound NAT rules V2.**
 
 ## NAT rule version 2 
 
@@ -42,7 +46,33 @@ For version 2 NAT rules, the **Type** value will be *Backend pool* with a define
 
 To programmatically determine if a deployment is using version 1 of Inbound NAT rules, inspect the load balancer’s configuration using the Azure CLI or PowerShell. If either the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules. Version 2 rules will have the `backendAddressPool` property instead of the `backendIPConfiguration` property.
 
-## How to migrate from version 1 to version 2?  
+## How do I know if I’m using Inbound NAT Pools?
+
+To check if your load balancer has Inbound NAT Pools configured:
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az network lb inbound-nat-pool list -g MyResourceGroup --lb-name MyLoadBalancer
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$slb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroupName "MyResourceGroup"
+$slb.InboundNatPools
+```
+
+---
+
+If the above commands return any results, your load balancer is using Inbound NAT Pools and should be migrated.
+
+The key difference is the ARM property name: Inbound NAT Pools appear under the `inboundNatPools` property on the load balancer, while Inbound NAT rules appear under the `inboundNatRules` property. If your load balancer has a non-empty `inboundNatPools` array, it is using Inbound NAT Pools and must be migrated to V2 before September 30, 2027.
+
+> [!NOTE]
+> If your load balancer only has single VM Inbound NAT rules (Type = "Azure Virtual Machine") and no Inbound NAT Pools, **no migration is required**. Single VM V1 rules are not being retired.
+
+## How to migrate from Inbound NAT Pools to version 2?  
 
 Prior to migrating it's important to review the following information:  
 
@@ -61,50 +91,12 @@ The following three steps need to be performed to migrate to version 2 of inboun
    1. All virtual machine scale set instances need to be updated.
 3. Deploy version 2 of Inbound NAT rules.
 
-### Virtual Machine
-
-The following steps are used to migrate from version 1 to version 2 of Inbound NAT rules for a virtual machine.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-
-az network lb inbound-nat-rule delete -g MyResourceGroup --lb-name MyLoadBalancer --name NATruleV1
-
-az network nic ip-config inbound-nat-rule remove -g MyResourceGroup --nic-name MyNic -n MyIpConfig --inbound-nat-rule MyNatRule 
-
-az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 --backend-address-pool MybackendPool
-
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-
-$slb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroupName "MyResourceGroup" 
-
-Remove-AzLoadBalancerInboundNatRuleConfig -Name "myinboundnatrule" -LoadBalancer $loadbalancer 
-
-Set-AzLoadBalancer -LoadBalancer $slb 
-
-$nic = Get-AzNetworkInterface -Name "myNIC" -ResourceGroupName "MyResourceGroup" 
-
-$nic.IpConfigurations[0].LoadBalancerInboundNatRule  = $null 
-
-Set-AzNetworkInterface -NetworkInterface $nic
-
-$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "NewNatRuleV2" -FrontendIPConfiguration $slb.FrontendIpConfigurations[0] -Protocol "Tcp" -FrontendPortRangeStart 201-FrontendPortRangeEnd 500 -BackendAddressPool $slb.BackendAddressPools[0] -BackendPort 22
-$slb | Set-AzLoadBalancer
-
-
-```
----
-
-
 ### Virtual Machine Scale Set
 
+> [!IMPORTANT]
+> This is the required migration path for the Inbound NAT Pools retirement. All Virtual Machine Scale Set deployments using Inbound NAT Pools must complete this migration before September 30, 2027.
+> 
 The following steps are used to migrate from version 1 to version 2 of Inbound NAT rules for a virtual machine scale set. It assumes the virtual machine scale set's upgrade mode is set to Manual. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes)
-
 
 
 # [Azure CLI](#tab/azure-cli)
