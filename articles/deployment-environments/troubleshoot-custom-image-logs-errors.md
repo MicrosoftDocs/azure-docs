@@ -5,7 +5,7 @@ ms.service: azure-deployment-environments
 ms.topic: troubleshooting-general
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/20/2026
+ms.date: 05/26/2026
 ---
 # Troubleshoot custom image deployment errors
 
