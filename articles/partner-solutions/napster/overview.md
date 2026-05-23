@@ -1,17 +1,20 @@
 ---
 title: What is Napster Companion API? (preview)
-description: Learn about Napster Companion API, an Azure Native Integration that lets you build, deploy, and operate persistent multimodal AI agents (Omniagents) across video, voice, text, and telephony channels.
+description: Learn about Napster Companion API, an Azure Native Integration for building persistent multimodal AI agents across video, voice, text, and telephony channels.
+author: shijoy
+ms.author: shijoy
 ms.topic: overview
 ms.date: 05/20/2026
 ms.custom:
   - ignite-2026
+#customer intent: As an Azure customer evaluating native integrations, I want to understand what Napster Companion API offers so that I can decide whether to adopt it for my multimodal agent workloads.
 ---
 
 # What is Napster Companion API? (preview)
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
-Microsoft and [Napster](https://www.napster.com/) developed this service and manage it together.
+Microsoft and [Napster](https://www.napster.com/) codeveloped this Azure Native Integration and manage it together, bringing Napster's multimodal AI agent platform into the Azure portal with unified billing, Microsoft Entra single sign-on, and full Azure resource lifecycle management.
 
 You can find Napster Companion API in the [Azure portal](https://portal.azure.com/#browse/napster.companionapi%2Forganizations) or get it on [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/touchcastinc1655995956899.napster_companion_api).
 
@@ -21,7 +24,7 @@ You can set up Napster Companion API resources through a resource provider named
 
 Here are the key capabilities provided by the Napster Companion API integration:
 
-- **Seamless onboarding** - Provision Napster Companion API as an Azure resource from the portal. No separate Napster sign-up is required.
+- **Simple onboarding** - Provision Napster Companion API as an Azure resource from the portal. No separate Napster sign-up is required.
 - **Unified billing** - Pay for Napster Companion API through Azure Marketplace as part of your monthly Azure invoice.
 - **Single sign-on to Napster Companion API** - Sign in to the Companion API Dashboard from Azure with Microsoft Entra ID. No separate credentials are required.
 - **Manage all Napster Companion API resources** from the Azure portal and track them in the **All resources** page alongside your other Azure resources.
