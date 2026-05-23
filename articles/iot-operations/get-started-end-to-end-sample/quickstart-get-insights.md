@@ -131,9 +131,10 @@ Then, follow these steps to upload the dashboard template and connect it to your
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
-1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
-    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it's under **Eventhouse/KQL Database**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
+1. From the **Manage** tab, select the **Data sources** toggle from the right side of the screen. This action opens the **Data sources** pane with a sample source for your AIO data. Select the settings icon to edit the *AIOdata* data source.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to open the data source settings.":::
+1. In the **Data source settings** pane, select the **Database** dropdown and then select **KQL database** to connect your KQL database as the data source for the dashboard.  :::image type="content" source="media/quickstart-get-insights/dashboard-data-source-settings.png" alt-text="Screenshot of the buttons to connect a data source.":::
+1. Choose your database on the **Select a KQL Database from the catalog** pane and then select **Connect**. When you're finished connecting your data source, select **Apply** and close the **Data source settings** pane. Finally, you can toggle the **Data sources** pane out of the way and return to the dashboard canvas.
 
 The visuals populate with the data from your KQL database.
 
