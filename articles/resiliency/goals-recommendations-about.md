@@ -50,4 +50,7 @@ Azure Advisor provides recommendations across all Well-Architected Framework pil
 
 ## Related content
 
-[Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-support-matrix.md).
+- [Support Matrix for goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-support-matrix.md).
+- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager (preview)](goals-recommendations-assign-goals-view-posture.md).
+- [Review recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-review-recommendations.md).
+- [Use the Resiliency agent in Infrastructure Resiliency Manager (preview)](goals-recommendations-use-agent.md).
