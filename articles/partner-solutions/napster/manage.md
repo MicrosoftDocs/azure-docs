@@ -1,16 +1,18 @@
 ---
-title: Manage a Napster Companion API resource through the Azure portal (preview)
-description: This article describes management functions for Napster Companion API on the Azure portal.
-
+title: Manage a Napster Companion API resource in Azure (preview)
+description: Learn how to manage your Napster Companion API resource in the Azure portal, including resource overview, single sign-on setup, and deletion steps.
+author: shijoy
+ms.author: shijoy
 ms.topic: how-to
 ms.custom:
   - ignite-2026
 ms.date: 05/20/2026
+#customer intent: As an Azure administrator, I want to manage the lifecycle of my Napster Companion API resource so that I can configure access, monitor it, and delete it when no longer needed.
 ---
 
 # Manage a Napster Companion API resource (preview)
 
-This article describes how to manage the settings for Napster Companion API resources.
+This article describes how to manage the settings for your Napster Companion API resource in the Azure portal. You learn how to navigate the resource overview, use single sign-on to access the Companion API Dashboard, and delete a resource.
 
 ## Resource overview
 
@@ -46,7 +48,7 @@ To access Napster Companion API using single sign-on, select the SSO Url link in
 > [!NOTE]
 >
 > - The first time you access this URL, you might see a request to grant permissions and user consent. This step is only needed the first time you access the SSO URL.
-> - If you're also seeing the Admin consent screen, check your [tenant consent settings](/azure/active-directory/manage-apps/configure-user-consent).
+> - If you're also seeing the Admin consent screen, check your [tenant consent settings](/entra/identity/enterprise-apps/configure-user-consent).
 
 Choose a Microsoft Entra account for the single sign-on. Once consent is provided, you're redirected to the Napster Companion API Dashboard.
 

@@ -6,6 +6,8 @@ summary: Build, deploy, and operate persistent multimodal AI agents (Omniagents)
 metadata:
   title: Napster Companion API – Azure Native Integrations
   description: Napster Companion API – Azure Native Integrations brings Napster's multimodal AI agent platform to Azure with unified billing, single sign-on, and Azure-native resource management.
+  author: shijoy
+  ms.author: shijoy
   ms.topic: landing-page
   ms.custom:
     - ignite-2026
