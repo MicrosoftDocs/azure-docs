@@ -56,10 +56,10 @@ The following table lists the minimum roles required for drill operations:
 
 Register the following resource providers in the relevant subscriptions:
 
-- `Microsoft.Chaos`: Required in the subscription where you create the Chaos Workspace.
-- `Microsoft.Insights`: Required in the subscription where you create the monitoring setup.
-- `Microsoft.OperationalInsights`: Required in the subscription where you create the monitoring setup.
-- `Microsoft.Automation`: Required for creation of Automation Accounts for fault injection.
+- **`Microsoft.Chaos`**: Required in the subscription where you create the Chaos Workspace.
+- **`Microsoft.Insights`**: Required in the subscription where you create the monitoring setup.
+- **`Microsoft.OperationalInsights`**: Required in the subscription where you create the monitoring setup.
+- **`Microsoft.Automation`**: Required for creation of Automation Accounts for fault injection.
 
 
 ## Next steps

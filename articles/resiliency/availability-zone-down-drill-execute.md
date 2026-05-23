@@ -26,7 +26,7 @@ When the Drill execution readiness shows the status as **Ready**, you can execu
 
 To execute the drill, follow these steps: 
 
-1. On the selected drill instance pane, select **Overview** > **Execute drill**.
+1. On the **selected drill instance** pane, select **Overview** > **Execute drill**.
 
 1. On the **Drill execution** pane, after completion of Recovery Plan readiness, select the source region and zone on which you want to execute the fault injection and failover operation.
 

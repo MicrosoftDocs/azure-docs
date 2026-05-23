@@ -70,7 +70,7 @@ You can review permissions, validate resource inclusion, assess metrics readines
 
 To review and configure resources for the drill, follow these steps:
 
-1. On the selected service group pane, select **Resiliency** > **Drills**.
+1. On the **selected service group** pane, select **Resiliency** > **Drills**.
 
 1.  On the **Drills** pane, select the drill instance you created.
 
@@ -78,13 +78,14 @@ To review and configure resources for the drill, follow these steps:
 
 To review drill role assignment status, follow these steps:
 
-1. On the selected drill instance pane, select **Settings** > **Identity and permissions**.
+1. On the **selected drill instance** pane, select **Settings** > **Identity and permissions**.
 
 1. On the **Identity and permissions** pane, under **Role assignment status**, select **View details**.
 
 1. On the **Drill role assignment** pane, review the list of identities and their corresponding role assignment status.
 
-If there are errors in Drills Role Assignment status,  reassess the status by selecting **Assess role assignment readiness**.
+>[!NOTE]
+>If there are errors in Drills Role Assignment status,  reassess the status by selecting **Assess role assignment readiness**.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/check-role-assignment-readiness.png" alt-text="Screenshot that shows how to check for the drill role assignment readiness." lightbox="./media/availability-zone-down-drill-define/check-role-assignment-readiness.png":::
 
@@ -109,7 +110,7 @@ To include resources in the drill, follow these steps:
 
 To review the metrics for drill execution, follow these steps:
 
-1. On the selected drill instance pane, select **Settings** > **Monitoring**.
+1. On the **selected drill instance** pane, select **Settings** > **Monitoring**.
 1. On the **Monitoring** pane, review the list of resources and their corresponding metrics readiness status for drill execution.
 
 
@@ -117,7 +118,7 @@ To review the metrics for drill execution, follow these steps:
 
 To design faults for supported and unsupported resources in the drill, follow these steps:
 
-1. On the selected drill instance pane, select **Settings** > **Drills scope**.
+1. On the **selected drill instance** pane, select **Settings** > **Drills scope**.
 1. On the **Drills scope** pane, on the **Fault designer** tab, to review or modify the corresponding fault design status of resources, select a resource from the list and select **Edit fault**.
 
    :::image type="content" source="./media/availability-zone-down-drill-define/edit-fault.png" alt-text="Screenshot that shows how to edit fault details." lightbox="./media/availability-zone-down-drill-define/edit-fault.png":::
@@ -140,7 +141,7 @@ After the fault design is complete, review readiness across all summary widgets.
 
 To review and fix configuration drifts, follow these steps:
 
-1. On the selected drill instance pane, select **Overview** > **Resync and check readiness**.
+1. On the **selected drill instance** pane, select **Overview** > **Resync and check readiness**.
 
 1. If the **Drill execution readiness** status shows **Not Ready**, select the status and view the errors flagged.
 
