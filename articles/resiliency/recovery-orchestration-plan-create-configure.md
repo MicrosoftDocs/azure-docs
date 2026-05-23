@@ -50,7 +50,7 @@ To view and manage the protection status of resources in your plan, follow these
    - **Active physical zone**: The physical zone where the resource is currently active.
    - **Recovery Location**: The disaster recovery or high availability target location
    - **Inclusion State**: Protection state of the Azure resource - **Included**, **Excluded**, or **State not selected**.
-   - **Needs Attention**: Shows the reason code if the resource has issues, otherwise shows "No".
+   - **Needs Attention**: Shows the reason code if the resource has issues, otherwise shows **No**.
 
 ### Include a resource in the plan
 
@@ -140,5 +140,5 @@ To update the plan, follow the steps:
 
 ## Related content
 
-- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md) (preview)
-- [Support matrix for Recovery Orchestration Plan](recovery-orchestration-plan-support-matrix.md) (preview)
+- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
+- [Support matrix for Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).

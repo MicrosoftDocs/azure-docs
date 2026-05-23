@@ -38,7 +38,7 @@ To execute a failover operation, follow these steps:
    - **Resources skipped for operation**: Resources that don't qualify appear with a skip reason.
 
 1. On the **Resources qualified for operation** tab, select the resources you want to fail over. You can select all or a subset.
-1. Select the confirmation checkbox: **"I understand and agree to perform operations on only the qualified resources."**
+1. Select the confirmation checkbox: **I understand and agree to perform operations on only the qualified resources.**
 1. Select **Execute** to start the failover.
 
 ### Resources Failover Qualification
@@ -46,7 +46,7 @@ To execute a failover operation, follow these steps:
 A resource qualifies for failover if it meets all of the following criteria:
 
 - Is protected by a non-HA solution (for example, Azure Site Recovery).
-- Is included in the recovery plan (not excluded or in "State not selected").
+- Is included in the recovery plan (not excluded or in **State not selected**).
 - Is present in the selected active location and zone.
 - Doesn't have a Needs Attention status.
 - Has valid recovery points available for failover.
@@ -104,4 +104,4 @@ After the readiness check completes, to review any new **Needs Attention** items
 
 ## Related content
 
-- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md) (preview)
+- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).

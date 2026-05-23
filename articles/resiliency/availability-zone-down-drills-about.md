@@ -30,7 +30,7 @@ The following table lists the core components you use in Availability Zone Dow
 
 ## Drill execution lifecycle
 
-The following sequence outlines each stage in the drill lifecycle, and the actions performed at each step.
+The following sequence outlines each stage in the drill lifecycle, and the actions performed at each step:
 
 1. **Fault Injection**: Apply controlled faults to resources in the selected availability zone.
 
