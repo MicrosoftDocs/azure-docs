@@ -11,7 +11,7 @@ ms.author: shsangal
 
 # Create and configure a Recovery Orchestration Plan (preview)
 
-This article describes how to create a Recovery Orchestration Plan (preview) within a Service Group, configure resource protection, define recovery groups, and add group actions to automate failover operations.
+This article describes how to create a Recovery Orchestration Plan (preview) within a Service Group. It also covers how to configure resource protection, define recovery groups, and add group actions to automate failover operations.
 
 ## Create a Recovery Orchestration Plan
 
@@ -24,7 +24,7 @@ To create a new Recovery Orchestration Plan within a Service Group, follow these
 1. Select **Create recovery plan**.
 1. On the **Basics** tab, provide the following details:
    - **Plan name**: A descriptive name for your recovery plan.
-   - **Plan type**: Zonal resiliency (automatically set).
+   - **Plan type**: Zonal resiliency (set by default).
    - **Description**: A brief description of the plan's purpose.
 1. On the **Management** tab, select the managed identity type. By default, **System-assigned** identity is selected. You can also choose **User-assigned** if you prefer a specific managed identity.
 1. Select **Review + create**. Review the summary of your selections and select **Create**.
@@ -43,7 +43,7 @@ To view and manage the protection status of resources in your plan, follow these
 1. Select the **Configure Plan** tab.
 1. Select **Manage resource protection**.
 
-   The resource protection pane shows all resources in the Service Group with the following columns:
+   The **Resource protection** pane shows all resources in the Service Group with the following columns:
    - **Resource name**: The name of the Azure resource
    - **Protection Status**: The protection solution, which is configured on the resource, for example, Azure Site Recovery, or zone-redundant storage with `(HA)` suffix for High Availability (HA) solutions.
    - **Active Location**: The region where the resource is currently active.
@@ -58,7 +58,7 @@ Resources aren't automatically included in the plan. You must explicitly include
 
 To include a resource in the plan, follow these steps:
 
-1. Open the plan from the Recovery Plans list.  
+1. Open the plan from the **Recovery Plans** list.  
 1. On the **Configure plan** tab, select **Manage resource protection**.
 1. On the **Manage resource protection** pane, locate the resource with the inclusion state as **State not selected**.
 1. Select **State not selected** for that resource. 
@@ -82,7 +82,7 @@ To exclude a resource in the plan, follow these steps:
 1. On the **Edit protection solution** pane, select **Exclude** and then select **Ok**.
 
 > [!NOTE]
-> Resources protected by Highly Available (HA) solutions can only be excluded. If an HA-enabled resource is detected during plan creation or readiness check, it's automatically excluded from the plan since HA resources handle failover independently.
+> Resources protected by Highly Available (HA) solutions can only be excluded. If an HA-enabled resource gets detected during plan creation or readiness check, the feature automatically excludes it from the plan since HA resources handle failover independently.
 
 After managing all resource inclusions and exclusions, select **Next** to proceed to the **Start group order** tab.
 
@@ -115,7 +115,7 @@ To add an automation script for the recovery orchestration plan, follow these st
 1. Select **Ok**.
 
 > [!NOTE]
-> The Recovery Plan's Managed Identity requires the **Automation Job Operator** role on the Automation Account to run automation scripts.
+> The Recovery Plan's managed-identity requires the **Automation Job Operator** role on the Automation Account to run automation scripts.
 
 ### Add a manual step
 

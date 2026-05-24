@@ -18,7 +18,7 @@ This article describes how to execute failover, reprotect resources after failov
 Before you execute failover and reprotect operations, review the following prerequisites:
 
 - Check if a Recovery Orchestration Plan in **Ready** or **Warning** state.
-- Verify that at least one resource included in the plan has no Needs Attention status.
+- Verify that at least one resource included in the plan has no **Needs Attention** status.
 - Ensure that the Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role is assigned.
 - Ensure that resources protected using Azure Site Recovery have healthy replication status.
 
@@ -48,7 +48,7 @@ A resource qualifies for failover if it meets all of the following criteria:
 - Is protected by a non-HA solution (for example, Azure Site Recovery).
 - Is included in the recovery plan (not excluded or in **State not selected**).
 - Is present in the selected active location and zone.
-- Doesn't have a Needs Attention status.
+- Doesn't have a **Needs Attention** status.
 - Has valid recovery points available for failover.
 
 The following table lists the common reasons for which resource might be skipped from failover execution:
@@ -73,7 +73,7 @@ After failover starts:
 - **Manual actions** pause the failover job. To view the manual step instructions, complete the required action, and resume the failover, go to the Recovery Plan execution pane.
 
 > [!NOTE]
-> After failover completes, the Recovery Plan automatically adds the failed-over resource to the Service Group and Recovery Plan when the managed identity has sufficient permissions. If permissions are insufficient, the system marks the resource with the **Needs Attention** code `FailedOverResourceNeedsToBeAddedToServiceGroupAndRecoveryPlan`.
+> After failover completes, the Recovery Plan automatically adds the failed-over resource to the Service Group and Recovery Plan when the managed identity has sufficient permissions. If permissions are insufficient, the system marks the resource with the **Needs Attention** code *`FailedOverResourceNeedsToBeAddedToServiceGroupAndRecoveryPlan`*.
 
 ## Reprotect resources after failover
 
