@@ -326,7 +326,7 @@ items:
         - name: Export to Elastic
           href: opentelemetry-export-elastic.md
         - name: Export to New Relic
-          href: opentelemetry-export-newrelic.md
+          href: opentelemetry-export-new-relic.md
     - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
