@@ -49,11 +49,22 @@ A single service group can contain a maximum of **500 resources**.
 
 Certain resource types are excluded from resiliency service's discovery. When resources are added to a service group via subscription or resource group membership, the following categories of resource types are automatically filtered out:
 
-- **Networking primitives** - such as network interfaces (microsoft.network/networkinterfaces), network security groups (microsoft.network/networksecuritygroups), route tables (microsoft.network/routetables), private endpoints (microsoft.network/privateendpoints), and private DNS zones (microsoft.network/privatednszones).
+- **Networking primitives** - such as:
+
+  - network interfaces (microsoft.network/networkinterfaces)
+  - network security groups (microsoft.network/networksecuritygroups)
+  - route tables (microsoft.network/routetables)
+  - private endpoints (microsoft.network/privateendpoints)
+  - private DNS zones (microsoft.network/privatednszones)
 
 - **Identity and access** - such as managed identities (microsoft.managedidentity/userassignedidentities).
 
-- **Monitoring and diagnostics** - such as Log Analytics workspaces (microsoft.operationalinsights/workspaces), action groups (microsoft.insights/actiongroups), metric alerts (microsoft.insights/metricalerts), and activity log alerts.
+- **Monitoring and diagnostics** - such as:
+
+  - Log Analytics workspaces (microsoft.operationalinsights/workspaces)
+  - action groups (microsoft.insights/actiongroups)
+  - metric alerts (microsoft.insights/metricalerts)
+  - activity log alerts
 
 - **Automation and management** - such as automation accounts (microsoft.automation/automationaccounts), maintenance configurations (microsoft.maintenance/maintenanceconfigurations), and solutions (microsoft.operationsmanagement/solutions).
 
@@ -74,7 +85,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 | Scenario | Required Roles |
 |----|----|
 | Assign goals to service group | Service Group Contributor + Microsoft.Relationship/ServiceGroupMember/read on resources |
-| View counts of resilient / non-resilient / not-evaluated resources | Service Group Reader |
+| View counts of resilient / nonresilient / not-evaluated resources | Service Group Reader |
 | View resource list with zonal resiliency status | Service Group Reader + Reader on resources |
 | Include / Exclude / Attest resources | Service Group Contributor |
 | Rediscover resources | Service Group Contributor + Microsoft.Relationship/ServiceGroupMember/read on resources |
@@ -90,4 +101,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 
 ## Related content
 
-[About goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).
+- [About goals and recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-about.md).
+- [Assign goals and view resiliency posture in Infrastructure Resiliency Manager (preview)](goals-recommendations-assign-goals-view-posture.md).
+- [Review recommendations in Infrastructure Resiliency Manager (preview)](goals-recommendations-review-recommendations.md).
+- [Use the Resiliency agent in Infrastructure Resiliency Manager (preview)](goals-recommendations-use-agent.md).
