@@ -56,7 +56,7 @@ Azure Front Door private link is available in the following regions:
 
 | Americas | Europe | Africa | Asia Pacific | Middle East |
 |--|--|--|--|--|
-| Brazil South | France Central | South Africa North | Australia East | UAE North (Preview) |
+| Brazil South | France Central | South Africa North | Australia East | UAE North |
 | Canada Central | Germany West Central | | Central India | |
 | Central US | North Europe | | Japan East | |
 | East US | Norway East | | Korea Central | |
