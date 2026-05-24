@@ -13,6 +13,18 @@ ms.author: v-mallicka
 
 This article summarizes the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
 
+## Supported protection solutions
+
+The following table lists the supported protection solutions and their failover behavior:
+
+| **Protection solution**  | **Description**  | **Failover behavior**  |
+|----|----|----|
+| Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
+| Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL database, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
+
+>[!NOTE]
+>A recovery plan doesn't orchestrate failover for resources configured with a Highly Available (HA) solution because the resource performs self-managed failover.
+
 ## Supported resource types
 
 The following table lists the supported Azure resource types in the Recovery Orchestration Plan:
@@ -40,18 +52,6 @@ The following table lists the supported Azure resource types in the Recover
 
 >[!NOTE]
 >Resources protected by HA solutions are automatically excluded from the Recovery Plan and don’t require active failover orchestration. The resources handle zone-level failures automatically.
-
-## Supported protection solutions
-
-The following table lists the supported protection solutions and their failover behavior:
-
-| **Protection solution**  | **Description**  | **Failover behavior**  |
-|----|----|----|
-| Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
-| Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL database, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
-
->[!NOTE]
->A recovery plan doesn't orchestrate failover for resources configured with a Highly Available (HA) solution because the resource performs self-managed failover.
 
 ## Role requirements
 
@@ -81,4 +81,6 @@ The following table lists the supported scope for Azure Recovery Orchestration
 
 ## Related content
 
-[About Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
+- [About Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
+- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
+- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).

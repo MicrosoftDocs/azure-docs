@@ -35,9 +35,9 @@ This section defines how recovery plans organize resources, track states, and 
 
 A Recovery Orchestration Plan gets created within a Service Group. A Service Group represents your application and contains the Azure resources that create your application. The Recovery Plan orchestrates the failover of these resources in a defined order.
 
-### Plan states
+### Plan status
 
-The following plan states indicate the readiness for failover:
+The following plan statuses indicate the readiness for failover:
 
 - **Ready**: The plan meets all requirements for failover. No resources have **Needs Attention** status.
 - **Warning**: Some resources require attention, but you can still initiate failover if at least one included resource doesn’t have a **Needs Attention** status.
@@ -48,16 +48,16 @@ Groups define the order of resource recovery. By default, a Default Group is cre
 
 Resources within the same group failover in parallel. Resources in different groups fail over sequentially - Group 2 starts only after all Group 1 resources complete failover.
 
-### Resource protection status and inclusion states
+### Resource protection and inclusion status
 
-Each resource has a protection status and an inclusion state:
+Each resource has a protection status and an inclusion status:
 
 - **Protection status**: Azure Site Recovery, Highly Available (HA) solutions, or Not protected.
 - **Included**: Resources actively part of the plan, orchestrated during failover.
 - **Excluded**: Resources not included. HA resources are automatically excluded.
 - **State not selected**: Default state for unprotected or non-HA resources. You must explicitly include or exclude the resources.
 
-### Resources with Needs Attention
+### Resources with Needs Attention status
 
 Resources with issues preventing failover orchestration are marked **Needs Attention** with an appropriate reason. Resolve all **Needs Attention** items to move the plan to **Ready** state.
 
@@ -65,17 +65,17 @@ Resources with issues preventing failover orchestration are marked **Needs Atte
 
 Automated readiness checks run every 24 hours. The readiness checks are categorized as:
 
-- **Application Modification check**: Detects resources added to or removed from the Service Group.
+- **Application Modification check**: Detects resources added to or removed from a Service Group.
 - **Protection health check**: Validates protection solution and health for each resource.
 
-You can also run readiness checks on demand from the Execute menu.
+You can also run readiness checks on demand from the **Execute** menu.
 
-### Execute operations
+### Execution operations
 
 The execution operations for plan orchestration are categorized as:
 
-- **Failover**: Orchestrate failover from the active zone to the recovery zone.
-- **Reprotect**: Reprotect resources after failover for continued replication.
+- **Failover**: Orchestrates failover from the active zone to the recovery zone.
+- **Reprotect**: Reprotects resources after failover for continued replication.
 - **Readiness check**: Run on-demand readiness assessments.
 
 ### Group actions
@@ -95,4 +95,6 @@ To create and manage a Recovery Plan, you need one of the following roles:
 
 ## Related content
 
-[Support matrix for Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).
+- [Support matrix for Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-support-matrix.md).
+- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
+- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
