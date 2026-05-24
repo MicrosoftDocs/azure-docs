@@ -34,7 +34,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER, and SD-WAN NVA connections.  |October 2022| |
 |Feature| Routing|[Bypass next hop IP for workloads within a spoke Virtual Network connected to the virtual WAN hub generally available](how-to-virtual-hub-routing.md)|Bypassing next hop IP for workloads within a spoke Virtual Network connected to the virtual WAN hub lets you deploy and access other resources in the Virtual Network with your NVA without any additional configuration.|October 2022| |
 |SKU/Feature/Validation | Routing | [BGP end point (General availability)](scenario-bgp-peering-hub.md) | The virtual hub router now exposes the ability to peer with it, exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. | June 2022 | |
-|Feature|Routing|[0.0.0.0/0 via NVA in the spoke](scenario-route-through-nvas-custom.md)|Ability to send internet traffic to an NVA in spoke for egress.|March 2021| 0.0.0.0/0 doesn't propagate across hubs.<br><br>Can't specify multiple public prefixes with different next hop IP addresses.|
+|Feature|Routing|[0.0.0.0/0 via NVA in the spoke](indirect-spoke-architecture.md)|Ability to send internet traffic to an NVA in spoke for egress.|March 2021| 0.0.0.0/0 doesn't propagate across hubs.<br><br>Can't specify multiple public prefixes with different next hop IP addresses.|
 
 ### NVAs and integrated third-party solutions
 

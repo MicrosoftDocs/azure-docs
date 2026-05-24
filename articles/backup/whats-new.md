@@ -6,6 +6,7 @@ ms.date: 05/04/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
+  - build-2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
@@ -20,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2026
+  - [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
@@ -68,6 +70,18 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Vaulted backup support for Azure Cosmos DB (preview)
+
+Azure Backup now supports vaulted backups for Azure Cosmos DB (preview). You can protect Azure Cosmos DB accounts by using a Backup vault. Azure Backup stores backups in an isolated, off-site vault that strengthens cyber resilience and supports compliance. This approach protects backups from accidental deletion, malicious activity, and ransomware.
+
+Key benefits include:
+- **Policy-based scheduled backups:** Defines and manages backup schedules and long-term retention (up to 10 years) for Azure Cosmos DB by using Azure Backup policies.
+- **Built-in security protections:** Protects backups with encryption, soft delete, immutability, and role-based access control.
+
+   >[!Note]
+   >Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
+
+For more information, see [About Azure Cosmos DB vaulted backup (preview)](backup-azure-cosmos-db-overview.md).
 
 ## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
 
