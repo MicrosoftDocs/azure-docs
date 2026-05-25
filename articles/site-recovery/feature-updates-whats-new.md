@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 04/14/2026
+ms.date: 05/25/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -14,6 +14,17 @@ ms.date: 04/14/2026
 The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## Updates (May 2026)
+
+### Azure Site Recovery support for replication of VMs using Performance Plus enabled managed disks
+
+Azure Site Recovery now supports replication of virtual machines using Performance Plus enabled managed disks. With this update, you can protect your virtual machines that use Premium SSD, Standard SSD, or Standard HDD managed disks with Performance Plus capability for improved IOPS and throughput using ASR for disaster recovery in the Azure-to-Azure scenario.
+
+Azure Site Recovery also preserves the Performance Plus property during replication, test failover, and failover. As a result, the secondary region disk retains the same IOPS and performance as the source disk configuration, ensuring consistency between primary and secondary regions for such disks. [Learn more](azure-to-azure-support-matrix.md).
+ 
+>[!NOTE]
+>Due to their higher IOPS and churn, ASR only supports premium storage accounts with Performance Plus enabled disks. 
 
 ## Updates (April 2026)
 
