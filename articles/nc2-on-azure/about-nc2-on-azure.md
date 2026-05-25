@@ -22,14 +22,15 @@ You use the NC2 console to create a cluster, update the cluster capacity (the nu
 
 NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervisor (AHV).
 
-- AHV hypervisor is based upon open source Kernel-based Virtual Machine (KVM).
-- AHV will determine the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
+- AHV is based upon open source Kernel-based Virtual Machine (KVM).
+- AHV determines the lowest processor generation in the cluster and constrain all Quick Emulator (QEMU) domains to that level.
 
 This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live-migrate between hosts.
 
 AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration. Thus users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
 
 ## Benefits of NC2 on Azure
+
 Running Nutanix Cloud Clusters (NC2) on Azure offers several key benefits including
 - **Consistent tools** : Use your existing skills and tools with the Nutanix platform. Additionally, with the same Nutanix OS and Hypervisor there's no need for any application refactoring. Finally, this provides for an easy migration of VMs and workload and seamless operations in a hybrid environment.
 - **Dynamic provisioning**: Azure infrastructure eliminates the need to procure or manage hardware, allowing for dynamic scaling of workloads both to the cloud from on-premises and within the cloud2.
