@@ -19,7 +19,6 @@ Review the following requirements before you begin:
 |------------|---------|
 | **Azure account** | An active Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one. |
 | **Azure role** | **Owner** access on the subscription. [Check your access](../../role-based-access-control/check-access.md) before you begin. The Owner role is required because the integration creates role assignments (Monitoring Reader) and diagnostic settings on your resources. |
-| **Datadog subscription** | An active Datadog Marketplace subscription. See [Subscribe to Datadog](overview.md#subscribe-to-datadog) if you haven't subscribed yet. |
 | **Resource provider** | `Microsoft.Datadog` must be registered in your subscription. Azure registers it automatically when you create a Datadog resource, but if your organization restricts resource provider registration, you may need to register it manually. |
 | **Enterprise application** (for SSO) | Required only if you want single sign-on. See [Add enterprise application](#add-enterprise-application) below. |
 

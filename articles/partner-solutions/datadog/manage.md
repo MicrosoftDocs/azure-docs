@@ -181,7 +181,7 @@ Select **Datadog organization configurations > Virtual machine agent** from the 
 
 To install the Datadog Agent as a VM extension:
 
-1. Make sure a [default API key](#api-keys) is set \u2014 installation fails without it.
+1. Make sure a [default API key](#api-keys) is set. Installation fails without it.
 1. Select the target VM (must be in **Running** state).
 1. Select **Install Extension** and confirm. Azure installs the Datadog Agent as a VM extension using the default API key, and the status changes from **Installing** to **Installed**. The Datadog Agent doesn't require a host reboot.
 
@@ -209,16 +209,15 @@ To uninstall, select the App Service and choose **Uninstall Extension**. The por
 
 #### [Azure Kubernetes Service](#tab/azure-kubernetes-services)
 
-Select **Datadog organization configurations > Azure Kubernetes Services** from the service menu to see AKS clusters in the linked subscription. The Datadog Agent is deployed to AKS through the **Datadog AKS Cluster Extension**, not as a VM extension.
+Select **Datadog organization configurations > Azure Kubernetes Services** from the service menu to see AKS clusters in the linked subscription. The Datadog Agent is deployed to AKS through the **Datadog AKS Cluster Extension**.
 
 To install:
 
-1. Select the AKS cluster in the **Monitored Resources** view.
-1. In the AKS cluster's service menu, select **Settings > Extensions + applications**.
-1. Search for and select **Datadog AKS Cluster Extension** (`Datadog.AKSExtension`), then select **Create**.
-1. Provide your Datadog API key, application key, and the Datadog [site](https://docs.datadoghq.com/getting_started/site/) (US3 for Azure Native Integration).
+1. Select the AKS cluster(s) from the list.
+1. Select **Install Extension**.
+1. Azure installs the Datadog AKS Cluster Extension on the selected cluster(s) using the default API key.
 
-To uninstall, open the AKS cluster, select **Settings > Extensions + applications**, choose **Datadog AKS Cluster Extension**, and select **Uninstall**.
+To uninstall, select the AKS cluster and choose **Uninstall Extension**.
 
 #### [Azure Arc machines](#tab/azure-arc-machines)
 

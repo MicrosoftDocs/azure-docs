@@ -36,7 +36,11 @@ Elastic on Azure offers three distinct services, each tailored to a specific wor
 | **Elastic Observability** | Monitoring and APM | Collects logs, metrics, and traces to monitor application performance and infrastructure health. Includes alerting and anomaly detection |
 | **Elastic Security** | Threat detection and response | Analyzes security events for threat detection, investigation, and incident response across Azure resources. Includes SIEM and endpoint protection |
 
-Each service is available as a separate Marketplace offering with its own pricing and configuration.
+Each service is available as a separate Marketplace offering with its own pricing and configuration:
+
+- [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+- [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
 
 ## How it works
 
@@ -79,6 +83,8 @@ When creating an Elastic resource, you choose between two hosting types:
 | **Pricing** | Pay per usage (ingestion, storage, search) | Pay for provisioned capacity |
 | **Best for** | Variable workloads, getting started quickly | Predictable workloads, specific version requirements |
 
+For more information about differences between hosting types, see [Differences from other Elasticsearch offerings](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings) in the Elastic documentation.
+
 ## Key capabilities
 
 ### Integrated onboarding
@@ -111,7 +117,37 @@ Restrict network access to your Elastic deployment using Azure Private Link or I
 
 ## Region availability
 
-Elastic on Azure is available in the regions listed on the create experience in the Azure portal. Select a region close to your workloads to minimize latency.
+Elastic on Azure is available in the following regions. Select a region close to your workloads to minimize latency.
+
+### Serverless regions
+
+- East US
+- West US 2
+- Australia East
+- Southeast Asia
+- North Europe
+- Germany West Central
+- Spain Central
+- East US 2
+
+### Cloud-hosted regions
+
+- East US
+- West US 2
+- Australia East
+- Southeast Asia
+- North Europe
+- West Europe
+- UK South
+- Central US
+- South Africa North
+- Central India
+- Japan East
+- Canada Central
+- France Central
+- Brazil South
+- East US 2
+- South Central US
 
 ## Subscribe to Elastic
 

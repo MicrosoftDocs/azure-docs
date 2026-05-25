@@ -26,7 +26,9 @@ After you complete this quickstart, you have:
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Elastic](overview.md#subscribe-to-elastic).
+
+> [!NOTE]
+> A given email address can only be part of one Elastic organization at a time. When you create your first Elastic resource from Azure with a new email, a new organization is created along with your first deployment or serverless project. For subsequent resources created with the same email, all deployments and projects go into the same organization.
 
 > [!NOTE]
 > Single sign-on (SSO) between the Azure portal and Elastic Cloud is automatically enabled for all Azure users. No additional configuration is required.
@@ -92,7 +94,12 @@ Configure which Azure resources send logs to Elastic. You can change these setti
 | **Send subscription activity logs** | Forwards management plane operations (resource creation, deletion, role assignments) to Elastic |
 | **Send Azure resource logs for all defined sources** | Forwards diagnostic logs from supported Azure resources to Elastic |
 
-You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**.
+For Observability and Security resource types, log forwarding is enabled by default.
+
+You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**. For more information, see [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs).
+
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
@@ -153,6 +160,9 @@ Configure which Azure resources send logs and metrics to Elastic. You can change
 
 You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**.
 
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
+
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 ### Azure OpenAI configuration tab
@@ -207,7 +217,10 @@ Configure which Azure resources send security-related logs to Elastic. You can c
 | **Send subscription activity logs** | Forwards management plane operations for security auditing |
 | **Send Azure resource logs for all defined sources** | Forwards diagnostic logs for security analysis (enabled by default) |
 
-You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**.
+You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**. For more information, see [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs).
+
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
