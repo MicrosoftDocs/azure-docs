@@ -24,10 +24,11 @@ Azure Backup for Cosmos DB (preview) is available in all Azure public cloud regi
 Azure Backup supports the following backup and restore scenarios for Azure Cosmos DB accounts during preview:
 
 - Cosmos DB accounts with either NoSQL or MongoDB API using [Request Units (RUs)](/azure/cosmos-db/request-units) are supported. 
-- Only weekly backups are supported by providing a 7-day recovery point objective (RPO).
+- Only weekly backups are supported providing a 7-day recovery point objective (RPO).
 - Cosmos DB accounts on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction) are only supported. 
 - Cross subscription restores are supported.
-- Restore operation to an empty Cosmos DB account is supported.
+- Restore operation to an empty, single-region target Cosmos DB account is supported.
+- Restore operation to a target Cosmos DB account using the same API type as source Cosmos DB account is supported.
 - Cosmos DB accounts with partitions upto 2,500 are supported (approximately 125 TB). 
 - On-demand backups support full backups of the source Cosmos DB account. 
 
@@ -42,8 +43,6 @@ Azure Backup for Cosmos DB includes the following backup and restore limitations
 - Item-level backup and item level restore aren't supported. 
 - Restore operation isn't supported to a Serverless target Cosmos DB account. 
 - Restore operation isn't supported to a target Cosmos DB account with throughput limit configured.
-- Restore operation is supported only to an empty, single-region target Cosmos DB account. 
-- Restore operation is only supported when target Cosmos DB account uses the same API type as source Cosmos DB account.
 
 ## Next steps
 
