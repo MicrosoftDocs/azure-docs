@@ -13,13 +13,13 @@ ms.author: dejv
 
 This article introduces Azure Confidential Clean Rooms and highlights **Azure Confidential Clean Rooms for Analytics (Preview)**, the preview analytics offering described in detail below.
 
-Azure Confidential Clean Rooms offers a protected environment, called a *clean room*, that helps organizations overcome the security and privacy challenges of using sensitive data. Organizations can collaborate and analyze data in the clean room and use advanced privacy-enhancing features like protected governance and audit, verifiable trust, and controlled access, using confidential computing based building blocks.
+Azure Confidential Clean Rooms offers a protected environment, called a *clean room*, that helps organizations overcome the security and privacy challenges of using sensitive data. Organizations can collaborate and analyze data in the clean room using advanced privacy-enhancing features like protected governance and audit, verifiable trust, and controlled access enabled by confidential computing.
 
-Typical scenarios include big-data analytics on combined datasets, machine learning training and fine-tuning on jointly contributed data, and ML inferencing on sensitive inputs. These unlock value across industries: brands, publishers, and measurement partners collaborating on audience targeting, segmentation, and attribution in **media and advertising**; banks and financial institutions jointly building fraud detection models across institutions in **banking and finance**; cross-departmental and public-private collaboration on shared-interest workloads in **government and public sector**; improving healthcare outcomes with predictive diagnostics, personalized medicine, and clinical decision support in **healthcare**; and retailers and partners analyzing combined customer signals for personalization and inventory planning in **retail**.
+Typical scenarios include multi-party big-data analytics on combined datasets, multi-party machine learning (ML) training and fine-tuning on training data and model coming from different organizations, and multi-party ML inferencing on sensitive inputs.
 
 ## Azure Confidential Clean Rooms for Analytics (Preview)
 
-Azure Confidential Clean Rooms for Analytics is a **fully managed** service that allows customers and their partners to securely analyze privacy sensitive datasets with Apache **Spark based big-data analytics (Spark SQL)** in a **confidential compute based environment** which protects their raw data from other collaborators and from the Azure operator by performing computations in a Trusted Execution Environment (TEE).
+Azure Confidential Clean Rooms for Analytics is a **fully managed** service that allows customers and their partners to securely analyze privacy sensitive datasets with **confidential compute enabled Apache Spark based big-data analytics (Spark SQL)** which helps protect their raw data from other collaborators and from the Azure operator by performing computations in a Trusted Execution Environment (TEE).
 
 The following diagram shows how organizations collaborate by using Azure Confidential Clean Rooms for Analytics.
 
@@ -35,7 +35,7 @@ The following diagram shows how organizations collaborate by using Azure Confide
 - **Fully managed:** Azure takes care of the infrastructure provisioning and scaling with no user intervention. This significantly reduces customer onboarding effort, allowing customers to focus on the queries and insights rather than on infrastructure management.
 - **Confidential Spark SQL:** An official Apache Spark image, published through the Microsoft Container Registry (MCR), is used to create a Spark SQL engine that executes approved queries inside a confidential compute environment. The Spark driver and executors run as fully attested, policy-governed enclaves on **[Confidential Azure Container Instances (C-ACI) running as virtual nodes in an Azure Kubernetes Service (AKS) cluster](https://github.com/microsoft/virtualnodesOnAzureContainerInstances)**, so collaborators' data cannot be exfiltrated during query execution.
 - **Governance:** Helps manage membership to clean rooms, enables and verifies approval for queries from relevant collaborators before executing them, and verifies consent to access sensitive collaborator data. It also helps generate tamper-resistant audit trails containing salient clean-room events. This is made possible with the help of an implementation of the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html).
-- **Privacy controls:** Each contributed dataset declares an `allowedFields` list so only those columns are ever exposed to queries — every other column in the source storage is excluded from access. In addition, each published query can declare *pre-conditions* (for example, a minimum row count per input view, below which the query aborts) and *post-filters* (for example, dropping aggregated groups that fall below a minimum count). Such guards help prevent re-identification of individuals through the output.
+- **Privacy controls:** Each contributed dataset declares an `allowedFields` list so only those columns are exposed to queries — every other column in the source storage is excluded. In addition, each published query can declare *pre-conditions* (for example, a minimum row count per input view, below which the query aborts) and *post-filters* (for example, dropping aggregated groups that fall below a minimum count). Such guards help prevent re-identification of individuals through the output.
 - **Verifiable trust:** Cryptographic remote attestation at each step forms the cornerstone of the service, letting every participant independently verify that the clean room is running the exact code that was agreed upon, on genuine confidential hardware.
 - **Open-source containers:** All Microsoft-provided clean-room containers and sidecars are open source, hosted at `mcr.microsoft.com/cleanroom`, with code in the [Azure/azure-cleanroom](https://github.com/Azure/azure-cleanroom/) repository. Their provenance and integrity can be verified using GitHub artifact attestation.
 
@@ -73,8 +73,8 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 
   Yes. After your request to join the preview is accepted, use one of the published samples:
 
-  - **Azure CLI based sample:** [analytics-using-managedcleanroom — README-CLI](https://github.com/Azure-Samples/azure-cleanroom-samples/blob/managed/demos/analytics-using-managedcleanroom/README-CLI.md)
-  - **REST API based sample:** [analytics-using-managedcleanroom — README-API](https://github.com/Azure-Samples/azure-cleanroom-samples/blob/managed/demos/analytics-using-managedcleanroom/README-API.md)
+    - **Azure CLI based sample:** [analytics-using-managedcleanroom — README-CLI](https://github.com/Azure-Samples/azure-cleanroom-samples/blob/managed/demos/analytics-using-managedcleanroom/README-CLI.md)
+    - **REST API based sample:** [analytics-using-managedcleanroom — README-API](https://github.com/Azure-Samples/azure-cleanroom-samples/blob/managed/demos/analytics-using-managedcleanroom/README-API.md)
 
 - **Can more than two organizations participate in a collaboration?**
 
