@@ -29,11 +29,15 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 | Canada   | Canada Central | 
 | Europe    | North Europe </br>West Europe |
 | France | France Central |
+| Germany | Germany West Central |
+| India | Central India </br> South India |
+| Italy | Italy North |
 | Japan | Japan East </br> Japan West| 
 | Korea | Korea Central </br> Korea South | 
 | Norway | Norway East|
 | Poland | Poland Central|
 | Spain | Spain Central|
+| Sweden | Sweden Central |
 | United Arab Emirates | UAE North |
 | United Kingdom | UK South </br> UK West |
 | United States  | Central US </br> West US 2 | 
