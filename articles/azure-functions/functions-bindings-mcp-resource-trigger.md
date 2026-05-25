@@ -315,7 +315,13 @@ public String getWeatherWidget(
 
     executionContext.getLogger().info("GetWeatherWidget: serving weather widget UI");
 
-    return java.nio.file.Files.readString(file.toPath(), StandardCharsets.UTF_8);
+    // Load the bundled HTML file from the CWD-relative path
+    java.io.File file = new java.io.File("app/dist/index.html");
+    if (file.exists()) {
+        return java.nio.file.Files.readString(file.toPath(), StandardCharsets.UTF_8);
+    }
+
+    return "<html><body><p>Weather widget UI not found.</p></body></html>";
 }
 ```
 
