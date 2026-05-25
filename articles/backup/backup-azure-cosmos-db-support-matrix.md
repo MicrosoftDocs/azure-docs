@@ -2,7 +2,7 @@
 title: Azure Cosmos DB support matrix
 description: Provides a summary of support settings and limitations of Azure Cosmos DB backup.
 ms.topic: reference
-ms.date: 05/15/2026
+ms.date: 05/25/2026
 ms.custom: references_regions, build-2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -27,8 +27,7 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 - Only weekly backups are supported by providing a 7-day recovery point objective (RPO).
 - Cosmos DB accounts on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction) are only supported. 
 - Cross subscription restores are supported.
-- Restore operation to an empty Cosmos DB account is supported. 
-- Backup is supported only when the Cosmos DB account has public access enabled.
+- Restore operation to an empty Cosmos DB account is supported.
 - Cosmos DB accounts with partitions upto 2,500 are supported (approximately 125 TB). 
 - On-demand backups support full backups of the source Cosmos DB account. 
 
@@ -36,7 +35,6 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 
 Azure Backup for Cosmos DB includes the following backup and restore limitations:
 
-- Cosmos DB account within an NSP isn't supported.
 - Cross region restore of backups isn't supported.
 - Backup and restore aren’t supported if the Cosmos DB account’s primary write region differs from the Backup Vault region.
 - Cosmos DB account with hierarchical partition keys isn't supported.
@@ -44,7 +42,8 @@ Azure Backup for Cosmos DB includes the following backup and restore limitations
 - Item-level backup and item level restore aren't supported. 
 - Restore operation isn't supported to a Serverless target Cosmos DB account. 
 - Restore operation isn't supported to a target Cosmos DB account with throughput limit configured.
-
+- Restore operation is supported only to an empty, single-region target Cosmos DB account. 
+- Restore operation is only supported when target Cosmos DB account uses the same API type as source Cosmos DB account.
 
 ## Next steps
 
