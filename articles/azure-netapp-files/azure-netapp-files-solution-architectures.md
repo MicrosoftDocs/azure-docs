@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 04/02/2026
+ms.date: 05/25/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -206,6 +206,8 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [From Scale to Breakthrough: Azure NetApp Files Sets a New Cloud Benchmark for EDA Performance](https://techcommunity.microsoft.com/blog/azurestorageblog/from-scale-to-breakthrough-azure-netapp-files-sets-a-new-cloud-benchmark-for-eda/4520890)
+* [Azure NetApp Files for EDA workloads: From revolution to breakthrough at scale](https://azure.microsoft.com/en-us/blog/azure-netapp-files-for-eda-workloads-from-revolution-to-breakthrough-at-scale/)
 * [Validating Scalable EDA Storage Performance - Azure NetApp Files and SPECstorage Solution 2020](https://techcommunity.microsoft.com/blog/azurearchitectureblog/validating-scalable-eda-storage-performance-azure-netapp-files-and-specstorage-s/4459517)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
