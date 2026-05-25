@@ -11,6 +11,8 @@ ms.author: dejv
 
 # Azure Confidential Clean Rooms
 
+This article introduces Azure Confidential Clean Rooms and highlights **Azure Confidential Clean Rooms for Analytics (Preview)**, the preview analytics offering described in detail below.
+
 Azure Confidential Clean Rooms offers a protected environment, called a *clean room*, that helps organizations overcome the security and privacy challenges of using sensitive data. Organizations can collaborate and analyze data in the clean room and use advanced privacy-enhancing features like protected governance and audit, verifiable trust, and controlled access, using confidential computing based building blocks.
 
 Typical scenarios include big-data analytics on combined datasets, machine learning training and fine-tuning on jointly contributed data, and ML inferencing on sensitive inputs. These unlock value across industries: brands, publishers, and measurement partners collaborating on audience targeting, segmentation, and attribution in **media and advertising**; banks and financial institutions jointly building fraud detection models across institutions in **banking and finance**; cross-departmental and public-private collaboration on shared-interest workloads in **government and public sector**; improving healthcare outcomes with predictive diagnostics, personalized medicine, and clinical decision support in **healthcare**; and retailers and partners analyzing combined customer signals for personalization and inventory planning in **retail**.
@@ -35,7 +37,7 @@ The following diagram shows how organizations collaborate by using Azure Confide
 - **Governance:** Helps manage membership to clean rooms, enables and verifies approval for queries from relevant collaborators before executing them, and verifies consent to access sensitive collaborator data. It also helps generate tamper-resistant audit trails containing salient clean-room events. This is made possible with the help of an implementation of the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html).
 - **Privacy controls:** Each contributed dataset declares an `allowedFields` list so only those columns are ever exposed to queries — every other column in the source storage is excluded from access. In addition, each published query can declare *pre-conditions* (for example, a minimum row count per input view, below which the query aborts) and *post-filters* (for example, dropping aggregated groups that fall below a minimum count). Such guards help prevent re-identification of individuals through the output.
 - **Verifiable trust:** Cryptographic remote attestation at each step forms the cornerstone of the service, letting every participant independently verify that the clean room is running the exact code that was agreed upon, on genuine confidential hardware.
-- **Open-sourced containers:** All Microsoft-provided clean-room containers and sidecars are open source, hosted at `mcr.microsoft.com/cleanroom`, with code in the [Azure/azure-cleanroom](https://github.com/Azure/azure-cleanroom/) repository. Their provenance and integrity can be verified using GitHub artifact attestation.
+- **Open-source containers:** All Microsoft-provided clean-room containers and sidecars are open source, hosted at `mcr.microsoft.com/cleanroom`, with code in the [Azure/azure-cleanroom](https://github.com/Azure/azure-cleanroom/) repository. Their provenance and integrity can be verified using GitHub artifact attestation.
 
 ### Use cases
 
