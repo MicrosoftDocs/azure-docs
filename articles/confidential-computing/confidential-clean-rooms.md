@@ -11,7 +11,7 @@ ms.author: dejv
 
 # Azure Confidential Clean Rooms
 
-This article introduces Azure Confidential Clean Rooms and highlights **Azure Confidential Clean Rooms for Analytics (Preview)**, the preview analytics offering described in detail below.
+This article introduces Azure Confidential Clean Rooms and highlights Azure Confidential Clean Rooms for Analytics (Preview), the preview analytics offering described in detail below.
 
 Azure Confidential Clean Rooms offers a protected environment, called a *clean room*, that helps organizations overcome the security and privacy challenges of using sensitive data. Organizations can collaborate and analyze data in the clean room using advanced privacy-enhancing features like protected governance and audit, verifiable trust, and controlled access enabled by confidential computing.
 
@@ -37,13 +37,11 @@ The following diagram shows how organizations collaborate by using Azure Confide
 - **Governance:** Helps manage membership to clean rooms, enables and verifies approval for queries from relevant collaborators before executing them, and verifies consent to access sensitive collaborator data. It also helps generate tamper-resistant audit trails containing salient clean-room events. This is made possible with the help of an implementation of the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html).
 - **Privacy controls:** Each contributed dataset declares an `allowedFields` list so only those columns are exposed to queries — every other column in the source storage is excluded. In addition, each published query can declare *pre-conditions* (for example, a minimum row count per input view, below which the query aborts) and *post-filters* (for example, dropping aggregated groups that fall below a minimum count). Such guards help prevent re-identification of individuals through the output.
 - **Verifiable trust:** Cryptographic remote attestation at each step forms the cornerstone of the service, letting every participant independently verify that the clean room is running known and attested code on genuine confidential hardware.
-- **Open-source containers:** All Microsoft-provided clean-room container images and sidecars are published at `mcr.microsoft.com/cleanroom`, and their source code is available in the [Azure/azure-cleanroom](https://github.com/Azure/azure-cleanroom/) repository. Their provenance and integrity can be verified using GitHub artifact attestation.
+- **Open-source containers:** All Microsoft-provided clean-room container images and sidecars are published at `mcr.microsoft.com/cleanroom`, and their source code is available in the [Azure/azure-cleanroom](https://github.com/Azure/azure-cleanroom/) repository. Their provenance and integrity can be verified using [GitHub artifact attestation](https://docs.github.com/en/actions/concepts/security/artifact-attestations).
 
 ### Use cases
 
-The following scenarios are illustrative and forward-looking examples of where confidential analytics can provide value. During the current preview, Azure Confidential Clean Rooms for Analytics shouldn't be used to process personal data or other data that is subject to legal or regulatory compliance requirements.
-
-Multiparty confidential big-data analytics unlocks value in scenarios where data sensitivity, regulatory pressure, or competitive concerns previously blocked collaboration. The following are early scenarios that benefit from confidential analytics.
+Multiparty confidential big-data analytics unlocks value in scenarios where data sensitivity, regulatory pressure, or competitive concerns previously blocked collaboration. The following scenarios are examples of where confidential analytics can provide value. Note that the preview shouldn't be used to process personal data or other data that is subject to legal or regulatory compliance requirements.
 
 #### Media and advertising
 
@@ -63,7 +61,7 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 #### Healthcare
 
 - Enable healthcare firms — including biopharma organizations — to combine their data with third-party institutions to accelerate clinical development, such as identifying eligible participants for a clinical trial, without exposing underlying patient data.
-- Combine patient datasets across hospitals to study disease patterns or outcomes without exposing protected health information.
+- Combine patient datasets across hospitals to study disease patterns or outcomes without exposing sensitive patient information from either side.
 
 #### Retail
 
@@ -71,7 +69,7 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 
 ### Frequently asked questions
 
-- **Is there a sample clean-room application to try?**
+- **Is there a sample to try?**
 
   Yes. After your request to join the preview is accepted, use one of the published samples:
 
