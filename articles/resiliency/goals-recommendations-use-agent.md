@@ -4,7 +4,7 @@ description: Learn how to use the Resiliency agent to get conversational AI guid
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 05/19/2026
+ms.date: 06/02/2026
 ms.topic: how-to
 ms.service: resiliency
 #customer intent: As a cloud administrator, I want to use the Resiliency agent so that I can get conversational guidance for improving my application's zone resiliency.
@@ -16,7 +16,7 @@ The Resiliency agent is a conversational AI experience integrated into Azure Cop
 
 ## Prerequisites
 
-- Tenant must be allowlisted for the Resiliency agent. [Fill out this form](https://aka.ms/azurecopilot/agents/feedbackprogram) to request access.
+- Tenant must be allowlisted for the Resiliency agent. To request access, [fill out this form](https://aka.ms/azurecopilot/agents/feedbackprogram).
 - **Agents (Preview)** must be enabled in the Azure Copilot admin center:
   1. Go to **Azure Copilot admin center** > **Settings** > **Access management**.
   2. Toggle **Agents (Preview)** to **On**.
