@@ -34,15 +34,23 @@ Virtual machines, Virtual Machine Scale Sets, and App Service plans with include
 
 If there's a conflict between inclusion and exclusion rules, exclusion takes priority. You can't limit metric collection for other resource types.
 
-For example, if you configure a tag rule in which only virtual machines, Virtual Machine Scale Sets, and App Service plans tagged with True are included, only resources with this tag send metrics to the partner. All other virtual machines, Virtual Machine Scale Sets, and App Service plans are excluded from metrics collection.
+#### Example
+
+The following tag rule sends metrics to the partner only from virtual machines, Virtual Machine Scale Sets, and App Service plans tagged `Datadog = True`:
+
+| Action | Tag key | Tag value |
+|--------|---------|-----------|
+| Include | `Datadog` | `True` |
+
+If you don't add any tag rules, the partner collects metrics from all virtual machines, Virtual Machine Scale Sets, and App Service plans in the subscription.
 
 ## Logs
 
 Logs provide detailed records of activity and events within your Azure environment. These logs provide valuable insights for monitoring, troubleshooting, and auditing. With Azure Native Integrations, you can collect and forward various types of logs from your Azure resources directly to the partner service based on configurable tag-based rules. For a complete list of supported log categories, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/logs-index).
 
-The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources. By default, you collect logs for all resources.
+By default, platform logs (Azure resource logs) for all resources in the subscription are enabled and sent to the partner. The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources.
 
-The tag rules match the tags that are available on Azure resources in your subscription. If you select Include and add tags that match resources for your subscription, they're in scope for monitoring. By default, platform resource logs are enabled.
+The tag rules match the tags that are available on Azure resources in your subscription. If you select Include and add tags that match resources for your subscription, they're in scope for monitoring.
 
 ### Tag rules for sending logs
 
@@ -50,6 +58,17 @@ The tag rules match the tags that are available on Azure resources in your subsc
 - Azure resources with exclude tags don't send logs.
 
 If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+
+#### Example
+
+The following tag rule sends logs to the partner only from Azure resources tagged `Datadog = True`:
+
+| Action | Tag key | Tag value |
+|--------|---------|-----------|
+| Include | `Datadog` | `True` |
+
+> [!TIP]
+> Changes to tag rules take effect within a few minutes. Diagnostic settings are automatically added to newly matching resources and removed from resources that no longer match.
 
 ### Azure activity logs
 

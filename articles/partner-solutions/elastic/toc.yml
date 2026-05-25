@@ -1,27 +1,28 @@
 items:
-- name: Elastic Azure Integration Documentation
+- name: Elastic
   href: index.yml
 - name: Overview
   items:
-  - name: What is Elastic?
+  - name: What is Elastic on Azure?
     href: overview.md
+    displayName: Elastic, Elasticsearch, Observability, Security, Azure Native Integration
   - name: FAQ
     href: faq.yml
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
-  - name: Create Elastic resource
+  - name: Create an Elastic resource
     href: create.md
 - name: How to
   items:
-  - name: Manage Elastic resource
+  - name: Manage your Elastic resource
     href: manage.md
   - name: Troubleshoot
-    items:
-    - name: Get support
-      href: https://cloud.elastic.co/help
-    - name: Fix common errors
-      href: troubleshoot.md
+    href: troubleshoot.md
+- name: Support
+  items:
+  - name: Get support
+    href: https://cloud.elastic.co/help
 - name: Reference
   items:
   - name: Azure CLI

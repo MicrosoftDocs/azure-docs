@@ -3,30 +3,30 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Datadog?
+  - name: What is Datadog on Azure?
     href: overview.md
-    displayName: Datadog, Monitoring
+    displayName: Datadog, Monitoring, Azure Native Integration
   - name: FAQ
     href: faq.yml
-- name: Quickstarts
+- name: Get started
   expanded: true
   items:
-  - name: Create new Datadog org
+  - name: Configure prerequisites
+    href: prerequisites.md
+  - name: Create a Datadog resource
     href: create.md
   - name: Link to an existing Datadog org
     href: link-to-existing-organization.md
 - name: How to
   items:
-  - name: Configure pre-deployment
-    href: prerequisites.md
-  - name: Manage
+  - name: Manage your Datadog resource
     href: manage.md
   - name: Troubleshoot
-    items:
-    - name: Get support
-      href: https://www.datadoghq.com/support
-    - name: Fix common errors
-      href: troubleshoot.md
+    href: troubleshoot.md
+- name: Support
+  items:
+  - name: Get support
+    href: https://www.datadoghq.com/support
 - name: Reference
   items:
   - name: Azure CLI
