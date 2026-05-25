@@ -23,20 +23,20 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 |**Geography** | **Region** |
 | ---- | ---- |
 | Africa | South Africa North |
-| Asia Pacific | East Asia </br> </br> Southeast Asia |
-| Australia | Australia East </br> </br> Australia Southeast |
+| Asia Pacific | East Asia </br> Southeast Asia |
+| Australia | Australia East </br> Australia Southeast |
 | Brazil | Brazil South| 
 | Canada   | Canada Central | 
-| Europe    | North Europe </br> </br>West Europe |
+| Europe    | North Europe </br>West Europe |
 | France | France Central |
-| Japan | Japan East </br> </br> Japan West| 
-| Korea | Korea Central </br> </br> Korea South | 
+| Japan | Japan East </br> Japan West| 
+| Korea | Korea Central </br> Korea South | 
 | Norway | Norway East|
 | Poland | Poland Central|
 | Spain | Spain Central|
 | United Arab Emirates | UAE North |
-| United Kingdom | UK South </br> </br> UK West |
-| United States  | Central US </br> </br> West US 2 | 
+| United Kingdom | UK South </br> UK West |
+| United States  | Central US </br> West US 2 | 
 
 ## Prerequisites
 
