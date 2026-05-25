@@ -2,7 +2,7 @@
 title: Go developer reference for Azure Functions
 description: Understand how to develop Go function apps for Azure Functions using the Go worker SDK.
 ms.topic: article
-ms.date: 05/05/2026
+ms.date: 05/22/2026
 ms.devlang: golang
 ms.custom:
   - devx-track-go
@@ -395,7 +395,7 @@ The command generates a `Dockerfile` along with the standard project files.
 
 ## Telemetry and observability
 
-The Azure Functions Go worker includes built-in observability features that integrate automatically with Azure Application Insights. Logs emitted via the standard `log` package are forwarded to the Functions host and appear in Application Insights.
+The Azure Functions Go worker supports structured logging and OpenTelemetry-based observability. Use context-aware methods from the standard `log/slog` package, such as `slog.InfoContext`, to correlate logs with the current function invocation. To enable OpenTelemetry, configure the Functions host and register the Go worker OpenTelemetry middleware in your app. For setup instructions, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md?pivots=programming-language-go).
 
 ## Known limitations (preview)
 
@@ -411,5 +411,6 @@ During the public preview, the following limitations apply:
 
 - [Create your first Go function](how-to-create-function-azure-cli.md?pivots=programming-language-go)
 - [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+- [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md?pivots=programming-language-go)
 - [Azure Functions Go worker samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples)
 - [Azure Functions developer guide](functions-reference.md)
