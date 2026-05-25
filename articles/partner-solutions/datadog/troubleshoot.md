@@ -47,7 +47,7 @@ This error happens when another Enterprise app is using the Datadog SAML identif
 
 To fix this issue, either:
 - Disable the other app, or
-- Use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](prerequisites.md#add-an-enterprise-application).
+- Use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](prerequisites.md#add-enterprise-application).
 
 ### App not showing in single sign-on setting page
 

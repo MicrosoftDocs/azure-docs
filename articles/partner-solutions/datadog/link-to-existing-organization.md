@@ -11,23 +11,10 @@ ms.custom:
 
 # QuickStart: Link to an existing Datadog organization
 
-If your team already uses Datadog, you can link your Azure subscription to your existing Datadog organization instead of creating a new one. This approach lets you:
-
-- Use your existing dashboards, monitors, and alerts with Azure data
-- Keep all Azure and non-Azure monitoring in a single Datadog organization
-- Consolidate Datadog billing through your Azure subscription
+If you have an existing Datadog organization on the US3 site and want to send Azure telemetry from a subscription to that organization, use this approach.
 
 > [!NOTE]
-> If you don't have an existing Datadog organization, [create a new Datadog resource](create.md) instead.
-
-## When to link vs. create new
-
-| Scenario | Recommended action |
-|---------|-------------------|
-| Your team already uses Datadog for other environments (AWS, GCP, on-premises) | **Link** to the existing organization |
-| You want to keep Azure monitoring separate from other environments | **Create** a new organization |
-| You have existing Datadog dashboards and alerts you want to reuse | **Link** to the existing organization |
-| You need isolated billing per team or project | **Create** a new organization |
+> If you don't have an existing Datadog organization, [create a new Datadog organization](create.md) instead.
 
 ## Prerequisites
 

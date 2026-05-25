@@ -61,9 +61,7 @@ The following terms describe how the pieces fit together:
 
 ### How Azure and Elastic Cloud IDs map
 
-The Azure Marketplace SaaS ID maps **1:1** to an Elastic Cloud organization, which in turn can hold **many** Elastic deployments — and those deployments can live in different Azure subscriptions. All Elastic Cloud organization costs are posted to the Azure Marketplace SaaS ID, which maps to a single Azure subscription. Charges show up on the Azure Marketplace invoice as a single line item
-
-:::image type="content" source="media/overview/integrated-billing-mapping.png" alt-text="Diagram showing the mapping between an Azure user, Azure Marketplace SaaS ID, Azure subscription, Elastic Cloud organization, and Elastic deployments." lightbox="media/overview/integrated-billing-mapping.png":::
+The Azure Marketplace SaaS ID maps **1:1** to an Elastic Cloud organization, which in turn can hold **many** Elastic deployments — and those deployments can live in different Azure subscriptions. All Elastic Cloud organization costs are posted to the Azure Marketplace SaaS ID, which maps to a single Azure subscription. Charges show up on the Azure Marketplace invoice as a single line item.
 
 > [!IMPORTANT]
 > Azure free credits and most Azure free trial offers can't be used to purchase Azure Marketplace third-party offers, including Elastic. For details, see [Understand your Azure Marketplace charges](/azure/cost-management-billing/understand/understand-azure-marketplace-charges#azure-credit-eligibility).

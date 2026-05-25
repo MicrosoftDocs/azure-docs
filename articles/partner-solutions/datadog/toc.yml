@@ -13,9 +13,9 @@ items:
   items:
   - name: Configure prerequisites
     href: prerequisites.md
-  - name: Create a Datadog resource
+  - name: Create a new Datadog organization
     href: create.md
-  - name: Link to an existing Datadog org
+  - name: Link to an existing Datadog organization
     href: link-to-existing-organization.md
 - name: How to
   items:

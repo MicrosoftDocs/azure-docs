@@ -188,7 +188,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
     | Field             | Action                                                                                           |
     |-------------------|--------------------------------------------------------------------------------------------------|
-    | Datadog org name  | Choose to create a new organization, or associate your resource with an existing organization.   |
+    | Datadog org name  | Enter a name for your new Datadog organization.   |
 
     Select the **Change plan** link to change your billing plan.
 
