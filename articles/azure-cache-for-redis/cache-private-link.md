@@ -51,6 +51,10 @@ You can restrict public access to the private endpoint of your cache by disablin
 > For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
+> [!IMPORTANT]
+> If the private endpoint is created in a **different subscription** than the Azure Managed Redis instance, you must register the `Microsoft.Cache` resource provider in the subscription that contains the private endpoint. Otherwise, creating, approving, or managing the private endpoint connection can fail, often with a `Forbidden` error. For more information on how to register, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+> 
+
 ## Create a private endpoint with a new Azure Cache for Redis instance
 
 In this section, you create a new Azure Cache for Redis instance with a private endpoint.
