@@ -1,9 +1,9 @@
 ---
-title: Create a Datadog resource - Azure Native Integration
-description: Get started with Datadog on Azure by creating a new resource using the Azure portal or Azure CLI, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
+title: Create a new Datadog organization - Azure Native Integration
+description: Get started with Datadog on Azure by creating a new organization using the Azure portal or Azure CLI, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 ms.topic: quickstart
 zone_pivot_groups: datadog-create
-ms.date: 12/01/2025
+ms.date: 05/25/2026
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -13,16 +13,16 @@ ms.custom:
 #customer intent: As a developer or cloud engineer, I want to create a Datadog resource on Azure so I can start monitoring my infrastructure and applications.
 ---
 
-# QuickStart: Create a Datadog resource
+# QuickStart: Create a new Datadog organization
 
-In this quickstart, you create a new Datadog resource in Azure. You can either create a new Datadog organization or link your Azure subscription to an existing one.
+In this quickstart, you create a new Datadog organization and resource in Azure.
 
 ## What to expect
 
 After you complete this quickstart, you have:
 
 - A Datadog resource (`Microsoft.Datadog/monitors`) in your chosen resource group
-- A Datadog organization (new or linked) with API keys provisioned
+- A new Datadog organization with API keys provisioned
 - Azure platform metrics flowing from your subscription to Datadog
 - (Optional) Azure resource logs forwarded to Datadog
 - (Optional) Single sign-on configured via Microsoft Entra ID
@@ -33,15 +33,14 @@ The entire process takes about 5-10 minutes.
 
 [!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 - You must [configure your environment](prerequisites.md).
-- You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
 > [!IMPORTANT]
 > Azure free credits **can't** be used to purchase Azure Marketplace third-party offers, including Datadog. For details, see [Understand your Azure Marketplace charges](https://docs.azure.cn/en-us/cost-management-billing/understand/understand-azure-marketplace-charges#how-external-services-are-billed).
 
-## Create a Datadog resource
+## Create the resource
 
 > [!NOTE]
-> The steps in this article are for creating a new Datadog organization. See [Link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
+> If you already have a Datadog organization on the US3 site that you'd like to link to your Azure subscription, see [Link to an existing Datadog organization](link-to-existing-organization.md) instead.
 
 ::: zone pivot="azure-cli"
 
@@ -199,46 +198,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Select the **Next** button at the bottom of the page.
 
-### Metrics and logs tab (optional)
-
-Configure which Azure resources send metrics and logs to Datadog. You can change these settings at any time after creation.
-
-For details on what gets forwarded and worked include/exclude examples, see [tag rules for sending metrics](../metrics-logs.md#tag-rules-for-sending-metrics) and [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs) in [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
-
-| Setting | What it does |
-|---------|-------------|
-| **Silence monitoring for expected Azure VM Shutdowns** | Suppresses alerts when VMs are stopped intentionally |
-| **Collect custom metrics from App Insights** | Forwards Application Insights custom metrics to Datadog |
-| **Send subscription activity logs** | Sends Azure subscription activity logs (management plane operations) to Datadog |
-| **Send Azure resource logs for all defined sources** | Forwards resource diagnostic logs from all supported Azure resources to Datadog |
-
-After you finish configuring metrics and logs, select **Next**.
-
-### Security tab (optional)
-
-The **Security** tab controls two features:
-
-| Setting | Default | What it does |
-|---------|---------|--------------|
-| **Enable resource collection** | On | Allows Datadog to collect metadata about your Azure resources — types, tags, and configurations — so they appear in the Datadog [Resource Catalog](https://docs.datadoghq.com/infrastructure/resource_catalog/) for search, inventory, and infrastructure context. There's no additional Datadog charge for this. |
-| **Enable Datadog Cloud Security Posture Management** | Off | Continuously assesses your Azure configuration against CIS, PCI DSS, SOC 2, HIPAA, and other benchmarks. Learn more about [Cloud Security Posture Management](https://www.datadoghq.com/knowledge-center/cloud-security-posture-management/). |
-
-> [!IMPORTANT]
-> **Resource collection is enabled by default** and we recommend keeping it on — it's what populates the Datadog Resource Catalog and gives every other Datadog product accurate Azure context. **Cloud Security Posture Management (CSPM) is optional and can be enabled only when resource collection is on.** If you turn resource collection off, the CSPM checkbox is disabled.
-
-Select the **Next** button at the bottom of the page.
-
-### Single sign-on tab (optional)
-
-[!INCLUDE [sso](../includes/sso.md)]
-
-### Tags tab (optional)
-
-[!INCLUDE [tags](../includes/tags.md)]
-
-### Review + create tab
-
-[!INCLUDE [review-create](../includes/review-create.md)]
+[!INCLUDE [datadog-create-tabs](../includes/datadog-create-tabs.md)]
 
 ::: zone-end
 

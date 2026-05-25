@@ -4,7 +4,7 @@ description: "Overview of metrics and logs for Azure Native Integrations and key
 author: pavanatgit
 ms.author: plekkala
 ms.topic: overview
-ms.date: 12/01/2025
+ms.date: 05/25/2026
 ai-usage: ai-assisted
 
 #customer intent: As a cloud operator, I want to understand what telemetry partner integrations collect so that I can plan monitoring and governance.
@@ -17,13 +17,11 @@ Monitoring and observability are essential for managing modern cloud environment
 
 ## Metrics
 
-Quantitative data that reflects the performance and health of your Azure resources.
+Metrics are collected for all Azure resources by default. Optionally, you can limit metrics collection for specific resources using include/exclude tags.
+
+For Virtual Machines, Virtual Machine Scale Sets, and App Service Plans, the tag criteria apply to platform metrics. This tag criteria doesn't impact metrics collected using agents installed on these resources.
 
 For metrics, the system automatically creates a system managed identity and assigns it the Monitoring Reader role, which is required for data collection. If you remove this identity or role assignment, metric collection stops.
-
-You can enable your partner resource to collect metrics for all Azure resources within any linked subscriptions. Optionally, you can limit metric collection for Azure Virtual Machines and App Service plans by attaching Azure tags to your resources.
-
-For metrics, the system automatically creates a system managed identity and associates it with the resource on Azure. The setup process provides the Monitoring Reader role to the system managed identity. This role gives the partner service the ability to pull metrics for resources in your subscription from Azure Monitor.
 
 > [!WARNING]
 > If you remove the system managed identity or the Monitoring Reader role assignment, the partner can't collect metrics from your Azure resources.
