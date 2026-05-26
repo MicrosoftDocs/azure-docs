@@ -28,7 +28,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure Bot Service](/azure/bot-service/) | Yes | | [Encryption of bot data in Azure Bot Service](/azure/bot-service/bot-service-encryption) |
 | [Azure Health Bot](/azure/health-bot/) | Yes | | [Configure customer-managed keys (CMK) for Azure Health Bot](/azure/health-bot/cmk) |
 | [Azure Machine Learning](/azure/machine-learning/) | Yes | | [Customer-managed keys for workspace encryption in Azure Machine Learning](/azure/machine-learning/concept-customer-managed-keys) |
-| [Azure OpenAI](/azure/foundry-classic/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/foundry-classic/openai/encrypt-data-at-rest) |
+| [Azure OpenAI](/azure/ai-services/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/ai-services/openai/encrypt-data-at-rest) |
 | [Content Moderator](/azure/ai-services/content-moderator/) | Yes | Yes | [Content Moderator encryption of data at rest](/azure/ai-services/content-moderator/encrypt-data-at-rest) |
 | [Dataverse](/powerapps/maker/data-platform/) | Yes | Yes | [Customer-managed keys in Dataverse](/power-platform/admin/customer-managed-key) |
 | [Dynamics 365](/dynamics365/) | Yes | Yes | [Customer-managed keys for encryption](/dynamics365/fin-ops-core/dev-itpro/sysadmin/customer-managed-keys) |
