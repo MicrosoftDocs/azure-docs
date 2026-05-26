@@ -10,6 +10,24 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Dynamic workflow automation
+    expanded: true
+    items:
+    - name: About Logic Apps Automation
+      href: automation/dynamic-workflow-automation-introduction.md
+    - name: Compare workflow automation models
+      href: automation/compare-capabilities-models.md
+    - name: Create dynamic workflow automation
+      href: automation/quickstart-create-dynamic-workflow-automation.md
+  - name: Standard logic app workflows
+    expanded: true
+    items:
+    - name: Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=standard
+    - name: Visual Studio Code
+      href: create-standard-workflows-visual-studio-code.md
   - name: Consumption logic app workflows
     expanded: true
     items:
@@ -31,24 +49,6 @@ items:
       href: quickstart-logic-apps-azure-cli.md
     - name: Azure PowerShell
       href: quickstart-logic-apps-azure-powershell.md
-  - name: Standard logic app workflows
-    expanded: true
-    items:
-    - name: Portal
-      href: create-single-tenant-workflows-azure-portal.md
-    - name: Portal - Templates gallery
-      href: create-workflows-from-templates.md?tabs=standard
-    - name: Visual Studio Code
-      href: create-standard-workflows-visual-studio-code.md
-  - name: Dynamic workflow automation
-    expanded: true
-    items:
-    - name: About Logic Apps Automation
-      href: automation/dynamic-workflow-automation-introduction.md
-    - name: Compare workflow automation models
-      href: automation/compare-capabilities-models.md
-    - name: Create dynamic workflow automation
-      href: automation/quickstart-create-dynamic-workflow-automation.md
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
