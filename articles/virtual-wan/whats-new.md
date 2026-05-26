@@ -27,6 +27,8 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+| Feature| Routing|Public Preview of Virtual Network Manager integration for Virtual WAN| Azure Virtual Network Manager can use a Virtual WAN hub as the hub for hub-spoke network topologies. You can dynamically group virtual networks into network groups and deploy connectivity configurations to connect those network groups to a Virtual WAN hub. See [integration overview](virtual-network-manager-integration.md)  and [configuration procedures](../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md) for more information. | March 2026 |  See [Virtual Network Manager and Virtual WAN](virtual-network-manager-integration.md) for limitations and considerations. |
+| Feature| Routing| Public Preview of  Virtual WAN connection policy | [Connection policies](how-to-connection-policy.md) let you group multiple Virtual WAN virtual network connections and apply common routing configuration to them as one operation. | March 2026 | See [connection policy documentation](how-to-connection-policy.md) for known issues and limitations. |
 | Feature| Routing| Forced tunnel |Forced tunnel is generally available for secure hubs deployed with Azure Firewall (November 2025), Next-Generation Firewall NVAs (May 2026) and SaaS solutions (May 2026). Forced tunnel mode allows customers who use routing intent to first inspect internet-bound traffic via a security solution deployed in the hub and then forward inspected traffic via a dynamically learnt 0.0.0.0/0 route learnt from on-premises or Network Virtual Appliance, or a static route configured on a Virtual WAN spoke Virtual Network connection. For more information on supported internet access patterns in Virtual WAN, see [about internet routing in Virtual WAN](about-internet-routing.md)| November 2025|  See [internet routing in Virtual WAN](about-internet-routing.md) for more information regarding limitation and availability. |
 | Feature | Routing | Route-maps | General Availability of Route-maps. Route-maps is a feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. | April 2025|[Known limitations](route-maps-about.md#considerations-and-limitations)| 
 | Metric| Routing | [New Virtual hub metrics](monitor-virtual-wan-reference.md#hub-router-metrics)| There are now two new  Virtual WAN hub metrics that display the virtual hub's capacity and spoke Virtual Machine (VM) utilization: **Routing Infrastructure Units** and **Spoke VM Utilization**.| August 2024 | The **Spoke VM Utilization** metric represents an approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. 
@@ -40,6 +42,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+| Feature| Network Virtual Appliances (NVAs)/Integrated  Third-party solutions in Virtual WAN hubs| Aruba | General Availability of [HPE Aruba Networking EdgeConnect SD-WAN](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf) in the Virtual WAN hub. | April 2026| See [HPE documentation](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf). Same limitations as routing intent. |
 | Feature| Network Virtual Appliances NVAs/Integrated Third-party solutions in Virtual WAN hubs|IP allocation | Capability to add additional IP addresses to both internal and external interfaces of NVAs in the Virtual WAN hub. Addresses scalability concerns related to SNAT port exhaustion. |April 2025|See [IP allocation](how-to-network-virtual-appliance-add-ip-configurations.md) documentation.|
 | Feature| Network Virtual Appliances NVAs/Integrated Third-party solutions in Virtual WAN hubs|NVA Re-image | Capability to re-image existing NVA deployment(s) to base unconfigured image pulled from Azure Marketplace. |April 2025|See [reimage](how-to-network-virtual-appliance-reimage.md) documentation.| 
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| Versa VOS|General Availability of  of [Versa VOS](https://versa-networks.com/partners/microsoft-azure/).|February 2025| See [Versa](https://versa-networks.com/partners/microsoft-azure/) documentation.|
@@ -83,14 +86,6 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |Feature|Remote User connectivity/Point-to-site VPN|[Custom IPsec policies](point-to-site-ipsec.md)|Ability to specify connection/encryption parameters for IKEv2 point-to-site connections.|March 2021|Only supported for IKEv2- based connections.<br><br>View the [list of available parameters](point-to-site-ipsec.md). |
 |SKU|Remote User connectivity/Point-to-site VPN|[Support up to 100K users connected to a single hub](about-client-address-pools.md)|Increased maximum number of concurrent users connected to a single gateway to 100,000.|March 2021| |
 |Feature|Remote User connectivity/Point-to-site VPN|Multiple-authentication methods|Ability for a single gateway to use multiple authentication mechanisms.|June 2023|Supported for gateways running all protocol combinations. Azure AD authentication still requires the use of OpenVPN|
-
-## Preview
-
-The following features are currently in gated public preview. After working with the listed articles, you have questions or require support, reach out to the contact alias (if available) that corresponds to the feature.
-
-|Type of preview|Feature |Description|Contact alias|Limitations|
-|---|---|---|---|---|
-|Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| | |
 
 ## <a name="knownissues"></a>Known issues
 
