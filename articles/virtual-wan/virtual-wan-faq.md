@@ -4,7 +4,7 @@ description: See answers to frequently asked questions about Azure Virtual WAN n
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: faq
-ms.date: 03/26/2025
+ms.date: 05/27/2026
 ms.author: cherylmc
 ms.custom:
   - devx-track-azurepowershell
@@ -74,6 +74,10 @@ No, each Azure Virtual Hub must have their own Firewall. The deployment of custo
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client. A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
+
+## <a name="linux-client-retirement"></a>Retirement of (Preview) Azure VPN Client for Linux
+
+The Azure VPN Client for Linux (Preview) is being retired on August 31, 2026. For more information, see the [Azure VPN Client for Linux (Preview) — Retirement Overview](azure-vpn-client-linux-retirement.md) article.
 
 ### For User VPN (point-to-site)- why is the P2S client pool split into two routes?
 
