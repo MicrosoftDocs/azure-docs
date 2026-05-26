@@ -92,19 +92,19 @@ To configure preinstalled packages:
 
 ## VNet bypass controls
 
-When you enable Full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet. Traffic routed through the infra network path bypasses your VNet, which means your NSG rules and private DNS don't apply to that traffic. If you don't enable any of these controls, all agent traffic routes through your VNet.
+When you enable Full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet over the public internet instead. If you don't enable any of these controls, all agent traffic routes through your VNet.
 
 > [!CAUTION]
-> Each bypass you enable allows traffic to leave your VNet without passing through your network security controls. Verify that each entry fits your security posture before enabling it.
+> Each bypass you enable allows traffic to leave your VNet without passing through your network security controls. Check that each entry fits your security posture before enabling it.
 
 The following controls are available:
 
 | Control | Description |
 |---------|-------------|
-| **MCP server access** | When enabled, MCP servers reach the network via the infra path, bypassing your VNet. |
-| **Package manager access** | When enabled, package managers (PyPI, npm, NuGet) are reached via the infra path, bypassing your VNet. |
-| **Code repositories** | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) are reached via the infra path, bypassing your VNet. |
-| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route through the infra path instead of your VNet. Your configured packages and connectors automatically allow their own hosts. |
+| **MCP server access** | When enabled, MCP server traffic routes over the public internet instead of your VNet. |
+| **Package manager access** | When enabled, package manager traffic (PyPI, npm, NuGet) routes over the public internet instead of your VNet. |
+| **Code repositories** | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) route over the public internet instead of your VNet. |
+| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route over the public internet instead of your VNet. Your configured packages and connectors automatically allow their own hosts. |
 
 These controls are useful for troubleshooting. If the agent can't reach a required endpoint through your VNet, you can temporarily enable a bypass to isolate whether the problem originates in the agent or in your network configuration. For example, if a tool fails to connect when VNet routing is active but succeeds with the bypass enabled, the issue likely exists in your firewall rules or DNS configuration rather than in the agent itself.
 
