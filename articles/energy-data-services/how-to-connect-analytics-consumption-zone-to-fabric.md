@@ -1,5 +1,5 @@
 ---
-title: How to connect ACZ data to Microsoft Fabric - Azure Data Manager for Energy
+title: Connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric - Azure Data Manager for Energy
 description: Learn how to connect ACZ data in ADLS Gen2 to Microsoft Fabric by using OneLake shortcuts for analytics and reporting.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# How to connect analytics consumption zone (ACZ) data to Microsoft Fabric
+# How to connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric
 
 
 This article shows how to connect your ACZ data to Microsoft Fabric by using OneLake shortcuts. ACZ stores data in Azure Data Lake Storage (ADLS) Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Power BI.
@@ -52,8 +52,7 @@ If you don't already have a Fabric lakehouse in your workspace, create one:
 If you already have a lakehouse, you can use it for ACZ data shortcuts.
 
 > [!IMPORTANT]
-> **Schema-enabled workspaces**: If your Fabric workspace is schema-enabled, the standard folder shortcut approach might not work correctly because schema-enabled workspaces require a clean schema → tables structure. If you encounter errors such as "Unable to identify these objects as tables or views," use one of the schema-enabled workspace approaches described in Step 3.
-
+  > **Schema-enabled workspaces**: If your Fabric workspace is schema-enabled, the standard folder shortcut approach might not work correctly because schema-enabled workspaces require a clean schema → tables structure. If you encounter errors such as "Unable to identify these objects as tables or views," use one of the schema-enabled workspaces approaches described in Step 3.
 ## Step 3: Create an ADLS Gen2 shortcut to ACZ data
 
 The approach for connecting ACZ data depends on whether your Fabric workspace is schema-enabled or non-schema-enabled.

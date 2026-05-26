@@ -131,7 +131,7 @@ items:
       href: how-to-generate-auth-token.md
     - name: Upload large files using file service
       href: how-to-upload-large-files-using-file-service.md
-    - name: Connect ACZ to Microsoft Fabric
+    - name: Connect Analytics Consumption Zone (ACZ) to Microsoft Fabric
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
     - name: Connect ACZ to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
