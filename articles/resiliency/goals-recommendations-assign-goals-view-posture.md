@@ -141,7 +141,7 @@ Limit rediscovery permissions to specific users, and ensure these users have acc
 
 ## Supported resource types and solutions
 
-Refer to the Goals and Recommendations support matrix to understand the supported resource types and the zonal resiliency solutions that the system detects today.
+To understand the supported resource types and the zonal resiliency solutions that the system detects, see the [Goals and recommendations support matrix (preview)](goals-recommendations-support-matrix.md).
 
 ## Data handling and security
 
