@@ -79,7 +79,7 @@ There is no difference when moving from Basic to Standard network features unles
 
 ### Will this change affect the functionality of my scripts or ARM template? 
 
-Your scripts and ARM templates remain operational as currently implemented. All requests for basic network will be set up using Standard network configurations. 
+Your scripts and ARM templates remain operational as currently implemented. All requests for basic network features will be set up using Standard network features configurations. 
 
 ### Why do I see an "insufficient resources" error when creating a Standard network features volume? 
 
