@@ -133,7 +133,7 @@ items:
       href: how-to-upload-large-files-using-file-service.md
     - name: Connect Analytics Consumption Zone (ACZ) to Microsoft Fabric
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
-    - name: Connect ACZ to Azure Databricks
+    - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
 - name: References
   items:
