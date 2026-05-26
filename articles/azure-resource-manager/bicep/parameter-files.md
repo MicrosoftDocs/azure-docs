@@ -90,7 +90,7 @@ param storageAccountType string = 'Standard_LRS'
 
 In the parameters file, use the name of each parameter. The parameter names in your parameters file must match the parameter names in your Bicep file.
 
-### [Bicep parameters file](#tab/Bicep)
+## [Bicep parameters file](#tab/Bicep)
 
 ```bicep
 using 'main.bicep'
@@ -108,6 +108,23 @@ When you type the keyword `param` in Visual Studio Code, it prompts you with the
 When you hover over a `param` name, you can see the parameter data type and description.
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-hover.png" alt-text="Screenshot of the parameter data type and description.":::
+
+## [JSON parameters file](#tab/JSON)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+    },
+    "storageAccountType": {
+    }
+  }
+}
+```
+
+---
 
 Review the parameter type, because the parameter types in your parameters file must use the same types as your Bicep file. In this example, both parameter types are strings:
 
