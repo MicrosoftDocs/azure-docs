@@ -108,7 +108,7 @@ Encryption is optional and is on by default. You can turn off encryption if you 
 
 # [Azure portal](#tab/portal)
 
-Encryption is enabled by default when deploying using the Azure portal. you can disable encryption in the broker configuration file if you deploy using Azure CLI.
+Encryption is enabled by default when deploying using the Azure portal. You can disable encryption in the broker configuration file if you deploy using Azure CLI.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -179,7 +179,7 @@ az iot ops broker persist update --resource-group myResourceGroup --instance myA
 
 ### Subscriber queue persistence
 
-Subscriber queues hold messages that are waiting to be delivered to MQTT clients with Quality of Service (QoS) 1 subscriptions. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that might be temporarily disconnected or processing messages slowly.
+Subscriber queues hold messages that are waiting to be delivered to MQTT clients with a Quality of Service (QoS) level 1 subscription. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that might be temporarily disconnected or processing messages slowly.
 
 Persisting subscriber queues to disk ensures that messages waiting for delivery aren't lost during broker restarts. This feature is critical for IoT scenarios where devices can have intermittent connectivity, slow processing, or persistent sessions that need to keep message delivery guarantees across broker restarts. Without persistence, queued messages are lost, which can cause data loss for important device communications.
 
