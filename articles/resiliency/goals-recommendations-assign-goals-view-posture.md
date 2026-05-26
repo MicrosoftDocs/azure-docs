@@ -14,11 +14,14 @@ ms.service: resiliency
 
 This article describes how to  assign resiliency goals to a service group, view your resiliency posture, and manage resource evaluation. It covers key concepts, supported scenarios, and how to exclude or manually attest resources to improve the accuracy of your resilience posture and receive more targeted recommendations.
 
+>[!NOTE]
+>A usage plan tells Azure which subscription should be billed when pricing takes effect at General Availability (GA).
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - A service group created with the required resources. For more information, see [Create a service group](../governance/service-groups/create-service-group-portal.md).
-- A [usage plan](#enroll-in-a-usage-plan) enrolled for the service group. A usage plan tells Azure which subscription should be billed when pricing takes effect at General Availability (GA).
+- A [usage plan](#enroll-in-a-usage-plan) enrolled for the service group.
 - **Service Group Contributor** (or alternately, **Azure Resilience Management Goals Contributor**) access to the service group for assigning goals. See the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations) for role requirements per scenario.
 
 ## Supported scenario
@@ -44,11 +47,11 @@ You can change your usage plan tier at any time, so start with whichever fits yo
 
 To understand your service group's resiliency status and receive tailored recommendations, you must first assign goals. Follow these steps:
 
-1. Navigate to your service group in the Azure portal.
+1. In the [Azure portal](https://portal.azure.com/), go to your **service group**.
 
 2. Select the **Goals and Recommendations** tab > **Assign goals**.
 
-    A confirmation pane appears. 
+    A **confirmation** pane appears. 
 
 3. Select **Save** to confirm. The system begins to discover resources in the service group and assigns goals. This process might take a few minutes to complete.
 
@@ -86,13 +89,13 @@ Not all resources in a service group require zonal resiliency. You can exclude n
 
 **Required permissions:** **Service Group Contributor** role. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
 
-1. Navigate to the resiliency summary tile and open the resource list view.
+1. Go to the **resiliency summary** tile and open the **resource list** view.
 
 2. Select the resource you want to exclude, and then select **Include/Exclude Resources**.
 
 3. Set **Target State** to **Excluded** and select the reason: **Zone resiliency not required for this resource**.
 
-4. After you save, the exemption status for the resource shows as **Excluded** and is counted under **Not Evaluated** in the resiliency summary.
+4. After you save, the exemption status for the resource shows as **Excluded** and is counted under **Not Evaluated** in the **resiliency summary**.
 
 ### Manually attest resources
 
@@ -100,13 +103,13 @@ Some resources are resilient by design, even if Azure can't automatically detect
 
 **Required permissions:** **Service Group Contributor** (or alternately **Azure Resilience Management Goals Contributor**) role. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
 
-1. Navigate to the resiliency summary tile in the service group and open the resource list view.
+1. Go to the **resiliency summary** tile in the service group and open the **resource list** view.
 
 2. Select the resource you want to attest, and then select **Include/Exclude Resources**.
 
 3. Set **Target State** to **Excluded** and select the reason: **Ensuring zone resilience via custom solution**.
 
-4. After you save, the exemption status for the resource shows as **Manually attested** and is counted under **Zone resilient** in the resiliency summary.
+4. After you save, the exemption status for the resource shows as **Manually attested** and is counted under **Zone resilient** in the **resiliency summary**.
 
 ## Rediscover resources
 
@@ -114,7 +117,7 @@ Over time, there might be changes to your service group, such as resources being
 
 **Required permissions:** **Service Group Contributor** role (or alternately, **Azure Resilience Management Goals Contributor**) and **Microsoft.Relationship/ServiceGroupMember/read** on the resources. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
 
-1. Navigate to your service group in the Azure portal.
+1. In the [Azure portal](https://portal.azure.com/), go to your **service group**.
 
 2. Under **Resilience**, select **Goals and Recommendations**.
 
@@ -131,7 +134,10 @@ Over time, there might be changes to your service group, such as resources being
 - Resource types that the service doesn't support are automatically excluded from goal evaluation and can't be included. If resiliency is already in place for these resources, you can manually attest them to show their status in the summary view.
 - Rediscovery evaluates only the resources accessible to the user who starts the action. Different users with different access levels can produce different rediscovery results. 
 - For example, if User 1 has service group membership read access to resources A, B, and C and runs rediscovery, the service evaluates A, B, and C. If User 2 later runs rediscovery and the user has access only to resources B and C, only B and C are evaluated.
-- **Recommendation:** Limit who can run rediscovery and ensure those users have access to the full set of service group resources. This limit helps keep rediscovery results consistent and complete.
+
+## Recommendation
+
+Limit rediscovery permissions to specific users, and ensure these users have access to the complete set of service group resources to maintain consistent and complete rediscovery results.
 
 ## Supported resource types and solutions
 
