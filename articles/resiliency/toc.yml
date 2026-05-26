@@ -91,7 +91,7 @@
         href: availability-zone-down-drill-define.md    
       - name: Execute
         href: availability-zone-down-drill-execute.md    
-    - name: Goals and recommendations
+    - name: Assign and use Goals and recommendations
       items:
       - name: Assign goals and view resiliency posture
         href: goals-recommendations-assign-goals-view-posture.md
@@ -99,7 +99,7 @@
         href: goals-recommendations-review-recommendations.md
       - name: Use the Resiliency agent
         href: goals-recommendations-use-agent.md
-    - name: Recovery orchestration plan
+    - name: Configure and execute Recovery orchestration plan
       items:
       - name: Create and configure
         href: recovery-orchestration-plan-create-configure.md
