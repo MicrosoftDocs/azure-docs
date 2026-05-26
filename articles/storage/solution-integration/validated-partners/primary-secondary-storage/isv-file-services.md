@@ -162,7 +162,7 @@ This article compares several ISV solutions that provide files services in Azure
 ### Other features
 
 **Hammerspace**
-- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/hammerspace.hammerspace_4_6_5?tab=overview)
+- [Marketplace](https://marketplace.microsoft.com/en-us/product/azure-applications/hammerspace.hammerspace_paygo?tab=Overview)
 - Global Parallel File System 
 - Live Data Mobility
 - Data Orchestration 

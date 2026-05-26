@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: build-2023, build-2024
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 02/24/2025
+ms.date: 05/04/2026
 ms.topic: how-to
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.
 ---
@@ -59,13 +59,13 @@ To enable the use of environment definitions in the project:
  
     :::image type="content" source="media/how-to-configure-catalog/project-overview.png" alt-text="Screenshot showing the Overview page for a project with Catalogs highlighted." lightbox="media/how-to-configure-catalog/project-overview.png":::
   
-1. On the **Catalogs** page, select **Catalog item permissions**.
+1. On the **Catalogs** page, select **Sync settings**.
  
-    :::image type="content" source="media/how-to-configure-catalog/project-catalog-item-permissions.png" alt-text="Screenshot showing the Catalogs pane with Catalog item permissions highlighted." lightbox="media/how-to-configure-catalog/project-catalog-item-permissions.png":::
+    :::image type="content" source="media/how-to-configure-catalog/project-catalog-item-permissions.png" alt-text="Screenshot showing the Catalogs pane with Sync settings highlighted." lightbox="media/how-to-configure-catalog/project-catalog-item-permissions.png":::
  
-1. In the **Catalog item settings** pane, select **Azure deployment environment definitions** to enable the use of environment definitions at the project level.
+1. In the **Sync settings** pane, select **Deployment environment definitions** to enable the use of environment definitions at the project level.
  
-    :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Catalog item settings pane with Azure deployment environment definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
+    :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Sync settings pane with Deployment environment definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
  
 Now, you can add a catalog to the project. 
 
@@ -209,7 +209,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration aren't currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
@@ -244,7 +244,7 @@ Get the path to the secret you created in the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), go to your dev center or project.
 
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. The [identity](./how-to-configure-managed-identity.md) attached to the dev center or project must have [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -381,10 +381,10 @@ Azure Deployment Environments supports authenticating to GitHub repositories by 
 
 > [!IMPORTANT]
 > When working with a private repository stored within a GitHub organization, you must ensure that the GitHub PAT is configured to give access to the correct organization and the repositories within it. 
-> - Classic tokens within the organization must be SSO authorized to the specific organization after they are created.
+> - Classic tokens within the organization must be single sign-on authorized to the specific organization after they're created.
 > - Fine-grained tokens must have the owner of the token set as the organization itself to be authorized.
 >
-> Incorrectly configured PATs can result in a *Repository not found* error.
+> An incorrectly configured PAT can result in a *Repository not found* error.
 
 ### Create a Key Vault
 
@@ -415,7 +415,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
  
-If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration aren't currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
@@ -450,7 +450,7 @@ Get the path to the secret you created in the key vault.
 
 1. In the Azure portal, go to your dev center or project.
 
-1. Ensure that the [managed identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. The [managed identity](./how-to-configure-managed-identity.md) attached to the dev center or project must have [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -461,7 +461,7 @@ Get the path to the secret you created in the key vault.
     | **Name** | Enter a name for the catalog. |
     | **Catalog location**  | Select **GitHub**. |
     | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure Repos repository.<br>*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
-    | **Branch**  | Enter the repository branch to connect to.<br>*Sample catalog example:* `main`|
+    | **Branch**  | Enter the repository branch you're connecting to.<br>*Sample catalog example:* `main`|
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your environment definitions. <br> The folder path is for the folder with subfolders containing environment definition environment files, not for the folder with the environment definition environment file itself. The following image shows the sample catalog folder structure.<br>*Sample catalog example:* `/Environments`<br> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub." lightbox="media/how-to-configure-catalog/github-folders.png"::: The folder path can begin with or without a forward slash (`/`).|
     | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
@@ -501,7 +501,7 @@ When you manually sync a catalog, Deployment Environments scans through the repo
  
 ### Automatically sync a catalog
 
-When you configure a catalog to sync automatically, Deployment Environments scans through the repository every 30 minutes and makes the latest list of environment definitions available to all of the associated projects in the dev center.
+When you configure a catalog to sync automatically, Deployment Environments scans through the repository every 30 minutes. It makes the latest list of environment definitions available to all of the associated projects in the dev center.
 
 1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
 
@@ -533,7 +533,7 @@ When you add or sync a catalog, you might encounter a sync error or warning. A s
 
 ### View catalog sync status
 
-In the Azure portal, you can get more information about the catalog sync status and any warnings or errors by selecting the status link. The status link opens a pane that shows the sync status, the number of environment definitions that were added, and the number of environment definitions that were ignored or failed.
+In the Azure portal, you can get more information about the catalog sync status and any warnings or errors by selecting the status link. The status link opens a pane showing the sync status, the number of environment definitions that were added, and the number of environment definitions that were ignored or failed.
 
 #### View catalog sync failures
 
@@ -584,7 +584,7 @@ An invalid environment definition error might occur for various reasons:
 
 - **Manifest schema errors**. Ensure that your environment definition environment file matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
 
-- **Validation errors**. Check the following items to resolve validation errors:
+- **Validation errors**. To resolve validation errors, check the following items:
 
   - Ensure that the environment file's engine type is correctly configured.
   - Ensure that the environment definition name is between 3 and 63 characters.

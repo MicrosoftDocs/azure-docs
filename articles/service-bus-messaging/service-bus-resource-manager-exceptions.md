@@ -64,6 +64,20 @@ This class of errors indicates that there was an internal server error.
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Internal Server Error | 50000 | Sub code=50000. Internal Server Error| Can happen for various reasons. Some of the symptoms are - <ul> <li> Client request/body is corrupt and leads to an error. </li> <li> The client request timed out due to processing issues on the service. </li> </ul> | To resolve this error: <ul> <li> Ensure that the requests parameters aren't null or malformed. </li> <li> Retry the request. </li> </ul> |
 
+## Error: Entity names with forward slashes
+
+Service Bus supports hierarchical entity names that use forward slashes (`/`) as path segment separators. For example, you can create a queue named `orders/us/west` or a topic named `events/billing/invoices`. Multiple entities can share the same prefix segments, forming a logical hierarchy.
+
+However, Azure Resource Manager (ARM) doesn't allow forward slashes in resource names because ARM uses `/` to separate resource type and name pairs in resource IDs. To work around this limitation, Service Bus automatically translates between `~` (tilde) and `/` (forward slash) at the ARM boundary:
+
+- When you create or manage entities through ARM (including the Azure portal, CLI, PowerShell, ARM templates, Bicep, or the REST management API), use `~` wherever you would use `/` in the entity name. For example, to create `orders/us/west`, specify the name as `orders~us~west`.
+- When you work with entities through the Service Bus SDKs, AMQP, or the data-plane API, you see the actual `/` names.
+
+This translation is automatic and transparent. The `~` appears only in ARM surfaces; the underlying entity name always uses `/`.
+
+> [!NOTE]
+> If you see `~` in entity names in the Azure portal or ARM API responses, the entity was created with a hierarchical (forward-slash) name. The `~` is a display artifact of the ARM translation, not part of the actual entity name.
+
 ## Error code: Unauthorized
 
 This class of errors indicates the absence of authorization to run the command.

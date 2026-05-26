@@ -2,7 +2,7 @@
 title: Get started
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure.
+description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure (obsolete).
 ms.topic: get-started
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
@@ -11,7 +11,7 @@ ms.service: azure-baremetal-infrastructure
 # Customer intent: As an IT administrator, I want to sign up for and configure Nutanix Cloud Clusters on Azure, so that I can efficiently manage my cloud infrastructure while ensuring connectivity and compliance with my organization’s requirements.
 ---
 
-# Get started with Nutanix Cloud Clusters on Azure
+# Get started with Nutanix Cloud Clusters on Azure (obsolete)
 
 Learn how to get started with Nutanix Cloud Clusters (NC2) on Azure. You can also sign up for a free trial of NC2 on Azure.
 

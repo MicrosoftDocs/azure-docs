@@ -9,9 +9,8 @@
   - name: Connect BareMetal instances in Azure
     displayName: Azure CLI, az baremetalinstance, az baremetalinstance restart
     href: connect-baremetal-infrastructure.md
-- name: Workloads
-  items: 
-  
+- name: Workload
+  items:   
   - name: SAP HANA on Azure (Large Instances)
     items:
     - name: Overview
@@ -100,7 +99,5 @@
         href: /azure/virtual-machines/workloads/sap/hana-setup-smt?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
       - name: Buy an SAP HANA Large Instances reservation
         href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-  - name: Nutanix Cloud Clusters on Azure
-    items: 
-    href: ./workloads/nc2-on-azure/toc.yml
+  
   

@@ -48,6 +48,9 @@ The resources defined in the template include:
 
 You can find more template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
 
+> [!NOTE]
+> If your queue name contains forward slashes (`/`), use `~` (tilde) in place of `/` in the template resource name. For example, to create a queue named `orders/us/west`, specify the name as `orders~us~west`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
+
 ## Deploy the template
 
 With this template, you deploy a Service Bus namespace with a queue.

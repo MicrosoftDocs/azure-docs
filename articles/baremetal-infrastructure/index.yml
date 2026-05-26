@@ -107,17 +107,5 @@ landingContent:
             url: /azure/virtual-machines/workloads/sap/hana-setup-smt?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Buy an SAP HANA Large Instances reservation
             url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
-
-# card 3
-  - title: BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
-    linkLists: 
-      - linkListType: overview
-        links:
-         - text: About BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
-           url: workloads/nc2-on-azure/about-nc2-on-azure.md
-         - text: Architecture
-           url: workloads/nc2-on-azure/architecture.md
-         - text: Getting started
-           url: workloads/nc2-on-azure/get-started.md         
-         - text: FAQ
-           url: workloads/nc2-on-azure/faq.md
+    
+         
