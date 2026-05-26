@@ -51,7 +51,7 @@ The SRE Agent offers three network control modes. Select the mode that matches y
 | Mode | Description | Best for |
 |------|-------------|----------|
 | **Unrestricted** | No network restrictions. The agent can reach any internet endpoint. | Development and test environments; non-sensitive workloads. |
-| **Limited** | A URL allowlist that uses wildcard-based rules restricts which endpoints the agent can call. | Scenarios where you want to block specific external destinations without full VNet routing. |
+| **Limited** | A URL allow list that uses wildcard-based rules restricts which endpoints the agent can call. | Scenarios where you want to block specific external destinations without full VNet routing. |
 | **Full VNet** | All outbound traffic routes through your Azure VNet with your custom DNS and firewall rules applied. | Enterprise production deployments requiring maximum security posture and audit compliance. |
 
 The three modes form a spectrum from fully open to fully controlled. Unrestricted mode imposes no constraints. Limited mode uses wildcard-based URL rules to control which endpoints the agent can reach. Full VNet mode routes all traffic through your network with your own custom DNS and firewall rules.
@@ -68,7 +68,7 @@ Use the following criteria to select a mode:
 
 ## Access network control modes
 
-To select a control mode for your agent, open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
+To select a control mode for your agent, open your agent in the Azure portal, and select **Settings** > **Workspace configuration**.
 
 :::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/azure-sre-agent-networking-vnet.png":::
 
@@ -80,7 +80,7 @@ Preinstall packages in the sandbox base disk image so they're available every ti
 
 To configure preinstalled packages:
 
-1. Open your agent in the Azure portal, and select *Settings* > *Workspace configuration*.
+1. Open your agent in the Azure portal, and select **Settings** > **Workspace configuration**.
 1. Select the **Packages** tab.
 1. Enter the package name, select the package manager (**pip** or **NuGet**), and optionally specify a version.
 1. Select **+ Add package**.
