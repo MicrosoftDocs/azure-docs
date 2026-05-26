@@ -76,10 +76,10 @@ Use an Entra ID token (Azure AD token) for authentication. This approach is usef
 1. Use the Azure CLI to obtain an Entra ID token associated with the Azure Managed Grafana resource ID:
 
     ```bash
-    az account get-access-token --resource ce34e7e5-485f-4d76-964f-b3d2b16d1e4f --query accessToken -o tsv
+    az account get-access-token --resource 6f2d169c-08f3-4a4c-a982-bcaf2d038c45 --query accessToken -o tsv
     ```
 
-1. Alternatively, use a managed identity to acquire a token programmatically with the Azure Managed Grafana audience `ce34e7e5-485f-4d76-964f-b3d2b16d1e4f`.
+1. Alternatively, use a managed identity to acquire a token programmatically with the Azure Managed Grafana audience `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`.
 
     ```json
     {
