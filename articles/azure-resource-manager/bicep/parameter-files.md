@@ -8,12 +8,12 @@ ms.date: 05/26/2026
 
 # Create a parameters file for Bicep deployment
 
-Bicep parameter files allow you to define parameter values in a separate file and pass them to your main.bicep. They are ideal for values that vary by subscription, environment, or region.
+Bicep parameter files let you define parameter values in a separate file and pass them to your main.bicep. They're perfect for values that vary by subscription, environment, or region.
 
-Key Benefits include:
+Key benefits include:
 
 - Maintain consistency across Infrastructure as Code (IaC) deployments while enabling flexibility.
-- Support cost optimization (e.g., right-sizing non-production environments without changing core infrastructure).
+- Support cost optimization, such as right-sizing non-production environments without changing core infrastructure.
 - Enable streamlined CI/CD pipelines by keeping parameter files in source control and passing the appropriate file to each deployment stage.
 
 > [!NOTE]
@@ -28,15 +28,17 @@ You can use either:
 
 The file extension for a Bicep parameters file is `.bicepparam`.
 
- To deploy to multiple environments, you create more than one parameters file. When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _main.dev.bicepparam_ for development and the label _main.prod.bicepparam_ for production.
+ To deploy to multiple environments, create more than one parameters file. When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _main.dev.bicepparam_ for development and the label _main.prod.bicepparam_ for production.
 
 ## [JSON parameters file](#tab/JSON)
 
-The general naming convention for a parameters file is to include _parameters_ in the Bicep file name. For example, if your Bicep file is named _azuredeploy.bicep_, then your parameters file is named _azuredeploy.parameters.json_. This naming convention helps you see the connection between the Bicep file and the parameters.
+The general naming convention for a parameters file is to include _parameters_ in the Bicep file name. For example, if your Bicep file is named _azuredeploy.bicep_, name your parameters file _azuredeploy.parameters.json_. This naming convention helps you see the connection between the Bicep file and the parameters.
 
-To deploy to different environments, you create more than one parameters file. When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _azuredeploy.parameters-dev.json_ for development and the label _azuredeploy.parameters-prod.json_ for production.
+To deploy to different environments, create more than one parameters file. When you use multiple parameters files, label them according to their use. For example, to deploy resources, use the label _azuredeploy.parameters-dev.json_ for development and the label _azuredeploy.parameters-prod.json_ for production.
 
 ---
+
+## Define parameters file
 
 A parameters file uses the following format:
 
@@ -54,102 +56,6 @@ param <second-parameter-name> = <second-value>
 param <third-parameter-name> = <variable-name>
 ```
 
-You can apply the `using` statement by using a Bicep file, JSON Azure Resource Manager templates, Bicep modules, and template specifications. For example:
-
-```bicep
-using './main.bicep'
-...
-```
-
-```bicep
-using './azuredeploy.json'
-...
-```
-
-```bicep
-using 'br/public:avm/res/storage/storage-account:0.9.0' 
-...
-```
-
-```bicep
-using 'br:myacr.azurecr.io/bicep/modules/storage:v1'
-...
-```
-
-```bicep
-using 'ts:00000000-0000-0000-0000-000000000000/myResourceGroup/storageSpec:1.0'
-...
-```
-
-For more information, see [Using statement](./bicep-using.md#the-using-statement).
-
-You can apply the `using none` statement to indicate that the parameters file isn't tied to a specific Bicep template during authoring or compilation. This statement decouples the parameter file from a particular template, enabling greater flexibility in how you define and use parameters across deployments. For more information, see [Using none statement](./bicep-using.md#the-using-none-statement).
-
-You can use expressions as parameter values. For example:
-
-```bicep
-using './main.bicep'
-
-param storageName = toLower('MyStorageAccount')
-param intValue = 2 + 2
-```
-
-You can reference environment variables as parameter values. For example:
-
-```bicep
-using './main.bicep'
-
-param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
-```
-
-You can define and use variables. You must use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later to use variables in `.bicepparam` files. See the following examples:
-
-```bicep
-using './main.bicep'
-
-var storagePrefix = 'myStorage'
-param primaryStorageName = '${storagePrefix}Primary'
-param secondaryStorageName = '${storagePrefix}Secondary'
-```
-
-```bicep
-using './main.bicep'
-
-var testSettings = {
-  instanceSize: 'Small'
-  instanceCount: 1
-}
-
-var prodSettings = {
-  instanceSize: 'Large'
-  instanceCount: 4
-}
-
-param environmentSettings = {
-  test: testSettings
-  prod: prodSettings
-}
-```
-
-You can define user-defined data types. For example:
-
-```bicep
-using './main.bicep'
-
-// Define a reusable type for tags with optional properties
-type TagValues = {
-  environment: 'dev' | 'test' | 'production'
-  project: string
-}
-
-var tagsExample TagValues = {
-  environment: 'dev'
-  project: 'bicep-sample'
-}
-
-param tags = tagsExample
-```
-
 ## [JSON parameters file](#tab/JSON)
 
 ```json
@@ -157,82 +63,9 @@ param tags = tagsExample
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
+    "storagePrefix": {
     },
-    "<second-parameter-name>": {
-      "value": "<second-value>"
-    }
-  }
-}
-```
-
----
-
-> [!WARNING]
-> A parameters file saves parameter values as plain text. For security reasons, don't use this approach with sensitive values such as passwords. If you need to pass a parameter with a sensitive value, keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the [`getSecret` function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass a secret as a parameter during Bicep deployment](key-vault-parameter.md).
-
-A single Bicep file can be associated with multiple parameter files. Each parameter file is typically linked to a specific Bicep file using the [`using` statement](./bicep-using.md):
-
-```bicep
-using 'main.bicep'
-```
-
-You can use [`using none`](./bicep-using.md#the-using-none-statement) if you don't want to link it to a particular Bicep file.
-
-You can compile Bicep parameter files into JSON parameter files that you can deploy by using a Bicep file. For more information, see [`build-params`](./bicep-cli.md#build-params). You can also decompile a JSON parameter file into a Bicep parameter file. For more information, see [`decompile-params`](./bicep-cli.md#decompile-params).
-
-## Define parameter values
-
-The following example shows the formats of various parameter types: string, integer, Boolean, array, and object.
-
-### [Bicep parameters file](#tab/Bicep)
-
-```bicep
-using './main.bicep'
-
-param exampleString = 'test string'
-param exampleInt = 2 + 2
-param exampleBool = true
-param exampleArray = [
-  'value 1'
-  'value 2'
-]
-param exampleObject = {
-  property1: 'value 1'
-  property2: 'value 2'
-}
-```
-
-Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays).
-
-### [JSON parameters file](#tab/JSON)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "exampleString": {
-      "value": "test string"
-    },
-    "exampleInt": {
-      "value": 4
-    },
-    "exampleBool": {
-      "value": true
-    },
-    "exampleArray": {
-      "value": [
-        "value 1",
-        "value 2"
-      ]
-    },
-    "exampleObject": {
-      "value": {
-        "property1": "value1",
-        "property2": "value2"
-      }
+    "storageAccountType": {
     }
   }
 }
@@ -255,7 +88,7 @@ param storagePrefix string
 param storageAccountType string = 'Standard_LRS'
 ```
 
-In the parameters file, look for the name of each parameter. The parameter names in your parameters file must match the parameter names in your Bicep file.
+In the parameters file, use the name of each parameter. The parameter names in your parameters file must match the parameter names in your Bicep file.
 
 ### [Bicep parameters file](#tab/Bicep)
 
@@ -275,23 +108,6 @@ When you type the keyword `param` in Visual Studio Code, it prompts you with the
 When you hover over a `param` name, you can see the parameter data type and description.
 
 :::image type="content" source="./media/parameter-files/bicep-parameters-file-visual-studio-code-hover.png" alt-text="Screenshot of the parameter data type and description.":::
-
-### [JSON parameters file](#tab/JSON)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storagePrefix": {
-    },
-    "storageAccountType": {
-    }
-  }
-}
-```
-
----
 
 Review the parameter type, because the parameter types in your parameters file must use the same types as your Bicep file. In this example, both parameter types are strings:
 
@@ -389,7 +205,160 @@ param storageAccountType = 'Standard_ZRS'
 
 ---
 
-## Create and build parameters file
+The following example shows the formats of various parameter types: string, integer, Boolean, array, and object.
+
+### [Bicep parameters file](#tab/Bicep)
+
+```bicep
+using './main.bicep'
+
+param exampleString = 'test string'
+param exampleInt = 2 + 2
+param exampleBool = true
+param exampleArray = [
+  'value 1'
+  'value 2'
+]
+param exampleObject = {
+  property1: 'value 1'
+  property2: 'value 2'
+}
+```
+
+Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays).
+
+### [JSON parameters file](#tab/JSON)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "exampleString": {
+      "value": "test string"
+    },
+    "exampleInt": {
+      "value": 4
+    },
+    "exampleBool": {
+      "value": true
+    },
+    "exampleArray": {
+      "value": [
+        "value 1",
+        "value 2"
+      ]
+    },
+    "exampleObject": {
+      "value": {
+        "property1": "value1",
+        "property2": "value2"
+      }
+    }
+  }
+}
+```
+
+---
+
+You can use expressions as parameter values. For example:
+
+```bicep
+using './main.bicep'
+
+param storageName = toLower('MyStorageAccount')
+param intValue = 2 + 2
+```
+
+You can reference environment variables as parameter values. For example:
+
+```bicep
+using './main.bicep'
+
+param intFromEnvironmentVariables = int(readEnvironmentVariable('intEnvVariableName'))
+```
+
+You can define and use variables. You must use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.21.X or later to use variables in `.bicepparam` files. See the following examples:
+
+```bicep
+using './main.bicep'
+
+var storagePrefix = 'myStorage'
+param primaryStorageName = '${storagePrefix}Primary'
+param secondaryStorageName = '${storagePrefix}Secondary'
+```
+
+```bicep
+using './main.bicep'
+
+var testSettings = {
+  instanceSize: 'Small'
+  instanceCount: 1
+}
+
+var prodSettings = {
+  instanceSize: 'Large'
+  instanceCount: 4
+}
+
+param environmentSettings = {
+  test: testSettings
+  prod: prodSettings
+}
+```
+
+You can define user-defined data types. For example:
+
+```bicep
+using './main.bicep'
+
+// Define a reusable type for tags with optional properties
+type TagValues = {
+  environment: 'dev' | 'test' | 'production'
+  project: string
+}
+
+var tagsExample TagValues = {
+  environment: 'dev'
+  project: 'bicep-sample'
+}
+
+param tags = tagsExample
+```
+
+## [JSON parameters file](#tab/JSON)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
+    },
+    "<second-parameter-name>": {
+      "value": "<second-value>"
+    }
+  }
+}
+```
+
+---
+
+> [!WARNING]
+> A parameters file saves parameter values as plain text. For security reasons, don't use this approach with sensitive values such as passwords. If you need to pass a parameter with a sensitive value, keep the value in a key vault. Instead of adding a sensitive value to your parameters file, use the [`getSecret` function](bicep-functions-resource.md#getsecret) to retrieve it. For more information, see [Use Azure Key Vault to pass a secret as a parameter during Bicep deployment](key-vault-parameter.md).
+
+A single Bicep file can be associated with multiple parameter files. Each parameter file typically links to a specific Bicep file using the [`using` statement](./bicep-using.md):
+
+```bicep
+using 'main.bicep'
+```
+
+Use [`using none`](./bicep-using.md#the-using-none-statement) if you don't want to link it to a particular Bicep file.
+
+You can compile Bicep parameter files into JSON parameter files that you can deploy by using a Bicep file. For more information, see [`build-params`](./bicep-cli.md#build-params). You can also decompile a JSON parameter file into a Bicep parameter file. For more information, see [`decompile-params`](./bicep-cli.md#decompile-params).
+
+## Generate and build parameters file
 
 You can create a parameters file by using either Visual Studio Code or the Bicep CLI. Both tools allow you to use a Bicep file to generate a parameters file. See [Generate parameters file](./visual-studio-code.md#generate-parameters-file-command) for the Visual Studio Code method and [Generate parameters file](./bicep-cli.md#generate-params) for the Bicep CLI method.
 
