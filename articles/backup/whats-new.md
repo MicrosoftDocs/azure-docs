@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/04/2026
+ms.date: 05/25/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,12 +21,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2026
+  - [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
   - [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
   - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
   - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
-- January 2026
+- February 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
   - [Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)](#threat-detection-in-azure-backup-with-microsoft-defender-for-cloud-integration-preview)
@@ -69,6 +70,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Snapshot backup for SQL Instances in Azure VM (preview)
+
+Azure Backup now supports snapshot-based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk-based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large SQL databases. 
+
+This feature includes:
+
+- **Instance level snapshots**: Backs up multiple databases together at the SQL Server instance level and restore the entire instance or individual databases as required.
+- **Minimal impact on the source server**: Captures application consistent snapshots with minimal database quiesce time that lasts only a few seconds, unlike resource intensive streaming backups.
+- **Cost efficient protection**: Optimizes storage cost with incremental snapshots.
+- **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
+- **Low Recovery Point Objective (RPO)**: Applies frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
+
+For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
 
 ## Vaulted backup support for Azure Cosmos DB (preview)
 

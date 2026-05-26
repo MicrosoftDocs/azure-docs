@@ -1,6 +1,8 @@
 ---
 title: Confluent Resources and Developer Tools
 description: Learn about resources and developer tools you can use with Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: overview
 ms.date: 09/17/2025
 

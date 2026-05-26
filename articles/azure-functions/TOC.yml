@@ -938,6 +938,9 @@
       - name: Resource trigger
         displayName: MCP resource
         href: functions-bindings-mcp-resource-trigger.md
+      - name: Prompt trigger
+        displayName: MCP prompt
+        href: functions-bindings-mcp-prompt-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
