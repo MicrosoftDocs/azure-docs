@@ -41,10 +41,10 @@ Flash Optimized is ideal for scenarios where:
 
 Common use cases include:
 
-- **Analytics and reporting** – Large lookup tables, aggregated datasets
-- **Social and gaming** – User profiles, session histories, leaderboards with long tails
-- **AI/ML** – Feature stores, caching vector data, e.g. embeddings (note: RediSearch/vector search is not supported on Flash)
-- **IoT and telemetry** – Time-series data, device state
+- **Analytics and reporting** - Large lookup tables, aggregated datasets
+- **Social and gaming** - User profiles, session histories, leaderboards with long tails
+- **AI/ML** - Feature stores, caching serialized model data
+- **IoT and telemetry** - Device state, event logs
 
 ## SKU sizes
 
