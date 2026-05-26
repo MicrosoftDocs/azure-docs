@@ -44,7 +44,7 @@ Add your event hub as a data source for a new eventstream. For detailed instruct
 
 * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
 * For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
-* For **Connection**, create a new connection with Shared Access Key authentication. Use the **Primary key** of the **RootMananageSharedAccess** policy of the Event Hubs namespace that you created in the previous quickstart. You can find the key in the Azure portal under **Settings > Shared access policies > RootManageSharedAccessKey > Primary key** in your Event Hubs namespace.
+* For **Connection**, create a new connection with Shared Access Key authentication. Use the **Primary key** of the **RootMananageSharedAccess** policy of the Event Hubs namespace that you created in the previous quickstart. You can find the key in the Azure portal in your Event Hubs namespace under **Settings > Shared access policies > RootManageSharedAccessKey > Primary key**.
     * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
