@@ -215,7 +215,7 @@ The output should include your user-assigned managed identity's resource ID with
 
 ### Use automated script for Step 3 (optional)
 
-As an alternative to the manual commands, you can download and run an automated script that handles the identity assignment. The script preserves existing identities automatically and validates inputs.
+As an alternative to the manual commands, you can use the automated script provided below that handles the identity assignment. The script preserves existing identities automatically and validates inputs.
 
 **What the script does:**
 - Validates that the Azure Data Manager for Energy instance and managed identity exist
@@ -329,10 +329,9 @@ fi
 
 **Usage:**
 
-```bash
-# Save the script
-curl -o attach-managed-identity.sh https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.sh
+Save the script above to a file named `attach-managed-identity.sh`, then run:
 
+```bash
 # Make executable
 chmod +x attach-managed-identity.sh
 
@@ -432,10 +431,9 @@ Write-Host "Successfully attached managed identity to Azure Data Manager for Ene
 
 **Usage:**
 
-```powershell
-# Download script
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.ps1" -OutFile "attach-managed-identity.ps1"
+Save the script above to a file named `attach-managed-identity.ps1`, then run:
 
+```powershell
 # Run with your values
 .\attach-managed-identity.ps1 -SubscriptionId "your-subscription-id" -AdmeInstanceName "your-instance-name" -ManagedIdentityName "your-identity-name"
 ```
