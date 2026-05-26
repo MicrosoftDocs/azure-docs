@@ -30,11 +30,11 @@ Business Process Solutions uses a Fabric SQL Database connection to read and orc
 
 1. In the new connection input, select **Cloud** as the type.
 1. Enter the connection name.
-1. For the connection type, select **Fabric SQL Database**.
+1. For the connection type, select **SQL database in Fabric**.
 1. For the authentication method, select **OAuth** > **Edit Credentials** and enter the details.
 1. Select **Create** to create the connection.
 
-   :::image type="content" source="./media/deploy-workload-item/enter-connection-details.jpg" alt-text="Screenshot that shows how to enter connection details for a new connection." lightbox="./media/deploy-workload-item/enter-connection-details.jpg":::
+   :::image type="content" source="./media/deploy-workload-item/enter-connection-details.png" alt-text="Screenshot that shows how to enter connection details for a new connection." lightbox="./media/deploy-workload-item/enter-connection-details.png":::
 
 1. Open the connection, copy the connection ID, and keep it handy.
 
