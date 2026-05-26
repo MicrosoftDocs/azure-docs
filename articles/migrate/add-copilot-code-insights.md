@@ -16,9 +16,9 @@ ms.custom: engagement-fy24
 
 This article describes how to add code scan insights using GitHub Copilot Modernization when migrating web apps to Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan. Code changes for an Application is the aggregate of code changes for its child web apps.
 
-In this article, you’ll learn how to: 
+In this article, you learn how to: 
 
-- Generate GitHub Copilot code assessment report for web app(s).
+- Generate GitHub Copilot code assessment report for web apps.
 - Add code insights for Web apps from Applications inventory and assessment blades
 - Add code insights for Web apps from Web apps inventory and assessment blades
 - View code insights
@@ -34,7 +34,7 @@ With this approach, you must generate the code scan report manually and upload i
 
 ### Prerequisites
 
-- Web app(s) for which code scan report is to be geerated.
+- Web apps for which code scan report is to be generated.
 - GitHub Copilot code assessment report for selected web apps.
 
 #### Generate GitHub Copilot code assessment report
@@ -51,7 +51,7 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 **AppCAT CLI**
 
 1. Install AppCAT:
-    - For .NET use the below command
+    - For .NET use the command:
     `dotnet tool install --global Microsoft.AppCAT.Tool` For detailed instructions, see [Install the .NET global tool](/dotnet/azure/migration/appcat/install#install-the-net-global-tool).
     - For guidance on assessing Java projects, see [Assess a Java project using AppCAT 7](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#download-and-install).
 2. Generate AppCAT Reports
@@ -62,9 +62,9 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 ### Upload a .zip file 
 
 1.You can add code assessment report from any of the below mentioned blades:
-    - On the Azure Migrate **Overview** page under **Explore inventory** select **Web apps**.
-    - On the Azure Migrate **Overview** page under **Explore Applications** select **Applications**.
-    - On the Azure Migrate **Overview** page under **Decide and Plan** select **Assessments**. Choose the Application assessment or Web app assessment. 
+    - On the Azure Migrate **Overview** page under **Explore inventory**, select **Web apps**.
+    - On the Azure Migrate **Overview** page under **Explore Applications**, select **Applications**.
+    - On the Azure Migrate **Overview** page under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
 2. In **Add code insights** dropdown, select **GitHub Copilot assessment**. 
 
 :::image type="content" source="./media/add-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/using-github-copilot-assessment.png":::
@@ -161,7 +161,7 @@ Follow these steps to install GitHub App on your repository:
 
 ### GitHub App details and Private key to create GitHub connection
 
-Collate the following GitHub App details and private key to create a GitHub connection in Azure Migrate.
+Collate the following GitHub App details and private key and create a GitHub connection in Azure Migrate.
 
 1. Navigate to the GitHub App you created and select **Edit**. 
 2. Under **General** > **About**, find the **App ID** and note it. 
@@ -177,10 +177,10 @@ Collate the following GitHub App details and private key to create a GitHub conn
 ### Request code scan report for web app and application assessment using GitHub issue
 
 1. You can add code assessment report from any of the below mentioned blades:
-    - On the Azure Migrate **Overview** page under **Explore inventory** select **Web apps**.
-    - On the Azure Migrate **Overview** page under **Explore Applications** select **Applications**.
-    - On the Azure Migrate **Overview** page under **Decide and Plan** select **Assessments**. Choose the Application assessment or Web app assessment. 
-2. Under **Add code insights** select **Using GitHub Copilot Assessment**. 
+    - On the Azure Migrate **Overview** page under **Explore inventory**, select **Web apps**.
+    - On the Azure Migrate **Overview** page under **Explore Applications**, select **Applications**.
+    - On the Azure Migrate **Overview** page under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
+2. Under **Add code insights**, select **Using GitHub Copilot Assessment**. 
 
 :::image type="content" source="./media/add-copilot-code-insights/github-copilot-assessment.png" alt-text="The screenshot shows how to add code insights by using GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/github-copilot-assessment.png":::
 
@@ -245,7 +245,7 @@ This section helps resolve issues related to importing paths or uploading zip fi
  - Zip file is less than 50 MB. 
  - Total number of files in zip file is less than 100. 
  - Maximum size of uncompressed zip file is less than 500 MB.
- - Zip file doesn't contain another nested zip file(s).
+ - Zip file doesn't contain another nested zip files.
 
   You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
  
