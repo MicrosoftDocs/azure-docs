@@ -37,7 +37,7 @@ Large volumes have the following limits. With cool-access enabled, you can creat
 
 
 >[!IMPORTANT]
->Large volume capacity increases (greater than 50 TiB) are subject to backend storage availability and regional capacity constraints. While Azure NetApp Files supports large volumes up to 1 PiB (or higher by special request), capacity availability is not guaranteed and may vary by region. Customers planning volumes larger than 50 TiB should engage their Microsoft account team or Azure NetApp Files support early to validate feasibility and timeline.
+>Azure NetApp Files supports large volumes up to 1 PiB (or higher by special request), however large volume size increases are subject to regional and storage capacity availability. Actual capacity availability can vary by region. Customers planning volumes larger than 50 TiB are encouraged to work with their Microsoft account teams early to confirm availability and expected timeline.
 
 ## Large volumes effect on performance 
 
