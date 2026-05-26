@@ -43,6 +43,10 @@ items:
   - name: Dynamic workflow automation
     expanded: true
     items:
+    - name: About Logic Apps Automation
+      href: automation/dynamic-workflow-automation-introduction.md
+    - name: Compare workflow automation models
+      href: automation/compare-capabilities-models.md
     - name: Create dynamic workflow automation
       href: automation/quickstart-create-dynamic-workflow-automation.md
 - name: Tutorials
