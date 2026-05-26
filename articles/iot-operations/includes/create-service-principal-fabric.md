@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 10/22/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 To create a service principal that gives your pipeline access to your Microsoft Fabric workspace:

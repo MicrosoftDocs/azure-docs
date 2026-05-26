@@ -1,8 +1,8 @@
 ---
 title: Azure Native Integrations Partner Solutions
 description: Explore Azure Native Integrations partner solutions for observability, data, networking, and storage.
-author: ProfessorKendrick
-ms.author: kkendrick
+author: pavanatgit
+ms.author: plekkala
 ms.service: partner-services
 ms.topic: overview
 ms.date: 10/31/2025

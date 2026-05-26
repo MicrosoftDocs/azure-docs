@@ -91,20 +91,6 @@ You can create additional projects to manage separate migration scenarios. To cr
 
     :::image type="content" source="./media/quickstart-create-project/create-additional-project.png" alt-text="Screenshot shows how to create an additional project." lightbox="./media/quickstart-create-project/create-additional-project.png":::
 
-## Find a project
-
-Follow these steps to find an existing Azure Migrate project:
-
-1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-1. In the Azure Migrate dashboard, select **All projects** from the left pane.
-1. Enter the project name in the **Search to filter items** to find the required project.
-
-
-    :::image type="content" source="./media/quickstart-create-project/current-project.png" alt-text="Screenshot to select the current project." lightbox="./media/quickstart-create-project/current-project.png":::
-
-1. Select the appropriate subscription and project.
-
-
 ## Delete a project
 
 Follow these steps to delete an existing Azure Migrate project:
