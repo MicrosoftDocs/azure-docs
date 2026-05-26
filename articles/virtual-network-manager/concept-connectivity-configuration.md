@@ -11,6 +11,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:05/08/2025
+  - references_regions
 #customer intent: As an infrastructure architect, I want to understand the differences between mesh and hub-and-spoke topologies, so that I can choose the best option for my organization's needs. And I want to learn how to configure these topologies in Azure Virtual Network Manager using connectivity configurations, so that I can optimize network performance and security.
 ---
 
@@ -24,7 +25,13 @@ With *connectivity configurations*, you can create and maintain different networ
 
 If you enable *delete existing peerings* for your connectivity configuration, Azure Virtual Network Manager removes any peerings that don't match the contents of this connectivity configuration, even if you manually created these peerings after deploying this configuration. If you remove a virtual network from a network group used in the configuration, your Azure Virtual Network Manager instance removes only the connectivity that it created.
 
-When you deploy a connectivity configuration, Azure Virtual Network Manager establishes bi-directional connectivity via virtual network peerings (for hub-and-spoke topologies) or via connected groups (for mesh topologies) between virtual networks. This connectivity is established according to the settings you define and network groups included in your connectivity configuration.
+When you deploy a connectivity configuration, Azure Virtual Network Manager establishes bi-directional connectivity according to the selected topology and hub type:
+
+- For mesh topologies, connectivity is established by using connected groups.
+- For hub-and-spoke with a hub virtual network, connectivity is established by using virtual network peerings.
+- For hub-and-spoke with a Virtual WAN hub, connectivity is established by creating or updating Virtual WAN virtual network connections.
+
+This connectivity is established according to the settings you define and network groups included in your connectivity configuration.
 
 ## Mesh topology
 
@@ -75,7 +82,20 @@ Azure Virtual Network Manager's high-scale connectivity feature in connected gro
 
 ## Hub-and-spoke topology
 
-A hub-and-spoke topology defines connectivity between a selected hub virtual network and spoke virtual networks that are members of one or more selected spoke network groups. The hub virtual network gets bi-directionally peered with every spoke network group's virtual network members in the configuration. This topology is useful for isolating a virtual network but still maintaining connectivity to common resources in the hub virtual network.
+A hub-and-spoke topology defines connectivity between a selected hub and spoke virtual networks that are members of one or more selected spoke network groups. The selected hub can be either a hub virtual network or a Virtual WAN hub.
+
+- If you select a hub virtual network, Azure Virtual Network Manager creates virtual network peerings between the hub and each spoke virtual network.
+- If you select a Virtual WAN hub, Azure Virtual Network Manager creates or updates Virtual WAN virtual network connections between the hub and each spoke virtual network.
+
+This topology is useful for isolating a virtual network while maintaining connectivity to common resources in a central hub.
+
+### Use a Virtual WAN hub as the hub
+
+[!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
+
+When you select a Virtual WAN hub as the hub in a hub-and-spoke connectivity configuration, Azure Virtual Network Manager connects virtual networks in the selected spoke network groups to the Virtual WAN hub and applies the selected connection policy.
+
+To configure this experience in the Azure portal, create a hub-and-spoke connectivity configuration, select a Virtual WAN hub, select or create a connection policy, and add one or more spoke network groups. Then deploy the configuration to apply the changes.
 
 :::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Screenshot of a hub-and-spoke topology diagram showing a hub virtual network connected to multiple spoke virtual networks.":::
 
