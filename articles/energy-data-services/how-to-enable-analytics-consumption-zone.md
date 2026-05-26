@@ -246,11 +246,6 @@ $AdmeInstanceName = Read-Host "Enter Azure Data Manager for Energy Instance Name
 
 $ManagedIdentityName = Read-Host "Enter Managed Identity Name"
 
-# Default MI subscription to ADME subscription if not specified
-if ([string]::IsNullOrEmpty($MiSubscriptionId)) {
-    $MiSubscriptionId = $AdmeSubscriptionId
-}
-
 Write-Host "Attaching managed identity to Azure Data Manager for Energy instance..." -ForegroundColor Cyan
 
 # Set subscription for ADME operations
