@@ -29,12 +29,12 @@ To create a new Recovery Orchestration Plan within a Service Group, follow these
 1. On the **Management** tab, select the managed identity type. By default, **System-assigned** identity is selected. You can also choose **User-assigned** if you prefer a specific managed identity.
 1. Select **Review + create**. Review the summary of your selections and select **Create**.
 
-After creation, the plan appears in the Recovery Plans list pane showing the plan name, associated service group, plan status, and plan type.
+After creation, the plan appears in the **Recovery Plans** list pane showing the plan name, associated service group, plan status, and plan type.
 
 
 ## Configure the Recovery Plan
 
-After the plan creation is complete, you can open the plan from the Recovery Plans list. The plan is initially in the **Warning** state, indicating that resources require attention. The **Configure plan** tab shows the following key sections - **Manage resource protection** and **Plan readiness check**.
+After the plan creation completes, you can open the plan from the **Recovery Plans** list. The plan is initially in the **Warning** state, indicating that resources require attention. The **Configure plan** tab shows the following key sections - **Manage resource protection** and **Plan readiness check**.
 
 ### View resource protection
 
