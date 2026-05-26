@@ -38,8 +38,8 @@ Use the serverless agents runtime when you want agents that are triggered by eve
 
 To get started, see these articles:
 
-+ [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
-+ [Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
++ [Overview: serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
++ [Get started: Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Tools and MCP servers
 
