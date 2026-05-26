@@ -36,7 +36,7 @@ Key capabilities include:
 
 - **Custom fault definition**: Defines custom fault logic for unsupported resource by integrating with Azure Runbooks.
 
-- **Recovery plan integration**: Integrates with Recovery Plans to perform failover and reprotection operations after fault injection and verify Service Group recoverability.
+- **Recovery plan integration**: Integrates with Recovery Plans to perform failover and reprotection operations after fault injection completes and verify Service Group recoverability.
 
 - **Real-time health monitoring**: Monitors Service Group resource health in real-time during drill execution through integrated metrics.
 
