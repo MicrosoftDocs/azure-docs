@@ -2,7 +2,7 @@
 title: "Agentic Application Patterns - Azure"
 description: Implement deterministic agentic workflows and agent loops using the Durable Task programming model. Build reliable AI agents with automatic checkpointing and retry policies.
 author: cgillum
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/05/2026
 ms.author: cgillum
 zone_pivot_groups: azure-durable-approach
