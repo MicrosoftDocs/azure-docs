@@ -131,7 +131,7 @@ Use the portal or Azure CLI to remove an existing association between your App C
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the following command to dissociate your App Configuration store from the network security perimeter. Replace the placeholder values with your own information.
+- Run the following command to dissociate your App Configuration store from the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
     az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group>
