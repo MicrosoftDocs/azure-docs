@@ -70,7 +70,7 @@ Generate the OpenSSH certificate with the Azure CLI [az sftp](/cli/azure/sftp) c
 
 ```azurecli
 az login
-az sftp cert --file /my_cert.pub
+az sftp cert --file ./my_cert.pub
 ``` 
 For security reasons, the certificate is valid for only 65 minutes. After it expires, you need to rerun the command to get a new certificate.
 
@@ -96,7 +96,7 @@ Use the following command to generate the SSH certificate with the generated key
 
 ```azurecli
 az login
-az sftp cert --public-key-file /id_rsa.pub --file /my_cert.pub
+az sftp cert --public-key-file ./id_rsa.pub --file ./my_cert.pub
 ```
 
 If you're using a service principal, you can sign in by using either a client secret or a certificate:
@@ -116,7 +116,7 @@ az login --service-principal -u <application_id_or_client_id> -p <secret_value> 
 After authentication, run the same command to download the certificate:
 
 ```azurecli
-az sftp cert --public-key-file /id_rsa.pub --file /my_cert.pub
+az sftp cert --public-key-file ./id_rsa.pub --file ./my_cert.pub
 ```
 
 #### [Azure PowerShell](#tab/azurepowershell)
@@ -130,13 +130,13 @@ Connect-AzAccount
 Generate the OpenSSH certificate by using [PowerShell Az.Sftp](https://www.powershellgallery.com/packages/Az.Sftp/0.1.0) as shown in the following example:
 
 ```powershell
-New-AzSftpCertificate -CertificatePath "\my_cert.cert"
+New-AzSftpCertificate -CertificatePath ".\my_cert.pub"
 ```
 
 Optionally, use the following command to generate the OpenSSH certificate by using your SSH keys:
 
 ```powershell
-New-AzSftpCertificate -PublicKeyFile "\id_rsa.pub" -CertificatePath "\my_cert.cert"
+New-AzSftpCertificate -PublicKeyFile ".\id_rsa.pub" -CertificatePath ".\my_cert.pub"
 ```
 
 Learn more about the PowerShell module [here](/powershell/module/az.sftp/).
@@ -278,7 +278,7 @@ SFTP clients such as WinSCP and PuTTY support OpenSSH-based authentication. The 
 Use the following command to connect by using the OpenSSH certificate obtained in the previous steps:
 
 ```azurecli
-az sftp connect --storage-account <<account_name>> --certificate-file /my_cert.pub
+az sftp connect --storage-account <<account_name>> --certificate-file ./my_cert.pub --private-key-file ./id_rsa
 ```
 
 Additionally, you can get the OpenSSH certificate and connect to SFTP by using a single command as follows:
@@ -295,7 +295,7 @@ For more information about the commands, see [here](/cli/azure/sftp).
 Use the following command to connect by using the OpenSSH certificate obtained in the previous steps:
 
 ```powershell
-Connect-AzSftp -StorageAccount "<<account_name>>" -CertificateFile "/my_cert.pub"
+Connect-AzSftp -StorageAccount "<<account_name>>" -CertificateFile ".\my_cert.pub" -PrivateKeyFile ".\id_rsa"
 ```
 
 Additionally, you can get the OpenSSH certificate and connect to SFTP by using a single command as follows:

@@ -128,7 +128,7 @@ In a Linux app, all containers (main and sidecars) share environment variables. 
 
 ## Add the Redis sidecar extension
 
-From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Cache for Redis.
+From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Managed Redis.
 
 To use the Redis sidecar:
 
@@ -136,40 +136,6 @@ To use the Redis sidecar:
 - Configure Redis in your app’s startup code.
 - Use caching patterns to store and retrieve data.
 - Test by accessing your app and checking logs to confirm cache usage.
-
-## Add the Datadog sidecar extension
-
-From the Azure portal, you can add a Datadog sidecar extension to collect logs, metrics, and traces for observability without modifying app code. When you add the extension, you specify your Datadog account information so that the sidecar extension can ship telemetry directly to Datadog.
-
-**For code-based apps:**
-
-1. Create a `startup.sh` script to download and initialize the Datadog tracer. The following script is an example for a .NET app:
-
-    ```bash
-    #!/bin/bash
-    
-    # Create log directory. This should correspond to the "Datadog Trace Log Directory" extension setting
-    mkdir -p /home/LogFiles/dotnet
-    
-    # Download the Datadog tracer tarball
-    wget -O /datadog/tracer/datadog-dotnet-apm-2.49.0.tar.gz https://github.com/DataDog/dd-trace-dotnet/releases/download/v2.49.0/datadog-dotnet-apm-2.49.0.tar.gz
-    
-    # Navigate to the tracer directory, extract the tarball, and return to the original directory
-    mkdir -p /datadog/tracer
-    pushd /datadog/tracer
-    tar -zxf datadog-dotnet-apm-2.49.0.tar.gz
-    popd
-    
-    dotnet /home/site/wwwroot/<yourapp>.dll
-    ```
-    
-2. Set the startup command in App Service to run this script.
-
-3. Run the application and confirm the telemetry is shipped by signing into your Datadog dashboard.
-
-**For container-based apps:**
-
-Before you add the Datadog sidecar extension, add the Datadog tracer setup in your Dockerfile, similar to the script example for code-based apps.
 
 ## Add the Phi-3/Phi-4 sidecar extension
 

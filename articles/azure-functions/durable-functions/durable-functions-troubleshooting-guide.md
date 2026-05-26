@@ -1,6 +1,6 @@
 ---
-title: Durable Functions Troubleshooting Guide - Azure Functions
-description: Guide to troubleshoot common issues with durable functions.
+title: Durable Functions Troubleshooting Guide
+description: Troubleshoot common Durable Functions issues like stuck orchestrations, slow execution, and pending states. Use these diagnostic queries and steps to resolve problems in your Azure Functions app.
 author: nytian
 ms.topic: troubleshooting
 ms.service: azure-functions
@@ -10,72 +10,65 @@ ms.author: azfuncdf
 
 # Durable Functions troubleshooting guide
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build serverless orchestrations using ordinary code. For more information about Durable Functions, see [Durable Functions overview](../../durable-task/common/what-is-durable-task.md).
+This article helps you troubleshoot common scenarios in [Durable Functions](../../durable-task/common/what-is-durable-task.md) apps. Find your symptom in the following list and follow the linked steps to diagnose and resolve the issue.
 
-This article helps you troubleshoot common scenarios in Durable Functions apps.
+## Common symptoms
 
-> [!NOTE]
-> Microsoft support engineers are available to help diagnose issues with your application. If you can't diagnose your problem using this guide, file a support ticket by opening the **New Support request** blade in the **Support + troubleshooting** section of your function app page in the Azure portal.
+- [Orchestration is stuck in the Pending state](#orchestration-is-stuck-in-the-pending-state)
+- [Orchestrations start after a long delay](#orchestrations-start-after-a-long-delay)
+- [Orchestration is stuck in the Running state](#orchestration-is-stuck-in-the-running-state)
+- [Orchestration takes longer than expected to complete](#orchestration-takes-longer-than-expected-to-complete)
+- [Connection errors on the Consumption plan](#connection-management-issues-in-the-consumption-plan)
 
-:::image type="content" source="./media/durable-functions-troubleshooting-guide/durable-function-support-request.png" alt-text="Screenshot of the support request page in the Azure portal.":::
-
-> [!TIP]
-> When debugging and diagnosing issues, we recommend that you start by ensuring your app uses the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. For instructions on how to upgrade your extension version, see [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md). 
-
-The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also provides potential solutions to your problems based on the diagnosis. For more information, see [Azure Function app diagnostics](./function-app-diagnostics.md). 
-
-If the previous resources didn't solve your problem, the following sections provide advice for specific application symptoms:
+For KQL diagnostic queries you can run in Application Insights, see [Sample KQL queries for Durable Functions diagnostics](#sample-kql-queries-for-durable-functions-diagnostics).
 
 ## Orchestration is stuck in the `Pending` state
 
 When you start an orchestration, a "start" message is written to an internal queue managed by the Durable extension, and the status of the orchestration is set to "Pending". After an available app instance picks up and successfully processes the orchestration message, the status transitions to "Running" (or to some other non-"Pending" state).
 
-Follow these steps to troubleshoot orchestration instances that remain stuck indefinitely in the "Pending" state. 
+Follow these steps to troubleshoot orchestration instances that remain stuck indefinitely in the "Pending" state.
 
-*  Check the Durable Task Framework traces for warnings or errors for the affected orchestration instance ID. Find a sample query in the [Trace Errors/Warnings section](#trace-errors-and-warnings).
+1. Check the Durable Task Framework traces for warnings or errors for the affected orchestration instance ID. Use the [Trace errors and warnings query](#trace-errors-and-warnings) in Application Insights to search for errors related to your instance.
 
-*  Check the Azure Storage control queues assigned to the stuck orchestrator to see if its "start message" is still there. For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
+1. Check the Azure Storage control queues to see if the orchestration's "start message" is still in the queue. In the Azure portal, navigate to your storage account, select **Queues**, and look for queues with a `control` prefix. For background on how control queues work, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
-*  Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to "64 Bit". 
-   Sometimes orchestrations don't start because the app is running out of memory. Switching to a 64-bit process lets the app allocate more total memory. This change only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
+1. Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) to **64 Bit**. Orchestrations sometimes fail to start because the app is running out of memory. Switching to a 64-bit process lets the app allocate more total memory. This change only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes.
 
 ## Orchestrations start after a long delay
 
 Normally, orchestrations start within a few seconds after they're scheduled. However, orchestrations might take longer to start in certain cases. Follow these steps to troubleshoot when orchestrations take more than a few seconds to start executing.
 
-*  Refer to the [documentation on delayed orchestrations in Azure Storage](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to check whether the delay is caused by known limitations.
+1. Check whether the delay matches a [known limitation of the Azure Storage provider](./durable-functions-azure-storage-provider.md#orchestration-start-delays), such as partition rebalancing or timer-based polling intervals.
 
-*  Check the Durable Task Framework traces for warnings or errors with the affected orchestration instance ID. Find a sample query in the [Trace Errors/Warnings section](#trace-errors-and-warnings).
+1. Check the Durable Task Framework traces for warnings or errors with the affected orchestration instance ID. Use the [Trace errors and warnings query](#trace-errors-and-warnings) in Application Insights to search for errors related to your instance.
 
-## Orchestration doesn't complete or is stuck in the `Running` state
+## Orchestration is stuck in the `Running` state
 
-If an orchestration remains in the "Running" state for a long period of time, it usually means that it's waiting for a long-running task scheduled to complete. For example, it could be waiting for a durable timer task, an activity task, or an external event task to be completed. If you observe that scheduled tasks completed successfully but the orchestration still isn't making progress, there might be a problem preventing the orchestration from proceeding to its next task. Orchestrations in this state are often called "stuck orchestrations".
+If your orchestration status shows "Running" for longer than expected, or if it appears to have stopped making progress, the orchestration is likely waiting on a task that hasn't completed. For example, it could be waiting for a durable timer, an activity task, or an external event. If scheduled tasks completed successfully but the orchestration still isn't advancing, there might be a problem preventing it from proceeding to its next step. Orchestrations in this state are often called "stuck orchestrations".
 
 Follow these steps to troubleshoot stuck orchestrations:
 
-*  Try restarting the function app. This step can help if the orchestration gets stuck because of a transient bug or deadlock in either the app or the extension code.
+1. Try restarting the function app. This step can help if the orchestration gets stuck because of a transient bug or deadlock in either the app or the extension code.
 
-*  Check the Azure Storage account control queues to see if any queues are growing continuously. [This Azure Storage messaging KQL query](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) can help identify problems with dequeuing orchestration messages. If the problem affects only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
+1. Check the Azure Storage account control queues to see if any queues are growing continuously. Use the [Azure Storage messaging query](#azure-storage-messaging) in Application Insights to identify problems with dequeuing orchestration messages. If the problem affects only a single control queue, it might indicate a problem on a specific app instance. In that case, scaling up or down to move off the unhealthy VM instance could help.
 
-*  Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
+1. Filter the [Azure Storage messaging query](#azure-storage-messaging) results by the queue name as the Partition ID to look for problems related to that specific control queue partition.
 
-*  Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Some problems might be caused by breaking changes to in-flight orchestration instances.
+1. Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Breaking changes to in-flight orchestration instances can cause stuck orchestrations.
 
-## Orchestration runs slow
+## Orchestration takes longer than expected to complete
 
-Heavy data processing, internal errors, and insufficient compute resources can cause orchestrations to run slower than normal. Follow these steps to troubleshoot orchestrations that take longer than expected to run:
+Heavy data processing, internal errors, and insufficient compute resources can cause orchestrations to run slower than normal. Follow these steps to troubleshoot orchestrations that take longer than expected to complete:
 
-*  Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errors-and-warnings).
+1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. Use the [Trace errors and warnings query](#trace-errors-and-warnings) in Application Insights to search for errors related to your instance.
 
-*  If your app uses the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). 
-   Extended sessions minimize history loads, which can slow down processing.
+1. If your app uses the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). Extended sessions minimize history loads, which can slow down processing.
 
-*  Check for performance and scalability bottlenecks. 
-   Application performance depends on many factors. For example, high CPU usage or large memory consumption can result in delays. For detailed guidance, see [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md).
+1. Check for performance and scalability bottlenecks. High CPU usage or large memory consumption can cause delays. For detailed guidance, see [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md).
 
-## Sample queries
+## Sample KQL queries for Durable Functions diagnostics
 
-Troubleshoot issues by writing custom [KQL queries](/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app.
+Troubleshoot issues by writing custom [KQL queries](/azure/data-explorer/kusto/query/) in the Azure Application Insights instance configured for your Azure Functions app. For column definitions used in these queries, see the [column reference](#application-insights-column-reference-for-durable-functions-queries).
 
 ### Azure Storage messaging
 
@@ -172,7 +165,7 @@ traces
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
 ```
 
-### Application Insights column reference
+### Application Insights column reference for Durable Functions queries
 
 The following table lists the columns projected by the preceding queries and their descriptions.
 
@@ -195,13 +188,30 @@ The following table lists the columns projected by the preceding queries and the
 |taskHub|The name of your [task hub](../../durable-task/common/durable-task-hubs.md).|
 |newEvents|A comma-separated list of history events that are being written to the History table in storage.|
 
-## Connection management issues in the consumption plan
+## Connection management issues in the Consumption plan
 
-Apps running on the Azure Functions Consumption plan are subject to connection limits. If you experience connectivity errors or orchestrations that fail intermittently because of exhausted connections, see [Manage connections in Azure Functions](../manage-connections.md?toc=/azure/azure-functions/durable-functions/toc.json) for guidance on connection pooling and best practices to reduce connection usage.
+Apps running on the Azure Functions Consumption plan are subject to [connection limits](../manage-connections.md?toc=/azure/azure-functions/durable-functions/toc.json). Common symptoms include:
 
-## Getting support
+- Intermittent connectivity errors when calling activity functions or external services.
+- Orchestrations that fail sporadically under load.
+- Socket exhaustion errors in the logs.
 
-For questions and support, open an issue in one of the following GitHub repos. When you report a bug in Azure, include information like affected instance IDs, time ranges in UTC showing the problem, the application name (if possible), and deployment region to greatly speed up investigations.
+To reduce connection usage, use `HttpClientFactory` or shared static clients instead of creating new `HttpClient` instances in every function call. For detailed guidance on connection pooling and best practices, see [Manage connections in Azure Functions](../manage-connections.md?toc=/azure/azure-functions/durable-functions/toc.json).
+
+## General tips
+
+> [!TIP]
+> Before diving into specific troubleshooting steps, ensure your app uses the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. For instructions on how to upgrade, see [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md).
+
+The **Diagnose and solve problems** tab in the Azure portal can help monitor and diagnose issues related to your application and suggest potential solutions. For more information, see [Azure Function app diagnostics](../functions-diagnostics.md).
+
+## Get support for Durable Functions issues
+
+If you can't resolve your issue using this guide, you can file a support ticket by opening the **New Support request** blade in the **Support + troubleshooting** section of your function app page in the Azure portal.
+
+:::image type="content" source="./media/durable-functions-troubleshooting-guide/durable-function-support-request.png" alt-text="Screenshot of the support request page in the Azure portal.":::
+
+For questions and community support, open an issue in one of the following GitHub repos. When you report a bug, include information like affected instance IDs, time ranges in UTC showing the problem, the application name (if possible), and deployment region to speed up investigations.
 
 - [Durable Functions extension and .NET in-process SDK](https://github.com/Azure/azure-functions-durable-extension/issues)
 - [.NET isolated SDK](https://github.com/microsoft/durabletask-dotnet/issues)

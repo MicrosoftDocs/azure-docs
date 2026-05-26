@@ -40,7 +40,25 @@ If you have existing backups, you must migrate them to a backup vault before you
 
 1. Navigate to the **Backup Vault** menu to view and manage your backups.
 
+## Unassign a backup vault
+
+Before you unassign a backup vault, ensure that there are no backups assigned to the backup vault.
+
+1. Navigate to **Backups**.
+1. Select **Configure Backups**.
+1. In **Backup vault**, select **No backup vault selected** and select **OK**
+
+:::image type="content" source="./media/backup-vault-manage/unassign-backup.png" alt-text="Screenshot to unassign backup vault and policy." lightbox="./media/backup-vault-manage/unassign-backup.png":::
+
+## Unassign a backup policy
+
+1. Navigate to **Backups**.
+1. Select **Configure Backups**.
+1. In **Backup policy**, select **No backup policy** and select **OK**
+
 ## Delete a backup vault
+
+Before you delete a backup, you should ensure that you have unassigned the backup vault and the backup policy.
 
 1. Navigate to the **Backup Vault** menu.
 1. Identify the backup vault you want to delete and select the three dots `...` next to the backup's name. Select **Delete**. 

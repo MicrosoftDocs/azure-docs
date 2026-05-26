@@ -36,7 +36,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png)
 
-2. Select **+ Add volume** to create a volume.  
+2. Select **+ Add volume** to create a volume.   
     
     The Create a Volume window appears.
 
@@ -90,7 +90,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * **Encryption key source** 
         Select Microsoft Managed Key or Customer Managed Key.  See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) to learn more about this field. 
 
-    * **Advanced Ransomware Protection**
+    * **Advanced Ransomware Protection**  
         Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
@@ -131,7 +131,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     :::image type="content" source="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png":::
 
-5. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
+5. [!INCLUDE [Create volume protection tab](includes/create-volume-protection.md)]
+
+6. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
 
     The volume you created appears in the Volumes page. 
  

@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 01/23/2026
+ms.date: 05/04/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -23,7 +23,7 @@ Azure Backup provides several ways to restore a VM.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the Resource Group you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
 **Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is copied to the vault and retained in accordance with the retention policy.　<br/><br/> When you choose a Vault-Standard recovery point, a VHD file with the content of the chosen recovery point is also created in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point. <br/><br/> After the disk replacement operation is complete, the original disk is retained in the resource group. You can choose to manually delete the original disks if they aren't needed. <br/><br/>Replace existing is supported for unencrypted managed VMs, including VMs [created using custom images](/azure/virtual-machines/windows/tutorial-custom-images). It's unsupported for classic VMs, unmanaged VMs, and [generalized VMs](/azure/virtual-machines/windows/upload-generalized-managed).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br><br> Replace existing is also supported for VMs with linked resources, like [user-assigned managed-identity](../active-directory/managed-identities-azure-resources/overview.md) or [Key Vault](/azure/key-vault/general/overview).
 **Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> During the backup, snapshots aren't replicated to the secondary region. Only the data stored in the vault is replicated. So secondary region restores are only [vault tier](about-azure-vm-restore.md#key-concepts-for-azure-vm-restore) restores. The restore time for the secondary region will be almost the same as the vault tier restore time for the primary region.  <br><br> This feature is available for the options below:<br><br> - [Create a VM](#create-a-vm) <br> - [Restore Disks](#restore-disks) <br><br> If the source machine has more than 16 disks, VHDs won't be created in Cross Region Restore. <br><br> We don't currently support the [Replace existing disks](#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
-**Cross Subscription Restore** | Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points.  <br><br> Additionally, Cross Zone Restore supports restoring Azure non-zone pinned VMs from a Recovery Services vault configured with Zone-Redundant Storage (ZRS), enabling enhanced resiliency and flexibility in disaster recovery scenarios.  <br><br> Allowed only if the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) is enabled for your Recovery Services vault.  <br><br>  Works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm).   <br><br>   You can trigger Cross Subscription Restore for managed virtual machines only. <br><br> Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for [snapshots tier](backup-azure-vms-introduction.md#snapshot-creation) recovery points. <br><br>  It's unsupported for legacy recovery points from [VMs that used unmanaged disks](#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks) and [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-by-using-ade).
+**Cross Subscription Restore** | Allows you to restore managed Azure virtual machines or disks to a different subscription within the same tenant as the protected VM, subject to Azure RBAC permissions. <br><br> The default target subscription is the protected VM subscription. Cross Subscription Restore works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm). <br><br> Supported behavior depends on the recovery point tier:<br><br> - Snapshot-tier recovery points can be restored only in the protected VM subscription. <br> - Vault-tier recovery points can be restored in the protected VM subscription or the vault subscription. To restore a vault-tier recovery point to another subscription, the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) must be enabled on the Recovery Services vault. <br><br> Original location restore and [Replace existing disk](#replace-existing-disks) are supported only in the protected VM subscription. Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for legacy recovery points from [VMs that used unmanaged disks](#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks), [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-by-using-ade), and [VMs with CMK encrypted disks](backup-azure-vms-encryption.md).
 **Cross Zonal Restore** |	Allows you to restore Azure Virtual Machines or disks pinned to any zone to different available zones (as per the Azure RBAC capabilities) from restore points. Note that when you select a zone to restore, it selects the [logical zone](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) (and not the physical zone) as per the Azure subscription you will use to restore to.           <br><br> You can trigger Cross Zonal Restore for managed virtual machines only. <br><br> Cross Zonal Restore is supported for [Restore with Managed System Identities (MSI)](#restore-vms-with-managed-identities). <br><br> Cross Zonal Restore supports restore of an Azure zone pinned/non-zone pinned VM from a vault with Zonal-redundant storage (ZRS) enabled. Learn [how to set Storage Redundancy](backup-create-rs-vault.md#set-storage-redundancy). <br><br> It's supported to restore an Azure zone pinned VM only from a [vault with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy) (if the secondary region supports zones) or Zone Redundant Storage (ZRS) enabled. <br><br> Cross Zonal Restore is supported from [secondary regions](#restore-in-secondary-region). <br><br> It's unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) restore point. <br><br> It's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 >[!Tip]
@@ -103,9 +103,11 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 
     ![Restore configuration wizard - choose restore options](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
-1. Choose the required subscription from the **Subscription** drop-down list to restore an Azure VM to a different subscription.
+1. Choose the required subscription from the **Subscription** dropdown menu to restore an Azure VM.
 
-   Azure Backup now supports Cross Subscription Restore (CSR), you can now restore an Azure VM using a recovery point from default subscription to another. Default subscription is the subscription where recovery point is available.
+    By default, Azure Backup selects the protected VM subscription. You can choose a different subscription in the same tenant if the selected recovery point and vault settings support that target.
+
+    For snapshot-tier recovery points, restore is supported only in the protected VM subscription. For vault-tier recovery points, restore is supported in the protected VM subscription or the vault subscription. To restore to any other subscription, Cross Subscription Restore must be enabled on the vault.
 
    The following screenshot lists all subscriptions under the tenant where you've permissions, which enable you to restore the Azure VM to another subscription.
 
@@ -143,9 +145,11 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
    :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot shows how to select Resource disks.":::
 
-1. Choose the required subscription from the **Subscription** drop-down list to restore the VM disks to a different subscription.
+1. Choose the required subscription from the **Subscription** dropdown menu to restore the VM disks.
 
-   Azure Backup now supports Cross Subscription Restore (CSR). Like Azure VM, you can now restore Azure VM disks using a recovery point from default subscription to another. Default subscription is the subscription where recovery point is available.
+    By default, Azure Backup selects the protected VM subscription. You can choose a different subscription in the same tenant if the selected recovery point and vault settings support that target.
+
+    For snapshot-tier recovery points, restore is supported only in the protected VM subscription. For vault-tier recovery points, restore is supported in the protected VM subscription or the vault subscription. To restore to any other subscription, you must enable Cross Subscription Restore on the vault.
 
 1. Choose the required zone from the **Availability Zone** drop-down list to restore the VM disks to a different zone.
 
@@ -194,6 +198,8 @@ After the disk is restored, use the template that was generated as part of the r
 ## Replace existing disks
 
 As one of the [restore options](#restore-options), you can replace an existing VM disk with the selected restore point. [Review](#restore-options) all restore options.
+
+Replace existing VM disk is supported only in the protected VM subscription.
 
 1. In **Restore configuration**, select **Replace existing**.
 1. In **Restore Type**, select **Replace disk/s**. This is the restore point that will be used to replace existing VM disks.
@@ -273,7 +279,7 @@ In the restore process, you'll see the option **Availability Zone.** You'll see 
 
 In summary, the **Availability Zone** will only appear when
  - The source VM is zone pinned and is NOT encrypted
- - The recovery point is present in vault tier only (Snapshots only or snapshot and vault tier are not supported)
+ - The recovery point is present in vault tier (Snapshots only are not supported)
  - The recovery option is to either create a new VM or to restore disks (replace disks option replaces source data and hence the availability zone option is not applicable)
  - Creating VM/disks in the same region when vault's storage redundancy is ZRS (Doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned)
  - Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore AND if the paired region supports zones
@@ -293,7 +299,9 @@ In summary, the **Availability Zone** will only appear when
 
 ## Cross Subscription Restore for Azure VM
 
-Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. Default subscription contains the recovery points.
+Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you restore Azure VMs or disks across subscriptions in the same tenant, based on the selected recovery point tier and vault settings.
+
+For Azure VM backups protected across subscriptions, the default restore target is the protected VM subscription. Snapshot-tier recovery points can be restored only in that subscription. Vault-tier recovery points can be restored in the protected VM subscription or the vault subscription. To restore a vault-tier recovery point to any other subscription, you must enable CSR on the vault.
 
 This feature is enabled for Recovery Services vault by default. However, there may be instances when you may need to block Cross Subscription Restore based on your cloud infrastructure. So, you can enable, disable, or permanently disable Cross Subscription Restore for the existing vaults by going to *Vault* > **Properties** > **Cross Subscription Restore**.
 
@@ -415,6 +423,38 @@ You can also select the [user-managed identity](../active-directory/managed-iden
 >Cross Region Restore isn't supported with managed identities.
 >
 >Currently, this is available in all Azure public and national cloud regions.
+
+## Restore VMs in bulk (preview)
+
+Azure Backup allows you to restore up to 100 protected Azure virtual machines to an alternate location in a single, guided experience, with control and flexibility over restore settings for each virtual machine.
+
+>[!NOTE]
+>- Bulk VM restore doesn’t support Classic, Unmanaged, Encrypted, or Confidential virtual machines.
+>- Bulk VM restore isn’t supported for cross‑region restore (CRR) scenarios.
+>- Target subnets must use `/16` or a smaller subnet mask.
+
+To restore VMs in bulk using the Azure portal, follow these steps:
+
+1. Go to the **Recovery Services vault** and select **Protected items** > **Backup items**.
+1. On the **Backup items** pane, select **Azure Virtual Machine** as the **BACKUP MANAGEMENT TYPE**.
+1. On the **Backup Items (Azure Virtual Machine)** pane,  select one or more VMs that you want to restore, and then select **Bulk restore (Preview)**.
+
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/bulk-restore-virtual-machines.png" alt-text="Screenshot that shows how to initiate virtual machines in bulk." lightbox="./media/backup-azure-arm-restore-vms/bulk-restore-virtual-machines.png":::
+
+1. On the **Bulk Restore** pane, on the **Basics** tab, modify (add or remove) the VM selection for restore.
+1. On the **Restore point** tab, modify the time range or update the restore point for individual VMs by selecting **Edit** corresponding to each VM.
+
+   By default, the latest restore points appear automatically for each VM. 
+
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/select-restore-points-bulk-restore.png" alt-text="Screenshot that shows how to select restore points for virtual machines in bulk." lightbox="./media/backup-azure-arm-restore-vms/select-restore-points-bulk-restore.png":::
+
+
+1. On the **Restore parameters** tab, select common restore configurations - **Target resource group**, **Virtual Network**, **Subnet** and other that apply to all selected VMs. 
+1. On the **Validation pre-checks** tab, review the auto validation results for the bulk VM restore configurations.
+
+   Azure Backup automatically triggers multiple validations to ensure that the selected configuration is valid for bulk restore. 
+
+1. On the **Review + restore** tab, select **Restore** and start the bulk restore operation that hosts individual restore operations.
 
 ## Track the restore operation
 

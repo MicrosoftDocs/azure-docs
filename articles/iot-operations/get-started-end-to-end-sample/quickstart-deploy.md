@@ -5,9 +5,9 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/20/2025
+ms.date: 05/15/2026
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
 
 # Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s
@@ -26,12 +26,13 @@ We use GitHub Codespaces as a virtual environment for this quickstart so that yo
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for production, performance evaluation, or scale testing. Use GitHub Codespaces for exploration only.
 >
 > The Codespaces environment is sufficient to complete the quickstart steps, but doesn't support advanced configurations like _secure settings_.
+> See these scripts in GitHub for a [production-ready deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 
 ## Prerequisites
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * A [GitHub](https://github.com) account.
 

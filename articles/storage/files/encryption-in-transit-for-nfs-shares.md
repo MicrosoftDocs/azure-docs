@@ -37,9 +37,9 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 >
 > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
 > - Centos7, Centos8
-> - RedHat7, RedHat8, RedHat9
+> - RedHat7, RedHat8, RedHat9, RedHat10
 > - Rocky8, Rocky9
-> - SUSE (SLES 15)
+> - SUSE (SLES 15, SLES 16)
 > - Oracle Linux
 > - Alma Linux
 > - Azure Linux

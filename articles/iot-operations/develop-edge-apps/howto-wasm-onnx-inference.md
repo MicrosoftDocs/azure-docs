@@ -6,6 +6,8 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 02/26/2026
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ai-usage: ai-assisted
 
 ---
@@ -56,7 +58,7 @@ Before you begin, ensure you have:
 - Access to a container registry like Azure Container Registry.
 - Development environment set up for WebAssembly module development.
 
-For detailed setup instructions, see [Develop WebAssembly modules](./howto-develop-wasm-modules.md).
+For detailed setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
 
 ## Architecture pattern
 
@@ -301,7 +303,7 @@ Inference in WASM data flow graphs has the following limitations:
 
 ## Next steps
 
-- [Develop WebAssembly modules](./howto-develop-wasm-modules.md)
-- [Build WebAssembly modules with VS Code](./howto-build-wasm-modules-vscode.md)
+- [Develop WebAssembly modules](./howto-build-wasm-modules.md)
+- [Build WebAssembly modules with VS Code](./howto-build-wasm-modules.md)
 - [Configure WebAssembly graph definitions](./howto-configure-wasm-graph-definitions.md)
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)

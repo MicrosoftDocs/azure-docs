@@ -1,8 +1,8 @@
 ---
 title: Create STAC Collections via API in Microsoft Planetary Computer Pro
 description: Learn how to add and use STAC collections in Microsoft Planetary Computer Pro GeoCatalog using Python.
-author: prasadko
-ms.author: prasadkomma
+author: nelsontam-afk
+ms.author: nelsontam
 ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 04/24/2025

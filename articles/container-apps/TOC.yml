@@ -45,7 +45,14 @@ items:
               href: jobs-get-started-portal.md
             - name: Command line
               href: jobs-get-started-cli.md
-
+    - name: Express
+      items:
+        - name: Overview
+          href: express-overview.md
+        - name: Deploy with the CLI
+          href: deploy-express-cli.md
+        - name: Local testing
+          href: express-local-testing.md
 - name: AI integration
   items:
     - name: Overview
@@ -215,9 +222,25 @@ items:
         - name: Create a Functions app through the portal and CLI
           href: functions-usage.md
         - name: Manage a Functions app
-          href: functions-manage.md 
+          href: functions-manage.md
+        - name: Managing Secrets in Functions on ACA
+          items:
+            - name: Overview
+              href: functions-secrets-tutorial.md
+            - name: Store app-level secrets
+              href: functions-secrets-app-level.md
+            - name: Configure host key storage
+              href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -236,7 +259,7 @@ items:
           href: troubleshooting.md
         - name: Errors and failures
           items:
-            - name: Container create
+            - name: Container exits
               href: troubleshoot-container-create-failures.md
             - name: Open Container Initiative (OCI)
               href: troubleshoot-open-container-initiative-errors.md
@@ -366,6 +389,8 @@ items:
           href: managed-identity-image-pull.md
     - name: Secure deployments
       href: secure-deployment.md
+    - name: Confidential compute
+      href: confidential-compute.md
 - name: Resiliency (preview)
   items:
     - name: Service discovery resiliency
@@ -378,6 +403,8 @@ items:
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
+    - name: Relocate to another region
+      href: relocate-region.md
 - name: Dedicated compute
   items:
     - name: Workload profiles
@@ -650,6 +677,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

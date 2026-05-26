@@ -79,6 +79,10 @@ items:
             href: monitor-diagnostic-settings.md
           - name: List of Redis metrics
             href: monitor-cache-reference.md#metrics
+          - name: Enable Redis keyspace notifications
+            href: enable-redis-keyspace-notifications.md
+          - name: Dashboards with Grafana
+            href: grafana-dashboards.md
       - name: Scaling and performance
         items:
           - name: Change the size and tier of a cache
@@ -114,9 +118,7 @@ items:
             href: private-link.md
           - name: Security controls by Azure Policy
             href: ./security-controls-policy.md
-            displayName: regulatory, compliance, standards, domains
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+            displayName: regulatory, compliance, standards, domain
       - name: Cache management
         items:
           - name: Configure in Azure portal
@@ -179,8 +181,12 @@ items:
             href: migrate/migrate-redis-enterprise-overview.md
           - name: Understand differences
             href: migrate/migrate-redis-enterprise-understand.md
+          - name: Explore migration options
+            href: migrate/migrate-redis-enterprise-options.md
           - name: Self-service migration
             href: migrate/migrate-redis-enterprise-self-service.md
+          - name: Migration using tooling
+            href: migrate/migrate-redis-enterprise-with-tooling.md
       - name: Migrate to Azure Managed Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -19,7 +19,7 @@ This article lists the permissions for the Azure resource providers in the Datab
 
 Power applications with high-throughput, low-latency data access.
 
-Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
+Azure service: [Azure Managed Redis](/azure/redis/), [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -90,6 +90,7 @@ Azure service: [Azure Cache for Redis](/azure/azure-cache-for-redis/)
 > | `Microsoft.Cache/redisEnterprise/migrations/read` | View the Redis Enterprise cache migration |
 > | `Microsoft.Cache/redisEnterprise/migrations/write` | Start the Redis Enterprise cache migration |
 > | `Microsoft.Cache/redisEnterprise/migrations/cancel/action` | Cancel the Redis Enterprise cache migration |
+> | `Microsoft.Cache/redisEnterprise/migrations/validate/action` | Validate if a Redis cache can be migrated to an Azure Managed Redis cluster |
 > | `Microsoft.Cache/redisEnterprise/operationResults/read` | View the result of Redis Enterprise operations in the management portal |
 > | `Microsoft.Cache/redisEnterprise/privateEndpointConnectionProxies/validate/action` | Validate the private endpoint connection proxy |
 > | `Microsoft.Cache/redisEnterprise/privateEndpointConnectionProxies/read` | Get the private endpoint connection proxy |
@@ -263,6 +264,8 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | `Microsoft.DBforMySQL/flexibleServers/replicas/read` | Returns the list of read replicas for a MySQL server |
 > | `Microsoft.DBforMySQL/flexibleServers/supportAcceleratedLogs/read` |  |
 > | `Microsoft.DBforMySQL/flexibleServers/supportedFeatures/read` | Return the list of the MySQL Server Supported Features |
+> | `Microsoft.DBforMySQL/flexibleServers/upgradeConfigurations/write` |  |
+> | `Microsoft.DBforMySQL/flexibleServers/upgradeConfigurations/read` |  |
 > | `Microsoft.DBforMySQL/locations/checkVirtualNetworkSubnetUsage/action` | Checks the subnet usage for speicifed delegated virtual network. |
 > | `Microsoft.DBforMySQL/locations/checkNameAvailability/action` | Verify whether given server name is available for provisioning worldwide for a given subscription. |
 > | `Microsoft.DBforMySQL/locations/listMigrations/action` | Return the List of MySQL scheduled auto migrations |
@@ -370,6 +373,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/flexibleServers/read` | Return the list of servers or gets the properties for the specified server. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/write` | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/delete` | Deletes an existing server. |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/action` | Creates a Major Version Upgrade Precheck operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/restart/action` | Restarts an existing server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/start/action` | Starts an existing server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/stop/action` | Stops an existing server |
@@ -405,7 +409,6 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/flexibleServers/logFiles/read` | Return a list of server log Files for a PostgreSQL Flexible server with File download links |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read` | Returns the PostgreSQL server long term backup operation tracking by backup name. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read` | Returns the list of  PostgreSQL server long term backup operation tracking. |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/write` | Creates a Major Version Upgrade Precheck operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read` | Gets a Major Version Upgrade Precheck Operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read` | Lists the Major Version Upgrade Precheck Operations Performed |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/migrations/write` | Creates a migration with the specified parameters. |
@@ -763,7 +766,7 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read` | Read a private endpoint connection or list all the private endpoint connections of a Database Account |
 > | `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/write` | Create or update a private endpoint connection of a Database Account |
 > | `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/delete` | Delete a private endpoint connection of a Database Account |
-> | `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/operationResults/read` | Read Status of privateEndpointConnenctions asynchronous operation |
+> | `Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/operationResults/read` | Read Status of privateEndpointConnections asynchronous operation |
 > | `Microsoft.DocumentDB/databaseAccounts/privateLinkResources/read` | Read a private link resource or list all the private link resources of a Database Account |
 > | `Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the diagnostic setting for the resource |
 > | `Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting for the resource |
@@ -1260,8 +1263,6 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/managedInstances/distributedAvailabilityGroups/delete` | Deletes a distributed availability group. |
 > | `Microsoft.Sql/managedInstances/distributedAvailabilityGroups/setRole/action` | Set Role for Azure SQL Managed Instance Link to Primary or Secondary. |
 > | `Microsoft.Sql/managedInstances/distributedAvailabilityGroups/failover/action` | Performs requested failover type in this distributed availability group. |
-> | `Microsoft.Sql/managedInstances/distributedAvailabilityGroups/addDatabases/action` | Adds databases to an existing Azure SQL Managed Instance Link |
-> | `Microsoft.Sql/managedInstances/distributedAvailabilityGroups/removeDatabases/action` | Removes databases from an existing Azure SQL Managed Instance Link |
 > | `Microsoft.Sql/managedInstances/dnsAliases/read` | Return the list of Azure SQL Managed Instance Dns Aliases for the specified instance. |
 > | `Microsoft.Sql/managedInstances/dnsAliases/write` | Creates an Azure SQL Managed Instance Dns Alias with the specified parameters or updates the properties for the specified Azure SQL Managed Instance Dns Alias. |
 > | `Microsoft.Sql/managedInstances/dnsAliases/delete` | Deletes an existing Azure SQL Managed Instance Dns Alias. |
@@ -1311,6 +1312,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/managedInstances/startStopSchedules/write` | Creates Azure SQL Managed Instance's Start-Stop schedule with the specified parameters or updates the properties of the schedule for the specified instance. |
 > | `Microsoft.Sql/managedInstances/startStopSchedules/delete` | Deletes Azure SQL Managed Instance's Start-Stop schedule. |
 > | `Microsoft.Sql/managedInstances/startStopSchedules/read` | Get properties for specified Start-Stop schedule for the Azure SQL Managed Instance or a List of all Start-Stop schedules. |
+> | `Microsoft.Sql/managedInstances/topdatabases/read` | Get top resource consuming databases of a managed instance |
+> | `Microsoft.Sql/managedInstances/topqueries/read` | Get top resource consuming queries of a managed instance |
 > | `Microsoft.Sql/managedInstances/vulnerabilityAssessments/write` | Change the vulnerability assessment for a given managed instance |
 > | `Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete` | Remove the vulnerability assessment for a given managed instance |
 > | `Microsoft.Sql/managedInstances/vulnerabilityAssessments/read` | Retrieve the vulnerability assessment policies on a given managed instance |
@@ -1467,8 +1470,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/servers/databases/syncGroups/syncMembers/refreshSchema/action` | Refresh sync member schema |
 > | `Microsoft.Sql/servers/databases/syncGroups/syncMembers/refreshSchemaOperationResults/read` | Retrieve result of the sync member schema refresh operation |
 > | `Microsoft.Sql/servers/databases/syncGroups/syncMembers/schemas/read` | Return the list of sync member database schemas |
+> | `Microsoft.Sql/servers/databases/topQueries/queryText/action` | Returns the text for selected query ID |
 > | `Microsoft.Sql/servers/databases/topQueries/read` | Returns aggregated statistics for selected number of queries in selected time period |
-> | `Microsoft.Sql/servers/databases/topQueries/queryText/read` | Returns the text for selected query ID |
 > | `Microsoft.Sql/servers/databases/topQueries/statistics/read` | Returns aggregated statistics for selected query in selected time period |
 > | `Microsoft.Sql/servers/databases/transparentDataEncryption/read` | Retrieve details of the logical database Transparent Data Encryption on a given managed database |
 > | `Microsoft.Sql/servers/databases/transparentDataEncryption/write` | Change the database Transparent Data Encryption for a given logical database |

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/04/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ---
 
@@ -145,7 +145,7 @@ For more information, see [Microsoft Defender for Azure SQL](/azure/defender-for
 
 ## Microsoft Antimalware
 
-[Microsoft Antimalware](/azure/security/fundamentals/antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration.
+[Microsoft Antimalware](antimalware.md) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration.
 
 Microsoft Antimalware for Azure provides:
 
@@ -155,11 +155,11 @@ Microsoft Antimalware for Azure provides:
 - **Signature updates** - Automatically installs the latest protection signatures
 - **Active protection** - Reports telemetry metadata about detected threats to Microsoft Azure
 
-For more information, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](/azure/security/fundamentals/antimalware).
+For more information, see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md).
 
 ## Azure Firewall
 
-[Azure Firewall](/azure/firewall/overview) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. Azure Firewall inspects east-west and north-south traffic with built-in threat intelligence that can alert and deny traffic from/to known malicious IP addresses and domains.
+[Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. Azure Firewall inspects east-west and north-south traffic with built-in threat intelligence that can alert and deny traffic from/to known malicious IP addresses and domains.
 
 Azure Firewall is available in three SKUs:
 
@@ -167,11 +167,11 @@ Azure Firewall is available in three SKUs:
 - **Azure Firewall Standard** - Provides L3-L7 filtering and threat intelligence feeds from Microsoft Cyber Security
 - **Azure Firewall Premium** - Advanced capabilities including signature-based IDPS, TLS inspection, and URL filtering
 
-For more information, see [What is Azure Firewall?](/azure/firewall/overview) and [Azure network security overview](/azure/security/fundamentals/network-overview).
+For more information, see [What is Azure Firewall?](../../firewall/overview.md) and [Azure network security overview](network-overview.md).
 
 ## Web Application Firewall
 
-[Web Application Firewall (WAF)](/azure/web-application-firewall/overview) provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is available through:
+[Web Application Firewall (WAF)](../../web-application-firewall/overview.md) provides centralized protection of your web applications from common exploits and vulnerabilities. WAF is available through:
 
 - **Azure Application Gateway** - Provides regional WAF protection
 - **Azure Front Door** - Provides global WAF protection with protection against network-level DDoS attacks
@@ -184,12 +184,12 @@ WAF protects against common web vulnerabilities such as:
 - Bot attacks
 - HTTP protocol violations and anomalies
 
-For more information, see [What is Azure Web Application Firewall?](/azure/web-application-firewall/overview)
+For more information, see [What is Azure Web Application Firewall?](../../web-application-firewall/overview.md)
 
 ## Next steps
 
 - [Incident response for Azure](incident-response-overview.md) - Learn how to respond to security incidents
 - [Responding to today's threats](/azure/defender-for-cloud/managing-and-responding-alerts) - Identify active threats and respond quickly
-- [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) - Collection of security best practices
+- [Azure security best practices and patterns](best-practices-and-patterns.md) - Collection of security best practices
 - [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/) - Comprehensive guide to Defender for Cloud
 - [Microsoft Sentinel documentation](/azure/sentinel/) - Complete documentation for Microsoft Sentinel

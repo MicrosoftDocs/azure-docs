@@ -12,6 +12,8 @@ ms.date: 03/17/2026
 
 # Web Application Firewall DRS rule groups and rules
 
+**Applies to:** :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+
 Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
 
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.

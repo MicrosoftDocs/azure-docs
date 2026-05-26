@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create an HTTP trigger in Azure SRE Agent"
+title: 'Tutorial: Create an HTTP Trigger in Azure SRE Agent'
 description: Set up an HTTP trigger in Azure SRE Agent that runs a compliance check when called from a CI/CD pipeline or any HTTP client.
 author: craigshoemaker
 ms.author: cshoe
@@ -14,7 +14,7 @@ ms.custom: http trigger, tutorial, webhook, compliance check, ci/cd, container a
 
 # Tutorial: Create an HTTP trigger in Azure SRE Agent
 
-In this tutorial, you create an HTTP trigger that runs a compliance check on a container app. You test it from the portal and the command line, and then integrate it into a CI/CD pipeline.
+In this tutorial, you create an HTTP trigger that runs a compliance check on a container app. You test it from the portal and the command line, and then integrate it into a continuous integration and continuous delivery (CI/CD) pipeline.
 
 **Estimated time**: 10 minutes
 
@@ -22,73 +22,73 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> - Create an HTTP trigger with a compliance check prompt
-> - Test the trigger from the portal by using Run Now
-> - Call the trigger from the command line with a JSON payload
-> - Integrate the trigger into a CI/CD pipeline
+> - Create an HTTP trigger with a compliance check prompt.
+> - Test the trigger from the portal by using **Run Now**.
+> - Call the trigger from the command line with a JSON payload.
+> - Integrate the trigger into a CI/CD pipeline.
 
 ## Prerequisites
 
-- An Azure SRE Agent in **Running** state with at least one Azure subscription configured
-- Azure CLI installed (`az` command)—for testing the webhook call
+- Azure SRE Agent in **Running** state with at least one Azure subscription configured.
+- Azure CLI installed (`az` command) for testing the webhook call.
 
 ## Scenario
 
-Your team deploys container app revisions multiple times a day. Each deployment should meet compliance standards—correct resource limits, health probes configured, ingress rules set. Instead of manually checking after every deploy, you create an HTTP trigger that your CI/CD pipeline calls after each deployment, and the agent runs the compliance check automatically.
+Your team deploys container app revisions multiple times a day. Each deployment should meet compliance standards, with correct resource limits, health probes configured, and ingress rules set. Instead of manually checking after every deployment, you create an HTTP trigger that your CI/CD pipeline calls after each deployment. The agent runs the compliance check automatically.
 
-## Step 1: Open HTTP triggers
+## Open HTTP triggers
 
-Navigate to **Builder > HTTP triggers** in the left sidebar.
+To open HTTP triggers, go to **Builder** > **HTTP triggers** on the service menu.
 
-**Checkpoint:** The page loads with summary cards (Active triggers: 0, Total triggers: 0, Total runs: 0) and an empty trigger list.
+**Checkpoint:** The page loads with summary cards (**Active triggers**: 0, **Total triggers**: 0, **Total runs**: 0) and an empty trigger list.
 
-## Create the trigger
+## Step 1: Create the trigger
 
-Select **Create trigger** in the toolbar. The **Create HTTP trigger** dialog opens.
+1. Select **Create trigger** on the toolbar. The **Create HTTP trigger** dialog opens.
 
-Fill in the form:
+1. Fill in the following fields on the form.
 
-| Field | Value |
-|-------|-------|
-| **Trigger name** | Container App Compliance Check |
-| **Trigger details** | A new container app revision was deployed. Run a compliance check on the app: verify resource limits (CPU/memory), health probes, ingress configuration, and scaling rules are configured correctly. Report any issues found. App details: `{payload.app_name}` in resource group `{payload.resource_group}`. Revision: `{payload.revision_name}`. |
-| **Agent autonomy level** | Autonomous (Default) |
-| **Message grouping for updates** | New chat thread for each run |
+    | Field | Value |
+    |-------|-------|
+    | **Trigger name** | Container App Compliance Check. |
+    | **Trigger details** | A new container app revision was deployed. Run a compliance check on the app. Verify that resource limits (CPU/memory), health probes, ingress configuration, and scaling rules are configured correctly. Report any issues found. App details: `{payload.app_name}` in resource group `{payload.resource_group}`. Revision: `{payload.revision_name}`. |
+    | **Agent autonomy level** | Autonomous (default). |
+    | **Message grouping for updates** | New chat thread for each run. |
 
-Leave **Response subagent** at its default unless you want a specific subagent to handle the check.
+1. Leave **Response subagent** at its default unless you want a specific subagent to handle the check.
 
-Select **Create Trigger**.
+1. Select **Create Trigger**.
 
-**Checkpoint:** The trigger appears in the list with status **On** (green badge). The summary cards update to show 1 active trigger.
+**Checkpoint:** The trigger appears in the list with status **On** (green badge). The summary cards update to show one active trigger.
 
-## Copy the trigger URL
+## Step 2: Copy the trigger URL
 
-Select the trigger name **Container App Compliance Check** to open the detail view.
+1. Select the trigger name **Container App Compliance Check** to open the detail view.
 
-You see:
+1. You see the following fields:
 
-- **Trigger URL**—the webhook endpoint with a copy button
-- **Status**—On
-- **Last called**—Never
-- **Message grouping**—New thread for each run
+    - **Trigger URL**: Webhook endpoint with a **Copy** button
+    - **Status**: On
+    - **Last called**: Never
+    - **Message grouping**: New thread for each run
 
-Select the copy button next to the trigger URL. Save it—you use it in Step 5.
+1. Select the **Copy** button next to the trigger URL. Save the URL because you use it in step 4.
 
-**Checkpoint:** You have the trigger URL copied. It looks like: `https://<your-agent>.sre.azure.com/api/v1/httptriggers/trigger/<trigger-id>`
+**Checkpoint:** You have the trigger URL copied. It looks like `https://<your-agent>.sre.azure.com/api/v1/httptriggers/trigger/<trigger-id>`.
 
-## Test with Run Now
+## Step 3: Test with Run Now
 
-Select **Run trigger now** in the toolbar. This executes the trigger immediately without an external call.
+1. Select **Run trigger now** on the toolbar. This action runs the trigger immediately without an external call.
 
-Wait a few seconds, then select **Update list** to refresh the execution history.
+1. Wait a few seconds, and then select **Update list** to refresh the execution history.
 
 **Checkpoint:** The execution history shows a new row with a timestamp, a linked thread, and success status. Select the thread link to see the agent's response.
 
-The agent creates a thread titled **"HTTP Trigger: Container App Compliance Check"**. Inside, you see the execution card with the compliance check plan, followed by the agent's full investigation and a verdict table with compliance results.
+The agent creates a thread titled **HTTP Trigger: Container App Compliance Check**. Inside, you see the execution card with the compliance check plan, followed by the agent's full investigation and a verdict table with compliance results.
 
-## Call the trigger from the command line
+## Step 4: Call the trigger from the command line
 
-Now test it the way your CI/CD pipeline would—with a real payload. Open a terminal and run:
+Now test it the way that your CI/CD pipeline would, with a real payload. Open a terminal and run:
 
 ```bash
 # Get an ARM token (use the SRE Agent app ID as the resource)
@@ -108,7 +108,7 @@ curl -X POST \
   }'
 ```
 
-Replace `<YOUR_TRIGGER_URL>` with the URL you copied in Step 3.
+Replace `<YOUR_TRIGGER_URL>` with the URL that you copied in step 2.
 
 **What happens:** The agent receives your prompt with `{payload.app_name}`, `{payload.resource_group}`, and `{payload.revision_name}` replaced with the actual values. Fields that don't match a placeholder (like `deployed_by` and `image`) are appended as raw JSON context.
 
@@ -123,9 +123,9 @@ The response returns immediately with HTTP 202:
 }
 ```
 
-**Checkpoint:** Go back to the portal, select **Update list** in the detail view. You should see a second execution in the history—this one from the external call. Select the thread link to see the agent's compliance check with the real app details populated.
+**Checkpoint:** Go back to the portal, and select **Update list** in the detail view. You should see a second execution in the history. This one is from the external call. Select the thread link to see the agent's compliance check with the real app details populated.
 
-## Integrate with your pipeline
+## Step 5: Integrate with your pipeline
 
 Add the trigger call to your CI/CD pipeline's post-deployment step. Here's an example for GitHub Actions:
 
@@ -146,23 +146,18 @@ Add the trigger call to your CI/CD pipeline's post-deployment step. Here's an ex
       }'
 ```
 
-Store your trigger URL as a GitHub secret (`SRE_TRIGGER_URL`)—never hardcode it in your workflow file.
+Store your trigger URL as a GitHub secret (`SRE_TRIGGER_URL`). Never hardcode it in your workflow file.
 
-## Clean up resources
+## Step 6: Clean up resources
 
 If you don't need the trigger anymore, delete it:
 
-1. Navigate to **Builder > HTTP triggers**.
-2. Select the trigger checkbox.
-3. Select **Delete**.
+1. Go to **Builder** > **HTTP triggers**.
+1. Select the trigger checkbox.
+1. Select **Delete**.
 
 ## Related content
 
 - [HTTP triggers](http-triggers.md)
 - [Create a scheduled task](create-scheduled-task.md)
 - [Create a subagent](create-subagent.md)
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [HTTP triggers](http-triggers.md)

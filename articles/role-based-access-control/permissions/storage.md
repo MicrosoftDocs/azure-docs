@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -615,6 +615,9 @@ Azure service: [Azure HPC Cache](/azure/hpc-cache/), [Azure Managed Lustre](/azu
 > | `Microsoft.StorageCache/amlFilesystems/autoImportJobs/read` |  |
 > | `Microsoft.StorageCache/amlFilesystems/autoImportJobs/write` |  |
 > | `Microsoft.StorageCache/amlFilesystems/autoImportJobs/delete` |  |
+> | `Microsoft.StorageCache/amlFilesystems/expansionJobs/read` |  |
+> | `Microsoft.StorageCache/amlFilesystems/expansionJobs/write` |  |
+> | `Microsoft.StorageCache/amlFilesystems/expansionJobs/delete` |  |
 > | `Microsoft.StorageCache/amlFilesystems/importJobs/read` |  |
 > | `Microsoft.StorageCache/amlFilesystems/importJobs/write` |  |
 > | `Microsoft.StorageCache/amlFilesystems/importJobs/delete` |  |

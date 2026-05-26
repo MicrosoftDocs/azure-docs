@@ -279,6 +279,8 @@ To create a VMware account, follow these steps:
 7. On **Assigned Role**, from the drop-down list, select **BackupAdminRole** > **OK**.
 
     ![Screenshot shows how to assign user to role.](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
+   >[!NOTE]
+   >If you want to assign permissions to child objects, select **Propagate to children**; otherwise, role privileges don't inherit.
 
 On the **Manage** tab on the **Global Permissions** pane, the new user account and the associated role appear in the list.
 

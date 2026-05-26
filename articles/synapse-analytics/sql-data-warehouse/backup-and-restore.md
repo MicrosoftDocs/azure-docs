@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Backup and restore dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn how to use backup and restore in Azure Synapse dedicated SQL pool. 
 
 Use dedicated SQL pool restore points to recover or copy your data warehouse to a previous state in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region.

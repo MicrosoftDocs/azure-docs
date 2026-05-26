@@ -20,7 +20,7 @@ You can set a blob's access tier in any of the following ways:
 
 - By setting the account default access tier setting for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
 
-- By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, smart, or archive tier.
+- By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.
 
@@ -34,7 +34,7 @@ The default access tier setting for a general-purpose v2 storage account determi
 
 When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier hasn't been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
 
-For storage accounts that leverage the smart tier public preview, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+For storage accounts that leverage smart tier, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 #### [Portal](#tab/azure-portal)
 
@@ -94,7 +94,7 @@ N/A
 
 When you upload a blob to Azure Storage, you have two options for setting the blob's tier on upload:
 
-- You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to hot, cool, cold, smart or archive.
+- You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to hot, cool, cold or archive.
 - You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either hot or cool).
 
 If you are uploading a new blob that uses an encryption scope, you cannot change the access tier for that blob.
@@ -129,7 +129,7 @@ To upload a blob or set of blobs to a specific tier with PowerShell, call the [S
 $rgName = <resource-group>
 $storageAccount = <storage-account>
 $containerName = <container>
-# tier can be hot, cool, cold, smart, or archive
+# tier can be hot, cool, cold, or archive
 $tier = <tier>
 
 # Get context object
@@ -154,7 +154,7 @@ Get-ChildItem -Path "C:\sample-blobs" -File -Recurse |
 
 ### [Azure CLI](#tab/azure-cli)
 
-To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, `smart`, or `archive`.
+To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -166,7 +166,7 @@ az storage blob upload \
     --auth-mode login
 ```
 
-To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, `smart`, or `archive`.
+To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
 ```azurecli-interactive
 az storage blob upload-batch \

@@ -124,8 +124,8 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
-  - name: Troubleshoot
-    href: troubleshoot.md
+- name: Troubleshoot
+  href: /troubleshoot/azure/bastion/welcome-azure-bastion
 - name: Reference
   items:
   - name: Azure PowerShell
