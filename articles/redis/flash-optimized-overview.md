@@ -146,7 +146,7 @@ Keys with values exceeding 512KB are considered large. As a best practice, keep 
 
 ### Hot keys causing RAM fragmentation
 
-Having frequently accessed (hot) keys in RAM is expected and desirable for Flash Optimized — this is how the tier delivers low-latency reads. However, hot keys that are frequently updated or resized can cause memory fragmentation in RAM over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
+Having frequently accessed (hot) keys in RAM is expected and desirable for Flash Optimized - this is how the tier delivers low-latency reads. However, hot keys that are frequently updated or resized can cause memory fragmentation in RAM over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
 
 This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but if those hot keys are also write-heavy with variable value sizes, RAM fragmentation can accumulate.
 
