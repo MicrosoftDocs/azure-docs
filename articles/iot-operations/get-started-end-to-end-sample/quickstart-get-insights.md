@@ -43,8 +43,8 @@ Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabri
 Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page). As you add the data source, keep the following notes in mind:
 
 * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
-* For **Connection**, create a new connection with Shared Access Key authentication. Use the **Primary key** of the **RootMananageSharedAccess** policy of the Event Hubs namespace that you created in the previous quickstart. You can find the key in the Azure portal in your Event Hubs namespace under **Settings > Shared access policies > RootManageSharedAccessKey > Primary key**.
+* Select **New connection** and enter the Event Hubs namespace and Event Hub name (destinationeh) that you created in the previous quickstart.
+* Under **Connection credentials**, make sure that **Authentication kind** is set to  *Shared Access Key* and enter *RootManageSharedAccessKey* as the **Shared Access Key name**. Then, copy the **Primary key** of the **RootManageSharedAccessKey** policy of your Event Hubs namespace from the Azure portal and paste it into the **Shared Access Key value** field. You can find the key under **Settings > Shared access policies > RootManageSharedAccessKey > Primary key**.
     * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).

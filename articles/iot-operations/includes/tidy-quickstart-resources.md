@@ -16,4 +16,4 @@ If you want to remove the Azure IoT Operations deployment but keep your cluster,
    az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
    ```
 
-If you want to delete all the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and then remove the Azure resource group that contained the cluster. Finally, delete your codespace from GitHub.
+If you want to delete all the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and then remove the Azure resource group that contained the cluster. To delete your codespace and the secrets you created for it from GitHub, see [Deleting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/deleting-a-codespace) and [Deleting secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#delete-a-secret).
