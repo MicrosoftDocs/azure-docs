@@ -144,6 +144,8 @@ items:
             href: favorites-mine-filter.md
       - name: Measure & govern
         items:
+          - name: Operations Hub overview
+            href: operations-hub-overview.md
           - name: Track incident value
             href: track-incident-value.md
           - name: Monitor agent usage

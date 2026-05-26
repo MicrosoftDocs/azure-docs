@@ -52,6 +52,55 @@ To solve this issue, follow these steps:
 
    :::image type="content" source="./media/troubleshooting/gold-view-notebook-error.png" alt-text="Screenshot that shows the SQL code to create the vtPURGDOCUMENTCATEGORYTEXT view." lightbox="./media/troubleshooting/gold-view-notebook-error.png":::
 
+## Pipeline failure with invalid object name 'extractionMetadata'
+
+While you execute any Business Process Solutions (BPS) pipelines, the operation might fail with the following error message:
+
+`Operation on target Get Dimension-TD Non-Delta Tables failed: Failure happened on 'Source' side. 'Type=Microsoft.Data.SqlClient.SqlException,Message=Invalid object name 'extractionMetadata'.,Source=Framework Microsoft SqlClient Data Provider,'`
+
+This error means that the dataset isn't activated. To resolve this issue, navigate to the [Manage Datasets page](manage-datasets.md) and activate the dataset.
+
+## Blank values in Key column error
+
+While refreshing the semantic model, you might encounter the following error message:
+
+`Data source error: Column 'Key' in Table 'vtPAYMENTTERMSTEXT' contains blank values and this is not allowed for columns on the one side of a many-to-one relationship or for columns that are used as the primary key of a table.`
+
+To resolve this issue, follow these steps:
+
+1. Query the affected table in the gold lakehouse and check if the `Key` column contains blank values.
+1. Open the notebook **bps_gold_view_creation**.
+
+   :::image type="content" source="./media/troubleshooting/gold-view-notebook.png" alt-text="Screenshot that shows how to open the bps_gold_view_creation notebook." lightbox="./media/troubleshooting/gold-view-notebook.png":::
+
+1. Get the view definition for this table and check the base table data in the gold lakehouse to make sure there are no blank key values.
+1. Make sure the base tables used to create this view contain data and aren't empty tables.
+
+## Duplicate value in Key column error
+
+While refreshing the semantic model, you might encounter the following error message:
+
+`Data source error: Column 'Key' in Table 'I_PROFITCENTER' contains a duplicate value '44' and this is not allowed for columns on the one side of a many-to-one relationship or for columns that are used as the primary key of a table.`
+
+To resolve this issue, follow these steps:
+
+1. Query the affected table in the gold lakehouse and check if the `Key` column contains duplicate values.
+1. If yes, check the silver lakehouse and the table data in your SAP system.
+1. If the duplicate also exists in your SAP system, fix the data and reprocess the table in BPS.
+1. If the duplicate doesn't exist in your SAP system, open a service ticket for BPS on the Fabric portal.
+
+## Key didn't match any rows in table error
+
+While refreshing the semantic model, you might encounter the following error message:
+
+`Data source error: Expression.Error: The key didn't match any rows in the table. Microsoft.Data.Mashup.ErrorCode = 10061. Key = [Schema = "dbo", Item = "vtDUNNINGAREATEXT"]. Table = #table({"Name", "Data", "Schema", "Item", "Kind"}, {}). The exception was raised by the IDbCommand interface.`
+
+To resolve this issue, follow these steps:
+
+1. Make sure you executed the gold view creation notebook. If not, execute the notebook and make sure there are no errors during the notebook execution.
+1. You can make changes to the view definition if a column doesn't exist in your SAP system.
+1. If the previous steps don't resolve the issue, open a service ticket for BPS on the Fabric portal.
+
 ## Related content
 
 - [Introduction to Business Process Solutions](about-business-process-solutions.md)
