@@ -2,18 +2,17 @@
 title: Architecture of BareMetal Infrastructure for NC2 on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure (obsolete).
+description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure.
 ms.topic: reference
-ms.subservice: baremetal-nutanix
-ms.date: 04/23/2025
-ms.service: azure-baremetal-infrastructure
+ms.date: 04/5/2026
+ms.service: nc2-on-azure
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
-# Nutanix Cloud Clusters (NC2) on Azure architectural concepts (obsolete)
+# Nutanix Cloud Clusters (NC2) on Azure architectural concepts
 
 NC2 provides Nutanix-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, CLI, or PowerShell.
 
@@ -119,9 +118,9 @@ The following table describes the network topologies supported by each network f
 |Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
 |VWAN enables traffic inspection via NVA (Secure vWAN)**|Yes|
-|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets| Yes|
-|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
-|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
+|[User-defined routes (UDRs)](/azure/virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets| Yes|
+|Connectivity from BareMetal to [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
 |Connectivity from User VMs (UVMs) on NC2 nodes to Azure resources|Yes|
 
 \* You can overcome this limitation by setting Site-to-Site VPN.
@@ -134,7 +133,7 @@ The following table describes what’s supported for each network features confi
 |Features |Support or Limit|
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
-|[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
+|[Network Security Groups](/azure/virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
@@ -146,4 +145,4 @@ Learn more:
 > [Getting Started](get-started.md)
 
 
-[def]: ../../../private-link/private-endpoint-overview.md
+[def]: /azure/private-link/private-endpoint-overview.md
