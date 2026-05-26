@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: FAQ for NC2 on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Questions frequently asked about NC2 on Azure
