@@ -26,7 +26,7 @@ Service Groups solve a common challenge: your Azure resource hierarchy (Manageme
 
 - A **platform team** needs to see all networking resources across dozens of subscriptions.
 - A **project lead** wants a single dashboard for resources spanning production, staging, and development environments.
-- A **application engineer** needs to track a set of resources for lifecycle and management.
+- An **application engineer** needs to track a set of resources for lifecycle and management.
   
 
 With Service Groups, you can create these views without reorganizing your subscriptions or requesting broad permissions. Resources can belong to **multiple** service groups simultaneously, and access on service groups doesn't grant access to the underlying resources.
