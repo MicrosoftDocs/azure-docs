@@ -83,17 +83,15 @@ Supply the sign-in credentials for your private registry account in the *\<usern
 
 Use the following steps to configure your web app to pull from Azure Container Registry by using managed identity. The steps use system-assigned managed identity, but you can also use user-assigned managed identity.
 
-[!IMPORTANT]
-Your Azure Container Registry must allow ARM audience tokens for authentication in
-order to use managed identity to pull images. This is the default configuration, but
-if it was previously disabled, image pulls fail with an `UNAUTHORIZED` "token
-validation failed" error. To check and enable this setting, run the following commands:
-
-```azurecli-interactive
-az acr config authentication-as-arm show -r <registry-name>
-az acr config authentication-as-arm update -r <registry-name> --status enabled
-```
-For more information, see [Configure registry acceptance of Microsoft Entra authentication scopes](/azure/container-registry/container-registry-disable-authentication-as-arm).
+> [!IMPORTANT]
+> Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images. This is the default configuration, but if it was previously disabled, image pulls fail with an `UNAUTHORIZED` "token validation failed" error. To check and enable this setting, run the following commands:
+>
+> ```azurecli-interactive
+> az acr config authentication-as-arm show -r <registry-name>
+> az acr config authentication-as-arm update -r <registry-name> --status enabled
+> ```
+>
+> For more information, see [Configure registry acceptance of Microsoft Entra authentication scopes](/azure/container-registry/container-registry-disable-authentication-as-arm).
 
 1. Enable the [system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
