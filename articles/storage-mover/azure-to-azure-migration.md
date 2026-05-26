@@ -5,7 +5,7 @@ author: madhurinms
 ms.author: madhn
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 12/04/2025
+ms.date: 05/19/2026
 ---
 
 # Get started with blob-to-blob migration in Azure Storage Mover
@@ -28,7 +28,7 @@ The Azure Blob container-to-container transfer feature in Azure Storage Mover ha
 - A maximum of 10 concurrent jobs is supported per subscription. If you need to run more than 10, create a support request.
 - Azure Storage Mover doesn't support automatic rehydration of archived objects. You must restore data stored in Azure Blob Archive before migration. Initiate migration jobs only after the data is fully restored.
 - Blob container-to-container migration doesn't allow you to select the same Source and Target Endpoint in the same Migration Job Creation.
-- Blobs aren't truly moved but copied. The Blob container continues to exist in its current location along with the Target location set.
+- Blobs aren't truly moved but copied. The source Blob container continues to exist in its current location along with the Target location set.
 
 
 ## Configure source and target endpoints
@@ -44,7 +44,6 @@ Follow the steps in this section to configure an Azure Blob container source and
 1. In the **Create source endpoint** pane:
 
     - Select **Blob container** as the **Source type**.
-    - Optionally, provide a description for the endpoint in the **Description** field.
     - Select your subscription and storage account from the respective **Subscription** and **Storage account** drop-down lists.
     - Choose the **Blob container** you want to migrate from the **Blob container** drop-down list.
     - Optionally, provide a description for the endpoint in the **Description** field.
@@ -119,7 +118,7 @@ az storage-mover endpoint create-for-storage-container \
 
 ---
 
-### Configure an Azure Blob storage tTarget endpoint
+### Configure an Azure Blob storage target endpoint
 
 ### [Azure portal](#tab/portal)
 1. From the **Resource management** group in the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then select **Add endpoint** to open the **Create target endpoint** pane.
@@ -204,12 +203,57 @@ az storage-mover endpoint create-for-storage-container \
 
 ### [Azure portal](#tab/portal)
 
-When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Blob Data Owner** RBAC role is automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+The **Storage Account Contributor** and **Storage Blob Data Owner** RBAC roles are automatically assigned during the job start process. No other steps are required.
 
 
 ### [Azure PowerShell](#tab/powershell)
 
-Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
+Assign the **Storage Account Contributor** RBAC role on the source and target blob storage accounts to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
+
+```powershell
+$endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -Name <String>
+
+$principalId = $endpoint.Identity.PrincipalId
+```
+
+Then, use the `New-AzRoleAssignment` command to assign the role:
+
+```powershell
+New-AzRoleAssignment `
+    -ObjectId <String> `
+    -RoleDefinitionName "Storage Account Contributor" `
+    -Scope <String>
+```
+
+**Parameters:**
+
+- **ObjectId**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **RoleDefinitionName**: Set to **"Storage Account Contributor"**.
+- **Scope**: The Azure resource ID of the source or target blob storage account.
+
+**Example:**
+
+```powershell
+# Get the source or target endpoint
+$endpoint = Get-AzStorageMoverEndpoint `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -Name "my-blob-endpoint"
+
+# Assign the RBAC role using the principal ID
+New-AzRoleAssignment `
+    -ObjectId $endpoint.Identity.PrincipalId `
+    -RoleDefinitionName "Storage Account Contributor" `
+    -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+
+Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
 
 ```powershell
 $endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
@@ -253,6 +297,55 @@ New-AzRoleAssignment `
 
 ### [Azure CLI](#tab/CLI)
 
+Assign the **Storage Account Contributor** RBAC role on the source and target blob storage accounts to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the source or target endpoint's managed identity by using the `az storage-mover endpoint show` command:
+
+```bash
+az storage-mover endpoint show \
+    --resource-group <String> \
+    --storage-mover-name <String> \
+    --name <String> \
+    --query identity.principalId \
+    --output tsv
+```
+
+Then, use the `az role assignment create` command to assign the role:
+
+```bash
+az role assignment create \
+    --assignee-object-id <String> \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Account Contributor" \
+    --scope <String>
+```
+
+**Parameters:**
+
+- **assignee-object-id**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **assignee-principal-type**: Set to **"ServicePrincipal"**.
+- **role**: Set to **"Storage Account Contributor"**.
+- **scope**: The Azure resource ID of the source or target blob storage account.
+
+**Example:**
+
+```bash
+# Get the principal ID
+PRINCIPAL_ID=$(az storage-mover endpoint show \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover" \
+    --name "my-blob-endpoint" \
+    --query identity.principalId \
+    --output tsv)
+
+# Assign the RBAC role using the principal ID
+az role assignment create \
+    --assignee-object-id $PRINCIPAL_ID \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Account Contributor" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. 
 First, retrieve the principal ID of the source or target endpoint's managed identity by using the `az storage-mover endpoint show` command:
 
 ```bash
@@ -379,7 +472,7 @@ az storage-mover project create \
 
 ---
 
-### Create a job definition and run the job
+## Create a job definition
 
 ### [Azure portal](#tab/portal)
 
@@ -405,7 +498,7 @@ az storage-mover project create \
 
     :::image type="content" source="./media/azure-to-azure/select-target.png" alt-text="Screenshot of the Create a Migration Job page with the Select an Existing Target Endpoint pane displayed." lightbox="./media/azure-to-azure/select-target.png":::
 
-1. In the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
+1. In the **Settings** tab, select **Merge or Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
 
     :::image type="content" source="./media/azure-to-azure/project-settings.png" alt-text="Screenshot of the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="./media/azure-to-azure/project-settings.png":::
 
@@ -415,15 +508,88 @@ az storage-mover project create \
 
 ### [Azure PowerShell](#tab/powershell)
 
-Not applicable
+Use the `New-AzStorageMoverJobDefinition` command to create a job definition:
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -ProjectName <String> `
+    -SourceEndpointName <String> `
+    -TargetEndpointName <String> `
+    -JobType CloudToCloud
+```
+
+**Parameters:**
+
+- **Name**: The name of the job definition.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **ProjectName**: The name of the project to which the job definition belongs.
+- **SourceEndpointName**: The name of the Azure Blob Storage source endpoint.
+- **TargetEndpointName**: The name of the Azure Blob Storage target endpoint.
+- **JobType**: Set to **CloudToCloud** for Azure-to-Azure migrations.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name "my-job-definition" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -ProjectName "my-migration-project" `
+    -SourceEndpointName "my-src-blob-endpoint" `
+    -TargetEndpointName "my-dst-blob-endpoint" `
+    -JobType CloudToCloud
+```
 
 ### [Azure CLI](#tab/CLI)
 
-Not applicable
+Use the `az storage-mover job-definition create` command to create a job definition:
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode {Additive|Mirror} \
+    --job-definition-name <String> \
+    --job-type CloudToCloud \
+    --project-name <String> \
+    --resource-group <String> \
+    --source-name <String> \
+    --storage-mover-name <String> \
+    --target-name <String>
+```
+
+**Parameters:**
+
+- **--copy-mode**: The copy mode for the job. Use **Additive** to copy only new files, or **Mirror** to synchronize the source and target.
+- **--job-definition-name**: The name of the job definition.
+- **--job-type**: The type of job. Set to **CloudToCloud** for Azure-to-Azure migrations.
+- **--project-name**: The name of the project to which the job definition belongs.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--source-name**: The name of the Azure Blob Storage source endpoint.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+- **--target-name**: The name of the Azure Blob Storage target endpoint.
+
+**Example:**
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode Mirror \
+    --job-definition-name "my-job-definition" \
+    --job-type CloudToCloud \
+    --project-name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --source-name "my-src-blob-endpoint" \
+    --storage-mover-name "myStorageMover" \
+    --target-name "my-dst-blob-endpoint"
+```
 
 ---
 
 ### Run a migration job
+
+### [Azure portal](#tab/portal)
 
 1. Go to the **Migration Jobs** tab. The **Migration Jobs** tab shows all migration jobs you created in your Storage Mover resource, including the one you just created. It might take a moment for the new migration job to show up in the list. Refresh the page if needed. 
 
@@ -436,11 +602,6 @@ Not applicable
     :::image type="content" source="./media/azure-to-azure/migration-job-start.png" alt-text="Screenshot of the Migration Job page's Start Job pane." lightbox="./media/azure-to-azure/migration-job-start.png":::
 
 
-### Start a job definition
-
-### [Azure portal](#tab/portal)
-
-Not applicable
 
 ### [Azure PowerShell](#tab/powershell)
 
@@ -532,7 +693,7 @@ Follow the steps in this section to complete manual validation.
 Troubleshooting your migration might involve a range of steps, from basic diagnostics to more advanced error handling. If you're encountering problems, start troubleshooting by taking the following steps.
 
 - Migration job failed? Check the logs for error messages.
-- Permission problems? Verify that Azure Arc and Access Management (IAM) roles have the correct access.
+- Permission problems? Verify that Access Management (IAM) roles have the correct access.
 
 ## Related content
 

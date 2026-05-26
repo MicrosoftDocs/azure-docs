@@ -24,6 +24,10 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - Add or remove a public IP address or public IP prefix.
 
+> [!NOTE]
+> Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
+> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established.
+
 ## Prerequisites
 
 # [**Azure portal**](#tab/manage-nat-portal)
@@ -116,7 +120,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | **Instance details** |  |
     | NAT gateway name | Enter *nat-gateway*. |
     | Region | Select your region. This example uses **East US 2**. |
-    | Availability zone | Select **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
+    | Availability zone | Select **No Zone**. For more information about NAT gateway and availability zones, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway). |
     | TCP idle timeout (minutes) | Select the default of **4**. |
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
@@ -887,5 +891,5 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to add or remove a public I
 To learn more about Azure Virtual Network NAT and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
-- [NAT gateway and availability zones](nat-availability-zones.md)
+- [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

@@ -4,7 +4,7 @@ description: Learn how to use Domain Data Management Services
 author: marielgherz
 ms.author: marielherzog
 ms.service: azure-data-manager-energy
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/18/2022
 ms.custom: template-concept
 ---

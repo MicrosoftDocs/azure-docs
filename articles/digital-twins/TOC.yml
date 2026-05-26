@@ -214,7 +214,7 @@
     - name: Control plane
       items:
       - name: Control plane Swagger
-        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable
+        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/DigitalTwins/stable
       - name: .NET (C#) SDK - NuGet
         href: https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins
       - name: .NET (C#) SDK - Source code
@@ -238,7 +238,7 @@
     - name: Data plane
       items:
       - name: Data plane Swagger
-        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
+        href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/DigitalTwins
       - name: .NET (C#) SDK - NuGet
         href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
       - name: .NET (C#) SDK - Source code

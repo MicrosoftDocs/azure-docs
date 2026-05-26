@@ -15,11 +15,13 @@ Understanding the cost model for Azure NetApp Files helps you manage your expens
 
 For cost model specific to cross-region replication, see [Cost model for cross-region replication](replication.md#cost-model-for-cross-region-replication).
 
+<!-- ZRS update -->
+
 ## Calculation of capacity consumption
 
 Azure NetApp Files is billed on provisioned storage capacity, which is allocated by creating capacity pools. Capacity pools are billed monthly based on a set cost per allocated GiB per hour. Capacity pool allocation is measured hourly.  
 
-Capacity pools must be at least 1 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 50 GiB to a maximum of 100 TiB for regular volumes and up to 1 PiB for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes). Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details. 
+Capacity pools must be at least 1 TiB and can be increased or decreased in 1-TiB intervals. Capacity pools contain volumes that range in size from a minimum of 50 GiB to a maximum of 100 TiB for regular volumes and up to 1 PiB for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes). Volumes are assigned quotas that are subtracted from the capacity pool’s provisioned size. For an active volume, capacity consumption against the quota is based on logical (effective) capacity, being active filesystem data or snapshot data. See [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md) for details. 
 
 ### Pricing examples
 
@@ -75,6 +77,8 @@ In this case, when costs are billed at $0.000202 per GiB/hour (Standard), $0.000
 [ ![Bar chart that shows static versus dynamic service level change cost model.](./media/azure-netapp-files-cost-model/cost-model-example-two-pricing.png) ](./media/azure-netapp-files-cost-model/cost-model-example-two-pricing.png#lightbox)
 
 This scenario constitutes a monthly savings of $3,965.39 compared to static provisioning.
+
+#### Example 3: Elastic zone-redundant storage
 
 ## Capacity consumption of snapshots 
 

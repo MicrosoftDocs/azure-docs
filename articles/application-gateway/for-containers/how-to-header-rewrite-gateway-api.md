@@ -28,8 +28,8 @@ The following figure illustrates a request with a specific user agent being rewr
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you're following the ALB managed deployment strategy, ensure provisioning of the [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If you're following the ALB managed deployment strategy, ensure provisioning of the ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 

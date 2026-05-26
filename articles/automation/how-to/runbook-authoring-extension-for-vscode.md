@@ -3,8 +3,8 @@ title: Azure Automation extension for Visual Studio Code
 description: Learn how to use the Azure Automation extension for Visual Studio Code to author runbooks.
 ms.date: 01/10/2023
 ms.topic: how-to
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Use Azure Automation extension for Visual Studio Code

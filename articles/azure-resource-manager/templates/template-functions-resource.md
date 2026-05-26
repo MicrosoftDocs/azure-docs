@@ -340,7 +340,7 @@ The next example shows a `list` function that takes a parameter. In this case, t
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines if a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+Determines if a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 In Bicep, use the [`pickZones`](../bicep/bicep-functions-resource.md#pickzones) function.
 
@@ -383,7 +383,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
 
@@ -1257,6 +1257,66 @@ The output of default values from the preceding example is:
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+
+## roleDefinitions
+
+`roleDefinisions(roleName)`
+
+Returns information about the specified role definition, including `id` and `roleDefinitionId`. It's a name-based helper for Azure RBAC role assignments. Instead of requiring you to hardcode the GUID of a built-in role definition (like Contributor, Reader, and others), it lets you provide the built-in role’s display name, and the function resolves the corresponding role definition information at deployment time.
+
+In Bicep, use the [roleDefinitions](../bicep/bicep-functions-resource.md#roledefinitions) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| roleName | Yes | string | The display name of the role definition. |
+
+### Return value
+
+An object representing the role definition, including `id` and `roleDefinitionId`.
+
+### Examples
+
+The following ARM template creates a deterministic Azure RBAC role assignment that grants a specified principal the **Storage Blob Data Reader** built‑in role at the deployment scope by resolving the role definition by name at deployment time.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "roleDefinitionName": {
+      "type": "string",
+      "defaultValue": "Storage Blob Data Reader",
+      "metadata": {
+        "description": "Specifies the role definition ID used in the role assignment."
+      }
+    },
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the principal ID assigned to the role."
+      }
+    }
+  },
+  "variables": {
+    "roleAssignmentName": "[guid(parameters('principalId'), parameters('roleDefinitionName'), resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "name": "[variables('roleAssignmentName')]",
+      "properties": {
+        "roleDefinitionId": "[roleDefinitions(parameters('roleDefinitionName')).id]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
+}
+```
+
+For more information, see the [Bicep roleDefinition function](../bicep/bicep-functions-resource.md#roledefinitions).
 
 ## subscription
 

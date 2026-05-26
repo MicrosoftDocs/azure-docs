@@ -2,8 +2,8 @@
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 02/28/2028
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ---
 
 ### Update home page

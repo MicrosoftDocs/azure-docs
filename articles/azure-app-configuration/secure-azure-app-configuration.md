@@ -4,7 +4,7 @@ description: Learn how to secure Azure App Configuration, with best practices fo
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 10/27/2025
 ai-usage: ai-assisted
@@ -25,6 +25,8 @@ Network security controls prevent unauthorized access to App Configuration store
 - **Disable public network access**: Block all internet-based connections when using private endpoints to prevent unauthorized access attempts and reduce your attack surface. Configure the service to deny public network access and force all communication through private endpoints. See [Disable public access in Azure App Configuration](/azure/azure-app-configuration/howto-disable-public-access).
 
 - **Configure network security groups for private endpoint subnets**: When using private endpoints, apply Network Security Groups to the subnets (NSGs) hosting the private endpoints to control traffic flow. Enable network policies on the private endpoint subnet and implement restrictive NSG rules to allow only necessary traffic to reach the App Configuration private endpoints. See [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
+
+- **Use network security perimeter (preview)**: Define a logical network isolation boundary for your App Configuration store and other PaaS resources using a network security perimeter. Network security perimeters provide centralized network access rule configuration, inbound and outbound access controls, and diagnostic logging for network traffic. See [Network security perimeter for Azure App Configuration (preview)](/azure/azure-app-configuration/concept-network-security-perimeter).
 
 ## Identity and access management
 
@@ -58,11 +60,11 @@ Comprehensive logging and monitoring provide visibility into App Configuration o
 
 - **Enable diagnostic logging**: Configure diagnostic settings to collect App Configuration resource logs and metrics for security monitoring and compliance auditing. Send diagnostic data to Azure Monitor Logs, storage accounts, or Event Hubs for centralized analysis and retention. See [Monitor Azure App Configuration](/azure/azure-app-configuration/monitor-app-configuration).
 
-- **Monitor access patterns and configure alerts**: Track configuration retrieval requests, modification events, and access frequencies to detect anomalous usage patterns that might indicate security threats or unauthorized access attempts. Set up Azure Monitor alerts to automatically notify you of suspicious activities such as failed authentication attempts, unusual request patterns, throttling events, and configuration modifications. This enables rapid response to potential security incidents through real-time monitoring and automated alerting. See [Monitor Azure App Configuration](/azure/azure-app-configuration/monitor-app-configuration) and [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference).
+- **Monitor access patterns and configure alerts**: Track configuration retrieval requests, modification events, and access frequencies to detect anomalous usage patterns that might indicate security threats or unauthorized access attempts. Set up Azure Monitor alerts to automatically notify you of suspicious activities such as failed authentication attempts, unusual request patterns, throttling events, and configuration modifications. This enables rapid response to potential security incidents through real-time monitoring and automated alerting. See [Monitor Azure App Configuration](/azure/azure-app-configuration/monitor-app-configuration) and [App Configuration Metrics and Logs Schema](/azure/azure-app-configuration/monitor-app-configuration#schema-reference).
 
 - **Enable Azure Activity Log monitoring**: Monitor Azure Activity Log for App Configuration resource changes, administrative actions, and control plane operations. Configure alerts for critical changes such as network access modifications or authentication setting updates. See [Activity log in Azure Monitor](/azure/azure-monitor/platform/activity-log).
 
-- **Monitor authentication and authorization failures**: Set up monitoring and alerts for HTTP 401 (Unauthenticated) and 403 (Forbidden) responses to detect common security configuration issues. 401 errors often indicate invalid or rotated access keys that haven't been updated in production applications, while 403 errors typically signal missing or incorrect role assignments for identities accessing App Configuration. Configure automated alerts for these error patterns to enable rapid detection and resolution of authentication and authorization problems. See [Monitor Azure App Configuration](/azure/azure-app-configuration/monitor-app-configuration) and [Monitoring App Configuration data reference](/azure/azure-app-configuration/monitor-app-configuration-reference).
+- **Monitor authentication and authorization failures**: Set up monitoring and alerts for HTTP 401 (Unauthenticated) and 403 (Forbidden) responses to detect common security configuration issues. 401 errors often indicate invalid or rotated access keys that haven't been updated in production applications, while 403 errors typically signal missing or incorrect role assignments for identities accessing App Configuration. Configure automated alerts for these error patterns to enable rapid detection and resolution of authentication and authorization problems. See [Monitor Azure App Configuration](/azure/azure-app-configuration/monitor-app-configuration) and [App Configuration Metrics and Logs Schema](/azure/azure-app-configuration/monitor-app-configuration#schema-reference).
 
 ## Compliance and governance
 

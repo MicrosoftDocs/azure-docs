@@ -7,12 +7,15 @@ ms.custom:
   - devx-track-bicep
   - devx-track-arm-template
   - build-2025
-ms.date: 07/16/2025
+ms.date: 01/16/2026
 ---
 
 # Bicep core diagnostics
 
 If you need more information about a particular diagnostic code, select the **Feedback** button in the upper-right corner of the page and specify the code.
+
+You can suppress Bicep diagnostic codes by using `disable-next-line` and `disable-diagnostics`. See [Directives](./file.md#directives).
+
 
 | Code       | Level | Description |
 |------------|-------|-------------|
@@ -207,7 +210,6 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP200' />BCP200 | Error | The registry `{badRegistry}` exceeds the maximum length of `{maxLength}` characters. |
 | <a id='BCP201' />[BCP201](./diagnostics/bcp201.md) | Error | Expected an extension specification string. This should either be a relative path, or a valid OCI artifact specification. |
 | <a id='BCP202' />BCP202 | Error | Expected a provider alias name at this location. |
-| <a id='BCP203' />BCP203 | Error | Using provider statements requires enabling EXPERIMENTAL feature `Extensibility`. |
 | <a id='BCP204' />BCP204 | Error | Provider namespace `{identifier}` isn't recognized. |
 | <a id='BCP205' />BCP205 | Error | Provider namespace `{identifier}` doesn't support configuration. |
 | <a id='BCP206' />BCP206 | Error | Provider namespace `{identifier}` requires configuration, but none was provided. |
@@ -230,7 +232,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP223' />BCP223 | Error | `{BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)}` The Template Spec version `{templateSpecVersion}` is invalid. Valid characters are alphanumeric, `.`, `_`, `-`, `(`, or `)`, but the Template Spec version can't end with `.`. |
 | <a id='BCP224' />BCP224 | Error | `{BuildInvalidOciArtifactReferenceClause(aliasName, badRef)}` The digest `{badDigest}` isn't valid. The valid format is a string `sha256:` followed by exactly 64 lowercase hexadecimal digits. |
 | <a id='BCP225' />BCP225 | Warning | The discriminator property `{propertyName}` value can't be determined at compilation time. Type checking for this object is disabled. |
-| <a id='BCP226' />BCP226 | Error | Expected at least one diagnostic code at this location. Valid format is `#disable-next-line diagnosticCode1 diagnosticCode2 ...`. |
+| <a id='BCP226' />[BCP226](./diagnostics/bcp226.md) | Error | Expected at least one diagnostic code at this location. Valid format is `#disable-next-line diagnosticCode1 diagnosticCode2 ...`. |
 | <a id='BCP227' />BCP227 | Error | The type `{resourceType}` can't be used as a parameter or output type. Extensibility types are currently not supported as parameters or outputs. |
 | <a id='BCP229' />BCP229 | Error | The parameter `{parameterName}` can't be used as a resource scope or parent. Resources passed as parameters can't be used as a scope or parent of a resource. |
 | <a id='BCP230' />BCP230 | Warning | The referenced module uses resource type `{resourceTypeReference.FormatName()}` which doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
@@ -296,7 +298,6 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP301' />BCP301 | Error | The type name `{reservedName}` is reserved and may not be attached to a user-defined type. |
 | <a id='BCP302' />[BCP302](./diagnostics/bcp302.md) | Error | The name `<type-name>` isn't a valid type. Specify one of the following types: `<type-names>`. |
 | <a id='BCP303' />BCP303 | Error | String interpolation is unsupported for specifying the provider. |
-| <a id='BCP304' />BCP304 | Error | Invalid provider specifier string. Specify a valid provider of format `<providerName>@<providerVersion>`. |
 | <a id='BCP305' />BCP305 | Error | Expected the `with` keyword, `as` keyword, or a new line character at this location. |
 | <a id='BCP306' />BCP306 | Error | The name `{name}` refers to a namespace, not to a type. |
 | <a id='BCP307' />BCP307 | Error | The expression can't be evaluated, because the identifier properties of the referenced existing resource including `{ToQuotedString(runtimePropertyNames.OrderBy(x => x))}` can't be calculated at the start of the deployment. In this situation, `{accessiblePropertyNamesClause}{accessibleFunctionNamesClause}`. |
@@ -362,10 +363,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP378' />BCP378 | Error | The OCI artifact provider alias `{aliasName}` in the `{BuildBicepConfigurationClause(configFileUri)}` is invalid. The `registry` property can't be null or undefined. |
 | <a id='BCP379' />BCP379 | Error | The OCI artifact provider alias name `{aliasName}` doesn't exist in the `{BuildBicepConfigurationClause(configFileUri)}`. |
 | <a id='BCP380' />BCP380 | Error | Artifacts of type: `{artifactType}` aren't supported. |
-| <a id='BCP381' />BCP381 | Warning | Declaring provider namespaces with the `import` keyword has been deprecated. Use the `provider` keyword instead. |
 | <a id='BCP383' />BCP383 | Error | The `{typeName}` type isn't parameterizable. |
 | <a id='BCP384' />BCP384 | Error | The `{typeName}` type requires `{requiredArgumentCount}` argument(s). |
-| <a id='BCP385' />BCP385 | Error | Using resource-derived types requires enabling EXPERIMENTAL feature `{nameof(ExperimentalFeaturesEnabled.ResourceDerivedTypes)}`. |
 | <a id='BCP386' />BCP386 | Error | The decorator `<decorator-name>` may not be used on statements whose declared type is a reference to a resource-derived type. |
 | <a id='BCP387' />BCP387 | Error | Indexing into a type requires an integer greater than or equal to 0. |
 | <a id='BCP388' />BCP388 | Error | Can't access elements of type `{wrongType}` by index. A tuple type is required. |
@@ -375,12 +374,9 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP392' />BCP392 | Warning | The supplied resource type identifier `{resourceTypeIdentifier}` wasn't recognized as a valid resource type name. |
 | <a id='BCP393' />BCP393 | Warning | The type pointer segment `{unrecognizedSegment}` wasn't recognized. Supported pointer segments are: `properties`, `items`, `prefixItems`, and `additionalProperties`. |
 | <a id='BCP394' />BCP394 | Error | Resource-derived type expressions must dereference a property within the resource body. Using the entire resource body type isn't permitted. |
-| <a id='BCP395' />BCP395 | Error | Declaring provider namespaces using the `<providerName>@<version>` expression has been deprecated. Use an identifier instead. |
 | <a id='BCP396' />BCP396 | Error | The referenced provider types artifact has been published with malformed content. |
 | <a id='BCP397' />BCP397 | Error | Provider `{name}` is incorrectly configured in the `{BuildBicepConfigurationClause(configFileUri)}`. It's referenced in the `{RootConfiguration.ImplicitProvidersConfigurationKey}` section, but is missing corresponding configuration in the `{RootConfiguration.ProvidersConfigurationKey}` section. |
 | <a id='BCP398' />BCP398 | Error | Provider `{name}` is incorrectly configured in the `{BuildBicepConfigurationClause(configFileUri)}`. It's configured as built-in in the `{RootConfiguration.ProvidersConfigurationKey}` section, but no built-in provider exists. |
-| <a id='BCP399' />BCP399 | Error | Fetching az types from the registry requires enabling EXPERIMENTAL feature `{nameof(ExperimentalFeaturesEnabled.DynamicTypeLoading)}`. |
-| <a id='BCP400' />BCP400 | Error | Fetching types from the registry requires enabling EXPERIMENTAL feature `{nameof(ExperimentalFeaturesEnabled.ProviderRegistry)}`. |
 | <a id='BCP401' />[BCP401](./diagnostics/bcp401.md) | Error | The spread operator `...` isn't permitted in this location. |
 | <a id='BCP402' />BCP402 | Error | The spread operator `{spread.Ellipsis.Text}` can only be used in this context for an expression assignable to type `{requiredType}`. |
 | <a id='BCP403' />BCP403 | Error/Warning | The enclosing array expects elements of type `{expectedType}`, but the array being spread contains elements of incompatible type `{actualType}`. |
@@ -402,6 +398,27 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP420' />[BCP420](./diagnostics/bcp420.md) | Error | The scope could not be resolved at compile time because the supplied expression is ambiguous or too complex. Scoping expressions must be reducible to a specific kind of scope without knowledge of parameter values. |
 | <a id='BCP421' />BCP421 | Error | Module `{moduleName}` contains one or more secure outputs, which are not supported with `{LanguageConstants.TargetScopeKeyword}` set to `{LanguageConstants.TargetScopeTypeLocal}`.|
 | <a id='BCP422' />[BCP422](./diagnostics/bcp422.md) | Warning | A resource of type `<resource-type>` may or may not exist when this function is called, which could cause the deployment to fail.|
+| <a id='BCP423' />BCP423 | Error | An extension alias must be defined for an extension declaration that uses an inlined registry reference. |
+| <a id='BCP424' />BCP424 | Error | The following extensions are declared in the Bicep file but are missing a configuration assignment in the parameter files: `{identifiers}`. |
+| <a id='BCP425' />BCP425 | Error | The extension configuration assignment for `{identifier}` does not match an extension in the Bicep file. |
+| <a id='BCP426' />BCP426 | Error | Secure outputs may only be accessed via a direct module reference. Only non-sensitive outputs are supported when dereferencing a module indirectly via a variable or lambda. |
+| <a id='BCP427' />BCP427 | Error | Environment variable `{name}` does not exist and there is no default value set. |
+| <a id='BCP428' />BCP428 | Error | Directory `{relativePath}` does not exist or additional permissions are necessary to access it. |
+| <a id='BCP429' />BCP429 | Error | An error occurred while browsing the directory. `{exceptionMessage}` |
+| <a id='BCP430' />BCP430 | Error | Unable to open directory at path `{filePath}`. A file was found instead. |
+| <a id='BCP431' />BCP431 | Error | The value of the `{propertyName}` property must be an object literal or a valid extension configuration inheritance expression. |
+| <a id='BCP432' />BCP432 | Error | This expression is used in parameter `{parameterName}` of function `{functionName}`, which requires a value that can be calculated at the start of the deployment. |
+| <a id='BCP433' />BCP433 | Error | The resource `{symbolicName}` cannot declare explicit dependencies because its identifier properties including `{runtimePropertyNames}` cannot be calculated at the start of the deployment. |
+| <a id='BCP434' />BCP434 | Error | The resource `{dependentName}` cannot declare an explicit dependency on `{dependencyName}` because its identifier properties including `{runtimePropertyNames}` cannot be calculated at the start of the deployment. |
+| <a id='BCP435' />BCP435 | Error | Using the `with` keyword with a `using` statement requires enabling the **DeployCommands** experimental feature. |
+| <a id='BCP436' />BCP436 | Error | Expected the `with` keyword or a new line at this location. |
+| <a id='BCP437' />BCP437 | Error | The `base` identifier is only available in parameter files that declare an `extends` clause. |
+| <a id='BCP438' />BCP438 | Error | The `base` identifier is reserved and cannot be declared. |
+| <a id='BCP439' />BCP439 | Error | The `@secure()` decorator can only be used on statements whose type clause is `string`, `object`, or a literal type. |
+| <a id='BCP440' />BCP440 | Error | The `@secure()` decorator can only be used on statements whose type is a subtype of `string` or `object`. |
+| <a id='BCP441' />BCP441 | Error | Resource type `{resourceType}` cannot be used with the `existing` keyword. |
+| <a id='BCP443' />BCP443 | Error | The `using` statement requires a `with` clause when the **DeployCommands** experimental feature is enabled. |
+| <a id='BCP444' />BCP444 | Error | This expression is used as a default value for an extension configuration property and must be calculated at the start of the deployment. |
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/14/2025
 ms.author: jianleishen
 ms.custom:

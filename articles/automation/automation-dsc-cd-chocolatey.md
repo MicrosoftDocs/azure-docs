@@ -7,8 +7,8 @@ ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Set up continuous deployment with Chocolatey

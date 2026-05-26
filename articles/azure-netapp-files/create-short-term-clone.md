@@ -5,14 +5,14 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.date: 01/08/2026
 ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files 
 
 A short-term clone volume is a writable and space-efficient copy of a volume that is created for temporary use, such as development, testing, data analytics, or digital forensics of large data sets. A short-term clone can be an alternative to creating a full copy by [restoring a snapshot to a new volume](snapshots-restore-new-volume.md) which consumes more of the capacity pool's quota. 
 
-Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that base snapshot. Because the short-term clone references an existing snapshot, the short-term clone volume's quota is used to accommodate write operations to the data set. It can be as small as the minimum Azure NetApp Files volume size but should be sized based on the changes to the data.
+Short-term clone volumes are created from snapshots of existing Azure NetApp Files volumes and inherit the data in that snapshot. Because the short-term clone references an existing snapshot, the short-term clone volume's quota is used to accommodate write operations to the data set. It can be as small as the minimum Azure NetApp Files volume size but should be sized based on the changes to the data.
 
 With a short-term clone volume, you can create a clone of your original volume on a different capacity pool to utilize a different QoS level without being restrained by space restrictions in the source capacity pool. Additionally, short-term clones enable you to test a snapshot restore on a different capacity pool before [reverting to the original volume](snapshots-revert-volume.md). 
 
@@ -21,7 +21,7 @@ By default, short-term clones convert to regular volumes after 32 days.
 ## Considerations 
 
 * Short-term clone volumes are supported with the [Flexible, Standard, Premium, and Ultra service levels](azure-netapp-files-service-levels.md).
-    * You can create a short-term clone in a capacity pool with a different service level than that of the source volume's snapshot. 
+    * You can create a short-term clone in a capacity pool with a different service level than that of the source volume. 
 * Short-term clone volume size contributes to capacity pool quota like any other volume.
 * If the capacity pool hosting the short-term clone is set to auto QoS, throughput is calculated based on the quota value (volume size) you assign when creating the short-term clone. For a short-term clone in capacity pools with manual QoS, throughput is assigned when creating the short-term clone.
 * Snapshot policies, backup, replication, and default user quota are not available with short-term clone.
@@ -36,25 +36,8 @@ By default, short-term clones convert to regular volumes after 32 days.
 * During the clone operation, the parent volume is accessible; you can capture new snapshots of the parent volume. 
 * You can create five short-term clones per regular volume.
 
-## Register the feature
-
-To take advantage of the feature, you must first register it. 
-
-1. Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-1. Registration for short-term clones isn't automatic and may take up to a week. Check the registration status with the command: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-    When the `RegistrationState` field output displays "Registered", you can create a short-term clone. 
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+>[!NOTE]
+>If you're creating a clone of a volume with application data in it, such as a database, ensure that the snapshot was taken with the application in a consistent state. You can achieve this by using [AzAcSnap](azacsnap-introduction.md), [SnapCenter](https://docs.netapp.com/us-en/snapcenter/get-started/concept_snapcenter_overview.html), [Commvault](https://documentation.commvault.com/11.42/software/getting_started_with_azure_netapp_files.html?view=saas), or other application aware snapshot management software. 
 
 ## Create a short-term clone
 
@@ -90,5 +73,5 @@ To take advantage of the feature, you must first register it.
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

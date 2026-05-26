@@ -11,4 +11,4 @@ ms.custom: include file, ignite-2024
 ---
 
 > [!NOTE]
-> If managed identity is not assigned to the resource which supports it, outbound access to other resources within the same perimeter will be denied. Subscription based inbound rules intended to allow access from this resource will not take effect.  
+> Enabling a Managed Identity (MI) is required to support intra-perimeter communication between resources. While some capabilities for certain resources (for example, Azure SQL's features that use platform‑managed, SQL‑to‑SQL backend communication) may continue to function without an MI, enabling one is strongly recommended to ensure secure access within the same perimeter or across linked perimeters.

@@ -41,10 +41,13 @@ items:
     items:
     - name: Storage task assignment
       href: storage-tasks/storage-task-assignment.md
+    - name: Mock runs for storage task assignments
+      href: ./storage-tasks/storage-task-mock-run.md
+      displayName: Mock runs
     - name: Azure roles for assignments
       href: storage-tasks/storage-task-authorization-roles-assign.md
   - name: Reliability
-    href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
+    href: /azure/reliability/reliability-storage-actions?toc=/azure/storage-actions/toc.json
   - name: Costs and billing
     href: storage-actions-plan-manage-costs.md 
 - name: How-to
@@ -56,6 +59,9 @@ items:
     href: storage-tasks/storage-task-conditions-operations-edit.md
   - name: Create and manage an assignment
     href: storage-tasks/storage-task-assignment-create.md
+  - name: Create and use a mock run
+    href: storage-tasks/storage-task-mock-run-create.md
+    displayName: Mock run
   - name: Monitor storage tasks
     href: storage-tasks/monitor-storage-tasks.md
   - name: Analyze storage task runs

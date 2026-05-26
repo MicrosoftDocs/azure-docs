@@ -13,19 +13,19 @@ ms.date: 10/13/2025
 
 In this article, you learn how create a zone-redundant container app inside a virtual network. You will create an Azure Container Apps Environment, enable it for zone redundancy, and configure with a new or preexisting virtual network that has an infrastructure subnet.
 
-For more information on how Container Apps supports zone redundancy, see [Reliability in Container Apps](../reliability/reliability-container-apps.md).
+For more information on how Container Apps supports zone redundancy, see [Reliability in Container Apps](/azure/reliability/reliability-container-apps).
 
 ## Prerequisites
 
 Zone redundancy is available in all regions that support Container Apps and availability zones.
 
-To see which regions support availability zones, see [Azure regions with availability zone support](../reliability/regions-list.md).
+To see which regions support availability zones, see [Azure regions with availability zone support](/azure/reliability/regions-list).
 
 To see which regions support Container Apps, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Create a zone-redundant container app
 
-Use Azure Portal, Azure CLI, or PowerShell to create a zone-redundant container app.
+Use Azure portal, Azure CLI, or PowerShell to create a zone-redundant container app.
 
 # [Azure portal](#tab/portal)
 
@@ -53,7 +53,7 @@ Zone redundancy requires a virtual network with an infrastructure subnet.  You c
     When using these commands, replace the `<PLACEHOLDERS>` with your values.
     
     >[!NOTE]
-    > The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+    > The default workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. The legacy Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
     
     
     ```azurecli-interactive
@@ -96,8 +96,8 @@ Zone redundancy requires a virtual network with an infrastructure subnet.  You c
     When using these commands, replace the `<PLACEHOLDERS>` with your values.
     
     >[!NOTE]
-    > The Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. The workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
-    
+    > The default workload profiles environment requires a dedicated subnet with a CIDR range of `/27` or larger. The legacy Consumption only environment requires a dedicated subnet with a CIDR range of `/23` or larger. To learn more about subnet sizing, see the [networking architecture overview](../container-apps/custom-virtual-networks.md#subnet).
+
     ```azurepowershell-interactive
     $SubnetArgs = @{
         Name = 'infrastructure-subnet'

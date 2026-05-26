@@ -32,6 +32,9 @@ Application Gateway v2 can now address each of these items to further eliminate 
 * Ability to override the default route to the Internet (0.0.0.0/0)
 * DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.yml#change-dns-servers), including private link private DNS zones.
 
+>[!Tip]
+> See [Application Gateway DNS resolution](application-gateway-dns-resolution.md) for detailed guidance on configuring DNS for Application Gateway.
+
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
 ## Onboard to the feature
@@ -176,7 +179,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 After registering the feature, configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
 
 > [!NOTE]
-> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact appgw-idle-timeout@microsoft.com to request initiation of keep‑alive from Application Gateway.
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
 
 ## Application Gateway Subnet 
 

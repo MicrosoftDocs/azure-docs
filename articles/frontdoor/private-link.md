@@ -33,6 +33,9 @@ After you enable an origin for Private Link and approve the private endpoint con
 
 Once your request is approved, a dedicated private endpoint gets assigned for routing your traffic from the Azure Front Door managed virtual network. Traffic from your clients reaches Azure Front Door Global POPs and is then routed over the Microsoft backbone network to the Front Door regional cluster, which hosts the managed virtual network containing the dedicated private endpoint. The traffic is then routed to your origin via the private link platform over Microsoft backbone network. Hence the incoming traffic to your origin secured upon the moment it arrives to Azure Front Door. 
 
+> [!NOTE]
+> Azure Front Door doesn't support client/mutual authentication (mTLS) for public origins or private link enabled origins.
+
 ## Supported origins
 
 Origin support for direct private endpoint connectivity is currently limited to the following origin types.
@@ -54,10 +57,10 @@ Origin support for direct private endpoint connectivity is currently limited to 
 
 Azure Front Door private link is available in the following regions:
 
-| Americas | Europe | Africa | Asia Pacific |
+| Americas | Europe | Middle East and Africa | Asia Pacific |
 |--|--|--|--|
-| Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India |
+| Brazil South | France Central | South Africa North | Australia East | 
+| Canada Central | Germany West Central | UAE North | Central India |
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
@@ -72,7 +75,12 @@ Azure Front Door private link is available in the following regions:
 | US Sec East | | | |
 | US Sec West | | | |
 
-The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the next nearest region in terms of latency. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+> [!NOTE]
+> Azure Front Door Private Link is only available in regions with Availability Zone support. This is to ensure zonal resiliency for region based feature like Private link.
+
+The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. Be aware that this configuration introduces additional latency due to the extra network hop between regions.
+
+You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the additional latency due to choosing the next nearest region.  Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
 ## Association of a private endpoint with an Azure Front Door profile
 

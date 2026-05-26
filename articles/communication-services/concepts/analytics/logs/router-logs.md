@@ -6,7 +6,7 @@ author: nabennet
 services: azure-communication-services 
 ms.author: nabennet 
 ms.date: 07/07/2023 
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.service: azure-communication-services 
 ms.subservice: data 
 --- 

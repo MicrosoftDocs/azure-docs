@@ -7,8 +7,8 @@ ms.date: 11/17/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage certificates in Azure Automation
@@ -28,9 +28,6 @@ The cmdlets in the following table create and manage Automation certificates wit
 |[New-AzAutomationCertificate](/powershell/module/Az.Automation/New-AzAutomationCertificate)|Creates a new certificate in Automation.|
 |[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|Removes a certificate from Automation.|
 |[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
-
-The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet can also be used to upload a service certificate for the specified cloud service.
-
 
 ## Internal cmdlets to access certificates
 

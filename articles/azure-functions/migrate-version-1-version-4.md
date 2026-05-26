@@ -46,8 +46,7 @@ ms.custom:
 > [!IMPORTANT]
 > Python isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Python app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.
 
-::: zone-end
-
+::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
 
 > [!IMPORTANT]
@@ -59,30 +58,35 @@ If you are running version 1.x of the runtime in Azure Stack Hub, see [Considera
 
 ## Identify function apps to migrate
 
-Use the following PowerShell script to generate a list of function apps in your subscription that currently target version 1.x:
+Run the following PowerShell script in Azure Cloud Shell to generate a list of function apps in your subscription that currently target version 1.x:
 
-```powershell
-$Subscription = '<YOUR SUBSCRIPTION ID>' 
- 
-Set-AzContext -Subscription $Subscription | Out-Null
-
+```azurepowershell-interactive
 $FunctionApps = Get-AzFunctionApp
 
 $AppInfo = @{}
 
 foreach ($App in $FunctionApps)
 {
-     if ($App.ApplicationSettings["FUNCTIONS_EXTENSION_VERSION"] -like '*1*')
+     $AppSettings = Get-AzFunctionAppSetting -Name $App.Name -ResourceGroupName $App.ResourceGroupName
+     if ($AppSettings.FUNCTIONS_EXTENSION_VERSION -like '*1*')
      {
-          $AppInfo.Add($App.Name, $App.ApplicationSettings["FUNCTIONS_EXTENSION_VERSION"])
+          $AppInfo.Add($App.Name, $AppSettings.FUNCTIONS_EXTENSION_VERSION)
      }
 }
 
 $AppInfo
 ```
 
-::: zone-end
+If you run outside of Cloud Shell, you must first set the active subscription:
 
+```azurepowershell
+$Subscription = '<SUBSCRIPTION_ID>' 
+ 
+Set-AzContext -Subscription $Subscription | Out-Null
+```
+
+In this example, replace '<SUBSCRIPTION_ID>' with the ID of your subscription.  
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ## Choose your target .NET version
@@ -550,7 +554,7 @@ This section details changes made after version 1.x in both trigger and binding 
 
 Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](functions-bindings-register.md).
 
-There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-versions.md#bindings) for links to documentation for each binding.
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-triggers-bindings.md#supported-bindings) for links to documentation for each binding.
 
 ### Changes in features and functionality
 

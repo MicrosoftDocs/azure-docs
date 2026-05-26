@@ -2,7 +2,7 @@
 title: Overview Page
 description: Learn how to configure and deploy customizable security baselines for continuous compliance monitoring across Azure and Arc-enabled machines using Azure Policy and Machine Configuration.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Security Baselines Overview

@@ -34,13 +34,13 @@ When we talk about deploying Azure IoT Operations, we mean the full set of compo
 
 Cloud resources:
 
-* An Azure subscription.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 A cluster host:
 
@@ -67,6 +67,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
    | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
+   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
 
 1. Select **Next: Configuration**.
 

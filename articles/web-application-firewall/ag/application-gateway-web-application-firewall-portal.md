@@ -1,17 +1,19 @@
 ---
-title: 'Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal'
+title: 'Tutorial: Create an Application Gateway With a Web Application Firewall Using the Azure Portal'
 description: In this tutorial, you learn how to create an application gateway with a Web Application Firewall by using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: tutorial
-ms.date: 05/23/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
-#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
+
 # Customer intent: As an IT administrator, I want to configure an application gateway with a Web Application Firewall through the cloud portal so that I can ensure my web applications are protected against cybersecurity threats.
 ---
 
 # Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal
+
+**Applies to:** :heavy_check_mark: Application Gateway V2
 
 This tutorial shows you how to use the Azure portal to create an Application Gateway with a Web Application Firewall (WAF). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. After creating the application gateway, you test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool. For the sake of simplicity, this tutorial uses a simple setup with a public front-end IP, a basic listener to host a single site on this application gateway, two Linux virtual machines used for the backend pool, and a basic request routing rule.
 

@@ -3,7 +3,7 @@ title: Troubleshoot the Azure Site Recovery process server
 description: This article describes how to troubleshoot issues with the Azure Site Recovery process server
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 12/09/2025
+ms.date: 02/27/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 ms.custom: sfi-image-nochange
@@ -101,6 +101,7 @@ Check that no anti-virus software on the replicated machine is blocking Site Rec
 
 ## Step 6: Check connectivity from source machine
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 1. Install the [Telnet client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) on the source machine if you need to. Don't use Ping.
 2. From the source machine, ping the process server on the HTTPS port with Telnet. By default 9443 is the HTTPS port for replication traffic.

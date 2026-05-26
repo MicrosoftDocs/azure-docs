@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 01/15/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -24,7 +24,7 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 
 ## Prerequisites
 
-Make sure you do the following before configuring backups:
+Before you configure backups for SAP HANA databases running on Azure VMs, ensure that the following prerequisites are met:
 
 * Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM running SAP HANA.
 * Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](backup-azure-sap-hana-database.md#establish-network-connectivity) section.
@@ -35,13 +35,13 @@ Make sure you do the following before configuring backups:
   * It should have credentials to add and delete users
   * Note that this key can be deleted after running the pre-registration script successfully
 * You could also choose to create a key for the existing HANA SYSTSEM user in **hdbuserstore** instead of creating a custom key as listed in the step above.
-* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/ScriptForPermsOnHANA) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
+* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/ScriptForPermsOnHANA) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#preregistration-script-functionality-for-sap-hana-database-backup) section. It also details about what the pre-registration script does.
 * If your HANA setup uses Private Endpoints, run the [pre-registration script](https://aka.ms/ScriptForPermsOnHANA) with the *-sn* or *--skip-network-checks* parameter.
 
 >[!NOTE]
 >The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For an Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
-## Understanding the backup and restore throughput performance
+## Backup and restore throughput performance for SAP HANA databases
 
 The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it's important to understand this streaming methodology.
 
@@ -54,11 +54,11 @@ Since the streams primarily deal with disks, you need to understand the disk per
 - Maximum Uncached disk throughput of the VM – read from data or log area.
 - Underlying disk type and its throughput – read from data or log area.
 - VM’s maximum network throughput – write to Recovery Services vault.
-- If the VNET has NVA/firewall, it's network throughput
+- If the virtual network has NVA/firewall, it's network throughput
 - If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
 > [!IMPORTANT]
-> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPSs are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you want to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
+> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you might be concerned that the entire disk IOPSs are consumed by the backup service which might affect SAP HANA's operations related to read/write from the disks. In that case, if you want to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
 
 ### Limiting backup throughput performance
 
@@ -86,7 +86,7 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 >[!Note]
 > If the changes aren't applied, restart the databases.
 
-## What the pre-registration script does
+## Preregistration script functionality for SAP HANA database backup
 
 Running the pre-registration script performs the following functions:
 
@@ -138,64 +138,68 @@ Here's a summary of steps required for completing the pre-registration script ru
 | Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
 | HANA Admin    | HANA Studio   | Check Backup Console, Backup catalog, backup.log, backint.log, and globa.ini   |    Both SYSTEMDB and Tenant database.   |
 
-After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](backup-azure-sap-hana-database.md#establish-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
+After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](backup-azure-sap-hana-database.md#establish-network-connectivity) and then [configure backup](#discover-the-sap-hana-databases-for-backup) from Recovery services vault
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 The Recovery Services vault is now created.
 
-## Enable Cross Region Restore
+## Enable Cross Region Restore for SAP HANA databases
+
+ Cross Region Restore (CRR) allows you to restore your backups to a secondary region during a regional outage. This feature enhances the resilience of your backup strategy by providing an additional layer of protection against regional failures.
 
 At the Recovery Services vault, you can enable Cross Region Restore. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 
-## Discover the databases
+## Discover the SAP HANA databases for backup
 
-1. In the Azure portal, go to **Backup center** and click **+Backup**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** and select **+Configure protection**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
+1. On the **Configure protection** pane, select **Datasource type** as **SAP HANA in Azure VM**, and then select **Continue**.
 
-1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then click **Continue**.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-datasource-type.png" alt-text="Screenshot that shows the selection of SAP HANA in Azure VM as datasource type.":::
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
+1. On the **Start: Configure Backup** pane, for **Vault** selection, click **Select vault** to use for backup, and then select **Continue**.
 
-1. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot that shows the selection of a Recovery Services vault for SAP HANA database backup.":::
+
+1. On the **Backup Goal** pane, select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
    * After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    * If a VM isn't listed as expected, check whether it's already backed up in a vault.
    * Multiple VMs can have the same name but they belong to different resource groups.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Screenshot showing to select Start Discovery.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Screenshot that shows how to select Start Discovery.":::
 
 1. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
 1. Run the script on each VM hosting SAP HANA databases that you want to back up.
 1. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
 1. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="Screenshot showing the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines.png" alt-text="Screenshot that shows the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines.png":::
 
-## Configure backup
+## Configure backup for SAP HANA databases
 
 Now enable backup.
 
 1. In Step 2, select **Configure Backup**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Screenshot showing to configure Backup.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Screenshot that shows the configuration of Backup.":::
 
-2. In **Select items to back up**, select all the databases you want to protect > **OK**.
+2. On the **Select items to back up** pane, select all the databases you want to protect > **OK**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="Screenshot showing to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases.png" alt-text="Screenshot that shows how to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases.png":::
 
-3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
+3. For **Backup Policy**, choose a backup policy, or create a new backup policy for the databases, in accordance with the instructions below.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Screenshot showing to choose backup policy.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Screenshot that shows the selection of a backup policy.":::
 
 4. After creating the policy, on the **Backup** menu, select **Enable backup**.
 
     ![Screenshot showing how to enable backup.](./media/backup-azure-sap-hana-database/enable-backup.png)
 
-## Creating a backup policy
+## Create a backup policy for SAP HANA databases
 
 A backup policy defines when backups are taken, and how long they're retained.
 

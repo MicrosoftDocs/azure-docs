@@ -4,7 +4,7 @@ description: "Introduction to a series of articles that provide a high-level met
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/23/2022
 ---
 

@@ -5,15 +5,16 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql 
-ms.date: 02/11/2025 
+ms.date: 02/04/2026
 ms.author: stefanazaric 
 ms.custom: sfi-image-nochange
 ---
 
 # Connect to Synapse SQL with SQL Server Management Studio
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 > [!div class="op_single_selector"]
-> * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)

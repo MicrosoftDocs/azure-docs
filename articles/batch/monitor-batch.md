@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 11/20/2025
+ms.date: 05/19/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-batch
@@ -136,11 +136,11 @@ The following table lists some alert rule triggers for Batch. These alert rules 
 
 [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. You can use [Azure Batch Insights](https://github.com/Azure/batch-insights) with Batch Explorer to get system statistics for your Batch nodes, such as virtual machine (VM) performance counters.
 
-In your Batch applications, you can use the [Batch .NET library](/dotnet/api/microsoft.azure.batch) to monitor or query the status of your resources including jobs, tasks, nodes, and pools. For example:
+In your Batch applications, you can use the [Batch .NET library](/dotnet/api/azure.compute.batch) to monitor or query the status of your resources including jobs, tasks, nodes, and pools. For example:
 
-- Monitor the [task state](/rest/api/batchservice/task/list#taskstate).
+- Monitor the [task state](/rest/api/batchservice/tasks/list-tasks#batchtaskstate).
 - Monitor the [node state](/rest/api/batchservice/computenode/list#computenodestate).
-- Monitor the [pool state](/rest/api/batchservice/pool/get#poolstate).
+- Monitor the [pool state](/rest/api/batchservice/pools/get-pool#batchpoolstate).
 - Monitor [pool usage in the account](/rest/api/batchservice/pool/listusagemetrics).
 - Count [pool nodes by state](/rest/api/batchservice/account/listpoolnodecounts).
 

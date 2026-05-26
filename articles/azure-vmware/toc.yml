@@ -111,6 +111,8 @@ items:
       href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
+    - name: Reliability in Azure VMware Solution
+      href: /azure/reliability/reliability-vmware-solution?pivots=avs-gen1
     - name: Design considerations for Gen 2
       href: native-network-design-consideration.md
   - name: Security
@@ -168,8 +170,8 @@ items:
     href: plan-private-cloud-deployment.md
   - name: Deploy Azure VMware Solution
     href: deploy-azure-vmware-solution.md
-  - name: Azure VMware Solution private cloud maintenance best practices
-    href: azure-vmware-solution-private-cloud-maintenance-best-practices.md
+  - name: Azure VMware Solution private cloud maintenance
+    href: azure-vmware-solution-private-cloud-maintenance.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy
@@ -222,7 +224,7 @@ items:
     href: vmware-hcx-mon-guidance.md	
   - name: Configure VMware HCX network extension high availability
     href: configure-hcx-network-extension-high-availability.md
-  - name: NSX Scale and Performance Recommendations for VMware HCX
+  - name: NSX Scale and Performance Recommendations
     href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md
@@ -250,8 +252,6 @@ items:
     href: enable-vmware-vcd-with-azure-network.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
     href: deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md
-  - name: Enable VMware Cloud Director Service with Azure VMware solution
-    href: enable-vmware-cds-with-azure.md
 - name: Virtual machines
   items:
   - name: Operating system support for VMs
@@ -288,6 +288,8 @@ items:
     href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
+  - name: Performance with Elastic SAN
+    href: ../storage/elastic-san/elastic-san-performance-on-azure-vmware-solutions.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
@@ -348,6 +350,8 @@ items:
   items:
   - name: Run Command
     href: using-run-command.md
+  - name: Use Set-ToolsRepo Run Command
+    href: use-set-toolsrepo-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Send syslogs to log management solutions via Azure Logic Apps
@@ -390,7 +394,7 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Plan self-service maintenance for Azure VMware Solution (public preview)
+  - name: Plan self-service maintenance for Azure VMware Solution
     href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware Solution
     href: enable-vmware-cds-with-azure.md

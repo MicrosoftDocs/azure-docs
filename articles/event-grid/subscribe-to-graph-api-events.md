@@ -177,7 +177,7 @@ If the Graph API subscription isn't renewed after it expires, create a new Graph
 
 Upon receiving a `microsoft.graph.subscriptionReauthorizationRequired` event your application should renew the Graph API subscription by doing these actions:
 
-1. If you provided a client secret in the *clientState* property when you created the Graph API subscription, that client secret in included with the event. Validate that the event's clientState matches the value used when you created the Graph API subscription.
+1. If you provided a client secret in the *clientState* property when you created the Graph API subscription, that client secret is included with the event. Validate that the event's clientState matches the value used when you created the Graph API subscription.
 1. Ensure that the app has a valid access token to take the next step. More information is provided in the coming [samples with detailed instructions](#samples-with-detailed-instructions) section.
 1. Call either of the following two APIs. If the API call succeeds, the change notification flow resumes.
 

@@ -1,5 +1,5 @@
 ---
-title: Manage Network Watcher Agent VM extension - Linux
+title: Manage Network Watcher Agent VM Extension - Linux
 description: Learn about the Network Watcher Agent virtual machine extension for Linux virtual machines and how to install and uninstall it.
 author: halkazwini
 ms.author: halkazwini

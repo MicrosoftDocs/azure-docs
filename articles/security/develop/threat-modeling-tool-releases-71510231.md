@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Read the release notes for the threat modeling tool update released on 11/1/2018. This release does not contain any new functionality or fixes.
 author: jegeib
 ms.author: jegeib
-ms.service: information-protection
+ms.service: azure-information-protection
 ms.topic: article
 ms.date: 01/15/2019
 ---

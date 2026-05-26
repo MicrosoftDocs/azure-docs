@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 12/09/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.topic: how-to
 ms.custom:
@@ -267,7 +267,7 @@ using '<BICEP_TEMPLATE_FILE>'
 param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>', '<KEY_VAULT_NAME>', '<SECRET_NAME>', '<SECRET_VERSION_ID>')
 ```
 
-The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
+The subscription ID has the form `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
 
 You can now reference the `datadogapikey` parameter in your Bicep file.
 
@@ -747,7 +747,7 @@ For more information, see [Microsoft.App/managedEnvironments](/azure/templates/m
 
 ## Data resilience
 
-In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
+In the event of a messaging interruption to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
 
 - **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes.
 - **Dropping data**: If the buffered queue fills up, or the endpoint is still down after retries, the agent discards the oldest batches to avoid running out of memory.
@@ -756,7 +756,7 @@ In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agen
 
 The OpenTelemetry agent automatically injects a set of environment variables into your application at runtime.
 
-The first two environment variables follow standard OpenTelemetry exporter configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
+The first three environment variables follow standard OpenTelemetry configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
 
 Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
@@ -764,6 +764,7 @@ Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](h
 |---|---|
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | A base endpoint URL for any signal type, with an optionally specified port number. This setting is helpful when you’re sending more than one signal to the same endpoint and want one environment variable to control the endpoint. Example:  `http://otel.service.k8se-apps:4317/` |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | Specifies the OTLP transport protocol used for all telemetry data. The managed agent only supports `grpc`. Value: `grpc`. |
+| `OTEL_RESOURCE_ATTRIBUTES` | A comma-separated list of key-value pairs that define [resource attributes](https://opentelemetry.io/docs/specs/otel/resource/sdk/) attached to all telemetry data. The managed agent populates this variable with container app attributes such as the app name and environment. Some OpenTelemetry SDK implementations require you to explicitly enable environment-based resource detection to use these attributes. If you set this variable in the container app specification, your value overwrites the automatically injected value. |
 
 The other three environment variables are specific to Azure Container Apps, and are always injected. These variables hold agent’s endpoint URLs for each specific data type (logs, metrics, traces).
 
@@ -822,6 +823,11 @@ These resources are managed by Microsoft and don't appear in your billing or res
 - **How can I monitor the health and status of the OpenTelemetry agent?**
 
     Agent status and health metrics aren't currently exposed. This capability is planned for a future release.
+
+
+## Custom DNS configuration
+
+The managed OpenTelemetry collector respects custom DNS configuration in your Container Apps environment. If you've configured custom DNS settings, the collector automatically uses those settings for name resolution when connecting to external endpoints. This ensures that your OpenTelemetry data is routed correctly through your network infrastructure.
 
 ## Next steps
 

@@ -1,14 +1,13 @@
 ---
-title: Migrate to Connection monitor from Network performance monitor
+title: Migrate to Connection Monitor from Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 02/25/2026
 
-#CustomerIntent: As an Azure administrator, I want to migrate my tests from Network performance monitor to the new Connection monitor so I avoid service disruption. 
 # Customer intent: As an Azure administrator, I want to migrate my tests from Network performance monitor to Connection monitor so that I can leverage enhanced monitoring capabilities and avoid service disruption during the transition.
 ---
 

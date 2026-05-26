@@ -3,8 +3,8 @@ title: Manage Entra ID enabled Azure HDInsight clusters with ARM template
 description: Learn how to manage Entra ID enabled Azure HDInsight clusters with ARM template
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---
@@ -264,6 +264,27 @@ To create a Microsoft.HDInsight/clusters resource, add the following JSON to you
 				  }
 				}
 ```
+## Troubleshooting
+
+### Issue
+The problem occurs with the restAuthEntraUsers value in the gateway configuration. Azure Resource Manager (ARM) treats any string that starts with [ as an ARM expression. As a result, when ARM encounters the JSON array value, it attempts to interpret it as an ARM function, which causes the deployment to fail.
+
+### Resolution
+To prevent ARM from interpreting the value as an expression, escape the opening bracket by using [[ instead of [. This forces ARM to treat the value as a literal string and pass it through correctly to HDInsight.
+
+### Example
+Before (deployment fails):
+```json
+	"restAuthEntraUsers": "[{\"displayName\":\"John Doe\",\"objectId\":\"<Object ID>\",\"upn\":\"johndoe@contoso.com\"},{\"displayName\":\"Jane Doe\",\"objectId\":\"<Object ID>\",\"upn\":\"janedoe@contoso.com\"},{\"displayName\":\"abc\",\"objectId\":\"<Object ID>\",\"upn\":\"abc@contoso.com\"}]"
+```
+
+After (deployment succeeds):
+
+```json
+"restAuthEntraUsers": "[[{\"displayName\":\"John Doe\",\"objectId\":\"<Object ID>\",\"upn\":\"johndoe@contoso.com\"},{\"displayName\":\"Jane Doe\",\"objectId\":\"<Object ID>\",\"upn\":\"janedoe@contoso.com\"},{\"displayName\":\"abc\",\"objectId\":\"<Object ID>\",\"upn\":\"abc@contoso.com\"}]"
+```
+> [!NOTE]
+> The only required change is the additional "[" at the beginning of the value.
 
 ## Property Values
 

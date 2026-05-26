@@ -5,7 +5,7 @@ description: Learn how to process or transform data by running a Databricks note
 ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2025
 ms.subservice: orchestration
 ---

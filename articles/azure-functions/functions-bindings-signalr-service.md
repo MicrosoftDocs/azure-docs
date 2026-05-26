@@ -73,7 +73,7 @@ This connection string should be stored in an application setting with a name `A
 
 ### Identity-based connections
 
-If you're using version 1.7.0 or higher, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md).
+If you're using version 1.7.0 or higher, instead of using a connection string with a secret, you can have the app use a [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md).
 
 First of all, you should make sure your Microsoft Entra identity has role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner).
 

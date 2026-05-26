@@ -5,8 +5,8 @@ description: Learn how to copy and transform data in Azure Database for PostgreS
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 08/05/2025
+ms.topic: how-to
+ms.date: 02/09/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -30,10 +30,10 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 | Supported capabilities | IR | Managed private endpoint | Connector supported versions |
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |1.0 & 2.0 |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |2.0 |
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; | |1.0 & 2.0 |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;| |2.0 |
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -91,7 +91,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection fails.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disabled**: SSL is disabled. If the server requires SSL, the connection fails.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Preferred**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Required**: The connection fails if the server doesn't support SSL.<br/>- **Verify_ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify_full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disabled (0) / Allow (1) / Preferred (2) **(Default)** / Required (3) / Verify_ca (4) / Verify_full (5) | No |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|No|
 | ***Additional connection properties:*** |  |  |
 | schema | Sets the schema search path. | No |

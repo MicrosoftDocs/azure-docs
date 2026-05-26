@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -16,8 +16,6 @@ ms.custom: generated
 This article lists the permissions for Azure resource providers, which are used in built-in roles. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. The permissions are always evolving. To get the latest permissions, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Click the resource provider name in the following list to see the list of permissions.
-
-<a name='microsoftsupport'></a>
 
 ## General
 
@@ -43,15 +41,13 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.AVS](./permissions/compute.md#microsoftavs) |  | [Azure VMware Solution](/azure/azure-vmware/introduction) |
 > | [Microsoft.AzureFleet](./permissions/compute.md#microsoftazurefleet) |  | [Azure Compute Fleet](/azure/azure-compute-fleet/overview) |
 > | [Microsoft.Batch](./permissions/compute.md#microsoftbatch) | Cloud-scale job scheduling and compute management. | [Batch](/azure/batch/) |
-> | [Microsoft.ClassicCompute](./permissions/compute.md#microsoftclassiccompute) |  | Classic deployment model virtual machine |
 > | [Microsoft.Compute](./permissions/compute.md#microsoftcompute) | Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use. | [Virtual Machines](/azure/virtual-machines/)<br/>[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
+> | [Microsoft.ComputeLimit](./permissions/compute.md#microsoftcomputelimit) |  |  |
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
 > | [microsoft.connectedvmwarevsphere](./permissions/compute.md#microsoftconnectedvmwarevsphere) |  | [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/) |
 > | [Microsoft.DesktopVirtualization](./permissions/compute.md#microsoftdesktopvirtualization) | The best virtual desktop experience, delivered on Azure. | [Azure Virtual Desktop](/azure/virtual-desktop/) |
 > | [Microsoft.Quantum](./permissions/compute.md#microsoftquantum) |  | [Azure Quantum](/azure/quantum/overview-azure-quantum) |
 > | [Microsoft.ServiceFabric](./permissions/compute.md#microsoftservicefabric) | Develop microservices and orchestrate containers on Windows or Linux. | [Service Fabric](/azure/service-fabric/) |
-
-<a name='microsoftnetwork'></a>
 
 ## Networking
 
@@ -61,11 +57,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Cdn](./permissions/networking.md#microsoftcdn) | Ensure secure, reliable content delivery with broad global reach. | [Content Delivery Network](/azure/cdn/) |
 > | [Microsoft.ClassicNetwork](./permissions/networking.md#microsoftclassicnetwork) |  | Classic deployment model virtual network |
 > | [Microsoft.Network](./permissions/networking.md#microsoftnetwork) | Connect cloud and on-premises infrastructure and services to provide your customers and users the best possible experience. | [Application Gateway](/azure/application-gateway/)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview)<br />[Azure DNS](/azure/dns/)<br />[Azure ExpressRoute](/azure/expressroute/)<br />[Azure Firewall](/azure/firewall/)<br />[Azure Front Door Service](/azure/frontdoor/)<br />[Azure Private Link](/azure/private-link/)<br />[Azure Route Server](/azure/route-server/)<br />[Load Balancer](/azure/load-balancer/)<br />[Network Watcher](/azure/network-watcher/)<br />[Traffic Manager](/azure/traffic-manager/)<br />[Virtual Network](/azure/virtual-network/)<br />[Virtual Network NAT](/azure/nat-gateway/nat-overview)<br />[Virtual Network Manager](/azure/virtual-network-manager/overview)<br />[Virtual WAN](/azure/virtual-wan/)<br />[VPN Gateway](/azure/vpn-gateway/) |
-
-<a name='microsoftdatashare'></a>
-<a name='microsoftelasticsan'></a>
-<a name='microsoftnetapp'></a>
-<a name='microsoftstorage'></a>
 
 ## Storage
 
@@ -80,8 +71,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.StorageCache](./permissions/storage.md#microsoftstoragecache) | File caching and Lustre file system capabilities for high-performance computing (HPC). | [Azure HPC Cache](/azure/hpc-cache/)<br/>[Azure Managed Lustre](/azure/azure-managed-lustre/) |
 > | [Microsoft.StorageSync](./permissions/storage.md#microsoftstoragesync) |  | [Storage](/azure/storage/) |
 
-<a name='microsoftweb'></a>
-
 ## Web and Mobile
 
 > [!div class="mx-tableFixed"]
@@ -93,10 +82,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.SignalRService](./permissions/web-and-mobile.md#microsoftsignalrservice) | Add real-time web functionalities easily. | [Azure SignalR Service](/azure/azure-signalr/) |
 > | [microsoft.web](./permissions/web-and-mobile.md#microsoftweb) | Quickly create and deploy mission critical web apps at scale. | [App Service](/azure/app-service/)<br/>[Azure Functions](/azure/azure-functions/) |
 
-<a name='microsoftcontainerinstance'></a>
-<a name='microsoftcontainerregistry'></a>
-<a name='microsoftcontainerservice'></a>
-
 ## Containers
 
 > [!div class="mx-tableFixed"]
@@ -107,22 +92,18 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ContainerService](./permissions/containers.md#microsoftcontainerservice) | Accelerate your containerized application development without compromising security. | [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) |
 > | [Microsoft.RedHatOpenShift](./permissions/containers.md#microsoftredhatopenshift) |  | [Azure Red Hat OpenShift](/azure/openshift/) |
 
-<a name='microsoftdocumentdb'></a>
-
 ## Databases
 
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
-> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
+> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Managed Redis](/azure/redis/), [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
 > | [Microsoft.DBforMariaDB](./permissions/databases.md#microsoftdbformariadb) | Managed MariaDB database service for app developers. | [Azure Database for MariaDB](/azure/mariadb/) |
 > | [Microsoft.DBforMySQL](./permissions/databases.md#microsoftdbformysql) | Managed MySQL database service for app developers. | [Azure Database for MySQL](/azure/mysql/) |
 > | [Microsoft.DBforPostgreSQL](./permissions/databases.md#microsoftdbforpostgresql) | Managed PostgreSQL database service for app developers. | [Azure Database for PostgreSQL](/azure/postgresql/) |
 > | [Microsoft.DocumentDB](./permissions/databases.md#microsoftdocumentdb) | A NoSQL document database-as-a-service. | [Azure Cosmos DB](/azure/cosmos-db/) |
 > | [Microsoft.Sql](./permissions/databases.md#microsoftsql) | Managed, intelligent SQL in the cloud. | [Azure SQL Database](/azure/azure-sql/database/index)<br/>[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index)<br/>[Azure Synapse Analytics](/azure/synapse-analytics/) |
 > | [Microsoft.SqlVirtualMachine](./permissions/databases.md#microsoftsqlvirtualmachine) | Host enterprise SQL Server apps in the cloud. | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
-
-<a name='microsoftdatafactory'></a>
 
 ## Analytics
 
@@ -134,13 +115,12 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DataFactory](./permissions/analytics.md#microsoftdatafactory) | Hybrid data integration at enterprise scale, made easy. | [Data Factory](/azure/data-factory/) |
 > | [Microsoft.DataLakeAnalytics](./permissions/analytics.md#microsoftdatalakeanalytics) | Distributed analytics service that makes big data easy. | [Data Lake Analytics](/azure/data-lake-analytics/) |
 > | [Microsoft.DataLakeStore](./permissions/analytics.md#microsoftdatalakestore) | Highly scalable and cost-effective data lake solution for big data analytics. | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) |
+> | [Microsoft.Fabric](./permissions/analytics.md#microsoftfabric) | Unified analytics platform for data engineering, data science, and business intelligence. | [Microsoft Fabric](/fabric/) |
 > | [Microsoft.HDInsight](./permissions/analytics.md#microsofthdinsight) | Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters. | [HDInsight](/azure/hdinsight/) |
 > | [Microsoft.Kusto](./permissions/analytics.md#microsoftkusto) | Service for storing and running interactive analytics over Big Data. | [Azure Data Explorer](/azure/data-explorer/) |
 > | [Microsoft.PowerBIDedicated](./permissions/analytics.md#microsoftpowerbidedicated) | Manage Power BI Premium dedicated capacities for exclusive use by an organization. | [Power BI Embedded](/azure/power-bi-embedded/) |
-> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) |  | [Microsoft Purview](/purview/) |
-> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) |  | [Azure Synapse Analytics](/azure/synapse-analytics/) |
-
-<a name='microsoftsearch'></a>
+> | [Microsoft.Purview](./permissions/analytics.md#microsoftpurview) | Unified data governance and compliance solution. | [Microsoft Purview](/purview/) |
+> | [Microsoft.Synapse](./permissions/analytics.md#microsoftsynapse) | Limitless analytics service with enterprise data warehousing and big data analytics. | [Azure Synapse Analytics](/azure/synapse-analytics/) |
 
 ## AI + machine learning
 
@@ -160,15 +140,16 @@ Click the resource provider name in the following list to see the list of permis
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AzureSphere](./permissions/internet-of-things.md#microsoftazuresphere) |  | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) |
+> | [Microsoft.DeviceRegistry](./permissions/internet-of-things.md#microsoftdeviceregistry) |  |  |
 > | [Microsoft.Devices](./permissions/internet-of-things.md#microsoftdevices) | Ensure that your users are accessing your resources from devices that meet your standards for security and compliance. | [IoT Hub](/azure/iot-hub/)<br/>[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 > | [Microsoft.DeviceUpdate](./permissions/internet-of-things.md#microsoftdeviceupdate) |  | [Device Update for IoT Hub](/azure/iot-hub-device-update/) |
 > | [Microsoft.DigitalTwins](./permissions/internet-of-things.md#microsoftdigitaltwins) |  | [Azure Digital Twins](/azure/digital-twins/) |
+> | [Microsoft.Edge](./permissions/internet-of-things.md#microsoftedge) |  |  |
+> | [Microsoft.EdgeMarketPlace](./permissions/internet-of-things.md#microsoftedgemarketplace) |  |  |
 > | [Microsoft.IoTCentral](./permissions/internet-of-things.md#microsoftiotcentral) | Experience the simplicity of SaaS for IoT, with no cloud expertise required. | [IoT Central](/azure/iot-central/) |
 > | [Microsoft.IoTFirmwareDefense](./permissions/internet-of-things.md#microsoftiotfirmwaredefense) |  | [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/overview) |
 > | [Microsoft.IoTSecurity](./permissions/internet-of-things.md#microsoftiotsecurity) |  | [IoT security](/azure/iot/iot-security-architecture) |
 > | [Microsoft.StreamAnalytics](./permissions/internet-of-things.md#microsoftstreamanalytics) | Real-time data stream processing from millions of IoT devices. | [Stream Analytics](/azure/stream-analytics/) |
-
-<a name='microsoftapimanagement'></a>
 
 ## Integration
 
@@ -179,7 +160,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |
-> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) |
+> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable-functions/durable-functions-overview) |
 > | [Microsoft.EventGrid](./permissions/integration.md#microsofteventgrid) | Get reliable event delivery at massive scale. | [Event Grid](/azure/event-grid/) |
 > | [Microsoft.EventHub](./permissions/integration.md#microsofteventhub) | Receive telemetry from millions of devices. | [Event Hubs](/azure/event-hubs/) |
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
@@ -202,14 +183,13 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.AzureActiveDirectory](./permissions/identity.md#microsoftazureactivedirectory) | Synchronize on-premises directories and enable single sign-on. | [Azure Active Directory B2C](/azure/active-directory-b2c/) |
 > | [Microsoft.ManagedIdentity](./permissions/identity.md#microsoftmanagedidentity) | An automatically managed identity in Microsoft Entra ID that authenticates to any service that supports Microsoft Entra | [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/) |
 
-<a name='microsoftsecurityinsights'></a>
-
 ## Security
 
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AppComplianceAutomation](./permissions/security.md#microsoftappcomplianceautomation) |  | [App Compliance Automation Tool for Microsoft 365](/microsoft-365-app-certification/docs/acat-overview) |
+> | [Microsoft.Attestation](./permissions/security.md#microsoftattestation) |  | Azure Attestation Service |
 > | [Microsoft.DataProtection](./permissions/security.md#microsoftdataprotection) |  | Data Protection |
 > | [Microsoft.KeyVault](./permissions/security.md#microsoftkeyvault) | Safeguard and maintain control of keys and other secrets. | [Key Vault](/azure/key-vault/) |
 > | [Microsoft.Security](./permissions/security.md#microsoftsecurity) | Protect your enterprise from advanced threats across hybrid cloud workloads. | [Security Center](/azure/security-center/) |
@@ -239,8 +219,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Migrate](./permissions/migration.md#microsoftmigrate) | Easily discover, assess, right-size, and migrate your on-premises VMs to Azure. | [Azure Migrate](/azure/migrate/migrate-services-overview) |
 > | [Microsoft.OffAzure](./permissions/migration.md#microsoftoffazure) |  | [Azure Migrate](/azure/migrate/migrate-services-overview) |
 
-<a name='microsoftoperationalinsights'></a>
-
 ## Monitor
 
 > [!div class="mx-tableFixed"]
@@ -253,12 +231,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.OperationalInsights](./permissions/monitor.md#microsoftoperationalinsights) |  | [Azure Monitor](/azure/azure-monitor/) |
 > | [Microsoft.OperationsManagement](./permissions/monitor.md#microsoftoperationsmanagement) | A simplified management solution for any enterprise. | [Azure Monitor](/azure/azure-monitor/) |
 
-<a name='microsoftauthorization'></a>
-<a name='microsoftautomation'></a>
-<a name='microsoftcostmanagement'></a>
-<a name='microsoftpolicyinsights'></a>
-<a name='microsoftresourcehealth'></a>
-
 ## Management and governance
 
 > [!div class="mx-tableFixed"]
@@ -268,7 +240,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Authorization](./permissions/management-and-governance.md#microsoftauthorization) |  | [Azure Policy](/azure/governance/policy/overview)<br/>[Azure RBAC](/azure/role-based-access-control/overview)<br/>[Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.Automation](./permissions/management-and-governance.md#microsoftautomation) | Simplify cloud management with process automation. | [Automation](/azure/automation/) |
 > | [Microsoft.Billing](./permissions/management-and-governance.md#microsoftbilling) | Manage your subscriptions and see usage and billing. | [Cost Management + Billing](/azure/cost-management-billing/) |
-> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) |
+> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) |
 > | [Microsoft.Blueprint](./permissions/management-and-governance.md#microsoftblueprint) | Enabling quick, repeatable creation of governed environments. | [Azure Blueprints](/azure/governance/blueprints/) |
 > | [Microsoft.Carbon](./permissions/management-and-governance.md#microsoftcarbon) |  | [Azure carbon optimization](/azure/carbon-optimization/overview) |
 > | [Microsoft.Consumption](./permissions/management-and-governance.md#microsoftconsumption) | Programmatic access to cost and usage data for your Azure resources. | [Cost Management](/azure/cost-management-billing/) |
@@ -278,6 +250,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.GuestConfiguration](./permissions/management-and-governance.md#microsoftguestconfiguration) | Audit settings inside a machine using Azure Policy. | [Azure Policy](/azure/governance/policy/) |
 > | [Microsoft.Intune](./permissions/management-and-governance.md#microsoftintune) | Enable your workforce to be productive on all their devices, while keeping your organization's information protected. |  |
 > | [Microsoft.Maintenance](./permissions/management-and-governance.md#microsoftmaintenance) |  | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations)<br/>[Azure Update Manager](/azure/update-manager/overview) |
+> | [Microsoft.ManagedOps](./permissions/management-and-governance.md#microsoftmanagedops) |  |  |
 > | [Microsoft.ManagedServices](./permissions/management-and-governance.md#microsoftmanagedservices) |  | [Azure Lighthouse](/azure/lighthouse/) |
 > | [Microsoft.Management](./permissions/management-and-governance.md#microsoftmanagement) | Use management groups to efficiently apply governance controls and manage groups of Azure subscriptions. | [Management Groups](/azure/governance/management-groups/) |
 > | [Microsoft.PolicyInsights](./permissions/management-and-governance.md#microsoftpolicyinsights) | Summarize policy states for the subscription level policy definition. | [Azure Policy](/azure/governance/policy/) |
@@ -288,8 +261,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Resources](./permissions/management-and-governance.md#microsoftresources) | Deployment and management service for Azure that enables you to create, update, and delete resources in your Azure subscription. | [Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.Solutions](./permissions/management-and-governance.md#microsoftsolutions) | Find the solution to meet the needs of your application or business. | [Azure Managed Applications](/azure/azure-resource-manager/managed-applications/) |
 > | [Microsoft.Workloads](./permissions/management-and-governance.md#microsoftworkloads) |  | [SAP on Azure](/azure/sap/) |
-
-<a name='microsoftkubernetes'></a>
 
 ## Hybrid + multicloud
 

@@ -1,50 +1,72 @@
 ---
 title: Configure mutual authentication with Application Gateway through ARM template
 titleSuffix: Azure Application Gateway
-description: Deploy an Azure Application Gateway with mutual TLS (mTLS) passthrough using an ARM template.
+description: Learn how to deploy an Azure Application Gateway with mutual TLS (mTLS) passthrough using an ARM template.
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 11/18/2025
+ms.date: 04/27/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-# Customer intent: As a cloud architect, I want to deploy an Azure Application Gateway with an mTLS passthrough mode so that my web applications can handle mixed traffic (certificate-based and token-based) securely and at scale.
+# Customer intent: As a cloud architect, I want to deploy an Azure Application Gateway with mTLS passthrough mode so that my web applications can handle mixed traffic (certificate-based and token-based) securely and at scale.
 ---
 
 # Deploy an Azure Application Gateway with mTLS passthrough listener
 
-
-This quickstart shows how to deploy an Azure Application Gateway with **mutual TLS (mTLS) passthrough** using an ARM template and API version `2025-03-01`. In passthrough mode, the gateway requests a client certificate but does **not validate it**. Certificate validation and policy enforcement occur at the backend.
+This quickstart shows you how to deploy an Azure Application Gateway with **mutual TLS (mTLS) passthrough** using an Azure Resource Manager template (ARM template) and API version `2025-03-01`. In passthrough mode, the gateway requests a client certificate but doesn't validate it. Certificate validation and policy enforcement occur at the backend.
 
 ## Key features
+
 - Associate an SSL profile with the listener for mTLS passthrough.
-- No client CA certificate required at the gateway.
-- `verifyClientAuthMode` supports `Strict` and `Passthrough`.
+- No client CA certificate is required at the gateway.
+- The `verifyClientAuthMode` property supports `Strict` and `Passthrough` values.
+- **Portal support**: You can configure mTLS passthrough directly in the Azure portal.
 
 > [!NOTE]
-> Portal, PowerShell, and CLI support for passthrough configuration are currently unavailable. For the purpose of this guide, use ARM templates.
+> PowerShell and CLI support for passthrough configuration are currently unavailable. You can configure mTLS passthrough using the Azure portal or ARM templates.
+
+## Configure mTLS passthrough using Azure portal
+
+You can configure mTLS passthrough directly in the Azure portal by creating an SSL profile with the **Passthrough** client authentication method:
+
+1. Navigate to your Application Gateway resource in the Azure portal.
+2. Under **Settings**, select **SSL profiles**.
+3. Select **+ Add** to create a new SSL profile.
+4. Enter a name for your SSL profile.
+5. On the **Client Authentication** tab, select **Passthrough**.
+
+   In Passthrough mode, the client certificate is optional and the backend server is responsible for client authentication.
+
+:::image type="content" source="./media/mutual-authentication-arm-template/mutual-authentication-passthrough.png" alt-text="Screenshot showing the Create SSL profile dialog in Azure portal with Passthrough selected for client authentication method.":::
+
+6. Configure SSL Policy settings as needed.
+7. Select **Add** to create the SSL profile.
+8. Associate the SSL profile with your HTTPS listener.
 
 ## Prerequisites
-- Azure subscription and resource group.
-- Azure CLI installed.
-- SSL certificate (Base64-encoded PFX) and password.
-- SSH key for Linux VM admin (if applicable).
-- API version `2025-03-01` for passthrough property.
+
+- An Azure subscription and resource group.
+- Azure CLI installed locally.
+- An SSL certificate (Base64-encoded PFX) and password.
+- An SSH key for Linux VM admin (if applicable).
+- API version `2025-03-01` or later for the passthrough property.
 
 
 ## Deploy Application Gateway with mTLS passthrough listener
 
-This template creates:
-- A **Virtual Network** with two subnets (one delegated to Application Gateway).
-- A **Public IP address** for the gateway frontend.
-- An **Application Gateway (Standard_v2)** with:
+This template creates the following resources:
+
+- A virtual network with two subnets (one delegated to Application Gateway).
+- A public IP address for the gateway frontend.
+- An Application Gateway (Standard_v2) with:
   - SSL certificate and SSL profile for client certificate passthrough.
   - HTTPS listener and routing rule.
   - Backend pool pointing to an app service.
-Please update the template with your configuration details and include a valid SSL certificate.
 
-### Parameter file: `deploymentParameters.json`
+Update the template with your configuration details and include a valid SSL certificate.
+
+### Parameter file: deploymentParameters.json
 
 ```json
 {
@@ -77,8 +99,8 @@ Please update the template with your configuration details and include a valid S
         }
     }
 }
-
 ```
+
 ### Template file: deploymentTemplate.json
 
 ``` json
@@ -331,7 +353,9 @@ Please update the template with your configuration details and include a valid S
 
 ### Deploy the template
 
-```
+Run the following Azure CLI command to deploy the template:
+
+```azurecli
 az deployment group create \
   --resource-group <your-resource-group> \
   --template-file deploymentTemplate.json \
@@ -340,52 +364,60 @@ az deployment group create \
 
 ### Validate and test
 
+#### Validate the deployment
 
- **Validate deployment**
-   - In Azure portal, check the Application Gateway resource JSON file
-   - Select API version 2025-03-01 and verify sslprofile
-   - Validate `verifyClientAuthMode` is set to "passthrough"
-   ```
+1. In the Azure portal, navigate to your Application Gateway resource.
+1. Select **JSON View** and select API version `2025-03-01`.
+1. Verify that `verifyClientAuthMode` is set to `Passthrough` in the SSL profile:
+
+   ```json
    "sslProfiles": [
-            {
-                "name": "sslnotrustedcert",
-                "id": "samplesubscriptionid",
-                "etag": "W/\"851e4e20-d2b1-4338-9135-e0beac11aa0e\"",
-                "properties": {
-                    "provisioningState": "Succeeded",
-                    "clientAuthConfiguration": {
-                        "verifyClientCertIssuerDN": false,
-                        "verifyClientRevocation": "None",
-                        "verifyClientAuthMode": "Passthrough"
-                    },
-                    "httpListeners": [
-                        {
-                            "id": "samplesubscriptionid"
-                        }
-                    ]
-  ```
+       {
+           "name": "sslnotrustedcert",
+           "id": "<sample-subscription-id>",
+           "etag": "W/\"851e4e20-d2b1-4338-9135-e0beac11aa0e\"",
+           "properties": {
+               "provisioningState": "Succeeded",
+               "clientAuthConfiguration": {
+                   "verifyClientCertIssuerDN": false,
+                   "verifyClientRevocation": "None",
+                   "verifyClientAuthMode": "Passthrough"
+               },
+               "httpListeners": [
+                   {
+                       "id": "<sample-subscription-id>"
+                   }
+               ]
+           }
+       }
+   ]
+   ```
 
-**Send client certificate to backend**
-  - If you need to forward the client certificate to the backend, configure a rewrite rule as described in [mutual-authentication-server-variables.](rewrite-http-headers-url.md)
+#### Send a client certificate to the backend
 
-  - If the client has sent a certificate, this rewrite ensures the client certificate is included in the request headers for backend processing.
+If you need to forward the client certificate to the backend, configure a rewrite rule. For more information, see [Rewrite HTTP headers and URL with Application Gateway](rewrite-http-headers-url.md).
 
-**Test connectivity**
-   - Connections should be established even if a client certificate is not provided.
+When the client sends a certificate, this rewrite ensures that the client certificate is included in the request headers for backend processing.
+
+#### Test connectivity
+
+Verify that connections are established even when a client certificate isn't provided.
 
 
 
 
 ## mTLS passthrough parameters
 
-| Name                    | Type   | Description                                                                 |
-|-------------------------|--------|-----------------------------------------------------------------------------|
-| verifyClientCertIssuerDN| boolean| Verify client certificate issuer name on the gateway                        |
-| verifyClientRevocation  | options| Verify client certificate revocation                                        |
-| VerifyClientAuthMode    | options| Set client certificate mode (`Strict` or `Passthrough`)                     |
+The following table describes the parameters for mTLS passthrough configuration:
 
-**Passthrough Mode:** Gateway requests a client certificate but does not enforce it. Backend validates certificate and enforces policy.
+| Name | Type | Description |
+| --- | --- | --- |
+| `verifyClientCertIssuerDN` | Boolean | Specifies whether to verify the client certificate issuer name on the gateway. |
+| `verifyClientRevocation` | String | Specifies the client certificate revocation verification mode. |
+| `verifyClientAuthMode` | String | Specifies the client certificate mode. Valid values are `Strict` and `Passthrough`. |
 
-## Security notice
+**Passthrough mode:** The gateway requests a client certificate but doesn't enforce it. The backend validates the certificate and enforces the policy.
 
-This solution is classified as **Microsoft Confidential**. Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.
+## Security considerations
+
+Follow your organization's security and data handling best practices when you deploy and manage this solution.

@@ -5,7 +5,7 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart-arm
-ms.date: 11/19/2024
+ms.date: 02/25/2026
 ms.custom: subject-armqs, devx-track-azurecli
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.

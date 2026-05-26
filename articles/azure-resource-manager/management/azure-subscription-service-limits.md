@@ -2,7 +2,7 @@
 title: Azure subscription and service limits, quotas, and constraints
 description: Understand common Azure subscription and service limits, quotas, and constraints. This article includes information about how to increase limits along with maximum values.
 ms.topic: article
-ms.date: 01/23/2025
+ms.date: 02/05/2026
 ms.custom: ignite-2024
 #customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
 ---
@@ -30,7 +30,7 @@ This document lists some of the most common Microsoft Azure limits, which are al
 > The terms *soft limit* and *hard limit* are often used informally to describe the current, adjustable limit (soft limit) and the maximum limit (hard limit). If a limit isn't adjustable, there won't be a soft limit but only a hard limit.
 >
 
-[Free Azure trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+[Free Azure trial subscriptions](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) aren't eligible for limit or quota increases. If you have this type of subscription, you can upgrade to a [Pay-as-you-go](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) one. For more information, see [Upgrade your Azure account](../../cost-management-billing/manage/upgrade-azure-subscription.md) and the overviews for [Try Azure for free or pay as you go](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 Some limits are managed at a regional level. You decide what your quotas must be for your workload in any one region, and then request that amount for each region into which you want to deploy.
 
@@ -74,18 +74,16 @@ Note that subscription IDs must be non-empty GUIDs.
 
 This section provides information about limits that apply to Azure API Management instances in different [service tiers](../../api-management/api-management-features.md), including the following:
 
-- [API Management classic tiers](#limits---api-management-classic-tiers)
-- [API Management v2 tiers](#limits---api-management-v2-tiers)
-- [API Management workspaces](#limits---api-management-workspaces)
-- [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
+- [Resource limits in API Management classic and v2 tiers](#limits---api-management-classic-and-v2-tiers)
+- [Resource limits in API Management workspaces](#limits---api-management-workspaces)
+- [Resource limits in developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
+- [Gateway runtime limits](#api-management-gateway-runtime-limits)
 
-### Limits - API Management classic tiers
+### Limits - API Management classic and v2 tiers
+
+The following limits are introduced starting March 2026. Services in the classic tiers that surpass the revised limits are allowed to keep their existing capacity. For more information, see [Understanding API Management service limits](../../api-management/service-limits.md).
 
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
-
-### Limits - API Management v2 tiers
-
-[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
 
 ### Limits - API Management workspaces
 
@@ -94,6 +92,10 @@ This section provides information about limits that apply to Azure API Managemen
 ### Limits - Developer portal in API Management v2 tiers
 
 [!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
+
+### API Management gateway runtime limits
+
+[!INCLUDE [api-management-gateway-constraints](../../../includes/api-management-gateway-constraints.md)]
 
 ## Azure App Service limits
 
@@ -135,7 +137,7 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 
 <a name='azure-cognitive-services-limits'></a>
 
-## Azure AI Services limits
+## Foundry Tools limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
@@ -483,7 +485,7 @@ See [Classic Microsoft Purview data governance limits](../../purview/how-to-mana
 
 ## Microsoft Sentinel limits
 
-See [Service limits for Microsoft Sentinel](../../sentinel/sentinel-service-limits.md) for Microsoft Sentinel limits.
+See [Service limits for Microsoft Sentinel](/azure/sentinel/sentinel-service-limits) for Microsoft Sentinel limits.
 
 ## Azure Service Bus limits
 
@@ -520,14 +522,14 @@ See [VM Applications overview](/azure/virtual-machines/vm-applications) for more
 
 #### Azure disk encryption sets
 
-A limit of 5,000 disk encryption sets are allowed per region and per subscription. [Contact Azure support](../../communications-gateway/request-changes.md) to increase the quota. 
+A limit of 5,000 disk encryption sets is allowed per region and per subscription. [Contact Azure support](../../communications-gateway/request-changes.md) to increase the quota. 
 
 See the following documentation to learn more about encryption restrictions:
 
 - [Linux](/azure/virtual-machines/disk-encryption#restrictions)
 - [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines
 
-### Azure-managed virtual machine disks
+### Azure managed disks
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks-managed.md)]
 

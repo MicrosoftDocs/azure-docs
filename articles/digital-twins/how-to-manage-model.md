@@ -55,7 +55,7 @@ If your goal is to build a comprehensive model set that describes your industry 
 
 An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
-If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a preexisting set of models designed for your industry instead of designing your models from scratch. Microsoft partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a preexisting set of models designed for your industry instead of designing your models from scratch. Microsoft partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md)
 
 ### Validate syntax
 

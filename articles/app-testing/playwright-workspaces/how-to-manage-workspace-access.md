@@ -24,9 +24,9 @@ In this article, you learn how to manage access to a workspace in Playwright Wor
     1. In the [Azure portal](https://portal.azure.com), go to your Playwright workspace.
     1. On the left pane, select **Access Control (IAM)**, and then select **View my access**.
 
-## Playwright Workspace roles
+## Playwright Workspaces roles
 
-To grant users access to a workspace, you assign them one of the following three Playwright Workspace roles:
+Playwright workspaces uses three types of roles. To grant users access to a workspace, you assign them one of the following roles:
 
 | Role | Access level |
 | --- | --- |

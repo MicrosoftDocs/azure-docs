@@ -2,7 +2,7 @@
 title: Tutorial - Restore Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure portal.
 ms.topic: tutorial
-ms.date: 03/04/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -70,7 +70,7 @@ Once the backup is complete in the primary region, it can take up to **12 hours*
 
 To restore recovery point in the secondary region, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Recover** on the top menu.
+1. Go to **Resiliency**, and then select **Recover** on the top menu.
 2. On the **Protected items** pane, under **Protected item**, select the **Select** option to choose the protected item that you want to restore.
 
    :::image type="content" source="./media/tutorial-restore-postgresql-flex/select-protected-items-for-restore.png" alt-text="Screenshot shows the selection of a recovery point for the database restore." lightbox="./media/tutorial-restore-postgresql-flex/select-protected-items-for-restore.png":::

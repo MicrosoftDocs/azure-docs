@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Native New Relic Service?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

@@ -7,12 +7,14 @@ ms.author: joanpo
 ms.date: 11/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
 ---
 
 # Geo-restore a dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn to restore your dedicated SQL pool (formerly SQL DW) from a geo-backup through Azure portal and PowerShell.
 

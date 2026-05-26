@@ -4,9 +4,10 @@ titleSuffix: Azure API Management
 description: Learn how to set up unit tests and end-to-end tests for your self-hosted API Management portal.
 author: dlepow
 ms.author: danlep
-ms.date: 03/25/2021
+ms.date: 02/09/2026
 ms.service: azure-api-management
 ms.topic: how-to
+#customer intent: As a developer who maintains a self-hosted API Management portal, I need to create unit tests and end-to-end tests to verify the API for ongoing changes.
 ---
 
 # Test the self-hosted developer portal
@@ -15,21 +16,19 @@ ms.topic: how-to
 
 This article explains how to set up unit tests and end-to-end tests for your [self-hosted portal](developer-portal-self-host.md).
 
-## Unit tests
+## Create unit tests
 
-A unit test is an approach to validate small pieces of functionality. It's done in isolation from other parts of the application.
+A unit test is an approach to validate small pieces of functionality. A unit test operates in isolation from other parts of the application.
 
 ### Example scenario
 
 In this scenario, you're testing a password input control. It only accepts passwords containing at least:
 
 - One letter
-
 - One number
-
 - One special character
  
-So, the test to validate these requirements looks like this:
+The test to validate these requirements looks like this:
 
 ```typescript
 const passwordInput = new PasswordInput();
@@ -41,12 +40,12 @@ passwordInput.value = "password";
 expect(passwordInput.isValid).to.equal(false);
 
 passwordInput.value = "p@ssw0rd";
-expect(passwordInput.isValid.to.equal(true);
+expect(passwordInput.isValid).to.equal(true);
 ```
  
 ### Project structure
 
-It's common to keep a unit test next to the component it's supposed to validate.
+It's common to keep a unit test next to the component that it validates.
 
 ```console
 component.ts
@@ -68,9 +67,9 @@ httpClient.mock()
     });
 ```
 
-## End-to-end tests
+## Create end-to-end tests
 
-An end-to-end test executes a particular user scenario taking exact steps that you expect the user to carry out. In a web application like te Azure API Management developer portal, the user scrolls through the content and selects options to achieve certain results. 
+An end-to-end test runs a particular user scenario taking exact steps that you expect the user to carry out. In a web application like the Azure API Management developer portal, the user scrolls through the content and selects options to achieve certain results. 
 
 To replicate user navigation, you can use browser manipulation helper libraries like [Puppeteer](https://github.com/puppeteer/puppeteer). It lets you simulate user actions and automate assumed scenarios. Puppeteer also automatically takes screenshots of pages or components at any stage of the test. Compare them later with previous results to catch deviations and potential regressions.
 
@@ -79,15 +78,10 @@ To replicate user navigation, you can use browser manipulation helper libraries 
 In this scenario, you need to validate a user sign-in flow. This scenario would require the following steps:
 
 1. Open browser and navigate to the sign-in page.
-
 1. Enter the email address.
-
 1. Enter the password.
-
 1. Select **Sign-in**.
-
 1. Verify that user got redirected to Home page.
-
 1. Verify that the page includes the **Profile** menu item. It's one of the possible indicators that you successfully signed in.
 
 To run the test automatically, create a script with exactly the same steps:
@@ -115,11 +109,11 @@ expect(profileMenuItem).not.equals(null);
 ```
 
 > [!NOTE]
-> Strings such as "#email", "#password" and "#signin" are CSS-like selectors that identify HTML elements on the page. See the [Selectors Level 3](https://www.w3.org/TR/selectors-3/) W3C specification to learn more.
+> Strings such as `#email`, `#password`, and `#signin` are CSS-like selectors that identify HTML elements on the page. For more information, see [Selectors Level 3 W3C specification](https://www.w3.org/TR/selectors-3/).
 
 ### UI component maps
 
-User flows often go through the same pages or components. A good example is the main website menu that is present on every page. 
+User flows often go through the same pages or components. A good example is the main website menu that's present on every page. 
 
 Create a UI component map to avoid configuring and updating the same selectors for every test. For example, you could replace steps 2 through 6 in the preceding example with just two lines:
 
@@ -130,7 +124,7 @@ await signInWidget.signInWithBasic({ email: "...", password: "..." });
 
 ### Test configuration
 
-Certain scenarios may require pre-created data or configuration. For example, you may need to automate user sign-in with social media accounts. It's hard to create that data quickly or easily.
+Certain scenarios require pre-created data or configuration. For example, you might need to automate user sign-in with social media accounts. It's hard to create that data quickly or easily.
 
 For this purpose, you could add a special configuration file to your test scenario. The test scripts can pick up required data from the file. Depending on the build and test pipeline, the tests can pull the secrets from a named secure store.
 
@@ -174,7 +168,7 @@ Here's an example of a `validate.config.json` that would be stored in the `src` 
 
 ### Headless vs normal tests
 
-Modern browsers such as Chrome or Microsoft Edge allows you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
+Modern browsers, such as Chrome or Microsoft Edge, allow you to run automation in both headless mode and normal mode. The browser operates without a graphical user interface in headless mode. It still carries out the same page and Document Object Model (DOM) manipulations. The browser UI usually isn't needed in delivery pipelines. In that case, running tests in headless mode is a great option.
 
 When you develop a test script, it's useful to see what exactly is happening in the browser. That's a good time to use normal mode.
 
@@ -196,7 +190,7 @@ export const LaunchOptions = {
 
 ## Run tests
 
-There are two built-in ways to execute tests in this project:
+There are two built-in ways to run tests in this project:
 
 **npm command**
 
@@ -206,7 +200,7 @@ npm run test
 
 **Test Explorer**
 
-The Test Explorer extension for VS Code (for example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter)) has a convenient UI and an option to run tests automatically on every change of the source code:
+Use a Test Explorer extension for VS Code. For example, [Mocha Test Explorer](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter) has a convenient UI and an option to run tests automatically on every change of the source code:
 
 :::image type="content" source="media/developer-portal-testing/visual-studio-code-test-explorer.png" alt-text="Screenshot of Visual Studio Code Test Explorer":::
 
@@ -215,5 +209,4 @@ The Test Explorer extension for VS Code (for example, [Mocha Test Explorer](http
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-
 - [Self-host the developer portal](developer-portal-self-host.md)

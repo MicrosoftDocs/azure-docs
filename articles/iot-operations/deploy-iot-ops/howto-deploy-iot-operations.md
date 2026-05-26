@@ -16,6 +16,9 @@ Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure set
 
 If you deployed a [test instance](./howto-deploy-iot-test-operations.md) of Azure IoT Operations to a cluster and you want to use the same cluster for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
 
+> [!TIP]
+> For an automated deployment experience, see [Automated deployment of Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
+
 ## Before you begin
 
 This article discusses Azure IoT Operations *deployments* and *instances*, which are two different concepts:
@@ -34,13 +37,13 @@ When we talk about deploying Azure IoT Operations, we mean the full set of compo
 
 Cloud resources:
 
-* An Azure subscription.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 A cluster host:
 
@@ -69,6 +72,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
    | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
+   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
 
 1. Select **Next: Configuration**.
 
@@ -77,7 +81,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). The backend redundancy factor must be set to **2 or greater** for high availability and upgrade support. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-configuration.png":::
@@ -217,6 +221,7 @@ az iot ops get-versions
 
 ## Next steps
 
+- See these scripts in GitHub to automate a [production-ready deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 - If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
 - To upgrade your Azure IoT Operations deployment to a newer version, see [Upgrade Azure IoT Operations](./howto-upgrade.md).
 

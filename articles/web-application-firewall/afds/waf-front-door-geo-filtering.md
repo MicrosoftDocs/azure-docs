@@ -11,6 +11,8 @@ ms.date: 09/05/2023
 
 # What is geo-filtering on a domain for Azure Front Door?
 
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
+
 By default, Azure Front Door responds to all user requests regardless of the location where the request comes from. In some scenarios, you might want to restrict access to your web application by countries or regions. You can use Azure Web Application Firewall in Azure Front Door to define a policy by using custom access rules for a specific path on your endpoint to allow or block access from specified countries or regions.
 
 A web application firewall (WAF) policy contains a set of custom rules. The rule consists of match conditions, an action, and a priority. In a match condition, you define a match variable, operator, and match value.
@@ -23,6 +25,9 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 
 > [!IMPORTANT]
 > Include the country code `ZZ` whenever you use geo-filtering. The `ZZ` country code (or `Unknown` country/region) captures IP addresses that aren't yet mapped to a country or region in our dataset. Use this code to avoid false positives.
+
+> [!Note]
+> You can only include a maximum of ten country/region codes in a single custom rule.
 
 ## Country/Region code reference
 

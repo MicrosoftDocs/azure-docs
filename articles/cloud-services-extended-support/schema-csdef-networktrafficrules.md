@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Def. NetworkTrafficRules Schema | Microsoft Docs
 description: Information related to the network traffic rules associated with Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud architect, I want to configure network traffic rules for role-based communication within Azure Cloud Services, so that I can ensure secure and controlled internal endpoint access.
 ---
 

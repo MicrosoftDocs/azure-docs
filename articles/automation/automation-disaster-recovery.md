@@ -4,8 +4,8 @@ description: This article details on disaster recovery strategy to handle servic
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.date: 11/17/2025
 ms.topic: how-to 
 ms.service: azure-automation
@@ -19,7 +19,7 @@ This article explains the disaster recovery strategy to handle a region-wide or 
 
 You must have a disaster recovery strategy to handle a region-wide service outage or zone-wide failure to help reduce the impact and effects arising from unpredictable events on your business and customers. You're responsible to set up disaster recovery of Automation accounts, and its dependent resources such as Modules, Connections, Credentials, Certificates, Variables and Schedules. An important aspect of a disaster recovery plan is preparing to fail over to the replica of the Automation account created in advance in the secondary region, if the Automation account in the primary region becomes unavailable. Ensure that your disaster recovery strategy considers your Automation account and the dependent resources.
 
-In addition to high availability offered by Availability zones, some regions are paired with another region to provide protection from regional or large geographical disasters. Irrespective of whether the primary region has a regional pair or not, the disaster recovery strategy for the Automation account remains the same. For more information about regional pairs, [learn more](../reliability/cross-region-replication-azure.md).
+In addition to high availability offered by Availability zones, some regions are paired with another region to provide protection from regional or large geographical disasters. Irrespective of whether the primary region has a regional pair or not, the disaster recovery strategy for the Automation account remains the same. For more information about regional pairs, [learn more](/azure/reliability/cross-region-replication-azure).
 
 
 ## Enable disaster recovery
@@ -135,4 +135,4 @@ Type[] | True | Array consisting of all the types of assets that need to be migr
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../reliability/availability-zones-region-support.md).
+- Learn more about [regions that support availability zones](/azure/reliability/availability-zones-region-support).

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Calculate Azure Blob Storage container statistics'
-description: Description goes here  
+description: Learn how to calculate container statistics by using Databricks 
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: tutorial

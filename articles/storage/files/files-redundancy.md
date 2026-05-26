@@ -4,7 +4,7 @@ description: Understand the data redundancy options available for Azure file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 09/10/2025
+ms.date: 03/09/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
@@ -23,32 +23,16 @@ Azure classic file shares created with the Microsoft.Storage resource provider a
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## Redundancy in the primary region
 
 Data in an Azure storage account is always replicated three times in the primary region. Azure Files offers two options for how your data is replicated in the primary region:
 
 - **Locally redundant storage (LRS)** replicates the data within your storage accounts to one or more availability zones located in the primary region of your choice. LRS is the least expensive replication option, but isn't recommended for applications requiring high availability or durability.
-- **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure [availability zones](../../reliability/availability-zones-overview.md) in the primary region. For applications requiring high availability, we recommend using [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS), which uses ZRS in the primary region and also geo-replicates your data to a secondary region.
+- **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure [availability zones](/azure/reliability/availability-zones-overview) in the primary region. For applications requiring high availability, we recommend using [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS), which uses ZRS in the primary region and also geo-replicates your data to a secondary region.
 
 ### Locally redundant storage
 
-Locally redundant storage (LRS) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there is no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. Visit the [What are Azure availability zones](../../reliability/availability-zones-overview.md) article to learn more about availability zone reliability.
+Locally redundant storage (LRS) replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice. Although there is no option to choose your preferred availability zone, Azure may move or expand LRS accounts across zones to improve load balancing. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. Visit the [What are Azure availability zones](/azure/reliability/availability-zones-overview) article to learn more about availability zone reliability.
 
 LRS is the lowest-cost redundancy option and offers the least durability compared to other options. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS could be lost or unrecoverable. To mitigate this risk, we recommend using [ZRS](#zone-redundant-storage), [GRS](#geo-redundant-storage), or [GZRS](#geo-zone-redundant-storage).
 
@@ -63,11 +47,11 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for HDD file shares. For a list of regions that support LRS for SSD file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-azure-file-shares).
+LRS is supported in all Azure regions for HDD (standard) file shares. For a list of regions that support LRS for SSD (premium) file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-azure-file-shares).
 
 ### Zone-redundant storage
 
-Zone-redundant storage (ZRS) replicates the data within your storage accounts to three or more Azure availability zones located in the primary region of your choice. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS offers durability for storage resources of at least 99.9999999999% (12 9s) over a given year. Visit the [What are Azure availability zones](../../reliability/availability-zones-overview.md) article to learn more about availability zone reliability.
+Zone-redundant storage (ZRS) replicates the data within your storage accounts to three or more Azure availability zones located in the primary region of your choice. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS offers durability for storage resources of at least 99.9999999999% (12 9s) over a given year. Visit the [What are Azure availability zones](/azure/reliability/availability-zones-overview) article to learn more about availability zone reliability.
 
 With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. If a zone becomes unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you access data before the updates have completed. When designing applications for ZRS, follow practices for transient fault handling, including implementing retry policies with exponential back-off.
 
@@ -86,9 +70,10 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 #### ZRS support by region
 
-To understand which regions support ZRS for standard file shares, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1) and refer to the availability zone support column. ZRS is supported in standard general-purpose v2 storage accounts for all three standard tiers: transaction optimized, hot, and cool.
+ZRS is supported for both SSD and HDD file shares. To see which regions support ZRS for each media tier, refer to the following resources:
 
-ZRS is supported for SSD file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
+- **HDD file shares**: See the availability zone support column in the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
+- **SSD file shares**: See [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
 
 ## Redundancy in a secondary region
 
@@ -99,7 +84,7 @@ For applications requiring high durability for SMB file shares, you can choose g
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
-Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for standard SMB file shares.
+Azure Files offers two options for copying your data to a secondary region. Currently, geo-redundant storage options are only available for HDD SMB file shares.
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within one or more Azure availability zones in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
@@ -118,7 +103,7 @@ The following diagram shows how your data is replicated with GRS:
 
 ### Geo-zone-redundant storage
 
-Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../reliability/availability-zones-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. We recommend using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
+Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](/azure/reliability/availability-zones-overview) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. We recommend using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
 
 With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability over a given year.
 
@@ -207,31 +192,43 @@ You can verify region supportability for various billing models using the follow
 
 To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Login to Azure account
+# Login
 Connect-AzAccount
+# (Optional but recommended if you have multiple subs)
+# Set-AzContext -Subscription $subscriptionID
 
-# Track down the subscription ID in GUID format
 $subscriptionID = "your-subscription-id-number"
 
-# Get Token
-$token = Get-AzAccessToken
+# Get token (output is now SecureString by default, see https://learn.microsoft.com/powershell/module/az.accounts/get-azaccesstoken)
+$secureToken = (Get-AzAccessToken).Token  # SecureString now
 
-# Invoke SRP list SKU API, and get the returned SKU list
-$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
+# Convert SecureString -> plaintext (Az 14 migration pattern)
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
+try {
+    $plainToken = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+}
+finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
 
-# Filter the SKU list to get the required information, customization required here to get the best result.
+# Call List SKUs
+$uri = "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2025-08-01"
+$headers = @{ Authorization = "Bearer $plainToken" }
+
+$result = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers
+
 $filteredResult = $result | `
     Select-Object -ExpandProperty value | `
     Where-Object {
         $_.resourceType -eq "storageAccounts" -and
-        # Filter based on your needs. FileStorage kind includes pv2, and pv1 file share, where StorageV2 kind include PayGO file shares.
+        # Filter based on your needs. FileStorage account kind includes Pv2 and Pv1 file share, where StorageV2 kind includes PayGO file shares.
         $_.kind -in @("FileStorage", "StorageV2") -and
-        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for pv1 file shares.
+        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for Pv1 file shares.
         # $_.name.StartsWith("StandardV2_") -and
-        # Change region based on your need to see if we currently support the region (all small cases, no space in between).
+        # Change region based on your need to see if the region is currently supported (all lowercase, no space in between).
         # $_.locations -eq "italynorth" -and
         $_.name -notin @("Standard_RAGRS", "Standard_RAGZRS")
     }
@@ -295,7 +292,7 @@ subscriptionID="your-subscription-id-number"
 token=$(az account get-access-token --query accessToken --output tsv)
 
 # Invoke SRP list SKU API, and get the returned SKU list
-result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2024-01-01" --headers "Authorization=Bearer $token")
+result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2025-08-01" --headers "Authorization=Bearer $token")
 
 # Filter the SKU list to get the required information, customization required here to get the best result.
 filteredResult=$(echo $result | jq '.value[] | select(.resourceType == "storageAccounts" and (.kind == "FileStorage" or .kind == "StorageV2") and (.name | test("^(?!Standard_RAGRS|Standard_RAGZRS)")))' )

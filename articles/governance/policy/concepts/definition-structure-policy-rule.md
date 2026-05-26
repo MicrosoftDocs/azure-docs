@@ -2,7 +2,7 @@
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
 ms.date: 03/19/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure policy rule
@@ -663,6 +663,16 @@ The following functions are only available in policy rules:
        "notIn": "[split(requestContext().identity.acrs, ',')]"
       }
     ```
+
+  - `http: //schemas.microsoft.com/identity/claims/objectidentifier`: returns the user (or object) ID associated with the request.
+    ```json
+       "value": "[tryGet(requestContext().identity, 'http: //schemas.microsoft.com/identity/claims/objectidentifier')]",
+       "in": ['userId']
+    ```
+    
+> [!WARNING]
+> When you use the `requestContext().identity` function, the policy engine marks the policy as `NotApplicable` for compliance evaluation/scans. As a result, compliance results for that policy show as `NotApplicable`, but enforcement of effects such as `Deny`, `DeployIfNotExists`, and `Modify` still occurs at request time.
+
 
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).

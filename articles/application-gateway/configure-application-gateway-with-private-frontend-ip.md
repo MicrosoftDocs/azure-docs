@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 02/26/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure an internal load balancer with a private frontend IP for my application gateway, so that I can manage and optimize traffic for internal applications without exposing them to the Internet."
@@ -106,13 +106,18 @@ To do this:
    - Select **Windows Server 2019 Datacenter** for **Image**.
    - Type a valid **Username**.
    - Type a valid **Password**.
+   - For **Public inbound ports**, select **None**.
 1. Accept the remaining defaults and select **Next: Disks**.
 1. Accept the defaults and select **Next : Networking**.
 1. Ensure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.
+1. For **Public IP**, select **None**.
 1. Accept the remaining defaults, and select **Next : Management**.
 1. Select **Disable** to disable boot diagnostics.
 1. Select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**. It may take several minutes to create the VM. Wait until the deployment finishes successfully before moving on to the next section.
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including RDP. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
 ### Install IIS
 

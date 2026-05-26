@@ -2,7 +2,7 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: how-to
-ms.date: 12/10/2025
+ms.date: 12/30/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -182,6 +182,16 @@ You can also directly update the ARM template, which is used for deploying the l
 1. Once deployed, [authorize the Azure Monitor Logs and Office 365 connections](#authorize-connections-to-azure-monitor-logs-and-office-365).
 
 ---
+
+## Pricing for Email Reports
+
+Email reports are free. However, you incur charges for the Log Analytics workspace and Logic Apps that you use to configure and deliver email notifications. These charges apply as per the respective pricing models.
+
+The following examples illustrate the cost estimation for using Email Reports:
+
+- **Cost of actions**: Cost of the action type  (varies by the report you configure for email) x Count of actions × 30 days (a month).
+- **Cost of standard connectors**: Cost of connector x Count of connectors x 30 days (a month).
+- **Cost of data retention** (calculation for 7 days): 7 days × data volume per run in MB (determine the volume by running the workflow once and noting emitted storage metrics) × storage cost for each unit × 30 days (a month).
 
 ## Next steps
 [Learn more about Backup Reports](./configure-reports.md)

@@ -2,7 +2,7 @@
 title: Audit and enforce backup during VM creation automatically using Azure Policy
 description: Learn how to use Azure Policy to autoenable backup for all VMs created in a given scope.
 ms.topic: how-to
-ms.date: 12/18/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -55,7 +55,7 @@ The following table lists the supported and unsupported scenarios for the availa
 | **Policies 1 and 2** | - Can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, you need to create multiple instances of the policy assignment, one for each combination of location and subscription. <br><br> - The specified vault and the VMs configured for backup can be under different resource groups. | Management group scope is currently unsupported. |
 | **Policies 3 and 4** | Can be assigned to a single subscription at a time (or a resource group within a subscription). |        |
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+[!INCLUDE [resiliency.md](../../includes/resiliency.md)]
 
 ## Assign built-in Azure Policy for Azure VM backup
 

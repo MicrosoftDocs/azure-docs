@@ -5,7 +5,7 @@ author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.custom: devx-track-js
-ms.topic: conceptual 
+ms.topic: reference
 ms.date: 07/17/2023
 ---
 # Web PubSub client-side SDK for JavaScript

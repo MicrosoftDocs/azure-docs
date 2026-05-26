@@ -5,7 +5,7 @@ author: ukchrist
 ms.author: ulrichchrist
 ms.reviewer: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/21/2024
 ---
 

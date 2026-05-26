@@ -1,6 +1,6 @@
 --- 
-title: Integrate application code scan reports from CAST highlights  
-description: Pull code scan insights from CAST highlights in Azure Migrate application assessments and review the application report 
+title: Integrate Application Code Scan Reports from CAST Highlights in Azure Migrate
+description: Pull code scan insights from CAST highlights into Azure Migrate application assessments to review the application readiness. 
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate 

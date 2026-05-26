@@ -35,7 +35,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 **Assessment type** | **Details** | **Data** 
 --- | --- | --- 
-**Performance-based** | Assessments that make recommendations based on collected performance data. |  The compute recommendation is based on CPU and memory utilization data.<br/><br/> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks. 
+**Performance-based** | Assessments that make recommendations based on collected performance data. |  The compute recommendation is based on CPU and memory utilization data.<br/><br/> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks. 
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. |  The compute recommendation is based on the on-premises server size.<br/><br/> The recommended storage is based on the selected storage type for the assessment. 
 
 In performance-based assessment the assessment identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization taken as input as assessment setting.   
@@ -47,9 +47,6 @@ The 95th percentile value makes sure you ignore any outliers, which might be inc
 If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization. 
 
 This value is multiplied by the comfort factor(taken as an input in assessment setting) to get the effective performance utilization data for these metrics that the appliance collects and right size the target requirements. 
-
->[!Note] 
->Azure SQL assessments are only performance-based and Webapp assessments are only As-is on premises. You can create Azure VM assessments and AVS assessments with both performance-based and As-is on premises sizing. 
 
 ### Monthly costs 
 

@@ -5,7 +5,7 @@ description: This quickstart shows how to create a public load balancer using th
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 09/30/2024
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -237,6 +237,7 @@ Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-cr
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
+    --sku Basic \
     --location eastus
 ```
 
@@ -293,7 +294,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create):
     --no-wait
 ```
 
-It may take a few minutes for the VMs to deploy. You can continue to the next steps while the VMs are creating.
+It can take a few minutes for the VMs to deploy. You can continue to the next steps while the VMs are creating.
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
@@ -330,7 +331,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --zone 1 2 3
 ```
 
-To create a zonal redundant public IP address in Zone 1 instead, use the following command:
+To create a zonal public IP address in Zone 1 instead, use the following command:
 
 ```azurecli
   az network public-ip create \
@@ -395,7 +396,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
     --query ipAddress \
     --output tsv
 ```
-:::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Test the load balancer" border="true":::
+:::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Screenshot of browser window displaying the load balancer test page." border="true":::
 
 ## Clean up resources
 

@@ -7,6 +7,7 @@ ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."
 ---
 

@@ -13,6 +13,8 @@ ms.custom: engagement-fy23
 
 # What is Azure Synapse SQL architecture?
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article describes the architecture components of Synapse SQL. It also explains how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
 
 ## Synapse SQL architecture components
@@ -68,8 +70,6 @@ In serverless SQL pool, each Compute node is assigned task and set of files to e
 ## Data Movement Service
 
 Data Movement Service (DMS) is the data transport technology in dedicated SQL pool that coordinates data movement between the Compute nodes. Some queries require data movement to ensure the parallel queries return accurate results. When data movement is required, DMS ensures the right data gets to the right location.
-
-> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## Distributions
 

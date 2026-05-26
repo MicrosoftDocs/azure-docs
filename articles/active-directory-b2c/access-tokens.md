@@ -85,7 +85,7 @@ Replace the values in the query string as follows:
 
 To get a feel of how the request works, paste the request into your browser and run it. 
 
-This's the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
+This is the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
 
 The response with the authorization code should be similar to this example:
 

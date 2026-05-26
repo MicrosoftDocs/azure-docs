@@ -72,11 +72,11 @@ The Azure Database for MySQL assessment properties includes:
 | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample (Default is 95th percentile).
 | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage.
 
-**Azure DB for MySQL – Flexible Server sizing**
+**Azure Database for MySQL sizing**
 
 | **Setting** | **Details**
 | --- | ---
-| **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report, we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
+| **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report, we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select *Memory Optimized* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
 
 
 ## Performance data calculation for MySQL instances
@@ -128,7 +128,7 @@ During the discovery process, Azure Migrate collects the MySQL instance configur
 The assessment aggregates all the configuration and performance data and tries to find the best match across the [various Azure Database for MySQL service tiers and configurations](/azure/mysql/flexible-server/concepts-service-tiers-storage), selecting a configuration that can match or exceed the MySQL instance performance requirements, and  optimizing the cost.
 
 ### Storage sizing
-Azure Migrate calculates the total disk space used by the MySQL instance (including database files, temporary files, transaction logs, and the MySQL server logs) and suggests the recommended storage to provision in Azure Database for MySQL. For Burstable and General Purpose service tiers, the storage range spans from a minimum of 20 GiB to a maximum of 16 TiB, while for the Business Critical service tier, the storage support extends up to 32 TiB. In all service tiers, storage is scaled in 1 GiB increments and can be scaled up (but not down) after the server is created.
+Azure Migrate calculates the total disk space used by the MySQL instance (including database files, temporary files, transaction logs, and the MySQL server logs) and suggests the recommended storage to provision in Azure Database for MySQL. For Burstable and General Purpose service tiers, the storage range spans from a minimum of 20 GiB to a maximum of 16 TiB, while for the Memory Optimized service tier, the storage support extends up to 32 TiB. In all service tiers, storage is scaled in 1 GiB increments and can be scaled up (but not down) after the server is created.
 
 ### IOPS sizing
 Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.

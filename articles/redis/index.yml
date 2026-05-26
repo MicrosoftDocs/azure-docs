@@ -28,8 +28,10 @@ landingContent:
             url: best-practices-performance.md
       - linkListType: how-to-guide
         links:
-          - text: How to migrate to Azure Managed Redis from Azure Cache for Redis
-            url: migrate/migrate-overview.md
+          - text: Migrate Basic, Standard, and Premium tiers to Azure Managed Redis
+            url: migrate/migrate-basic-standard-premium-overview.md
+          - text: Migrate Enterprise tier to Azure Managed Redis
+            url: migrate/migrate-redis-enterprise-overview.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -38,14 +40,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Code a .NET Framework app
-            url: dotnet-how-to-use-azure-redis-cache.md
-          - text: Code a .NET Core app
-            url: dotnet-core-quickstart.md
-          - text: Code an ASP.NET web app
-            url: web-app-cache-howto.md
-          - text: Code an ASP.NET Core web app
-            url: web-app-aspnet-core-howto.md
+          - text: Code a .NET app
+            url: dotnet.md
+          - text: Code an ASP.NET app
+            url: aspnet.md
           - text: Code a Java app
             url: java-get-started.md
           - text: Code a Node.js app

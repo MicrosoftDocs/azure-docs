@@ -5,9 +5,11 @@ description: "Enhance your Microsoft Dev Box workflows with this guide to author
 author: mikeparker104
 ms.author: miparker
 ms.reviewer: rosemalcolm
-ms.date: 12/11/2025
+ms.date: 02/06/2026
 ms.topic: concept-article
 ms.service: dev-box
+ms.custom:
+  - ai-usage: ai-assisted
 ---
 
 # Authoring and troubleshooting guide for team customizations
@@ -15,7 +17,7 @@ ms.service: dev-box
 This guide provides recommendations for creating Microsoft Dev Box image definition files (`imagedefinition.yaml`). It pulls together and extends content from existing documentation to raise visibility of effective approaches, common pitfalls, and troubleshooting guidance. The intent is to aid in onboarding and building reliable, maintainable customizations that work consistently for your development teams.
 
 > [!NOTE]
-> This guide builds on the [Create a dev box by using team customizations quickstart](/azure/dev-box/quickstart-team-customizations). If you're new to Dev Box customizations, complete that tutorial first.
+> This guide builds on [Configure team customizations](/azure/dev-box/how-to-configure-team-customizations). If you're new to Dev Box customizations, review that article first.
 
 This guide covers strategies for:
 
@@ -33,11 +35,11 @@ Before you begin, ensure you have:
 | Development environment | Dev Box with local admin permissions. Visual Studio (VS) Code with latest version. Dev Box extension installed and GitHub Copilot extension installed. |
 
 > [!TIP]
-> For comprehensive background on Dev Box customizations, see [Team Customizations documentation](/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations) and [How to write an image definition file](/azure/dev-box/how-to-write-image-definition-file).
+> For comprehensive background on Dev Box customizations, see [Dev Box customizations overview](/azure/dev-box/concept-what-are-dev-box-customizations) and [Configure team customizations](/azure/dev-box/how-to-configure-team-customizations).
 
 ## Approach recommendations
 
-When authoring Dev Box customizations, choose the approach that best fits your team's workflow and technical requirements. For background on how customizations work, see [Use Team Customizations](/azure/dev-box/quickstart-team-customizations).
+When authoring Dev Box customizations, choose the approach that best fits your team's workflow and technical requirements. For background on how customizations work, see [Configure team customizations](/azure/dev-box/how-to-configure-team-customizations).
 
 ### Start with the authoring agent
 
@@ -183,7 +185,7 @@ parameters:
 - **Document security assumptions** for future maintainers
 
 > [!TIP]
-> For comprehensive guidance on using secrets, see [Use Azure Key Vault secrets in customization files](/azure/dev-box/how-to-use-secrets-customization-files).
+> For comprehensive guidance on using secrets, see [Connect to Azure resources or clone private repositories](/azure/dev-box/how-to-customizations-connect-resource-repository).
 
 ### Ensure WinGet package discovery
 
@@ -313,13 +315,8 @@ tasks:
 
 ## Related content
 
-- [Create a dev box by using team customizations (prerequisite quickstart)](/azure/dev-box/quickstart-team-customizations)
-- [Team Customizations documentation](/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations)
-- [Write an image definition file for Dev Box Team Customizations](/azure/dev-box/how-to-write-image-definition-file)
 - [Configure team customizations](/azure/dev-box/how-to-configure-team-customizations)
-- [System tasks and user tasks](/azure/dev-box/how-to-configure-team-customizations#system-tasks-and-user-tasks)
-- [Use Azure Key Vault secrets in customization files](/azure/dev-box/how-to-use-secrets-customization-files)
-- [Create an image definition file with Copilot](/azure/dev-box/how-to-use-copilot-generate-image-definition-file)
+- [Dev Box customizations overview](/azure/dev-box/concept-what-are-dev-box-customizations)
+- [Connect to Azure resources or clone private repositories](/azure/dev-box/how-to-customizations-connect-resource-repository)
 - [Example YAML customization file](https://aka.ms/devcenter/preview/imaging/examples)
 - [Add and configure a catalog](/azure/dev-box/how-to-configure-catalog)
-- [Dev Box image definition instructions (GitHub Copilot)](https://github.com/github/awesome-copilot/blob/main/instructions/devbox-image-definition.instructions.md)

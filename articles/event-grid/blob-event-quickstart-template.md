@@ -36,7 +36,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. You see the site but no events are posted to it yet.
 
-   ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+   ![View new site](./media/blob-event-quickstart-portal/event-grid-viewer-site.png)
 
 ## Review the template
 

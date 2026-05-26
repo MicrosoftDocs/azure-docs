@@ -2,7 +2,7 @@
 title: Estimating consumption-based costs in Azure Functions
 description: Learn how to better estimate the costs that you might incur when running your function app in either the Consumption plan or the Flex Consumption plan in Azure Functions.
 ms.date: 02/10/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - build-2024
   - ignite-2024
@@ -20,7 +20,7 @@ This article focuses on the two consumption plans because billing in these plans
 
 [!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
-Durable Functions can also run in both of these plans. For more information about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
+Durable Functions can also run in both of these plans. For more information about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable-functions/durable-functions-billing.md).
 
 ## Consumption-based costs
 
@@ -85,7 +85,7 @@ The following behaviors of your functions can affect the execution time:
 
 + **Triggers and bindings**: The time taken to read input from and write output to your [function bindings](functions-triggers-bindings.md) counts as execution time. For example, when your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue, which is included in the calculation of the function cost. 
 
-+ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) counts as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What happens over that time in terms of CPU activity isn't factored into the calculation. You might be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You're not billed for time spent at awaits in orchestrator functions.
++ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) counts as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What happens over that time in terms of CPU activity isn't factored into the calculation. You might be able to reduce costs during asynchronous operations by using [Durable Functions](../durable-task/common/what-is-durable-task.md). You're not billed for time spent at awaits in orchestrator functions.
 
 ## Viewing and estimating costs from metrics
 

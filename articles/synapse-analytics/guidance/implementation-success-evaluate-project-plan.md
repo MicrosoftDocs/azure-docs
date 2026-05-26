@@ -4,7 +4,7 @@ description: "Learn how to evaluate your modern data warehouse project plan befo
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2022
 ---
 

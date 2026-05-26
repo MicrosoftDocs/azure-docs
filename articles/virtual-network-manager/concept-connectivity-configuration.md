@@ -1,11 +1,12 @@
 ---
 title: Connectivity Configurations in Azure Virtual Network Manager
-description: Connectivity configurations in Azure Virtual Network Manager simplify network management. Learn how to optimize network performance and security today.
+description: Learn how Azure Virtual Network Manager simplifies connectivity configurations with mesh and hub-and-spoke topologies to optimize network performance and security.
 author: mbender-ms
 ms.author: mbender
+ms.reviewer: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 01/09/2026
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
@@ -64,6 +65,9 @@ In this step, you configure the connectivity configuration's mesh topology setti
 1. Verify every virtual network in your entire mesh (connected group) is configured with high-scale private endpoints. The Azure portal validates the settings across the entire group. If you add a virtual network without the high-scale configuration later, it can't communicate with private endpoints in other virtual networks.
 
 1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This step finalizes the setup of your high-scale connected group.
+
+> [!NOTE]
+> Mesh topology for high-scale private endpoints is not supported when virtual networks in the mesh have overlapping IP addresses.
 
 ### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
 
@@ -159,7 +163,7 @@ To enforce peering, you must enable the peering enforcement option when creating
 
 After creating and deploying this configuration:
 
-- All peerings created by Azure Virtual Network Manager or pre-existing customer peerings inside the topology become enforced.
+- All peerings created by Azure Virtual Network Manager or preexisting customer peerings inside the topology become enforced.
 - If a peering belongs to more than one topology, any configuration marked as enforced enforces that peering.
 
 ### How to remove enforcement on peering

@@ -33,8 +33,6 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
 
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal.":::
-
 1. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
 
 1. Select **Create a new public IP address** under **Public IP addresses**.

@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/28/2024
+ms.date: 01/29/2026
 ms.author: mbender
 ms.custom: template-how-to
 # Customer intent: As a cloud operator, I want to retrieve load balancer metadata using the Instance Metadata Service, so that I can analyze network traffic and manage IP configurations for virtual machines effectively.
@@ -88,7 +88,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ```
 
 ## Next steps
-[Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
+[Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md)
 
 Learn more about [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service)
 

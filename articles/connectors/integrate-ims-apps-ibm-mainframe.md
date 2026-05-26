@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
-
-#customer intent: As a developer, I want to use the IBM IMS connector so I can integrate IMS programs with Standard workflows in Azure Logic Apps.
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to use the IBM IMS connector in Standard workflows so I can integrate IMS programs.
 ---
 
 # Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps
@@ -97,7 +97,7 @@ Follow these steps to add an IMS action and configure the necessary parameters:
 
 1. If you don't have a trigger to start your workflow, follow [these steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   This example continues with the **Request** trigger named **When a HTTP request is received**:
+   This example continues with the **Request** trigger named **When an HTTP request is received**:
 
    :::image type="content" source="media/integrate-ims-apps-ibm-mainframe/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger.":::
 
@@ -117,7 +117,7 @@ Follow these steps to add an IMS action and configure the necessary parameters:
    | **Password** | No | <*password*> | The optional user password for connection authentication. |
    | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication. |
    | **Server Name** | Yes | <*server-name*> | The server name. |
-   | **Timeout** | No | <*time-out*> | The time-out period in seconds while waiting for responses from the server. |
+   | **Timeout** | No | <*time-out*> | The timeout period in seconds while waiting for responses from the server. |
    | **User Name** | No | <*user-Name*> | The optional username for connection authentication. |
    | **Use TLS** | No | True or false | Secure the connection with Transport Security Layer (TLS). |
    | **Validate Server certificate** | No | True or false | Validate the server's certificate. |
@@ -134,17 +134,12 @@ Follow these steps to add an IMS action and configure the necessary parameters:
    |-----------|----------|-------|-------------|
    | **HIDX Name** | Yes | <*HIDX-file-name*> | Select the IMS HIDX file that you want to use. |
    | **Method Name** | Yes | <*method-name*> | Select the method in the HIDX file that you want to use. |
-   | **Advanced parameters** | No | Varies | This list appears after you select a method so that you can add other parameters to use with the selected method. The available parameters vary based on your HIDX file and the method that you select. |
 
    For example:
 
    **Select HIDX file and method**
 
    :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-parameters.png" alt-text="Screenshot shows IMS action with selected HIDX file and method." lightbox="./media/integrate-ims-apps-ibm-mainframe/action-parameters.png":::
-
-   **Select advanced parameters**
-
-   :::image type="content" source="./media/integrate-ims-apps-ibm-mainframe/action-advanced-parameters.png" alt-text="Screenshot shows IMS action with all parameters." lightbox="./media/integrate-ims-apps-ibm-mainframe/action-advanced-parameters.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 

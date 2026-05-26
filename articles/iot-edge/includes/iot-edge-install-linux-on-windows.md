@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/16/2025
+ms.date: 03/02/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -46,7 +46,7 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn","INSTALLDIR=D:\EFLOW", "VHDXDIR=D:\EFLOW-VHDX"
    ```
 
-1. Set the execution policy on the target device to `AllSigned` if it is not already. See the PowerShell prerequisites for commands to check the current execution policy and set the execution policy to `AllSigned`.
+1. Set the execution policy on the target device to `AllSigned` if it isn't already. See the PowerShell prerequisites for commands to check the current execution policy and set the execution policy to `AllSigned`.
 
 1. Create the IoT Edge for Linux on Windows deployment. The deployment creates your Linux virtual machine and installs the IoT Edge runtime for you.
 
@@ -55,9 +55,9 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    ```
 
    >[!TIP]
-   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM doesn't have sufficient memory to support your workloads, it fails to start.
    >
-   >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters. This is required to deploy EFLOW on a device with the minimum hardware requirements.
+   >You can customize the virtual machine's available resources by using the `Deploy-Eflow` command's optional parameters. This customization is required to deploy EFLOW on a device with the minimum hardware requirements.
    >
    >For example, the following command creates a virtual machine with 1 vCPU core, 1 GB of RAM (represented in MB), and 2 GB of disk space:
    >
@@ -68,21 +68,21 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions#deploy-eflow).
 
    >[!WARNING]
-   >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. Please check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
+   >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP try to obtain the DNS configuration propagated by the DHCP server. Check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
 
    You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/azure/iot-edge/gpu-acceleration).
 
    To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions#deploy-eflow).
 
    >[!WARNING]
-   >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
+   >Enabling hardware device passthrough might increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
-1. Enter 'Y' to accept the license terms.
+1. Enter **Y** to accept the license terms.
 
-1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference.
+1. Enter **O** or **R** to toggle **Optional diagnostic data** on or off, depending on your preference.
 
 1. Once the deployment is complete, the PowerShell window reports **Deployment successful**.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
+   ![Screenshot showing "Deployment successful" at the end of the messages.](media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
-   After a successful deployment, you are ready to provision your device.
+   After a successful deployment, you're ready to provision your device.

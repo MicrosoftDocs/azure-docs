@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: references_regions, engagement-fy23
 # Customer intent: "As a cloud storage administrator, I want to create and manage lifecycle management policies for blobs, so that I can optimize storage costs by transitioning and deleting blobs based on their usage patterns."
 ---
@@ -78,6 +78,8 @@ This filter will match all blobs in `sample-container` where the names begin wit
 #### Blob index match filter
 
 If you apply the **blobIndexMatch** filter, then each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
+> [!NOTE]
+> **blobIndexMatch** as filters are currently supported only for flat namespace accounts.
 
 ### Actions
 
@@ -115,14 +117,14 @@ The following table describes each action run condition.
 |----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time blob. Applies to actions on a current version of a blob.                                                                                                                                                 |
 | **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time. Applies to actions on the current version of a blob, the previous version of a blob or a blob snapshot.                                                                                                             |
-| **daysAfterLastAccessTimeGreaterThan** | Integer | The age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below. Applies to actions on the current version of a blob when access tracking is enabled.                                                                                                                     |
+| **daysAfterLastAccessTimeGreaterThan** | Integer | The age in days after the last access time or in some cases, when the date when the last access tracking was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below. Applies to actions on the current version of a blob when access tracking is enabled.                                                                                                                     |
 | **daysAfterLastTierChangeGreaterThan**             | Integer | The age in days after last blob tier change time. The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. Applies only to **tierToArchive** actions. |
 
 ### Access time tracking
 
 You can enable access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. 
 
-When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. The [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are access operations and will update the access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
+When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. For example, [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) are access operations that will update the last access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
 
 If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, then the `LastAccessTime` is used to determine whether that condition is met. 
 

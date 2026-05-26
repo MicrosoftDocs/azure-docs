@@ -1,6 +1,6 @@
 ---
-title: How Azure NetApp Files snapshots work
-description: Explains how Azure NetApp Files snapshots work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
+title: Understand Azure NetApp Files snapshot-based data protection
+description: Explains how Azure NetApp Files snapshot-based data protection work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
@@ -9,9 +9,9 @@ ms.date: 11/14/2025
 ms.author: anfdocs
 # Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
-# How Azure NetApp Files snapshots work
+# Understand Azure NetApp Files snapshot-based data protection 
 
-This article explains how Azure NetApp Files snapshots work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
+This article explains how Azure NetApp Files snapshot-based data protection work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
 
 To create volume snapshots, see [Manage snapshots using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region and cross-zone replication, see [Requirements and considerations for Azure NetApp Files replication](replication-requirements.md).
 

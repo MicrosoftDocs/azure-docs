@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 03/06/2025
+ms.date: 04/08/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service
@@ -16,13 +16,21 @@ This article shows you how to configure a custom container to run on Azure App S
 
 ::: zone pivot="container-windows"
 
-Learn about key concepts and get instructions for containerization of Windows apps in App Service. New users should first follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md).
+Learn about key concepts and get instructions for containerization of Windows apps in App Service.
+
+## Prerequisites
+
+New users should first follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md).
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-Learn about key concepts and get instructions for containerization of Linux apps in App Service. New users should first follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md). For sidecar containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
+Learn about key concepts and get instructions for containerization of Linux apps in App Service.
+
+## Prerequisites
+
+New users should first follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md). For sidecar containers, see [Tutorial: Configure a sidecar container for a custom container app](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -35,19 +43,19 @@ Learn about key concepts and get instructions for containerization of Linux apps
 
 Select the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want for your custom Windows image:
 
-- To deploy .NET Framework apps, use a parent image based on the Windows Server 2019 Core [Long-Term Servicing Channel](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release.
-- To deploy .NET Core apps, use a parent image based on the Windows Server 2019 Nano [Annual Channel](/windows-server/get-started/servicing-channels-comparison#annual-channel-ac) release.
+- To deploy .NET Framework apps, use a parent image based on the Windows Server [Long-Term Servicing Channel](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release.
+- To deploy .NET Core apps, use a parent image based on the Windows Server [Annual Channel](/windows-server/get-started/servicing-channels-comparison#annual-channel-ac) release.
 
 It takes some time to download a parent image during app startup. You can reduce startup time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/product/windows/servercore/about)
-- [mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/product/windows/servercore/about)
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags): `4.8-windowsservercore-ltsc2022`
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://mcr.microsoft.com/product/dotnet/framework/aspnet/tags): `4.8-windowsservercore-ltsc2019`
-- [mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags): `6.0-nanoserver-ltsc2022`
-- [mcr.microsoft.com/dotnet/runtime](https://mcr.microsoft.com/product/dotnet/runtime/tags): `6.0-nanoserver-1809`
-- [mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags): `6.0-nanoserver-ltsc2022`
-- [mcr.microsoft.com/dotnet/aspnet](https://mcr.microsoft.com/product/dotnet/aspnet/tags): `6.0-nanoserver-1809`
+- [mcr.microsoft.com/windows/servercore:ltsc2025](https://mcr.microsoft.com/artifact/mar/windows/servercore/about)
+- [mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/artifact/mar/windows/servercore/about)
+- [mcr.microsoft.com/dotnet/framework/aspnet:4.8.1-windowsservercore-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/framework/aspnet/tag/4.8.1-windowsservercore-ltsc2022)
+- [mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019](https://mcr.microsoft.com/artifact/mar/dotnet/framework/aspnet/tag/4.8-windowsservercore-ltsc2019)
+- [mcr.microsoft.com/dotnet/runtime:10.0-nanoserver-ltsc2025](https://mcr.microsoft.com/artifact/mar/dotnet/runtime/tag/10.0-nanoserver-ltsc2025)
+- [mcr.microsoft.com/dotnet/runtime:8.0-nanoserver-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/runtime/tag/8.0-nanoserver-ltsc2022)
+- [mcr.microsoft.com/dotnet/aspnet:10.0-nanoserver-ltsc2025](https://mcr.microsoft.com/artifact/mar/dotnet/aspnet/tag/10.0-nanoserver-ltsc2025)
+- [mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/aspnet/tag/8.0-nanoserver-ltsc2022)
 
 ::: zone-end
 
@@ -56,30 +64,32 @@ It takes some time to download a parent image during app startup. You can reduce
 Use the following command to change the current Docker image to a new image in an existing custom container:
 
 ```azurecli-interactive
-az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
+az webapp config container set --name <app-name> --resource-group <group-name> --container-image-name <docker-hub-repo>/<image>
 ```
+
+Replace the *\<placeholders>* with your own values.
 
 ## Use an image from a private registry
 
 To use an image from a private registry, such as Azure Container Registry, run the following command:
 
 ```azurecli-interactive
-az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <image-name> --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
+az webapp config container set --name <app-name> --resource-group <group-name> --container-image-name <image-name> --docker-registry-server-url <private-repo-url> --docker-registry-server-user <username> --docker-registry-server-password <password>
 ```
 
-Supply the sign-in credentials for your private registry account in the `\<username>` and `\<password>` fields.
+Supply the sign-in credentials for your private registry account in the *\<username>* and *\<password>* fields.
 
 ## Use managed identity to pull an image from Azure Container Registry
 
 Use the following steps to configure your web app to pull from Azure Container Registry by using managed identity. The steps use system-assigned managed identity, but you can also use user-assigned managed identity.
 
-1. Enable [the system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
+1. Enable the [system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
    ```azurecli-interactive
    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
    ```
 
-   Replace *\<app-name>* with the name you used in the previous step. The output of the command, filtered by the `--query` and `--output` arguments, is the service principal ID of the assigned identity.
+   Replace *\<app-name>* with the name of your app. The output of the command, filtered by the `--query` and `--output` arguments, is the service principal ID of the assigned identity.
 
 1. Get the resource ID of your container registry:
 
@@ -97,10 +107,10 @@ Use the following steps to configure your web app to pull from Azure Container R
 
    Replace the following values:
 
-   - *\<principal-id>* with the service principal ID from the `az webapp identity assign` command
-   - *\<registry-resource-id>* with the ID of your container registry from the `az acr show` command
+   - *\<principal-id>* with the service principal ID from the `az webapp identity assign` command.
+   - *\<registry-resource-id>* with the ID of your container registry from the `az acr show` command.
 
-   For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md).
+   For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md)
 
 1. Configure your app to use the managed identity to pull from Azure Container Registry.
 
@@ -108,9 +118,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    az webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUseManagedIdentityCreds": true}'
    ```
 
-   Replace the following values:
-
-   - *\<app-name>* with the name of your web app.
+   Replace *\<app-name>* with the name of your web app.
 
    > [!TIP]
    > If you use PowerShell console to run the commands, escape the strings in the `--generic-configurations` argument in this step and the next step. For example: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`.
@@ -121,7 +129,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
    ```
 
-   Replace the `<identity-name>` of your user-assigned managed identity and use the output `<client-id>` to configure the user-assigned managed identity ID.
+   Replace the *\<identity-name>* of your user-assigned managed identity and use the output *\<client-id>* to configure the user-assigned managed identity ID.
 
    ```azurecli-interactive
    az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
@@ -203,7 +211,7 @@ For Internet Information Services (IIS) or .NET Framework (4.0 or later) contain
 
 ::: zone pivot="container-linux"
 
-You can use this method for both single-container or multi-container apps, where the environment variables are specified in the `docker-compose.yml` file.
+You can use this method for both single-container or multi-container apps, where the environment variables are specified in the *docker-compose.yml* file.
 
 ::: zone-end
 
@@ -213,7 +221,10 @@ You can use this method for both single-container or multi-container apps, where
 
 You can use the `C:\home` directory in your custom container file system to persist files across restarts and share them across instances. When you use the `C:\home` directory, your custom container can access persistent storage.
 
-When persistent storage is disabled, writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `C:\home` directory persist. All instances of a scaled-out app can access them. When the container starts, if any files are present on the persistent storage, they overwrite any contents in the `C:\home` directory of the container.
+- When persistent storage is *disabled*, writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances.
+- When persistent storage is *enabled*, all writes to the `C:\home` directory persist.
+
+All instances of a scaled-out app can access them. When the container starts, if any files are present on the persistent storage, they overwrite any contents in the `C:\home` directory of the container.
 
 The only exception is the `C:\home\LogFiles` directory. This directory stores the container and application logs. The folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, whether or not persistent storage is enabled. In other words, when you enable or disable persistent storage, it doesn't affect application logging behavior.
 
@@ -233,11 +244,14 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 
 ::: zone pivot="container-linux"
 
-You can use the `/home` directory in your custom container file system to persist files across restarts and share them across instances. When you use the `C:\home` directory, your custom container can access persistent storage. Keep in mind that data that you save within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) included with your App Service plan.
+You can use the `/home` directory in your custom container file system to persist files across restarts and share them across instances. When you use the `/home` directory, your custom container can access persistent storage. Keep in mind that data that you save within `/home` contributes to the [storage space quota](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) included with your App Service plan.
 
-When persistent storage is disabled, writes to the `C:\home` directory aren't persisted across app restarts or across multiple instances. When persistent storage is enabled, all writes to the `C:\home` directory persist. All instances of a scaled-out app can access them. When the container starts, if any files are present on the persistent storage, they overwrite any contents in the `C:\home` directory of the container.
+- When persistent storage is *disabled*, writes to the `/home` directory aren't persisted across app restarts or across multiple instances.
+- When persistent storage is *enabled*, all writes to the `/home` directory persist.
 
-The only exception is the `C:\home\LogFiles` directory. This directory stores the container and application logs. The folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-windows) with the **File System** option, whether or not persistent storage is enabled. In other words, when you enable or disable persistent storage, it doesn't affect application logging behavior.
+All instances of a scaled-out app can access them. When the container starts, if any files are present on the persistent storage, they overwrite any contents in the `/home` directory of the container.
+
+The only exception is the `/home/LogFiles` directory. This directory stores the container and application logs. The folder always persists upon app restarts if [application logging is enabled](troubleshoot-diagnostic-logs.md?#enable-application-logging-linuxcontainer) with the **File System** option, whether or not persistent storage is enabled. In other words, when you enable or disable persistent storage, it doesn't affect application logging behavior.
 
 We recommend that you write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data that you write outside these paths isn't persistent during restarts. The data is saved to platform-managed host disk space separate from the App Service plans file storage quota.
 
@@ -340,7 +354,9 @@ The value is defined in megabytes (MB) and must be less and equal to the total p
 
 ## Customize the number of compute cores
 
-By default, a Windows container runs with all available cores for your pricing tier. You might want to reduce the number of cores that your staging slot uses. To reduce the number of cores that a container uses, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by using [Cloud Shell](https://shell.azure.com). In Bash, use the following command:
+By default, a Windows container runs with all available cores for your pricing tier. You might want to reduce the number of cores that your staging slot uses. To reduce the number of cores that a container uses, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by using [Cloud Shell](https://shell.azure.com).
+
+In Bash, use the following command:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --slot staging --settings WEBSITE_CPU_CORES_LIMIT=1
@@ -489,7 +505,7 @@ You can use Secure Shell (SSH) to remotely run administrative commands from a co
 
 1. Rebuild and push the Docker image to the registry, and then test the **Web App SSH** feature in the Azure portal.
 
-For more troubleshooting information, see the Azure App Service blog: [Enable SSH on a Linux web app for containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting).
+For more troubleshooting information, see the Azure App Service [Troubleshooting blog](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting).
 
 ## Access diagnostic logs
 
@@ -498,7 +514,7 @@ For more troubleshooting information, see the Azure App Service blog: [Enable SS
 ## Configure multi-container apps
 
 > [!NOTE]
-> The Docker Compose feature will be retired on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, see [Migrate your Docker Compose applications to the sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
+> The Docker Compose feature will be retired on March 31, 2027. Sidecar containers succeed multi-container apps in App Service. For new services, see [Tutorial: Configure a sidecar container for a custom container app](tutorial-custom-container-sidecar.md). For existing multi-container apps in App Service, see [Migrate your Docker Compose applications to the sidecar feature](https://azure.github.io/AppService/2025/04/01/Docker-compose-migration.html).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
@@ -531,10 +547,10 @@ wordpress:
 
 Multi-container is currently in preview. The following App Service platform features aren't supported:
 
-- Authentication or authorization.
-- Managed identities.
-- Cross-origin resource sharing (CORS).
-- Virtual network integration with Docker Compose scenarios.
+- Authentication or authorization
+- Managed identities
+- Cross-origin resource sharing (CORS)
+- Virtual network integration with Docker Compose scenarios
 
 Docker Compose on Azure App Service currently has a limit of 4,000 characters.
 
@@ -579,6 +595,6 @@ The following sections show supported and unsupported Docker Compose configurati
 ## Related content
 
 - [Tutorial: Migrate custom software to Azure App Service by using a custom container](tutorial-custom-container.md)
-- [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md)
-- [Environment variables and app settings reference](reference-app-settings.md)
-- [Load certificates in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)
+- [Tutorial: Configure a sidecar container for a custom container app](tutorial-custom-container-sidecar.md)
+- [Environment variables and app settings in Azure App Service](reference-app-settings.md)
+- [Load certificates in Linux/Windows containers](configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers)

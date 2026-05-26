@@ -61,23 +61,23 @@ compatible. Additionally, Linux server versions that are out of lifetime support
 respective publishers are excluded from the support matrix.
 
 The following table shows a list of supported operating systems on Azure images. The `.x` text is
-symbolic to represent new minor versions of Linux distributions.
+symbolic to represent new minor versions of Linux distributions. To view supported server editions on Azure Arc, refer to [this list of supported server editions on Azure Arc][49].
 
-| Publisher | Name                       | Versions         |
-| --------- | -------------------------- | ---------------- |
-| Alma      | AlmaLinux                  | 9                |
-| Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 16.04 - 24.x     |
-| Credativ  | Debian                     | 10.x - 12.x      |
-| Microsoft | CBL-Mariner                | 1 - 2            |
-| Microsoft | Azure Linux                | 3                |
-| Microsoft | Windows Client             | Windows 10, 11   |
-| Microsoft | Windows Server             | 2012 - 2025      |
-| Oracle    | Oracle-Linux               | 7.x - 8.x        |
-| OpenLogic | CentOS                     | 7.3 - 8.x        |
-| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
-| Rocky     | Rocky Linux                | 8                |
-| SUSE      | SUSE Linux Enterprise Server                       | 12 SP5, 15.x     |
+| Publisher | Name                         | Versions         |
+| --------- | ---------------------------- | ---------------- |
+| Alma      | AlmaLinux                    | 9                |
+| Amazon    | Linux                        | 2                |
+| Canonical | Ubuntu Server                | 16.04 - 24.x    |
+| Credativ  | Debian                       | 10.x - 13.x     |
+| Microsoft | CBL-Mariner                  | 1 - 2            |
+| Microsoft | Azure Linux                  | 3                |
+| Microsoft | Windows Client               | Windows 10, 11   |
+| Microsoft | Windows Server               | 2012 - 2025     |
+| Oracle    | Oracle-Linux                 | 7.x - 9.x       |
+| OpenLogic | CentOS                       | 7.3 - 8.x       |
+| Red Hat   | Red Hat Enterprise Linux\*   | 7.4 - 10.x      |
+| Rocky     | Rocky Linux                  | 8 - 9            |
+| SUSE      | SUSE Linux Enterprise Server | 12 SP5, 15.x    |
 
 \* Red Hat CoreOS isn't supported.
 
@@ -153,3 +153,4 @@ Machine configuration built-in policy samples are available in the following loc
 [46]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration
 [47]: ../../policy/concepts/exemption-structure.md
 [48]: ../how-to/assign-built-in-policies.md
+[49]: /azure/azure-arc/servers/prerequisites

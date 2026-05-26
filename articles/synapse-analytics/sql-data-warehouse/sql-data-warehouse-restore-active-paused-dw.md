@@ -6,12 +6,14 @@ ms.author: fresantos
 ms.date: 02/10/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
 ---
 
 # Restore an existing dedicated SQL pool (formerly SQL DW)
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn how to restore an existing dedicated SQL pool (formerly SQL Data Warehouse) using Azure portal and PowerShell.
 

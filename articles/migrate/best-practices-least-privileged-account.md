@@ -19,6 +19,9 @@ The Azure Migrate appliance is a lightweight tool that discovers on-premises ser
 
 To use these features, you add server and guest credentials in the appliance configuration manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
+>[!IMPORTANT]
+> In addition to configuring least‑privileged credentials for the Azure Migrate appliance, ensure that users are assigned the appropriate Azure Migrate built‑in roles in Azure. These roles provide the minimum required permissions for discovery, assessment, and migration activities. [Learn more](prepare-azure-accounts.md).
+
 ## Discovery of the VMware estate
 
 To discover the basic settings of servers running in the VMware estate, you need the following permissions.

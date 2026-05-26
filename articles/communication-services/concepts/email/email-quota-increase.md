@@ -6,8 +6,8 @@ author: raviverm
 manager: daysha-carter
 services: azure-communication-services
 ms.author: raviverm
-ms.date: 04/09/2024
-ms.topic: conceptual
+ms.date: 03/10/2026
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 
@@ -84,7 +84,7 @@ You can copy this text to a file and add the requested information.
 
 Then submit the information in an incident report at [Create a support ticket](https://azure.microsoft.com/support/create-ticket/), requesting to raise your email sending limit.
 
-Email quota increase requests aren't automatically approved. The reviewing team considers your overall sender reputation when determining approval status. Sender reputation includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse. 
+Email quota increase requests aren't automatically approved. The reviewing team considers your overall sender reputation when determining approval status. Sender reputation includes factors such as your email delivery failure rates (failure rates must be below 2%), your domain reputation, and reports of spam and abuse. 
 
 ## Next steps
 

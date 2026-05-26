@@ -1,11 +1,11 @@
 ---
 title: VNet peering and Azure Bastion architecture
 description: Learn how virtual network peering and Azure Bastion can be used together to connect to VMs.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 12/09/2024
-ms.author: abell
+ms.author: cherylmc
 ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network administrator, I want to configure Azure Bastion with virtual network peering, so that I can centralize remote access to virtual machines across peered networks without deploying multiple Bastion hosts."
@@ -41,7 +41,7 @@ The diagram shows the architecture of an Azure Bastion deployment in a hub-and-s
 
 1. Verify that you have configured [virtual networks](../virtual-network/quick-create-portal.md), and [virtual machines](/azure/virtual-machines/windows/quick-create-portal) within the virtual networks.
 1. [Configure virtual network peering](../virtual-network/virtual-network-peering-overview.md).
-1. [Configure Bastion](tutorial-create-host-portal.md) in one of the VNets.
+1. [Configure Bastion](quickstart-host-portal.md) in one of the VNets.
 1. [Verify permissions](#permissions).
 1. [Connect to a virtual machine](bastion-connect-vm-rdp-windows.md) via Azure Bastion. In order to connect via Azure Bastion, you must have the correct permissions for the subscription you're signed into.
 

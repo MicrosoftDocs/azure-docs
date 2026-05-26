@@ -40,7 +40,7 @@ Where `SingleReplication` strategy is configured, the Azure Operator Service Man
 
 ### ACR geo-replication strategy
 Where `GeoReplication` replication strategy is configured, the Azure Operator Service Manager artifact store uses both zone redundancy and inter-regional geo-replication to achieve carrier-grade resiliency. 
-* By combining geo-replication across region pairs and zone redundancy, the solution is highly available and resilient to both regional and zonal outages, fully aligning with Azure Container Registry reliability guidance.
+* By combining geo-replication across region pairs and zone redundancy, the solution is highly available and resilient to both regional and zone outages, fully aligning with Azure Container Registry reliability guidance.
 * Geo-replication enables resiliency to regional outages. If your registry is geo-replicated and a regional outage occurs, the registry data continues to be available from the other regions that you selected.
 * In the unlikely event of a geography-wide outage, the recovery of one region is prioritized out of every region pair.
 

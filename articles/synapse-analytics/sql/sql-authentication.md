@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 # SQL Authentication in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Azure Synapse Analytics has two SQL form-factors that enable you to control your resource consumption. This article explains how the two form-factors control the user authentication.
 
 To authenticate to Synapse SQL, you can use two options:
@@ -49,7 +51,7 @@ The **SQL admin username** and **Microsoft Entra admin** accounts have the follo
 - Can view the `sys.sql_logins` system table.
 
 >[!Note]
->If a user is configured as an Microsoft Entra admin and Synapse Administrator, and then removed from the Microsoft Entra admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
+>If a user is configured as a Microsoft Entra admin and Synapse Administrator, and then removed from the Microsoft Entra admin role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 
 ## [Serverless SQL pool](#tab/serverless)
 

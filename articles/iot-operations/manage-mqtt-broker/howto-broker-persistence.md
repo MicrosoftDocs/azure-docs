@@ -1,8 +1,8 @@
 ---
 title: Data persistence for the Azure IoT Operations MQTT broker
 description: Learn how to configure the data persistence feature for the Azure IoT Operations MQTT broker for data durability.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
@@ -63,13 +63,13 @@ To configure volume settings in the Azure portal:
 
 # [Azure CLI](#tab/azurecli)
 
-1. To deploy MQTT Broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
+1. To deploy the MQTT broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
 
     ```azurecli
     az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi
     ```
 
-1. To deploy MQTT Broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
+1. To deploy the MQTT broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
 
     ```azurecli
     az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None

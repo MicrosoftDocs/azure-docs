@@ -1,7 +1,7 @@
 ---
 title: Onboard as an Azure Event Grid partner using Azure portal
 description: Use Azure portal to onboard an Azure Event Grid partner. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/21/2022
 ---
 

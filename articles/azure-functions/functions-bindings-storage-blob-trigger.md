@@ -34,6 +34,8 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 ::: zone-end   
 
+For a complete end-to-end example of using the Blob Storage trigger, see [Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -71,12 +73,33 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 
 This function uses a byte array to write a log when a blob is added or updated in the `myblob` container.
 
+Polling-based:
+
+The following example uses the default polling trigger:
+
 ```java
 @FunctionName("blobprocessor")
 public void run(
   @BlobTrigger(name = "file",
                dataType = "binary",
                path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
+The following example uses an Event Grid trigger:
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               source = "EventGrid",
                connection = "MyStorageAccountAppSetting") byte[] content,
   @BindingName("name") String filename,
   final ExecutionContext context
@@ -242,7 +265,7 @@ For examples of using other SDK types, see the [`ContainerClient`](https://githu
 
 To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
 
-This example logs information from the incoming blob metadata.
+This example logs the blob name and size from the incoming blob trigger.
 
 ```python
 import logging
@@ -252,8 +275,8 @@ app = func.FunctionApp()
 
 @app.function_name(name="BlobTrigger1")
 @app.blob_trigger(arg_name="myblob", 
-                  path="PATH/TO/BLOB",
-                  connection="CONNECTION_SETTING")
+                  path="samples-workitems/{name}",
+                  connection="MyStorageAccountAppSetting")
 def test_function(myblob: func.InputStream):
    logging.info(f"Python blob trigger function processed blob \n"
                 f"Name: {myblob.name}\n"
@@ -413,6 +436,9 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
+
+> [!TIP]
+> For a complete working example that uses an Event Grid-based blob trigger with connection, source, and output binding configuration, see [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md).
 
 ::: zone pivot="programming-language-csharp"
 ## Metadata
@@ -644,5 +670,6 @@ The [host.json](functions-host-json.md#blobs) file contains settings that contro
 
 ## Next steps
 
+- [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md)
 - [Read blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
 - [Write blob storage data from a function](./functions-bindings-storage-blob-output.md)

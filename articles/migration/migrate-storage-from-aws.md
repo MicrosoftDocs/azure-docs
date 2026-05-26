@@ -1,15 +1,16 @@
 ---
 title: Migrate Storage from Amazon Web Services (AWS) to Azure
 description: Learn about concepts, how-tos, and best practices for migrating storage services from Amazon Web Services (AWS) to Azure.
-author: chasedmicrosoft
-ms.author: doveychase
-ms.reviewer: prwilk, chkittel
-ms.date: 03/25/2025
+author: stevenmatthew
+ms.author: shaas
+ms.reviewer: rhackenberg, chkittel
+ms.date: 03/10/2026
 ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure
@@ -34,7 +35,7 @@ Use the following migration guides as examples to help structure your migration 
 | [Get started with cloud-to-cloud migration in Azure Storage Mover](/azure/storage-mover/cloud-to-cloud-migration). | Amazon S3 to Azure Blob Storage | Guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. |
 | [Copy data from Amazon S3 to Azure Storage by using AzCopy](/azure/storage/common/storage-use-azcopy-s3). | Amazon S3 to Azure Blob Storage | Demonstrates how to migrate data from Amazon S3 to Azure by using AzCopy for online transfers. |
 | [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](/azure/data-factory/data-migration-guidance-s3-azure-storage). | Amazon S3 to Azure Blob Storage | Covers planning and implementation steps for migrating data from S3 to Azure, including operational details. |
-| [Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure). | Amazon S3 to Amazon S3 to Azure Data Lake Storage | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
+| [Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure). | Amazon S3 to Azure Data Lake Storage | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
 
 ## Related workload components
 

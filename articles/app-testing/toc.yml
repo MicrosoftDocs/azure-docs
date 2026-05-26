@@ -158,7 +158,7 @@ items:
         - name: Python
           href: /python/api/overview/azure/load-testing
         - name: REST API
-          href: /rest/api/loadtesting/
+          href: /rest/api/apptesting/loadtest
         - name: Resource Manager template
           displayName: ARM
           href: /azure/templates/microsoft.loadtestservice/allversions
@@ -206,6 +206,9 @@ items:
         - name: Set up continuous end-to-end testing
           displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
           href: playwright-workspaces/quickstart-automate-end-to-end-testing.md
+        - name: Perform advanced diagnostics with Playwright Workspaces reporting
+          displayName: getting started, quickstart, cli, command-line, playwright
+          href: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
     - name: Concepts
       items:
         - name: Determine optimal test suite configuration
@@ -248,6 +251,8 @@ items:
       items:
         - name: Troubleshoot test run failures
           href: playwright-workspaces/troubleshoot-test-run-failures.md
+        - name: Troubleshoot Playwright Workspaces reporting
+          href: playwright-workspaces/troubleshoot-playwright-workspaces-reporting.md
     - name: Resources
       items: 
         - name: Azure roadmap

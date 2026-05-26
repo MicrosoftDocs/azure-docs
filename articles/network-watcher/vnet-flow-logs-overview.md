@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/09/2025
+ms.date: 02/10/2026
 ms.custom: build-2025
 
 # Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
@@ -73,6 +73,7 @@ Key properties of virtual network flow logs include:
 - Logs are written in the JavaScript Object Notation (JSON) format.
 - Each log record contains the network interface that the flow applies to, 5-tuple information, traffic direction, flow state, encryption state, and throughput information.
 - All traffic flows in your network are evaluated through the applicable [network security group rules](../virtual-network/network-security-groups-overview.md) or [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md).
+- Virtual Network flow logs operate at the virtual network level and therefore capture traffic for resources such as gateways by default. As a result, traffic passing through these gateways is included, which can lead to a higher volume of log data.
 
 ## Log format
 
@@ -207,6 +208,18 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
+## Platform Rules
+
+#### What is a platform rule in flow logs
+
+In flow logs, a platform rule represents network traffic that is processed by the Azure platform itself rather than by user‑configured rules, such as Network Security Groups (NSGs) or Azure Virtual Network Manager rules. This traffic is handled automatically by the platform and is not the result of an explicit allow or deny rule defined within a deployment. Platform rule entries provide visibility into system‑managed or infrastructure‑level traffic. If analysis is focused only on traffic evaluated by explicitly configured rules, these entries can be filtered out during log analysis.
+
+In some scenarios, traffic associated with you application or workload may appear under a platform rule. This can occur in a limited number of well‑understood cases, such as when load‑balanced connections are recreated as part of normal platform operations, or when return traffic does not require rule evaluation for the response path. In these cases, the traffic is processed as expected, but the flow log may associate it with a platform rule instead of a user‑defined rule.
+
+#### Does the presence of platform rules affect traffic?
+
+No. Platform rules do not change your traffic behavior, connectivity, security posture, or performance. They only affect how certain network flows are represented in flow logs. Platform rule entries are provided for informational purposes. Excluding them from analysis does not impact how traffic is handled. If traffic appears under a platform rule and does not align with the scenarios described above, the behavior can be investigated further. In such cases, reaching out through Azure support channels is recommended so the flow logs can be reviewed in detail.
+
 ## Considerations for virtual network flow logs
 
 ### Storage account
@@ -215,6 +228,8 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
 - **Self-managed key rotation**: If you change or rotate the customer-managed encryption keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
+- **Retention policy rules:** Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
+- **Blob operations:** Virtual network flow logs are ingested into a block blob at one-minute intervals by appending blocks. While ingestion is in progress, don't perform operations that modify the blob's block structure, such as editing, overwriting, or deleting the blob content. These operations can cause all subsequent flow log write operations to fail for that specific hour's blob.
 
 ### ExpressRoute gateway traffic
 
@@ -251,6 +266,8 @@ Currently, these Azure services don't support virtual network flow logs:
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+  
+- Virtual Network Flow Logs extend logging coverage beyond network security boundaries to include platform and application‑level traffic scenarios. This broader scope supports additional use cases and traffic patterns, which may result in higher log volumes compared to more narrowly scoped flow logging configurations.
 
 ## Supported scenarios
 

@@ -230,7 +230,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](/previous-versions/azure/iot/concepts-message-payloads).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 
@@ -274,6 +274,19 @@ The export definition page shows information about failed connections to the exp
 
 :::image type="content" source="media/troubleshooting/export-error.png" alt-text="Screenshot that shows an example export error.":::
 
+### Webhook destination: "The webhook could not be reached"
+
+If you're configuring a Webhook destination and you see the error **"The webhook could not be reached. Please make sure the webhook is online and available"**, IoT Central tried to validate the callback URL when you saved the destination and couldn't establish a successful connection.
+
+Common causes:
+
+- **Endpoint isn't reachable from the public internet.** IoT Central can only deliver to endpoints with a public DNS name and IP address.
+- **Server certificate isn't trusted.** IoT Central rejects self-signed certificates and certificates issued by a private CA. The certificate must be signed by a publicly trusted CA, and the certificate's subject or subject alternative name must match the callback URL hostname.
+- **Certificate is expired or the hostname doesn't match the URL.**
+- **Endpoint returns a non-2xx response** to the validation request that IoT Central sends when you save the destination.
+
+For more information about the TLS requirements for webhook endpoints, see [HTTPS endpoint and TLS requirements](howto-export-to-webhook.md#https-endpoint-and-tls-requirements).
+
 ## Data export missing data issues
 
 Data export only exports data that arrives in your application after you enable data export. If you need to export historical data or data that was missed while your data export was temporarily switched off, you can use the IoT Central REST API to query for device telemetry. Use a query to retrieve the missing data and then add the data to your export destination. To learn more, see [How to use the IoT Central REST API to query devices](howto-query-with-rest-api.md).
@@ -282,4 +295,4 @@ Data export only exports data that arrives in your application after you enable 
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [What are the Azure IoT support and help options?](../../iot/iot-support-help.md).
+For more information, see [What are the Azure IoT support and help options?](../../iot/iot-support-help.md)

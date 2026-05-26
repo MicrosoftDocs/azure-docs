@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 11/03/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 
 # Analyze your workload for dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Techniques for analyzing your dedicated SQL pool workload in Azure Synapse Analytics. 
 

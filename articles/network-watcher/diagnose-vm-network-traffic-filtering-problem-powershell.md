@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Diagnose a VM traffic filter problem - Azure PowerShell'
+title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure PowerShell'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 09/23/2025
+ms.date: 02/17/2026
 ms.custom: devx-track-azurepowershell, mode-api
 
 # Customer intent: "As a cloud administrator, I want to diagnose network traffic filter issues on a virtual machine using IP flow verify, so that I can identify and resolve security rules causing connectivity problems."
@@ -41,10 +41,10 @@ In this section, you create a virtual network and a subnet in the East US region
     New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus' 
     ```
 
-1. Create a subnet configuration for the virtual machine subnet and the Bastion host subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
+1. Create a subnet configuration for the virtual machine subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
     ```azurepowershell-interactive
-    # Create subnets configuration.
+    # Create subnet configuration.
     $Subnet = New-AzVirtualNetworkSubnetConfig -Name 'mySubnet' -AddressPrefix '10.0.0.0/24'
     ```
 
@@ -62,11 +62,30 @@ In this section, you create a virtual network and a subnet in the East US region
     New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  'eastus'
     ```
 
-1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, enter a username and password.
+1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm).
 
     ```azurepowershell-interactive
-    # Create a Linux virtual machine using the latest Ubuntu 20.04 LTS image.
-    New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -VirtualNetworkName 'myVNet' -SubnetName 'mySubnet' -SecurityGroupName 'myVM-nsg' -Image 'Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest'
+    # Create a credential object
+    $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+    $cred = New-Object System.Management.Automation.PSCredential ('azureuser', $securePassword)
+
+    # Define the virtual machine parameters
+    $vmParams = @{
+        ResourceGroupName = 'myResourceGroup'
+        Location = 'eastus'
+        Name = 'myVM'
+        Image = 'Ubuntu2204'
+        Credential = $cred
+        VirtualNetworkName = 'myVNet'
+        SubnetName = 'mySubnet'
+        SecurityGroupName = 'myVM-nsg'
+        PublicIpAddressName = ''
+        SshKeyName = 'mySSHKey'
+        GenerateSshKey = $true
+    }
+
+    # Create the virtual machine
+    New-AzVM @vmParams
     ```
 
 ## Test network communication using IP flow verify

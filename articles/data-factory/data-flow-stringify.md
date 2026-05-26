@@ -4,15 +4,18 @@ description: Stringify complex data types
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: how-to
+ms.date: 04/27/2026
 ---
 
 # Stringify transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the stringify transformation to turn complex data types into strings. This can be useful when you need to store or send column data as a single string entity that may originate as a structure, map, or array type.
+> [!TIP]
+>  The Stringify transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
+Use the stringify transformation to turn complex data types into strings. Transforming data types to strings can be useful when you need to store or send column data as a single string entity that might originate as a structure, map, or array type.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=811ea298-48a2-4757-be16-8cfaef79a8b3]
 
@@ -24,7 +27,7 @@ In the stringify transformation configuration panel, you'll first pick the type 
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you'll either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the stringifies source data in this column. In most cases, you'll want to define a new column that stringifies the incoming complex field type.
+Similar to derived columns and aggregates, the column dropdown is where you either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF stores the stringified source data in this column. In most cases, you'll want to define a new column that stringifies the incoming complex field type.
 
 ### Expression
 

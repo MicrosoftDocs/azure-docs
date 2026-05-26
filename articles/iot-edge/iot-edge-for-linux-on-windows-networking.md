@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 02/25/2026
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -99,7 +99,7 @@ For example, there are numerous of industrial IoT scenarios that require connect
 For more information on adding NICs, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md).
 
 >[!WARNING]
->When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per *ehtX* interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
+>When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per *ethX* interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
 
 ## Next steps
 

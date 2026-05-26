@@ -4,8 +4,8 @@ description: Learn how to read and understand your usage and bill for a Microsof
 author: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/27/2025
+ms.topic: reference
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.reviewer: jkinma
 ms.custom:

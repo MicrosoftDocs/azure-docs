@@ -57,13 +57,13 @@ In each REST API URI, there are variables that are used that you need to replace
 
 The scan supports evaluation of resources in a subscription or in a resource group. Start a scan by scope with a REST API POST command using the following URI structures:
 
-Use the following command to evaluate a subscription. You can run the command from your browser at [Policy States - Trigger Subscription Evaluation](/rest/api/policy/policy-states/trigger-subscription-evaluation) using the **Try it** option.
+Use the following command to evaluate a subscription. You can run the command from your browser at [Policy States - Trigger Subscription Evaluation](/rest/api/policyinsights/policy-states/trigger-subscription-evaluation) using the **Try it** option.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
 ```
 
-Use the following command to evaluate a resource group. You can run the command from your browser at [Policy States - Trigger Resource Group Evaluation](/rest/api/policy/policy-states/trigger-resource-group-evaluation) using the **Try it** option.
+Use the following command to evaluate a resource group. You can run the command from your browser at [Policy States - Trigger Resource Group Evaluation](/rest/api/policyinsights/policy-states/trigger-resource-group-evaluation) using the **Try it** option.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
@@ -155,27 +155,24 @@ For more information and workflow samples, see the [GitHub Actions for Azure Pol
 
 The Azure portal showcases a graphical experience of visualizing and understanding the state of compliance in your environment. On the **Policy** page, the **Overview** option provides details for available scopes on the compliance of both policies and initiatives. Along with the compliance state and count per assignment, it contains a chart showing compliance over the last seven days. The **Compliance** page contains much of this same information (except the chart), but provides more filtering and sorting options.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot of Compliance page, filtering options, and details." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page-small.png" lightbox="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot of Compliance page, filtering options, and details." border="false":::
 
 Since a policy or initiative can be assigned to different scopes, the table includes the scope for each assignment and the type of definition that was assigned. The number of non-compliant resources and non-compliant policies for each assignment are also provided. Selecting on a policy or initiative in the table provides a deeper look at the compliance for that particular assignment.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot of Compliance Details page, including counts and resource compliant details." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details-small.png" lightbox="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot of Compliance Details page, including counts and resource compliant details." border="false":::
 
-The list of resources on the **Resource compliance** tab shows the evaluation status of existing resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered. Events (append, audit, deny, deploy, modify) triggered by the request to create a resource are shown under the **Events** tab.
+The list of resources on the **Resource compliance** tab shows the evaluation status of existing resources for the current assignment. The tab defaults to all compliance states, but can be filtered.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
-
-
-For [Resource Provider mode](../concepts/definition-structure-basics.md#resource-provider-modes) resources, on the **Resource compliance** tab, selecting the resource or right-clicking on the row and selecting **View compliance details** opens the component compliance details. This page also offers tabs to see the policies that are assigned to this resource, events, component events, and change history.
+For [Resource Provider mode](../concepts/definition-structure-basics.md#resource-provider-modes) resources, on the **Resource compliance** tab, selecting the resource opens the component compliance details. This page also offers tabs to see the policies that are assigned to this resource and change history.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
-Back on the resource compliance page, select and hold (or right-click) on the row of the event you would like to gather more details on and select **Show activity logs**. The activity log page opens and is prefiltered to the search showing details for the assignment and the events. The activity log provides more context and information about those events.
+Back on the resource compliance page, right-click on the row of the event you would like to gather more details on and select **Show activity logs**. The activity log page opens and is prefiltered to the search showing details for the assignment and the events. The activity log provides more context and information about those events.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog-small.png" lightbox="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot of the Activity Log for Azure Policy activities and evaluations." border="false":::
 
 > [!NOTE]
-> Compliance results can be exported from the portal with [Azure Resource Graph queries](/azure/governance/policy/samples/resource-graph-samples).
+> Compliance results, even in the same format shown above, can be exported from the portal with [Azure Resource Graph queries](/azure/governance/policy/samples/resource-graph-samples).
 
 ## Command line
 
@@ -187,7 +184,7 @@ For details about the REST API, see the [Azure Policy](/rest/api/policy/) refere
 
 #### Summarize results
 
-With the REST API, you can summarize by container, definition, or assignment. Here's an example of summarization at the subscription level using Azure Policy Insight's [Summarize For Subscription](/rest/api/policy/policy-states/summarize-for-subscription):
+With the REST API, you can summarize by container, definition, or assignment. Here's an example of summarization at the subscription level using Azure Policy Insight's [Summarize For Subscription](/rest/api/policyinsights/policy-states/summarize-for-subscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -213,7 +210,7 @@ When a resource is created or updated, a policy evaluation result is generated. 
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01
 ```
 
-For more information about querying policy events, see [Azure Policy Events](/rest/api/policy/policy-events).
+For more information about querying policy events, see [Azure Policy Events](/rest/api/policyinsights/policy-events).
 
 ### Azure CLI
 

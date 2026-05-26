@@ -19,7 +19,7 @@ ms.author: kpunjabi
 - Obtain the latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
 ### For AI features
-- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Foundry Tools to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 ## Create a new C# application
@@ -78,7 +78,7 @@ var playSource = new FileSource(new Uri(audioUri));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+To play audio using Text-To-Speech through Foundry Tools, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Foundry Tools, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ``` csharp
 String textToPlay = "Welcome to Contoso";
@@ -102,7 +102,7 @@ var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
 
 ### Play source - Text-To-Speech with SSML
 
-If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Foundry Tools you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` csharp
 String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 

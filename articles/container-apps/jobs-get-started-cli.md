@@ -33,6 +33,7 @@ To use manual jobs, you first create a job with a trigger type of `Manual` and t
         --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
         --trigger-type "Manual" \
         --replica-timeout 1800 \
+        --replica-retry-limit 1 \
         --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
         --cpu "0.25" --memory "0.5Gi"
     ```
@@ -64,6 +65,7 @@ az containerapp job create \
     --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
     --trigger-type "Schedule" \
     --replica-timeout 1800 \
+    --replica-retry-limit 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --cron-expression "*/1 * * * *"

@@ -2,7 +2,7 @@
 title: Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn about how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 01/22/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024

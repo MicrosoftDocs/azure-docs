@@ -79,7 +79,7 @@ sections:
   - name: Configuration and setup
     questions:
       - question: How long does it take to provision the initial three hosts in a cluster?
-        answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
+        answer: Provisioning depends on configuration, initial cluster size and times can vary. Adding a new single node in existing/same cluster can vary based on data sync required due to vSAN traffic. 
 
       - question: Can I use the folder name "AVS-vendor-folders" for vCenter Server VM folders in Azure VMware Solution?
         answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
@@ -94,13 +94,13 @@ sections:
         answer: Yes. Provided the system it's installed on can access the private cloud vCenter Server and is using public DNS to resolve ESXi hostnames.
 
       - question: Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
-        answer:  No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
+        answer:  No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/pdf/vmware/vsphere/vsphere/vmware-vsphere-6-7.pdf). 
 
       - question: Can I use vRealize Suite running on-premises? 
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. 
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
-        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully supported method.
+        answer: Yes. This is possible and recommended via VMware HCX or using storage migration such as ANF SnapMirror. HCX is the only supported method for extending L2 networks for hybridity between on-prem and cloud or cloud to cloud.
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
@@ -160,10 +160,7 @@ sections:
     questions:
 
       - question: What are the CPU specifications in each type of host?
-        answer: The AV36 SKU servers have dual 18 core 2.3 GHz Intel CPUs. AV36P SKU servers have dual 18 core 2.6 GHz Intel CPUs and AV52 SKU servers have dual 26 core 2.7 GHz Intel CPUs.
-
-      - question: How much memory is in each host?
-        answer: The AV36 SKU servers have 576 GB of RAM. AV36P SKU servers have 768 GB of RAM and AV52 SKU servers have 1,536 GB of RAM.
+        answer: See Azure pricing in your region for more information on the various host types and technical specs.
 
       - question: Does Azure VMware Solution support running ESXi as a nested virtualization solution?
         answer:  No. VMware doesn't officially support nested virtualization. 
@@ -177,7 +174,35 @@ sections:
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
-   
+
+  - name: Reliability and availability
+    questions:
+
+      - question: Can I deploy a stretched cluster across availability zones for higher availability?
+        answer: Azure VMware Solution supports stretched clusters across availability zones in supported Azure regions and configurations. Availability varies by Azure VMware Solution generation and region. For more information, see [Deploy a stretched cluster](deploy-vsan-stretched-clusters.md).
+
+      - question: Does Azure VMware Solution Gen2 support Availability Zones?
+        answer: Yes. In Azure VMware Solution Gen2, you can select the Availability Zone where your private cloud is deployed (subject to capacity availability in that zone). You can also deploy separate private clouds in different Availability Zones as part of a disaster recovery (DR) or high-availability strategy.
+
+      - question: Does Azure VMware Solution Gen2 support vSAN stretched clusters across Availability Zones?
+        answer: No. vSAN stretched clusters (a single private cloud stretched across two Availability Zones) aren't supported on Azure VMware Solution Gen2 today.
+
+      - question: In Azure VMware Solution Gen1, can I choose the Availability Zone for my private cloud?
+        answer: No. In Azure VMware Solution Gen1, selecting an Availability Zone isn't supported when deploying a private cloud.
+
+      - question: In Azure VMware Solution Gen1 stretched clusters, what happens if the Availability Zone hosting the vSAN witness becomes unavailable?
+        answer: |
+          Azure VMware Solution Gen1 uses a single vSAN witness that is statically placed in a specific Availability Zone within a region. If the Availability Zone hosting the witness becomes unavailable, the witness becomes unreachable.
+
+          As long as sufficient data replicas remain available, data hosts and running workloads continue operating without immediate data loss. However, vSAN loses quorum awareness in this state, which prevents it from safely making placement and recovery decisions and causes certain operations (such as VM power-on after failures, rebalancing, and repairs) to be blocked.
+
+          The witness isn't automatically recreated or moved to another Availability Zone during this time.
+
+      - question: Do four-zone Azure regions change how Azure VMware Solution uses Availability Zones?
+        answer: No. Azure VMware Solution remains unaffected. Availability Zone capabilities depend on what Azure VMware Solution supports in that region and available capacity.
+
+      - question: Are there built-in capabilities to run workloads across multiple Azure VMware Solution private clouds for DR/HA?
+        answer: No. Deploying workloads across multiple private clouds (for example, across Availability Zones) typically requires customer-managed orchestration and replication. For DR, customers commonly use third-party solutions such as Jetstream, Zerto, or Azure Site Recovery, based on workload requirements.
 
   - name: Networking and interconnectivity
     questions:
@@ -330,7 +355,7 @@ sections:
         answer: No. We currently don't support cloudadmin extension privileges and have no plans to support it.   
 
 
-  - name: CSP and multi-tenancy
+  - name: CSP and multitenancy
     questions:
 
       - question: Does Azure VMware Solution provide an option for hoster partners to resell the service?
@@ -344,9 +369,6 @@ sections:
 
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
         answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product isn't a standard VM and have added substantial intellectual property embedded in the VM as an application.
-
-      - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
-        answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).
 
       - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
         answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.

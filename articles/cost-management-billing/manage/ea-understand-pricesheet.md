@@ -4,8 +4,8 @@ description: Learn how to read and understand your usage and bill for an Enterpr
 author: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/29/2025
+ms.topic: reference
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.reviewer: jkinma
 ms.custom:

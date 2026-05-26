@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 12/18/2025
+ms.date: 02/13/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -14,8 +14,7 @@ SQL Server databases are critical workloads that require a low recovery-point ob
 
 This article shows how to back up a SQL Server database that's running on an Azure VM to an Azure Backup Recovery Services vault.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
-1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup as described [here](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Make sure that you are on the latest cumulative updates to avoid the time zone-related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
+1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup. Make sure that you are on the latest cumulative updates to avoid the time zone-related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.

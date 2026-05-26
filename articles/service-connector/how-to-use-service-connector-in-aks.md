@@ -109,7 +109,7 @@ Service Connector retrieves the required connection configurations from the targ
 - For the `Workload Identity` authentication type, it usually contains the service endpoint.
 - For the `Service Principal` authentication type, it contains the service principal's tenant ID, client ID, and client secret. 
 
-For detailed information on specific target services, refer to the corresponding documentation, such as the [Azure AI services](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
+For detailed information on specific target services, refer to the corresponding documentation, such as the [Foundry Tools](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
 
 ### Create IP based firewall rules
 
@@ -269,7 +269,7 @@ Refer to [extension creation errors](/troubleshoot/azure/azure-kubernetes/extens
 
 This error is caused by connectivity problems that occur between the cluster and the firewall in addition to egress blocking problems. 
 To resolve this problem, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress), 
-and add the FQDN required to pull Service Connector Helm chart: `scaksextension.azurecr.io`
+and add the FQDN required to pull Service Connector Helm chart: `mcr.microsoft.com`
 
 **Error messages:**
 

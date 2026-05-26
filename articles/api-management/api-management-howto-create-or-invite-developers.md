@@ -1,13 +1,14 @@
 ---
 title: How to manage user accounts in Azure API Management
-description: Learn how to create or invite users and manage developer accounts in Azure API Management. View additional resources to use after creating a developer account.
+description: Learn how to create or invite users and manage developer accounts in Azure API Management. View other resources to use after creating a developer account.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/04/2024
+ms.date: 01/30/2026
 ms.author: danlep
 ms.custom: sfi-image-nochange
+#customer intent: As the manager of an API, I need to know how to let developers access that API using Azure API Management.
 ---
 # How to manage user accounts in Azure API Management
 
@@ -17,44 +18,44 @@ In API Management, developers are the users of the APIs that you expose using AP
 
 ## Prerequisites
 
-* Complete tasks in this article: [Create an Azure API Management instance](get-started-create-service-instance.md).
-* If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
+- Complete tasks in this article: [Create an Azure API Management instance](get-started-create-service-instance.md).
+- If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Create a new developer
 
-To add a new user, follow the steps in this section:
+To add a new user, follow these steps:
 
 1. In the left menu, under **Developer portal**, select **Users**.
 1. Select **+ Add**.
 1. Enter appropriate information for the user.
 1. Select **Add**.
 
-    :::image type="content" source="media/api-management-howto-create-or-invite-developers/api-management-create-developer.png" alt-text="Screenshot of adding a user in the portal.":::
+   :::image type="content" source="media/api-management-howto-create-or-invite-developers/api-management-create-developer.png" alt-text="Screenshot of adding a user in the portal." lightbox="media/api-management-howto-create-or-invite-developers/api-management-create-developer.png":::
 
-By default, newly created developer accounts are **Active**, and associated with the **Developers** group. Developer accounts that are in an **Active** state can be used to access the developer portal and all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][How to associate groups with developers].
+By default, newly created developer accounts are **Active**, and associated with the **Developers** group. Developer accounts that are in an **Active** state can be used to access the developer portal and all of the APIs for which they have subscriptions. To associate the newly created developer with other groups, see [How to associate groups with developers][How to associate groups with developers].
 
 ## Invite a developer
 
-To invite a developer, follow the steps in this section:
+To invite a developer, follow these steps:
 
 1. In the left menu, under **Developer portal**, select **Users**.
 1. Select **+ Invite**.
 1. Enter appropriate information for the user, including the email address.
 1. Select **Send invitation**.
 
-When a developer is invited, by default an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][Configure email templates].
+When you invite a developer, by default an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][Configure email templates].
 
-The developer can accept the invitation by following the instructions in the email. Once the invitation is accepted, the account becomes **Active**.
+The developer can accept the invitation by following the instructions in the email. After the invitation is accepted, the account becomes **Active**.
 
-The invitation link is active for 2 days.
+The invitation link is active for two days.
 
 ## Deactivate or reactivate a developer account
 
 To deactivate a developer account in the **Active** state, select **Block**. To reactivate a blocked developer account, select **Activate**. A blocked developer account can't access the developer portal or call any APIs. To delete a user account, select **Delete**.
 
-To block a user, follow the following steps.
+To block a user, follow these steps:
 
 1. In the left menu, under **Developer portal**, select **Users**.
 1. Select the user that you want to block.
@@ -77,11 +78,10 @@ To programmatically work with user accounts, see the User entity documentation i
 
 ## Related content
 
-Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].
+After you create a developer account, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].
 
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
 [Configure email templates]: api-management-howto-configure-notifications.md#email-templates

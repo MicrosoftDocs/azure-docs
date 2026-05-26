@@ -3,7 +3,7 @@ title: Supported platforms for IoT Edge for Linux on Windows
 description: Learn which operating systems and container engines are supported for Azure IoT Edge for Linux on Windows
 author: sethmanheim
 ms.author: sethm
-ms.date: 11/17/2024
+ms.date: 04/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -48,10 +48,10 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 
 | Version | AMD64 | ARM64 |
 | ---------------- | ----- |  ----- |
-| EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
-| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
-| EFLOW 1.4 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 | EFLOW 1.5 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+
+> [!NOTE]
+> EFLOW 1.1 LTS (end of support: December 2022), EFLOW Continuous Release (end of support: August 2022), and EFLOW 1.4 LTS (end of support: November 2024) are no longer supported. For version history and release dates, see [IoT Edge version history](version-history.md).
 
 For more information about Windows ARM64 supported processors, see [Windows Processor Requirements](/windows-hardware/design/minimum/windows-processor-requirements).
 
@@ -61,9 +61,6 @@ Azure IoT Edge for Linux on Windows (EFLOW) can run in Windows virtual machines.
 
 | Version | Hyper-V VM | Azure VM | VMware ESXi VM | Other Hypervisor | 
 | ---------------- | ----- |  ----- | ----- | ----- | 
-| EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
-| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
-| EFLOW 1.4 LTS | ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) | - |  
 | EFLOW 1.5 LTS | ![1.5LTS](./media/support/green-check.png) |  ![1.5LTS](./media/support/green-check.png) |  ![1.5LTS](./media/support/green-check.png) | - |  
 
 For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).

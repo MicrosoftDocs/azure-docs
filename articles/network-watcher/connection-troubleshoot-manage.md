@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot outbound connections
+title: Troubleshoot Outbound Connections
 titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections.
 author: halkazwini

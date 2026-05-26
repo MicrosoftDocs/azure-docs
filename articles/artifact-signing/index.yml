@@ -1,0 +1,53 @@
+### YamlMime:Landing
+
+title: Artifact Signing
+summary: Artifact Signing is a Microsoft fully managed, end-to-end signing solution for partner developers.
+
+metadata:
+  title: Artifact Signing documentation
+  description: Artifact Signing is a Microsoft fully managed end-to-end signing solution for partner developers. The service is currently in public preview.
+  ms.service: trusted-signing
+  ms.topic: landing-page
+  author: TacoTechSharma
+  ms.author: mesharm
+  ms.date: 01/05/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  - title: About Artifact Signing
+    linkLists:
+        - linkListType: overview
+          links:
+            - text: What is the Artifact Signing service?
+              url: overview.md
+        - linkListType: concept
+          links:
+            - text: Artifact Signing trust models
+              url: concept-trust-models.md
+            - text: Artifact Signing resources and roles
+              url: concept-resources-roles.md
+            - text: Artifact Signing certificate management
+              url: concept-certificate-management.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up Artifact Signing
+            url: quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Sign a CI policy by using Artifact Signing
+            url: how-to-sign-ci-policy.md
+          - text: Set up signing integrations to use Artifact Signing
+            url: how-to-signing-integrations.md
+          - text: Access signed transactions in Artifact Signing 
+            url: how-to-sign-history.md
+          - text: Revoke a certificate profile in Artifact Signing
+            url: how-to-cert-revocation.md
+  - title: Assign roles
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Assign roles in the Artifact Signing service
+            url: tutorial-assign-roles.md

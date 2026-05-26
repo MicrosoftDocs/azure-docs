@@ -5,7 +5,7 @@ author: KimliW
 ms.date: 06/29/2025
 ms.update-cycle: 3650-days
 ms.author: adjohnso
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---

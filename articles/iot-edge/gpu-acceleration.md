@@ -74,7 +74,7 @@ For **Intel iGPUs**, download and install the [Intel Graphics Driver with WSL GP
 Windows 10 users must also [install WSL](/windows/wsl/install) because some libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
 ## Enable GPU acceleration in your Azure IoT Edge Linux on Windows deployment
-After you finish system setup, start to [create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md). During this process, enable [GPU support](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) as part of EFLOW deployment.
+After you finish system setup, start to [create your deployment of Azure IoT Edge for Linux on Windows](how-to-provision-single-device-linux-on-windows-symmetric.md). During this process, enable [GPU support](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) as part of EFLOW deployment.
 
 For example, these commands create a GPU-enabled virtual machine with an NVIDIA A2 GPU or an Intel Iris Xe Graphics card.
 
@@ -119,5 +119,5 @@ Set-EflowVM -cpuCount 2 -memoryInMB 4096
 
 Several GPU vendors provide user guides on getting the most from their hardware and software with EFLOW:
 
-* Learn how to run Intel OpenVINO&trade; applications on EFLOW by following [Intel's guide on iGPU with Azure IoT Edge for Linux on Windows (EFLOW) & OpenVINO&trade; Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405) and [reference implementations](https://www.intel.com/content/www/us/en/developer/articles/technical/deploy-reference-implementation-to-azure-iot-eflow.html).
+* Learn how to run Intel OpenVINO&trade; applications on EFLOW by following [Intel's guide on iGPU with Azure IoT Edge for Linux on Windows (EFLOW) & OpenVINO&trade; Toolkit](https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Witness-the-power-of-Intel-iGPU-with-Azure-IoT-Edge-for-Linux-on/post/1382405).
 * Get started with deploying CUDA-accelerated applications on EFLOW by following [NVIDIA's EFLOW User Guide for GeForce/Quadro/RTX GPUs](https://docs.nvidia.com/cuda/eflow-users-guide/index.html). This guide doesn't cover DDA-based GPUs like NVIDIA T4 or A2.

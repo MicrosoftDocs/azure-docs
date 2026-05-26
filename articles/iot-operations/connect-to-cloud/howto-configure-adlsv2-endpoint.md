@@ -1,8 +1,8 @@
 ---
 title: Configure data flow endpoints for Azure Data Lake Storage Gen2
 description: Learn how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -14,14 +14,16 @@ ai-usage: ai-assisted
 
 # Configure data flow endpoints for Azure Data Lake Storage Gen2
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
+
 - A storage container that is already created in the storage account.
 
 ## Assign permission to managed identity
@@ -157,7 +159,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -242,7 +246,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -356,7 +362,9 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataLakeStorageSettings:
@@ -441,7 +449,9 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataLakeStorageSettings:
@@ -544,7 +554,9 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataLakeStorageSettings:
@@ -665,7 +677,9 @@ Here's an example command to create a new Azure Data Lake Storage Gen2 data flow
 az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name adls-endpoint --config-file ~/adls-endpoint.json
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes secret with the SAS token.
 
@@ -749,7 +763,9 @@ dataLakeStorageSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataLakeStorageSettings:

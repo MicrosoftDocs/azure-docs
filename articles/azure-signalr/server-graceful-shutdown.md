@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 08/16/2021
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: feature-guide
 ---
 
 # Server graceful shutdown

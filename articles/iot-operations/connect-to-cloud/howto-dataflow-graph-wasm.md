@@ -1,283 +1,69 @@
 ---
-title: Use WebAssembly With Data Flow Graphs 
-description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
-author: sethmanheim
-ms.author: sethm
+title: Use WASM transforms in data flow graphs
+description: Learn how to build and deploy custom WebAssembly transforms in data flow graphs in Azure IoT Operations.
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/17/2025
+ms.date: 03/25/2026
 ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with data flow graphs
+# Use WASM transforms in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include built-in transforms for common processing tasks like mapping, filtering, and aggregation. When you need custom logic beyond what the built-in transforms provide, you can deploy WebAssembly (WASM) modules as custom transforms in your data flow graph pipelines.
 
-Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
-
-WebAssembly (WASM) with data flow graphs is generally available.
+> [!TIP]
+> For most data processing scenarios, start with the [built-in transforms](concept-dataflow-graphs.md#available-transforms). Use WASM transforms when you need custom business logic, specialized algorithms, or processing that the built-in options don't cover.
 
 > [!TIP]
 > Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- Use Azure Container Registry (ACR) to store WASM modules and graphs.
-- Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
-- Develop custom WASM modules by following guidance in [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+- Configure a registry endpoint to access WASM modules and graph definitions. You have two options:
+  - **Quick start with public registry**: Create a registry endpoint pointing to `ghcr.io/azure-samples/explore-iot-operations` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
+  - **Private registry**: Set up your own container registry and push the sample modules by following guidance in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
+
+> [!NOTE]
+> **Data flows vs. data flow graphs**: A *data flow* is a pipeline that moves and transforms data between endpoints by using built-in transformations. A *data flow graph* extends data flows with composable processing steps. Azure IoT Operations provides [built-in data flow graphs](concept-dataflow-graphs.md) for common operations like mapping, filtering, branching, and aggregation. For custom processing logic, you can implement WebAssembly modules as described in this article. Data flow graphs use YAML graph definitions that specify how operators connect. The data flow graph resource wraps this definition and maps its abstract source and sink operations to concrete endpoints, like MQTT topics and Kafka topics.
 
 ## Overview
 
-WebAssembly (WASM) modules in Azure IoT Operations data flow graphs let you process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports Rust and Python.
+By using WebAssembly (WASM) modules in Azure IoT Operations data flow graphs, you can process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports Rust and Python.
 
 ### How WASM data flow graphs work
 
 The WASM data flow implementation follows this workflow:
 
-1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format.
-1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. For detailed information, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
-1. **Store artifacts in registry**: Push the compiled WASM modules to a container registry by using OCI-compatible tools such as ORAS.
-1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry.
-1. **Create data flow graph**: Define data sources, the artifact name, and destinations.
-1. **Deploy and execute**: Azure IoT Operations pulls WASM modules from the registry and runs them based on the graph definition.
-
-<!-- TODO: Add general system architecture content -->
-
-The following examples show how to set up and deploy WASM data flow graphs for common scenarios. The examples use hardcoded values and simplified configurations so you can get started quickly.
-
-## Set up container registry
-
-Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry.
-
-To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](/azure/container-registry/container-registry-get-started-portal).
-
-## Install ORAS CLI
-
-Use the ORAS CLI to push WASM modules and graph definitions to your container registry. For installation instructions, see [Install ORAS](https://oras.land/docs/installation).
-
-## Pull sample modules from public registry
-
-Use prebuilt sample modules:
-
-```bash
-# Pull sample modules and graphs
-oras pull ghcr.io/azure-samples/explore-iot-operations/graph-simple:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/graph-complex:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/temperature:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/window:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/snapshot:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/format:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/humidity:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/collection:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/enrichment:1.0.0
-oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
-```
-
-## Push modules to your registry
-
-Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry. To ensure the graphs and modules are visible in the operations experience web UI, add the `--config` and `--artifact-type` flags as shown in the following example:
-
-```bash
-# Log in to your ACR
-az acr login --name <YOUR_ACR_NAME>
-
-# Push modules to your registry
-oras push <YOUR_ACR_NAME>.azurecr.io/graph-simple:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-simple.yaml:application/yaml --disable-path-validation
-oras push <YOUR_ACR_NAME>.azurecr.io/graph-complex:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-complex.yaml:application/yaml --disable-path-validation
-oras push <YOUR_ACR_NAME>.azurecr.io/temperature:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/window:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm window-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/snapshot:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm snapshot-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/format:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm format-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/humidity:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm humidity-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/collection:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm collection-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/enrichment:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm enrichment-1.0.0.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/filter:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm filter-1.0.0.wasm:application/wasm
-```
-
-> [!TIP]
-> You can also push your own modules and create custom graphs, see [Configuration of custom data flow graphs](#configuration-of-custom-data-flow-graphs).
-
-## Create a registry endpoint
-
-A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. For detailed information about configuring registry endpoints with different authentication methods and registry types, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
-
-To create registry endpoints, you can use the Azure portal, Bicep, or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
-
-For quick setup with Azure Container Registry, create a registry endpoint with system-assigned managed identity authentication:
-
-# [Azure portal](#tab/portal)
-
-You can use the Azure portal to create registry endpoints. The portal experience allows you to specify and provide host details of an ACR, and optionally provide credentials. Before you begin, ensure that you have the following information:
-
-- Registry endpoint name.
-- A host name for the ACR.
-- Four types of authentication are supported:
-  - Anonymous
-  - System managed identity
-  - User managed identity
-  - Artifact secret
-
-
-To create a registry endpoint in the Azure portal, follow these steps.
-
-### Create registry endpoints with anonymous authentication
-
-You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, we use anonymous authentication:
-
-:::image type="content" source="media/howto-create-dataflow-graph/select-authentication.png" alt-text="Screenshot of the select authentication form." lightbox="media/howto-create-dataflow-graph/select-authentication.png":::
-
-:::image type="content" source="media/howto-create-dataflow-graph/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/authentication-anonymous.png":::
-
-### Create registry endpoints with system managed identity authentication
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
-
-:::image type="content" source="media/howto-create-dataflow-graph/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/system-managed-identity.png":::
-
-### Create registry endpoints with user managed identity
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a user-assigned managed identity for secure access, and store the configuration for reuse.
-
-> [!NOTE]
-> The client and tenant IDs are required to enable user managed identity. 
-
-:::image type="content" source="media/howto-create-dataflow-graph/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/user-managed-identity.png":::
-
-### Create registry endpoints with artifact secrets
-
-Artifact secrets are used to authenticate with private container registries like ACR, Docker Hub, or MCR, when pulling container images. Secrets are essential when the registry requires credentials, and the image is not publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Azure Key Vault by selecting existing secrets.
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using artifact secrets for secure access, and store the configuration for reuse:
-
-:::image type="content" source="media/howto-create-dataflow-graph/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets." lightbox="media/howto-create-dataflow-graph/secrets.png":::
-
-You set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
-
-:::image type="content" source="media/howto-create-dataflow-graph/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-create-dataflow-graph/secret-form.png":::
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
-param acrName string = '<YOUR_ACR_NAME>'
-
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
-  name: aioInstanceName
-}
-
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-15' existing = {
-  name: customLocationName
-}
-
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
-  parent: aioInstance
-  name: registryEndpointName
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    host: '${acrName}.azurecr.io'
-    authentication: {
-      method: 'SystemAssignedManagedIdentity'
-      systemAssignedManagedIdentitySettings: {
-        audience: 'https://management.azure.com/'
-      }
-    }
-  }
-}
-```
-
-# [Kubernetes (preview)](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1
-kind: RegistryEndpoint
-metadata:
-  name: <REGISTRY_ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  host: <YOUR_ACR_NAME>.azurecr.io
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://management.azure.com/
-```
-
----
-
-> [!NOTE]
-> You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
-
-## Get extension name
-
-```azurecli
-# Get extension name
-az k8s-extension list \
-  --resource-group <RESOURCE_GROUP> \
-  --cluster-name <CLUSTER_NAME> \
-  --cluster-type connectedClusters \
-  --query "[?extensionType=='microsoft.iotoperations'].name" \
-  --output tsv
-```
-
-The first command returns the extension name (for example, `azure-iot-operations-4gh3y`).
-
-## Configure managed identity permissions
-
-To let Azure IoT Operations pull WASM modules from your container registry, give the managed identity the right permissions. The IoT Operations extension uses a system-assigned managed identity that needs the `AcrPull` role on your Azure Container Registry. Make sure you have the following prerequisites:
-
-- Owner permissions on the Azure Container Registry.
-- The container registry can be in a different resource group or subscription, but it must be in the same tenant as your IoT Operations deployment.
-
-Run these commands to assign the `AcrPull` role to the IoT Operations managed identity:
-
-```bash
-# Get the IoT Operations extension managed identity
-export EXTENSION_OBJ_ID=$(az k8s-extension list --cluster-name $CLUSTER_NAME -g $RESOURCE_GROUP --cluster-type connectedClusters --query "[?extensionType=='microsoft.iotoperations'].identity.principalId" -o tsv)
-
-# Get the application ID for the managed identity
-export SYSTEM_ASSIGNED_MAN_ID=$(az ad sp show --id $EXTENSION_OBJ_ID --query "appId" -o tsv)
-
-# Assign the AcrPull role to the managed identity
-az role assignment create --role "AcrPull" --assignee $SYSTEM_ASSIGNED_MAN_ID --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
-```
-
-For more information about container registry roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
-
-If you get authentication errors with the Azure CLI, assign permissions in the Azure portal:
-
-1. Go to your Azure Container Registry in the Azure portal.
-1. Select **Access control (IAM)** from the menu.
-1. Select **Add** > **Add role assignment**.
-1. Choose the **AcrPull** built-in role.
-1. Select **User, group, or service principal** as the assign access to option.
-1. Search for and select your IoT Operations extension name (for example, `azure-iot-operations-4gh3y`).
-1. Select **Save** to finish the role assignment.
-
-For detailed instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format. To learn more, see: [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md)
+1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. To learn more, see [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
+1. **Store artifacts in registry**: Push the compiled WASM modules and graph definitions to a container registry by using OCI-compatible tools such as ORAS. To learn more, see [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
+1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry. To learn more, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
+1. **Create data flow graph**: Use the operations experience web UI or Bicep files to define a data flow that uses a graph definition.
+1. **Deploy and execute**: Azure IoT Operations pulls graph definitions and WASM modules from the container registry and runs them.
+
+The following examples show how to configure WASM data flow graphs for common scenarios. The examples use hardcoded values and simplified configurations so you can get started quickly.
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. Use the precompiled version `graph-simple:1.0.0` that you pushed to your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry.
 
 ### How it works
 
 The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/graph-simple.yaml) creates a simple, three-stage pipeline:
 
 1. **Source**: Receives temperature data from MQTT
-2. **Map**: Processes data with the temperature WASM module
-3. **Sink**: Sends converted data back to MQTT
+1. **Map**: Processes data with the temperature WASM module
+1. **Sink**: Sends converted data back to MQTT
 
-For detailed information about how the simple graph definition works and its structure, see [Example 1: Simple graph definition](howto-configure-wasm-graph-definitions.md#example-1-simple-graph-definition).
+For more information about how the simple graph definition works and its structure, see [Example 1: Simple graph definition](../develop-edge-apps/howto-configure-wasm-graph-definitions.md#example-1-simple-graph-definition).
 
 Input format:
 ```json
@@ -289,13 +75,13 @@ Output format:
 {"temperature": {"value": 37.8, "unit": "C"}}
 ```
 
-The following configuration creates a data flow graph that uses this temperature conversion pipeline. The graph references the `graph-simple:1.0.0` artifact, which contains the YAML definition and pulls the temperature module from your container registry.
+The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry.
 
 ### Configure the data flow graph
 
 This configuration defines three nodes that implement the temperature conversion workflow: a source node that subscribes to incoming temperature data, a graph processing node that runs the WASM module, and a destination node that publishes the converted results.
 
-The data flow graph resource "wraps" the graph definition artifact and connects its abstract source/sink operations to concrete endpoints:
+The data flow graph resource wraps the graph definition artifact and connects its abstract source and sink operations to concrete endpoints:
 
 - The graph definition's `source` operation connects to the data flow's source node (MQTT topic)
 - The graph definition's `sink` operation connects to the data flow's destination node (MQTT topic)
@@ -305,8 +91,8 @@ This separation lets you deploy the same graph definition with different endpoin
 
 # [Operations experience](#tab/portal)
 
-1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
-1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
+1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to the **Data flow** tab.
+1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**.
 
     :::image type="content" source="media/howto-create-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow graph." lightbox="media/howto-create-dataflow-graph/create-data-flow-graph.png":::
 
@@ -315,8 +101,8 @@ This separation lets you deploy the same graph definition with different endpoin
 
     :::image type="content" source="media/howto-create-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph." lightbox="media/howto-create-dataflow-graph/select-source-simple.png":::
 
-    1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
-    1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
+    1. If you select **Asset**, choose the asset to pull data from and select **Apply**.
+    1. If you select **Data flow Endpoint**, enter the following details and select **Apply**.
 
         | Setting              | Description                                                                                       |
         | -------------------- | ------------------------------------------------------------------------------------------------- |
@@ -324,14 +110,11 @@ This separation lets you deploy the same graph definition with different endpoin
         | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics. |
         | Message schema       | The schema to use to deserialize the incoming messages. |
 
-1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and click **Apply**.
+1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-simple:1** and select **Apply**.
 
     :::image type="content" source="media/howto-create-dataflow-graph/create-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a simple data flow graph." lightbox="media/howto-create-dataflow-graph/create-simple-graph.png":::
 
-    > [!IMPORTANT]
-    > This example uses the `graph-simple:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
-
-1. You can configure some graph operator settings by selecting the graph node in the diagram. For example, you can select **module-temperature/map** operator and enter in `key2` the value `example-value-2`. Click **Apply** to save the changes.
+1. You can configure some graph operator settings by selecting the graph node in the diagram. For example, you can select **module-temperature/map** operator and enter in `key2` the value `example-value-2`. Select **Apply** to save the changes.
 
     :::image type="content" source="media/howto-create-dataflow-graph/configure-simple-graph.png" alt-text="Screenshot of the operations experience interface showing how to configure a simple data flow graph." lightbox="media/howto-create-dataflow-graph/configure-simple-graph.png":::
 
@@ -350,7 +133,7 @@ resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
   name: aioInstanceName
 }
 
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-15' existing = {
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
@@ -425,7 +208,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 Create a YAML file with the following configuration:
 
@@ -474,7 +257,7 @@ spec:
         name: temperature-destination
 ```
 
-Save the configuration as `dataflow-graph.yaml`, and then apply it to your cluster:
+Save the configuration as `dataflow-graph.yaml`. Then, apply it to your cluster:
 
 ```bash
 kubectl apply -f dataflow-graph.yaml
@@ -484,7 +267,9 @@ kubectl apply -f dataflow-graph.yaml
 
 ### Test the data flow
 
-To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker. To deploy the MQTT client, run the following command:
+To test the data flow, send MQTT messages from within the cluster. The temperature module expects messages in a specific JSON format with a nested `temperature` object containing `value` (numeric) and `unit` (string) fields. For example: `{"temperature":{"value":72,"unit":"F"}}`.
+
+First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker. To deploy the MQTT client, run the following command:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
@@ -520,7 +305,7 @@ done'
 ```
 
 > [!NOTE]
-> The MQTT user property `__ts` is used to add a timestamp to the messages to ensure the timely processing of messages using the Hybrid Logical Clock (HLC). Having the timestamp helps the data flow to decide whether to accept or drop the message. The format of the property is `<timestamp>:<counter>:<nodeid>`. It makes the data flow processing more accurate, but isn't mandatory.
+> The MQTT user property `__ts` adds a timestamp to the messages to ensure the timely processing of messages by using the Hybrid Logical Clock (HLC). The timestamp helps the data flow decide whether to accept or drop the message. The format of the property is `<timestamp>:<counter>:<nodeid>`. It makes the data flow processing more accurate, but isn't mandatory.
 
 The script publishes random temperature data to the `sensor/temperature/raw` topic every second. It should look like this:
 
@@ -562,20 +347,20 @@ The complex graph processes three data streams and combines them into enriched s
 - Humidity processing: Accumulates humidity measurements over time intervals  
 - Image processing: Performs object detection on camera snapshots and formats results
 
-For detailed information about how the complex graph definition works, its structure, and the data flow through multiple processing stages, see [Example 2: Complex graph definition](howto-configure-wasm-graph-definitions.md#example-2-complex-graph-definition).
+For more information about how the complex graph definition works, its structure, and the data flow through multiple processing stages, see [Example 2: Complex graph definition](../develop-edge-apps/howto-configure-wasm-graph-definitions.md#example-2-complex-graph-definition).
 
-The graph uses specialized modules from the [Rust operators](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators).
+The graph uses specialized modules from the collection of [Rust operators](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators).
 
 ### Configure the complex data flow graph
 
-This configuration implements the multi-sensor processing workflow using the `graph-complex:1.0.0` artifact. Notice how the data flow graph deployment is similar to Example 1 - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
+This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
-This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition artifact (`graph-simple:1.0.0` vs `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the artifact, instantiate the modules, and route data through the defined workflow.
+This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition (`graph-simple:1.0.0` or `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the graph definition, instantiate the modules, and route data through the defined workflow.
 
 # [Operations experience](#tab/portal)
 
-1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to **Data flow** tab.
-1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**
+1. To create a data flow graph in [operations experience](https://iotoperations.azure.com/), go to the **Data flow** tab.
+1. Select the drop-down menu next to **+ Create** and select **Create a data flow graph**.
 
     :::image type="content" source="media/howto-create-dataflow-graph/create-data-flow-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a data flow complex graph." lightbox="media/howto-create-dataflow-graph/create-data-flow-graph.png":::
 
@@ -584,8 +369,8 @@ This similarity occurs because the data flow graph resource acts as a host envir
 
     :::image type="content" source="media/howto-create-dataflow-graph/select-source-simple.png" alt-text="Screenshot of the operations experience interface showing how to select a source for the data flow graph." lightbox="media/howto-create-dataflow-graph/select-source-simple.png":::
 
-    1. If you select **Asset**, choose the asset to pull data from and click **Apply**.
-    1. If you select **Data flow Endpoint**, enter the following details and click **Apply**.
+    1. If you select **Asset**, choose the asset to pull data from and select **Apply**.
+    1. If you select **Data flow Endpoint**, enter the following details and select **Apply**.
 
         | Setting              | Description                                                                                       |
         | -------------------- | ------------------------------------------------------------------------------------------------- |
@@ -593,12 +378,9 @@ This similarity occurs because the data flow graph resource acts as a host envir
         | Topic                | The topic filter to subscribe to for incoming messages. Use **Topic(s)** > **Add row** to add multiple topics.|
         | Message schema       | The schema to use to deserialize the incoming messages. |
 
-1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and click **Apply**.
+1. In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select **graph-complex:1** and select **Apply**.
 
     :::image type="content" source="media/howto-create-dataflow-graph/create-complex-graph.png" alt-text="Screenshot of the operations experience interface showing how to create a complex data flow graph." lightbox="media/howto-create-dataflow-graph/create-complex-graph.png":::
-
-    > [!IMPORTANT]
-    > This example uses the `graph-complex:1.0.0` artifact that you [pushed to your container registry](#push-modules-to-your-registry). You can create your custom graphs by [developing your own WASM modules](#develop-custom-wasm-modules) and pushing them to your container registry. The graphs you push to your container registry are available in the **Graph selection** pane.
 
 1. You can configure some graph operator settings by selecting the graph node in the diagram. 
 
@@ -609,7 +391,7 @@ This similarity occurs because the data flow graph resource acts as a host envir
       |module-snapshot/branch|Configures the `snapshot` module to perform object detection on images. You can set the `snapshot_topic` configuration key to specify the input topic for image data.|
       |module-temperature/map|Transforms `key2` temperature values to a different scale.|
 
-1. Click **Apply** to save the changes.
+1. Select **Apply** to save the changes.
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
 
@@ -625,7 +407,7 @@ resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
   name: aioInstanceName
 }
 
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-15' existing = {
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
@@ -706,7 +488,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -761,11 +543,11 @@ spec:
 
 ### Test the complex data flow
 
-Before we can see the output, we need to get the source data setup.
+Before you can see any output, set up the source data.
 
 #### Upload RAW image files to the mqtt-client pod
 
-The image files are for the `snapshot` module to detect objects in the images. They're located in the [images](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/images) folder on GitHub.
+The image files are for the `snapshot` module to detect objects in the images. The files are located in the [images](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/images) folder on GitHub.
 
 First, clone the repository to get access to the image files:
 
@@ -774,7 +556,7 @@ git clone https://github.com/Azure-Samples/explore-iot-operations.git
 cd explore-iot-operations
 ```
 
-To upload RAW image files from the `./samples/wasm/images` folder to the `mqtt-client` pod, you can use the following command:
+To upload RAW image files from the `./samples/wasm/images` folder to the `mqtt-client` pod, use the following command:
 
 ```bash
 kubectl cp ./samples/wasm/images azure-iot-operations/mqtt-client:/tmp
@@ -799,9 +581,9 @@ digital_clock.raw   sewing_machine.raw
 hammer.raw          sliding_door.raw
 ```
 
-### Publish simulated temperature, humidity data, and send images
+### Publish simulated temperature and humidity data, and send images
 
-You can combine the commands for publishing temperature, humidity data, and sending images into a single script. Use the following command:
+You can combine the commands for publishing temperature and humidity data and sending images into a single script. Use the following command:
 
 ```bash
 # Connect to the MQTT client pod and run the script
@@ -860,7 +642,7 @@ mosquitto_sub -h aio-broker -p 18883 -t "analytics/sensor/processed" --cafile /v
 -D CONNECT authentication-data "$(cat /var/run/secrets/tokens/broker-sat)"'
 ```
 
-The output should look like this
+The output looks like the following example:
 
 ```output
 {"temperature":[{"count":9,"max":2984.4444444444443,"min":248.33333333333337,"average":1849.6296296296296,"last":2612.222222222222,"unit":"C","overtemp":true}],"humidity":[{"count":10,"max":76.0,"min":30.0,"average":49.7,"last":38.0}],"object":[{"result":"milk can; broom; screwdriver; binoculars, field glasses, opera glasses; toy terrier"}]}
@@ -868,30 +650,6 @@ The output should look like this
 ```
 
 Here, the output contains the temperature and humidity data, as well as the detected objects in the images.
-
-## Update a module in a running graph
-
-You can update a WASM module in a running graph without stopping the graph. This is useful when you want to update the logic of an operator without stopping the dataflow. For example, to update the temperature conversion module from version `1.0.0` to `2.0.0`, upload the new version as follows:
-
-```bash
-oras push <YOUR_ACR_NAME>.azurecr.io/temperature:2.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature-2.0.0.wasm:application/wasm
-```
-
-The data flow graph automatically picks up the new version of the module without any additional configuration. The graph continues to run without interruption, and the new module version is used for subsequent data processing.
-
-## Develop custom WASM modules
-
-To create custom data processing logic for your data flow graphs, develop WebAssembly modules in Rust or Python. Custom modules enable you to implement specialized business logic, data transformations, and analytics that aren't available in the built-in operators.
-
-For comprehensive development guidance including:
-- Setting up your development environment
-- Creating operators in Rust and Python
-- Understanding the data model and interfaces
-- Building and testing your modules
-
-See [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md).
-
-For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 
 ## Configuration of custom data flow graphs
 
@@ -909,11 +667,11 @@ A data flow graph defines how data flows through WebAssembly modules for process
 
 ### Mode configuration
 
-The mode property determines whether the data flow graph is actively processing data. You can set the mode to `Enabled` or `Disabled` (case-insensitive). When disabled, the graph stops processing data but retains its configuration.
+The mode property determines whether the data flow graph actively processes data. Set the mode to `Enabled` or `Disabled` (case-insensitive). When disabled, the graph stops processing data but retains its configuration.
 
 # [Operations experience](#tab/portal)
 
-When creating or editing a data flow graph, in the **Data flow properties** pane, you can check **Enable data flow** to **Yes** to set the mode to `Enabled`. If you leave it unchecked, the mode is set to `Disabled`.
+When you create or edit a data flow graph, in the **Data flow properties** pane, in **Enable data flow** check **Yes** to set the mode to **Enabled**. If you leave it unchecked, the mode is set to **Disabled**.
 
 :::image type="content" source="media/howto-create-dataflow-graph/select-mode.png" alt-text="Screenshot of the operations experience interface showing how to enable or disable mode configuration." lightbox="media/howto-create-dataflow-graph/select-mode.png":::
 
@@ -929,7 +687,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -950,7 +708,7 @@ The profile reference connects your data flow graph to a data flow profile, whic
 
 # [Operations experience](#tab/portal)
 
-When creating or editing a data flow graph, in the **Data flow properties** pane, select the data flow profile. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
+When you create or edit a data flow graph, in the **Data flow properties** pane, select the data flow profile. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
 
 > [!IMPORTANT] 
 > You can only choose the data flow profile when creating a data flow graph. You can't change the data flow profile after the data flow graph is created.
@@ -958,7 +716,7 @@ When creating or editing a data flow graph, in the **Data flow properties** pane
 
 # [Bicep](#tab/bicep)
 
-In Bicep, you specify the profile by creating the data flow graph as a child resource of the profile:
+In Bicep, specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
 resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
@@ -972,7 +730,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -989,9 +747,6 @@ spec:
 
 ### Request disk persistence
 
-> [!IMPORTANT]
-> There is a known issue with disk persistence for data flow graphs. This feature is currently not working as expected. For more information, see [Known issues](../troubleshoot/known-issues.md).
-
 Request disk persistence allows data flow graphs to maintain state across restarts. When you enable this feature, the graph can recover processing state if connected broker restarts. This feature is useful for stateful processing scenarios where losing intermediate data would be problematic. When you enable request disk persistence, the broker persists the MQTT data, like messages in the subscriber queue, to disk. This approach ensures that your data flow's data source won't experience data loss during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need persistence use this feature.
 
 The data flow graph makes this persistence request during subscription using an MQTTv5 user property. This feature only works when:
@@ -1005,7 +760,7 @@ The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
 
 # [Operations experience](#tab/portal)
 
-When creating or editing a data flow graph, in the **Data flow properties** pane, you can check **Request data persistence** to **Yes** to set the request disk persistence to `Enabled`. If you leave it unchecked, the setting is `Disabled`.
+When you create or edit a data flow graph, in the **Data flow properties** pane, in **Request data persistence** check **Yes** to set the request disk persistence to **Enabled**. If you leave it unchecked, the setting is **Disabled**.
 
 # [Bicep](#tab/bicep)
 
@@ -1019,7 +774,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -1034,15 +789,35 @@ spec:
 
 ---
 
+### Naming rules and limits
+
+Data flow graph resources and their components have naming constraints enforced at different layers:
+
+| Component | Allowed characters | Length | Notes |
+|-----------|-------------------|--------|-------|
+| Data flow graph resource name | Lowercase alphanumeric and hyphens (`a-z`, `0-9`, `-`). Must start and end with an alphanumeric character. | 3-63 characters | Enforced by the ARM API. |
+| Node name | Alphanumeric characters, underscores, and hyphens (`a-zA-Z0-9`, `_`, `-`). | No documented limit | Must be unique within the graph. |
+| Configuration key | Alphanumeric characters, underscores, and hyphens (`a-zA-Z0-9`, `_`, `-`). | No documented limit | Key-value pairs passed to WASM modules. |
+| Data flow profile name | Lowercase alphanumeric and hyphens. | 3-39 characters | The 39-character limit is due to Kubernetes pod name constraints (63-character limit minus the `aio-dataflow-` prefix and revision suffix). |
+| Schema reference | Must match the format `aio-sr://<namespace>/<name>:<version>` or `aio-sr://<name>:<version>`. | N/A | Used in node connection schemas. |
+
+The data flow graph also enforces the following structural rules:
+
+- **No duplicate node names**: Each node in the graph must have a unique name.
+- **Valid connection types**: Only the following node connection types are allowed: Source to Graph, Source to Destination, Graph to Graph, and Graph to Destination.
+- **No cycles**: The graph can't contain circular connections that would create infinite processing loops.
+- **No self-loops**: A node can't connect to itself.
+- **No topic overlap**: If a source and destination use the same endpoint, their MQTT topics can't overlap, which would create an infinite message loop.
+
 ### Node configuration
 
-Nodes are the building blocks of a data flow graph. Each node has a unique name within the graph and performs a specific function. There are three types of nodes:
+Nodes are the building blocks of a data flow graph. Each node has a unique name within the graph and performs a specific function. The graph includes three types of nodes:
 
 #### Source nodes
 
 Source nodes define where data enters the graph. They connect to data flow endpoints that receive data from MQTT brokers or Kafka topics. Each source node must specify:
 
-- Endpoint reference that points to a configured data flow endpoint
+- Endpoint reference that points to a configured data flow endpoint.
 - Data sources as a list of MQTT topics or Kafka topics to subscribe to
 - Asset reference (optional) that links to an Azure Device Registry asset for schema inference
 
@@ -1053,7 +828,7 @@ The data sources array allows you to subscribe to multiple topics without modify
 
 # [Operations experience](#tab/portal)
 
-In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Data flow Endpoint**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. You can add multiple MQTT topics by selecting **Add row** and entering a new topic.
+In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Data flow Endpoint**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. Add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
 # [Bicep](#tab/bicep)
 
@@ -1072,7 +847,7 @@ In the data flow diagram, select **Source** to configure the source node. Under 
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - nodeType: Source
@@ -1089,7 +864,7 @@ In the data flow diagram, select **Source** to configure the source node. Under 
 
 #### Graph processing nodes
 
-Graph processing nodes contain the WebAssembly modules that transform data. These nodes pull WASM artifacts from container registries and execute them with specified configuration parameters. Each graph node requires:
+Graph processing nodes contain the WebAssembly modules that transform data. These nodes pull WASM artifacts from container registries and execute them by using specified configuration parameters. Each graph node requires:
 
 - Registry endpoint reference that points to a registry endpoint for pulling artifacts
 - Artifact specification that defines the module name and version to pull
@@ -1099,7 +874,7 @@ The configuration array allows you to customize module behavior without rebuildi
 
 # [Operations experience](#tab/portal)
 
-In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select the desired graph artifact, either simple or complex graph, and click **Apply**. You can configure some graph operator settings by selecting the graph node in the diagram.
+In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select the desired graph artifact, either simple or complex graph, and select **Apply**. You can configure some graph operator settings by selecting the graph node in the diagram.
 
 # [Bicep](#tab/bicep)
 
@@ -1112,27 +887,19 @@ In the data flow diagram, select **Add graph transform (optional)** to add a gra
     artifact: 'temperature-converter:2.1.0'
     configuration: [
       {
-        key: 'input-unit'
-        value: 'fahrenheit'
+        key: 'temperature_lower_bound'
+        value: '-40'
       }
       {
-        key: 'output-unit' 
-        value: 'celsius'
-      }
-      {
-        key: 'precision'
-        value: '2'
-      }
-      {
-        key: 'enable-filtering'
-        value: 'true'
+        key: 'temperature_upper_bound'
+        value: '3422'
       }
     ]
   }
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - nodeType: Graph
@@ -1141,32 +908,31 @@ In the data flow diagram, select **Add graph transform (optional)** to add a gra
     registryEndpointRef: my-acr-endpoint
     artifact: temperature-converter:2.1.0
     configuration:
-      - key: input-unit
-        value: fahrenheit
-      - key: output-unit
-        value: celsius
-      - key: precision
-        value: "2"
-      - key: enable-filtering
-        value: "true"
+      - key: temperature_lower_bound
+        value: "-40"
+      - key: temperature_upper_bound
+        value: "3422"
 ```
 
 ---
 
-The configuration key-value pairs are passed to the WASM module at runtime. The module can access these values to customize its behavior. This approach allows you to:
+You pass the configuration key-value pairs to the WASM module at runtime. The module can access these values to customize its behavior. This approach allows you to:
 
-- Deploy the same WASM module with different configurations
-- Adjust processing parameters without rebuilding modules
-- Enable or disable features based on deployment requirements
-- Set environment-specific values like thresholds or endpoints
+- Deploy the same WASM module with different configurations.
+- Adjust processing parameters without rebuilding modules.
+- Enable or disable features based on deployment requirements.
+- Set environment-specific values like thresholds or endpoints.
+
+> [!IMPORTANT]
+> Check your WASM module's documentation or source code for required configuration parameters. If a module expects specific parameters (such as filter bounds or thresholds) and you don't provide them, the module may fail at runtime. For details on defining parameters in graph definitions, see [Module configuration parameters](../develop-edge-apps/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 #### Destination nodes
 
 Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
 
-- Endpoint reference that points to a configured data flow endpoint
-- Data destination as the specific topic, path, or location for output data
-- Output schema settings (optional) that define serialization format and schema validation
+- Endpoint reference that points to a configured data flow endpoint.
+- Data destination as the specific topic, path, or location for output data.
+- Output schema settings (optional) that define serialization format and schema validation.
 
 For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
@@ -1178,7 +944,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 1. In the data flow diagram, select the **Destination** node.
 1. Select the desired data flow endpoint from the **Data flow endpoint details** dropdown. 
 1. Select **Proceed** to configure the destination.
-1. Enter the **required settings** for the destination, including the topic or table to send the data to. The data destination field is automatically interpreted based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic.
+1. Enter the **required settings** for the destination, including the topic or table to send the data to. The portal automatically interprets the data destination field based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic.
 
 # [Bicep](#tab/bicep)
 
@@ -1197,7 +963,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 - nodeType: Destination
@@ -1214,9 +980,7 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 ### Node connections
 
-Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. Connections can optionally include schema validation to ensure data integrity between processing stages.
-
-When you specify schema validation, the system validates data format and structure as it flows between nodes. The validation helps catch data inconsistencies early and ensures WASM modules receive data in the expected format.
+Node connections define the data flow path between nodes. Each connection specifies a source node and destination node, creating the processing pipeline. You can optionally include a schema in the connection. The module receives the schema at initialization, which enables schema validation [as in this example](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/schema-registry-scenario/operators/filter/src/lib.rs).
 
 # [Operations experience](#tab/portal)
 
@@ -1249,7 +1013,7 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 nodeConnections:
@@ -1270,7 +1034,7 @@ nodeConnections:
 
 ### Data flow endpoints
 
-Data flow graphs connect to external systems through data flow endpoints. The type of endpoint determines whether it can be used as a source, destination, or both:
+Data flow graphs connect to external systems through data flow endpoints. The type of endpoint determines whether you can use it as a source, destination, or both.
 
 #### MQTT endpoints
 
@@ -1306,14 +1070,60 @@ Storage endpoints typically require output schema settings to define data serial
 
 Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but graph processing nodes reference them.
 
-For detailed configuration information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
+For detailed configuration information, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
 
+## Troubleshoot data flow graphs
+
+This section provides troubleshooting tips for common issues when working with data flow graphs.
+
+### RegistryEndpoint not found
+
+If the data flow graph fails to start and reports that it can't find the registry endpoint, verify the following:
+
+1. **Registry endpoint name matches**: The `registryEndpointRef` value in your data flow graph must exactly match the `name` of your `RegistryEndpoint` resource. Check for typos and case sensitivity.
+
+   ```bash
+   # List all registry endpoints in the namespace
+   kubectl get registryendpoints -n azure-iot-operations
+   ```
+
+1. **Registry endpoint is in the correct namespace**: The registry endpoint must be in the `azure-iot-operations` namespace (or the same namespace as your data flow graph).
+
+1. **Registry endpoint is ready**: Check the status of your registry endpoint:
+
+   ```bash
+   kubectl describe registryendpoint <REGISTRY_ENDPOINT_NAME> -n azure-iot-operations
+   ```
+
+1. **Authentication is configured correctly**: If you use managed identity, ensure the Azure IoT Operations Arc extension has `AcrPull` permissions on the registry. If you use anonymous authentication with a public registry, verify the host URL is correct.
+
+1. **Artifacts exist in the registry**: Verify that the graph definition and WASM modules referenced in your graph are available at the expected tags in the registry:
+
+   ```bash
+   # Check if artifacts exist (example with ORAS)
+   oras manifest fetch <REGISTRY_HOST>/graph-simple:1.0.0
+   ```
+
+### Data flow graph is running but not processing data
+
+If you deploy the data flow graph but it doesn't process messages:
+
+1. **Check data flow graph status**: Look for errors in the data flow graph resource status.
+
+   ```bash
+   kubectl get dataflowgraph <GRAPH_NAME> -n azure-iot-operations -o yaml
+   ```
+
+1. **Verify MQTT topics**: Ensure the source topics in your data flow graph match the topics where you're publishing data.
+
+1. **Check timestamps**: Data flow graphs use Hybrid Logical Clock (HLC) timestamps for message processing. Include the `__ts` user property when publishing MQTT messages to ensure timely processing.
 
 ## Related content
 
-- [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)
-- [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howto-develop-wasm-modules.md)
-- [Configure registry endpoints](howto-configure-registry-endpoint.md)
+- [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md) for both IDE and CLI-based development workflows
+- [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md) for graph YAML structure and configuration parameters
+- [Deploy WASM modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md) for registry setup and artifact management
+- [Run ONNX inference in WASM](../develop-edge-apps/howto-wasm-onnx-inference.md) for ML model integration
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
 - [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md)
 - [Configure Azure Data Lake Storage data flow endpoints](howto-configure-adlsv2-endpoint.md)

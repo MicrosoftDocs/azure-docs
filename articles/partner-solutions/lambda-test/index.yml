@@ -6,6 +6,8 @@ summary: An ultra-fast, secure, and scalable test execution platform designed fo
 metadata:
   title: LambdaTest - HyperExecute  
   description: LambdaTest - HyperExecute integrates with Azure to combine the benefits of LambdaTest - HyperExecute with the Azure cloud.
+  author: shijojoy
+  ms.author: shijoy
   ms.topic: landing-page
   ms.date: 04/15/2025
   ms.custom: build-2025
@@ -19,6 +21,8 @@ landingContent:
         links:
           - text: What is LambdaTest - HyperExecute?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
 
   # Card
   - title: Create a LambdaTest - HyperExecute deployment

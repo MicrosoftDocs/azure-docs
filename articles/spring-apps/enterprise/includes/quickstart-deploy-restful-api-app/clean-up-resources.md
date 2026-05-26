@@ -8,7 +8,7 @@ ms.update-cycle: 1095-days
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal, AZD, or Azure CLI.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure portal, AZD, or Azure CLI.
 
 [!INCLUDE [clean-up-resources](includes/quickstart-deploy-restful-api-app/clean-up-resources.md)]
 

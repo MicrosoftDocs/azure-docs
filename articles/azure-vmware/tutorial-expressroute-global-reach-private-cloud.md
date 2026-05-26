@@ -4,7 +4,7 @@ description: In this tutorial, learn how to create ExpressRoute Global Reach pee
 ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 3/16/2026
 # Customer intent: "As a network engineer, I want to establish ExpressRoute Global Reach peering between my on-premises environment and Azure VMware Solution, so that I can ensure seamless connectivity and data flow between my private cloud and local infrastructure."
 ---
 
@@ -35,7 +35,7 @@ Once you completed this section, follow the next steps provided at the end of th
 - Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 >[!NOTE]
->If advertising a default route to Azure (0.0.0.0/0), ensure a more specific route containing your on-premises networks is advertised in addition to the default route to enable management access to Azure VMware Solution. A single 0.0.0.0/0 route will be discarded by Azure VMware Solution's management network to ensure successful operation of the service.
+>If advertising a default route to Azure (0.0.0.0/0), ensure a more specific route containing your on-premises networks is advertised in addition to the default route to enable management access to Azure VMware Solution. A single 0.0.0.0/0 route gets discarded by Azure VMware Solution's management network to ensure successful operation of the service.
 
 ## Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
 
@@ -78,7 +78,7 @@ Now that you created an authorization key for the private cloud ExpressRoute cir
 In your **on-premises edge router**, you should now see where the ExpressRoute connects the NSX-T Data Center network segments and the Azure VMware Solution management segments.
 
 >[!IMPORTANT]
->Everyone has a different environment, and some will need to allow these routes to propagate back into the on-premises network.  
+>Everyone has a different environment, some need to allow these routes to propagate back into the on-premises network.  
 
 ## Next steps
 

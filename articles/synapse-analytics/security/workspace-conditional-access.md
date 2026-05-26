@@ -4,7 +4,7 @@ description: Articles explains conditional access in Azure Synapse Analytics
 author: meenalsri
 ms.author: mesrivas
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/07/2021
 ms.sub-service: security
 ms.custom: template-concept

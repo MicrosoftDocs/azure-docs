@@ -53,24 +53,79 @@ To enable Private Link configuration, you must have a dedicated subnet that's se
 To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 > [!NOTE]
-> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact appgw-idle-timeout@microsoft.com to request initiation of keep‑alive from Application Gateway.
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
 
 # [Azure portal](#tab/portal)
 
 ## Disable network policies on the Private Link subnet
 
-To allow Private Link connectivity, you must [disable the Private Link Service Network Policies](../private-link/disable-private-endpoint-network-policy.md#disable-network-policy) on the subnet designated for Private Link IP configurations.
+To allow Private Link connectivity, you must [disable the Private Link Service Network Policies](../private-link/disable-private-link-service-network-policy.md) on the subnet designated for Private Link IP configurations.
 
-To disable network policies, follow these steps:
-1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Virtual networks**.
-1. Select the virtual network containing the Private Link subnet.
-1. In the left navigation pane, select **Subnets**.
-1. Select the subnet designated for Private Link.
-1. Under **Private link service network policies**, select **Disabled**.
-1. Select **Save** to apply the changes.
-    1. Wait a few minutes for the changes to take effect.
-1. Verify the **Private link service network policies** setting is now **Disabled**.
+When you use the portal to create an instance of the Private Link service, this setting is automatically disabled as part of the creation process. Deployments using any Azure client (PowerShell, Azure CLI, or templates) require an extra step to change this property.
+
+The following examples describe how to enable and disable `privateLinkServiceNetworkPolicies` for a virtual network named `myVNet` with a `default` subnet of `10.1.0.0/24` hosted in a resource group named `myResourceGroup`.
+
+# [**PowerShell**](#tab/private-link-network-policy-powershell)
+
+This section describes how to disable subnet private endpoint policies by using Azure PowerShell. In the following code, replace `default` with the name of your virtual subnet.
+
+```azurepowershell
+$subnet = 'default'
+
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq $subnet}).privateLinkServiceNetworkPolicies = "Disabled"
+
+$vnet | Set-AzVirtualNetwork
+```
+
+# [**CLI**](#tab/private-link-network-policy-cli)
+
+This section describes how to disable subnet private endpoint policies by using the Azure CLI.
+
+```azurecli
+az network vnet subnet update \
+    --name default \
+    --vnet-name myVNet \
+    --resource-group myResourceGroup \
+    --disable-private-link-service-network-policies yes
+```
+
+# [**JSON**](#tab/private-link-network-policy-json)
+
+This section describes how to disable subnet private endpoint policies by using Azure Resource Manager templates.
+
+```json
+{ 
+    "name": "myVNet", 
+    "type": "Microsoft.Network/virtualNetworks", 
+    "apiVersion": "2019-04-01", 
+    "location": "WestUS", 
+    "properties": { 
+        "addressSpace": { 
+            "addressPrefixes": [ 
+                "10.1.0.0/16" 
+             ] 
+        }, 
+        "subnets": [ 
+               { 
+                 "name": "default", 
+                 "properties": { 
+                        "addressPrefix": "10.1.0.0/24", 
+                        "privateLinkServiceNetworkPolicies": "Disabled" 
+                    } 
+                } 
+        ] 
+    } 
+} 
+ 
+```
+
+---
 
 ## Configure Private Link
 

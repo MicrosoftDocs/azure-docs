@@ -4,15 +4,16 @@ description: Overview of the framework and tooling for SAP Deployment Automation
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/21/2023
+ms.date: 02/09/2026
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: concept-article
 # Customer intent: As a cloud architect, I want to utilize the SAP Deployment Automation Framework, so that I can efficiently deploy, manage, and maintain SAP environments on Azure while ensuring optimal resource allocation and adherence to best practices.
 ---
+
 # SAP Deployment Automation Framework
 
-[SAP Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that can deploy, install, and maintain SAP environments. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/). The environments can be configured using [Ansible](https://www.ansible.com/). 
+[SAP Deployment Automation Framework](https://github.com/Azure/sap-automation) is an open-source orchestration tool that can deploy, install, and maintain SAP environments. You can deploy the systems on any of the SAP-supported operating system versions and into any Azure region. You can create infrastructure for SAP landscapes based on SAP High-Performance Analytic Appliance (HANA) and NetWeaver with AnyDB by using [Terraform](https://www.terraform.io/). The environments can be configured using [Ansible](https://www.ansible.com/).
 
 [Terraform](https://www.terraform.io/) from Hashicorp is an open-source tool for provisioning and managing cloud infrastructure.
 
@@ -40,8 +41,7 @@ You can use the automation framework to deploy the following SAP architectures:
 - **Distributed**: With this architecture, you can separate the database server and the application tier. The application tier can further be separated in two by having SAP central services on a VM and one or more application servers.
 - **Distributed (highly available)**: This architecture is similar to the distributed architecture. In this deployment, the database and/or SAP central services can both be configured by using a highly available configuration that uses two VMs, each with Pacemaker clusters.
 
-
-## About the control plane
+## The control plane
 
 The control plane houses the deployment infrastructure from which other environments are deployed. After the control plane is deployed, it rarely needs to be redeployed, if ever.
 
@@ -78,10 +78,9 @@ For more information about how to configure and deploy the control plane, see [C
 
 These VMs are used to run the orchestration scripts that deploy the Azure resources by using Terraform. They're also Ansible controllers and are used to execute the Ansible playbooks on all the managed nodes, that is, the VMs of an SAP deployment.
 
-
 ## About the SAP workload zone
 
-The workload zone allows for partitioning of the SAP systems deployments into different environments, such as development, test, and production. The workload zone provides the shared resources (networking and credentials management) that are used by the SAP systems. 
+The workload zone allows for partitioning of the SAP systems deployments into different environments, such as development, test, and production. The workload zone provides the shared resources (networking and credentials management) that are used by the SAP systems.
 
 You would typically create a workload zone for each unique Azure Virtual network (VNet) that you want to deploy the SAP systems into.
 
@@ -91,22 +90,21 @@ The SAP workload zone provides the following services to the SAP systems:
 - Azure Key Vault for system credentials (VMs and SAP accounts)
 - Shared storage (optional)
 
-It is recommended to deploy the workload zone into a spoke subscription in a [hub-and-spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) and use a dedicated deployment credential for each workload zone. 
+The recommendation is to deploy the workload zone into a spoke subscription in a [hub-and-spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) and use a dedicated deployment credential for each workload zone.
 
 For more information about how to configure and deploy the SAP workload zone, see [Configure the workload zone](configure-workload-zone.md) and [Deploy the SAP workload zone](deploy-workload-zone.md).
 
 ## About the SAP systems
 
-Each SAP system is deployed into a dedicated resource group and they use the services from the workload zone. 
+Each SAP system is deployed into a dedicated resource group and they use the services from the workload zone.
 
 The SAP system deployment consists of the VMs and the associated resources required to run the SAP application, including the web, app, and database tiers.
 
 For more information about how to configure and deploy the SAP system, see [Configure the SAP system](configure-system.md) and [Deploy the SAP system](deploy-system.md).
 
-
 ## Software acquisition process
 
-The framework also provides an Ansible playbook that can be used to download the software from SAP and persist it in the storage accounts in the control plane's SAP library resource group.
+The framework includes an Ansible playbook designed to automate the download of SAP software. This playbook retrieves the required software from SAP and stores it in the SAP library storage accounts within the control plane resource group.
 
 The software acquisition is using an SAP application manifest file that contains the list of SAP software to be downloaded. The manifest file is a YAML file that contains the:
 
@@ -124,12 +122,11 @@ The following terms are important concepts for understanding the automation fram
 
 ### SAP concepts
 
-> [!div class="mx-tdCol2BreakAll "]
-> | Term                               | Description                                                                         |
-> | ---------------------------------- | ----------------------------------------------------------------------------------- |
-> | System                             | An instance of an SAP application that contains the resources the application needs to run. Defined by a unique three-letter identifier, the *SID*.
-> | Landscape                          | A collection of systems in different environments within an SAP application. For example, SAP ERP Central Component (ECC), SAP customer relationship management (CRM), and SAP Business Warehouse (BW). |
-> | Workload zone                      | Partitions the SAP applications to environments, such as nonproduction and production environments or development, quality assurance, and production environments. Provides shared resources, such as virtual networks and key vaults, to all systems within. |
+| Term                               | Description                                                                         |
+| ---------------------------------- | ----------------------------------------------------------------------------------- |
+| System                             | An instance of an SAP application that contains the resources the application needs to run. Defined by a unique three-letter identifier, the *SID*. |
+| Landscape                          | A collection of systems in different environments within an SAP application. For example, SAP ERP Central Component (ECC), SAP customer relationship management (CRM), and SAP Business Warehouse (BW). |
+| Workload zone                      | Partitions the SAP applications to environments, such as nonproduction and production environments or development, quality assurance, and production environments. Provides shared resources, such as virtual networks and key vaults, to all systems within. |
 
 The following diagram shows the relationships between SAP systems, workload zones (environments), and landscapes. In this example setup, the customer has three SAP landscapes: ECC, CRM, and BW. Each landscape contains three workload zones: production, quality assurance, and development. Each workload zone contains one or more systems.
 
@@ -137,20 +134,18 @@ The following diagram shows the relationships between SAP systems, workload zone
 
 ### Deployment components
 
-> [!div class="mx-tdCol2BreakAll "]
-> | Term                               | Description                                                                                        | Scope                   |
-> | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------- |
-> | Deployer                           | A VM that can execute Terraform and Ansible commands.                                 | Region                  |
-> | Library                            | Provides storage for the Terraform state files and the SAP installation media.                     | Region                  |
-> | Workload zone                      | Contains the virtual network for the SAP systems and a key vault that holds the system credentials. | Workload zone           |
-> | System                             | The deployment unit for the SAP application (SID). Contains all infrastructure assets.              | Workload zone           |
+| Term                               | Description                                                                                        | Scope                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------- |
+| Deployer                           | A VM that can execute Terraform and Ansible commands.                                 | Region                  |
+| Library                            | Provides storage for the Terraform state files and the SAP installation media.                     | Region                  |
+| Workload zone                      | Contains the virtual network for the SAP systems and a key vault that holds the system credentials. | Workload zone           |
+| System                             | The deployment unit for the SAP application (SID). Contains all infrastructure assets.              | Workload zone           |
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> - [Get started with the deployment automation framework](get-started.md)
-> - [Plan for the automation framework](plan-deployment.md)
-> - [Configure Azure DevOps for the automation framework](configure-devops.md)
-> - [Configure the control plane](configure-control-plane.md)
-> - [Configure the workload zone](configure-workload-zone.md)
-> - [Configure the SAP system](configure-system.md)
+- [Get started with the deployment automation framework](get-started.md)
+- [Plan for the automation framework](plan-deployment.md)
+- [Configure Azure DevOps for the automation framework](configure-devops.md)
+- [Configure the control plane](configure-control-plane.md)
+- [Configure the workload zone](configure-workload-zone.md)
+- [Configure the SAP system](configure-system.md)

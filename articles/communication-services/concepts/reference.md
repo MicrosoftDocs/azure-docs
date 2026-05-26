@@ -2,13 +2,13 @@
 title: Reference documentation overview for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' reference documentation.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 05/09/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ---
 <!-- Please keep this table synced with: https://github.com/Azure/Communication/blob/master/README.md -->

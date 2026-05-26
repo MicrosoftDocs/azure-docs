@@ -65,6 +65,8 @@ To deploy Azure IoT Operations with secure settings, follow these articles:
 1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, follow the steps in [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
 
+[!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
+
 ## Required permissions
 
 The following table describes Azure IoT Operations deployment and management tasks that require elevated permissions. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
@@ -81,7 +83,7 @@ The following table describes Azure IoT Operations deployment and management tas
 | Provide permissions to deployment| [Azure Arc Enabled Kubernetes Cluster User role](/azure/role-based-access-control/built-in-roles/containers#azure-arc-enabled-kubernetes-cluster-user-role) | Required to grant permission of deployment to the Azure Arc-enabled Kubernetes cluster. |
 
 > [!TIP]
-> You must enable resource sync on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery?](../discover-manage-assets/overview-akri.md).
+> You must enable resource sync on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery?](../discover-manage-assets/overview-akri.md)
 
 If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
 
@@ -120,6 +122,8 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   |Endpoints (DNS) | Description |
   |-|-|
   | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+  | `global.prod.microsoftmetrics.com` | Required for usage telemetry and error reporting metrics sent from the cluster to Microsoft (Geneva Metrics). This is the primary MetricsExtension endpoint. If this endpoint is blocked, Microsoft loses visibility into service health and usage on the cluster. |
+  | `*.prod.microsoftmetrics.com` | Wildcard covering all Geneva Metrics stamp-specific endpoints. Customers who prefer a narrower allowlist can use `global.prod.microsoftmetrics.com` instead. |
 
 
 

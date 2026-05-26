@@ -1,5 +1,5 @@
 ---
-title: Manage Azure savings plans
+title: Manage savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how to manage savings plans. See steps to change the plan's scope, split a plan, and optimize its use.
 author: nwokolo
@@ -7,12 +7,12 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
-# Manage Azure savings plans
-After you buy an Azure savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
+# Manage savings plans
+After you buy a savings plan, with sufficient permissions, you can make the following types of changes to a savings plan:
 
 - Update a savings plan scope.
 - Change autorenewal settings.
@@ -27,12 +27,12 @@ You can't make the following types of changes after purchase:
 - Billing frequency
 
 > [!NOTE]
-> A billing administer can fully manage savings plans. However, after purchase, a savings plan’s directory can’t get changed.
+> A billing administrator can fully manage savings plans. However, after purchase, a savings plan's directory can't be changed.
 
 To learn more, see [Savings plan permissions](permission-view-manage.md). _Permission needed to manage a savings plan is separate from subscription permission._
 
 ## Change the savings plan scope
-Your hourly savings plan benefit is to automatically use from savings plan-eligible resources that run in the savings plan's benefit scope. To learn more, see [Savings plan scopes](scope-savings-plan.md). Changing a savings plan's benefit scope doesn't alter the savings plan's term.
+Your hourly savings plan benefit automatically applies to savings plan-eligible resources that run in the savings plan's benefit scope. To learn more, see [Savings plan scopes](scope-savings-plan.md). Changing a savings plan's benefit scope doesn't alter the savings plan's term.
 
 To update a savings plan scope as a billing administrator:
 1. Sign in to the Azure portal and go to **Cost Management + Billing**.
@@ -57,13 +57,13 @@ If you aren't a billing administrator and you change from shared to single scope
 If all subscriptions are moved out of a management group, the scope of the savings plan is automatically changed to **Shared**.
 
 ## Change the auto-renewal setting
-To learn more about modifying auto-renewal settings for a savings plan, see [change auto-renewal settings](manage-savings-plan.md#change-the-auto-renewal-setting).
+To learn more about modifying auto-renewal settings for a savings plan, see [Change auto-renewal settings](manage-savings-plan.md#change-the-auto-renewal-setting).
 
 ## View savings plan reporting details
-- To learn more about viewing savings plan utilization, see [view savings plan utilization](view-utilization.md).
-- To learn more about viewing savings plan cost and usage, see [view savings plan cost and usage exports](utilization-cost-reports.md).
-- To learn more about viewing savings plan transactions, see [view savings plan transactions](view-transactions.md).
-- To learn more about viewing savings plan amortized costs, see [view amortized costs](../reservations/view-amortized-costs.md).
+- To learn more about viewing savings plan utilization, see [View savings plan utilization](view-utilization.md).
+- To learn more about viewing savings plan cost and usage, see [View savings plan cost and usage exports](utilization-cost-reports.md).
+- To learn more about viewing savings plan transactions, see [View savings plan transactions](view-transactions.md).
+- To learn more about viewing savings plan amortized costs, see [View amortized costs](../reservations/view-amortized-costs.md).
 
 ## Delegate savings plan RBAC roles
 Users and groups who gain the ability to purchase, manage, or view savings plans via RBAC roles must do so from **Home** > **Savings plan**.
@@ -90,20 +90,20 @@ To delegate the administrator, contributor, or reader roles to a specific saving
 ## Cancellations, exchanges, and trade-ins
 Unlike reservations, you can't cancel or exchange savings plans. You can trade-in select compute reservations for a savings plan. To learn more, visit [reservation trade-in](reservation-trade-in.md).
 
-## Change Billing subscription
+## Change billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
 
-## Check billing subscription for an Azure savings plan
+## Check billing subscription for a savings plan
 
-To check the billing subscription for an Azure savings plan:
+To check the billing subscription for a savings plan:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** > **Savings Plan**.
-3. Select the Savings Plan.
+2. Select **All services** > **Savings plans**.
+3. Select the savings plan.
 4. Select **Renewal**.
 5. Select **Replace this savings plan with a new savings plan purchase**.
 
-These steps show you the billing subscription of current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of current savings plan.
+These steps show you the billing subscription of the current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of the current savings plan.
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).
@@ -129,11 +129,11 @@ For Microsoft Partner Agreement partners:
 - Notifications are sent to the partner.
 
 ## Need help?
-If you have Azure savings plan for compute questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about Azure savings plan for compute.
+If you have savings plan questions, contact your account team or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides answers to expert support requests in English for questions about savings plans.
 
 ## Next steps
 
-To learn more about Azure savings plans, see:
+To learn more about savings plans, see:
 
 - [View savings plan utilization](utilization-cost-reports.md)
 - [Cancellation policy](cancel-savings-plan.md)

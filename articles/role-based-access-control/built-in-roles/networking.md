@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -333,7 +333,7 @@ Can view CDN endpoints, but can't make changes.
 > | [Microsoft.Cdn](../permissions/networking.md#microsoftcdn)/profiles/endpoints/*/read |  |
 > | [Microsoft.Cdn](../permissions/networking.md#microsoftcdn)/profiles/afdendpoints/validateCustomDomain/action |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
@@ -360,7 +360,7 @@ Can view CDN endpoints, but can't make changes.
         "Microsoft.Cdn/profiles/endpoints/*/read",
         "Microsoft.Cdn/profiles/afdendpoints/validateCustomDomain/action",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
@@ -442,7 +442,7 @@ Can view CDN profiles and their endpoints, but can't make changes.
 > | [Microsoft.Cdn](../permissions/networking.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](../permissions/networking.md#microsoftcdn)/profiles/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Cdn](../permissions/networking.md#microsoftcdn)/profiles/afdendpoints/validateCustomDomain/action |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
@@ -471,7 +471,7 @@ Can view CDN profiles and their endpoints, but can't make changes.
         "Microsoft.Cdn/operationresults/*",
         "Microsoft.Cdn/profiles/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Cdn/profiles/afdendpoints/validateCustomDomain/action",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",

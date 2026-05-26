@@ -1,6 +1,6 @@
 ---
-title: Azure AI services in Azure Synapse Analytics
-description: Enrich your data with artificial intelligence (AI) in Azure Synapse Analytics using pretrained models from Azure AI services.
+title: Foundry Tools in Azure Synapse Analytics
+description: Enrich your data with artificial intelligence (AI) in Azure Synapse Analytics using pretrained models from Foundry Tools.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
@@ -10,9 +10,9 @@ ms.author: negust
 ms.date: 05/13/2024
 ---
 
-# Azure AI services
+# Foundry Tools
 
-Azure AI services help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models.
+Foundry Tools help developers and organizations rapidly create intelligent, cutting-edge, market-ready, and responsible applications with out-of-the-box and pre-built and customizable APIs and models.
 
 SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources. Synapse Spark provide built-in SynapseML libraries including synapse.ml.services.
 
@@ -21,9 +21,9 @@ SynapseML allows you to build powerful and highly scalable predictive and analyt
 
 ## Prerequisites on Azure Synapse Analytics
 
-The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse), walks you through a couple steps you need to perform before using Azure AI services in Synapse Analytics.
+The tutorial, [Pre-requisites for using Foundry Tools in Azure Synapse](/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse), walks you through a couple steps you need to perform before using Foundry Tools in Synapse Analytics.
 
-[Azure AI services](https://azure.microsoft.com/products/ai-services/) is a suite of APIs, SDKs, and services that developers can use to add intelligent features to their applications. AI services empower developers even when they don't have direct AI or data science skills or knowledge. Azure AI services help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure AI services can be categorized into five main pillars: Vision, Speech, Language, Web search, and Decision.
+[Foundry Tools](https://azure.microsoft.com/products/ai-services/) is a suite of APIs, SDKs, and services that developers can use to add intelligent features to their applications. Foundry Tools empower developers even when they don't have direct AI or data science skills or knowledge. Foundry Tools help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Foundry Tools can be categorized into five main pillars: Vision, Speech, Language, Web search, and Decision.
 
 ## Usage
 
@@ -109,13 +109,13 @@ from pyspark.sql.functions import col
 
 ```
 
-Import Azure AI services libraries and replace the keys and locations in the following code snippet with your Azure AI services key and location.
+Import Foundry Tools libraries and replace the keys and locations in the following code snippet with your Foundry Tools key and location.
 
 ```python
 from synapse.ml.services import *
 from synapse.ml.core.platform import *
 
-# A general AI services key for AI Language, Computer Vision and Document Intelligence (or use separate keys that belong to each service)
+# A general Foundry Tools key for Azure Language in Foundry Tools, Computer Vision and Azure Document Intelligence in Foundry Tools (or use separate keys that belong to each service)
 service_key = find_secret(
     secret_name="ai-services-api-key", keyvault="mmlspark-build-keys"
 )  # Replace the call to find_secret with your key as a python string. e.g. service_key="27snaiw..."
@@ -155,7 +155,7 @@ df = spark.createDataFrame(
     [
         ("I am so happy today, its sunny!", "en-US"),
         ("I am frustrated by this rush hour traffic", "en-US"),
-        ("The AI services on spark aint bad", "en-US"),
+        ("The Foundry Tools on spark aint bad", "en-US"),
     ],
     ["text", "language"],
 )
@@ -211,7 +211,7 @@ display(healthcare.transform(df))
 
 ## Translate text into a different language
 
-[Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a cloud-based machine translation service and is part of the Azure AI services family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
+[Azure Translator in Foundry Tools](https://azure.microsoft.com/products/ai-services/ai-translator) is a cloud-based machine translation service and is part of the Foundry Tools family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
 
 The following code sample does a simple text translation by providing the sentences you want to translate and target languages you want to translate them to.
 
@@ -248,7 +248,7 @@ display(
 
 ## Extract information from a document into structured data
 
-[Azure AI Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. With Azure AI Document Intelligence, you can identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more.
+[Document Intelligence](https://azure.microsoft.com/products/ai-services/ai-document-intelligence/) is a part of Azure Applied AI Services that lets you build automated data processing software using machine learning technology. With Document Intelligence, you can identify and extract text, key/value pairs, selection marks, tables, and structure from your documents. The service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more.
 
 The following code sample analyzes a business card image and extracts its information into structured data.
 
@@ -289,7 +289,7 @@ display(
 
 ## Computer Vision sample
 
-[Azure AI Vision](https://azure.microsoft.com/products/ai-services/ai-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
+[Azure Vision in Foundry Tools](https://azure.microsoft.com/products/ai-services/ai-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
 
 The following code sample analyzes images and labels them with *tags*. Tags are one-word descriptions of things in the image, such as recognizable objects, people, scenery, and actions.
 

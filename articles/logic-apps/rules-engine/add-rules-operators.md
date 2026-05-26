@@ -1,25 +1,25 @@
 ---
-title: Add arithmetic and logical operators to rules
-description: Learn how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
+title: Add Arithmetic and Logical operators to Rules
+description: Add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
-
-#CustomerIntent: As a developer, I want to understand how use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
 ms.custom:
   - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
 ---
 
 # Add arithmetic and logical operators to rules using Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-
-This guide describes how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
+This guide shows how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
 
 ## Prerequisites
 

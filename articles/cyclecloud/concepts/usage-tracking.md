@@ -3,6 +3,7 @@ title: Cost and Usage Tracking
 description: Set usage alerts and notifications to track budgets in Azure CycleCloud, which monitors resources like instances and volumes to estimate charges per resource.
 author: adriankjohnson
 ms.date: 03/17/2020
+ms.update-cycle: 1095-days
 ms.author: adjohnso
 ---
 # Cost and usage

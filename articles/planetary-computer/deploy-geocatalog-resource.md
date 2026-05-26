@@ -53,6 +53,8 @@ This article describes two methods for deploying a Planetary Computer Pro GeoCat
       > - North Central US
       > - West Europe
       > - Canada Central
+      > - UK South
+      > - [US Gov Virginia](us-government-cloud-support.md)
 
       [ ![Screenshot of the Basics tab in the Create GeoCatalog Resource workflow.](media/complete-basics-tab-geocatalog.png) ](media/complete-basics-tab-geocatalog.png#lightbox)
 

@@ -2,11 +2,11 @@
 title: 'QuickStart: Create and configure Azure DDoS Network Protection - Azure PowerShell'
 description: Learn how to create a DDoS Protection Plan using Azure PowerShell
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 01/26/2026
+ms.author: duau
 ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: "As a cloud administrator, I want to create and configure a DDoS protection plan using PowerShell, so that I can secure my virtual networks against distributed denial-of-service attacks effectively."
 ---
@@ -47,9 +47,11 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ## Enable DDoS for a virtual network
 
-### Enable DDoS for a new virtual network
+You can enable DDoS protection when creating a new virtual network or for an existing virtual network. Select the tab for your scenario.
 
-You can enable DDoS protection when creating a virtual network. In this example, we'll name our virtual network _MyVnet_:
+# [New virtual network](#tab/new-vnet)
+
+In this example, we'll name our virtual network _MyVnet_:
 
 ```azurepowershell-interactive
 #Gets the DDoS protection plan ID
@@ -59,7 +61,7 @@ $ddosProtectionPlanID = Get-AzDdosProtectionPlan -ResourceGroupName MyResourceGr
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16 -DdosProtectionPlan $ddosProtectionPlanID.Id -EnableDdosProtection  
 ```
 
-### Enable DDoS for an existing virtual network
+# [Existing virtual network](#tab/existing-vnet)
 
 You can associate an existing virtual network when creating a DDoS protection plan:
 
@@ -76,7 +78,10 @@ $vnet.DdosProtectionPlan.Id = $ddosProtectionPlanID.Id
 $vnet.EnableDdosProtection = $true
 $vnet | Set-AzVirtualNetwork
 ```
-### Disable DDoS for a virtual network
+
+---
+
+## Disable DDoS for a virtual network
 
 To disable DDoS protection for a virtual network:
 

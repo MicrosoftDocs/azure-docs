@@ -6,10 +6,12 @@ ms.author: fipopovi
 ms.date: 04/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Dynamic SQL in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you'll find tips for using dynamic SQL and developing solutions using Synapse SQL.
 

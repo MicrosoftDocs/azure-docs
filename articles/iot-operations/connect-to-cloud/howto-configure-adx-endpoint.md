@@ -1,8 +1,8 @@
 ---
 title: Configure data flow endpoints for Azure Data Explorer
 description: Learn how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -14,13 +14,14 @@ ai-usage: ai-assisted
 
 # Configure data flow endpoints for Azure Data Explorer
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 To send data to Azure Data Explorer in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An **Azure Data Explorer cluster**. Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). The *free cluster* option doesn't work for this scenario.
 
 
@@ -180,7 +181,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -293,7 +296,9 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataExplorerSettings:
@@ -380,7 +385,9 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataExplorerSettings:
@@ -484,7 +491,9 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataExplorerSettings:
@@ -567,7 +576,9 @@ dataExplorerSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 dataExplorerSettings:

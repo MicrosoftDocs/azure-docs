@@ -1,11 +1,11 @@
 ---
 title: Configure core MQTT broker settings
 description: Configure core MQTT broker settings for high availability, scale, memory usage, and disk-backed message buffer behavior.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.subservice: azure-mqtt-broker
-ms.date: 05/14/2025
+ms.date: 02/20/2026
 ms.service: azure-iot-operations
 
 # CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
@@ -22,7 +22,7 @@ For a list of the available settings, see the [Broker](/rest/api/iotoperations/b
 ## Configure scaling settings
 
 > [!IMPORTANT]
-> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. For more information, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the scaling settings of the MQTT broker, specify the **cardinality** fields in the specification of the Broker resource during Azure IoT Operations deployment.
 
@@ -32,7 +32,7 @@ To automatically determine the initial cardinality during deployment, omit the c
 
 # [Portal](#tab/portal)
 
-Automatic cardinality isn't yet supported when you deploy IoT Operations through the Azure portal. You can manually specify the cluster deployment mode as either **Single node** or **Multi-node**. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Automatic cardinality isn't yet supported when you deploy IoT Operations through the Azure portal. You can manually specify the cluster deployment mode as either **Single node** or **Multi-node**. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 :::image type="content" source="media/howto-configure-availability-scale/single-or-multi-node.png" alt-text="Screenshot that shows where to select single or multi-node setup in the Azure portal.":::
 
@@ -52,13 +52,13 @@ Then, deploy IoT Operations by using the `az iot ops create` command with the `-
 az iot ops create ... --broker-config-file <FILE>.json
 ```
 
-To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ---
 
 The MQTT broker operator automatically deploys the appropriate number of pods based on the number of available nodes at the time of the deployment. This capability is useful for nonproduction scenarios where you don't need high availability or scale.
 
-This capability is *not* autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator determines the initial number of pods to deploy only based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
+This capability is not autoscaling. The operator doesn't automatically scale the number of pods based on the load. The operator determines the initial number of pods to deploy only based on the cluster hardware. As noted previously, cardinality is set only at initial deployment time. A new deployment is required if the cardinality settings need to be changed.
 
 ### Configure cardinality directly
 
@@ -127,6 +127,9 @@ The backend chain subfield defines the settings for the backend partitions. The 
 - **Redundancy factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 - **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica might increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
+> [!IMPORTANT]
+> The backend redundancy factor must be set to **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support. Setting the redundancy factor to `1` results in a deployment validation error.
+
 #### Considerations
 
 When you increase the cardinality values, the broker's capacity to handle more connections and messages generally improves, and it enhances high availability if there are pod or node failures. This increased capacity also leads to higher resource consumption. So when you adjust cardinality values, consider the [memory profile settings](#configure-memory-profile) and broker's [CPU resource requests](#cardinality-and-kubernetes-resource-limits). Increasing the number of workers per frontend replica can help increase CPU core utilization if you discover that frontend CPU utilization is a bottleneck. Increasing the number of backend workers can help with the message throughput if backend CPU utilization is a bottleneck.
@@ -138,7 +141,7 @@ For example, if your cluster has three nodes, each with eight CPU cores, then se
 The memory profile specifies the broker's memory usage for resource-limited environments. You can choose from predefined memory profiles that have different memory usage characteristics. The memory profile setting is used to configure the memory usage of the frontend and backend replicas. The memory profile interacts with the cardinality settings to determine the total memory usage of the broker.
 
 > [!IMPORTANT]
-> This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](./overview-broker.md#customize-default-broker).
+> This setting requires you to modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. For more information, see [Customize default Broker](./overview-broker.md#customize-default-broker).
 
 To configure the memory profile settings of the MQTT broker, specify the memory profile fields in the specification of the Broker resource during IoT Operations deployment.
 
@@ -158,7 +161,7 @@ For example, to specify the memory profile as `Tiny`, see the following command 
 az iot ops create ... --broker-mem-profile Tiny
 ```
 
-To learn more, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#az-iot-ops-create-optional-parameters).
+For more information, see [`az iot ops create` optional parameters](/cli/azure/iot/ops#az-iot-ops-create-optional-parameters).
 
 ---
 
@@ -248,14 +251,69 @@ In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB a
 
 ## Cardinality and Kubernetes resource limits
 
-To prevent resource starvation in the cluster, the broker is configured by default to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). Scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This notification helps you avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
+To prevent resource starvation in the cluster, the broker can be configured to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) based on the cardinality settings. When enabled, scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This notification helps you avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
 
-The MQTT broker currently requests one (1.0) CPU unit per frontend worker and two (2.0) CPU units per backend worker. For more information, see [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu).
+> [!IMPORTANT]
+> The default value for `generateResourceLimits.cpu` depends on the deployment method:
+>
+> - **Azure CLI (`az iot ops create`)**: `Disabled` by default. The CLI actively sets this value to `Disabled` to avoid deployment failures on resource-constrained clusters, particularly single-node clusters where the CPU requests can exceed available resources.
+> - **REST API, Bicep, and ARM templates**: `Enabled` by default, as defined in the [Broker API specification](/rest/api/iotoperations/broker/create-or-update). If you deploy using these methods without explicitly setting `generateResourceLimits.cpu`, CPU resource limits are applied automatically.
+>
+> If you enable CPU resource limits, make sure your cluster has enough CPU resources to satisfy the broker's requests based on your cardinality configuration. See the CPU requirements below.
 
-For example, the following cardinality would request the following CPU resources:
+### Calculate CPU requirements
 
-- **For frontends**: 2 CPU units per frontend pod, totaling 6 CPU units.
-- **For backends**: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totaling 24 CPU units.
+The MQTT broker requests CPU resources per pod based on the number of workers configured:
+
+- **Frontend pods**: 1.0 CPU per worker
+- **Backend pods**: 2.0 CPU per worker
+
+Use the following formulas to calculate total CPU requirements:
+
+| Component | Formula |
+|-----------|---------|
+| Frontend CPU | `replicas` &times; `frontend.workers` &times; 1.0 CPU |
+| Backend CPU | `partitions` &times; `redundancyFactor` &times; `backend.workers` &times; 2.0 CPU |
+| **Total broker CPU** | Frontend CPU + Backend CPU |
+
+For more information, see [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu).
+
+> [!CAUTION]
+> The broker isn't the only component that consumes CPU on the cluster. Other Azure IoT Operations components (such as the dataflow engine, OPC UA connector, and system pods) also reserve CPU resources, typically around 200-300m in aggregate. When planning cluster capacity, make sure to account for this overhead on top of the broker's CPU requirements. If the total CPU requested by all pods exceeds the available CPU on your cluster, broker pods get stuck in a `Pending` state.
+
+#### Example: small cluster
+
+Consider a 2-node cluster with 4 CPU cores per node (8 cores total) with the following cardinality:
+
+```json
+{
+  "cardinality": {
+    "frontend": {
+      "replicas": 2,
+      "workers": 2
+    },
+    "backendChain": {
+      "partitions": 1,
+      "redundancyFactor": 2,
+      "workers": 1
+    }
+  }
+}
+```
+
+The broker requests:
+
+- **Frontend CPU**: 2 replicas &times; 2 workers &times; 1.0 = **4.0 CPU**
+- **Backend CPU**: 1 partition &times; 2 RF &times; 1 worker &times; 2.0 = **4.0 CPU**
+- **Total broker CPU**: **8.0 CPU**
+
+Even though the cluster has 8 cores total, this deployment fails because other Azure IoT Operations components also consume CPU (~280m). The broker pods get stuck in `Pending` state with `Insufficient cpu` errors.
+
+To resolve this, either add more nodes, increase cores per node, or reduce the broker cardinality.
+
+#### Example: larger deployment
+
+The following cardinality requests significantly more CPU resources:
 
 ```json
 {
@@ -273,15 +331,29 @@ For example, the following cardinality would request the following CPU resources
 }
 ```
 
-To disable this setting, set the `generateResourceLimits.cpu` field to `Disabled` in the Broker resource.
+- **Frontend CPU**: 3 replicas &times; 2 workers &times; 1.0 = **6.0 CPU**
+- **Backend CPU**: 3 partitions &times; 2 RF &times; 2 workers &times; 2.0 = **24.0 CPU**
+- **Total broker CPU**: **30.0 CPU**
+
+To change this setting, set the `generateResourceLimits.cpu` field to `Enabled` or `Disabled` in the Broker resource.
 
 # [Portal](#tab/portal)
 
-Changing the `generateResourceLimits` field isn't supported in the Azure portal. To disable this setting, use the Azure CLI.
+Changing the `generateResourceLimits` field isn't supported in the Azure portal. To change this setting, use the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-Prepare a Broker configuration file in JSON format, which includes the desired properties of the [Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update), and set the `generateResourceLimits.cpu` field to `Disabled`. For example:
+Prepare a Broker configuration file in JSON format, which includes the desired properties of the [Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update), and set the `generateResourceLimits.cpu` field. For example, to enable CPU resource limits:
+
+```json
+{
+  "generateResourceLimits": {
+    "cpu": "Enabled"
+  }
+}
+```
+
+Or to disable CPU resource limits:
 
 ```json
 {
@@ -297,7 +369,7 @@ Then, deploy IoT Operations by using the `az iot ops create` command with the `-
 az iot ops create ... --broker-config-file <FILE>.json
 ```
 
-To learn more, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ---
 

@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 11/15/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---

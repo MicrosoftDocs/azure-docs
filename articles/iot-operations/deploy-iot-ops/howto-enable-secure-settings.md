@@ -19,7 +19,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * An Azure IoT Operations instance [deployed with test settings](howto-deploy-iot-test-operations.md).
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.62.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The latest version of the **connectedk8s** extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -85,7 +85,7 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
 ## Set up secrets management
 
-Secrets management for Azure IoT Operations uses the Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. The Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+Secrets management for Azure IoT Operations uses the Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. The Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 To set up secrets management:
 
@@ -201,3 +201,7 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
    ```
 
 Now you can use this managed identity in data flow endpoints for cloud connections.
+
+## Block pod access to the Azure Instance Metadata Service
+
+[!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
