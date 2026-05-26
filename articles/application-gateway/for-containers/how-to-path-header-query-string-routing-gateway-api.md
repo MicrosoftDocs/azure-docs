@@ -13,8 +13,8 @@ ms.author: mbender
 # Path, header, and query string routing with Application Gateway for Containers - Gateway API
 
 This document helps you set up an example application that uses the resources from Gateway API to demonstrate traffic routing based on URL path, query string, and header. Steps are provided to:
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) resource that references a backend service.
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) resource that references a backend service.
 - Use [HTTPRouteMatch](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) to perform `matches` that route based on path, header, and query string.
 
 ## Background
@@ -212,7 +212,7 @@ EOF
 ```
 
 >[!Tip]
->Application Gateway for Containers supports regular expression matching for `headers`, `queryParams`, and `path` rules using Regular Expression 2 (RE2) syntax. More information can be found in the [Gateway API specification](https://gateway-api.sigs.k8s.io/reference/spec/?h=RegularExpression#headermatchtype).
+>Application Gateway for Containers supports regular expression matching for `headers`, `queryParams`, and `path` rules using Regular Expression 2 (RE2) syntax. More information can be found in the [Gateway API specification](https://gateway-api.sigs.k8s.io/reference/api-spec/1.4/spec/#headermatchtype).
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 
