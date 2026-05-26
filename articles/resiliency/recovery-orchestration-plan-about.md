@@ -76,7 +76,7 @@ The execution operations for plan orchestration are categorized as:
 
 - **Failover**: Orchestrates failover from the active zone to the recovery zone.
 - **Reprotect**: Reprotects resources after failover for continued replication.
-- **Readiness check**: Run on-demand readiness assessments.
+- **Readiness check**: Runs on-demand readiness assessments.
 
 ### Group actions
 
