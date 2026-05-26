@@ -63,7 +63,7 @@ The following table lists the common reasons for which resource might be skipped
 | Resource not in the active zone | The resource isn't in the selected physical zone. |
 | Failover not allowed for the resource | The resource might already be in a failed-over state or lacks recovery points. |
 
-### Understand failover execution behavior
+### Understand failover execution
 
 After failover starts, the following actions and behaviors define how resources and tasks execute during the failover process:
 

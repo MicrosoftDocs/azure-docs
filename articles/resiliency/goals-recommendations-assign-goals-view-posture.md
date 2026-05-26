@@ -87,7 +87,9 @@ In some cases, you might need to override the default resiliency assessment prov
 
 Not all resources in a service group require zonal resiliency. You can exclude noncritical resources from evaluation so that they don't affect your resiliency posture summary. For example, storage accounts used solely for telemetry logging might not require zone resiliency and can be excluded from evaluation.
 
-**Required permissions:** **Service Group Contributor** role. For more information, see the [support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
+For excluding resources, you need the **Service Group Contributor** role. [Learn more about the role requirements in the support matrix](goals-recommendations-support-matrix.md#rbac-requirements-for-goals-and-recommendations).
+
+To exclude resources from evaluation, follow these steps:
 
 1. Go to the **resiliency summary** tile and open the **resource list** view.
 
