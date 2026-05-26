@@ -323,17 +323,11 @@ RESPONSE=$(curl --http1.1 --silent --show-error --request PUT \
 
 if [ $? -ne 0 ]; then
     echo "Error: Failed to update Azure Data Manager for Energy instance"
-    echo "$RESPONSE"
     exit 1
 fi
 
 # Verify the managed identity was attached
 ATTACHED_IDS=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
-
-# Debug output
-echo "Looking for MI: $MI_ID"
-echo "Attached IDs:"
-echo "$ATTACHED_IDS"
 
 # Use case-insensitive comparison by converting both to lowercase
 MI_ID_LOWER=$(echo "$MI_ID" | tr '[:upper:]' '[:lower:]')
@@ -343,8 +337,6 @@ if echo "$ATTACHED_IDS_LOWER" | grep -qi "$MI_ID_LOWER"; then
     echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
 else
     echo "Error: Failed to attach managed identity - verification failed"
-    echo "Expected (lowercase): $MI_ID_LOWER"
-    echo "Actual (lowercase): $ATTACHED_IDS_LOWER"
     exit 1
 fi
 ```
