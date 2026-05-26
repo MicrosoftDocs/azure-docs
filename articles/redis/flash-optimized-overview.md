@@ -43,8 +43,6 @@ Common use cases include:
 
 - **Analytics and reporting** - Large lookup tables, aggregated datasets
 - **Social and gaming** - User profiles, session histories, leaderboards with long tails
-- **AI/ML** - Feature stores, caching serialized model data
-- **IoT and telemetry** - Device state, event logs
 
 ## SKU sizes
 
