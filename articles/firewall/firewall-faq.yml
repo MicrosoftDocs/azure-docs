@@ -110,7 +110,7 @@ sections:
 
       - question: Does Azure Firewall support BGP peering?
         answer: |
-          No, Azure Firewall doesn't natively support BGP peering. However, the [Autolearn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes-preview) indirectly uses BGP through Azure Route Server.
+          No, Azure Firewall doesn't natively support BGP peering. However, the [Autolearn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes) indirectly uses BGP through Azure Route Server.
 
 
 
