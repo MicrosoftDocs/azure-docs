@@ -46,7 +46,7 @@ Key links to get started:
 - [Companion API Dashboard](https://portal.azure.com/#browse/napster.companionapi%2Forganizations)
 - [API reference](https://developers.napster.com/docs/api-reference)
 
-## Next steps
+## Related content
 
 - For more help with using Napster Companion API, see the [Napster developer documentation](https://developers.napster.com/docs).
 - Get started with Napster Companion API on:

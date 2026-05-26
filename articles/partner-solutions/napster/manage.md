@@ -66,6 +66,6 @@ Next, select the **Contact Napster Companion API - An Azure Native ISV Service S
 
 Alternatively, reach out directly to the Napster help center at [help.napster.com](https://help.napster.com).
 
-## Next steps
+## Related content
 
 [Napster Companion API resources and developer tools](tools.md)

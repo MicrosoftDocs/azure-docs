@@ -68,6 +68,6 @@ There are required fields (identified with a red asterisk) in each section that 
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-## Next steps
+## Related content
 
 [Manage a Napster Companion API resource](manage.md)

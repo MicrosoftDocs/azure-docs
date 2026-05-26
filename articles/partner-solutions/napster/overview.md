@@ -35,6 +35,6 @@ Here are the key capabilities provided by the Napster Companion API integration:
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
-## Next steps
+## Related content
 
 - [QuickStart: Get started with Napster Companion API](create.md)
