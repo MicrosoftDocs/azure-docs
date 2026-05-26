@@ -14,7 +14,7 @@ ms.custom: sfi-image-nochange
 By default, IoT Hub's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this IoT Hub public endpoint, and IoT devices in wide-area networks and on-premises networks can all access it.
 
 > [!NOTE]
-> IoT Hub introduces additional endpoints to support TLS 1.3. These endpoints are additive and do not replace the existing endpoint used by Private Link (`<hub>.azure-devices.net`). Existing Private Endpoint configurations continue to function without any changes.
+> IoT Hub introduces additional endpoints to support TLS 1.3 (Preview). These endpoints are additive and do not replace the existing endpoint used by Private Link (`<hub>.azure-devices.net`). Existing Private Endpoint configurations continue to function without any changes.
 >
 > For more information about these endpoints, see [TLS 1.3-enabled endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints-preview).  
 
