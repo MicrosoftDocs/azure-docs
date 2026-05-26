@@ -346,7 +346,7 @@ Use these sandbox requirements:
 + The `session_pool_management_endpoint` value is the pool management endpoint.
 + In Azure, the managed identity used by the function app must have the role assignments required to execute code in the session pool. Azure Container Apps code interpreter sessions require the `Azure ContainerApps Session Executor` and `Contributor` roles on the session pool.
 + When running locally, your developer identity must have the same required access to the session pool.
-+ In apps with multiple managed identities, set `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime falls back to `AZURE_CLIENT_ID` and then to the default credential chain.
++ In apps with multiple managed identities, set `AZURE_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses the default credential chain.
 
 The sandbox tool runs Python in an isolated session. Variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session so unrelated executions don't share state.
 
@@ -433,17 +433,16 @@ Model selection uses this general precedence:
 1. `MAF_MODEL`.
 1. The provider default.
 
-For production apps, prefer managed identity where supported. If an app uses more than one managed identity, use feature-specific client ID settings so each runtime feature uses the least-privileged identity it needs.
+For production apps, prefer managed identity where supported. If an app uses more than one managed identity, set `AZURE_CLIENT_ID` so model providers and sandboxed execution use the intended identity.
 
 ## Configure managed identities
 
-The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Use feature-specific settings when a model provider, sandbox pool, or connection MCP endpoint should use a different identity.
+The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Connection MCP endpoints and blob-backed session history can use more specific identity settings.
 
-The runtime uses this precedence pattern for Azure SDK credentials:
+For model providers and sandboxed execution, the runtime uses this precedence pattern for Azure SDK credentials:
 
 ```text
-feature-specific client ID
-> AZURE_CLIENT_ID
+AZURE_CLIENT_ID
 > system-assigned managed identity or default credential chain
 ```
 
@@ -451,11 +450,11 @@ Use these settings to select managed identities:
 
 | Runtime feature | Identity setting | Fallback |
 | --- | --- | --- |
-| Azure OpenAI model provider | `AZURE_OPENAI_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
-| Azure AI Foundry model provider | `FOUNDRY_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
-| Azure Container Apps dynamic sessions sandbox | `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` | `AZURE_CLIENT_ID` |
-| Connection MCP endpoints | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID` |
-| Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | Azure Functions storage configuration |
+| Azure OpenAI model provider | `AZURE_CLIENT_ID` | Default credential behavior |
+| Azure AI Foundry model provider | `AZURE_CLIENT_ID` | Default credential behavior |
+| Azure Container Apps dynamic sessions sandbox | `AZURE_CLIENT_ID` | Default credential behavior |
+| Connection MCP endpoints | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then default credential behavior |
+| Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | `AZURE_CLIENT_ID`, then default credential behavior |
 
 For Azure OpenAI, these identity settings apply only when `AZURE_OPENAI_API_KEY` isn't set. If an API key is configured, the model provider uses the key instead of managed identity.
 
