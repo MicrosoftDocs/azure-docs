@@ -22,7 +22,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 - **SBOM component expansion**: Firmware analysis now supports detection of five additional SBOM components: iperf3, libxm12, json-c, chrony, and iproute2. This expands SBOM coverage across firmware images and improves visibility into potential vulnerabilities.
 
-- **Updated CVE database**: Firmware analysis's CVE database was refreshed on May 11, 2026 to incorporate newer CVE data.
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on April 14, 2026 to incorporate newer CVE data.
 
 
 ## April 2026
