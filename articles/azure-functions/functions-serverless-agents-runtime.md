@@ -206,19 +206,16 @@ Use these fields in each `servers` entry:
 | --- | --- | --- |
 | `type` | Yes | Use `http` or `streamable-http`. Local `stdio` MCP servers aren't supported by the runtime. |
 | `url` | Yes | Remote MCP server endpoint. Environment variable substitution is supported. |
-| `tools` | No | List of allowed tool names from the server. Omit this field, or use `['*']`, to allow all tools. |
 | `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP endpoints. |
 | `auth.scope` | For connection MCP endpoints | Microsoft Entra token scope used to authenticate calls to the MCP endpoint. |
 | `auth.client_id` | No | Client ID of the managed identity to use for this MCP server. Omit this field to use the app-wide identity selection. |
-| `load_tools` | No | Controls whether tools are loaded from the MCP server. Defaults to `true`. |
-| `load_prompts` | No | Controls whether prompts are loaded from the MCP server. Defaults to `true`. |
 
 Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The runtime uses connections in two ways:
 
 + **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
 + **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
 
-A connection MCP server entry stores the endpoint, optional tool allow list, and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
+A connection MCP server entry stores the endpoint and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
 
 ```json
 {
@@ -226,8 +223,6 @@ A connection MCP server entry stores the endpoint, optional tool allow list, and
     "office365-outlook": {
       "type": "http",
       "url": "$O365_MCP_SERVER_URL",
-      "tools": ["office365_SendEmailV2"],
-      "load_prompts": false,
       "auth": {
         "scope": "https://apihub.azure.com/.default",
         "client_id": "$O365_MCP_CLIENT_ID"
