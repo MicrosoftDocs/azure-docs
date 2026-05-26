@@ -1,5 +1,5 @@
 ---
-title: Create a deployment environment
+title: Create a Deployment Environment
 titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in Azure Deployment Environments by using the developer portal. 
 author: RoseHJM
@@ -62,9 +62,9 @@ You can access and manage your environments in the Deployment Environments devel
 
    :::image type="content" source="media/quickstart-create-access-environments/azure-portal-view-of-environment.png" alt-text="Screenshot showing the list of environment resources." lightbox="media/quickstart-create-access-environments/azure-portal-view-of-environment.png":::
 
-   Creating an environment automatically creates a resource group that stores the environment's resources. The resource group name follows the pattern `{projectName}-{environmentName}`. You can view the resource group in the Azure portal.
+   Creating an environment automatically creates a resource group that stores the environment's resources. The resource group name follows the pattern `<projectName>-<environmentName>`. You can view the resource group in the Azure portal.
 
-## Next steps
+## Related content
 
 - [Add and configure a catalog](how-to-configure-catalog.md)
 - [Add and configure an environment definition](configure-environment-definition.md)
