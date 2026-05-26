@@ -4,7 +4,7 @@ description: Learn how to install and configure VMware Cloud Director Availabili
 author: suzuber
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/09/2025
+ms.date: 05/26/2026
 # Customer intent: As a cloud administrator, I want to install and configure VMware Cloud Director Availability in Azure VMware Solution, so that I can efficiently manage workload migration and disaster recovery across my cloud environments.
 ---
  
