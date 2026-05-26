@@ -80,7 +80,7 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
 1. When prompted, select the Azure subscription and location to use for the resource group.
 
-1. If the template prompts for model deployment settings, accept the provided defaults or choose a model deployment supported in your selected region.
+1. The template uses its default Microsoft Foundry model deployment settings unless you customize the Bicep parameters.
 
 After the command completes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 

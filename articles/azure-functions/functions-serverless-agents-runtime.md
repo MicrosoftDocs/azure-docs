@@ -41,7 +41,7 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 | --- | --- | --- |
 | `function_app.py` | Yes | Imports `create_function_app()` and returns the configured Azure Functions app. |
 | `*.agent.md` | Yes | Defines agents. YAML front matter configures the agent, and the markdown body becomes the instructions. |
-| `agents.config.yaml` | Yes | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
+| `agents.config.yaml` | No | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
 | `mcp.json` | When using MCP servers | Defines remote HTTP MCP servers that agents can use as tools. This file exists only at the root of the function app project when the app uses MCP servers. |
 | `tools/` | No | Contains custom Python tools for capabilities that aren't covered by MCP servers, connections, skills, or sandboxed execution. |
 | `skills/` | No | Contains reusable `SKILL.md` prompt assets that agents can load as needed. |
@@ -49,7 +49,7 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 | `requirements.txt` | Yes | Includes the serverless agents runtime package and any app-specific Python dependencies. |
 | `infra/` | No | Contains infrastructure-as-code files used by deployment tooling such as `azd`. |
 
-At the smallest useful size, a project has `function_app.py`, `host.json`, `requirements.txt`, `agents.config.yaml`, and at least one `.agent.md` file.
+A minimal project has `function_app.py`, `host.json`, `requirements.txt`, and at least one `.agent.md` file. Add `agents.config.yaml` when the app needs app-wide runtime defaults.
 
 ### Agent files
 
@@ -125,7 +125,7 @@ tools:
 
 ### Runtime defaults in agents.config.yaml
 
-Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. In the preview templates, this file is required because it configures settings such as the model deployment and sandbox execution endpoint.
+Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. The runtime can load an app without this file. Add it when you need shared settings such as a model deployment, timeout, or sandbox execution endpoint.
 
 This file is one app-level input. The runtime also discovers MCP servers from `mcp.json`, skills from `skills/`, and custom Python tools from `tools/`. Those capabilities are enabled on agents by default. Agent front matter can override runtime defaults or filter inherited MCP servers, skills, and tools.
 
@@ -144,7 +144,7 @@ Use these top-level fields in `agents.config.yaml`:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| `model` | Yes in the preview templates | Default model or model deployment used by agents that don't set `model` in their own front matter. |
+| `model` | No | Default model or model deployment used by agents that don't set `model` in their own front matter. |
 | `timeout` | No | Default execution timeout, in seconds. The runtime default is 900 seconds. |
 | `system_tools.execute_in_sessions.session_pool_management_endpoint` | When using sandboxed execution | Management endpoint for the Azure Container Apps dynamic session pool used by sandbox tools. |
 | `tools.exclude` | No | Global exclude list for custom Python tools discovered from the `tools/` folder. |
@@ -313,7 +313,7 @@ Use these skill authoring rules:
 + Skill names must use lowercase letters, numbers, and single hyphens. Don't use spaces, underscores, uppercase letters, leading hyphens, trailing hyphens, or repeated hyphens.
 + Skill names must be unique across the app.
 + The description should explain both what the skill does and when the agent should use it. The runtime loads skill names and descriptions first so the agent can decide when to load the full skill.
-+ Skills can include multiple markdown files in the same skill folder. Reference those files from `SKILL.md` by using relative links.
++ Skills can include multiple markdown files in the same skill folder. Reference supporting markdown files from `SKILL.md` by using relative links.
 + Only markdown files are supported as skill content in the serverless agents runtime. If a skill needs executable behavior, package that code as a custom Python tool and refer to the tool by name from the skill instructions.
 
 Agents inherit all discovered skills by default. Disable or exclude skills in an agent file when a specific agent shouldn't use them:
