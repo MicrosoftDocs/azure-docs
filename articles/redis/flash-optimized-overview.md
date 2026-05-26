@@ -142,7 +142,7 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Large keys causing OOM despite available Flash capacity
 
-Keys with values exceeding 512KB are considered large. As a best practice, keep value sizes under 512KB. Large keys are pinned to RAM and cannot spill to NVMe Flash storage. If many large keys accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, use compression or chunking strategies, and monitor RAM usage independently from total cache capacity.
+Large keys can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. Large keys are pinned to RAM and cannot spill to NVMe Flash storage. If many large keys accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, use compression or chunking strategies, and monitor RAM usage independently from total cache capacity.
 
 ### Hot keys causing RAM fragmentation
 
