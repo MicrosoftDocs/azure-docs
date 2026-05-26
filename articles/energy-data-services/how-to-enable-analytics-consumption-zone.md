@@ -215,7 +215,7 @@ The output should include your user-assigned managed identity's resource ID with
 
 ### Use automated script for Step 3 (optional)
 
-As an alternative to the manual commands, you can download and run an automated script that handles the identity assignment. The script preserves existing identities automatically and validates inputs.
+As an alternative to the manual commands, you can use the automated script in this section that handles the identity assignment. The script preserves existing identities automatically and validates inputs.
 
 **What the script does:**
 - Validates that the Azure Data Manager for Energy instance and managed identity exist
@@ -223,9 +223,6 @@ As an alternative to the manual commands, you can download and run an automated 
 - Preserves any existing managed identities  
 - Adds the new ACZ identity
 - Updates the instance via Azure Resource Manager API
-
-> [!NOTE]
-> The script searches for the managed identity in the same subscription and resource group as the Azure Data Manager for Energy instance. If your managed identity is in a different subscription or resource group, use the manual commands instead.
 
 #### [Bash](#tab/bash-script)
 
@@ -241,8 +238,16 @@ set -e
 
 # Attach a user-assigned managed identity to an Azure Data Manager for Energy instance
 
-echo "Enter Subscription ID: "
-read SUBSCRIPTION_ID
+echo "Enter Azure Data Manager for Energy Subscription ID: "
+read ADME_SUBSCRIPTION_ID
+
+echo "Enter Managed Identity Subscription ID (press Enter to use same as ADME): "
+read MI_SUBSCRIPTION_ID
+
+# Default to ADME subscription if not specified
+if [ -z "$MI_SUBSCRIPTION_ID" ]; then
+    MI_SUBSCRIPTION_ID="$ADME_SUBSCRIPTION_ID"
+fi
 
 echo "Enter Azure Data Manager for Energy Instance Name: "
 read ADME_INSTANCE_NAME
@@ -252,11 +257,11 @@ read MANAGED_IDENTITY_NAME
 
 echo "Attaching managed identity to Azure Data Manager for Energy instance..."
 
-# Set subscription
-az account set --subscription "$SUBSCRIPTION_ID" > /dev/null
+# Set subscription for ADME operations
+az account set --subscription "$ADME_SUBSCRIPTION_ID" > /dev/null
 
 # Get Azure Data Manager for Energy instance resource group
-RESOURCE_GROUP=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --subscription "$SUBSCRIPTION_ID" --query "[?name=='$ADME_INSTANCE_NAME'].resourceGroup" -o tsv | tr -d '\r')
+RESOURCE_GROUP=$(az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --subscription "$ADME_SUBSCRIPTION_ID" --query "[?name=='$ADME_INSTANCE_NAME'].resourceGroup" -o tsv | tr -d '\r')
 
 if [ -z "$RESOURCE_GROUP" ]; then
     echo "Error: Azure Data Manager for Energy instance '$ADME_INSTANCE_NAME' not found"
@@ -264,20 +269,20 @@ if [ -z "$RESOURCE_GROUP" ]; then
 fi
 
 # Get instance details using Azure CLI queries
-LOCATION=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query location -o tsv | tr -d '\r')
-AUTH_APP_ID=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query properties.authAppId -o tsv | tr -d '\r')
-DATA_PARTITION_NAME=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'properties.dataPartitionNames[0].name' -o tsv | tr -d '\r')
+LOCATION=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query location -o tsv | tr -d '\r')
+AUTH_APP_ID=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query properties.authAppId -o tsv | tr -d '\r')
+DATA_PARTITION_NAME=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'properties.dataPartitionNames[0].name' -o tsv | tr -d '\r')
 
-# Get managed identity resource ID (search in same resource group as Azure Data Manager for Energy)
-MI_ID=$(az identity list --resource-group "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
+# Get managed identity resource ID (search in MI subscription)
+MI_ID=$(az identity list --subscription "$MI_SUBSCRIPTION_ID" --query "[?name=='$MANAGED_IDENTITY_NAME'].id" -o tsv | tr -d '\r')
 
 if [ -z "$MI_ID" ]; then
-    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found in resource group '$RESOURCE_GROUP'"
+    echo "Error: Managed identity '$MANAGED_IDENTITY_NAME' not found in subscription '$MI_SUBSCRIPTION_ID'"
     exit 1
 fi
 
 # Get existing identities to preserve them
-EXISTING_IDS=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
+EXISTING_IDS=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
 
 # Build user-assigned identities JSON (preserve existing)
 USER_ASSIGNED_IDENTITIES="\"$MI_ID\": {}"
@@ -294,8 +299,8 @@ fi
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
 # Update Azure Data Manager for Energy instance
-curl --http1.1 --silent --request PUT \
-  --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
+RESPONSE=$(curl --http1.1 --silent --show-error --request PUT \
+  --url "https://management.azure.com/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/json" \
   --data "{
@@ -314,12 +319,21 @@ curl --http1.1 --silent --request PUT \
         $USER_ASSIGNED_IDENTITIES
       }
     }
-  }" > /dev/null
+  }")
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to update Azure Data Manager for Energy instance"
+    exit 1
+fi
 
 # Verify the managed identity was attached
-ATTACHED_IDS=$(az resource show --ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
+ATTACHED_IDS=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
 
-if echo "$ATTACHED_IDS" | grep -q "$MI_ID"; then
+# Use case-insensitive comparison by converting both to lowercase
+MI_ID_LOWER=$(echo "$MI_ID" | tr '[:upper:]' '[:lower:]')
+ATTACHED_IDS_LOWER=$(echo "$ATTACHED_IDS" | tr '[:upper:]' '[:lower:]')
+
+if echo "$ATTACHED_IDS_LOWER" | grep -qi "$MI_ID_LOWER"; then
     echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
 else
     echo "Error: Failed to attach managed identity - verification failed"
@@ -329,10 +343,9 @@ fi
 
 **Usage:**
 
-```bash
-# Save the script
-curl -o attach-managed-identity.sh https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.sh
+Copy the preceding script to a file named `attach-managed-identity.sh`, then run:
 
+```bash
 # Make executable
 chmod +x attach-managed-identity.sh
 
@@ -356,7 +369,10 @@ chmod +x attach-managed-identity.sh
 
 param(
     [Parameter(Mandatory=$true)]
-    [string]$SubscriptionId,
+    [string]$AdmeSubscriptionId,
+    
+    [Parameter(Mandatory=$false)]
+    [string]$MiSubscriptionId,
     
     [Parameter(Mandatory=$true)]
     [string]$AdmeInstanceName,
@@ -365,13 +381,18 @@ param(
     [string]$ManagedIdentityName
 )
 
+# Default MI subscription to ADME subscription if not specified
+if ([string]::IsNullOrEmpty($MiSubscriptionId)) {
+    $MiSubscriptionId = $AdmeSubscriptionId
+}
+
 Write-Host "Attaching managed identity to Azure Data Manager for Energy instance..." -ForegroundColor Cyan
 
-# Set subscription
-az account set --subscription $SubscriptionId | Out-Null
+# Set subscription for ADME operations
+az account set --subscription $AdmeSubscriptionId | Out-Null
 
 # Get Azure Data Manager for Energy instance resource group
-$resourceGroup = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --subscription $SubscriptionId --query "[?name=='$AdmeInstanceName'].resourceGroup" -o tsv
+$resourceGroup = az resource list --resource-type "Microsoft.OpenEnergyPlatform/energyServices" --subscription $AdmeSubscriptionId --query "[?name=='$AdmeInstanceName'].resourceGroup" -o tsv
 
 if (-not $resourceGroup) {
     Write-Host "Error: Azure Data Manager for Energy instance '$AdmeInstanceName' not found" -ForegroundColor Red
@@ -379,16 +400,16 @@ if (-not $resourceGroup) {
 }
 
 # Get full instance details with API version
-$adme = az resource show --ids "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName" --api-version 2025-09-22-preview | ConvertFrom-Json
+$adme = az resource show --ids "/subscriptions/$AdmeSubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName" --api-version 2025-09-22-preview | ConvertFrom-Json
 
 $location = $adme.location
 $authAppId = $adme.properties.authAppId
 $dataPartitionName = $adme.properties.dataPartitionNames[0].name
 
-# Get managed identity (search in same resource group as Azure Data Manager for Energy)
-$mi = az identity list --resource-group $resourceGroup --subscription $SubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
+# Get managed identity (search in MI subscription)
+$mi = az identity list --subscription $MiSubscriptionId --query "[?name=='$ManagedIdentityName']" | ConvertFrom-Json
 if (-not $mi) {
-    Write-Host "Error: Managed identity '$ManagedIdentityName' not found in resource group '$resourceGroup'" -ForegroundColor Red
+    Write-Host "Error: Managed identity '$ManagedIdentityName' not found in subscription '$MiSubscriptionId'" -ForegroundColor Red
     exit 1
 }
 
@@ -420,24 +441,50 @@ $body = @{
 
 # Get ARM token and update Azure Data Manager for Energy instance
 $token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
-$uri = "https://management.azure.com/subscriptions/$SubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName`?api-version=2025-09-22-preview"
+$uri = "https://management.azure.com/subscriptions/$AdmeSubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName`?api-version=2025-09-22-preview"
 
-Invoke-RestMethod -Uri $uri -Method Put -Headers @{
-    "Authorization" = "Bearer $token"
-    "Content-Type" = "application/json"
-} -Body $body
-
-Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
+try {
+    $response = Invoke-RestMethod -Uri $uri -Method Put -Headers @{
+        "Authorization" = "Bearer $token"
+        "Content-Type" = "application/json"
+    } -Body $body -ErrorAction Stop
+    
+    # Verify the managed identity was attached
+    $updatedAdme = az resource show --ids "/subscriptions/$AdmeSubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName" --api-version 2025-09-22-preview | ConvertFrom-Json
+    $attachedIds = $updatedAdme.identity.userAssignedIdentities.PSObject.Properties.Name
+    
+    # Case-insensitive comparison
+    $found = $false
+    foreach ($id in $attachedIds) {
+        if ($id -eq $miResourceId -or $id.ToLower() -eq $miResourceId.ToLower()) {
+            $found = $true
+            break
+        }
+    }
+    
+    if ($found) {
+        Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
+    } else {
+        Write-Host "Error: Failed to attach managed identity - verification failed" -ForegroundColor Red
+        exit 1
+    }
+} catch {
+    Write-Host "Error: Failed to update Azure Data Manager for Energy instance" -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Yellow
+    exit 1
+}
 ```
 
 **Usage:**
 
-```powershell
-# Download script
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/azure-docs/main/articles/energy-data-services/scripts/attach-managed-identity.ps1" -OutFile "attach-managed-identity.ps1"
+Copy the preceding script to a file named `attach-managed-identity.ps1`, then run:
 
-# Run with your values
-.\attach-managed-identity.ps1 -SubscriptionId "your-subscription-id" -AdmeInstanceName "your-instance-name" -ManagedIdentityName "your-identity-name"
+```powershell
+# Same subscription for both resources
+.\attach-managed-identity.ps1 -AdmeSubscriptionId "your-subscription-id" -AdmeInstanceName "your-instance-name" -ManagedIdentityName "your-identity-name"
+
+# Different subscriptions (cross-subscription scenario)
+.\attach-managed-identity.ps1 -AdmeSubscriptionId "adme-subscription-id" -MiSubscriptionId "mi-subscription-id" -AdmeInstanceName "your-instance-name" -ManagedIdentityName "your-identity-name"
 ```
 
 ---
