@@ -79,12 +79,12 @@ The following table summarizes feature availability on the Flash Optimized tier 
 | Connection audit logs (event-based) | ✅ | ✅ |
 | RedisJSON | ✅ | ✅ |
 | RediSearch / vector search | ❌ | ✅ |
-| RedisBloom | ✅ | ✅ |
-| RedisTimeSeries | ✅ | ✅ |
+| RedisBloom | ❌ | ✅ |
+| RedisTimeSeries | ❌ | ✅ |
 | Import/Export | ✅ | ✅ |
 
 > [!IMPORTANT]
-> Active geo-replication, non-clustered mode, and RediSearch/vector search are not supported on the Flash Optimized tier due to performance considerations inherent to Flash storage. These features are not planned for Flash.
+> Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported on the Flash Optimized tier due to performance considerations inherent to Flash storage. These features are not planned for Flash.
 
 For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
 
