@@ -1,9 +1,9 @@
 ---
 title: Azure SRE Agent MCP Server Overview
-description: Learn how to use Azure SRE Agent MCP Server to discover resources, start investigation threads, and manage agents from MCP clients like GitHub Copilot CLI and Claude Code.
+description: Learn how to use Azure SRE Agent MCP Server to discover resources, start investigation threads, and manage agents from MCP clients.
 ms.topic: overview
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 05/26/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -13,9 +13,7 @@ ms.custom: mcp, model context protocol, azure mcp server, copilot, claude code, 
 
 # SRE Agent Model Context Protocol (MCP) server overview
 
-The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you work with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client instead of switching to the Azure portal for every action.
-
-Azure MCP Server doesn't replace SRE Agent. It provides an MCP interface to SRE Agent resources that already exist in Azure.
+The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you're working with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client.
 
 ## What is the SRE Agent MCP server experience?
 
@@ -73,46 +71,26 @@ Use this high-level workflow to connect an MCP client to SRE Agent:
 
 1. **Provision SRE Agent.** Create the SRE Agent resource by using the Azure portal, ARM, or Bicep. This step creates the `Microsoft.App/agents` resource and its agent endpoint.
 
-1. **Install Azure MCP Server.** Use a supported method such as the VS Code extension, `npx`, `dnx`, `uvx`, Docker, MCPB, or a client-specific installer.
+1. **Install Azure MCP Server:** Use a supported method such as the VS Code extension, `npx`, `dnx`, `uvx`, Docker, MCPB, or a client-specific installer.
 
-1. **Register Azure MCP Server with your MCP client.** Choose a tool exposure mode. The default mode groups tools by namespace.
+1. **Register Azure MCP Server with your MCP client:** Choose a tool exposure mode. The default mode groups tools by namespace.
 
-1. **Authenticate to Azure.** Sign in on the host or provide a managed identity or environment credential.
+1. **Authenticate to Azure:** Sign in on the host or provide a managed identity or environment credential.
 
-1. **Discover agents.** Ask the MCP client to list SRE Agent resources in a subscription.
+1. **Discover agents:** Ask the MCP client to list SRE Agent resources in a subscription.
 
-1. **Start an investigation.** Ask the client to create a thread or run an investigation against a selected agent.
+1. **Start an investigation:** Ask the client to create a thread or run an investigation against a selected agent.
 
-1. **Manage the agent.** Use the management tools to configure skills, connectors, hooks, subagents, scheduled tasks, prompts, and incident-response integrations.
-
-### Example MCP client configuration
-
-The following example shows a generic local MCP configuration that starts Azure MCP Server by using `npx`:
-
-```json
-{
-  "mcpServers": {
-    "Azure MCP Server": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@azure/mcp@latest",
-        "server",
-        "start"
-      ]
-    }
-  }
-}
-```
-
-Some clients use `servers` instead of `mcpServers` as the root object. Check your client's MCP configuration format before you copy the snippet.
+1. **Manage the agent:** Use the management tools to configure skills, connectors, hooks, subagents, scheduled tasks, prompts, and incident-response integrations.
 
 ## Example prompts
 
 After the client connects and authenticates, ask SRE Agent questions in natural language. The client chooses the relevant Azure MCP Server tools.
 
+To help select the agent you want to work with, you can begin with a prompt to list available agents in your subscription.
+
 ```text
-List my SRE Agent resources in subscription <subscription-id>.
+List my SRE Agent resources in subscription <SUBSCRIPTION_ID>.
 ```
 
 ```text
@@ -150,15 +128,15 @@ Use the SRE Agent MCP server experience for the following scenarios:
 
 ## Limitations
 
-Consider the following limitations as you use the MCP server:
+Keep these limitations in mind when using the MCP server:
 
 - You must create the SRE Agent resource before Azure MCP Server can discover or operate on it.
 
-- Azure MCP Server doesn't elevate permissions. The caller must already have the permissions required for the requested operation.
+- Azure MCP Server doesn't elevate permissions. You need to already have the permissions required for the requested operation.
 
 - Client setup differs across MCP hosts. Validate the configuration format for your client before publishing a team-wide setup guide.
 
-## SRE Agent MCP server versus MCP connectors
+## SRE Agent MCP server compared to MCP connectors
 
 SRE Agent uses MCP in two different directions:
 
