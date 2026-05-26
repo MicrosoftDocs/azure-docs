@@ -69,7 +69,7 @@ Certain resource types are excluded from resiliency service's discovery. When re
 - **Automation and management** - such as:
 
   - Automation accounts (microsoft.automation/automationaccounts)
-  - Naintenance configurations (microsoft.maintenance/maintenanceconfigurations)
+  - Maintenance configurations (microsoft.maintenance/maintenanceconfigurations)
   - Solutions (microsoft.operationsmanagement/solutions)
 
 - **Security** - such as:
