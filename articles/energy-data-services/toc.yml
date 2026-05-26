@@ -42,7 +42,7 @@ items:
       href: tutorial-reservoir-ddms-websocket.md
     - name: Use Rock and Fluid Samples DDMS APIs
       href: tutorial-rock-and-fluid-samples-ddms.md
-    - name: Use analytics consumption zone APIs
+    - name: Use Analytics Consumption Zone (ACZ) APIs
       href: tutorial-analytics-consumption-zone-apis.md
 - name: Concepts
   items:
