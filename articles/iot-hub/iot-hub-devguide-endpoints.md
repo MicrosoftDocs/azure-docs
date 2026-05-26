@@ -22,6 +22,28 @@ You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's *
 
 `{your iot hub name}.azure-devices.net`
 
+## TLS 1.3-enabled endpoints (preview)
+
+Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
+
+It is important to note that there is **no change planned to the existing IoT Hub endpoint (`<hub>.azure-devices.net`)**, commonly referred to as the *classic endpoint*. This endpoint remains fully supported, including for Private Link scenarios, and continues to be the default for existing workloads.
+
+The new endpoints are **additive**, not a replacement, and enable customers to adopt stronger security configurations at their own pace.
+
+### Endpoint types
+
+| Endpoint type     | Hostname                              | Protocol support                |
+|------------------|----------------------------------------|--------------------------------|
+| Classic          | `<hub>.azure-devices.net`              | TLS 1.2 (existing behavior)    |
+| Device endpoint (preview)  | `<hub>.device.azure-devices.net`       | TLS 1.2 (restricted) + TLS 1.3 |
+| Service endpoint (preview) | `<hub>.service.azure-devices.net`      | TLS 1.2 (restricted) + TLS 1.3 |
+
+### Key considerations
+
+- Existing applications and devices using the classic endpoint continue to work without changes.
+- New endpoints are designed to support TLS 1.3 and enhanced security requirements.
+- Both endpoint models coexist to support gradual migrations with no service disruption.
+
 ## IoT Hub endpoints for development and management
 
 Azure IoT Hub is a multitenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
