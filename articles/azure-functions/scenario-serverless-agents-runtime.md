@@ -84,9 +84,31 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
 After the command completes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 
-## Use the chat agent
+## Use the debug chat agent
 
-The sample includes a chat agent that can use Python code execution through the Azure Container Apps dynamic session pool. After `azd up` completes, open the function app endpoint shown in the deployment output. The default chat UI is served from the app root.
+The sample includes a chat agent that can use Python code execution through the Azure Container Apps dynamic session pool. The chat UI and chat APIs are debug surfaces for testing the deployed agent app.
+
+After `azd up` completes, open the function app endpoint shown in the deployment output. The default chat UI is served from the app root and doesn't require a function key.
+
+To call the debug HTTP chat APIs directly in Azure, get a function key:
+
+```console
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "functionKeys.default" \
+  --output tsv
+```
+
+Pass the key in the `x-functions-key` header when you call `POST /agent/chat` or `POST /agent/chatstream`. To connect an MCP client to `/runtime/webhooks/mcp`, use the `mcp_extension` system key instead:
+
+```console
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "systemKeys.mcp_extension" \
+  --output tsv
+```
 
 The chat agent doesn't use the Office 365 Outlook MCP server. Email delivery is only used by the timer-triggered blog summary agent.
 

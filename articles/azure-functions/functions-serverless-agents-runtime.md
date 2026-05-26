@@ -346,7 +346,7 @@ Use these sandbox requirements:
 + The `session_pool_management_endpoint` value is the pool management endpoint.
 + In Azure, the managed identity used by the function app must have the role assignments required to execute code in the session pool. Azure Container Apps code interpreter sessions require the `Azure ContainerApps Session Executor` and `Contributor` roles on the session pool.
 + When running locally, your developer identity must have the same required access to the session pool.
-+ In apps with multiple managed identities, set `AZURE_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses the default credential chain.
++ To use a user-assigned managed identity for sandboxed execution, set `AZURE_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses the default credential chain.
 
 The sandbox tool runs Python in an isolated session. Variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session so unrelated executions don't share state.
 
@@ -433,18 +433,13 @@ Model selection uses this general precedence:
 1. `MAF_MODEL`.
 1. The provider default.
 
-For production apps, prefer managed identity where supported. If an app uses more than one managed identity, set `AZURE_CLIENT_ID` so model providers and sandboxed execution use the intended identity.
+For production apps, prefer managed identity where supported. When an app should use a user-assigned managed identity, set `AZURE_CLIENT_ID` so model providers and sandboxed execution use that identity.
 
 ## Configure managed identities
 
 The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Connection MCP endpoints and blob-backed session history can use more specific identity settings.
 
-For model providers and sandboxed execution, the runtime uses this precedence pattern for Azure SDK credentials:
-
-```text
-AZURE_CLIENT_ID
-> system-assigned managed identity or default credential chain
-```
+For model providers and sandboxed execution, set `AZURE_CLIENT_ID` when you want the runtime to use a user-assigned managed identity. If `AZURE_CLIENT_ID` isn't set, the runtime uses the standard Azure SDK credential behavior, which can include the system-assigned managed identity when one is available.
 
 Use these settings to select managed identities:
 
@@ -468,18 +463,40 @@ For local development without Azure storage configuration, the runtime can fall 
 
 Sandboxed execution is also session-aware. When the runtime creates sandbox tools without an explicit session ID, it uses an isolated session for the invocation instead of sharing state across unrelated agent runs.
 
-## Built-in endpoints
+## Built-in debug endpoints
 
-The runtime can expose debug and composition endpoints without additional application code.
+The runtime can expose debug and composition endpoints without additional application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
 
-| Surface | Use |
-| --- | --- |
-| Chat UI | Interact with an agent in a browser during development or testing. |
-| HTTP chat API | Call an agent programmatically with a JSON request. |
-| Streaming chat API | Stream model and tool output to a client. |
-| MCP endpoint | Expose an agent as an MCP tool for other agents or MCP clients. |
+| Surface | Route | Azure key |
+| --- | --- | --- |
+| Chat UI | `/` for `main.agent.md`; `/agents/<AGENT_NAME>/` for other agents with `debug.chat: true` | No key required by the runtime. |
+| HTTP chat API | `POST /agent/chat` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chat` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
+| Streaming chat API | `POST /agent/chatstream` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chatstream` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
+| MCP endpoint | `/runtime/webhooks/mcp` | `mcp_extension` system key. |
 
-The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter.
+The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter. For non-main agents, `<AGENT_NAME>` is derived from the `.agent.md` file name, not the display `name` field.
+
+When hosted in Azure, get a function key for the HTTP chat APIs:
+
+```azurecli
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "functionKeys.default" \
+  --output tsv
+```
+
+Pass the key in the `x-functions-key` header or the `code` query string parameter. To connect an MCP client, get the MCP extension system key instead:
+
+```azurecli
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "systemKeys.mcp_extension" \
+  --output tsv
+```
+
+The MCP endpoint requires this system key unless the app configures anonymous access.
 
 ## When to use the serverless agents runtime
 
