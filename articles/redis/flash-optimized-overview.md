@@ -62,26 +62,26 @@ For connection limits per SKU, see [Maximum number of client connections](overvi
 
 ## Feature support
 
-The following table summarizes feature availability on the Flash Optimized tier compared to in-memory tiers:
+The following table summarizes feature availability on the Flash Optimized tier:
 
-| Feature | Flash Optimized | In-memory tiers |
-|---------|:---------------:|:---------------:|
-| SLA | ✅ | ✅ |
-| Data encryption in transit (Private endpoint) | ✅ | ✅ |
-| Replication and failover | ✅ | ✅ |
-| Network isolation (Private Link) | ✅ | ✅ |
-| Microsoft Entra ID authentication | ✅ | ✅ |
-| Scaling | ✅ | ✅ |
-| High availability (zone redundant) | ✅ | ✅ |
-| Data persistence (RDB/AOF) | ✅ | ✅ |
-| Active geo-replication | ❌ | ✅ |
-| Non-clustered instances | ❌ | ✅ |
-| Connection audit logs (event-based) | ✅ | ✅ |
-| RedisJSON | ✅ | ✅ |
-| RediSearch / vector search | ❌ | ✅ |
-| RedisBloom | ❌ | ✅ |
-| RedisTimeSeries | ❌ | ✅ |
-| Import/Export | ✅ | ✅ |
+| Feature | Supported |
+|---------|:---------:|
+| SLA | ✅ |
+| Data encryption in transit (Private endpoint) | ✅ |
+| Replication and failover | ✅ |
+| Network isolation (Private Link) | ✅ |
+| Microsoft Entra ID authentication | ✅ |
+| Scaling | ✅ |
+| High availability (zone redundant) | ✅ |
+| Data persistence (RDB/AOF) | ✅ |
+| Connection audit logs (event-based) | ✅ |
+| RedisJSON | ✅ |
+| Import/Export | ✅ |
+| Active geo-replication | ❌ |
+| Non-clustered instances | ❌ |
+| RediSearch / vector search | ❌ |
+| RedisBloom | ❌ |
+| RedisTimeSeries | ❌ |
 
 > [!IMPORTANT]
 > RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage. These features are not planned for Flash.
