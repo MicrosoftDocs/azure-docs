@@ -72,7 +72,7 @@ If a run's duration exceeds the current run history retention limit, the run is 
 
 For Consumption logic app workflows, the same setting controls the maximum number of days that a workflow can run and for keeping run history in storage.
 
-* In multitenant Azure Logic Apps, the default limit is 90 days. The minimum is 7 days and the maximum is 365 days.
+* In multitenant Azure Logic Apps, the default limit is 90 days. The minimum is 7 days. The maximum is 365 days.
 
 * Run history retention is always calculated by using the run's start time and the retention limit at the time when the run started, not the current retention limit. 
 
