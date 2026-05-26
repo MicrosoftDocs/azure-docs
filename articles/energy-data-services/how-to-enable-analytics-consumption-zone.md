@@ -299,7 +299,7 @@ fi
 TOKEN=$(az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv | tr -d '\r')
 
 # Update Azure Data Manager for Energy instance
-curl --http1.1 --silent --request PUT \
+RESPONSE=$(curl --http1.1 --silent --show-error --request PUT \
   --url "https://management.azure.com/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME?api-version=2025-09-22-preview" \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/json" \
@@ -319,12 +319,22 @@ curl --http1.1 --silent --request PUT \
         $USER_ASSIGNED_IDENTITIES
       }
     }
-  }" > /dev/null
+  }")
+
+if [ $? -ne 0 ]; then
+    echo "Error: Failed to update Azure Data Manager for Energy instance"
+    echo "$RESPONSE"
+    exit 1
+fi
 
 # Verify the managed identity was attached
 ATTACHED_IDS=$(az resource show --ids "/subscriptions/$ADME_SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.OpenEnergyPlatform/energyServices/$ADME_INSTANCE_NAME" --api-version 2025-09-22-preview --query 'identity.userAssignedIdentities | keys(@)' -o tsv 2>/dev/null | tr -d '\r')
 
-if echo "$ATTACHED_IDS" | grep -q "$MI_ID"; then
+# Use case-insensitive comparison by converting both to lowercase
+MI_ID_LOWER=$(echo "$MI_ID" | tr '[:upper:]' '[:lower:]')
+ATTACHED_IDS_LOWER=$(echo "$ATTACHED_IDS" | tr '[:upper:]' '[:lower:]')
+
+if echo "$ATTACHED_IDS_LOWER" | grep -q "$MI_ID_LOWER"; then
     echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
 else
     echo "Error: Failed to attach managed identity - verification failed"
@@ -434,12 +444,36 @@ $body = @{
 $token = az account get-access-token --resource "https://management.azure.com/" --query accessToken -o tsv
 $uri = "https://management.azure.com/subscriptions/$AdmeSubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName`?api-version=2025-09-22-preview"
 
-Invoke-RestMethod -Uri $uri -Method Put -Headers @{
-    "Authorization" = "Bearer $token"
-    "Content-Type" = "application/json"
-} -Body $body
-
-Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
+try {
+    $response = Invoke-RestMethod -Uri $uri -Method Put -Headers @{
+        "Authorization" = "Bearer $token"
+        "Content-Type" = "application/json"
+    } -Body $body -ErrorAction Stop
+    
+    # Verify the managed identity was attached
+    $updatedAdme = az resource show --ids "/subscriptions/$AdmeSubscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OpenEnergyPlatform/energyServices/$AdmeInstanceName" --api-version 2025-09-22-preview | ConvertFrom-Json
+    $attachedIds = $updatedAdme.identity.userAssignedIdentities.PSObject.Properties.Name
+    
+    # Case-insensitive comparison
+    $found = $false
+    foreach ($id in $attachedIds) {
+        if ($id -eq $miResourceId -or $id.ToLower() -eq $miResourceId.ToLower()) {
+            $found = $true
+            break
+        }
+    }
+    
+    if ($found) {
+        Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
+    } else {
+        Write-Host "Error: Failed to attach managed identity - verification failed" -ForegroundColor Red
+        exit 1
+    }
+} catch {
+    Write-Host "Error: Failed to update Azure Data Manager for Energy instance" -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Yellow
+    exit 1
+}
 ```
 
 **Usage:**
