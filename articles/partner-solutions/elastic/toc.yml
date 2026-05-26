@@ -18,11 +18,11 @@ items:
   - name: Manage your Elastic resource
     href: manage.md
   - name: Troubleshoot
-    href: troubleshoot.md
-- name: Support
-  items:
-  - name: Get support
-    href: https://cloud.elastic.co/help
+    items:
+    - name: Get support
+      href: https://support.elastic.co/
+    - name: Fix common errors
+      href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI
