@@ -4,7 +4,7 @@ description: Learn how to assess and upgrade your Azure Synapse Analytics pipeli
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 03/15/2026
+ms.date: 05/26/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
@@ -122,5 +122,6 @@ Use these resources to round out your end-to-end Synapse-to-Fabric migration pla
 
 - [Assess your Azure Data Factory and Synapse pipelines for migration to Fabric](/azure/data-factory/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration)
 - [Upgrade your Azure Data Factory pipelines to Fabric](/azure/data-factory/how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory)
+- [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](https://aka.ms/datafactoryoverview)
 - [Migration Assistant for Fabric Data Warehouse - Microsoft Fabric | Microsoft Learn](/fabric/data-warehouse/migration-assistant)
 - [Synapse-to-Fabric Spark Migration Assistant](/fabric/data-engineering/synapse-to-fabric-spark-migration-assistant)
