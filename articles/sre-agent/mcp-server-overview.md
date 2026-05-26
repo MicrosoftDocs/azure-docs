@@ -13,7 +13,7 @@ ms.custom: mcp, model context protocol, azure mcp server, copilot, claude code, 
 
 # SRE Agent Model Context Protocol (MCP) server overview
 
-The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you're working with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client.
+The SRE Agent tools in Azure MCP Server lets MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you're working with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client.
 
 For more information on how to work with the Azure MCP server, see [Get started with the Azure MCP Server](/azure/developer/azure-mcp-server/get-started).
 
@@ -71,7 +71,7 @@ Set `AZURE_TOKEN_CREDENTIALS` to pin the credential type when multiple credentia
 
 Use this high-level workflow to connect an MCP client to SRE Agent:
 
-1. **Provision SRE Agent.** Create the SRE Agent resource by using the Azure portal, ARM, or Bicep. This step creates the `Microsoft.App/agents` resource and its agent endpoint.
+1. **Provision SRE Agent:** Create the SRE Agent resource by using the Azure portal, ARM, or Bicep. This step creates the `Microsoft.App/agents` resource and its agent endpoint.
 
 1. **Install Azure MCP Server:** Use a supported method such as the VS Code extension, `npx`, `dnx`, `uvx`, Docker, MCPB, or a client-specific installer.
 
@@ -130,11 +130,11 @@ Use the SRE Agent MCP server experience for the following scenarios:
 
 ## Limitations
 
-Keep these limitations in mind when using the MCP server:
+The MCP server has these limitations:
 
-- You must create the SRE Agent resource before Azure MCP Server can discover or operate on it.
+- Create the SRE Agent resource before Azure MCP Server can discover or operate on it.
 
-- Azure MCP Server doesn't elevate permissions. You need to already have the permissions required for the requested operation.
+- Azure MCP Server doesn't elevate permissions. Make sure you have the permissions required for the requested operation.
 
 - Client setup differs across MCP hosts. Validate the configuration format for your client before publishing a team-wide setup guide.
 
