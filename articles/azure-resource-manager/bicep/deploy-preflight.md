@@ -2,7 +2,7 @@
 title: 'Preflight: Server-side validation before deployment'
 description: Server‑side validation phase that runs after the template is submitted but before any resources are created or modified.
 ms.topic: article
-ms.date: 04/09/2026
+ms.date: 05/14/2026
 ---
 
 # Preflight: Server validation before deployment
@@ -51,6 +51,14 @@ If any of these checks fail, the deployment never starts.
 ## Limitations
 
 Preflight validation is a best-effort process and does not catch all deployment-time errors. It cannot detect runtime failures (for example, errors within a custom script extension during execution), and its validation may be incomplete when resources depend on values that are not yet available, such as dynamically generated properties from other resources.
+
+### RBAC permissions inherited through management groups
+
+When preflight validation runs for resources at tenant or management group scope, Azure Resource Manager evaluates permissions at the scope of the validation request. In some cases, ARM doesn't resolve the full management group ancestor chain during this evaluation. As a result, RBAC role assignments that are inherited through management group hierarchy might not be recognized during preflight, even though those same permissions are honored during the actual deployment.
+
+This behavior can cause preflight to fail with an authorization error (HTTP 401 or 403) for identities that have sufficient permissions through management group inheritance. The actual deployment of the same template would succeed because the standard resource creation pipeline fully evaluates inherited permissions.
+
+**Workaround**: Assign the required role (for example, Contributor or Owner) directly at the subscription or resource group scope rather than relying solely on management group–inherited permissions. Alternatively, use the `--validation-level Template` switch (Azure CLI 2.76.0+) or `-ValidationLevel Template` (Azure PowerShell 13.4.0+) with what-if and validate commands to skip preflight permission checks.
 
 ## Run preflight
 

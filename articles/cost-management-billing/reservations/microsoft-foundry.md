@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/07/2026
 ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Foundry Provisioned Throughput Reservations and buy one.
 service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
@@ -14,14 +14,16 @@ service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52
 
 # Save costs with Microsoft Foundry Provisioned Throughput Reservations
 
-You can save money on Microsoft Foundry Provisioned Throughput by committing to a reservation for your provisioned throughput units (PTUs) usage for models available in Microsoft Foundry Models for a duration of one month or one year. This article explains how you can save money with Microsoft Foundry Provisioned Throughput Reservations.
+You can save money on Microsoft Foundry Provisioned Throughput by committing to a one month or a one year reservation for your provisioned throughput units (PTUs) usage for models available in Microsoft Foundry Models. This article explains how you can save money with Microsoft Foundry Provisioned Throughput Reservations.
 
 To purchase a Microsoft Foundry Provisioned Throughput Reservation, you choose an Azure region, quantity, and the deployment type that you want covered. Then add the Microsoft Foundry Provisioned Throughput SKU (Global, Data Zone, or Regional) to your cart. Then verify the quantity of Microsoft Foundry Provisioned Throughput units that you want to purchase and complete your order.
 
-When you purchase a reservation, the Microsoft Foundry Provisioned Throughput usage that matches the reservation attributes is no longer charged at the hourly rates.
+When you purchase a reservation, the Microsoft Foundry Provisioned Throughput usage that matches the reservation attributes is no longer charged at the hourly rates, but at the discounted reservation price.
 
 >[!NOTE]
 >Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You need to purchase a separate reservation for each deployment type. As an example, if you purchase a reservation for Global the benefit will only apply to Global deployments and not to Data Zone or Regional.
+>
+>Global reservations are not region-specific. A single Global reservation can apply to Global PTU deployments in multiple regions, as long as you have reserved enough units to cover the total. You can still choose to purchase a separate Global reservation for each region's deployments to maintain a 1-to-1 mapping.
 >
 >If you delete a deployment, the associated PTU reservation is not canceled or changed automatically. You must use Azure Reservations in the portal to cancel or exchange it manually. Azure Reservations cannot be deleted—only canceled or exchanged. You can exchange or cancel reservations for Global, Data Zone, and Regional deployment with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
@@ -33,7 +35,28 @@ When the reservation expires, Microsoft Foundry Provisioned Throughput deploymen
 
 ## Renewal options
 
-You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Microsoft Foundry Provisioned Throughput Reservation, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings, and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation but will be set to auto-renew off by default. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal. When the reservation is set to auto-renew on same reservation order ID, the auto-renew of this reservation is set to auto-renew on until you choose to set it off. At time of purchase, if you have chosen to set auto-renewal on, for 1-month term the reservation automatically renews on same reservation order ID, while 1-year term will result in purchasing a replacement reservation.
+Enable automatic renewal in Renewal settings or at purchase. Microsoft Foundry Provisioned Throughput Reservation supports two renewal behaviors:
+
+### Renew on the same reservation order ID
+
+Renews the reservation using the same reservation order ID. No new reservation is created.
+
+### Replace with a new reservation
+
+Creates a new reservation when the current reservation expires. By default, the new reservation uses the same attributes, and it does not automatically renew (it has auto-renew turned off). You can change the name, billing frequency, term, or quantity in Renewal settings.
+
+Users with Owner access to both the reservation and the billing subscription can configure renewal.
+
+### Renewal behavior by term (auto-renew enabled at purchase)
+
+- **1-month term:** Renews on the same reservation order ID.
+- **1-year term:** Creates a replacement reservation.
+
+> [!NOTE]
+> When a reservation is set to renew on the same reservation order ID, auto-renew remains enabled for all subsequent renewals until you explicitly turn it off.
+
+>[!NOTE]
+>When you exchange a reservation, it will be set to purchase a replacement reservation at expiration instead of automatically renewing. Please review your renewal settings after completing an exchange to make sure they match your preference.
 
 ## Prerequisites
 
@@ -51,6 +74,8 @@ For more information about how enterprise customers and pay-as-you-go customers 
 The Microsoft Foundry Provisioned Throughput reservation size should be based on the total provisioned throughput units that you consume via deployments by models available in Microsoft Foundry Models. Reservation purchases are made in one provisioned throughput unit increments.
 
 For example, assume you deployed 100 units of the Provisioned Regional deployment type and 50 units of Provisioned Global deployment type. In this example, you should purchase a Provisioned Managed Regional reservation for a quantity of 100 units and a Provisioned Managed Global reservation for a quantity of 50 units to cover all your deployed PTUs.
+
+For Global deployments specifically, since the reservation can benefit deployments across multiple regions, you have the option to consolidate into a single Global reservation. For example, if you have 50 Global deployments in US East, 100 in EU West, and 200 in AU East, you could purchase a single Global reservation in US East for 350 units that would benefit all the deployments across three regions. You can still choose to purchase a separate Global reservation for each region's deployments to maintain a 1-to-1 mapping.
 
 > [!CAUTION]
 > Capacity availability for model deployments is dynamic and changes frequently across regions and models. To prevent buying a reservation for more PTUs than you can use, create deployments first. Then buy the reservation to cover the PTUs you deployed. This best practice ensures that you maximize the reservation discount and helps to prevent you from purchasing a term commitment that you can’t fully use.
@@ -75,7 +100,7 @@ To buy a Microsoft Foundry Provisioned Throughput reservation, follow these step
         - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
         - For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
-5. Select a region to choose an Azure region that gets covered by the reservation.
+5. Select a region to choose an Azure region that gets covered by the reservation. For Global deployments, if you choose to have a single reservation to cover all deployments, you can select any region from the public commercial cloud regions but ensure that the quantity on the reservation can cover the Global deployments across all your regions. You can still choose to purchase a Global reservation for each region's deployments to maintain a 1-to-1 mapping.
 6. Select the products to cover your deployment type (Global, Data Zone, or Regional) and select **Add to cart**.  
     :::image type="content" source="./media/azure-openai/select-provisioned-throughput.jpeg" border="true" alt-text="Screenshot showing the Select product to purchase page." lightbox="./media/azure-openai/select-provisioned-throughput.jpeg" :::
 7. In the cart, choose the quantity of provisioned throughput units that you want to purchase. For example, a quantity of 64 would cover up to 64 deployed provisioned throughput units every hour.
@@ -119,7 +144,7 @@ The sum total of all canceled reservation commitment in your billing scope (such
 
 ## How reservation discounts apply to models available in Microsoft Foundry Models
 
-After you buy a reservation for Microsoft Foundry Provisioned Throughput, the discount associated with the reservation automatically gets applied to any units that are deployed in the specified region of the models available in Microsoft Foundry Models, as long as they fall within the scope of the reservation. The reservation discount applies to the usage emitted by the provisioned throughput pay-as-you-go meters.
+After you buy a reservation for Microsoft Foundry Provisioned Throughput, the discount associated with the reservation automatically gets applied to any units that are deployed in the specified region of the models available in Microsoft Foundry Models, as long as they fall within the scope of the reservation. Global reservations are not region-specific. A single Global reservation can apply to Global PTU deployments in multiple regions, as long as you have reserved enough units to cover the total. The reservation discount applies to the usage emitted by the provisioned throughput pay-as-you-go meters.
 
 >[!NOTE]
 >Reservations for Global, Data Zone, and Regional deployments aren't interchangeable. You must purchase a separate reservation for each deployment type.
@@ -144,9 +169,11 @@ The following examples show how the Microsoft Foundry Provisioned Throughput res
 
 **Example 2** - A global reservation that's larger than your global deployed units. For example, you purchase 300 PTUs on a global reservation and you only deploy 100 global PTUs. In this example, the global reservation discount is applied to 100 global PTUs. The remaining 200 PTUs, in the global reservation will go unused, and won't carry forward to future billing periods.
 
-**Example 3** - A data zone reservation that's smaller than the data zone deployed units. For example, you purchase 200 PTUs on a data zone reservation and you deploy 600 data zone PTUs. In this example, the data zone reservation discount is applied to the 200 data zone PTUs that were used. The remaining 400 data zone  PTUs are charged at the pay-as-you-go rate.
+**Example 3** - A single global reservation covering global deployments across multiple regions. For example, you purchase 350 PTUs on a single global reservation in US East, and you have 50 global PTUs deployed in US East, 100 in EU West, and 200 in AU East (350 total). In this example, the single global reservation covers all 350 deployed global PTUs across all three regions, and you only pay the reservation price.
 
-**Example 4** - A regional reservation that's the same size as the total of two regional  deployments. For example, you purchase 200 regional PTUs on a reservation and you have two deployments of 100 regional PTUs each. In this example, the discount is applied to the sum of deployed units.
+**Example 4** - A data zone reservation that's smaller than the data zone deployed units. For example, you purchase 200 PTUs on a data zone reservation and you deploy 600 data zone PTUs. In this example, the data zone reservation discount is applied to the 200 data zone PTUs that were used. The remaining 400 data zone  PTUs are charged at the pay-as-you-go rate.
+
+**Example 5** - A regional reservation that's the same size as the total of two regional  deployments. For example, you purchase 200 regional PTUs on a reservation and you have two deployments of 100 regional PTUs each. In this example, the discount is applied to the sum of deployed units.
 
 ## Increase Microsoft Foundry Provisioned Throughput reservation
 

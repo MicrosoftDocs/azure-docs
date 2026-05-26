@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 03/27/2026
+ms.date: 04/28/2026
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -36,7 +36,6 @@ The following v2 tiers are generally available:
 * **More options for production workloads** - The v2 tiers all come with an SLA. 
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
-
 
 ## Features
 
@@ -73,7 +72,6 @@ The v2 tiers support most capabilities of the classic API Management tiers. Howe
 
 <sup>1</sup> Also available in the classic tiers.
 
-
 #### Currently unavailable features
 
 The following features are currently unavailable in the v2 tiers.
@@ -108,7 +106,6 @@ The following limits apply to the v2 tiers:
 * [Resource limits for classic and v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-classic-and-v2-tiers)
 * [Resource limits in developer portal in API Management v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---developer-portal-in-api-management-v2-tiers)
 
-
 ## Deployment
 
 Deploy a v2 tier instance by using the Azure portal or tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
@@ -132,6 +129,10 @@ The Premium tier and Premium v2 tier support full network isolation by deploymen
 ### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my virtual network? 
 
 A: No, such a deployment is only supported in the Premium and Premium v2 tiers. 
+
+### Q: Does a Premium v2 instance run on dedicated compute infrastructure?
+
+A: Yes, the gateway in a Premium v2 instance runs on a dedicated App Service Environment. 
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 

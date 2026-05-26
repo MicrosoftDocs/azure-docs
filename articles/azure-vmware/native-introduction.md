@@ -3,7 +3,7 @@ title: Introduction to Azure VMware Solution Generation 2 Private Clouds
 description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/22/2025
+ms.date: 4/24/2026
 ms.custom:
   - engagement-fy25
   - build-2025
@@ -35,7 +35,7 @@ With the Azure VMware Solution Gen 2 private clouds offering, you get the follow
 
 ### Seamless Azure integration 
 - Azure VMware Solution Gen 2 private clouds are now deployed inside an Azure Virtual Network by default, providing instant connectivity to other Azure services.
-- No extra networking setup needed and Azure Virtual Network peering works out of the box. 
+- No extra networking set up needed and Azure Virtual Network peering works out of the box. 
 
 ### Enhanced security and compliance 
 - Your Azure VMware Solution private cloud still runs on dedicated, isolated hardware, which means you get the continued benefits of a private cloud while staying within Azure. 
@@ -43,7 +43,7 @@ With the Azure VMware Solution Gen 2 private clouds offering, you get the follow
 
 ### Other features and capabilities unlocked 
 - Ability to select Private DNS resolution for your private cloud, enabling businesses to communicate across Azure and on-premises environments without being exposed to the internal.  
-- Ability to select which availability zone to deploy your private cloud in to minimize latency to on-premises environments. Availability zones are typically specified when a customer wants their private cloud to be geographically closest to their on-premises data center. If availability zone selection is not required, no zone should be specified.
+- Ability to select which availability zone to deploy your private cloud in to minimize latency to on-premises environments. Availability zones are typically specified when a customer wants their private cloud to be geographically closest to their on-premises data center. If availability zone selection isn't required, no zone should be specified.
 
 ## Supported SKU type
 
@@ -62,7 +62,7 @@ Gen 2 is available in the following Azure public regions.
 - Canada East
 - Central US
 - Malaysia West
-
+- France Central
 - North Europe
 - North Central US
 
@@ -75,7 +75,7 @@ Gen 2 is available in the following Azure public regions.
 - UK West
 - West US 2
 
-There may other regions that have Gen 2 available. Contact your Microsoft account team or Microsoft Support to confirm coverage in other regions.
+There could be other regions that have Gen 2 available. To confirm coverage in other regions, contact your Microsoft account team or Microsoft Support.
 
 ## Next steps
 

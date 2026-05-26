@@ -73,19 +73,19 @@ For catalogs that use a managed identity or Personal Access Token (PAT) for auth
 
 ## Configure a managed identity
 
-Before you can attach a catalog to a dev center or project, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
+Before you can attach a catalog to a dev center or project, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (managed identity). You can attach either a system-assigned managed identity (system-assigned managed identity) or a user-assigned managed identity (user-assigned managed identity). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
 
-If your dev center or project doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
+If your dev center or project doesn't have a managed identity attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
 
 To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 ## Add a catalog
 
-You can add a catalog from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to an MSI or by using a PAT, which you store in a key vault.
+You can add a catalog from an Azure Repos repository or a GitHub repository. You can choose to authenticate by using a managed identity or by using a PAT, which you store in a key vault.
 
 Select the tab for the type of repository and authentication you want to use.
 
-## [Azure Repos repo with MSI](#tab/DevOpsRepoMSI/)
+## [Azure Repos repo with managed identity](#tab/DevOpsRepoMSI/)
 
 To add a catalog, complete the following tasks:
 
@@ -117,7 +117,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
     |Name     |Value     |
     |---------|----------|
-    |**Users or Service Principals**|Enter the name of your dev center or project. <br> When you use a system-assigned MSI, specify the name of the dev center or project, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
+    |**Users or Service Principals**|Enter the name of your dev center or project. <br> When you use a system-assigned managed identity, specify the name of the dev center or project, not the object ID of the managed account. When you use a user-assigned managed identity, use the name of the managed account. |
     |**Access level**|Select **Basic**.|
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
@@ -148,7 +148,7 @@ The following steps let you attach an Azure Repos repository.
     | **Project**  | From the list of projects, select the project that stores the repo. |
     | **Repo**  | From the list of repos, select the repo you want to add. |
     | **Branch**  | Select the branch. |
-    | **Folder path**  | Dev Box retrieves a list of folders in your branch. Select the folder that stores your IaC templates. |
+    | **Folder path**  | Deployment Environments retrieves a list of folders in your branch. Select the folder that stores your IaC templates. |
 
     :::image type="content" source="media/how-to-configure-catalog/add-catalog-to-dev-center.png" alt-text="Screenshot showing the Add catalog pane with examples entries and Add highlighted." lightbox="media/how-to-configure-catalog/add-catalog-to-dev-center.png":::
 

@@ -1,8 +1,8 @@
 ---
 title: Use WASM transforms in data flow graphs
 description: Learn how to build and deploy custom WebAssembly transforms in data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -26,7 +26,7 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Configure a registry endpoint to access WASM modules and graph definitions. You have two options:
   - **Quick start with public registry**: Create a registry endpoint pointing to `ghcr.io/azure-samples/explore-iot-operations` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
   - **Private registry**: Set up your own container registry and push the sample modules by following guidance in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).

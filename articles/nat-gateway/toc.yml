@@ -5,15 +5,15 @@ items:
     items:
       - name: What is Azure NAT Gateway?
         href: nat-overview.md
-      - name: Create and validate a Standard Azure NAT Gateway
+      - name: Create and validate a Standard NAT gateway
         href: quickstart-create-nat-gateway.md
-      - name: Create and validate a Standard V2 Azure NAT Gateway
+      - name: Create and validate a Standard V2 NAT gateway
         href: quickstart-create-nat-gateway-v2.md
       - name: NAT gateway resource
         href: nat-gateway-resource.md
-      - name: NAT Gateway SKUs
+      - name: Azure NAT Gateway SKUs
         href: nat-sku.md
-      - name: Migrate NAT Gateway to Standard V2
+      - name: Migrate Azure NAT Gateway to Standard V2
         href: nat-gateway-v2-migrate.md
   - name: Reliability
     items:
@@ -23,19 +23,19 @@ items:
     items:
       - name: NAT gateway design guidance
         href: nat-gateway-design.md
-      - name: Use a NAT gateway with a hub and spoke network
+      - name: Use a NAT gateway with a hub-and-spoke network
         href: tutorial-hub-spoke-route-nat.md
       - name: Use a NAT gateway with Azure Firewall
         href: tutorial-hub-spoke-nat-firewall.md
-      - name: Integrate NAT gateway public load balancer
+      - name: Integrate a NAT gateway public load balancer
         href: tutorial-nat-gateway-load-balancer-public-portal.md
-      - name: Integrate NAT gateway internal load balancer
+      - name: Integrate a NAT gateway internal load balancer
         href: tutorial-nat-gateway-load-balancer-internal-portal.md
       - name: Migrate outbound access
         href: tutorial-migrate-outbound-nat.md
       - name: Migrate a virtual machine public IP address
         href: tutorial-migrate-ilip-nat.md
-      - name: Use deployment templates to create StandardV2 NAT Gateway
+      - name: Use deployment templates to create a StandardV2 NAT gateway
         href: quickstart-create-nat-gateway-v2-templates.md
   - name: Secure
     items:
@@ -53,7 +53,7 @@ items:
         href: manage-nat-gateway.md
       - name: Manage a Standard V2 NAT gateway
         href: manage-nat-gateway-v2.md
-      - name: Create and configure NAT gateway after region move
+      - name: Create and configure a NAT gateway after a region move
         href: region-move-nat-gateway.md
       - name: Metrics and alerts
         href: nat-metrics.md

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 03/09/2026
+ms.date: 05/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -24,12 +24,13 @@ The following table summarizes the features that the connector for MQTT supports
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
+| Southbound certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
 | OpenTelemetry integration | Yes | |
 | WASM data transformation | Yes | Optionally transform incoming data using WebAssembly modules |
 | Schema generation | Yes | Registers inferred schema with the schema registry |
+| Health status reports | Yes | Report health status of assets and endpoints in operations experience and Azure portal |
 
 The connector for MQTT:
 
@@ -61,7 +62,7 @@ You need credentials to access the MQTT source. If the MQTT source requires auth
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -82,11 +83,11 @@ To configure the connector for MQTT, first create a device that defines the conn
 
 To connect to an external MQTT broker:
 
-1. Add an endpoint name, server URL, and any authentication credentials on the **Basic** page:
-
-    :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png":::
+1. Add an endpoint name, server URL, and any authentication credentials on the **Basic** page.
 
 1. Optionally, configure the following settings for the external broker connection on the **Advanced** page:
+
+    :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png":::
 
     | Setting | Type | Default | Description |
     |---------|------|---------|-------------|
@@ -105,7 +106,6 @@ To connect to the built-in MQTT broker:
     > [!TIP]
     > The built-in MQTT broker configuration doesn't require authentication values and has a known URL. The values you enter are ignored.
 
-1. On the **Advanced** page, enable the **Use built-in MQTT broker** setting. Ignore the advanced connection settings if you're using the built-in MQTT broker.
 1. On the **Advanced** page, enable the **Use built in mqtt broker** setting. Ignore the external broker configuration settings if you're using the built-in MQTT broker.
 ---
 
@@ -114,8 +114,6 @@ To configure how the connector discovers assets from topics, add the topic detai
 :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png" alt-text="Screenshot that shows how to add a subscription to the connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png":::
 
 - The **Topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets.
-
-- The **Asset level** specifies the level in the topic tree where the connector looks for the asset name. If your topic filter uses a single-level wildcard (`+`), set **Asset level** to the position of the `+` in the topic path. For example, for the filter `A/B/+`, the wildcard is at level 3, so set **Asset level** to `3`.
 
   > [!IMPORTANT]
   > Configure the topic filter carefully before saving. After the device is created, you can't change the asset discovery configuration unless you delete and recreate the device. If the filter is misconfigured, no assets are discovered and no error is reported. Messages that don't match the filter are silently ignored.
@@ -156,7 +154,19 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 > [!NOTE]
 > Currently, the connector doesn't support intermediate certificates when it connects to external MQTT brokers. 
@@ -229,16 +239,11 @@ For background on how management groups and actions work across connectors, see:
 
 The following known issues apply to the connector for MQTT:
 
-### Health status might not reflect actual connector state
-
-To verify the connector is working, check whether discovered assets appear after publishing messages to the configured topic filter, rather than relying solely on the reported health status.
-
 ### Misconfigured asset discovery settings produce no diagnostic output
 
-If the asset discovery configuration - topic filter, asset level, or topic mapping prefix - is invalid or inconsistent, the connector doesn't report an error. No discovered assets appear and no warning is surfaced in the UI or logs.
+If the asset discovery configuration - topic filter or topic mapping prefix - is invalid or inconsistent, the connector doesn't report an error. No discovered assets appear and no warning is surfaced in the UI or logs.
 
 To diagnose a misconfiguration, verify that:
-- The **Asset level** matches the position of the `+` wildcard in the **Topic filter**.
 - Messages are being published to a topic that matches the topic filter.
 - The connector pod logs don't show connection errors to the broker endpoint.
 
@@ -247,5 +252,3 @@ If you need to correct the configuration, delete and recreate the device.
 ### Asset name must exactly match the discovered asset name
 
 When you create an asset from a discovered asset, the name you give the asset must exactly match the name of the discovered asset.
-
-The discovered asset name prefix comes from the topic segment at the **Asset level** position. For example, if the topic filter is `A/B/+` and the **Asset level** is `3` on device `mqtt-device` with inbound endpoint `mqtt-endpoint`, a message published to `A/B/asset1` produces a discovered asset with name `asset1-mqtt-device-mqtt-endpoint`. You must use `asset1-mqtt-device-mqtt-endpoint` as the asset name when you import it. 

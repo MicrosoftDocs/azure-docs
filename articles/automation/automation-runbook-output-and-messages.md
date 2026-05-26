@@ -3,7 +3,7 @@ title: Configure runbook output and message streams
 description: This article tells how to implement error handling logic and describes output and message streams in Azure Automation runbooks.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
@@ -188,9 +188,9 @@ This occurs because the `$GLOBAL:DebugPreference="Continue"` statement tells Pow
 
 ### Write output to verbose stream
 
-The Verbose message stream supports general information about runbook operation. Since the debug stream is not available for a runbook, your runbook should use verbose messages for debug information.
+The Verbose message stream supports general information about runbook operation. Since the debug stream isn't available for a runbook, your runbook should use verbose messages for debug information.
 
-By default, the job history does not store verbose messages from published runbooks, for performance reasons. To store verbose messages, use the Azure portal **Configure** tab with the **Log Verbose Records** setting to configure your published runbooks to log verbose messages. Turn on this option only to troubleshoot or debug a runbook. In most cases, you should keep the default setting of not logging verbose records.
+By default, the job history doesn't store verbose messages from published runbooks, for performance reasons. To store verbose messages, use the Azure portal **Configure** tab with the **Log Verbose Records** setting to configure your published runbooks to log verbose messages. Turn on this option only to troubleshoot or debug a runbook. In most cases, you should keep the default setting of not logging verbose records.
 
 When [testing a runbook](./manage-runbooks.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](./manage-runbooks.md), you must set the `VerbosePreference` variable to Continue. With that variable set, verbose messages are displayed in the Test output pane of the Azure portal.
 
@@ -305,3 +305,4 @@ For more information about configuring integration with Azure Monitor Logs to co
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * If you're unfamiliar with PowerShell scripting, see [PowerShell](/powershell/scripting/overview) documentation.
 * For the Azure Automation PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
+* For troubleshooting issues related to runbook output and message streams, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

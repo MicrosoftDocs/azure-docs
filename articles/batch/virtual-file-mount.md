@@ -4,13 +4,13 @@ description: Learn how to mount different kinds of virtual file systems on Batch
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
-ms.date: 06/10/2024
+ms.date: 05/13/2025
 # Customer intent: As a cloud engineer, I want to mount a virtual file system on Batch pool nodes, so that I can efficiently manage shared data access for tasks running on those compute nodes.
 ---
 
 # Mount a virtual file system on a Batch pool
 
-Azure Batch supports mounting cloud storage or an external file system on Windows or Linux compute nodes in Batch pools. When a compute node joins the pool, the virtual file system mounts and acts as a local drive on that node. This article shows you how to mount a virtual file system on a pool of compute nodes by using the [Batch Management Library for .NET](/dotnet/api/overview/azure/batch).
+Azure Batch supports mounting cloud storage or an external file system on Windows or Linux compute nodes in Batch pools. When a compute node joins the pool, the virtual file system mounts and acts as a local drive on that node. This article shows you how to mount a virtual file system on a pool of compute nodes by using the [Azure Resource Manager client library for Batch (Azure.ResourceManager.Batch)](/dotnet/api/overview/azure/resourcemanager.batch-readme).
 
 Mounting the file system to the pool makes accessing data easier and more efficient than requiring tasks to get their own data from a large shared data set. Consider a scenario where multiple tasks need access to a common set of data, like rendering a movie. Each task renders one or more frames at once from the scene files. By mounting a drive that contains the scene files, it's easier for each compute node to access the shared data.
 
@@ -55,7 +55,7 @@ When you use virtual file mounts with Batch pools in a virtual network, keep the
 
 Mounting a virtual file system on a pool makes the file system available to every compute node in the pool. Configuration for the file system happens when a compute node joins a pool, restarts, or is reimaged.
 
-To mount a file system on a pool, you create a [MountConfiguration](/dotnet/api/microsoft.azure.batch.mountconfiguration) object that matches your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
+To mount a file system on a pool, you create a [BatchMountConfiguration](/dotnet/api/azure.resourcemanager.batch.models.batchmountconfiguration) object that matches your virtual file system: `BatchBlobFileSystemConfiguration`, `BatchFileShareConfiguration`, `BatchNfsMountConfiguration`, or `BatchCifsMountConfiguration`.
 
 All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the [code examples](#example-mount-configurations) present in more detail.
 
@@ -67,7 +67,7 @@ All mount configuration objects need the following base parameters. Some mount c
 
 - **Mount options or BlobFuse options** that describe specific parameters for mounting a file system.
 
-When you create the pool and the `MountConfiguration` object, you assign the object to the `MountConfigurationList` property. Mounting for the file system happens when a node joins the pool, restarts, or is reimaged.
+When you create the pool, you add each `BatchMountConfiguration` to the `MountConfiguration` collection on `BatchAccountPoolData`. Mounting for the file system happens when a node joins the pool, restarts, or is reimaged.
 
 The Batch agent implements mounting differently on Windows and Linux.
 
@@ -360,23 +360,69 @@ The following code example configurations demonstrate mounting various file shar
 
 Azure Files is the standard Azure cloud file system offering. The following configuration mounts an Azure Files share named `<file-share-name>` to the *S* drive. For information about the parameters in the example, see [Mount SMB Azure file share on Windows](/azure/storage/files/storage-how-to-use-files-windows) or [Create an NFS Azure file share and mount it on a Linux VM using the Azure portal](/azure/storage/files/storage-files-how-to-create-nfs-shares).
 
-```csharp
-new PoolAddParameter
+```C# Snippet:virutal_file_mount_file_share
+using System;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+internal static class Program
 {
-    Id = poolId,
-    MountConfiguration = new[]
+    private static async Task Main()
     {
-        new MountConfiguration
+        await CreatePoolWithAzureFilesMountAsync(
+            subscriptionId: "<subscription-id>",
+            resourceGroupName: "<resource-group>",
+            batchAccountName: "<batch-account-name>",
+            poolId: "<pool-name>");
+    }
+
+    private static async Task CreatePoolWithAzureFilesMountAsync(
+        string subscriptionId,
+        string resourceGroupName,
+        string batchAccountName,
+        string poolId)
+    {
+        BatchAccountPoolData pool = new BatchAccountPoolData()
         {
-            AzureFileShareConfiguration = new AzureFileShareConfiguration
+            VmSize = "standard_d1_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                AccountName = "<storage-account-name>",
-                AzureFileUrl = "https://<storage-account-name>.file.core.windows.net/<file-share-name>",
-                AccountKey = "<storage-account-key>",
-                RelativeMountPath = "S",
-                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp"
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "MicrosoftWindowsServer",
+                        Offer = "WindowsServer",
+                        Sku = "2019-datacenter-core",
+                        Version = "latest",
+                    },
+                    nodeAgentSkuId: "batch.node.windows amd64"),
             },
-        }
+        };
+
+        pool.MountConfiguration.Add(new BatchMountConfiguration
+        {
+            FileShareConfiguration = new BatchFileShareConfiguration(
+                accountName: "<storage-account-name>",
+                fileUri: new Uri("https://<storage-account-name>.file.core.windows.net/<file-share-name>"),
+                accountKey: "<storage-account-key>",
+                relativeMountPath: "S")
+            {
+                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp",
+            },
+        });
+
+        var armClient = new ArmClient(new DefaultAzureCredential());
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(
+            BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, batchAccountName));
+
+        await batchAccount.GetBatchAccountPools()
+            .CreateOrUpdateAsync(WaitUntil.Completed, poolId, pool);
+
+        Console.WriteLine($"Created pool '{poolId}' with an Azure Files mount.");
     }
 }
 ```
@@ -394,28 +440,76 @@ For information on getting these keys or identity, see the following articles:
   > [!TIP]
   >If you use a managed identity, ensure that the identity has been [assigned to the pool](managed-identity-pools.md) so that it's available on the VM doing the mounting. The identity must also have the **Storage Blob Data Contributor** role.
 
-The following configuration mounts a blob file system with BlobFuse options. For illustration purposes, the example shows `AccountKey`, `SasKey` and `IdentityReference`, but you can actually specify only one of these methods.
+The following configuration mounts a blob file system with BlobFuse options. For illustration purposes, the example shows `AccountKey`, `SasKey`, and `IdentityResourceId`, but you can actually specify only one of these methods.
 
-```csharp
-new PoolAddParameter
+```C# Snippet:virutal_file_mount_blob
+using System;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+internal static class Program
 {
-    Id = poolId,
-    MountConfiguration = new[]
+    private static async Task Main()
     {
-        new MountConfiguration
+        await CreatePoolWithAzureBlobMountAsync(
+            subscriptionId: "<subscription-id>",
+            resourceGroupName: "<resource-group>",
+            batchAccountName: "<batch-account-name>",
+            poolId: "<pool-name>");
+    }
+
+    private static async Task CreatePoolWithAzureBlobMountAsync(
+        string subscriptionId,
+        string resourceGroupName,
+        string batchAccountName,
+        string poolId)
+    {
+        BatchAccountPoolData pool = new BatchAccountPoolData()
         {
-            AzureBlobFileSystemConfiguration = new AzureBlobFileSystemConfiguration
+            VmSize = "standard_d1_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                AccountName = "<storage-account-name>",
-                ContainerName = "<container-name>",
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "canonical",
+                        Offer = "0001-com-ubuntu-server-focal",
+                        Sku = "20_04-lts",
+                        Version = "latest",
+                    },
+                    nodeAgentSkuId: "batch.node.ubuntu 20.04"),
+            },
+        };
+
+        pool.MountConfiguration.Add(new BatchMountConfiguration
+        {
+            BlobFileSystemConfiguration = new BatchBlobFileSystemConfiguration(
+                accountName: "<storage-account-name>",
+                containerName: "<container-name>",
+                relativeMountPath: "<relative-mount-path>")
+            {
                 // Use only one of the following three lines:
                 AccountKey = "<storage-account-key>",
                 SasKey = "<sas-key>",
-                IdentityReference = new ComputeNodeIdentityReference("/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"),
-                RelativeMountPath = "<relative-mount-path>",
-                BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
+                IdentityResourceId = new ResourceIdentifier(
+                    "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"),
+                BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120",
             },
-        }
+        });
+
+        var armClient = new ArmClient(new DefaultAzureCredential());
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(
+            BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, batchAccountName));
+
+        await batchAccount.GetBatchAccountPools()
+            .CreateOrUpdateAsync(WaitUntil.Completed, poolId, pool);
+
+        Console.WriteLine($"Created pool '{poolId}' with an Azure Blob (BlobFuse) mount.");
     }
 }
 ```
@@ -434,21 +528,67 @@ You can mount NFS shares to pool nodes to allow Batch to access traditional file
 
 The following example shows a configuration for an NFS file system mount:
 
-```csharp
-new PoolAddParameter
+```C# Snippet:virutal_file_mount_nfs
+using System;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+internal static class Program
 {
-    Id = poolId,
-    MountConfiguration = new[]
+    private static async Task Main()
     {
-        new MountConfiguration
+        await CreatePoolWithNfsMountAsync(
+            subscriptionId: "<subscription-id>",
+            resourceGroupName: "<resource-group>",
+            batchAccountName: "<batch-account-name>",
+            poolId: "<pool-name>");
+    }
+
+    private static async Task CreatePoolWithNfsMountAsync(
+        string subscriptionId,
+        string resourceGroupName,
+        string batchAccountName,
+        string poolId)
+    {
+        BatchAccountPoolData pool = new BatchAccountPoolData()
         {
-            NfsMountConfiguration = new NFSMountConfiguration
+            VmSize = "standard_d1_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                Source = "<source>",
-                RelativeMountPath = "<relative-mount-path>",
-                MountOptions = "options ver=3.0"
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "canonical",
+                        Offer = "0001-com-ubuntu-server-focal",
+                        Sku = "20_04-lts",
+                        Version = "latest",
+                    },
+                    nodeAgentSkuId: "batch.node.ubuntu 20.04"),
             },
-        }
+        };
+
+        pool.MountConfiguration.Add(new BatchMountConfiguration
+        {
+            NfsMountConfiguration = new BatchNfsMountConfiguration(
+                source: "<source>",
+                relativeMountPath: "<relative-mount-path>")
+            {
+                MountOptions = "options ver=3.0",
+            },
+        });
+
+        var armClient = new ArmClient(new DefaultAzureCredential());
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(
+            BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, batchAccountName));
+
+        await batchAccount.GetBatchAccountPools()
+            .CreateOrUpdateAsync(WaitUntil.Completed, poolId, pool);
+
+        Console.WriteLine($"Created pool '{poolId}' with an NFS mount.");
     }
 }
 ```
@@ -459,23 +599,69 @@ Mounting [CIFS](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol
 
 The following example shows a configuration for a CIFS file mount.
 
-```csharp
-new PoolAddParameter
+```C# Snippet:virutal_file_mount_cifs
+using System;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+internal static class Program
 {
-    Id = poolId,
-    MountConfiguration = new[]
+    private static async Task Main()
     {
-        new MountConfiguration
+        await CreatePoolWithCifsMountAsync(
+            subscriptionId: "<subscription-id>",
+            resourceGroupName: "<resource-group>",
+            batchAccountName: "<batch-account-name>",
+            poolId: "<pool-name>");
+    }
+
+    private static async Task CreatePoolWithCifsMountAsync(
+        string subscriptionId,
+        string resourceGroupName,
+        string batchAccountName,
+        string poolId)
+    {
+        BatchAccountPoolData pool = new BatchAccountPoolData()
         {
-            CifsMountConfiguration = new CIFSMountConfiguration
+            VmSize = "standard_d1_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                Username = "<storage-account-name>",
-                RelativeMountPath = "<relative-mount-path>",
-                Source = "<source>",
-                Password = "<storage-account-key>",
-                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino,domain=<domain-name>"
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "canonical",
+                        Offer = "0001-com-ubuntu-server-focal",
+                        Sku = "20_04-lts",
+                        Version = "latest",
+                    },
+                    nodeAgentSkuId: "batch.node.ubuntu 20.04"),
             },
-        }
+        };
+
+        pool.MountConfiguration.Add(new BatchMountConfiguration
+        {
+            CifsMountConfiguration = new BatchCifsMountConfiguration(
+                username: "<storage-account-name>",
+                source: "<source>",
+                password: "<storage-account-key>",
+                relativeMountPath: "<relative-mount-path>")
+            {
+                MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino,domain=<domain-name>",
+            },
+        });
+
+        var armClient = new ArmClient(new DefaultAzureCredential());
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(
+            BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, batchAccountName));
+
+        await batchAccount.GetBatchAccountPools()
+            .CreateOrUpdateAsync(WaitUntil.Completed, poolId, pool);
+
+        Console.WriteLine($"Created pool '{poolId}' with a CIFS mount.");
     }
 }
 ```

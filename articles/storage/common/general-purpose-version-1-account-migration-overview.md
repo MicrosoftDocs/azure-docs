@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/15/2025
+ms.date: 5/13/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -41,7 +41,7 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 | Date               | Milestone                                                   |
 |--------------------|-------------------------------------------------------------|
 |**September 2025** |Retirement announced                                        |
-| **March 3 2026**    |Creation of new GPv1 Storage accounts disabled              |
+| **June  2026**    |Creation of new GPv1 Storage accounts disabled              |
 |**October 2026** |Full retirement; Any remaining GPv1 Storage accounts will be automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
 The retirement takes effect globally across all Azure regions.

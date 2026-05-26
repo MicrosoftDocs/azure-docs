@@ -4,7 +4,7 @@ description: Learn how to grant Azure Web PubSub clients permissions to many gro
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/28/2026
 ms.custom:
 ---

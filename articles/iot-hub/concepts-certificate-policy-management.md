@@ -2,8 +2,8 @@
 title: Certificate Revocation and Policy Management (Preview)
 titleSuffix: Azure IoT Hub
 description: This article discusses the concepts of revoking leaf certificates, revoking policies, deleting policies, and deleting credential resources in Azure IoT Hub certificate management.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: concept-article
