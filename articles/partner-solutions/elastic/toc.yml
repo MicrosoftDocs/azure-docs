@@ -8,14 +8,14 @@ items:
     displayName: Elastic, Elasticsearch, Observability, Security, Azure Native Integration
   - name: FAQ
     href: faq.yml
-- name: Get started
+- name: Quickstarts
   expanded: true
   items:
   - name: Create an Elastic resource
     href: create.md
 - name: How to
   items:
-  - name: Manage your Elastic resource
+  - name: Manage
     href: manage.md
   - name: Troubleshoot
     items:

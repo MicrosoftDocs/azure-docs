@@ -3,23 +3,23 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Datadog on Azure?
+  - name: What is Datadog?
     href: overview.md
     displayName: Datadog, Monitoring, Azure Native Integration
   - name: FAQ
     href: faq.yml
-- name: Get started
+- name: Quickstarts
   expanded: true
   items:
-  - name: Configure prerequisites
-    href: prerequisites.md
-  - name: Create a new Datadog organization
+  - name: Create new Datadog organization
     href: create.md
   - name: Link to an existing Datadog organization
     href: link-to-existing-organization.md
 - name: How to
   items:
-  - name: Manage your Datadog resource
+  - name: Configure pre-deployment
+    href: prerequisites.md
+  - name: Manage
     href: manage.md
   - name: Troubleshoot
     items:
@@ -33,3 +33,5 @@ items:
     href: /cli/azure/datadog
   - name: REST API
     href: /rest/api/datadog
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitor
