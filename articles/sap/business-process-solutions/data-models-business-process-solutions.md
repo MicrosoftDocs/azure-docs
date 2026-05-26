@@ -26,6 +26,7 @@ Hierarchical structures are transformed to support advanced drill-down and roll-
 ### Featured data models
 
 Featured Data Models are curated, end‑to‑end models designed to help you get results quickly for the most common business scenarios. They often span multiple functional areas and come with dedicated, prebuilt Power BI dashboards, allowing you to explore insights and start visualising your data with minimal setup.
+
 |Area|Dataset|Supported systems|Related content|Additional information|
 |------|---------|-----------------|-----------------|------------------------|
 |Record to Report| Finance Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report||
@@ -37,6 +38,7 @@ Featured Data Models are curated, end‑to‑end models designed to help you get
 
 ### Additional data models
 Additional Data Models provide focused coverage for specific business domains or processes. They deliver the same high‑quality data structures and business semantics but are typically consumed as building blocks, allowing you to extend, customise, or combine them into tailored analytics and reporting solutions.
+
 |Area|Dataset|Supported systems|Related content|Additional information|
 |------|---------|-----------------|-----------------|------------------------|
 |Record to Report| Financial Planning | SAP S/4HANA 1909 or newer | Semantic Model ||
