@@ -24,6 +24,9 @@ items:
           - name: Deployment planning
             href: deployment-plan/deployment-planning.md
             displayName: sizing, broker, MQTT, topology, memory, production
+          - name: Production deployment examples
+            href: deploy-iot-ops/concept-production-examples.md
+            displayName: benchmark, throughput, single-node, multi-node, scaling, performance
           - name: Disk-backed message buffer
             href: deployment-plan/deployment-planning-disk-buffer.md
             displayName: MQTT, broker, persistence, storage
@@ -57,6 +60,9 @@ items:
           - name: Deploy to a test cluster
             href: deploy-iot-ops/howto-deploy-iot-test-operations.md
             displayName: Kubernetes, Arc-enable, test settings
+          - name: Production deployment guidelines
+            href: deploy-iot-ops/concept-production-guidelines.md
+            displayName: production, checklist, best practices, security, broker, OPC UA, data flows
           - name: Deploy to a production cluster
             href: deploy-iot-ops/howto-deploy-iot-operations.md
             displayName: Kubernetes, Arc-enable, secure settings
@@ -116,6 +122,23 @@ items:
               - name: Test connection
                 href: manage-mqtt-broker/howto-test-connection.md
                 displayName: MQTT, broker, NodePort, LoadBalancer, ClusterIP, TLS, testing
+              - name: Data persistence
+                href: manage-mqtt-broker/howto-broker-persistence.md
+                displayName: MQTT, broker, persistence, retained messages, subscriber queue, state store, disk
+          - name: Manage network
+            items:
+              - name: Overview
+                href: manage-layered-network/overview-layered-network.md
+                displayName: layered network, private connectivity, networking
+              - name: Layered networking
+                href: manage-layered-network/concept-layered-network.md
+                displayName: Purdue, ISA-95, Envoy, CoreDNS, proxy chaining, layered network
+              - name: Deploy with private connectivity
+                href: manage-layered-network/howto-private-connectivity.md
+                displayName: Private Link, Arc Gateway, explicit proxy, private endpoints, storage, dataflow
+              - name: Troubleshoot private connectivity
+                href: manage-layered-network/howto-troubleshoot-private-connectivity.md
+                displayName: DNS, Private Endpoint, RBAC, SecretSync, Schema Registry, data flow, troubleshooting
       - name: Discover and manage assets and devices
         items:
           - name: Understand asset and device management

@@ -36,6 +36,12 @@ This setting can't be changed after deployment. To change the disk-backed messag
 
 To get started, prepare a Broker configuration file by following the [DiskBackedMessageBuffer](/rest/api/iotoperations/broker/create-or-update#diskbackedmessagebuffer) API reference.
 
+Then, deploy IoT Operations with the `--broker-config-file` flag (other parameters omitted for brevity):
+
+```azurecli
+az iot ops create ... --broker-config-file <FILE>.json
+```
+
 For example, the simplest configuration involves only specifying the maximum size. In this case, an `emptyDir` volume is mounted. The `maxSize` value is used as the size limit of the `emptyDir` volume. But this option is the least preferred option because of the limitations of the `emptyDir` volume.
 
 ```json
@@ -158,6 +164,21 @@ Consider the behavior of your chosen storage provider, for example, when you use
 ## Disabled
 
 If you don't want to use the disk-backed message buffer, don't include the `diskBackedMessageBufferSettings` property in your Broker resource. This behavior is also the default.
+
+## Disk buffer vs. persistence
+
+The disk-backed message buffer and [broker persistence](deployment-planning-persistence.md) both write data to disk, but they serve different purposes:
+
+| Feature | Disk-backed message buffer | Persistence |
+|---|---|---|
+| **Purpose** | Spill subscriber queues from memory to disk when they grow too large | Preserve critical broker state (retained messages, sessions, subscriptions) across pod restarts |
+| **Durability** | Ephemeral — data is lost when the pod exits | Durable — data survives pod restarts |
+| **When to use** | Slow subscribers, offline persistent sessions, connectivity interruptions to cloud | You need retained messages or session state to survive broker restarts |
+| **Data scope** | PUBLISH messages in subscriber queues | Retained messages, subscriber queue metadata, state store data |
+| **Configuration** | `diskBackedMessageBuffer` in Broker resource | [Persistence settings](deployment-planning-persistence.md) at deployment or runtime |
+
+> [!NOTE]
+> The disk buffer and persistence can be used together. Persistence ensures state survives restarts, while the disk buffer prevents out-of-memory conditions during normal operation.
 
 ## Next steps
 

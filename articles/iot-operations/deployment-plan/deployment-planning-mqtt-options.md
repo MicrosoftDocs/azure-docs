@@ -60,6 +60,12 @@ The subscriber queue limit has two settings:
   - **None** (default): Messages aren't dropped. The queue can grow until the session expires.
   - **DropOldest**: The broker drops the oldest message in the queue to make room for the new one.
 
+> [!NOTE]
+> The subscriber queue limit applies to the **outgoing queue** — messages waiting to be sent to the subscriber. The **in-flight queue** (messages sent but not yet acknowledged by the subscriber) is separate and governed by the MQTT receive maximum setting.
+
+> [!IMPORTANT]
+> In multi-partition deployments, queue counts scale per partition. Each partition maintains its own subscriber queues independently. The total cluster-wide memory consumed by a single subscriber's queues can exceed what a single configured limit suggests. Plan memory capacity accordingly for multi-partition deployments.
+
 ## Slow subscribers
 
 A slow subscriber is one that can't keep up with the incoming message rate. This problem can occur if the subscriber processes messages slowly, is disconnected, or is offline. The subscriber queue limit helps prevent a slow subscriber from consuming too much memory.

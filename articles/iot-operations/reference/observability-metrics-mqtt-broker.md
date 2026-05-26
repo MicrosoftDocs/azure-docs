@@ -16,7 +16,7 @@ ms.date: 11/15/2024
 
 The MQTT broker emits observability metrics that you can use to monitor the health of your solution. This article lists the available metrics.
 
-To configure options for these metrics, see [Configure MQTT broker diagnostic settings](../manage-mqtt-broker/howto-broker-diagnostics.md).
+To configure options for these metrics, see [Diagnostics](../deployment-plan/deployment-planning-diagnostics.md).
 
 Many metrics are tagged with a [`category`](#category) dimension, which clients set by including a `metriccategory` user property in the MQTT CONNECT packet. Sessions without a `metriccategory` are tagged as `category=uncategorized`.
 
@@ -90,7 +90,7 @@ This set of metrics tracks the overall state of the [state store](../develop-edg
 
 ## Disk-backed message buffer metrics
 
-These metrics provide observability for the [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md).
+These metrics provide observability for the [disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md).
 
 | Metric | Type | Description | Dimensions |
 |--------|------|-------------|------------|
@@ -223,5 +223,5 @@ Broker version string.
 
 ## Related content
 
-- [Configure MQTT broker diagnostic settings](../manage-mqtt-broker/howto-broker-diagnostics.md)
+- [Configure MQTT broker diagnostic settings](../deployment-plan/deployment-planning-diagnostics.md)
 - [Configure observability](../deploy-iot-ops/howto-configure-observability.md)
