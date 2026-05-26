@@ -1,7 +1,8 @@
 ---
 title: Apache Airflow on Astro developer resources and tools
 description: Learn about resources and developer tools available with Apache Airflow on Astro - An Azure Native ISV Service.
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: overview
 ms.date: 09/15/2025
 

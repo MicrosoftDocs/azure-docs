@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Get started with Apache Airflow on Astro"
 description: Learn how to create an Astro resource in the Azure portal.
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom:

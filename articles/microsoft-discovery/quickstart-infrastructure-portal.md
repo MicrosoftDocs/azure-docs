@@ -110,6 +110,8 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
      - `searchSubnet`: `10.0.6.0/24`
 1. For `workspaceSubnet`, `agentSubnet` and `searchSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg" alt-text="Screenshot of the Create virtual network subnet page showing subnet delegation settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg":::
+1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage.Global`.
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg" alt-text="Screenshot of the Create virtual network subnet page showing service endpoint settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg":::
 1. Optionally, you can remove the `default` subnet from the list. 
 1. Review and create the virtual network.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-ip-config.jpg" alt-text="Screenshot of the Create virtual network page showing IP address configuration." lightbox="media/quickstart-infrastructure-portal/create-vnet-ip-config.jpg":::

@@ -7438,6 +7438,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub-device-update/device-update-simulator.md",
       "redirect_url": "/azure/iot-hub-device-update/",
       "redirect_document_id": false
@@ -7740,31 +7745,6 @@
     {
       "source_path": "articles/certification/edge-secured-core-get-certified.md",
       "redirect_url": "/azure/certification/requirements-edge-secured-core",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/startup-programs.md",
-      "redirect_url": "/startups/microsoft-for-startups/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/index.yml",
-      "redirect_url": "/startups/microsoft-for-startups/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/startup-help.md",
-      "redirect_url": "/startups/microsoft-for-startups/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/overview.md",
-      "redirect_url": "/startups/microsoft-for-startups/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/azure-usage.md",
-      "redirect_url": "/startups/microsoft-for-startups/overview",
       "redirect_document_id": false
     }
   ]

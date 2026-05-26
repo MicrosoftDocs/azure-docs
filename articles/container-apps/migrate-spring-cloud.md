@@ -4,7 +4,7 @@ description: Learn what you should be aware of when you want to migrate an exist
 ms.author: deepganguly
 author: deepganguly
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/09/2026
 ---
 

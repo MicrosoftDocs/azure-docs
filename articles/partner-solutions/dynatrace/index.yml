@@ -6,6 +6,8 @@ summary: Azure Native Dynatrace Service provides a native integrated experience 
 metadata:
   title: Azure Native Dynatrace Service documentation
   description: Azure Native Dynatrace Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
+  author: praveenrajap
+  ms.author: praveenrajap
   ms.topic: landing-page
   
   

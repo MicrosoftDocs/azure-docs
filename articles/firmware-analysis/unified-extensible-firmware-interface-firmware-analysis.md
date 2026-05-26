@@ -3,7 +3,7 @@ title: Understanding Unified Extensible Firmware Interface firmware analysis cap
 description: Learn what UEFI analysis capabilities and limitations exist for firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/05/2026
 ms.service: azure
 ---

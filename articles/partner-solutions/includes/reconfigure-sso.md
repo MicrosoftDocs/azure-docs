@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 03/18/2025
-ms.author: kkendrick
+ms.author: plekkala
 ---
 
 To enable single sign-on through Microsoft Entra ID:

@@ -44,9 +44,9 @@ The following table provides a comparison between the Azure Front Door and Azure
 | **Delivery and acceleration** | | | | |
 | Static file delivery | &check; | &check; | &check; | &check; |
 | Dynamic site delivery | &check; | &check; | &check; | |
-| WebSockets | Preview | Preview | | |
+| WebSockets | &check; | &check; | | |
 | **Domains and certificates** | | | | |
-| Custom domains | &check; (DNS TXT record-based domain validation) | &check; (DNS TXT record-based domain validation) | &check; (CNAME-based validation) | &check; (CNAME-based validation) |
+| Custom domains | &check; | &check; | &check; | &check; |
 | Prevalidated domain integration with Azure platform as a service | &check; | &check; | | |
 | HTTPS support | &check; | &check; | &check; | &check; |
 | Custom domain HTTPS | &check; | &check; | &check; | &check; |

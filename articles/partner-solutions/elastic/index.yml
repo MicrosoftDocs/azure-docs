@@ -6,6 +6,8 @@ summary: Centralizes log, metric, and tracing analytics.
 metadata:
   title: Elastic with Azure documentation
   description: Elastic integrates with Azure to offer monitoring solutions.
+  author: pdjokar96
+  ms.author: piyushdash
   ms.service: partner-services
   ms.topic: landing-page
   

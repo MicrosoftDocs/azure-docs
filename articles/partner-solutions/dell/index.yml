@@ -6,7 +6,8 @@ summary: Dell PowerScale provides scalable, high-performance enterprise file sto
 metadata:
   title: Dell PowerScale  
   description: Dell PowerScale provides scalable, high-performance enterprise file storage, delivered as an Azure Native Integration.
-
+  author: agrimayadav
+  ms.author: agrimayadav
   ms.topic: landing-page
   ms.date: 03/24/2026
 

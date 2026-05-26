@@ -1,6 +1,8 @@
 ---
 title: Azure Native Integrations monitoring overview
 description: "Overview of metrics and logs for Azure Native Integrations and key operational considerations."
+author: pavanatgit
+ms.author: plekkala
 ms.topic: overview
 ms.date: 12/01/2025
 ai-usage: ai-assisted

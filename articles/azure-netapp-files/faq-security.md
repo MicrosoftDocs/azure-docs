@@ -42,7 +42,7 @@ Yes, you can configure up to five rules in a single NFS export policy.
 
 Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
 
-For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/permissions/storage.md#microsoftnetapp).
 
 ## Are Azure Activity Logs supported on Azure NetApp Files?
 

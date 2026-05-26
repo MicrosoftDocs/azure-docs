@@ -29,17 +29,6 @@ After the replication is enabled, wait for 30 minutes for all the tables to repl
 
 This section applies to source systems where you configured Data Factory for data extraction. You need to run two pipelines to copy the data from the SAP system to your Silver lakehouse. Open the Azure portal, and go to the resource group that you created when you created the source system. Then open the Data Factory resource and start the studio from the overview page. Follow the steps in the next section to start data replication.
 
-#### Extract field metadata
-
-Before you start extracting data, you need to process field metadata from the source system to ensure correct data mapping. This pipeline copies the table schema from the DD03ND table in the SAP system to the Microsoft Fabric SQL database:
-
-1. Open Data Factory and go to the **Get field metadata** pipeline.
-1. Select **Add Trigger** to start the processing.
-
-   :::image type="content" source="./media/run-extraction-data-processing/get-field-meta-data.png" alt-text="Screenshot that shows how to trigger the Get field metadata pipeline." lightbox="./media/run-extraction-data-processing/get-field-meta-data.png":::
-
-1. Extraction takes a couple of minutes, and it fills a metadata table. After the process is finished, you can start data extraction.
-
 #### Extract and process data
 
 Start extracting data from the SAP system to the Silver lakehouse. This pipeline copies the data from the SAP system to the Silver lakehouse in Fabric. To start data extraction, follow these steps:

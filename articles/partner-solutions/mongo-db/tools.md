@@ -1,7 +1,8 @@
 ---
 title: MongoDB Atlas Developer Resources and Tools
 description: Learn about resources and developer tools available with MongoDB Atlas.
-author: ProfessorKendrick
+author: vpriyanshi
+ms.author: priyverma
 ms.topic: overview
 ms.date: 12/12/2025
 

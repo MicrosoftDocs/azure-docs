@@ -6,6 +6,8 @@ summary: Informatica – An Azure Native ISV Service is part of Marketplace. It 
 metadata:
   title: Informatica 
   description: Informatica integrates with Azure to combine the benefits of Informatica Intelligent Data Management Cloud and the Azure cloud.
+  author: pavanatgit
+  ms.author: plekkala
   ms.topic: landing-page
   ms.date: 03/31/2026
 

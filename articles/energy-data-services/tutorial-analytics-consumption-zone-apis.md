@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# Tutorial: Use analytics consumption zone (ACZ) APIs
+# Tutorial: Use Analytics Consumption Zone (ACZ) APIs
 
 
 This tutorial shows how to use the ACZ management APIs in Azure Data Manager for Energy. You create, list, retrieve, and delete ACZ instances by using cURL.

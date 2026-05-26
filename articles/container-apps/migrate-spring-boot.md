@@ -4,7 +4,7 @@ description: Learn how to assess, migrate, and optimize an existing Spring Boot 
 ms.author: deepganguly
 author: deepganguly
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/11/2026
 ---
 

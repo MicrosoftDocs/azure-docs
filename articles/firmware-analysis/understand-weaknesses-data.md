@@ -3,7 +3,7 @@ title: Understanding and prioritizing weaknesses data in Firmware analysis
 description: Learn what the weaknesses data are in the CVE view of the firmware analysis results.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/05/2026
 ms.service: azure
 ---

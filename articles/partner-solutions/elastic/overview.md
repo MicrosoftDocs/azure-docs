@@ -1,6 +1,8 @@
 ---
 title: Elastic integrations overview
 description: Learn about using the Elastic Cloud-Native Observability Platform in Azure Marketplace.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: overview
 ms.date: 07/01/2025
 ai-usage: ai-assisted

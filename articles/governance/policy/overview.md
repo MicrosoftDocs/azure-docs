@@ -74,8 +74,8 @@ The combination of Azure RBAC and Azure Policy provides full scope control in Az
 
 Azure Policy has several permissions, known as operations, in two Resource Providers:
 
-- [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.Authorization](../../role-based-access-control/permissions/management-and-governance.md#microsoftauthorization)
+- [Microsoft.PolicyInsights](../../role-based-access-control/permissions/management-and-governance.md#microsoftpolicyinsights)
 
 Many built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor** role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and **Reader** have access to all _read_ Azure Policy operations.
 

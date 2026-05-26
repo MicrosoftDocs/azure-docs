@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/01/2026
+ms.date: 05/26/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -70,28 +70,42 @@ Currently, you can create a file share with Microsoft.FileShares in the followin
 - Australia Central
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
 - East Asia
 - East US
 - France Central
 - France South
 - Germany North
+- Germany West Central
+- Israel Central
 - Italy North
+- Japan East
+- Japan West
 - JIO India Central
 - JIO India West
 - Korea Central
 - Korea South
+- North Central US
 - North Europe
 - Norway East
 - Norway West
 - Poland Central
 - South Africa North
 - South Africa West
+- South Central US
 - South India
 - Southeast Asia
 - Sweden Central
 - UAE Central
+- UAE North
 - UK South
 - UK West
+- West Europe
+- West US
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 

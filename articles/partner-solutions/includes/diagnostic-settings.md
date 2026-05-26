@@ -1,8 +1,8 @@
 ---
-author: agrimayadav
+author: pavanatgit
 ms.topic: include
 ms.date: 12/16/2024
-ms.author: agrimayadav
+ms.author: plekkala
 ---
 ## Diagnostic settings not created as expected after moving a resource
 

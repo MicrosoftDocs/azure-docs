@@ -3,7 +3,7 @@ title: Manage minimum TLS versions for Azure App Service, Azure Functions, and L
 description: Learn how to check, audit, and update the minimum TLS version for Azure App Service, Azure Functions, and Logic Apps (Standard) to enforce TLS 1.2 or later.
 author: msangapu-msft
 ms.author: msangapu
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/30/2026
 ms.service: azure-app-service
 ---

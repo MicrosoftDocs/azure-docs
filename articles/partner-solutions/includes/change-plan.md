@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 01/10/2025
-ms.author: kkendrick
+ms.author: plekkala
 ---
 If you'd like to change your billing plan, follow these steps:
 

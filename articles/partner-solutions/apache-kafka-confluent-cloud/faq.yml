@@ -2,6 +2,8 @@
 metadata:
   title: Apache Kafka & Apache Flink on Confluent Cloud frequently asked questions
   description: Answers to common questions about using Apache Kafka & Apache Flink on Confluent Cloud, an Azure Native Integrations service.
+  author: praveenrajap
+  ms.author: praveenrajap
   ms.topic: faq 
   ai-usage: ai-generated
   ms.date: 03/17/2026

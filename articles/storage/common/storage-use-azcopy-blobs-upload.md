@@ -225,7 +225,7 @@ For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-sto
 
 You can upload a file and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you use Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) through a custom Azure role. If you use a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
+If you use Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) through a custom Azure role. If you use a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option with a URL encoded key-value pair. 
 For example, to add the key `my tag` and the value `my tag value`, include `--blob-tags='my%20tag=my%20tag%20value'` in the destination parameter.

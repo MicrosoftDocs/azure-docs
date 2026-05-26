@@ -69,4 +69,4 @@ To configure your source system, follow these steps:
 ## Next step
 
 >[!div class="nextstepaction"]
->[Configure insights in Business Process Solutions](configure-insights.md)
+>[Run extraction and data processing in Business Process Solutions](run-extraction-data-processing.md#salesforce-data-extraction-and-processing)

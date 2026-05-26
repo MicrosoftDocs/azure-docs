@@ -1,7 +1,8 @@
 ---
 title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: quickstart
 ms.date: 12/01/2025
 

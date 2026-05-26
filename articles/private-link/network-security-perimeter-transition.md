@@ -32,14 +32,14 @@ The possible values of `accessMode` are currently **Enforced** and **T
 
 ### Enable Transition mode
 
-To prevent undesired connectivity disruptions while adopting network security perimeter to existing PaaS resources and ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Transition mode (formerly Learning mode). While this step doesn't secure the PaaS resources, it will:
+To prevent undesired connectivity disruptions while adopting network security perimeter to existing PaaS resources and ensure a smooth transition to secure configurations, administrators can add PaaS resources to network security perimeter in Transition mode (formerly Learning mode). This step means that the resource is not exclusively secured by a network security perimeter. Instead, it allows network security perimeter rules to co-exist with previous resource firewall rules and will:
 
 - Allow connections to be established in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter access rules.
 - When diagnostic logs are enabled, generates logs detailing whether connections were approved based on network security perimeter configuration or the resource's configuration. Administrators can then analyze those logs to identify gaps in access rules, missing perimeter memberships, and undesired connections.
 
 ### Transition to enforced mode for existing resources 
 
-To fully secure your public access, it's essential to move to enforced mode in network security perimeter. Things to consider before moving to enforced mode are the impact on public, private, trusted, and perimeter access. When in enforced mode, the behavior of network access on associated PaaS resources across different types of PaaS resources can be summarized as follows:
+To fully secure your public access exclusively using a network security perimeter, it is essential to move to enforced mode. Things to consider before moving to enforced mode are the impact on public, private, trusted, and perimeter access. When in enforced mode, the behavior of network access on associated PaaS resources across different types of PaaS resources can be summarized as follows:
 
 - **Public access:** Public access refers to inbound or outbound requests made through public networks. PaaS resources secured by a network security perimeter have their inbound and outbound public access disabled by default, but network security perimeter access rules  can be used to selectively allow public traffic that matches them.
 - **Perimeter access:** Perimeter access refers to inbound or outbound requests between the resources part of the same network security perimeter. To prevent data infiltration and exfiltration, such perimeter traffic will never cross perimeter boundaries unless explicitly approved as public traffic at both source and destination in enforced mode. Managed identity needs to be assigned on resources for perimeter access. 

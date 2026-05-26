@@ -1,5 +1,5 @@
 ---
-title: How to connect ACZ data to Microsoft Fabric - Azure Data Manager for Energy
+title: Connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric - Azure Data Manager for Energy
 description: Learn how to connect ACZ data in ADLS Gen2 to Microsoft Fabric by using OneLake shortcuts for analytics and reporting.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.reviewer:
 
 ---
 
-# How to connect analytics consumption zone (ACZ) data to Microsoft Fabric
+# How to connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric
 
 
 This article shows how to connect your ACZ data to Microsoft Fabric by using OneLake shortcuts. ACZ stores data in Azure Data Lake Storage (ADLS) Gen2. After you create shortcuts, you can query, transform, and visualize your Azure Data Manager for Energy data in Fabric lakehouses, notebooks, and Power BI.
@@ -51,7 +51,63 @@ If you don't already have a Fabric lakehouse in your workspace, create one:
 
 If you already have a lakehouse, you can use it for ACZ data shortcuts.
 
+> [!IMPORTANT]
+  > **Schema-enabled workspaces**: If your Fabric workspace is schema-enabled, the standard folder shortcut approach might not work correctly because schema-enabled workspaces require a clean schema → tables structure. If you encounter errors such as "Unable to identify these objects as tables or views," use one of the schema-enabled workspaces approaches described in Step 3.
 ## Step 3: Create an ADLS Gen2 shortcut to ACZ data
+
+The approach for connecting ACZ data depends on whether your Fabric workspace is schema-enabled or non-schema-enabled.
+
+### For schema-enabled workspaces
+
+Schema-enabled workspaces require that data follows a structured schema → tables organization. Choose one of the following options:
+
+#### Option 1: Create a table shortcut at the schema level
+
+This approach creates a shortcut directly to the `osducatalog` table within your lakehouse schema:
+
+1. Open your lakehouse.
+2. In the **Explorer** pane, expand the schema (for example, **dbo**).
+3. Right-click on the schema name and select **New shortcut**.
+4. Under **External sources**, select **Azure Data Lake Storage Gen2**.
+5. Enter the connection settings:
+
+   | Setting | Value |
+   |---|---|
+   | **URL** | The Distributed File System (DFS) endpoint for your storage account: `https://<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net` |
+   | **Connection** | Select an existing connection or create a new one. |
+   | **Authentication kind** | Select **Organizational account**, **Service principal**, or **Account key** as appropriate. |
+
+6. Select **Next**.
+7. Browse to the container where your ACZ data is stored.
+8. Navigate to the `<aczId>/osducatalog/` folder. The `aczId` is the identifier from your ACZ creation (for example, `acz-8a0aa7433085`).
+9. Select **osducatalog** to add as a table shortcut.
+10. Select **Next** to review your selections, then select **Create**.
+
+After you create the shortcut, the `osducatalog` table appears in your schema and can be queried directly.
+
+#### Option 2: Load to table from Files
+
+This approach creates a shortcut in the Files section, then loads it as a table:
+
+1. Open your lakehouse.
+2. In the **Explorer** pane, right-click on **Files** in OneLake.
+3. Select **New shortcut**.
+4. Under **External sources**, select **Azure Data Lake Storage Gen2**.
+5. Enter the connection settings as described in Option 1.
+6. Select **Next**.
+7. Browse to the container and select the base folder that contains your ACZ data (the folder containing the `<aczId>` subfolder).
+8. Select **Next** to review your selections, then select **Create**.
+9. After the shortcut is created, expand the shortcut in the **Files** pane to navigate to the `osducatalog` folder.
+10. Right-click on **osducatalog** and select **Load to Table** > **New table**.
+11. In the dialog:
+    - Select the target schema (for example, **dbo**).
+    - Enter a table name (for example, `osducatalog`).
+    - Set the file type to **Parquet**.
+12. Select **Load**.
+
+The ACZ data now appears as a table in your schema's Tables section.
+
+### For non-schema-enabled workspaces
 
 An ADLS Gen2 shortcut makes ACZ data available in your Fabric lakehouse without copying data. You get direct access to the Delta Parquet files that ACZ writes.
 

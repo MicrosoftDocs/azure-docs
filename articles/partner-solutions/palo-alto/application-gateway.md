@@ -1,7 +1,8 @@
 ---
 title: Cloud Next Generation Firewall (NGFW) for Azure deployment behind Azure Application Gateway
 description: Learn how to secure web applications with Cloud NGFW for Azure by Palo Alto Networks.
-
+author: BNandiniMSFT
+ms.author: bnandini
 ms.topic: how-to
 ms.date: 02/13/2026
 

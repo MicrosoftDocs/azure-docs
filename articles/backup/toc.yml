@@ -689,8 +689,14 @@
           href: backup-sql-server-vm-from-vm-pane.md
         - name: Back up SQL Server from the SQL Server VM blade
           href: backup-sql-server-database-from-azure-vm-blade.md
+        - name: Back up SQL Server instance snapshot
+          href: back-up-sql-server-instance-snapshot.md  
       - name: Restore
-        href: restore-sql-database-azure-vm.md
+        items:
+        - name: Restore SQL Server database from the vault
+          href: restore-sql-database-azure-vm.md
+        - name: Restore SQL Server instance
+          href: back-up-sql-server-instance-snapshot-restore.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
     - name: With CLI
