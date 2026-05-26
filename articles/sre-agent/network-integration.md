@@ -1,6 +1,6 @@
 ---
 title: Azure SRE Agent network integration (preview)
-description: Learn how VNet integration controls outbound access for the SRE Agent. Understand the three network modes, data-plane operations on private resources, and enterprise governance with Azure Policy.
+description: Learn how VNet integration controls outbound access for the SRE Agent. Understand the three network modes, and data-plane operations on private resources.
 ms.topic: concept-article
 ms.date: 05/26/2026
 author: craigshoemaker
@@ -18,7 +18,7 @@ This article explains why network-level control matters for enterprise deploymen
 
 ## Why network control matters
 
-By default, the SRE Agent can reach any endpoint on the internet. For development and test workloads, this permissive behavior is acceptable. For production enterprise deployments, this level of access isn't ideal.
+By default, the SRE Agent can reach any endpoint on the internet. For development and test workloads, this permissive behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
 
 Two risks drive the enterprise requirement for network controls:
 
@@ -26,7 +26,7 @@ Two risks drive the enterprise requirement for network controls:
 
 - **Prompt injection**: Malicious content on the public internet can be crafted to manipulate agent behavior. An unrestricted agent that fetches external content is exposed to injection attacks through those responses.
 
-You can better control how SRE Agent behaves by placing it inside a virtual network.
+Place the SRE Agent inside a virtual network for better control over its behavior.
 
 ## How VNet integration works
 
@@ -39,7 +39,7 @@ After you configure VNet integration, agent traffic:
 - Respects your **custom DNS** configuration
 - Follows your **enterprise security policies** and egress rules
 
-Once the SRE Agent joins the VNet, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
+After the SRE Agent joins the VNet, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
 
 > [!IMPORTANT]
 > VNet integration controls **outbound (egress) traffic only**.
@@ -70,7 +70,7 @@ Use the following criteria to select a mode:
 
 To select a control mode for your agent, open your agent in the Azure portal, and select **Settings** > **Workspace configuration**.
 
-:::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of SRE Agent network control modes selector." lightbox="media/network-integration/azure-sre-agent-networking-vnet.png":::
+:::image type="content" source="media/network-integration/azure-sre-agent-networking-vnet.png" alt-text="Screenshot of Azure SRE Agent workspace configuration showing network control mode options for unrestricted, limited, and full VNet." lightbox="media/network-integration/azure-sre-agent-networking-vnet.png":::
 
 From this screen, select your egress mode and provide your own virtual network for your agent to run in.
 
@@ -85,18 +85,32 @@ To configure preinstalled packages:
 1. Enter the package name, select the package manager (**pip** or **NuGet**), and optionally specify a version.
 1. Select **+ Add package**.
 
-:::image type="content" source="media/network-integration/azure-sre-agent-packages.png" alt-text="Screenshot of the Packages tab in Workspace configuration showing fields for package name, package manager, and version." lightbox="media/network-integration/azure-sre-agent-packages.png":::
+:::image type="content" source="media/network-integration/azure-sre-agent-packages.png" alt-text="Screenshot of the Packages tab in Azure SRE Agent workspace configuration showing fields for package name, package manager, and version." lightbox="media/network-integration/azure-sre-agent-packages.png":::
 
 > [!NOTE]
 > NuGet entries must be .NET CLI tools (for example, `dotnet-ef`). You can't install library packages globally.
 
-## VNet bypass controls and governance
+## VNet bypass controls
 
-Full VNet mode includes bypass controls that you can use to temporarily disable VNet routing. These bypasses allow you to conduct network troubleshooting. By disabling VNet routing for a test run, you can isolate whether a problem originates in the agent or in the network configuration.
+When you enable Full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet. Traffic routed through the infra network path bypasses your VNet, which means your NSG rules and private DNS don't apply to that traffic. If you don't enable any of these controls, all agent traffic routes through your VNet.
 
-### Enterprise governance with Azure Policy
+> [!CAUTION]
+> Each bypass you enable allows traffic to leave your VNet without passing through your network security controls. Verify that each entry fits your security posture before enabling it.
 
-For enterprises that require all agent traffic to route through the VNet at all times, bypass controls present a compliance gap. Azure Policy addresses this gap. You can apply a policy to restrict or disable bypass controls, ensuring that no operator can circumvent the VNet configuration.
+The following controls are available:
+
+| Control | Description |
+|---------|-------------|
+| **MCP server access** | When enabled, MCP servers reach the network via the infra path, bypassing your VNet. |
+| **Package manager access** | When enabled, package managers (PyPI, npm, NuGet) are reached via the infra path, bypassing your VNet. |
+| **Code repositories** | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) are reached via the infra path, bypassing your VNet. |
+| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route through the infra path instead of your VNet. Your configured packages and connectors automatically allow their own hosts. |
+
+These controls are useful for troubleshooting. If the agent can't reach a required endpoint through your VNet, you can temporarily enable a bypass to isolate whether the problem originates in the agent or in your network configuration. For example, if a tool fails to connect when VNet routing is active but succeeds with the bypass enabled, the issue likely exists in your firewall rules or DNS configuration rather than in the agent itself.
+
+### Governance considerations
+
+Any user with the SRE Agent Administrator role can enable or disable these bypass controls. In enterprise environments, this flexibility can be a concern because it allows administrators to route traffic outside the VNet, potentially circumventing network security policies.
 
 ## Limitations
 
