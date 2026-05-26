@@ -1,6 +1,8 @@
 ---
 title: "Create a Confluent Cloud Resource - Azure Portal"
 description: Learn how to begin using Apache Kafka & Apache Flink on Confluent Cloud by creating an instance in the Azure portal.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: quickstart
 ms.date: 02/07/2025
 ms.custom: sfi-image-nochange
