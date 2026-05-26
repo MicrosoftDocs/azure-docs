@@ -132,6 +132,10 @@ To view the device, asset, and data flows, navigate to the [operations experienc
 
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
+Before continuing, make sure all the resources are in the **Available** state. It may take several minutes for the resources to be created and show as available in the UI.
+
+:::image type="content" source="media/quickstart-configure/codespace-overview.png" alt-text="Screenshot in the operations experience that shows all resources as available.":::
+
 The opc-ua-connector device defines the connection to the OPC PLC simulator:
 
 :::image type="content" source="media/quickstart-configure/device-list.png" alt-text="Screenshot in the operations experience that shows a list of devices.":::
