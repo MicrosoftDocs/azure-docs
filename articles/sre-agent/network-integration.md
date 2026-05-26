@@ -92,7 +92,7 @@ To configure preinstalled packages:
 
 ## VNet bypass controls
 
-When you enable Full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet over the public internet instead. If you don't enable any of these controls, all agent traffic routes through your VNet.
+When you enable full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet over the public internet instead. If you don't enable any of these controls, all agent traffic routes through your VNet.
 
 > [!CAUTION]
 > Each bypass you enable allows traffic to leave your VNet without passing through your network security controls. Check that each entry fits your security posture before enabling it.
