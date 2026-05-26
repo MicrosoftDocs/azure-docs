@@ -14,8 +14,6 @@ ms.service: resiliency
 
 This article describes how to  assign resiliency goals to a service group, view your resiliency posture, and manage resource evaluation. It covers key concepts, supported scenarios, and how to exclude or manually attest resources to improve the accuracy of your resilience posture and receive more targeted recommendations.
 
-A usage plan tells Azure which subscription should be billed when pricing takes effect at General Availability (GA).
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
@@ -25,15 +23,13 @@ A usage plan tells Azure which subscription should be billed when pricing takes 
 
 ## Supported scenario
 
-You can assign goals to service groups with lesser than **500** resources.
+You can assign goals to service groups with up to **500** resources.
 
 [Learn more about the supported scenarios, limitations, and Azure role-based access control (RBAC) roles for goals and recommendations (preview)](goals-recommendations-support-matrix.md).
 
 ## Enroll in a usage plan
 
-Before you assign goals or use any capabilities, you must enroll your service group in a usage plan. If you don’t configure a usage plan, a notification window appears in the portal prompting you to enroll.
-
-A usage plan tells Azure which subscription should be billed when pricing takes effect at General Availability (GA). Setting up a usage plan now means you don't need to configure it later.
+Before you assign goals or use any capabilities, you must enroll your service group in a usage plan. If you don’t configure a usage plan, a notification window appears in the portal prompting you to enroll. Setting up a usage plan now means you don't need to configure it later.
 
 Infrastructure Resiliency Manager offers two usage plan tiers:
 
@@ -132,7 +128,7 @@ Over time, there might be changes to your service group, such as resources being
 - Newly added resources aren't automatically refreshed after goal assignment. [Rediscovery](#rediscover-resources) is required to include them. 
 - By default, all supported resource types are included in the goal evaluation.
 - There might be a temporary discrepancy between the recommendation count and the nonresilient resource count. This discrepancy occurs because the recommendations take a few hours to get updated. Use the summary tile to get the latest resilience posture of the service group.
-- Resource types that the service doesn't support are automatically excluded from goal evaluation and can't be included. However, if you're already ensured resiliency for these resources, you can manually attest them to reflect their resiliency status in the summary view.
+- Resource types that the service doesn't support are automatically excluded from goal evaluation and can't be included. If resiliency is already in place for these resources, you can manually attest them to show their status in the summary view.
 - Rediscovery evaluates only the resources accessible to the user who starts the action. Different users with different access levels can produce different rediscovery results. 
 - For example, if User 1 has service group membership read access to resources A, B, and C and runs rediscovery, the service evaluates A, B, and C. If User 2 later runs rediscovery and the user has access only to resources B and C, only B and C are evaluated.
 - **Recommendation:** Limit who can run rediscovery and ensure those users have access to the full set of service group resources. This limit helps keep rediscovery results consistent and complete.
