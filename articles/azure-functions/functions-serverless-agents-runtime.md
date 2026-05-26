@@ -173,7 +173,7 @@ Email the summary to $TO_EMAIL.
   "servers": {
     "office365": {
       "type": "http",
-      "url": "$MICROSOFT_365_CONNECTION_MCP_ENDPOINT"
+      "url": "$O365_MCP_SERVER_URL"
     }
   }
 }
@@ -208,33 +208,36 @@ Use these fields in each `servers` entry:
 | `url` | Yes | Remote MCP server endpoint. Environment variable substitution is supported. |
 | `tools` | No | List of allowed tool names from the server. Omit this field, or use `['*']`, to allow all tools. |
 | `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP endpoints. |
-| `authorization` | For connection MCP endpoints | Managed identity authorization settings for Azure connection MCP endpoints. |
+| `auth.scope` | For connection MCP endpoints | Microsoft Entra token scope used to authenticate calls to the MCP endpoint. |
+| `auth.client_id` | No | Client ID of the managed identity to use for this MCP server. Omit this field to use the app-wide identity selection. |
+| `load_tools` | No | Controls whether tools are loaded from the MCP server. Defaults to `true`. |
+| `load_prompts` | No | Controls whether prompts are loaded from the MCP server. Defaults to `true`. |
 
 Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The runtime uses connections in two ways:
 
 + **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
 + **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
 
-A connection MCP server entry stores the endpoint, optional tool allow list, and managed identity authorization settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
+A connection MCP server entry stores the endpoint, optional tool allow list, and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
 
 ```json
 {
   "servers": {
-    "office365": {
+    "office365-outlook": {
       "type": "http",
-      "url": "$MICROSOFT_365_CONNECTION_MCP_ENDPOINT",
-      "tools": ["*"],
-      "authorization": {
-        "type": "managed-identity",
-        "identity": "system",
-        "scope": "https://apihub.azure.com/.default"
+      "url": "$O365_MCP_SERVER_URL",
+      "tools": ["office365_SendEmailV2"],
+      "load_prompts": false,
+      "auth": {
+        "scope": "https://apihub.azure.com/.default",
+        "client_id": "$O365_MCP_CLIENT_ID"
       }
     }
   }
 }
 ```
 
-Use `"identity": "system"` for the system-assigned managed identity. In apps that use a user-assigned managed identity for connection MCP endpoints, set `identity` to that managed identity's client ID. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
+In apps that use a specific user-assigned managed identity for a connection MCP endpoint, set `auth.client_id` to that managed identity's client ID. If `auth.client_id` is omitted or empty, the runtime uses the app-wide identity selection. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
 
 ## How the runtime starts an app
 
@@ -456,7 +459,7 @@ Use these settings to select managed identities:
 | Azure OpenAI model provider | `AZURE_OPENAI_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
 | Azure AI Foundry model provider | `FOUNDRY_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
 | Azure Container Apps dynamic sessions sandbox | `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` | `AZURE_CLIENT_ID` |
-| Connection MCP endpoints | The `authorization.identity` value in the server entry in `mcp.json` | System-assigned identity when `identity` is `system` |
+| Connection MCP endpoints | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID` |
 | Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | Azure Functions storage configuration |
 
 For Azure OpenAI, these identity settings apply only when `AZURE_OPENAI_API_KEY` isn't set. If an API key is configured, the model provider uses the key instead of managed identity.
@@ -500,10 +503,10 @@ If you only need to expose deterministic functions as tools for another AI clien
 
 ## Get started
 
-Start with the quickstart to deploy a complete serverless agent app with a timer trigger, model deployment, connection MCP tools, and email output:
+Start with the quickstart to deploy a serverless agents app with a chat agent, a timer-triggered blog summary agent, a model deployment, sandboxed execution, and optional connection MCP tools:
 
 > [!div class="nextstepaction"]
-> [Build a serverless agent using Azure Functions](scenario-serverless-agents-runtime.md)
+> [Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Related content
 
