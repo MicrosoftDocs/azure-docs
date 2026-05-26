@@ -20,13 +20,19 @@ ms.update-cycle: 365-days
 
 When you build solutions that integrate with Software-as-a-Service (SaaS) apps, business systems, and data platforms, you typically have to write custom API client code for each connection or integration. You must also manage authentication flows, credential rotation, retry logic, pagination, and webhook subscriptions across multiple systems, which adds significant development overhead and operational risk. 
 
-Azure Connector Namespace is a fully managed integration service that eliminates this complexity. The service hosts a catalog of prebuilt, reusable connectors that your solutions can use to connect to services, such as SharePoint, Salesforce, SAP, and Outlook, through a consistent programming model. Each connector exposes operations such as event triggers, actions that complete tasks, and AI agent tools through a shared connection model. Your solution can call triggers and actions by using language-specific software development kits (SDKs) for C#, Node.js, and Python, or through direct HTTP calls.
+Azure Connector Namespace is a fully managed integration service that eliminates this complexity. The service hosts a catalog of prebuilt, reusable connectors that your solutions can use to connect to services, such as SharePoint, Salesforce, SAP, and Outlook, through a consistent programming model. Each connector exposes operations such as event triggers, actions that complete tasks, and AI agent tools through a shared connection model. Your solution can call triggers and actions by using language-specific software development kits (SDKs) for C#, Node.js, and Python, or through direct HTTP calls. A *connector namespace* manages the underlying integration infrastructure by handling the following tasks:
 
-This overview describes what you can do with connector namespaces, key concepts, and how connector namespaces work.
+This overview describes what you can do with connector namespaces, key concepts, how connector namespaces work, security aspects, and considerations for deployment during preview.
+
+> [!NOTE]
+>
+> Azure Connector Namespace is an integration pathway for compute services that don't run on a workflow engine. Connector namespaces don't require, use, or change anything in Azure Logic Apps. The connectors gallery in Azure Logic Apps works independently and separately for workflows in Azure Logic Apps.
 
 ## What you can do with connector namespaces
 
-Connector Namespaces let you integrate your applications with hundreds of external services using a consistent programming model. The following table describes common scenarios include:
+Integrate your apps with hundreds of external services by using a consistent programming model. The following table describes common scenarios include:
+
+With a connector namespace, 
 
 | Scenario | Description |
 |----------|-------------|
@@ -47,36 +53,6 @@ A *connector namespace* manages the underlying integration infrastructure by han
 | Retry, throttling, and error handling | Set up built-in resilience policies without custom implementation. |
 | MCP server hosting for AI agents | Publish connectors as Model Context Protocol (MCP) servers so that AI agents and Copilot can call external services as tools. |
 
-- The following list contains the currently supported Azure services that can use the connector operations available through a connector namespace in Azure:
-
-  - Azure App Service
-  - Azure Container Apps
-  - Azure Functions
-  - Azure Kubernetes Service
-
-- Any self-hosted compute can use connectors through a connector namespace.
-
-- AI agents and MCP server-aware clients can discover and invoke tools through namespace-hosted MCP servers without going through a separate compute layer.
-
-  Your applications and AI agents can integrate with external services without writing custom API client code or tool wrappers.
-
-- You can use Copilot and other AI agents to interact with connected systems by using MCP servers deployed on the namespace.
-
-   The namespaces provides and manages the underlying compute for running servers so you don't have to bring your own. 
-
-## Where you can use Connector Namespaces
-
-Connector Namespaces support the following Azure compute hosts:
-
-- Azure Functions
-- Azure Container Apps
-- Azure App Service
-- Self-hosted ASP.NET, Node.js, or Python services on Azure Virtual Machines or Azure Kubernetes Service
-
-Connector Namespace don’t require Azure Logic Apps. Existing Logic Apps Standard and Consumption workflows continue to use the connector catalog as they do today; the namespace is an independent path for compute that doesn’t run on a workflow engine.
-
-AI agents and Copilot extensions can also reach the namespace through its MCP server endpoints, without going through Azure compute at all.
-
 ## Key concepts
 
 The following table describes core concepts for working with connector namespaces:
@@ -90,60 +66,98 @@ The following table describes core concepts for working with connector namespace
 | MCP server | A first-class resource in your namespace that exposes tools to AI agents over the Model Context Protocol. The namespace supports two types of MCP servers, both hosted by the service: <br><br>- **Managed MCP servers.** A list of managed servers and connectors created and configured by the namespace. Deploy a managed server or connector as an MCP server. You only authenticate the underlying connection - the namespace handles server configuration, tool definitions, lifecycle, and runtime. <br><br>- **Hosted MCP servers.** Off-the-shelf MCP servers from a curated catalog that you deploy to your namespace and configure yourself. You keep control over server settings, environment, and parameters; the namespace handles hosting, scale, and credentials. <br><br>In both cases, AI agents - Copilot, custom agents, or any MCP-aware client - discover and call the tools using the namespace’s connection model. Servers can be enabled, disabled, or rotated independently of the underlying connection. |
 | Connector SDKs | Connector Namespaces ship with strongly typed SDKs so you can call connectors using your language's normal idioms: <br><br>- **C#** - [Azure.Connectors.Sdk](https://www.nuget.org/packages/Azure.Connectors.Sdk) on NuGet, with a Visual Studio Code language service for IntelliSense, completions, and CodeLens. <br><br>- **Node.js** - [@azure/connectors](https://www.npmjs.com/package/@azure/connectors) a TypeScript-first client with async/await action invocation. <br><br>- **Python** - [azure-connectors](https://pypi.org/project/azure-connectors) aligned with Azure SDK for Python conventions. <br><br>Each SDK exposes the same catalog, the same connection model, and consistent telemetry and retry semantics. You can also call connectors over HTTP when a typed SDK isn’t appropriate. |
 
-## How Connector Namespaces work
+## How to work with connector namespaces
 
-### Typical workflow with connectors
+The following sections describe the high-level process to start integrating connectors or MCP servers with your app.
 
-1.  You create a Connector Namespace in your Azure subscription.
-1.  You create one or more connections to the services you want to integrate with - for example, an OAuth connection to Microsoft 365 or an API key connection to an external service.
-1.  Your application - running on Azure Functions, Container Apps, App Service, or another compute host - references the namespace and the connection through a Connectors SDK.
-1.  Your application invokes connector actions or subscribes to connector triggers.
-1.  The namespace handles authentication, request signing, polling, webhook subscription, and retries. Your application receives typed responses and event payloads.
+### Typical steps to integrate connectors with your app
 
-Action invocations are synchronous calls. Trigger delivery uses webhooks or pull-based subscriptions, depending on the connector and the source service.
+The following high-level steps describe a typical way you can start using connectors with your app:
 
-### Typical workflow with MCP servers
+1. In your Azure subscription, create a connector namespace resource.
 
-1.  You create a Connector Namespace in your Azure subscription.
-1.  You add an MCP server to the namespace - either a managed MCP server or a hosted MCP server from the catalog.
+1. Create one or more connections to the services you want to integrate.
 
-1.  You authenticate the underlying connection and set any server-specific configuration.
+   For example, suppose you create an OAuth connection to Microsoft 365 or an API key connection to an external service.
 
-1.  The namespace publishes the MCP endpoint and runs the server, handling authentication, scale, and credential rotation.
+   1. Your app, which runs in Functions, Container Apps, App Service, or another compute service, references the namespace and the connection through a Connectors Namespace SDK. 
 
-1.  AI agents - Copilot, custom agents, or any MCP-aware client - discover the server, read its tool catalog, and invoke tools using the configured connection.
+   1. Your app subscribes to connector triggers or calls connector actions.
+
+      Action calls are synchronous. Trigger delivery uses webhooks or pull-based subscriptions, based on the connector and the source service.
+
+   1. Your namespace handles authentication, request signing, polling, webhook subscription, and retries.
+
+   1. Your app receives typed responses and event payloads.
+
+### Typical steps to integrate MCP servers with your app
+
+The following high-level steps describe a typical way you can start using MCP servers with your app:
+
+1. In your Azure subscription, create a connector namespace resource.
+
+1. From the catalog, add an MCP server to your connector namespace.
+
+   You can add a managed MCP server or a hosted MCP server.
+
+1. Authenticate the underlying connection. Set up any server-specific configuration requirements.
+
+   1. Your namespace publishes the endpoint for the MCP server and runs the server, handles authentication, scaling, and credential rotation.
+
+   1. AI agents, such as Copilot, custom agents, or any MCP-aware client, can find the MCP server, read its tool catalog, and invoke tools using the configured connection.
+
+## Where you can use connector namespaces
+
+This section describes ways that your app can use connector namespaces and connector operations for integration.
+
+- Connector namespaces support the following Azure compute services where your app can use available connector operations:
+
+  - Azure App Service
+  - Azure Container Apps
+  - Azure Functions
+
+- Any self-hosted compute service can use connectors through a connector namespace.
+
+  For example, self-hosted ASP.NET, Node.js, or Python services hosted on Azure Kubernetes or Azure Virtual Machines.
+
+AI agents and Copilot extensions can also reach the namespace through its MCP server endpoints, without going through Azure compute at all.
+
+
+- AI agents and MCP server-aware clients can discover and invoke tools through namespace-hosted MCP servers without going through a separate compute layer.
+
+  Your applications and AI agents can integrate with external services without writing custom API client code or tool wrappers.
+
+- You can use Copilot and other AI agents to interact with connected systems by using MCP servers deployed on the namespace.
+
+   The namespaces provides and manages the underlying compute for running servers so you don't have to bring your own. 
 
 ## Security and governance
 
-- The Connector Namespcate stores and rotates Connections credentials; application code never handles raw credentials.
+- Your connector namespace stores, manages, and rotates connection credentials. Your app never handles raw credentials.
 
-- Network access can be restricted using virtual network integration and private endpoints to the namespace.
+- Restrict network access by using virtual network integration and private endpoints with your connector namespace.
 
-- Role-based access control (RBAC) on the namespace governs who can create connections, register triggers, and invoke actions.
+- Control who can create connections, register triggers, and invoke actions by using role-based access control (RBAC) on your connector namespace.
 
-- Diagnostic logs and correlation ids flow to Azure Monitor for end-to-end tracing across compute and namespace.
+- To support end-to-end tracing across your connector namespace and compute services, diagnostic logs and correlation IDs flow to Azure Monitor.
 
-## Limitations 
+## Considerations and limitations
 
-Connector Namespace is in preview. Conside the following when planning a deployment:
+With Azure Connector Namespace currently in preview, review the following considerations when you plan a deployment during the preview period:
 
-- **No SLA during preview.** The service isn’t recommended for production workloads.
-
-- **Region availability.** Limited regions are available in early preview and expand over time.
-
-- **Connector coverage.** Standard and high-volume connectors are enabled first. Premium and enterprise connectors - for example, SAP, IBM MQ, and Oracle Database - follow in later waves.
-
-- **Identity.** Key-based and OAuth connections are supported in early preview. Managed identity support arrives in later waves; a select set of MCP servers will support managed identity earlier.
-
-- **Versioning.** SDK and namespace runtime versions are paired during preview. Expect breaking changes between preview milestones.
-
-- **Pricing.** The pricing model isn’t finalized. Metering shape might change before general availability.
-
+| Consideration | Description |
+|---------------|-------------|
+| No SLA during preview | The service isn't recommended for production workloads. |
+| Region availability | Limited regions are available in early preview and expand over time. |
+| Connector coverage | Standard and high-volume connectors are enabled first. Premium and enterprise connectors - for example, SAP, IBM MQ, and Oracle Database - follow in later waves. |
+| Identity | Key-based and OAuth connections are supported in early preview. Managed identity support arrives in later waves; a select set of MCP servers will support managed identity earlier. |
+| Versioning | SDK and namespace runtime versions are paired during preview. Expect breaking changes between preview milestones. |
+| Pricing | The pricing model isn't finalized. Metering shape might change before general availability. |
 
 ## Releated content
 
-- [Create your first Connector Namespace](create-connector-namespace.md)
-- [Configure a connection to an external service](create-connector-namespace-connection.md)
+- [Quickstart: Create a connector namespace](create-connector-namespace.md)
+- [Create a connection to an external service](create-connector-namespace-connection.md)
 - Call a connector action from Azure Functions using the Connectors SDK for C#, Node.js, or Python.
 - Subscribe to a connector trigger from Azure Container Apps.
 - Publish a connector as a managed MCP server and connect it to an AI agent.
