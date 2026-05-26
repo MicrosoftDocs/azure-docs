@@ -87,7 +87,7 @@ Once the files are in Archive tier, they are not directly accessible. To access 
 
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-rehydrate2.png" alt-text="Screenshot that shows confirmation diagram for rehydration process.":::
 
-For more detailed information on how to configure Tiger Bridge for your specific set-up, refer to the latest [Tiger Bridge Administration Guide](https://www.tiger-technology.com/software/tiger-bridge/docs/)
+For more detailed information on how to configure Tiger Bridge for your specific set-up, refer to the latest [Tiger Bridge Administration Guide](https://www.tiger-technology.com/docs/tiger-bridge/Tiger_Bridge_5.1_Administration_Guide.pdf)
 
 ## Configure disaster recovery
 Tiger Bridge can be configured in Disaster Recovery mode. Typical configuration is an active - passive configuration with one Tiger Bridge server on the primary and one on the secondary site. Tiger Bridge server on the primary site is active and replicates the data to secondary Tiger Bridge server (through Azure Blob Storage). Tiger Bridge server on the secondary server is idle and receives file changes
@@ -123,7 +123,7 @@ Tiger Technology provides 365x24x7 support for Tiger Bridge. To contact support,
 
 ## Next steps
 - [Tiger Bridge website](https://www.tiger-technology.com/software/tiger-bridge/)
-- [Tiger Bridge guides](https://www.tiger-technology.com/software/tiger-bridge/docs/)
+- [Tiger Bridge guides](https://www.tiger-technology.com/docs/tiger-bridge/Tiger_Bridge_5.1_Administration_Guide.pdf)
 - [Azure Storage partners for primary and secondary storage](./partner-overview.md)
 - [Tiger Bridge Marketplace offering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tiger-technology.tiger_bridge_saas_soft_only?tab=Overview)
 - [Running ISV file services in Azure](../primary-secondary-storage/isv-file-services.md)

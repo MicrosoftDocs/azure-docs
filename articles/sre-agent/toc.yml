@@ -30,6 +30,8 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
+      - name: Network integration
+        href: network-integration.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -142,6 +144,8 @@ items:
             href: favorites-mine-filter.md
       - name: Measure & govern
         items:
+          - name: Operations Hub overview
+            href: operations-hub-overview.md
           - name: Track incident value
             href: track-incident-value.md
           - name: Monitor agent usage

@@ -24,7 +24,7 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 ## Setting up a static website
 
-Static website hosting functionality is configured within a storage account and isn't enabled by default. To enable static website hosting, select a storage account. In the left navigation pane, select **Static website** from the **Data management** group, and then select **Enabled**. Provide a name for your *Index document name*. You can optionally provide a path to a custom 404 page. Finally, select **Save** to save your configuration changes.
+You configure static website hosting functionality within a storage account. It's not enabled by default. To enable static website hosting, select a storage account. In the left navigation pane, under **Data management**, select **Static website**, and then select **Enabled**. Enter a name for your *Index document name*. You can optionally provide a path to a custom 404 page. Finally, select **Save** to save your configuration changes.
 
 :::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-enable-sml.png" alt-text="Screenshot showing the locations used to enable static website hosting on a storage account." lightbox="media/storage-blob-static-website/storage-blob-static-website-enable-lrg.png":::
 

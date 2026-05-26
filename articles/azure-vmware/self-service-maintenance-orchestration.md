@@ -1,5 +1,5 @@
 ---
-title: Plan self-service maintenance for Azure VMware Solution (public preview)
+title: Plan self-service maintenance for Azure VMware Solution
 description: Learn how to enable self service maintenance for Azure VMware Solution.
 author: jjaygbay1
 ms.author: jacobjaygbay
