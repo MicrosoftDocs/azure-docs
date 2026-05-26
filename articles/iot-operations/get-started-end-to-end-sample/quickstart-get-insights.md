@@ -161,7 +161,7 @@ This step completes the quickstart flow for using Azure IoT Operations to manage
 
 Now that you're finished with the quickstart experience, this section contains instructions to delete your sample resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.

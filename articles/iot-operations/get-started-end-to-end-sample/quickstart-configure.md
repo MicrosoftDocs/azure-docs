@@ -177,8 +177,11 @@ In this quickstart, you used a bicep file to configure your Azure IoT Operations
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+If you're pausing before moving on to the next quickstart, we recommend stopping your codespace to avoid unnecessary costs. For more information, see [Stopping and starting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=vscode).
+
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 ## Next step
 
-If you want to learn how to build a Microsoft Fabric dashboard to get insights from your oven data, see [Tutorial: Get insights from your processed data](../end-to-end-tutorials/tutorial-get-insights.md).
+> [!div class="nextstepaction"]
+> [Quickstart: Get insights from your processed data](quickstart-get-insights.md)
