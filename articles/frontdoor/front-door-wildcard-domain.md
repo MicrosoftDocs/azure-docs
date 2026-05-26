@@ -121,7 +121,7 @@ When configuring a route, you can select a wildcard domain as an origin. You can
 > You must have matching path patterns across your routes, or your clients will see failures.
 > 
 > For example, suppose you have two routing rule:
-> - Route 1 (`*.foo.com/*` mapped to origin group A)
+> - Route 1 (`*.foo.com/*` mapped to origin group A).
 > - Route 2 (`bar.foo.com/somePath/*` mapped to origin group B)
 > If a request arrives for `bar.foo.com/anotherPath/*`, Azure Front Door selects route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
 
@@ -137,7 +137,7 @@ When configuring a routing rule, you can select a wildcard domain as a front-end
 > You must have matching path patterns across your routes, or your clients will see failures.
 > 
 > For example, suppose you have two routing rule:
-> - Route 1 (`*.foo.com/*` mapped to backend pool A)
+> - Route 1 (`*.foo.com/*` mapped to backend pool A).
 > - Route 2 (`bar.foo.com/somePath/*` mapped to backend pool B)
 > If a request arrives for `bar.foo.com/anotherPath/*`, Azure Front Door selects route 2 based on a more specific domain match, only to find no matching path patterns across the routes.
 
