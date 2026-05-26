@@ -101,6 +101,8 @@ items:
         items:
           - name: Microsoft Entra ID for authentication
             href: entra-for-authentication.md
+          - name: Custom data access permissions (preview)
+            href: configure-access-permissions.md
       - name: Reliability
         items:
           - name: Reliability in Azure Managed Redis

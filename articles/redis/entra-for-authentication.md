@@ -44,6 +44,9 @@ If you have used access keys in the past for authentication, you need to update 
 
    :::image type="content" source="media/entra-for-authentication/redis-add-user.png" alt-text="Screenshot of the authentication tab in a Redis cache on the Azure portal.":::
 
+> [!TIP]
+> By default, users receive full access to all commands and keys. To restrict a user's permissions, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
+
 ### Microsoft Entra client workflow
 
 1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default`, or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
