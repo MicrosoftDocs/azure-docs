@@ -1,17 +1,17 @@
 ---
-title: Get started
+title: Get started with NC2 on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure (obsolete).
+description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure.
 ms.topic: get-started
-ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/13/2026
-ms.service: azure-baremetal-infrastructure
+ms.date: 04/5/2026
+ms.service: nc2-on-azure
+
 # Customer intent: As an IT administrator, I want to sign up for and configure Nutanix Cloud Clusters on Azure, so that I can efficiently manage my cloud infrastructure while ensuring connectivity and compliance with my organization’s requirements.
 ---
 
-# Get started with Nutanix Cloud Clusters on Azure (obsolete)
+# Get started with Nutanix Cloud Clusters on Azure
 
 Learn how to get started with Nutanix Cloud Clusters (NC2) on Azure. You can also sign up for a free trial of NC2 on Azure.
 
@@ -19,8 +19,8 @@ Learn how to get started with Nutanix Cloud Clusters (NC2) on Azure. You can als
 
 To deploy NC2 on Azure you must have the following:
 
-* An **active subscription**. 
-* An **Azure account** associated with an active subscription and a **Microsoft Entra ID** with permissions to create an app registration in Microsoft Entra ID with access to the subscription.
+* An **active subscription** which will need to be allowlisted.
+* An **Azure account ** associated with an active subscription and a **Microsoft Entra ID** with permissions to create an app registration in Microsoft Entra ID with access to the subscription.
 * A **My Nutanix** account.
 * In addition, there are **networking and Azure quota** requirements to consider.
 
