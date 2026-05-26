@@ -13,6 +13,11 @@ ms.custom: sfi-image-nochange
 
 By default, IoT Hub's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this IoT Hub public endpoint, and IoT devices in wide-area networks and on-premises networks can all access it.
 
+> [!NOTE]
+> IoT Hub introduces additional endpoints to support TLS 1.3 (Preview). These endpoints are additive and do not replace the existing endpoint used by Private Link (`<hub>.azure-devices.net`). Existing Private Endpoint configurations continue to function without any changes.
+>
+> For more information about these endpoints, see [TLS 1.3-enabled endpoints](iot-hub-devguide-endpoints.md#tls-13-enabled-endpoints-preview).  
+
 :::image type="content" source="./media/virtual-network-support/public-endpoint.png" alt-text="Diagram showing the IoT Hub public endpoint and various interactions.":::
 
 Some IoT Hub features, including [message routing](./iot-hub-devguide-messages-d2c.md), [file upload](./iot-hub-devguide-file-upload.md), and [bulk device import/export](./iot-hub-bulk-identity-mgmt.md), also require connectivity from IoT Hub to a customer-owned Azure resource over its public endpoint. These connectivity paths make up the egress traffic from IoT Hub to customer resources.

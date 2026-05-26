@@ -41,9 +41,9 @@ When an invoice wasn't paid, its status is shown as *Past due*. A past due subsc
 
 ## Invoices for MOSP billing accounts
 
-An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn), [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) can have a billing account for an MCA.
+Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) can have a billing account for an MCA.
 
 If you're unsure of your billing account type, see [Check your billing account type](../manage/view-all-accounts.md#check-the-type-of-your-account) before following the instructions in this article. 
 
@@ -127,7 +127,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 ## Invoices for MCA and MPA billing accounts
 
-An MCA billing account is created when your organization works with a Microsoft representative to sign an MCA. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) might have a billing account for an MCA as well. For more information, see [Get started with your MCA billing account](../understand/mca-overview.md).
+An MCA billing account is created when your organization works with a Microsoft representative to sign an MCA. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) might have a billing account for an MCA as well. For more information, see [Get started with your MCA billing account](../understand/mca-overview.md).
 
 An MPA billing account is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your MPA billing account](../understand/mpa-overview.md).
 

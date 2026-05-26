@@ -255,6 +255,33 @@ Official SDK support for this public preview feature isn't yet available. To get
 
 [Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
+## TLS 1.3 (Preview) behavior and requirements
+
+Azure IoT Hub supports TLS 1.3 through newly introduced endpoints. TLS 1.3 is not exposed through the existing (classic) endpoint.
+
+### Key behaviors
+
+- TLS 1.3 is available **only via the new device and service endpoints** (`<hub>.device.azure-devices.net` and `<hub>.service.azure-devices.net`).
+- The classic endpoint (`<hub>.azure-devices.net`) continues to support TLS 1.2.
+
+### Requirements for new endpoints
+
+The TLS 1.3-capable endpoints introduce stricter security requirements:
+
+- **Server Name Indication (SNI) is required**
+- Only **restricted, security-compliant cipher suites** are supported
+
+### TLS 1.2 compatibility
+
+- Devices using TLS 1.2 may still connect to the new endpoints  
+- This is supported **only if the client supports the required cipher suites**
+
+### Migration guidance
+
+- Adoption of TLS 1.3 endpoints is **optional and customer-controlled**
+- Customers can continue using the classic endpoint indefinitely
+- Migration can be performed gradually, based on device and solution readiness
+
 
 ## Next steps
 

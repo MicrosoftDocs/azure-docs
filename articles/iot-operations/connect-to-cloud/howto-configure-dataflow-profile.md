@@ -6,9 +6,9 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 05/15/2026
 
-#CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
+#CustomerIntent: As an operator, I want to understand how I can configure a data flow profile to control data flow behavior.
 ---
 
 # Configure data flow profile

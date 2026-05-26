@@ -32,6 +32,8 @@ This article supports both programming models.
 
 ::: zone-end
 
+For a complete end-to-end example of using the Event Hubs trigger, see [Process real-time events by using Azure Functions](../articles/azure-functions/scenario-real-time-events-processing.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"

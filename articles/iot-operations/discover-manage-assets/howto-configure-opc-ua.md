@@ -4,8 +4,8 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 02/09/2026
-
+ms.date: 05/12/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -32,7 +32,11 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 ## Prerequisites
 
-To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+- The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -164,7 +168,19 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 ### Other security options
 
