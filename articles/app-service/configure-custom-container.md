@@ -93,8 +93,7 @@ validation failed" error. To check and enable this setting, run the following co
 az acr config authentication-as-arm show -r <registry-name>
 az acr config authentication-as-arm update -r <registry-name> --status enabled
 ```
-For more information, see [Configure registry acceptance of Microsoft Entra
-authentication scopes](/azure/container-registry/container-registry-disable-authentication-as-arm).
+For more information, see [Configure registry acceptance of Microsoft Entra authentication scopes](/azure/container-registry/container-registry-disable-authentication-as-arm).
 
 1. Enable the [system-assigned managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
