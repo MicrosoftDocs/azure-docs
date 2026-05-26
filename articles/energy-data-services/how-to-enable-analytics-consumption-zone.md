@@ -224,9 +224,6 @@ As an alternative to the manual commands, you can use the automated script in th
 - Adds the new ACZ identity
 - Updates the instance via Azure Resource Manager API
 
-> [!NOTE]
-> The script supports managed identities in the same or different subscriptions. If no separate managed identity subscription is specified, the script assumes both resources are in the same subscription.
-
 #### [Bash](#tab/bash-script)
 
 **Prerequisites:**
