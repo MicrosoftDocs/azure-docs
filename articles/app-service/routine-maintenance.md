@@ -110,7 +110,7 @@ Updates and maintenance events have been happening to the platform since its inc
 
 ### Why did I not receive a 7-day advance notification before receiving in-progress notifications?
 
-This upgrade was likely an unplanned maintenance event, either a hotfix or critical security patch. As Microsoft commits to ensuring security of resources, we may not always have 7 days lead time when pushing an update to address these concerns. These notifications will specify unplanned maintenance in the title.
+This upgrade was likely an unplanned maintenance event, either a hotfix or critical security patch. As Microsoft commits to ensuring the security of resources, we may not always have 7 days lead time when pushing an update to address these concerns. These notifications will specify unplanned maintenance in the title.
 
 ## Related content
 
