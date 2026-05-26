@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 03/05/2026
+ms.date: 05/26/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
