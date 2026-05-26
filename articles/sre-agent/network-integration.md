@@ -104,7 +104,7 @@ The following controls are available:
 | **MCP server access** | When enabled, MCP server traffic routes over the public internet instead of your VNet. |
 | **Package manager access** | When enabled, package manager traffic (PyPI, npm, NuGet) routes over the public internet instead of your VNet. |
 | **Code repositories** | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) route over the public internet instead of your VNet. |
-| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route over the public internet instead of your VNet. Your configured packages and connectors automatically allow their own hosts. |
+| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route over the public internet instead of your VNet. Your configured packages automatically allow their own hosts. |
 
 These controls are useful for troubleshooting. If the agent can't reach a required endpoint through your VNet, you can temporarily enable a bypass to isolate whether the problem originates in the agent or in your network configuration. For example, if a tool fails to connect when VNet routing is active but succeeds with the bypass enabled, the issue likely exists in your firewall rules or DNS configuration rather than in the agent itself.
 
@@ -114,4 +114,6 @@ Any user with the SRE Agent Administrator role can enable or disable these bypas
 
 ## Limitations
 
-VNet integration supports **Egress only**. Agent outbound (egress) traffic routes through the VNet. Inbound connections to the agent from inside a private network aren't supported.
+- VNet integration supports **Egress only**. Agent outbound (egress) traffic routes through the VNet. Inbound connections to the agent from inside a private network aren't supported.
+
+- Connectors don't route through the VNet.
