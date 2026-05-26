@@ -38,11 +38,11 @@ To execute the drill, follow these steps:
 
 When you start the drill execution, the **Drill run details** pane opens and shows the progress of a single job. This job includes the execution of Fault Injection, Failover, and Reprotection.
 
-To proceed through the drill and review the system state, follow these steps:
+To proceed through the drill and review the system status, follow these steps:
 
 1. After each stage (Fault Injection, Failover, or Reprotection) completes, select **Mark step as complete** to move to the next stage.
 
-   During each stage, review the Service Group health status to understand the current system state.
+   During each stage, review the Service Group health status to understand the current system status.
 
 
 1. To analyze resource-level health and downtime, select **View details** next to the **Service Group health status**.

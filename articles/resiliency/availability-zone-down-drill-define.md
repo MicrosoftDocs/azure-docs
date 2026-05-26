@@ -19,7 +19,7 @@ This article describes how to define a Zone Down Drill (preview) in Infrastructu
 Before you define a zone down drill, ensure that you review the following prerequisites:
 
 - Verify that your existing service group has the required resources.
-- Set up an Azure role-based access control (Azure RBAC) permissions. See the [Support Matrix](availability-zone-down-drills-support-matrix.md#required-roles-and-permissions).
+- Set up an Azure role-based access control (RBAC) permissions. See the [Support Matrix](availability-zone-down-drills-support-matrix.md#required-roles-and-permissions).
 - Set up a Recovery Plan for your Service Group.
 - Register the `Microsoft.Chaos`, `Microsoft.Insights`, `Microsoft.OperationalInsights`, and `Microsoft.Automation` resource provider namespaces in the subscription where the Chaos Workspace gets created.
 
@@ -91,7 +91,7 @@ To review drill role assignment status, follow these steps:
 
 ### Review the resources included in the drill
 
-The zone down drill allows you to review the resources included in the drill. The drill does the following actions:
+Zone down drill allows you to review the resources included in the drill. The drill does the following actions:
 
 - Includes resources with a native zonal resiliency solution by default; these resources qualify for fault injection.
 - Associates a Recovery Plan with the Service Group for resources that require manual failover (for example, Virtual Machines with Azure Site Recovery).
@@ -127,13 +127,13 @@ To design faults for supported and unsupported resources in the drill, follow th
 
    If you use custom faults via runbooks, include the following mandatory parameters to pass to the runbook:
 
-   - `ResourceIds`
-   - `Duration`
-   - `FaultLocation` (`zone` for now) 
+   - **`ResourceIds`**
+   - **Duration**
+   - **`FaultLocation`** (**zone** for now) 
 
 1. To complete the role assignment, on the **Fault designer** tab, select a resource type from the list and select **Include and prepare for fault injection** or **Exclude from fault injection**.
 
-All resources appear in the **Needs Attention** state by default. To troubleshoot readiness issues, select **Needs Attention** corresponding to each resource. You can set the Fault duration for the fault injection time configuration (default time is 10 minutes).
+All resources appear in the **Needs Attention** status by default. To troubleshoot readiness issues, select **Needs Attention** corresponding to each resource. You can set the Fault duration for the fault injection time configuration (default time is 10 minutes).
 
 ### Verify readiness and fix configuration drifts
 
@@ -145,7 +145,7 @@ To review and fix configuration drifts, follow these steps:
 
 1. If the **Drill execution readiness** status shows **Not Ready**, select the status and view the errors flagged.
 
-1. On the **Drill execution readiness state** pane, fix the errors shown and re-run a readiness check. The status changes to **Ready**.
+1. On the **Drill execution readiness state** pane, fix the errors shown and rerun a readiness check. The status changes to **Ready**.
 
 Refresh the drill instance after every edit operation.
 
