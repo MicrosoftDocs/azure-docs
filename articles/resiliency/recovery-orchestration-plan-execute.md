@@ -9,7 +9,7 @@ ms.author: shsangal
 # Customer intent: "As a cloud administrator, I want to execute failover and reprotect operations using a Recovery Orchestration Plan so that I can recover my application during a zonal outage."
 ---
 
-# Execute failover and reprotect operations (preview)
+# Execute failover and reprotect operation using Recovery Orchestration Plan (preview)
 
 This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan (preview).
 
@@ -17,7 +17,7 @@ This article describes how to execute failover, reprotect resources after failov
 
 Before you execute failover and reprotect operations, review the following prerequisites:
 
-- Check if a Recovery Orchestration Plan in **Ready** or **Warning** state.
+- Check if a **Recovery Orchestration Plan** in **Ready** or **Warning** status.
 - Verify that at least one resource included in the plan has no **Needs Attention** status.
 - Ensure that the Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role is assigned.
 - Ensure that resources protected using Azure Site Recovery have healthy replication status.
@@ -28,8 +28,8 @@ Perform a zonal failover operation to recover your application resources from th
 
 To execute a failover operation, follow these steps:
 
-1. On the Recovery Plan pane, select **Execute** > **Failover**.
-1. Select the **active location** (region) under which you want to failover the resources.
+1. On the **Recovery Plan** pane, select **Execute** > **Failover**.
+1. Select the **active location** (region) under which you want to fail over the resources.
 1. Select the **active physical zone** in the selected region. To determine the correct physical zone, select **Review zone mapping** to check the subscription-wise mapping of logical zones to physical zones.
 
    Resources are categorized in the following tabs:
@@ -63,9 +63,9 @@ The following table lists the common reasons for which resource might be skipped
 | Resource not in the active zone | The resource isn't in the selected physical zone. |
 | Failover not allowed for the resource | The resource might already be in a failed-over state or lacks recovery points. |
 
-### Failover execution behavior
+### Understand failover execution behavior
 
-After failover starts:
+After failover starts, the following actions and behaviors define how resources and tasks execute during the failover process:
 
 - Resources fail over in the order defined by your groups. Group 1 resources must all complete before Group 2 begins.
 - Resources within the same group failover in parallel.
@@ -83,7 +83,7 @@ To reprotect resources, follow these steps:
 
 1. On the **Recovery Plan** pane, select **Execute** > **Reprotect**. You can view all the resources that successfully complete failover and are eligible for reprotection.
 1. On the **Re-protect** pane, under **Resources qualified for operation**, select the resources you want to reprotect.
-1. Select the confirmation checkbox.
+1. Select the confirmation checkbox: **I understand and agree to perform operations on only the qualified resources.**
 1. Select **Execute** to start the Reprotect operation.
 
 
@@ -92,7 +92,7 @@ To reprotect resources, follow these steps:
 Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. The following validations occur during the readiness check:
 
 - **Application Modification check**: Detects if new resource is added to or removed from the Service Group since the last check. Newly added resources appear with "State not selected" inclusion state (or are automatically excluded if HA-protected).
-- **Protection health check**: Validates the protection solution and health status for each resource. If a resource's protection health is degraded or the protection solution changed, the resource is marked with an appropriate Needs Attention code.
+- **Protection health check**: Validates the protection solution and health status for each resource. If a resource's protection health is degraded or the protection solution changed, the resource is marked with an appropriate **Needs Attention** reason.
 
 To run an on-demand readiness check, follow these steps:
 

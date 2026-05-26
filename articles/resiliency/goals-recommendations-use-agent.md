@@ -37,15 +37,15 @@ Ask the agent to generate Azure Resource Manager (ARM), Bicep, or Terraform temp
 
 Use the Resiliency agent to improve the zone resiliency of applications already running in Azure.
 
-### Step 1: Define your application
+### Define your application
 
 Provide your list of resources to the agent. The agent creates a service group to model your application.
 
-### Step 2: Set goals and assess
+### Set goals and assess
 
 The agent assigns resiliency goals and evaluates your current posture, showing which resources meet goals and which don't.
 
-### Step 3: Guided remediation
+### Guided remediation
 
 The agent provides step-by-step remediation guidance, including cost and downtime insights, for resources that don't meet your goals.
 
