@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 ms.date: 11/17/2023 
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.4 (EOS)
+# Azure Synapse Runtime for Apache Spark 3.4 (deprecated)
 
 > [!CAUTION]
 > Azure Synapse Runtime for Apache Spark 3.4 was deprecated, with support ending on March 31, 2026. While it may continue to run for a limited period beyond this date, it is no longer supported and does not receive bug fixes, security updates, or vulnerability patches.
