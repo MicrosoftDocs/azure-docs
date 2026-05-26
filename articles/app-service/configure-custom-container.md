@@ -84,7 +84,7 @@ Supply the sign-in credentials for your private registry account in the *\<usern
 Use the following steps to configure your web app to pull from Azure Container Registry by using managed identity. The steps use system-assigned managed identity, but you can also use user-assigned managed identity.
 
 > [!IMPORTANT]
-> Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images. This is the default configuration, but if it was previously disabled, image pulls fail with an `UNAUTHORIZED` "token validation failed" error. To check and enable this setting, run the following commands:
+> Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images. If this setting is disabled, image pulls fail with an `UNAUTHORIZED` "token validation failed" error. To check and enable this setting, run the following commands:
 >
 > ```azurecli-interactive
 > az acr config authentication-as-arm show -r <registry-name>
