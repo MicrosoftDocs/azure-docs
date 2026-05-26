@@ -1,7 +1,7 @@
 ---
 title: Create Dynamic Agentic Workflows
 titleSuffix: Logic Apps Automation
-description: Learn how to build dynamically-run, AI-driven workflow automation that chooses actions to take either independently or with human oversight by using Logic Apps Automation.
+description: Build dynamically-run, AI-driven workflow automation that chooses actions to take either independently or with human oversight by using Logic Apps Automation.
 services: azure-logic-apps
 ms.reviewers: estfan, divswa, azla
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered automation workflow by using Logic Apps Automation.
+#Customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered automation workflow by using Logic Apps Automation.
 ---
 
 # Quickstart: Build dynamic workflows with Logic Apps Automation (preview)
@@ -18,7 +18,6 @@ ms.custom:
 > [!NOTE]
 >
 > This preview capability, might incur charges, and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. The example workflow performs the followng tasks:
 
