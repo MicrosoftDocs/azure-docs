@@ -1,19 +1,34 @@
 ---
 title: Azure Connector Namespace Overview
-description: Azure Connector Namespace is a managed service hosting reusable connectors and MCP Servers for SaaS, data, and AI integrations.
-#customer intent: As a backend developer, I want to learn how Connector Namespaces work so that I can integrate SaaS systems without writing custom API client code.
+description: Learn about Azure Connector Namespace, a managed service that hosts reusable connectors and MCP servers. Without writing any custom API client code, integrate your solutions from Azure Functions, Container Apps, and other Azure compute services with Microsoft and non-Microsoft services, apps, data, and AI workloads.
+services: azure-logic-apps
 author: wsilveiranz
 ms.author: wsilveira
-ms.reviewer: ecfan
-ms.date: 05/20/2026
+ms.reviewers: ecfan, azla
 ms.topic: concept-article
+ms.date: 06/02/2026
+ai-usage: ai-assisted
+ms.update-cycle: 365-days
+#Customer intent: As a backend developer who works with Azure, I want to understand connector namespaces so I can integrate my Azure solutions with Microsoft and non-Microsoft services, systems, apps, and data. I want to learn how to use hosted, reusable connectors and MCP servers so I don't have to write or manage custom code for authentication, hosting, or API clients.
 ---
 
 # What is Azure Connector Namespace? (preview)
 
-> [!IMPORTANT]
-> 
-> This capability is in preview and is subject to the Supplemental Terms of Use for Microsoft Azure Previews. During preview, this capability is only available in Azure public regions.
+> [!NOTE]
+>
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions. 
+
+When you build solutions that integrate with Software-as-a-Service (SaaS) apps, data platforms, or business systems, you typically write and maintain custom API client code for each external service. Managing authentication flows, credential rotation, retry logic, pagination, and webhook subscriptions across dozens of systems adds significant development overhead and operational risk.
+
+Azure Connector Namespace is a fully managed Azure integration service that eliminates this complexity. The service hosts a catalog of prebuilt, reusable connectors that let your applications connect to hundreds of external services — such as SharePoint, Salesforce, SAP, and Outlook — through a consistent programming model. You call connector actions and subscribe to triggers using language-native SDKs for C#, Node.js, and Python, or through direct HTTP calls.
+
+The namespace manages the underlying integration infrastructure for you, including:
+
+Authentication and credential management — OAuth, API key, and token-based connections stored and rotated by the service.
+Polling and webhook delivery — event subscriptions that push data to your application when source systems change.
+Retry, throttling, and error handling — built-in resilience policies without custom implementation.
+MCP server hosting for AI agents — publish connectors as Model Context Protocol (MCP) servers so AI agents and Copilot can call external services as tools.
+You can consume Azure Connector Namespace connectors from Azure Functions, Azure Container Apps, Azure App Service, Azure Kubernetes Service, or any self-hosted compute. AI agents and MCP-aware clients can also discover and invoke tools through namespace-hosted MCP servers without going through a separate compute layer.
 
 Azure Connector Namespace is a fully managed service that hosts a catalog of connectors - reusable, typed integrations to SaaS, data, and line-of-business systems. Each connector exposes actions, event triggers, and AI-agent tools through a shared connection model. The namespace handles:
 
