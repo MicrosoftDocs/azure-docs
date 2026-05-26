@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 # What's new in Resiliency
 
-Resiliency in Azure continues to evolve with new capabilities that help you strengthen your business continuity and disaster recovery (BCDR) posture. These updates expand support across workloads and environments, enhance protection and security, and improve the availability and recoverability of your applications and data. The service also introduces new capabilities for unified management, monitoring, and automation across your resiliency estate.
+Resiliency in Azure continues to evolve with new capabilities that help you strengthen your business continuity and disaster recovery (BCDR) readiness. These updates expand support across workloads and environments, enhance protection and security, and improve the availability and recoverability of your applications and data. The service also introduces new capabilities for unified management, monitoring, and automation across your resiliency estate.
 
 Bookmark this page to learn more about the new releases.
 

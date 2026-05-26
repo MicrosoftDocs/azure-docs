@@ -51,34 +51,72 @@ Certain resource types are excluded from resiliency service's discovery. When re
 
 - **Networking primitives** - such as:
 
-  - network interfaces (microsoft.network/networkinterfaces)
-  - network security groups (microsoft.network/networksecuritygroups)
-  - route tables (microsoft.network/routetables)
-  - private endpoints (microsoft.network/privateendpoints)
-  - private DNS zones (microsoft.network/privatednszones)
+  - Network interfaces (microsoft.network/networkinterfaces)
+  - Network security groups (microsoft.network/networksecuritygroups)
+  - Route tables (microsoft.network/routetables)
+  - Private endpoints (microsoft.network/privateendpoints)
+  - Private DNS zones (microsoft.network/privatednszones)
 
 - **Identity and access** - such as managed identities (microsoft.managedidentity/userassignedidentities).
 
 - **Monitoring and diagnostics** - such as:
 
   - Log Analytics workspaces (microsoft.operationalinsights/workspaces)
-  - action groups (microsoft.insights/actiongroups)
-  - metric alerts (microsoft.insights/metricalerts)
-  - activity log alerts
+  - Action groups (microsoft.insights/actiongroups)
+  - Metric alerts (microsoft.insights/metricalerts)
+  - Activity log alerts
 
-- **Automation and management** - such as automation accounts (microsoft.automation/automationaccounts), maintenance configurations (microsoft.maintenance/maintenanceconfigurations), and solutions (microsoft.operationsmanagement/solutions).
+- **Automation and management** - such as:
 
-- **Security** - such as security assessments (microsoft.security/assessments), policies, and Microsoft Defender plans.
+  - Automation accounts (microsoft.automation/automationaccounts)
+  - Maintenance configurations (microsoft.maintenance/maintenanceconfigurations)
+  - Solutions (microsoft.operationsmanagement/solutions)
 
-- **Policy and governance** - such as resource group-level policy assignments and remediations.
+- **Security** - such as:
 
-- **Storage subresources** - such as blob services, file services, queue services, and table services under storage accounts. Only the top-level resource (for example, storage account) is considered to avoid duplicate counting.
+  - Security assessments (microsoft.security/assessments)
+  - Policies
+  - Microsoft Defender plans
 
-- **Compute subresources** - such as VM extensions, disk access permissions, and disk encryption sets. Only the top-level resource (for example, VM) is considered to avoid duplicate counting.
+- **Policy and governance** - such as:
 
-- **Database subresources** - such as SQL firewall rules, failover groups, transparent data encryption settings, and Cosmos DB subresources (sql databases, tables, Cassandra keyspaces). Only the top-level resource is considered to avoid duplicate counting.
+  - Resource group-level policy assignments
+  - Remediations
 
-- **Other infrastructure resources** - such as key vaults (evaluated separately), virtual network gateways, availability sets, SSH public keys, proximity placement groups, and capacity reservation groups.
+- **Storage subresources** - such as:
+
+  - Blob services
+  - File services
+  - Queue services
+  - Table services under storage accounts
+
+  Only the top-level resource (for example, storage account) is considered to avoid duplicate counting.
+
+- **Compute subresources** - such as:
+
+  - VM extensions
+  - Disk access permissions
+  - Disk encryption sets
+
+  Only the top-level resource (for example, VM) is considered to avoid duplicate counting.
+
+- **Database subresources** - such as:
+
+  - SQL firewall rules
+  - Failover groups
+  - Transparent data encryption settings
+  - Cosmos DB subresources (sql databases, tables, Cassandra keyspaces)
+
+  Only the top-level resource is considered to avoid duplicate counting.
+
+- **Other infrastructure resources** - such as:
+
+  - Key vaults (evaluated separately)
+  - Virtual network gateways
+  - Availability sets
+  - SSH public keys
+  - Proximity placement groups
+  - Capacity reservation groups
 
 ## RBAC requirements for Goals and Recommendations
 
