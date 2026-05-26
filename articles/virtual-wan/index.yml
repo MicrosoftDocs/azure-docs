@@ -108,7 +108,7 @@ landingContent:
           - text: Scenario - Route to a shared services VNet
             url: scenario-shared-services-vnet.md
           - text: Scenario - Custom routing via Azure Firewall
-            url: scenario-route-between-vnets-firewall.md
+            url: scenario-shared-services-vnet.md
           - text: Scenario - Connect spoke VNets at scale by using Virtual Network Manager
             url: virtual-network-manager-integration.md
       - linkListType: how-to-guide
