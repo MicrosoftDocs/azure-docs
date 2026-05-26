@@ -73,6 +73,9 @@ In this step, you configure the connectivity configuration's mesh topology setti
 
 1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This step finalizes the setup of your high-scale connected group.
 
+> [!NOTE]
+> Mesh topology for high-scale private endpoints is not supported when virtual networks in the mesh have overlapping IP addresses.
+
 ### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
 
 Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To use this feature, register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group"). This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
