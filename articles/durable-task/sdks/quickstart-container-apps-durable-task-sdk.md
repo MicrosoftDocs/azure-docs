@@ -7,7 +7,7 @@ description: Learn how to configure and deploy a Durable Task SDK app on Azure C
 ms.subservice: durable-task-sdks
 ms.topic: quickstart
 ms.service: durable-task
-ms.date: 04/30/2026
+ms.date: 05/26/2026
 zone_pivot_groups: df-languages
 ms.custom:
   - build-2025

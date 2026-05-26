@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
 ms.topic: quickstart
-ms.date: 05/04/2026
+ms.date: 05/26/2026
 ms.custom:
   - build-2025
 ---

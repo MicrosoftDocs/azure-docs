@@ -1,412 +1,206 @@
 ---
 title: "Quickstart: Create a JavaScript Durable Functions app"
-description: "Create, test, and publish a JavaScript Durable Functions app in Azure Functions using Visual Studio Code. Build a stateful serverless workflow in minutes."
-author: anthonychu
+description: Run a JavaScript Durable Functions sample app with function chaining and fan-out/fan-in patterns using the Durable Task Scheduler emulator. Get started now.
+author: hhunter-ms
 ms.author: hannahhunter
 ms.topic: quickstart
 ms.service: azure-functions
-ms.date: 04/23/2026
-ms.reviewer: azfuncdf, antchu
+ms.date: 05/26/2026
+ms.reviewer: azfuncdf
 ms.devlang: javascript
-zone_pivot_groups: functions-nodejs-model
 ms.custom:
   - devx-track-js
-  - mode-api
-  - vscode-azure-extension-update-complete
-  - sfi-image-nochange
 ---
 
 # Quickstart: Create a JavaScript Durable Functions app
 
-Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. In this quickstart, you use Visual Studio Code to create, test locally, and publish a "hello world" Durable Functions app that orchestrates and chains calls to other functions.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful serverless workflows in JavaScript. In this quickstart, you clone and run a sample app that demonstrates two common orchestration patterns:
 
-In this article:
+- **Function chaining**: Calls activities sequentially (Tokyo → Seattle → London).
+- **Fan-out/fan-in**: Calls activities in parallel across five cities, then aggregates the results.
 
-- [Prerequisites](#prerequisites)
-- [Create your local project](#create-an-azure-functions-project)
-- [Install the npm package](#install-the-durable-functions-npm-package)
-- [Create your functions](#create-your-functions) — Orchestrator, activity, and HTTP starter
-- [Test the function locally](#test-the-function-locally)
-- [Test your function in Azure](#test-your-function-in-azure)
+By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler-overview.md) emulator and be able to view their status in the dashboard.
 
-[!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
+> [!NOTE]
+> This quickstart uses the [v4 Node.js programming model](../functions-node-upgrade-v4.md), which is the recommended model for new projects.
 
-:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot that shows a Durable Functions app in Visual Studio Code.":::
+> [!div class="checklist"]
+>
+> - Clone and prepare the Hello Cities sample project.
+> - Set up the Durable Task Scheduler emulator for local development.
+> - Run the function app and trigger both orchestrations.
+> - Review orchestration status and output in the Durable Task Scheduler dashboard.
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- [Node.js 18+](https://nodejs.org/) installed.
+- [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
+- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
-* [Visual Studio Code](https://code.visualstudio.com/download) installed.
+## Set up the Durable Task Scheduler emulator
 
-::: zone pivot="nodejs-model-v3"
+The [Durable Task Scheduler emulator](../../durable-task/scheduler/durable-task-scheduler-emulator.md) provides a local development environment so you can test orchestrations without an Azure subscription.
 
-* The Visual Studio Code extension [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
+Pull and start the emulator container:
 
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-* The Visual Studio Code extension [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) version 1.10.4 or later installed.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v3"
-
-* The latest version of [Azure Functions Core Tools](../functions-run-local.md) installed.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-* [Azure Functions Core Tools](../functions-run-local.md) version 4.0.5382 or later installed.
-
-::: zone-end
-* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
- 
-* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
-
-::: zone pivot="nodejs-model-v3"
-
-* [Node.js](https://nodejs.org/) version 18.x+ installed.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-* [Node.js](https://nodejs.org/) version 20.x+ installed.
-
-::: zone-end
-
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
-## <a name="create-an-azure-functions-project"></a>Create your local project
-
-In this section, you use Visual Studio Code to create a local Azure Functions project.
-
-1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
-
-   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Visual Studio Code command palette with the command Azure Functions Create New Project highlighted.":::
-
-2. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
-
-::: zone pivot="nodejs-model-v3"
-
-3. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a language for your function app project** | Select **JavaScript**. | Creates a local Node.js Functions project. |
-    | **Select a JavaScript programming model** | Select **Model V3**. | Sets the v3 programming model. |
-    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Select a template for your project's first function** | Select **Skip for now**. | |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-3. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a language for your function app project** | Select **JavaScript**. | Creates a local Node.js Functions project. |
-    | **Select a JavaScript programming model** | Select **Model V4**. | Choose the v4 programming model. |
-    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Select a template for your project's first function** | Select **Skip for now**. | |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
-
-::: zone-end
-
-Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
-
-A *package.json* file is also created in the root folder.
-
-## Install the Durable Functions npm package
-
-To work with Durable Functions in a Node.js function app, you use a library called *durable-functions*.
-
-::: zone pivot="nodejs-model-v4"
-
-To use the v4 programming model, you install the v3.x version of the durable-functions library.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v3"
-
-To use the v3 programming model, install the durable-functions v2.x library.
-
-::: zone-end
-
-1. Use the **View** menu or select Ctrl+Shift+` to open a new terminal in Visual Studio Code.
-
-::: zone pivot="nodejs-model-v3"
-
-2. Install the durable-functions npm package by running `npm install durable-functions@^2` in the root directory of the function app.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
-
-::: zone-end
-
-## Create your functions
-
-The most basic Durable Functions app has three functions:
-
-* **Orchestrator function**: A workflow that orchestrates other functions.
-* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
-* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
-
-::: zone pivot="nodejs-model-v3"
-
-> [!IMPORTANT]
-> The v3 programming model is in maintenance mode. For new projects, use the **v4 programming model** (select the pivot at the top of this page). See [Upgrade to the v4 model](../functions-node-upgrade-v4.md) for migration guidance.
-
-### Orchestrator function
-
-You use a template to create the Durable Functions app code in your project.
-
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-2. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Selects the storage back end that's used for your Durable Functions app. |
-    | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
+```bash
+docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
+  mcr.microsoft.com/dts/dts-emulator:latest
+```
 
 > [!TIP]
-> This quickstart uses Azure Storage as the storage backend. For production workloads, the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) is the recommended storage provider. See [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md).
+> Once the emulator is running, you can access the Durable Task Scheduler dashboard at `http://localhost:8082` to monitor orchestrations.
 
-You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
+## Run the quickstart sample
 
-Next, add the referenced `Hello` activity function.
+1. Navigate to the Hello Cities sample directory:
+
+   ```bash
+   cd samples/durable-functions/javascript/HelloCities
+   ```
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+1. Start the function app:
+
+   ```bash
+   func start
+   ```
+
+1. In a separate terminal, trigger the **function chaining** orchestration:
+
+   ```bash
+   curl -X POST http://localhost:7071/api/StartChaining
+   ```
+
+1. Trigger the **fan-out/fan-in** orchestration:
+
+   ```bash
+   curl -X POST http://localhost:7071/api/StartFanOutFanIn
+   ```
+
+## Expected output
+
+The chaining orchestration greets three cities sequentially and returns:
+
+```json
+["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+```
+
+The fan-out/fan-in orchestration greets all five cities in parallel and returns:
+
+```json
+["Hello Tokyo!", "Hello Seattle!", "Hello London!", "Hello Paris!", "Hello Berlin!"]
+```
+
+Open the Durable Task Scheduler dashboard at `http://localhost:8082` to view the orchestration status and execution history.
+
+## Understand the code
+
+The sample project in `src/functions/helloCities.js` contains all three function types needed for a Durable Functions app.
 
 ### Activity function
 
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
+The `sayHello` activity takes a city name and returns a greeting:
 
-2. At the prompts, provide the following information:
+```javascript
+df.app.activity("sayHello", {
+  handler: (city) => {
+    return `Hello ${city}!`;
+  },
+});
+```
 
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
-    | **Provide a function name** | Enter **Hello**. | A name for your durable function. |
+### Orchestrator functions
 
-You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
+The **chaining orchestrator** calls `sayHello` sequentially for three cities:
 
-Finally, add an HTTP-triggered function that starts the orchestration.
+```javascript
+df.app.orchestration("chainingOrchestration", function* (context) {
+  const outputs = [];
+  outputs.push(yield context.df.callActivity("sayHello", "Tokyo"));
+  outputs.push(yield context.df.callActivity("sayHello", "Seattle"));
+  outputs.push(yield context.df.callActivity("sayHello", "London"));
+  return outputs;
+});
+```
 
-### Client function (HTTP starter)
+The **fan-out/fan-in orchestrator** schedules activities in parallel using `Task.all`:
 
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
+```javascript
+df.app.orchestration("fanOutFanInOrchestration", function* (context) {
+  const cities = ["Tokyo", "Seattle", "London", "Paris", "Berlin"];
 
-2. At the prompts, provide the following information:
+  const tasks = cities.map((city) => context.df.callActivity("sayHello", city));
 
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions HTTP starter**. | Creates an HTTP starter function. |
-    | **Provide a function name** | Enter **DurableFunctionsHttpStart**. | The name of your activity function. |
-    | **Authorization level** | Select **Anonymous**. | For demo purposes, this value allows the function to be called without using authentication |
+  const results = yield context.df.Task.all(tasks);
+  return results;
+});
+```
 
-You added an HTTP-triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/index.js* to see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
+### Client functions
 
-You now have a Durable Functions app that you can run locally and deploy to Azure.
+HTTP-triggered client functions start each orchestration:
 
-::: zone-end
+```javascript
+app.http("StartChaining", {
+  route: "StartChaining",
+  methods: ["POST"],
+  authLevel: "anonymous",
+  extraInputs: [df.input.durableClient()],
+  handler: async (request, context) => {
+    const client = df.getClient(context);
+    const instanceId = await client.startNew("chainingOrchestration");
+    return client.createCheckStatusResponse(request, instanceId);
+  },
+});
+```
 
-::: zone pivot="nodejs-model-v4"
+### Configuration
 
-One of the benefits of the v4 programming model is the flexibility of where you write your functions. In the v4 model, you can use a single template to create all three functions in one file in your project.
+The sample uses the Durable Task Scheduler emulator as its storage backend. This is configured in `host.json`:
 
-1. In the command palette, enter and then select **Azure Functions: Create Function**.
-
-2. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a Durable Functions app orchestration, an activity function, and a durable client starter function. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your Durable Functions app. |
-    | **Provide a function name** | Enter **hello**. | The name of your durable function. |
-
-> [!TIP]
-> This quickstart uses Azure Storage as the storage backend. For production workloads, the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) is the recommended storage provider. See [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md).
-
-Open *src/functions/hello.js* to view the functions you created.
-
-You created an orchestrator called `helloOrchestrator` to coordinate activity functions. Each call to `context.df.callActivity` invokes an activity function called `hello`.
-
-You also added the `hello` activity function that is invoked by the orchestrator. In the same file, you can see that it takes a name as input and returns a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
-
-Finally, you also added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
-
-You now have a Durable Functions app that you can run locally and deploy to Azure.
-
-::: zone-end
-
-## Test the function locally
-
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
-
-> [!NOTE]
-> Testing locally requires an Azure Storage account (or the [Azurite emulator](../../storage/common/storage-use-azurite.md)). Steps 2–3 walk you through creating one if you don't already have one.
-
-::: zone pivot="nodejs-model-v3"
-
-1. To test your function, set a breakpoint in the `Hello` activity function code (in *Hello/index.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
-
-   > [!NOTE]
-   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-1. To test your function, set a breakpoint in the `hello` activity function code (in *src/functions/hello.js*). Select F5 or select **Debug: Start Debugging** in the command palette to start the function app project. Output from Core Tools appears in the terminal panel.
-
-   > [!NOTE]
-   > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
-
-::: zone-end
-
-2. Durable Functions requires an Azure Storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
-
-    :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot of a Visual Studio Code alert window. Select storage account is highlighted.":::
-
-3. At the prompts, provide the following information to create a new storage account in Azure:
-
-    | Prompt | Value | Description |
-    | ------ | ----- | ----------- |
-    | Select subscription | *name of your subscription* | Select your Azure subscription |
-    | Select a storage account | Create a new storage account |  |
-    | Enter the name of the new storage account | *unique name* | Name of the storage account to create |
-    | Select a resource group | *unique name* | Name of the resource group to create |
-    | Select a location | *region* | Select a region close to you |
-
-4. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
-
-    :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot of the Visual Studio Code terminal panel. The terminal shows the output of running a Durable Functions app locally.":::
-
-::: zone pivot="nodejs-model-v3"
-
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
-
-   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
-
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
-
-    Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
-
-   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v3"
-
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use your HTTP test tool to issue the GET request.
-
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app, like in this example:
-
-    ```json
-    {
-        "name": "HelloOrchestrator",
-        "instanceId": "9a528a9e926f4b46b7d3deaa134b7e8a",
-        "runtimeStatus": "Completed",
-        "input": null,
-        "customStatus": null,
-        "output": [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ],
-        "createdTime": "2026-04-23T14:22:49Z",
-        "lastUpdatedTime": "2026-04-23T14:22:54Z"
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "hubName": "default",
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
+      }
     }
-    ```
+  }
+}
+```
 
-::: zone-end
+The emulator connection string is set in `local.settings.json`:
 
-::: zone pivot="nodejs-model-v4"
-
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
-
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app, like in this example:
-
-    ```json
-    {
-        "name": "helloOrchestrator",
-        "instanceId": "6ba3f77933b1461ea1a3828c013c9d56",
-        "runtimeStatus": "Completed",
-        "input": "",
-        "customStatus": null,
-        "output": [
-            "Hello, Tokyo",
-            "Hello, Seattle",
-            "Hello, Cairo"
-        ],
-        "createdTime": "2026-04-23T14:32:21Z",
-        "lastUpdatedTime": "2026-04-23T14:32:25Z"
-    }
-    ```
-
-::: zone-end
-
-7. In Visual Studio Code, select Shift+F5 to stop debugging.
-
-After you verify that the function runs correctly on your local computer, it's time to publish the project to Azure.
-
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
-
-[!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
-
-## Test your function in Azure
-
-::: zone pivot="nodejs-model-v4"
-
-> [!NOTE]
-> To use the v4 Node.js programming model, make sure that your app is running on at least version 4.25 of the Azure Functions runtime.
->
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v3"
-
-1. On the output panel, copy the URL of the HTTP trigger. The URL that calls your HTTP-triggered function should be in this format:
-
-   `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-1. On the output panel, copy the URL of the HTTP trigger. The URL that calls your HTTP-triggered function should be in this format:
-
-   `https://<functionappname>.azurewebsites.net/api/orchestrators/helloOrchestrator`
-
-::: zone-end
-
-2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
-
-The JavaScript Durable Functions app that you created and published in Visual Studio Code is ready to use.
+```json
+{
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None"
+  }
+}
+```
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
+Stop the emulator container when you're done:
 
-## Related content
+```bash
+docker stop dtsemulator && docker rm dtsemulator
+```
 
-* Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
-* [Quickstart: Create a C# Durable Functions app](durable-functions-isolated-create-first-csharp.md)
-* [Quickstart: Create a Python Durable Functions app](quickstart-python-vscode.md)
-* [Configure your app to use the Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md)
-* [Durable Functions overview](durable-functions-overview.md)
+## Next steps
+
+- Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
+- [Deploy a Durable Functions app to Azure](durable-functions-create-first-csharp.md).
+- Learn about [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md).
