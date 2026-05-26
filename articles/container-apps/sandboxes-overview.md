@@ -5,7 +5,7 @@ description: Azure Container Apps sandboxes (preview) deliver fast, secure, ephe
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 05/21/2026
+ms.date: 05/26/2026
 ms.topic: overview
 ms.service: azure-container-apps
 ---
@@ -15,15 +15,17 @@ ms.service: azure-container-apps
 Azure Container Apps sandboxes provide fast, secure, ephemeral compute environments with built-in suspend and resume capabilities. Sandboxes are a first-class resource type (`Microsoft.App/SandboxGroups`) in Container Apps, alongside apps, jobs, and dynamic sessions.
 
 > [!IMPORTANT]
-> Sandbox resources created during Early Access might not be compatible with future Public Preview release and might need to be recreated.
+> To manage and create sandboxes, you need the Azure role *Container Apps SandboxGroup Data Owner*. Assign this role to all users who create and manage sandboxes.
+>
+> Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
+>
+> The API surface for Python SDK and ACA CLI commands might change during preview.
 
-Where [dynamic sessions](./sessions.md) provide a managed execution experience that abstracts away infrastructure, sandboxes give you direct, programmable control over isolated compute environments. You manage the full sandbox lifecycle, including state snapshots, persistent storage, and networking policies.
+## Create and manage sandbox environments
 
-Inside a sandbox you can run full terminal shells. The following screenshot shows how you can run GitHub Copilot in a sandbox.
+You can create and manage sandboxes in the [portal](https://aka.ms/aca/sandboxes/portal) or programmatically by using [Azure Container Apps CLI or SDK](https://aka.ms/aca/sandboxes/dev).
 
-:::image type="content" source="media/sandboxes/azure-container-apps-sandboxes-shell.png" alt-text="Screenshot of a terminal running in a sandbox.":::
-
-## Key characteristics
+## Key characteristics of Container Apps sandboxes
 
 - **Sub-second startup**: Sandboxes are provisioned from prewarmed pools for near-instant availability.
 
@@ -36,6 +38,8 @@ Inside a sandbox you can run full terminal shells. The following screenshot show
 - **OCI container image support**: Bring your own container images as sandbox root filesystems.
 
 - **Suspend and resume**: Snapshot full state including memory and disk, and resume later with sub-second restore times.
+
+- **Lifecycle control**: You manage the full sandbox lifecycle, including state snapshots, persistent storage, and networking policies.
 
 ## When to use sandboxes
 
