@@ -39,15 +39,15 @@ Use the Resiliency agent to improve the zone resiliency of applications already 
 
 ### Define your application
 
-Provide your list of resources to the agent. The agent creates a service group to model your application.
+Provide your list of resources to the agent. The agent creates a service group to model your application. [Learn how to define a Zone Down Drill (preview)](availability-zone-down-drill-define.md).
 
 ### Set goals and assess
 
-The agent assigns resiliency goals and evaluates your current posture, showing which resources meet goals and which don't.
+The agent assigns resiliency goals and evaluates your current posture, showing which resources meet goals and which don't. [Learn how to assign goals and view resiliency posture (preview)](goals-recommendations-assign-goals-view-posture.md).
 
 ### Guided remediation
 
-The agent provides step-by-step remediation guidance, including cost and downtime insights, for resources that don't meet your goals.
+The agent provides step-by-step remediation guidance, including cost and downtime insights, for resources that don't meet your goals. [Learn how to review recommendations and get guided remediation steps (preview)](goals-recommendations-review-recommendations.md).
 
 > [!NOTE]
 > The Resiliency agent doesn't make changes to your resources automatically. All actions require your confirmation and manual execution.
