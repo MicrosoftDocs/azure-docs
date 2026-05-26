@@ -28,12 +28,16 @@ Large volumes have the following limits. With cool-access enabled, you can creat
 
 | Limit type | Values | 
 | - | - | 
-| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Large volumes up to 7.2 PiB<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
+| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Large volumes with breakthrough mode<br> <ul><li>2,400 GiB minimum</li><li>2,400 TiB maximum</li></ul><br>Large volumes up to 7.2 PiB<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
 | File count | 15,938,355,048 |
-| Performance | The large volume performance limit is 12,800 MiB/s on all service levels. |
+| Performance | The large volume performance limit is 12,800 MiB/s on all service levels. With breakthrough mode enabled, large volume performance has no limit. Depending on workload characteristics, throughput of up to 50 GiB/s on a single volume is achievable. |
 
 >[!NOTE]
 >You must enable cool access on the volume and select **Extra-large volume 7.2 PiB** as the volume type when you create the volume. 
+
+
+>[!IMPORTANT]
+>Large volume capacity increases (greater than 50 TiB) are subject to backend storage availability and regional capacity constraints. While Azure NetApp Files supports large volumes up to 1 PiB (or higher by special request), capacity availability is not guaranteed and may vary by region. Customers planning volumes larger than 50 TiB should engage their Microsoft account team or Azure NetApp Files support early to validate feasibility and timeline.
 
 ## Large volumes effect on performance 
 
@@ -41,9 +45,9 @@ In many cases, a regular volume can handle the performance needs for a productio
 
 For instance, the following graphs show that a large volume can deliver two to three times the performance at scale of a regular volume.
 
-For more information about performance tests, see [Large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Regular volume performance benchmarks for Linux](performance-benchmarks-linux.md).
+For more information about performance tests, see [Large volume performance benchmarks for Linux](performance-large-volumes-linux.md), [Large volume breakthrough mode performance benchmarks for Linux](performance-large-volume-breakthrough-mode-linux.md), and [Regular volume performance benchmarks for Linux](performance-benchmarks-linux.md).
 
-For example, in benchmark tests using Flexible I/O Tester (FIO), a large volume achieved higher I/OPS and throughput than a regular volume.
+For example, in benchmark tests using Flexible I/O Tester (FIO), a large volume achieved higher IOPS and throughput than a regular volume. A large volume with breakthrough mode had a much higher throughput.
 
 :::image type="content" source="./media/large-volumes/large-regular-volume-comparison.png" alt-text="Diagram comparing large and regular volumes with random I/O." lightbox="./media/large-volumes/large-regular-volume-comparison.png":::
 
@@ -59,6 +63,7 @@ Large volumes allow workloads to extend beyond the current limitations of regula
 | - | --- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Service</li><li>Capacities less than 50 TiB</li></ul> |
 | Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB, or with cool access enabled 2,400 GiB and 7.2 PiB</li></ul> |
+| Large volumes with breakthrough mode enabled | Large volumes and those requiring higher throughput exceeding what large volumes can support. |
 
 ## More information
 
