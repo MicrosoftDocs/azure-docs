@@ -49,7 +49,7 @@ Gather these details from your [Azure Data Manager for Energy instance](quicksta
 
 ## Before you begin
 
-The code examples in this tutorial use placeholder values in `{curly-braces}` format. Replace these with your actual values when running the commands.
+The code examples in this tutorial use placeholder values in `{curly-braces}` format. Replace these placeholders with your actual values when running the commands.
 
 All API calls require authentication. The Bash and PowerShell examples show inline token generation using Azure CLI. For alternative authentication methods, see [How to generate auth token](how-to-generate-auth-token.md).
 
@@ -147,7 +147,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 | `{storage-resource-id}` | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`) |
 | `{base-path}` | Optional: Base path within the storage account for ACZ data output (for example, `acz-output`) |
 | `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`) |
-| `{wellbore-ddms-kinds}` | Optional: Wellbore DDMS kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`) |
+| `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`) |
 
 > [!NOTE]
 > You must provide at least one of `{catalog-kinds}` or `{wellbore-ddms-kinds}` in the configuration.

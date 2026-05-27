@@ -200,6 +200,13 @@ ATTACHED_IDS_LOWER=$(echo "$ATTACHED_IDS" | tr '[:upper:]' '[:lower:]')
 
 if echo "$ATTACHED_IDS_LOWER" | grep -qi "$MI_ID_LOWER"; then
     echo "Successfully attached managed identity to Azure Data Manager for Energy instance"
+    echo ""
+    echo "==================================================="
+    echo "Share the following information with Microsoft:"
+    echo "==================================================="
+    echo "Managed Identity Resource ID: $MI_ID"
+    echo "ADME Instance Name: $ADME_INSTANCE_NAME"
+    echo "==================================================="
 else
     echo "Error: Failed to attach managed identity - verification failed"
     exit 1
@@ -324,6 +331,13 @@ try {
     
     if ($found) {
         Write-Host "Successfully attached managed identity to Azure Data Manager for Energy instance" -ForegroundColor Green
+        Write-Host ""
+        Write-Host "===================================================" -ForegroundColor Cyan
+        Write-Host "Share the following information with Microsoft:" -ForegroundColor Cyan
+        Write-Host "===================================================" -ForegroundColor Cyan
+        Write-Host "Managed Identity Resource ID: $miResourceId" -ForegroundColor Yellow
+        Write-Host "ADME Instance Name: $AdmeInstanceName" -ForegroundColor Yellow
+        Write-Host "===================================================" -ForegroundColor Cyan
     } else {
         Write-Host "Error: Failed to attach managed identity - verification failed" -ForegroundColor Red
         exit 1
