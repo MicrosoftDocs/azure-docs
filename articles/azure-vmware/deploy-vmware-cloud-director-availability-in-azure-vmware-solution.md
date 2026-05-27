@@ -42,7 +42,7 @@ The responsibility of the manager extends to communication with local and remote
 
 VMware Cloud Director Availability Cloud Replication appliance serves as the entity responsible for transferring replication data to and from ESXi hosts in the cloud. For outgoing replications or migrations, it communicates with the VM Kernel interface of an ESXi host; capturing, encrypting, and optionally compressing the replication data. The data is sent to a remote replicator, whether in the cloud or on-premises.
 
-For incoming replications or migrations, the cloud replicator receives data from a replicator (whether in the cloud or on-premises), decrypts and decompresses it, and then transfers it to ESXi to be written to a datastore. You can deploy more replicators to scale as number of migrations or protections increases.
+For incoming replications or migrations, the cloud replicator receives data from a replicator (whether in the cloud or on-premises), decrypts and decompresses it, then transfers it to ESXi to be written to a datastore. You can deploy more replicators to scale as number of migrations or protections increases.
 
 ### Tunnel appliance
 
