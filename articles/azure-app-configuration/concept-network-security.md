@@ -19,7 +19,7 @@ Azure App Configuration integrates with Azure's network security offerings, lett
 The key component of network security in Azure App Configuration is the ability to restrict public network access. Azure App Configuration offers four public network access options:
 - **Automatic**: Public network access is enabled as long as you don't have a private endpoint. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating a store.
 - **Enabled**: All networks can access this resource.
-- **Secured by perimeter**: Public access is disabled. Only traffic from a private endpoint or traffic allowed by the associated network security perimeter can access this resource.
+- **Secured by perimeter**: Public access is disabled. Only traffic from a private endpoint or traffic allowed by an associated network security perimeter can access this resource.
 - **Disabled**: Public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 
 > [!IMPORTANT]
