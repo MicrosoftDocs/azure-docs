@@ -20,7 +20,7 @@ Azure Migrate collector can discover your VMware estate or individual Windows an
 
 ## Collect data from VMware estate
 
-[!NOTE]
+> [!NOTE]
 > If you prefer agentless continuous discovery using an appliance, see [Discover servers in VMware environment](tutorial-discover-vmware.md).
 
 ### Prerequisites
