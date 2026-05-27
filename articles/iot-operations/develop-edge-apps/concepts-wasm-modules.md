@@ -1,8 +1,8 @@
 ---
 title: Understand WebAssembly modules and graph definitions for data flow graphs
 description: Understand WebAssembly module architecture, operator types, host APIs, and WIT schemas for Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article

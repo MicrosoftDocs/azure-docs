@@ -7168,6 +7168,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/tutorial-java-spring-mysql.md",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-connector/tutorial-python-aks-openai-connection-string.md",
       "redirect_url": "/azure/service-connector/tutorial-python-aks-openai-workload-identity",
       "redirect_document_id": false

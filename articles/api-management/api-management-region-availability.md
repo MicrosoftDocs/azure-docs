@@ -59,7 +59,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Sweden Central | ✅ | ✅ | ✅ | |
 | Switzerland North | ✅ |✅ |  |  |
 | UAE North | ✅ | ✅ | |  |
-| UK South | ✅ ¹ | ✅ ¹ | ✅ ¹ | ✅ |
+| UK South | ✅ ¹ | ✅ ¹ | ✅ ¹ | ✅ ¹ |
 | UK West | ✅  | ✅ | | |
 | West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |

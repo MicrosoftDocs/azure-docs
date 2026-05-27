@@ -1,8 +1,8 @@
 ---
 title: Configure data buffering and disk persistence for data flows
 description: Configure buffering and disk persistence for data flows when destination endpoints are unavailable in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -55,10 +55,10 @@ The local MQTT broker subscriber queue is stored in memory by default. You can c
 
 For broker configuration details, see:
 
-- [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md)
-- [Configure disk-backed message buffer behavior](../manage-mqtt-broker/howto-disk-backed-message-buffer.md)
+- [Deployment planning](../deployment-plan/deployment-planning.md)
+- [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md)
 - [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md)
-- [Configure broker MQTT client options](../manage-mqtt-broker/howto-broker-mqtt-client-options.md#subscriber-queue-limit)
+- [Advanced MQTT options](../deployment-plan/deployment-planning-mqtt-options.md#subscriber-queue-limit)
 
 ## Choose a buffering configuration
 
@@ -212,4 +212,4 @@ spec:
 - [Create a data flow](howto-create-dataflow.md)
 - [Data flow graphs overview](concept-dataflow-graphs.md)
 - [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md)
-- [Configure disk-backed message buffer behavior](../manage-mqtt-broker/howto-disk-backed-message-buffer.md)
+- [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md)

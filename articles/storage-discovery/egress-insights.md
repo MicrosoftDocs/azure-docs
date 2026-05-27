@@ -4,7 +4,7 @@ titleSuffix: Azure Storage Discovery
 description: Learn how to use Azure Storage Discovery to gain visibility into egress patterns across your Azure Blob Storage estate.
 author: pthippeswamy
 ms.service: azure-storage-discovery
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/20/2026
 ms.author: pthippeswamy
 ---

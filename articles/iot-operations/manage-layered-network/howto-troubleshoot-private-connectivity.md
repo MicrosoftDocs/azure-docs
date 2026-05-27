@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot private connectivity for Azure IoT Operations
 description: Diagnose and resolve DNS, Private Endpoint, RBAC, and connectivity issues for Azure IoT Operations in private network deployments.
-author: sethmanheim
+author: dominicbetts
 ms.subservice: layered-network-management
-ms.author: sethm
-ms.topic: troubleshooting
+ms.author: dobett
+ms.topic: troubleshooting-problem-resolution
 ms.date: 03/25/2026
 
 #CustomerIntent: As an operator, I want to troubleshoot private connectivity issues for Azure IoT Operations so that I can restore healthy operation without exposing endpoints to the public internet.

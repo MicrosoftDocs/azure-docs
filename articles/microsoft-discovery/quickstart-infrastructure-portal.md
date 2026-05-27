@@ -20,7 +20,7 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
 - Set up networking, identity, and storage
 - Create a supercomputer
 - Create a workspace
-- Assign the Azure AI User role on the managed resource group
+- Assign the Foundry User role on the managed resource group
 - Sign-in to Microsoft Discovery Studio
 - Create a project
 
@@ -46,7 +46,7 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
 - **User Assigned Managed Identities (UAMI)** with the required Azure role assignments for your supercomputer, workspace, and Azure Blob Storage. See [Create a User Assigned Managed Identity (UAMI)](#d-create-a-user-assigned-managed-identity-uami).
 
 > [!IMPORTANT]
-> Microsoft Discovery resources are supported in four production regions: **East US**, **Sweden Central**, and **UK South**. Create all resources for a single deployment in the same region, subscription, and resource group for simplicity.
+> Microsoft Discovery resources are supported in three production regions: **East US**, **Sweden Central**, and **UK South**. Create all resources for a single deployment in the same region, subscription, and resource group for simplicity.
 
 ## 1. Set up networking, identity, and storage
 
@@ -63,11 +63,11 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Storage Blob Data Contributor
 - Network Contributor
 - ACRPush
-- Azure AI User
+- Foundry User
 - Microsoft Discovery Bookshelf Index Data Reader (Preview) 
 
 > [!NOTE]
-> If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Azure AI User** role for now. Continue with the next steps and revisit this role assignment after the Discovery workspace resource is created, because it must be assigned to each user (Platform Admin or Scientist) at the workspace managed resource group (MRG) level.
+> If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Foundry User** role for now. Continue with the next steps and revisit this role assignment after the Discovery workspace resource is created, because it must be assigned to each user (Platform Admin or Scientist) at the workspace managed resource group (MRG) level.
 
 **Steps to assign roles:**
 
@@ -110,6 +110,8 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
      - `searchSubnet`: `10.0.6.0/24`
 1. For `workspaceSubnet`, `agentSubnet` and `searchSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg" alt-text="Screenshot of the Create virtual network subnet page showing subnet delegation settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg":::
+1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage.Global`.
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg" alt-text="Screenshot of the Create virtual network subnet page showing service endpoint settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg":::
 1. Optionally, you can remove the `default` subnet from the list. 
 1. Review and create the virtual network.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-ip-config.jpg" alt-text="Screenshot of the Create virtual network page showing IP address configuration." lightbox="media/quickstart-infrastructure-portal/create-vnet-ip-config.jpg":::
@@ -252,16 +254,16 @@ A workspace is a collaborative environment where teams manage large-scale scient
 1. Once validation is successful, select **Create**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-overview.jpg" alt-text="Screenshot of the Microsoft Discovery Workspace overview page after creation." lightbox="media/quickstart-infrastructure-portal/create-workspace-overview.jpg":::
 
-## 5. Assign Azure AI User role on the managed resource group
+## 5. Assign Foundry User role on the managed resource group
 
-When a workspace is created, a managed resource group is automatically provisioned alongside it. To allow users to modify agents and workflows within a project directly in Foundry portal for advanced settings, you must assign them the **Azure AI User** role on this managed resource group.
+When a workspace is created, a managed resource group is automatically provisioned alongside it. To allow users to modify agents and workflows within a project directly in Foundry portal for advanced settings, you must assign them the **Foundry User** role on this managed resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the workspace created in [step 3](#4-create-a-workspace) and locate the **Managed Resource Group** name on the workspace overview page.
 1. Navigate to that managed resource group.
 1. In the left-hand menu, select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
-1. On the **Add role assignment** pane, search for **Azure AI User** and select it, then select **Next**.
+1. On the **Add role assignment** pane, search for **Foundry User** and select it, then select **Next**.
 1. On the **Members** tab, ensure **Assign access to** is set to **User, group, or service principal**.
 1. Select **+ Select members**, choose the users who need to modify agents and workflows, then select **Select**.
 1. Select **Review + assign**, verify the information, and select **Review + assign**.

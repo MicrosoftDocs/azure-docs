@@ -1,12 +1,12 @@
 ---
 title: Create a data flow using Azure IoT Operations
 description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/22/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -769,9 +769,9 @@ In this example, assume a configuration file named `data-flow.json` with the fol
               "type": "PassThrough"
             },
             {
-              "expression": "fToC($1)",
+              "expression": "cToF($1)",
               "inputs": [
-                "Temperature.Value"
+                "temperature.Value"
               ],
               "output": "TemperatureF",
               "type": "Compute"

@@ -56,8 +56,6 @@ items:
     expanded: false
   - name: Azure Spring Apps to PostgreSQL
     href: ../spring-apps/basic-standard/how-to-bind-postgres.md?bc=%2fazure%2fservice-connector%2fbreadcrumb%2ftoc.json&tabs=Passwordlessflex&toc=%2fazure%2fservice-connector%2fTOC.json
-  - name: Azure Spring Apps to MySQL
-    href: tutorial-java-spring-mysql.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Connect to Azure Key Vault using CSI driver
