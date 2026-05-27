@@ -234,7 +234,7 @@ In a terminal window, make sure you're in the `samples/McpWeatherApp` project fo
 
 The project template includes a `.vscode/mcp.json` file that defines a `local-mcp-function` server pointing to your local MCP endpoint. Use this configuration to verify your code by using GitHub Copilot in Visual Studio Code:
 
-1. Open the `.vscode/mcp.json` file and select the **Start** button above the `local-mcp-function` configuration.
+1. With your function running locally, open the `.vscode/mcp.json` file and select the **Start** button above the `local-mcp-function` configuration.
 
 1. In the Copilot **Chat** window, make sure that the **Agent** mode is selected, select the **Configure tools** icon, and verify that `MCP Server:local-mcp-function` is enabled in the chat.
 
