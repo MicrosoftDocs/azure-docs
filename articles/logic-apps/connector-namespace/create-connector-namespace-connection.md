@@ -14,7 +14,7 @@ ms.custom:
 # Customer intent: As a backend developer who works with Azure, I want to create resuable connections in my connector namespace so my solutions can access other services, systems, apps, and data without having to manage authentication or credentails.
 ---
 
-# Create reusable connections, triggers, and MCP servers in connector namespaces to integrate your solutions with other services by using Azure Connector Namespace (preview)
+# Create reusable connections in connector namespaces to integrate your solutions with other services through Azure Connector Namespace (preview)
 
 > [!IMPORTANT]
 >
