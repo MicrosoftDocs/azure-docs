@@ -352,8 +352,7 @@ For custom scenarios or advanced users, you can manually assign the managed iden
 > [!IMPORTANT]
 > **Manual commands require extra care:**  
 > - This step uses an **Azure Resource Manager (ARM) token** (not your Azure Data Manager for Energy auth token)
-> - If your instance has existing managed identities (CMEK, EDS, etc.), you **must include all existing identities** in the `userAssignedIdentities` object
-> - The PUT operation replaces the entire identity configuration—omitting existing identities removes them
+> - The PUT operation replaces the entire identity configuration, so you **must include all existing identities** (CMEK, EDS, etc.) in the `userAssignedIdentities` object—omitting existing identities removes them
 
 #### [Bash](#tab/bash)
 
