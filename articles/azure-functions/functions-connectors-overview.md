@@ -61,9 +61,6 @@ The connector trigger binding ships in the worker extension package; typed paylo
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Connector --prerelease
 dotnet add package Azure.Connectors.Sdk --prerelease
-# Add the per-connector SDK packages you use, for example:
-dotnet add package Azure.Connectors.Sdk.Office365 --prerelease
-dotnet add package Azure.Connectors.Sdk.Teams --prerelease
 ```
 
 For the .NET isolated worker, target `net8.0` or `net10.0` and the latest Functions worker.
@@ -72,14 +69,14 @@ For the .NET isolated worker, target `net8.0` or `net10.0` and the latest Functi
 
 ::: zone pivot="programming-language-python"
 
-Python uses the experimental extension bundle to load the trigger binding and the `azurefunctions-extensions-connectors` package for typed Office 365 models. Add the bundle to `host.json`:
+Python uses the preview extension bundle to load the trigger binding and the `azurefunctions-extensions-connectors` package for typed Office 365 models. Add the bundle to `host.json`:
 
 ```json
 {
     "version": "2.0",
     "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Experimental",
-        "version": "[4.6.0, 5.0.0)"
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "version": "[4.42.0, 5.0.0)"
     }
 }
 ```
@@ -103,8 +100,8 @@ Node.js uses the experimental extension bundle to load the trigger binding. Add 
 {
     "version": "2.0",
     "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle.Experimental",
-        "version": "[4.6.0, 5.0.0)"
+        "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+        "version": "[4.42.0, 5.0.0)"
     }
 }
 ```
@@ -371,7 +368,7 @@ Because this check runs at the App Service edge, your function code never sees a
 ```
 
 > [!IMPORTANT]
-> This section covers authentication between the Connector Namespace and your function app—how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the Logic Apps connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/azure/connectors/overview) for the connector-to-SaaS authentication model.
+> This section covers authentication between the Connector Namespace and your function app and how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/azure/connectors/overview) for the connector-to-SaaS authentication model.
 
 ### Related content
 
