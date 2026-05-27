@@ -39,6 +39,10 @@ By using the Azure Firewall Resource Health check, you can now diagnose and get 
 Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
 For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
+### Autolearn SNAT routes (preview)
+
+You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
+
 ## Change tracking (preview)
 
 The *Change tracking* feature provides detailed insights into changes made to Azure Firewall configurations, specifically within *Rule Collection Groups*. It uses [Azure Resource Graph (ARG)](../governance/resource-graph/overview.md) to enable efficient monitoring and analysis of changes, enhancing visibility, accountability, and troubleshooting.
