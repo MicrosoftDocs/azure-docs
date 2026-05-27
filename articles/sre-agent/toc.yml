@@ -36,6 +36,8 @@ items:
         href: run-modes.md
       - name: Connectors
         href: connectors.md
+      - name: MCP server
+        href: mcp-server-overview.md
       - name: Incident platforms
         href: incident-platforms.md
       - name: Memory & knowledge
