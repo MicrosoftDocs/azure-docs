@@ -1,7 +1,7 @@
 ---
 title: Deep context in Azure SRE Agent
 description: Learn how deep context gives your Azure SRE Agent accumulated understanding of your code, infrastructure, and operational history.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/30/2026
 author: craigshoemaker
