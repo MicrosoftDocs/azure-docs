@@ -58,6 +58,12 @@ Additional Data Models provide focused coverage for specific business domains or
 
 Record to report delivers a comprehensive view of financial performance. The model integrates data from key finance areas that include general ledger, assets, accounts receivable, and accounts payable.
 
+### Subdomains covered
+
+- [General Ledger](#general-ledger)
+- [Accounts Payable](#accounts-payable)
+- [Accounts Receivable](#accounts-receivable)
+
 ### General ledger
 
 The general ledger data model provides a comprehensive foundation for financial reporting and performance analysis across an organization. It integrates essential transactional details and data to support core financial processes such as general ledger accounting, asset tracking, cost center management, and fiscal period control. Integration ensures consistency and accuracy across financial systems.
@@ -94,6 +100,14 @@ Advanced analytics highlight trends in customer payment patterns, flag potential
 ## Order to cash
 
 Order to cash provides a complete perspective on the customer opportunity-to-cash journey from initial opportunity through delivery, invoicing, and payments.
+
+### Subdomains covered
+
+- [Opportunities](#opportunities)
+- [Sales](#sales)
+- [Delivery](#delivery)
+- [Billing](#billing)
+- [Sales and Billing Insights](#sales-and-billing-insights)
 
 ### Opportunities
 
@@ -137,6 +151,13 @@ The sales and billing insights data model combines sales order and billing docum
 
 Procure to pay supports strategic procurement and supplier management. It consolidates purchase orders, goods receipts, and vendor invoicing data.
 
+### Subdomains covered
+
+- [Purchase Requisitions](#purchase-requisitions)
+- [Purchase Orders](#purchase-orders)
+- [Goods Movements](#goods-movements)
+- [Supplier Invoices](#supplier-invoices)
+
 ### Purchase requisitions
 
 The purchase requisitions data model provides a structured foundation for managing internal procurement requests before formal purchase orders are created. It supports the initial stages of the procurement lifecycle by enabling organizations to capture demand, ensure budget alignment, and streamline approval workflows. By associating requisitions with purchasing groups and product categories, teams can uncover demand patterns and more accurately forecast future procurement needs.
@@ -171,6 +192,13 @@ With this model, organizations gain a clearer view of their spending activity. T
 ## Manufacturing
 
 Supports the management and execution of production orders by providing a comprehensive view of how production is planned, carried out, and confirmed across the manufacturing lifecycle.
+
+### Subdomains covered
+
+- [Manufacturing Orders](#manufacturing-orders)
+- [Manufacturing Operations](#manufacturing-operations)
+- [Manufacturing Components](#manufacturing-components)
+- [Manufacturing Confirmations](#manufacturing-confirmations)
 
 ### Manufacturing orders
 
