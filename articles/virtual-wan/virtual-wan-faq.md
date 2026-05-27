@@ -438,7 +438,7 @@ Yes. This option is currently available via PowerShell only. The Virtual WAN por
 The Virtual WAN hub address space **can't be modified after the hub is created**. Use the following information to select the proper hub address size for your deployment:
 * To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** or larger during hub creation.
 * If you are using an Azure Firewall within Virtual WAN, a minimum hub address space of **/22** is required to ensure Azure Firewall is able to allocate sufficient IP addresses to scale to maximum throughput.
-* If you are using Network Virtual Appliances in the Virutal WAN hub, the size of your Virtual WAN hub determines the number of usable IP addresses allocated to NVAs. See [NVA documentation](about-nva-hub.md#hubspace) for the mapping between hub address space and alloctable IP addresses to NVAs.
+* If you are using Network Virtual Appliances in the Virtual WAN hub, the size of your Virtual WAN hub determines the number of usable IP addresses allocated to NVAs. See [NVA documentation](about-nva-hub.md#hubspace) for the mapping between hub address space and allocatable IP addresses to NVAs.
 
 ### Is there support for IPv6 in Virtual WAN?
 
