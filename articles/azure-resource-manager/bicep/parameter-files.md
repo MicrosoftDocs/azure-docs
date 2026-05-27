@@ -3,7 +3,7 @@ title: Create a parameters file for bicep deployment
 description: Learn how to create Bicep parameters files instead of passing parameters as inline values in your script.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 05/26/2026
+ms.date: 05/27/2026
 ---
 
 # Create a parameters file for Bicep deployment
@@ -68,9 +68,11 @@ param <third-parameter-name> = <variable-name>
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storagePrefix": {
+    "<first-parameter-name>": {
+      "value": "<first-value>"
     },
-    "storageAccountType": {
+    "<second-parameter-name>": {
+      "value": "<second-value>"
     }
   }
 }
@@ -104,9 +106,9 @@ param storagePrefix
 param storageAccountType
 ```
 
-The `using` statement links the Bicep parameters file to a Bicep file. A single Bicep file can be associated with multiple parameter files. Each parameter file typically links to a specific Bicep file using the [`using` statement](./bicep-using.md):
+The `using` statement links the Bicep parameters file to a Bicep file. You can associate multiple parameter files with a single Bicep file. Each parameter file typically links to a specific Bicep file by using the [`using` statement](./bicep-using.md).
 
-Use [`using none`](./bicep-using.md#the-using-none-statement) if you don't want to link it to a particular Bicep file.  The `using none` feature is supported in [Bicep CLI version 0.31.0](https://github.com/Azure/bicep/releases/tag/v0.31.92) or later.
+Use [`using none`](./bicep-using.md#the-using-none-statement) if you don't want to link the parameter file to a particular Bicep file. [Bicep CLI version 0.31.0](https://github.com/Azure/bicep/releases/tag/v0.31.92) or later supports the `using none` feature.
 
 For more information, see [Using statement](./bicep-using.md).
 
@@ -325,11 +327,26 @@ param tags = tagsExample
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
+    "exampleString": {
+      "value": "test string"
     },
-    "<second-parameter-name>": {
-      "value": "<second-value>"
+    "exampleInt": {
+      "value": 4
+    },
+    "exampleBool": {
+      "value": true
+    },
+    "exampleArray": {
+      "value": [
+        "value 1",
+        "value 2"
+      ]
+    },
+    "exampleObject": {
+      "value": {
+        "property1": "value1",
+        "property2": "value2"
+      }
     }
   }
 }
