@@ -19,7 +19,7 @@ In this quickstart, you deploy serverless agents to Azure Functions by using the
 + A chat agent that you can use to test the deployed app in a browser. This agent can use sandboxed Python code execution and browse the web.
 + A timer-triggered agent that gathers recent Microsoft blog posts, summarizes them, and can email the digest through a Microsoft 365 Outlook connection exposed as Model Context Protocol (MCP) tools.
 
-The project uses the Azure Functions serverless agents runtime. You define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
+The project uses the [Azure Functions serverless agents runtime](functions-serverless-agents-runtime.md). You define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
 
 The template provisions a Flex Consumption function app, storage, monitoring, a Microsoft Foundry project and model deployment, an Azure Container Apps dynamic session pool, and the required identity assignments. When email delivery is enabled, it also provisions a Connector Namespace, a Microsoft 365 Outlook connection, and a connection MCP server.
 
