@@ -4,7 +4,7 @@ description: This article explains how to use Azure VMware Solution to enable en
 ms.topic: how-to
 author: rdutt
 ms.service: azure-vmware
-ms.date: 4/07/2025
+ms.date: 05/27/2026
 # Customer intent: "As an enterprise IT administrator, I want to install and configure VMware Cloud Director on Azure VMware Solution so that I can effectively manage resources for secure, multi-tenant virtual datacenters."
 ---
 
@@ -32,7 +32,7 @@ VMware Cloud Director enables multi-tenancy by using organizations. Each organiz
 
 You can self-install and self-manage VMware Cloud Director on Azure VMware Solution. This document covers VMware Cloud Director appliance-based installation. 
 
-A VMware Cloud Director server group consists of one or more VMware Cloud Director servers which run a collection of services called a VMware Cloud Director cell. All cells share a single VMware Cloud Director database and transfer server storage and connect to the vSphere and network resources. 
+A VMware Cloud Director server group consists of one or more VMware Cloud Director servers that run a collection of services called a VMware Cloud Director cell. All cells share a single VMware Cloud Director database and transfer server storage and connect to the vSphere and network resources. 
 
 The VMware Cloud Director appliance includes an embedded PostgreSQL database with a high availability function. 
 
@@ -60,8 +60,7 @@ Ensure all installation prerequisites are completed before proceeding with insta
 
 Transfer server storage is used for appliance cluster management and for providing temporary storage for uploads, downloads, and catalog items. Each member of the server group mounts this volume at the same mountpoint: /opt/vmware/vcloud-director/data/transfer. You can use Linux NFS server to create transfer share on Azure VMware Solution. 
 
-Prepare the transfer share by following [requirements for the NFS server configuration](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/vmware-cloud-director-installation-and-upgrade-guide-10-6/deployment-uprade-and-administration-of-the-vcd-appliance-install/preparing-the-transfer-server-storage-for-your-vmware-cloud-director-appliance-install.html), so that VMware Cloud Director can write files to an NFS-based transfer server storage location and read files from it. 
-
+Prepare the transfer share so VMware Cloud director can write files to an NFS-based transfer server storage location and read files from it. Use the [requirements for the NFS server configuration](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/vmware-cloud-director-installation-and-upgrade-guide-10-6/deployment-uprade-and-administration-of-the-vcd-appliance-install/preparing-the-transfer-server-storage-for-your-vmware-cloud-director-appliance-install.html) guide to prepare the transfer share.
 
 ### Install VMware Cloud Director appliances on Azure VMware Solution
 
@@ -81,7 +80,7 @@ VMware Cloud Director is deployed in two stages:
 :::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png":::
 
 
-2.	For initial configuration of primary appliance, sign-in to VMware Cloud Director’s Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
+2.	For initial configuration of primary appliance, sign-in to the VMware Cloud Director Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
     - Fill the form (NFS Share, DB Password, and Admin User, VMware Cloud Director Settings) and start the configuration.
     - When the initial configuration is complete, you can access the VMware Cloud Director instance.
     - Verify that the primary cell is up and running by logging  to the VMware Cloud Director Service Provider Admin Portal at https://primary_eth0_ip_address/provider
