@@ -318,7 +318,7 @@ kafkaSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource.
 
@@ -410,7 +410,7 @@ kafkaSettings:
 
 To use SASL for authentication, specify the SASL authentication method and configure the SASL type and a secret reference with the name of the secret that contains the SASL credentials.
 
-We recommend that you use Azure Key Vault to sync the connection string to the Kubernetes cluster so that the data flow can reference it. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint by using the operations experience web UI.
+We recommend that you use Azure Key Vault to sync the connection string to the Kubernetes cluster so that the data flow can reference it. [Secure settings](../secure-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint by using the operations experience web UI.
 
 # [Operations experience](#tab/portal)
 

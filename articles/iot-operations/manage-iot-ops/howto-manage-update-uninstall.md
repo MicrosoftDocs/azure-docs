@@ -18,7 +18,7 @@ Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Ope
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
+* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
