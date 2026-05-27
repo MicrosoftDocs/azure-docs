@@ -153,7 +153,7 @@ sections:
       - question: |
           Can I use private (virtual network) inbound or outbound networking with express?
         answer: |
-          Not during the initial preview. Express apps run with a public default ingress domain and don't yet support VNet integration for inbound traffic, private endpoints, or VNet-routed outbound traffic. If your workload requires private networking today, use Azure Container Apps with workload profiles. VNet support is on the express roadmap. For the latest status, see the [express documentation](https://aka.ms/aca/express).
+          No. Express apps run with a public default ingress domain and don't support VNet integration for inbound traffic, private endpoints, or VNet-routed outbound traffic. If your workload requires private networking, use Azure Container Apps with workload profiles. VNet support is on the express roadmap. For the latest status, see the [express documentation](https://aka.ms/aca/express).
 
       - question: |
           When will express reach feature parity with Azure Container Apps?
