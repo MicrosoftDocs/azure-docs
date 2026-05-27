@@ -14,27 +14,21 @@ ms.custom:
 # Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions can access and use other services, systems, apps, and data.
 ---
 
-# Create and manage connector namespaces in Azure (preview)
+# Create and manage connector namespaces for integrating your solutions in Azure (preview)
 
 > [!IMPORTANT]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is available in select Azure regions only.
 
-When you build solutions that need to work with other services, systems, apps, and data, you usually have to handle authentication, polling, webhooks, and credential management yourself. Azure Connector Namespace simplifies these tasks by giving you a managed environment that handles:
+When you build solutions that need to connect with other services, systems, apps, and data, you usually have to set up and manage the authentication, credential management, end system polling, webhook delivery, and Model Context Protocol (MCP) server hosting yourself. Azure Connector Namespace is a fully managed service that removes overhead and complexity by handling these security and management tasks for you.
 
-- Authentication
-- Credential management
-- End systems polling
-- Webhook delivery
-- Model Context Protocol (MCP) server hosting
+When you create a connector namespace resource, you get a managed environment and a connector catalog so you can create and organize resuable connections, event triggers, actions, AI agent tools, and MCP server tools that your solutions can use when integrating with other components. This connector namespace makes it easy for your solutions to work with other components without needing custom API client code or tool wrappers.
 
-When your solutions, including AI agents, use connector namespaces, they can easily work with external services without needing custom API client code or tool wrappers.
-
-This guide shows how to create a connector namespace resource in Azure, manage your namespace by using the Azure portal, and create the components that your integrations need.
+This guide shows how to create and manage a connector namespace resource in the Azure portal, and then create the components that your solutions need for easier integration.
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/free/).
 
 - Permissions to create resources and resource groups in your Azure subscription.
 
