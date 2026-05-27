@@ -68,6 +68,8 @@ Ensure that software inventory is enabled before initiating workload discovery. 
 
 Azure Migrate collector enables offline discovery of IT estate. Using this lightweight tool, you can collect server configuration, performance, software inventory, and workload metadata without requiring connectivity to Azure during discovery. You can securely upload the collected data back to the Azure Migrate project you created. This approach is ideal for scenarios where quick discovery of your IT estate is required. It supports the discovery of VMware environments and physical or virtual servers in a hypervisor-agnostic approach.
 
+For step-by-step instructions to discover servers and workloads using this method, see [Discover using Azure Migrate collector](how-to-discover-using-collector.md).
+
 ### Key features
 
 - Captures a one-time snapshot of server configuration data.

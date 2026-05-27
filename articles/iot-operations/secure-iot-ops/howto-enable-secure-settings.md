@@ -17,7 +17,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 ## Prerequisites
 
-* An Azure IoT Operations instance [deployed with test settings](howto-deploy-iot-test-operations.md).
+* An Azure IoT Operations instance [deployed with test settings](../deploy-iot-ops/howto-deploy-iot-test-operations.md).
 
 * Azure CLI version 2.62.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 

@@ -202,7 +202,13 @@ Common causes of processing errors:
 - An expression references an incompatible data type (for example, using a JSON object in arithmetic).
 - A state store used for enrichment is unreachable.
 
-To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
+
+## Scaling limitation for stateful graphs
+
+Data flow graphs that contain stateful transforms, such as [window](howto-dataflow-graphs-window.md), must run with a [data flow profile instance count](howto-configure-dataflow-profile.md#scaling) of **1**. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't communicate state with each other, each instance only sees a fraction of the messages. This causes aggregation results like averages, sums, and counts to be computed over incomplete data.
+
+Stateless data flow graphs (those that use only map, filter, branch, and concat transforms) can safely use higher instance counts to increase throughput.
 
 ## Performance guidance
 
