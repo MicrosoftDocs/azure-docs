@@ -926,18 +926,18 @@ Run `func workload search` to see the current catalog.
 
 | Alias | Display name | Description |
 | ----- | ----- | ----- |
-| `dotnet` | .NET | Azure Functions tooling for .NET (C#, F#) projects. |
-| `node` | Node.js | Azure Functions CLI tooling for Node.js projects (JavaScript, TypeScript). |
-| `python` | Python | Azure Functions CLI tooling for Python projects. |
-| `go` | Go | Azure Functions CLI tooling for Go projects. |
-| `node-worker` | Node.js worker | The Node.js language worker used by the Functions host. |
-| `python-worker` | Python worker | The Python language worker used by the Functions host. |
-| `go-worker` | Go worker | The Go language worker used by the Functions host. |
-| `extension-bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
 | `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
-| `node-templates` | Node.js templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
-| `python-templates` | Python templates | Function-scaffold templates for Python (v1 and v2 programming models). |
+| `extension-bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
+| `dotnet` | .NET | Azure Functions tooling for .NET (C#, F#) projects. |
 | `dotnet-templates` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
+| `python` | Python | Azure Functions CLI tooling for Python projects. |
+| `python-worker` | Python worker | The Python language worker used by the Functions host. |
+| `python-templates` | Python templates | Function-scaffold templates for Python (v1 and v2 programming models). |
+| `node` | Node.js | Azure Functions CLI tooling for Node.js projects (JavaScript, TypeScript). |
+| `node-worker` | Node.js worker | The Node.js language worker used by the Functions host. |
+| `node-templates` | Node.js templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
+| `go` | Go | Azure Functions CLI tooling for Go projects. |
+| `go-worker` | Go worker | The Go language worker used by the Functions host. |
 
 > [!NOTE]
 > The `<stack>-templates` workloads ship one package per language stack. Node and Python templates carry a channel that mirrors the project's extension bundle (`stable`, `preview`, `experimental`); the CLI auto-selects the matching templates channel based on the project's `host.json`. .NET templates have no bundle dependency and ship as `stable` only.
