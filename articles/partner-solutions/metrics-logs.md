@@ -19,7 +19,7 @@ Monitoring and observability are essential for managing modern cloud environment
 
 Metrics are collected for all Azure resources by default. Optionally, you can limit metrics collection for specific resources using include/exclude tags.
 
-For Virtual Machines, Virtual Machine Scale Sets, and App Service Plans, the tag criteria apply to platform metrics. This tag criteria doesn't impact metrics collected using agents installed on these resources.
+For Virtual Machines, Virtual Machine Scale Sets, and App Service Plans, the tag criteria apply to platform metrics. This tag criterion doesn't impact metrics collected using agents installed on these resources.
 
 For metrics, the system automatically creates a system managed identity and assigns it the Monitoring Reader role, which is required for data collection. If you remove this identity or role assignment, metric collection stops.
 

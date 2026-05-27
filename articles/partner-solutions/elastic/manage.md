@@ -187,9 +187,7 @@ To view the updated list of monitored subscriptions, select **Refresh** from the
 
 You can install Elastic Agents on Azure virtual machines to collect host-level metrics, logs, and security events that aren't available through Azure diagnostic logs alone.
 
-To deploy agents:
-
-1. Select **Elastic deployment configuration** > **Virtual machines** in the service menu.
+- Select **Elastic deployment configuration** > **Virtual machines** in the service menu.
 
 [!INCLUDE [install-elastic-agent](../includes/agent.md)]
 

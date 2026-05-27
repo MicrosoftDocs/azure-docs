@@ -114,8 +114,8 @@ Connect an Azure OpenAI resource to enable AI-powered search experiences such as
 
 1. Select an existing **Azure OpenAI Deployment**.
 
-> [!TIP]
-> You can skip this step and configure Azure OpenAI later from the manage experience. See [Manage your Elastic resource](manage.md).
+    > [!TIP]
+    > You can skip this step and configure Azure OpenAI later from the manage experience. See [Manage your Elastic resource](manage.md).
 
 1. At the bottom of the page, select **Next: Tags**.
 

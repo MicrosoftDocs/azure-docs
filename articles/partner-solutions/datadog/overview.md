@@ -6,6 +6,7 @@ ms.author: piyushdash
 ms.topic: overview
 ms.date: 03/10/2025
 ms.custom:
+  - references_regions
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/03/2024
@@ -22,6 +23,8 @@ The Azure Native Integration for Datadog lets you deploy, configure, and manage 
 Microsoft and [Datadog](https://www.datadoghq.com/) developed this service and manage it together.
 
 You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+
+For Azure Native Datadog, the supported Azure deployment region is **West US 2**.
 
 ## Why use the Azure Native Integration?
 
@@ -47,11 +50,11 @@ When you create a Datadog resource in Azure, the following components work toget
 
 The Datadog resource:
 
-1. **Creates or links** a Datadog organization on the Datadog SaaS platform.
-2. **Configures diagnostic settings** on your Azure resources to forward logs.
-3. **Assigns Monitoring Reader** role to collect Azure platform metrics.
-4. **Deploys Datadog agents** as VM extensions or App Service extensions.
-5. **Maps Microsoft Entra ID** users for single sign-on access.
+- **Creates or links** a Datadog organization on the Datadog SaaS platform.
+- **Configures diagnostic settings** on your Azure resources to forward logs.
+- **Assigns Monitoring Reader** role to collect Azure platform metrics.
+- **Deploys Datadog agents** as VM extensions or App Service extensions.
+- **Maps Microsoft Entra ID** users for single sign-on access.
 
 You manage everything from the Azure portal, Azure CLI, or infrastructure-as-code tools (Terraform, Bicep, ARM templates).
 
@@ -113,13 +116,6 @@ Install and manage Datadog agents on these Azure compute resources directly from
 **Resource collection is enabled by default** when you create a Datadog resource. It lets Datadog pull metadata — types, tags, and configurations — for every Azure resource in the linked subscription, populating the Datadog [Resource Catalog](https://docs.datadoghq.com/infrastructure/resource_catalog/) and giving every other Datadog product accurate Azure context at no additional Datadog charge.
 
 **Cloud Security Posture Management (CSPM)** is optional and off by default. When enabled, it continuously assesses your Azure environment against CIS, PCI DSS, SOC 2, HIPAA, and other benchmarks. CSPM can be enabled only when resource collection is on. Learn more about [Cloud Security Posture Management](https://www.datadoghq.com/knowledge-center/cloud-security-posture-management/).
-
-## Region availability
-
-The Datadog Azure Native Integration creates Datadog organizations on Datadog's Azure-specific site, **US3** (`us3.datadoghq.com`). The corresponding Azure region available to host the Datadog resource is **West US 2** (`westus2`). When you create the resource from the Azure portal or CLI, choose **West US 2** as the location — your Datadog organization is provisioned on the US3 site automatically.
-
-> [!NOTE]
-> Azure Native Datadog Service doesn't currently support Azure Government or sovereign cloud regions.
 
 ## Subscribe to Datadog
 
