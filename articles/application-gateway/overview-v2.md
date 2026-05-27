@@ -128,9 +128,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 
 ## Register for the preview
 
-Run the following Azure CLI commands to register for the preview of Application Gateway Basic SKU. 
+Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU. 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
@@ -141,9 +141,9 @@ Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -Provide
 To unregister from the public preview of Basic SKU:
 
 1. Delete all instances of Application Gateway Basic SKU from your subscription.
-1. Run the following Azure CLI commands: 
+1. Run the following Azure PowerShell commands: 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
