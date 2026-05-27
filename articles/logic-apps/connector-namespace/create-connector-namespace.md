@@ -14,7 +14,7 @@ ms.custom:
 # Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions need to access and integrate with other services, systems, apps, and data.
 ---
 
-# Create and manage connector namespaces for integrating your solutions in Azure (preview)
+# Quickstart: Create and manage connector namespaces in Azure for integrating your solutions (preview)
 
 > [!IMPORTANT]
 >
