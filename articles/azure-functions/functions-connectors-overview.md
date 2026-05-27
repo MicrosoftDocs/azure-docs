@@ -91,7 +91,7 @@ pip install "azure-functions>=2.2.0b4"
 pip install azurefunctions-extensions-connectors
 ```
 
-The Python connector SDK is in active development. Use the typed `@app.connector_trigger` decorator for Office 365 email; use `@app.generic_trigger(type="connectorTrigger")` with a `str` payload for everything else until typed models for other connectors ship.
+The `@app.connector_trigger` decorator works for all connector types. Typed payload models are being actively developed and added through the `azurefunctions-extensions-connectors` package. For connectors without typed models, the payload should be treated as a string.
 
 ::: zone-end
 
@@ -200,7 +200,7 @@ import logging
 app = func.FunctionApp()
 
 @app.function_name(name="OnNewEmail")
-@app.generic_trigger(arg_name="payload", type="connectorTrigger")
+@app.connector_trigger(arg_name="payload")
 def on_new_email(payload: str) -> None:
     data = json.loads(payload)
     emails = data.get("body", {}).get("value", [])
@@ -331,7 +331,7 @@ The `*_CONNECTION_RUNTIME_URL` settings point at the per-connection runtime endp
 
 ::: zone pivot="programming-language-python"
 
-In Python, install the `azurefunctions-extensions-connectors` extension package for typed Office 365 client surfaces, or call the Connector Namespace runtime URL directly with `httpx` or `requests` when no typed client exists. SDK action coverage is expanding during preview; check the [Connectors Python SDK repository](https://github.com/Azure/Connectors-python-sdk) for the current list.
+In Python, install `azure-connectors` for typed clients (for example, `office365`, `teams`, `office365Users`). The clients accept the per-connection runtime URL and a credential. SDK action coverage is expanding during preview; check the [Connectors Python SDK repository](https://github.com/Azure/Connectors-python-sdk) for the current list.
 
 ::: zone-end
 
