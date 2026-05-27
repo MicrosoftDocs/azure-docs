@@ -283,24 +283,24 @@ You create the trigger configuration in the Connector Namespace using the Azure 
 > [!TIP]
 > End-to-end working example: [functions-connectors-net-builtinauth](https://github.com/Azure-Samples/functions-connectors-net-builtinauth)
 
-The default authentication model uses a shared system key (`connector_extension`) that the Connector Namespace presents on each callback. For production workloads that require secret-free topologies, you can configure the Connector Namespace to authenticate to your function app using a managed identity and enforce that authentication at the function app edge using App Service built-in authentication (also called Easy Auth).
+The default authentication model uses a shared system key (`connector_extension`) that the Connector Namespace presents on each callback. For production workloads that require secret-free topologies, you can configure the Connector Namespace to authenticate to your function app using a managed identity and enforce that authentication at the function app edge using [App Service built-in authentication](../app-service/overview-authentication-authorization.md) (also called Easy Auth).
 
-In this pattern, the Connector Namespace uses its own system-assigned or user-assigned managed identity to mint an Entra ID token for every callback. The function app validates that token—including its audience, issuer, and the caller's object ID—before any request reaches the Functions host. No shared keys, no client secrets, anywhere.
+In this pattern, the Connector Namespace uses its own system-assigned or [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) to mint an Entra ID token for every callback. The function app validates that token—including its audience, issuer, and the caller's object ID—before any request reaches the Functions host. No shared keys, no client secrets, anywhere.
 
 ### What's configured on the function app
 
-Built-in authentication runs at the App Service worker edge, before the Functions runtime sees the request. You configure it through the `authsettingsV2` ARM property (or equivalent in Bicep):
+Built-in authentication runs at the App Service worker edge, before the Functions runtime sees the request. You configure it through the [`authsettingsV2` ARM property](../app-service/configure-authentication-file-based.md) (or equivalent in Bicep):
 
 | Setting | Purpose |
 |---|---|
 | **`requireAuthentication: true`** | Rejects any request without a valid token (returns 401). |
-| **`identityProviders.azureActiveDirectory.enabled: true`** | Validates Entra ID tokens. |
+| **`identityProviders.azureActiveDirectory.enabled: true`** | [Validates Entra ID tokens](../app-service/configure-authentication-provider-aad.md). |
 | **`registration.clientId`** | The app (client) ID of the Entra app registration that built-in authentication validates tokens against. |
 | **`registration.openIdIssuer`** | The issuer URL for your tenant: `https://login.microsoftonline.com/{tenantId}/v2.0`. |
 | **`validation.allowedAudiences`** | The Entra app's client ID and identifier URI. Tokens must carry one of these in the `aud` claim. |
 | **`validation.defaultAuthorizationPolicy.allowedPrincipals.identities`** | The object (principal) IDs of the managed identities allowed to call the function. Only the Connector Namespace's managed identity should be listed here. Any token with a different `oid` claim gets a 403. |
 
-The function app also needs a user-assigned managed identity federated to the Entra app registration. Built-in authentication uses that federated identity credential (FIC) to mint client assertions for the Entra app without storing a client secret. The bicep pattern sets `clientSecretSettingName` to an app setting that holds the user-assigned MI's client ID, telling built-in auth to use FIC instead of a secret.
+The function app also needs a user-assigned managed identity [federated to the Entra app registration](https://learn.microsoft.com/entra/workload-id/workload-identity-federation). Built-in authentication uses that [federated identity credential](https://learn.microsoft.com/entra/workload-id/workload-identity-federation-create-trust-user-assigned-managed-identity) (FIC) to mint client assertions for the Entra app without storing a client secret. The bicep pattern sets `clientSecretSettingName` to an app setting that holds the user-assigned MI's client ID, telling built-in auth to use FIC instead of a secret.
 
 You also disable the system-key check for the connector webhook endpoint by setting `"extensions": { "connector": { "system": { "webhookAuthorizationLevel": "Anonymous" } } }` in `host.json`. The shared-key check is strictly weaker than the Entra token check (a key is a static secret; a token is signed, audience-scoped, identity-scoped, and short-lived), so removing it deletes a secret without lowering the security bar. Built-in authentication is the only gate.
 
@@ -372,6 +372,14 @@ Because this check runs at the App Service edge, your function code never sees a
 
 > [!IMPORTANT]
 > This section covers authentication between the Connector Namespace and your function app—how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the Logic Apps connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/azure/connectors/overview) for the connector-to-SaaS authentication model.
+
+### Related content
+
+- [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
+- [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](../app-service/configure-authentication-provider-aad.md)
+- [File-based configuration in Azure App Service authentication](../app-service/configure-authentication-file-based.md)
+- [Workload identity federation in Microsoft Entra ID](https://learn.microsoft.com/entra/workload-id/workload-identity-federation)
+- [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Using connectors in your code
 
