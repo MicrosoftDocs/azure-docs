@@ -1,5 +1,6 @@
 ---
 title: Azure Connector Namespace Overview
+titleSuffix: Azure Connector Namespace
 description: Learn about Azure Connector Namespace, a managed service that hosts reusable connectors and MCP servers. Without writing any custom API client code, integrate your solutions from Azure Functions, Container Apps, and other Azure compute services with Microsoft and non-Microsoft services, apps, data, and AI workloads.
 author: wsilveiranz
 ms.author: wsilveira
