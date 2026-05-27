@@ -140,10 +140,6 @@ Learn more about [how to initiate an unplanned failover](storage-failover-custom
 
 Failovers carry with them a few limitations and conflicting features that users should be aware of. The following features or scenarios block a failover operation from being initiated:
 
-### Unplanned Failover
-
-- **Object Replication:** Attempting to initiate an unplanned failover on an account with object replication (OR) generates an error. In this case, you can delete your account's OR policies and attempt the conversion again.
-
 ### Planned Failover
 
 - **Change Feed:** Attempting to initiate a planned failover on an account with Change Feed generates an error. In this case, you can disable Change Feed and attempt the failover again.

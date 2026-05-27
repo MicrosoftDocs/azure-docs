@@ -1,8 +1,8 @@
 ---
 title: Build an event-driven app with Dapr
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic using MQTT broker.
-author: sethmanheim 
-ms.author: sethm 
+author: dominicbetts 
+ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 10/22/2024
@@ -299,4 +299,4 @@ kubectl logs -l app=mq-event-driven-dapr -n azure-iot-operations -c daprd
 
 ## Next steps
 
-* [Bridge MQTT data between MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+* [Bridge MQTT data between MQTT broker and Azure Event Grid](../get-started-end-to-end-sample/quickstart-configure.md)

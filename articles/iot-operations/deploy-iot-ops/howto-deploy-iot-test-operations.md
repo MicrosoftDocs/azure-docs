@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 11/18/2025
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster for testing and evaluation scenarios, so that I can evaluate the solution before deploying it to production.
 ---
@@ -34,20 +35,45 @@ When we talk about deploying Azure IoT Operations, we mean the full set of compo
 
 Cloud resources:
 
-* An Azure subscription.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
 
-  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#uninstall).
+  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](../manage-iot-ops/howto-manage-update-uninstall.md#uninstall).
 
+## Automatic cardinality
+
+To automatically determine the initial cardinality during deployment, omit the `cardinality` field in the Broker resource. The MQTT broker operator deploys the appropriate number of pods based on the number of available nodes at the time of deployment. This capability is useful for nonproduction scenarios where you don't need to fine-tune high availability or scale settings.
+
+> [!IMPORTANT]
+> Automatic cardinality is not autoscaling. The operator determines the initial number of pods to deploy based only on the cluster hardware at deployment time. A new deployment is required if cardinality settings need to change.
+
+> [!NOTE]
+> Automatic cardinality isn't supported when you deploy IoT Operations through the Azure portal. Use the Azure CLI with the `--broker-config-file` flag instead.
+
+To use automatic cardinality, prepare a Broker configuration file in JSON format that omits the `cardinality` field. For example, set only the memory profile:
+
+```json
+{
+  "memoryProfile": "Medium"
+}
+```
+
+Then deploy with the `--broker-config-file` flag (other parameters omitted for brevity):
+
+```azurecli
+az iot ops create ... --broker-config-file <FILE>.json
+```
+
+For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 ## Deploy in Azure portal
 
@@ -76,7 +102,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-configuration.png":::
@@ -151,7 +177,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
     > [!TIP]
-    > The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
+    > The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](howto-bring-your-own-issuer.md#bring-your-own-issuer).
 
     This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
@@ -181,6 +207,7 @@ az iot ops get-versions
 
 ## Next steps
 
-The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure setting and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
+- [Configure observability](howto-configure-observability.md) to set up monitoring and dashboards.
+- The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure settings and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](../secure-iot-ops/howto-enable-secure-settings.md).
 
 

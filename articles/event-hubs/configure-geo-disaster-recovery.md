@@ -12,7 +12,7 @@ This article shows you how to set up geo-disaster recovery pairing between Event
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Event Hubs namespace (Standard, Premium, or Dedicated tier). The Basic tier doesn't support geo-disaster recovery.
 
 ## Set up geo-disaster recovery pairing

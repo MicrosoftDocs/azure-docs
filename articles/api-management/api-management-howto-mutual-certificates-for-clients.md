@@ -161,7 +161,7 @@ The following example shows how to check the thumbprint of a client certificate 
 
 > [!TIP]
 >
-> Client certificate deadlock issue described in this [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) can manifest itself in several ways. For example, you might see requests freeze, requests result in `403 Forbidden` status code after timing out, or `context.Request.Certificate` is `null`. This problem usually affects `POST` and `PUT` requests with content length of approximately 60KB or larger.
+> Client certificate deadlock issue described in this [article](https://techcommunity.microsoft.com/blog/networkingblog/https-client-certificate-request-freezes-when-the-server-is-handling-a-large-put/339672) can manifest itself in several ways. For example, you might see requests freeze, requests result in `403 Forbidden` status code after timing out, or `context.Request.Certificate` is `null`. This problem usually affects `POST` and `PUT` requests with content length of approximately 60KB or larger.
 >
 > To prevent this issue from occurring, turn on **Negotiate client certificate** setting for desired hostnames for **Custom domains** as shown previously in this article. This feature isn't available in the Consumption tier.
 

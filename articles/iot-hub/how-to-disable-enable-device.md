@@ -24,7 +24,7 @@ Disabling a device might interrupt active operations, data collection, or depend
 
 Before you begin, make sure that you have the required resources and permissions.
 
-- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing IoT Hub Gen2 deployment linked to a Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md).
 - At least one device in your Device Registry namespace.
 - The [Azure Device Registry Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-contributor) role on the Device Registry namespace.

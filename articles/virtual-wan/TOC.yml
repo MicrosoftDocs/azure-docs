@@ -9,6 +9,8 @@
     href: whats-new.md
   - name: What is hybrid connectivity?
     url: ../networking/hybrid-connectivity/hybrid-connectivity.md
+  - name: Virtual Network Manager and Virtual WAN overview
+    href: virtual-network-manager-integration.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
   - name: About Virtual WAN pricing
@@ -80,6 +82,8 @@
   items:
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Configure Virtual WAN with Virtual Network Manager
+    href: ../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md
   - name: Virtual hub routing preference
     href: about-virtual-hub-routing-preference.md
   - name: Basic routing scenarios
@@ -294,10 +298,12 @@
       href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
-    - name: User tunnel
+    - name: User tunnel - Windows clients
       href: howto-always-on-user-tunnel.md
-    - name: Device tunnel
+    - name: Device tunnel - Windows clients
       href: howto-always-on-device-tunnel.md
+    - name: Device tunnel - macOS clients
+      href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel-macos.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
 - name: ExpressRoute connections 
@@ -333,6 +339,8 @@
           href: howto-virtual-hub-routing-preference.md
         - name: Azure PowerShell
           href: how-to-virtual-hub-routing-preference-powershell.md
+  - name: Connection policy
+    href: how-to-connection-policy.md
   - name: Route-maps
     items:
     - name: About Route-maps
