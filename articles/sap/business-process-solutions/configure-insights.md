@@ -55,6 +55,9 @@ Under **Source system**, select an existing source system. If you don't have a s
 
 For an existing source system, this page shows a read-only summary of the connection configuration. No action is required. Select **Next** to proceed.
 
+> [!NOTE]
+> Before you configure insights, make sure you set up a Fabric SQL Database connection. For more information, see [Set up a Fabric SQL Database connection](configure-source-system-with-open-mirroring.md#set-up-a-fabric-sql-database-connection).
+
 :::image type="content" source="./media/configure-insights/wizard-connections-readonly.png" alt-text="Screenshot that shows the read-only connection details for a succeeded source system." lightbox="./media/configure-insights/wizard-connections-readonly.png":::
 
 If you're configuring a new source system, you need to set up the connection on this page. For detailed prerequisites and field descriptions, see the following articles:
