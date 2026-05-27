@@ -1,93 +1,115 @@
 ---
-title: Create and manage connector namespaces in Azure
-description: Connector namespaces in Azure let you organize connections, triggers, and MCP servers. Learn how to create and manage one in the Azure portal today.
+title: Create and manage connector namespaces for integration
+titleSuffix: Azure Connector Namespace
+description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration by using Azure Connector Namespace.
 author: wsilveiranz
 ms.author: wsilveira
-ms.reviewer: ecfan
-ms.date: 05/18/2026
+ms.reviewers: ecfan, azla
 ms.topic: how-to
-ms.service: azure-logic-apps
-# Customer intent: As a developer, I want to set up a connector namespace so that I can manage connections, triggers, and MCP servers for my integrations.
-ms.custom: ai-assisted
+ai-usage: ai-assisted
+ms.update-cycle: 365-days
+ms.date: 06/02/2026
+ms.custom:
+  - build-2026
+# Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions need to access and integrate with other services, systems, apps, and data.
 ---
 
-# Create and manage connector namespaces in Azure (preview)
+# Quickstart: Create and manage connector namespaces for integrating your solutions through Azure Connector Namespace (preview)
 
 > [!IMPORTANT]
 >
-> This preview feature is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is available in select Azure regions only.
 
-Azure Connector Namespace is a fully managed service that hosts a catalog of connectors - reusable, typed integrations to SaaS, data, and line-of-business systems. Each connector exposes actions, event triggers, and AI-agent tools through a shared connection model. The namespace handles:
+When you build solutions that need to connect with other services, systems, apps, and data, you usually have to set up and manage the authentication, credential management, end system polling, webhook delivery, and Model Context Protocol (MCP) server hosting yourself. Azure Connector Namespace is a fully managed service that removes overhead and complexity by handling these security and management tasks for you.
 
--  Authentication 
--  Credential management 
--  End systems polling 
--  Webhook delivery
--  Model Context Protocol (MCP) server hosting
+When you create a connector namespace resource, you get a managed environment and a connector catalog so you can create and organize reusable connections, event triggers, actions, AI agent tools, and MCP server tools that your solutions can use to integrate with other components. Connector namespaces make integration easy so your solutions can work with other components without needing custom API client code or tool wrappers.
 
-With that, your applications and AI agents can integrate with external services without writing custom API client code or tool wrappers.
-
-This article shows you how to create a connector namespace resource in Azure, use the Azure portal to manage your namespaces, and create the essential components needed for your integrations.
+This guide shows how to create and manage a connector namespace resource in the Azure portal, and then create the components that your solutions can use for integration.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Permissions to create resources and resource groups in your Azure subscription.
 
-* Permissions to create resources and resource groups in your Azure subscription.
+## 1: Create your connector namespace
 
-* Access to the [Azure portal](https://portal.azure.com).
+To create a connector namespace by using the Azure portal, follow these steps:
 
-## Create a connector namespace resource
+1. In the [Azure portal](https://portal.azure.com) search box, enter `connector namespace`, and select **Connector Namespace**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the **Connector Namespaces** page toolbar, select **Create**.
 
-1. On the homepage, select **Create a resource**.
+1. On the creation pane, provide the following information:
 
-1. In the search box, enter **Connector Namespace**.
+   | Property | Description |
+   |----------|-------------|
+   | **Subscription** | Your Azure subscription. |
+   | **Resource group** | An existing resource group or to create a new one, select **Create new**, and then enter a name. |
+   | **Namespace name** | A unique name with 2-64 characters for your connector namespace resource. <br><br>**Tip**: Use only alphanumeric, hyphen, or underscore characters. |
+   | **Region** | The Azure region where you want to create the connector namespace. |
 
-1. From the search results, select **Connector Namespace**.
+   > [!NOTE]
+   >
+   > The **Identity** section shows that by default, the system assigned managed identity is enabled for your new connector namespace resource. You can also add any existing user assigned managed identities to your resource. Currently, during preview, managed identity authentication for connections isn't available yet but is planned for later release.
 
-1. Select **Create** to start creating the namespace.
+1. When you finish, select **Create** to deploy the connector namespace resource to Azure.
 
-1. On the creation page, provide these details:
+   :::image type="content" source="media\create-connector-namespace\connector-namespace-create-pane.png" alt-text="Screenshot shows the Azure portal and the open pane to create a connector namespace." lightbox="media\create-connector-namespace\connector-namespace-create-pane.png":::
 
-   | Setting            | Description                                                                                 |
-   |--------------------|---------------------------------------------------------------------------------------------|
-   | **Subscription**   | Select your Azure subscription.                                                            |
-   | **Resource group** | Select an existing resource group or select **Create new**, then enter a name for it.       |
-   | **Namespace name** | Enter a unique name for the connector namespace.                                           |
-   | **Region**         | Choose the Azure region where you want to create the namespace.                            |
+   After deployment completes, the **Connector Namespaces** page shows your connector namespace. If not, on the page toolbar, select **Refresh**.
 
-1. Select **Create** to deploy the connector namespace resource.
+1. Continue to the next section to sign in to the Connector Namespaces portal.
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-create-blade.png" alt-text="Create Connector Namespace blade in Azure portal .":::
+<a id="sign-in"></a>
 
-## Connect to your namespace in the portal
+## 2: Sign in to Connector Namespaces portal
 
-1. After creating the connector namespace resource, go to **Connector Namespace list** in the Azure portal.
+To access your connector namespace, follow these steps:
 
-1. Select **Connect to Namespace** to open the connector namespace portal in a new browser tab.
+1. If you navigated away from the **Connector Namespaces** page in the [Azure portal](https://portal.azure.com), in the portal search box, enter `connector namespace`, and select **Connector Namespace**.
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-portal-sign-in.png" alt-text="Connector Namespace portal sign in page.":::
+1. From the **Connector Namespaces** page, select your namespace resource.
 
-1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
+   The Azure portal redirects you to the [Connector Namespaces portal](https://connectors.azure.com/).
 
-1. On the sign-in page, select your account to continue.
+1. On the portal entry page, under **Welcome**, select **Sign in with Microsoft**, for example:
 
-## Manage connections, triggers, and MCP servers in your namespace
+   :::image type="content" source="media\create-connector-namespace\connector-namespace-portal-sign-in.png" alt-text="Screenshot shows the Connector Namespaces portal and sign in section." lightbox="media\create-connector-namespace\connector-namespace-portal-sign-in.png":::
 
-1. After signing in, open your connector namespace from the list displayed.
+1. From the sign-in window, select the Microsoft account associated with your connector namespace.
 
-1. Use the namespace portal to create and manage:
+   The Connector Namespaces portal shows your connector namespaces.
 
-   - **Connections** to link external services such as GitHub, Outlook, or SQL Server.
-   - **Triggers** that automate workflows with event-driven actions.
-   - **MCP servers** that expose connector tools for AI agents.
+1. From the connector namespaces list, select your namespace.
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Azure portal homepage icons for Azure services with resources section showing no recently viewed resources.":::
+   The portal shows the main information page for your connector namespace.
 
+1. Continue to the next section so you can manage your connector namespace along with any connections, triggers, actions, or MCP servers.
 
-## Related articles
+## 3: Manage your connector namespace
 
-- [What is Azure Connector Namespace?](connector-namespace-overview.md)
+The main page for your namespace shows the following sidebar sections:
+
+| Section | Description |
+|---------|-------------|
+| **General** | - **Overview**: Shows information about your connector namespace, such as resource group, region, subscription, and any enabled managed identities. The **Resources** subsections also appear on this page. <br><br>- **Identity**: View and manage any enabled managed identities. |
+| **Resources** | - **Connections**: Create and manage connections to other services, systems, apps, and data, such as Office 365 Outlook, GitHub, or SQL Server. <br><br>- **Triggers**: Create event-based triggers that run automated workflows with event-driven actions. <br><br>- **MCP servers**: Expose connectors as tools for AI agents to use. |
+
+:::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Screenshot shows the Connector Namespaces portal and on the sidebar, the Overview section is selected." lightbox="media\create-connector-namespace\connector-namespace-overview-page.png":::
+
+To manage your connector namespace and any connections, triggers, and MCP servers, follow these steps:
+
+1. In the [Connector Namespaces portal](https://connectors.azure.com/), sign in and select your connector namespace if you didn't complete this step.
+
+1. On the main page for your connector namespace, select the section for the component that you want to create or manage.
+
+1. To create the component you want, follow the UX and wizards for creating that component.
+
+   > [!IMPORTANT]
+   >
+   > Before you can use specific triggers, you need to first [create any necessary connections](create-connector-namespace-connection.md).
+
+## Related content
+
+- [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
+- [What is Azure Connector Namespace?](connector-namespace-overview.md)
