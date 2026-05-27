@@ -1,9 +1,9 @@
 ---
 title: Import and manage a unified model API - Azure API Management
-description: Learn how to create a unified model API in Azure API Management to route and transform requests across multiple LLM providers using a single client-facing API format.
+description: Learn how to create a unified model API in Azure API Management to route and transform requests across AI models from multiple LLM providers using a single client-facing API format.
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/26/2026
+ms.date: 05/27/2026
 author: dlepow
 ms.author: danlep
 ---
@@ -38,7 +38,6 @@ The unified model API supports the following backend providers:
 | Non-Azure OpenAI | OpenAI model deployments hosted outside of Azure |
 | Anthropic in Foundry | Anthropic Claude models deployed through Microsoft Foundry |
 | Amazon Bedrock | Anthropic and other models hosted in Amazon Bedrock |
-| Google Vertex AI | Google Gemini models hosted in Google Vertex AI |
 
 ## Prerequisites
 
@@ -47,7 +46,7 @@ The unified model API supports the following backend providers:
 - If you want to track token usage by the API, see [Emit custom metrics](/azure/api-management/api-management-howto-app-insights#emit-custom-metrics) for prerequisites.
 - If you want to enforce content safety checks on the API, see [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) for prerequisites.
 
-## Create a unified model API in the portal
+## Create a unified model API - Azure portal
 
 Use the following steps to create a unified model API in API Management.
 
@@ -56,13 +55,14 @@ When you create the API, API Management automatically configures:
 - A `/models` endpoint for model discovery that lists all configured models.
 - A single routing endpoint such as `/llm/v1/chat/completions` that accepts requests in the OpenAI Chat Completions format.
 - Format translation logic for each backend model you add.
-- A system-assigned managed identity with the permissions needed to access configured backend deployments.
-- Backend resources and policies that direct requests to the correct provider endpoint.
+- Backend resources that direct requests to the correct provider endpoint.
 
 To create a unified model API:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your API Management instance.
 1. In the sidebar menu, under **APIs**, select **Models** > **+ Add** > **Unified model API**.
+    
+:::image type="content" source="media/unified-model-api/unified-model-api-tile.png" alt-text="Screenshot of unified model API tile in the Azure portal.":::
 1. On the **Configure Unified Model API** tab:
    1. Enter a **Display name** for the API. API Management automatically generates an API **Name** based on the display name, but you can edit it if you want.
    1. In **API path**, enter the path that clients use to call the API. The default is `/llm/v1`, which results in a chat completions endpoint at `/llm/v1/chat/completions`.
@@ -71,11 +71,13 @@ To create a unified model API:
 1. On the **Configure models** tab, select **+ Add** to open the **Add model** pane, then configure the following settings for each model deployment:
    1. Under **Backend configuration**:
       - In **Model**, enter the backend model name (for example, `gpt-4o` or `claude-sonnet-4.6`).
-      - In **API format**, select the format the backend model expects: **OpenAI Chat Completions API** or **Anthropic Messages API**.
+      - In **API format**, select the format the backend model expects, such as **OpenAI Chat Completions API** or **Anthropic Messages API**.
       - In **URL**, enter the backend endpoint URL, for example, a model deployment in Foundry or, for other providers, the provider's API endpoint URL.
       - Under **Authorization credentials**, select how API Management authenticates to the backend:
         - **Headers**: Enter a **Header name** (for example, `api-key` or `Authorization`) and the corresponding **Header value** (your API key or secret).
-        - **Managed Identity**: Use the instance's system-assigned managed identity or a user-assigned managed identity to authenticate to the backend. For an explanation of settings for the managed identity, see the reference for the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
+        - **Managed Identity**: For model deployments in Azure, you can use the instance's system-assigned managed identity or a user-assigned managed identity to authenticate to the backend. 
+        
+        For an explanation of settings for the managed identity, see the reference for the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
 1. On the **Manage token consumption** tab, optionally configure the following policies to monitor and manage token usage:
    - [Manage token consumption](llm-token-limit-policy.md)
    - [Track token usage](llm-emit-token-metric-policy.md)
@@ -139,9 +141,9 @@ To verify that your unified model API works as expected, test it in the API Mana
 
 ## Call the API from a client application
 
-Client applications can call the unified model API using any OpenAI-compatible SDK. Point the SDK's base URL at your API Management endpoint and use an API Management subscription key for authentication.
+Client applications can call the unified model API using any OpenAI-compatible SDK. Point the SDK's base URL at your API Management endpoint and use an API Management subscription key or another supported authentication method for authentication.
 
-The following example uses the Python OpenAI SDK:
+The following example uses the Python OpenAI SDK and passes an API Management subscription key in the header for authentication. The request body specifies a client-facing model name configured in API Management, for example, `gpt` or `claude-sonnet`.:
 
 ```python
 from openai import OpenAI
