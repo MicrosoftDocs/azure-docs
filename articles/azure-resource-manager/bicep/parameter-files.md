@@ -128,7 +128,7 @@ When you hover over a `param` name, you can see the parameter data type and desc
 
 Review the parameter type, because the parameter types in your parameters file must use the same types as your Bicep file. In this example, both parameter types are strings:
 
-### [Bicep parameters file](#tab/Bicep)
+## [Bicep parameters file](#tab/Bicep)
 
 ```bicep
 using 'main.bicep'
@@ -137,7 +137,7 @@ param storagePrefix = ''
 param storageAccountType = ''
 ```
 
-### [JSON parameters file](#tab/JSON)
+## [JSON parameters file](#tab/JSON)
 
 ```json
 {
@@ -158,7 +158,7 @@ param storageAccountType = ''
 
 Check the Bicep file for parameters that include a default value. If a parameter has a default value, you can provide a value in the parameters file, but you don't need to. The parameters file value overrides the Bicep file's default value.
 
-### [Bicep parameters file](#tab/Bicep)
+## [Bicep parameters file](#tab/Bicep)
 
 ```bicep
 using 'main.bicep'
@@ -167,7 +167,7 @@ param storagePrefix = '' // This value must be provided.
 param storageAccountType = '' // This value is optional. Bicep uses default value if not provided.
 ```
 
-### [JSON parameters file](#tab/JSON)
+## [JSON parameters file](#tab/JSON)
 
 ```json
 {
@@ -191,7 +191,7 @@ param storageAccountType = '' // This value is optional. Bicep uses default valu
 
 To see if there are any restrictions like maximum length, check the Bicep file's allowed values. The allowed values specify the range of values you can provide for a parameter. In this example, `storagePrefix` can have a maximum of 11 characters, and `storageAccountType` must specify an allowed value.
 
-### [Bicep parameters file](#tab/Bicep)
+## [Bicep parameters file](#tab/Bicep)
 
 ```bicep
 using 'main.bicep'
@@ -200,7 +200,7 @@ param storagePrefix = 'storage'
 param storageAccountType = 'Standard_ZRS'
 ```
 
-### [JSON parameters file](#tab/JSON)
+## [JSON parameters file](#tab/JSON)
 
 ```json
 {
@@ -224,7 +224,7 @@ param storageAccountType = 'Standard_ZRS'
 
 The following example shows the formats of various parameter types: string, integer, Boolean, array, and object.
 
-### [Bicep parameters file](#tab/Bicep)
+## [Bicep parameters file](#tab/Bicep)
 
 ```bicep
 using './main.bicep'
@@ -243,40 +243,6 @@ param exampleObject = {
 ```
 
 Use Bicep syntax to declare [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays).
-
-### [JSON parameters file](#tab/JSON)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "exampleString": {
-      "value": "test string"
-    },
-    "exampleInt": {
-      "value": 4
-    },
-    "exampleBool": {
-      "value": true
-    },
-    "exampleArray": {
-      "value": [
-        "value 1",
-        "value 2"
-      ]
-    },
-    "exampleObject": {
-      "value": {
-        "property1": "value1",
-        "property2": "value2"
-      }
-    }
-  }
-}
-```
-
----
 
 You can use expressions as parameter values. For example:
 
