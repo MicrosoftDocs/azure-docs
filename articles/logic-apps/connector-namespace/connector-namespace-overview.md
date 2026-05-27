@@ -150,10 +150,10 @@ With Azure Connector Namespace currently in preview, review the following consid
 - [Create a connection to an external service](create-connector-namespace-connection.md)
 
 <!---
-What are these links?
+What are these links? Seems like they belong to how-to docs:
 - Call a connector action from Azure Functions by using the Connectors SDK for C#, Node.js, or Python
 - Subscribe to a connector trigger from Azure Container Apps
 - Publish a connector as a managed MCP server and connect to an AI agent
+- Add a hosted MCP server from the catalog and configure for your scenario
+- Review the catalog for available connectors and MCP servers
 --->
-- Add a hosted MCP server from the catalog and configure it for your scenario.
-- Review the catalog of available connectors and MCP servers.
