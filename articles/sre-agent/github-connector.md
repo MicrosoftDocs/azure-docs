@@ -1,7 +1,7 @@
 ---
 title: GitHub connector in Azure SRE Agent
 description: Connect GitHub repositories for source code analysis, issue management, and workflow automation with OAuth or PAT authentication.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker

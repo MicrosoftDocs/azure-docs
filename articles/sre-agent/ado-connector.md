@@ -1,7 +1,7 @@
 ---
 title: Azure DevOps connector in Azure SRE Agent
 description: Connect Azure DevOps for source code analysis, work item management, and wiki knowledge with OAuth or managed identity authentication.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker

@@ -1,7 +1,7 @@
 ---
 title: Favorites and Mine filter in Azure SRE Agent
 description: Star important threads and filter to show only yours. Organize your agent's chat sidebar for fast access to active investigations.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker

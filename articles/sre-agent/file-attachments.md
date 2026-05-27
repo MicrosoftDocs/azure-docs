@@ -1,7 +1,7 @@
 ---
 title: File attachments in Azure SRE Agent
 description: Share screenshots, logs, config files, and code directly in chat for AI-powered multimodal analysis in Azure SRE Agent.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker

@@ -1,7 +1,7 @@
 ---
 title: Security overview for Azure SRE Agent
 description: Learn how Azure SRE Agent isolates execution, handles credentials, stores data, and protects your environment with built-in security architecture.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 04/29/2026
 author: craigshoemaker

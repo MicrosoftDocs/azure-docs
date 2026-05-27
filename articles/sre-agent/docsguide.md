@@ -1,7 +1,7 @@
 ---
 title: Learn via Chat in Azure SRE Agent
 description: Ask your agent about SRE Agent features, setup, and configuration to get accurate, cited answers from official documentation.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker

@@ -43,6 +43,9 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 |**Events**|Not Supported|Supported|
 |**Infrastructure**|Supported: <br> • Customer managed keys <br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery)  <br> • [Customer managed keys](configure-customer-managed-keys.md) <br> Upcoming: <br> • Availability zone support|
 
+> [!IMPORTANT]
+> If your Azure API for FHIR instance contains more than 2 TB of data, open an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) **before** starting your migration. In the support ticket, include your Azure API for FHIR instance name and your Azure Health Data Services FHIR service instance name so the team can assist with your migration planning.
+
 ### Things to consider that may affect your architecture
 
 - **Sync agent is being deprecated**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)

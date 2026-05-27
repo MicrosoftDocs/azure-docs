@@ -1,7 +1,7 @@
 ---
 title: Agent identity in Azure SRE Agent
 description: Learn how Azure SRE Agent uses managed identities to authenticate to Azure resources and external connectors.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker
