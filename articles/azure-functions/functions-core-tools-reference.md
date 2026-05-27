@@ -909,11 +909,11 @@ What each role does:
 
 | Role | Purpose |
 | ----- | ----- |
+| **`host`** | The Azure Functions host runtime used by `func run`. |
+| **`bundles`** | Pre-built Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
 | **Stack** (`python`, `node`, `dotnet`, `go`) | Project initialization and language-specific tooling for `func init`. Also contributes templates for `func quickstart`. |
 | **Worker** (`python-worker`, `node-worker`, `go-worker`) | The language worker that the Functions host uses to execute your functions at run time. |
-| **`bundles`** | Pre-built Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
-| **`host`** | The Azure Functions host runtime used by `func run`. |
-| **`<stack>-templates`** | Function templates surfaced by `func new`. One package per stack (`node-templates`, `python-templates`, `dotnet-templates`); each ships independently and side-by-side. |
+| **Templates** (`python-templates`, `node-templates`, `dotnet-templates`) | Function templates surfaced by `func new`. One package per stack; each ships independently and side-by-side. |
 
 > [!NOTE]
 > The `bundles` workload is recommended for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
