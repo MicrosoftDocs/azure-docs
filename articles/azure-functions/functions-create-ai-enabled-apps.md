@@ -21,7 +21,7 @@ Consider using Azure Functions in your AI-enabled experiences for these scenario
 
 | Scenario | Description |
 | ----- | ----- |
-| [Serverless agents runtime](#serverless-agents-runtime) | Functions lets you build event-driven agents that use models, MCP tools, connections, sandboxed execution, and Functions triggers while running on serverless infrastructure. |
+| [Serverless agents runtime](#serverless-agents-runtime) | Functions lets you build event-driven agents that use models, MCP tools, connections from Azure connectors, sandboxed execution, and Functions triggers while running on serverless infrastructure. |
 | [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Context Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
@@ -38,8 +38,8 @@ Use the serverless agents runtime when you want agents that are triggered by eve
 
 To get started, see these articles:
 
-+ [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
-+ [Build a serverless agent using Azure Functions](scenario-serverless-agents-runtime.md)
++ [Overview: serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
++ [Get started: Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Tools and MCP servers
 
