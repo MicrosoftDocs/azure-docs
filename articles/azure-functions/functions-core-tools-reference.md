@@ -900,20 +900,20 @@ Match the workloads you install to the stack you're developing in. The recommend
 
 | Stack | Recommended workloads |
 | ----- | ----- |
-| **Python** | `python`, `workers-python`, `extension-bundles`, `host`, `templates-python` |
-| **Node.js / TypeScript** | `node`, `workers-node`, `extension-bundles`, `host`, `templates-node` |
-| **.NET (isolated, C# / F#)** | `dotnet`, `host`, `templates-dotnet` |
-| **Go** | `go`, `workers-go`, `extension-bundles`, `host` |
+| **Python** | `python`, `python-worker`, `extension-bundles`, `host`, `python-templates` |
+| **Node.js / TypeScript** | `node`, `node-worker`, `extension-bundles`, `host`, `node-templates` |
+| **.NET (isolated, C# / F#)** | `dotnet`, `host`, `dotnet-templates` |
+| **Go** | `go`, `go-worker`, `extension-bundles`, `host` |
 
 What each role does:
 
 | Role | Purpose |
 | ----- | ----- |
 | **Stack** (`python`, `node`, `dotnet`, `go`) | Project initialization and language-specific tooling for `func init`. Also contributes templates for `func quickstart`. |
-| **Worker** (`workers-python`, `workers-node`, `workers-go`) | The language worker that the Functions host uses to execute your functions at run time. |
+| **Worker** (`python-worker`, `node-worker`, `go-worker`) | The language worker that the Functions host uses to execute your functions at run time. |
 | **`extension-bundles`** | Pre-built Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
 | **`host`** | The Azure Functions host runtime used by `func run`. |
-| **`templates-<stack>`** | Function templates surfaced by `func new`. One package per stack (`templates-node`, `templates-python`, `templates-dotnet`); each ships independently and side-by-side. |
+| **`<stack>-templates`** | Function templates surfaced by `func new`. One package per stack (`node-templates`, `python-templates`, `dotnet-templates`); each ships independently and side-by-side. |
 
 > [!NOTE]
 > The `extension-bundles` workload is recommended for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
@@ -930,17 +930,17 @@ Run `func workload search` to see the current catalog.
 | `node` | Node.js | Azure Functions CLI tooling for Node.js projects (JavaScript, TypeScript). |
 | `python` | Python | Azure Functions CLI tooling for Python projects. |
 | `go` | Go | Azure Functions CLI tooling for Go projects. |
-| `workers-node` | Node.js worker | The Node.js language worker used by the Functions host. |
-| `workers-python` | Python worker | The Python language worker used by the Functions host. |
-| `workers-go` | Go worker | The Go language worker used by the Functions host. |
+| `node-worker` | Node.js worker | The Node.js language worker used by the Functions host. |
+| `python-worker` | Python worker | The Python language worker used by the Functions host. |
+| `go-worker` | Go worker | The Go language worker used by the Functions host. |
 | `extension-bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
 | `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
-| `templates-node` | Node.js templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
-| `templates-python` | Python templates | Function-scaffold templates for Python (v1 and v2 programming models). |
-| `templates-dotnet` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
+| `node-templates` | Node.js templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
+| `python-templates` | Python templates | Function-scaffold templates for Python (v1 and v2 programming models). |
+| `dotnet-templates` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
 
 > [!NOTE]
-> The `templates-<stack>` workloads ship one package per language stack. Node and Python templates carry a channel that mirrors the project's extension bundle (`stable`, `preview`, `experimental`); the CLI auto-selects the matching templates channel based on the project's `host.json`. .NET templates have no bundle dependency and ship as `stable` only.
+> The `<stack>-templates` workloads ship one package per language stack. Node and Python templates carry a channel that mirrors the project's extension bundle (`stable`, `preview`, `experimental`); the CLI auto-selects the matching templates channel based on the project's `host.json`. .NET templates have no bundle dependency and ship as `stable` only.
 
 ### Coming soon
 
@@ -949,9 +949,9 @@ These workloads are planned and not yet published. Run `func workload search` pe
 | Alias | Display name | Description |
 | ----- | ----- | ----- |
 | `java` | Java | Azure Functions CLI tooling for Java projects. |
-| `workers-java` | Java worker | The Java language worker used by the Functions host. |
+| `java-worker` | Java worker | The Java language worker used by the Functions host. |
 | `powershell` | PowerShell | Azure Functions CLI tooling for PowerShell projects. |
-| `workers-powershell` | PowerShell worker | The PowerShell language worker used by the Functions host. |
+| `powershell-worker` | PowerShell worker | The PowerShell language worker used by the Functions host. |
 | `durable` | Durable Functions | Adds `func durable` commands for managing Durable Functions task hubs and orchestration instances. |
 
 Additional workloads (publishing, container deployments, Kubernetes, and more) ship over time.
@@ -995,7 +995,7 @@ The `func new` command supports these built-in options:
 | Option | Description |
 | ----- | ----- |
 | **`--name`**, **`-n`** | The function name. |
-| **`--template`**, **`-t`** | The function template name. Available templates come from the installed `templates-<stack>` workload for the project's stack. |
+| **`--template`**, **`-t`** | The function template name. Available templates come from the installed `<stack>-templates` workload for the project's stack. |
 | **`--force`** | Overwrite existing files. |
 
 Additional options are contributed dynamically by the selected template. Run `func new --template <name> --help` to see the options for a specific template.
@@ -1158,10 +1158,10 @@ func setup [<PATH>] [options]
 
 | Feature | Workloads installed |
 | ----- | ----- |
-| `node` | `host`, `extension-bundles`, `workers-node`, `node`, `templates-node` |
-| `python` | `host`, `extension-bundles`, `workers-python`, `python`, `templates-python` |
-| `go` | `host`, `extension-bundles`, `workers-go`, `go` |
-| `dotnet-isolated` | `host`, `dotnet`, `templates-dotnet` |
+| `node` | `host`, `extension-bundles`, `node-worker`, `node`, `node-templates` |
+| `python` | `host`, `extension-bundles`, `python-worker`, `python`, `python-templates` |
+| `go` | `host`, `extension-bundles`, `go-worker`, `go` |
+| `dotnet-isolated` | `host`, `dotnet`, `dotnet-templates` |
 | `runtime` | `host`, `extension-bundles` |
 | `host` | `host` only |
 
@@ -1317,7 +1317,7 @@ Equivalent to `func --version`. Pass `func --verbose` (with no subcommand) for d
 
 ## Workload contributions
 
-The sections below document what each stack workload adds to `func init`. Templates workloads (`templates-<stack>`) are content-only and don't change the command surface; they're consumed by `func new`. Content workloads (`host`, `extension-bundles`, `workers-<stack>`) similarly contribute no commands.
+The sections below document what each stack workload adds to `func init`. Templates workloads (`<stack>-templates`) are content-only and don't change the command surface; they're consumed by `func new`. Content workloads (`host`, `extension-bundles`, `<stack>-worker`) similarly contribute no commands.
 
 ### `dotnet` workload
 
