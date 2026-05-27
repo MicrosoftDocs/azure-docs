@@ -240,7 +240,7 @@ The following list includes possible causes for these errors and steps to help t
 
      * If the storage service has a [private endpoint](../private-link/private-endpoint-overview.md), the service resolves to the respective network interface controller (NIC) private IP addresses.
 
-  1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity to the storage account over port 443 (file share uses port 445):
+  1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity for the storage account (port 443) or the file share (port 445), for example:
 
       Syntax: `psping [StorageaccountHostName] [Port] [OptionalDNSServer]`
 
