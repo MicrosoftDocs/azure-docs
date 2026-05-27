@@ -1159,9 +1159,9 @@ func setup [<PATH>] [options]
 
 | Feature | Workloads installed |
 | ----- | ----- |
-| `node` | `host`, `bundles`, `node-worker`, `node`, `node-templates` |
-| `python` | `host`, `bundles`, `python-worker`, `python`, `python-templates` |
-| `go` | `host`, `bundles`, `go-worker`, `go` |
+| `node` | `host`, `bundles`, `node`, `node-worker`, `node-templates` |
+| `python` | `host`, `bundles`, `python`, `python-worker`, `python-templates` |
+| `go` | `host`, `bundles`, `go`, `go-worker` |
 | `dotnet-isolated` | `host`, `dotnet`, `dotnet-templates` |
 | `runtime` | `host`, `bundles` |
 | `host` | `host` only |
