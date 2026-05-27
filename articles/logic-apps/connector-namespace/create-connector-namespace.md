@@ -60,6 +60,8 @@ To create a connector namespace by using the Azure portal, follow these steps:
 
 1. Continue to the next section to sign in to the Connector Namespaces portal.
 
+<a id="sign-in"></a>
+
 ## 2: Sign in to Connector Namespaces portal
 
 To access your connector namespace, follow these steps:
