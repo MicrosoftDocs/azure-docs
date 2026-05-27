@@ -31,16 +31,15 @@ When you deploy a hosted MCP server, the namespace:
 - Exposes a secure MCP endpoint that agents and MCP clients can connect to.
 - Handles scaling, health monitoring, and authentication.
 
-## Hosted vs. managed MCP servers
+## Types of MCP servers
 
-Azure Connector Namespace supports two types of MCP servers. Both are fully hosted by the service, but they differ in origin and configuration model:
+The Connector Namespace catalog offers three types of MCP servers:
 
-| Aspect | Hosted MCP servers | Managed MCP servers |
-|--------|-------------------|---------------------|
-| **Server code** | Runs the original server implementation without modification | Created and maintained by the namespace platform |
-| **Configuration** | You configure environment variables, parameters, and server settings | The namespace handles tool definitions and configuration automatically |
-| **Tool definitions** | Defined by the server implementation itself | Derived from the connector's action and trigger surface |
-| **Use case** | When you need a specific server's capabilities (for example, Playwright) | When you want to expose a connector's actions as MCP tools with zero configuration |
+| Type | Description | Configuration |
+|------|-------------|---------------|
+| **Hosted server** | Runs an existing open-source or third-party MCP server implementation without modification. You provide any required configuration. | Environment variables, config files |
+| **Managed connector** | Platform-built and maintained by the namespace service. Exposes a fixed set of tools with no configuration required. | None |
+| **Configurable connector** | Platform-built and maintained, but lets you select which tools to expose or adjust tool behavior. | Select tools or set parameters |
 
 ## Supported servers
 
@@ -50,7 +49,6 @@ During public preview, a curated set of hosted MCP servers is available. The cat
 |--------|-------------|
 | **Playwright** | Browser automation tools for web navigation, screenshots, and interaction |
 | **Azure SQL** | Exposes SQL operations as MCP tools through [Data API builder](/azure/data-api-builder/mcp/overview), enabling AI agents to interact with SQL databases through a controlled, secure contract with entity abstraction, RBAC, and caching |
-| **Azure Cosmos DB Toolkit** | Enables AI agents to securely interact with Azure Cosmos DB, comprehensive database operations including CRUD, vector search, and schema discovery |
 > [!NOTE]
 > If there's a server you'd like to see supported, file an issue at aka.ms/hosted-mcp-github.
 >
@@ -58,9 +56,19 @@ During public preview, a curated set of hosted MCP servers is available. The cat
 
 ### Server deployment requirements
 
-Generally speaking, hosted MCP servers don't require additional artifacts during deployment, except for the following: 
+Generally speaking, hosted MCP servers don't require additional artifacts during deployment, except for the following servers.
 
-- **Azure SQL** — Requires a Data API builder (DAB) configuration file that defines the database connection, entities to expose, and permissions. To generate this file, follow the instructions in [Configure Data API builder](/azure/data-api-builder/quickstart/basic-sql?tabs=mssql%2Crest#configure-data-api-builder).
+#### Azure SQL
+
+Requires a Data API builder (DAB) configuration file that defines the database connection, entities to expose, and permissions. To generate this file, follow the instructions in [Configure Data API builder](/azure/data-api-builder/quickstart/basic-sql?tabs=mssql%2Crest#configure-data-api-builder). 
+
+The Azure SQL server supports both *connection string* and *managed identity* for outbound authentication. The connection specified in the configuration file must match the approach selected in the namespace portal during deployment. 
+
+If you choose managed identity as the authentication method, you must use a **user-assigned** managed identity and assign it to the connector namespace. The connection string looks like the following:
+
+```console
+Server=tcp:your-sever-name.database.windows.net,1433;Initial Catalog=your-db-name;Authentication=Active Directory Managed Identity;User Id=<user assigned managed identity client ID>;
+```
 
 ## Server authentication
 
@@ -78,6 +86,13 @@ Outbound authentication secures the connection between the hosted server and the
 
 - **Managed identity** — The server authenticates to the downstream service using a managed identity assigned by the namespace. No credential management is required.
 - **On-behalf-of (OBO)** — The server uses the calling user's identity to authenticate to the downstream service, enabling delegated access scenarios.
+
+#### Managed identity requirement
+
+If you choose managed identity as the outbound authentication method, the identity must be assigned to the connector namespace. Generally speaking, you can use either:
+
+- A **system-assigned managed identity**, which is automatically created during namespace creation.
+- A **user-assigned managed identity** that you assign to the namespace.
 
 ## Considerations
 
