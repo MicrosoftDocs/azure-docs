@@ -10,10 +10,4 @@ ms.custom:
   - include file
 ---
 
-If you want to remove the Azure IoT Operations deployment but keep your cluster, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command:
-
-   ```azurecli
-   az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
-   ```
-
-If you want to delete all the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and then remove the Azure resource group that contained the cluster. To delete your codespace and the secrets you created for it from GitHub, see [Deleting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/deleting-a-codespace) and [Deleting secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#delete-a-secret).
+If you want to delete all the resources you created for this quickstart, remove the Azure resource group that contains your Azure Arc connected cluster and other resources used in this quickstart. Then delete your codespace and the secrets you created for it from GitHub. To delete your codespace and secrets, see [Deleting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/deleting-a-codespace) and [Deleting secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#delete-a-secret).

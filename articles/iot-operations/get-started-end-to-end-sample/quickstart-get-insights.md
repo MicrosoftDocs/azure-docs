@@ -90,7 +90,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Clear the sample query, and run the following KQL query that creates a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"Properties":{"Path":"$[\'AssetId\']"},"column":"AssetId","datatype":""},{"Properties":{"Path":"$.Spike"},"column":"Spike","datatype":""},{"Properties":{"Path":"$.TemperatureF"},"column":"Temperature","datatype":""},{"Properties":{"Path":"$.FillWeight"},"column":"FillWeight","datatype":""},{"Properties":{"Path":"$.EnergyUse.Value"},"column":"EnergyUse","datatype":""},{"Properties":{"Path":"$.Temperature.SourceTimestamp"},"column":"Timestamp","datatype":""}]'
     ```
 
 ### Add eventstream data to KQL database
