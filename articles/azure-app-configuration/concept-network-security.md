@@ -12,27 +12,38 @@ ms.date: 05/18/2026
 ---
 # Network security for Azure App Configuration
 
-Azure App Configuration integrates with Azure's network security offerings, letting you apply network security policies that protect your configuration data. Through features like private endpoints and network security perimeters, you can restrict network access to your App Configuration store to clients in a virtual network, clients with specific IP addresses, or managed identities in specific subscriptions. In addition to inbound controls, with a network security perimeter, you can also place network restrictions on outbound traffic from your App Configuration store, preventing data exfiltration to unauthorized endpoints.
+Azure App Configuration integrates with Azure's network security offerings, letting you apply network security policies that protect your configuration data. You can restrict or disable public network access to your store, and you can enable private access from your virtual networks through private endpoints.
 
-## Public network access
+## Restrict or disable public network access
 
-The key component of network security in Azure App Configuration is the ability to restrict public network access. Azure App Configuration offers four public network access options:
-- **Automatic**: Public network access is enabled as long as you don't have a private endpoint. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating a store.
-- **Enabled**: All networks can access this resource.
-- **Secured by perimeter**: Public access is disabled. Only traffic from a private endpoint or traffic allowed by an associated network security perimeter can access this resource.
-- **Disabled**: Public access is disabled and no traffic can access this resource unless it's through a private endpoint.
+By default, an App Configuration store is reachable over the public internet by any client that has valid credentials. You can restrict or completely disable public network access in two ways:
+
+- **The public network access setting on the store.** The [Public network access setting](#public-network-access-setting) controls how the store communicates with the public internet. When access from the public internet is not permitted, clients must connect using a private endpoint. See [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md) for more information.
+- **Association with a network security perimeter.** A network security perimeter is a security boundary that lets you allow traffic from specific clients (by IP address, Azure subscription, or perimeter membership) while blocking all other public traffic. It also controls outbound traffic from your store, helping prevent data exfiltration. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
 > [!IMPORTANT]
-> If a network security perimeter is associated with an App Configuration store and that association's access mode is Enforced, public network access is governed by the network security perimeter, regardless of the public access setting on the store. See [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter) for more details.
+> If an App Configuration store is associated with a network security perimeter in **Enforced** access mode, public network access is governed entirely by the network security perimeter, and the store's public network access setting is ignored. For more information, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
-## Accessing an App Configuration store with restricted public network access
+## Private access through private endpoints
 
-If you restrict network access to your App Configuration store through the public network access setting or association with a network security perimeter, there are two ways your clients can access your App Configuration store:
+Clients can reach your App Configuration store privately from a virtual network by using a private endpoint. A private endpoint is a network interface powered by Azure Private Link that connects clients in your virtual network to your App Configuration store over the Microsoft backbone network, without exposing traffic to the public internet.
 
-- **Private endpoint**: A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link, such as Azure App Configuration. By creating a private endpoint for your App Configuration store, you can access the App Configuration store privately from your virtual network, without exposing it to the public internet. For more information, see [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md).
-- **Network security perimeter**: A network security perimeter is a security boundary that you can define to restrict access to your App Configuration store based on client IP address, Azure subscription, or network security perimeter membership. By associating a network security perimeter with your App Configuration store, you can allow access from specific clients while blocking all other traffic. For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
+Private endpoints work independently of how you configure public network access or a network security perimeter, so you can combine them with the public network access setting or a network security perimeter for defense in depth.
 
-Private endpoints and network security perimeters can be combined for defense in depth. You can use both features simultaneously to provide layered security for your App Configuration store.
+For more information, see [Use private endpoints for Azure App Configuration](./concept-private-endpoint.md).
+
+## Public network access setting
+
+The public network access setting on an App Configuration store controls how the store can communicate over the public internet. It can have one of the following values:
+
+- **Automatic**: Inbound public network access is enabled until you create a private endpoint for the store. Once a private endpoint exists, inbound public network access is automatically disabled. Outbound public network access is allowed. This option can only be selected when creating a store.
+- **Enabled**: All networks can access the store over the public internet. Outbound public network access is allowed.
+- **Disabled**: Inbound public network access is disabled. The store can only be reached through a private endpoint. Outbound public network access is allowed.
+- **Secured by perimeter**: Inbound public network access is disabled. Only traffic from a private endpoint or traffic allowed by an associated network security perimeter can access the store. Outbound public network access is governed by the associated network security perimeter, or denied if no perimeter is associated. 
+
+As noted earlier, this setting is ignored when the store is associated with a network security perimeter in Enforced access mode.
+
+For step-by-step instructions on changing this setting, see [Disable public access in Azure App Configuration](./howto-disable-public-access.md).
 
 ## Related content
 
