@@ -413,7 +413,7 @@ To change the configuration, modify the `authenticationMethods` setting in this 
 
 To learn more about each of the authentication options, see the next sections for each method.
 
-For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
