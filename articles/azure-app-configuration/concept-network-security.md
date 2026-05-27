@@ -25,7 +25,7 @@ The key component of network security in Azure App Configuration is the ability 
 > [!IMPORTANT]
 > If a network security perimeter is associated with an App Configuration store and that association's access mode is Enforced, public network access is governed by the network security perimeter, regardless of the public access setting on the store. See [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter) for more details.
 
-## Accessing an App Configuration store with public network access disabled
+## Accessing an App Configuration store with restricted public network access
 
 If you restrict network access to your App Configuration store through the public network access setting or association with a network security perimeter, there are two ways your clients can access your App Configuration store:
 

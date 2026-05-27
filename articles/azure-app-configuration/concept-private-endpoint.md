@@ -53,6 +53,10 @@ When geo-replication is enabled for your App Configuration store, you can use a 
 
 For enhanced resilience, consider creating a private endpoint for each replica of your geo-replicated store, besides a private endpoint for the origin store. If one region becomes unavailable, clients can access the store through a private endpoint provisioned in the same region as a replica. When you use this setup, you need to make [Domain Name System (DNS) changes](#dns-changes-for-private-endpoints). Specifically, the endpoint for each replica should resolve to the relevant IP address for the private endpoint in that replica's region.
 
+### Considerations for stores associated with a network security perimeter
+
+If a store's network access is governed by a [network security perimeter](./concept-network-security-perimeter.md), no additional configuration is required to allow requests from a private endpoint. Valid requests through a private endpoint are always permitted, regardless of the perimeter's association mode or profile rules.
+
 ### Private endpoint connections
 
 Azure relies on DNS resolution to route connections from the virtual network to the configuration store over a private link. You can find connection strings in the Azure portal by selecting your App Configuration store and then selecting **Settings** > **Access settings**.  

@@ -18,13 +18,15 @@ When you associate an App Configuration store with a network security perimeter,
 
 ## Transitioning to a network security perimeter
 
-A resource association with a network security perimeter supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the App Configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP.
+A resource association with a network security perimeter supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the App Configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP. For a breakdown on how a resource association's access mode interacts with the public network access setting of the App Configuration store, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
-## Access mode and public network access
+## Enforcing networking restrictions with a network security perimeter
 
-When an App Configuration store is associated with an NSP, the network access rules enforced on the App Configuration store depend on the combination of two settings: the association's access mode (Transition or Enforced) and the App Configuration store's public network access setting (Enabled, Disabled, or Secured by perimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules, the App Configuration store's public network access setting, or both.
+To enforce network restrictions with a network security perimeter, ensure the network security perimeter resource association is in Enforced mode. In this mode, the App Configuration store only permits inbound and outbound requests allowed by the associated network security perimeter profile, regardless of the public network access setting of the App Configuration store.
 
-For a complete breakdown of how these settings interact, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
+## Considerations for private endpoint requests
+
+Traffic through a valid [private endpoint](./concept-private-endpoint.md) is always permitted by a network security perimeter regardless of the perimeter's association mode or profile rules.
 
 ## Considerations for customer-managed key encryption
 
