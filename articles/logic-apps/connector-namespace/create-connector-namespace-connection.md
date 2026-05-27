@@ -1,22 +1,28 @@
 ---
-title: Create a connection in Azure Connector Namespace  
-description: Learn how to create a new connection in an Azure Connector Namespace to integrate external services such as Office 365 Outlook with your applications.  
-author: wsilveiranz  
-ms.author: wsilveira  
-ms.date: 05/21/2026  
-ms.topic: how-to  
-ms.service: azure-logic-apps  
-# Customer intent: As a developer, I want to create a connection in Azure Connector Namespace so that I can integrate external services with my applications.  
-ms.custom: ai-assisted  
+title: Create connections in a connector namespace
+titleSuffix: Azure Connector Namespace
+description: Learn to create connections in a connector namespace so you can integrate your apps with other services, systems, apps, and data.
+author: wsilveiranz
+ms.author: wsilveira
+ms.reviewers: ecfan, azla
+ms.topic: how-to
+ai-usage: ai-assisted
+ms.update-cycle: 365-days
+ms.date: 06/02/2026
+ms.custom:
+  - build-2026
+# Customer intent: As a backend developer who works with Azure, I want to create connections to other services, systems, apps, and data in my connector namespace so I can integrate these sources with my apps.
 ---
 
-# Create a connection in Azure Connector Namespace (preview)
+# Create connections in a connector namespace for Azure Connector Namespace (preview)
 
-> [!IMPORTANT]
-> 
-> This capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
+> [!NOTE]
+>
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
 
-This article shows you how to create a new connection in an Azure Connector Namespace to integrate external services such as Office 365 Outlook with your applications.
+When your apps need to connect and integrate with other services, systems, apps, or data, you first need a secure way to store and manage authentication information. However, setting up and managing authentication yourself for each integration adds overhead and complexity. Azure Connector Namespace reduces these hurdles because you can create reusable connections to supported services and other sources so your integrations can subcribe to triggers and call actions without having each app separately handle and manage connections and authentication.
+
+This guide shows how to create, authenticate, authorize, and use a connection in your connector namespace with your apps.
 
 ## Prerequisites
 
