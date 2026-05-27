@@ -278,6 +278,101 @@ The connector trigger isn't available in this language for the public preview.
 
 You create the trigger configuration in the Connector Namespace using the Azure CLI, ARM, or Bicep. That step is part of the connector platform surface and is documented in the connectors content set. Functions doesn't ship its own configuration commands for trigger registration.
 
+## Authentication between Azure Functions and the Connector Namespace
+
+> [!TIP]
+> End-to-end working example: [functions-connectors-net-builtinauth](https://github.com/Azure-Samples/functions-connectors-net-builtinauth)
+
+The default authentication model uses a shared system key (`connector_extension`) that the Connector Namespace presents on each callback. For production workloads that require secret-free topologies, you can configure the Connector Namespace to authenticate to your function app using a managed identity and enforce that authentication at the function app edge using App Service built-in authentication (also called Easy Auth).
+
+In this pattern, the Connector Namespace uses its own system-assigned or user-assigned managed identity to mint an Entra ID token for every callback. The function app validates that token—including its audience, issuer, and the caller's object ID—before any request reaches the Functions host. No shared keys, no client secrets, anywhere.
+
+### What's configured on the function app
+
+Built-in authentication runs at the App Service worker edge, before the Functions runtime sees the request. You configure it through the `authsettingsV2` ARM property (or equivalent in Bicep):
+
+| Setting | Purpose |
+|---|---|
+| **`requireAuthentication: true`** | Rejects any request without a valid token (returns 401). |
+| **`identityProviders.azureActiveDirectory.enabled: true`** | Validates Entra ID tokens. |
+| **`registration.clientId`** | The app (client) ID of the Entra app registration that built-in authentication validates tokens against. |
+| **`registration.openIdIssuer`** | The issuer URL for your tenant: `https://login.microsoftonline.com/{tenantId}/v2.0`. |
+| **`validation.allowedAudiences`** | The Entra app's client ID and identifier URI. Tokens must carry one of these in the `aud` claim. |
+| **`validation.defaultAuthorizationPolicy.allowedPrincipals.identities`** | The object (principal) IDs of the managed identities allowed to call the function. Only the Connector Namespace's managed identity should be listed here. Any token with a different `oid` claim gets a 403. |
+
+The function app also needs a user-assigned managed identity federated to the Entra app registration. Built-in authentication uses that federated identity credential (FIC) to mint client assertions for the Entra app without storing a client secret. The bicep pattern sets `clientSecretSettingName` to an app setting that holds the user-assigned MI's client ID, telling built-in auth to use FIC instead of a secret.
+
+You also disable the system-key check for the connector webhook endpoint by setting `"extensions": { "connector": { "system": { "webhookAuthorizationLevel": "Anonymous" } } }` in `host.json`. The shared-key check is strictly weaker than the Entra token check (a key is a static secret; a token is signed, audience-scoped, identity-scoped, and short-lived), so removing it deletes a secret without lowering the security bar. Built-in authentication is the only gate.
+
+### What's configured on the Connector Namespace
+
+The Connector Namespace must have a system-assigned or user-assigned managed identity enabled and attached. When you create the trigger configuration, you specify `authentication.type = ManagedServiceIdentity` and `authentication.identity = <resource-id-of-managed-identity>` (for user-assigned) or omit `identity` (for system-assigned). You also specify `authentication.audience = <entra-app-client-id>` so the connector runtime knows which audience to request in the token.
+
+The connector runtime then uses that managed identity to mint an Entra ID token on every callback. The token's `iss` (issuer) is your tenant, `aud` (audience) is the Entra app client ID, and `oid` (object ID) is the managed identity's principal ID. Built-in authentication validates all three.
+
+The Connector Namespace resource itself also needs access to the connection (for example, the `office365` connection). You grant this through an access policy that lists the managed identity's principal ID. The sample bicep shows the full wiring for both the namespace identity and the connection access policy.
+
+### What's enforced
+
+Built-in authentication validates tokens in order:
+
+1. **Token presence** — Missing or expired token → **401**
+2. **Signature** — Verified against the issuer's JWKS for your tenant
+3. **`iss` (issuer)** — Must match `openIdIssuer`
+4. **`aud` (audience)** — Must be in `allowedAudiences`
+5. **`oid` (object/principal ID)** — Must match one of the identities in `allowedPrincipals.identities`. Any other identity → **403**
+
+Because this check runs at the App Service edge, your function code never sees a request that didn't come from the Connector Namespace's managed identity. No application code is needed for the access check.
+
+### Authentication flow
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Connector Namespace  (westcentralus)                        │
+│  • System-assigned or user-assigned managed identity enabled │
+│  • Trigger config: authentication.type = ManagedServiceIdentity
+│                    authentication.audience = <Entra app ID>  │
+│                    callbackUrl = https://<func>/runtime/…    │
+└────────────────────────┬─────────────────────────────────────┘
+                         │
+                         │  POST callbackUrl
+                         │  Authorization: Bearer <AAD token>
+                         │     iss = your tenant
+                         │     aud = Entra app clientId
+                         │     oid = managed identity principalId
+                         ▼
+┌──────────────────────────────────────────────────────────────┐
+│  Function App  (any region)                                  │
+│                                                              │
+│   ┌──────────────────────────────────────────────────────┐   │
+│   │ Built-in authentication  (App Service edge)          │   │
+│   │   • Validates signature, iss, aud, exp               │   │
+│   │   • Checks oid ∈ allowedPrincipals.identities        │   │
+│   │   → No token  → 401                                  │   │
+│   │   → Wrong oid → 403                                  │   │
+│   └────────────────────┬─────────────────────────────────┘   │
+│                        │ pass                                │
+│                        ▼                                     │
+│   ┌──────────────────────────────────────────────────────┐   │
+│   │ /runtime/webhooks/connector                          │   │
+│   │   (webhookAuthorizationLevel = Anonymous)            │   │
+│   └────────────────────┬─────────────────────────────────┘   │
+│                        ▼                                     │
+│   ┌──────────────────────────────────────────────────────┐   │
+│   │ Your function(payload)                               │   │
+│   └──────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+                        ▲
+                        │ FIC (federated identity credential)
+        ┌───────────────┴────────────────┐
+        │  Entra app registration         │
+        │  (federated to function-app MI) │
+        └─────────────────────────────────┘
+```
+
+> [!IMPORTANT]
+> This section covers authentication between the Connector Namespace and your function app—how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the Logic Apps connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/azure/connectors/overview) for the connector-to-SaaS authentication model.
+
 ## Using connectors in your code
 
 The connector SDK lets your function call connector operations as outbound actions. The client surface uses the same underlying Connector Namespace connection that triggers use, so a single connection can power both inbound triggers and outbound calls for the same SaaS account.
