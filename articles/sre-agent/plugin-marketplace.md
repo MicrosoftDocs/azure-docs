@@ -1,7 +1,7 @@
 ---
 title: Plugin Marketplace in Azure SRE Agent
 description: Browse, discover, and install community-built skills and MCP integrations from curated plugin marketplaces in Azure SRE Agent.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 ms.custom: plugins, marketplace, skills, MCP, connectors, extend, community
