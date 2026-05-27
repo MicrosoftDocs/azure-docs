@@ -928,7 +928,7 @@ Run `func workload search` to see the current catalog.
 | ----- | ----- | ----- |
 | `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
 | `bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
-| `dotnet` | .NET | Azure Functions tooling for .NET (C#, F#) projects. |
+| `dotnet` | .NET | Azure Functions CLI tooling for .NET (C#, F#) projects. |
 | `dotnet-templates` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
 | `python` | Python | Azure Functions CLI tooling for Python projects. |
 | `python-worker` | Python worker | The Python language worker used by the Functions host. |
@@ -1064,6 +1064,7 @@ The `func quickstart` command supports these options:
 | **`--iac`** | Filter by infrastructure-as-code type (for example, `bicep`, `terraform`, `none`). |
 | **`--search`** | Case-insensitive substring filter applied to template names and descriptions. |
 | **`--fetch`** | Catalog fetch strategy: `auto` (default), `git`, or `http`. `auto` probes for `git` and falls back to HTTP. |
+| **`--force`** | Scaffold even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
 
 Subcommands:
 
@@ -1085,7 +1086,7 @@ func quickstart list [options]
 | **`--language`**, **`-l`** | Filter by worker runtime or language (for example, `python`, `node`, `java`, `dotnet`). |
 | **`--resource`**, **`-r`** | Filter by trigger or binding resource. |
 | **`--iac`** | Filter by infrastructure-as-code type. |
-| **`--search`**, **`-s`** | Case-insensitive substring match against template names, IDs, resources, tags, and descriptions. |
+| **`--search`**, **`-s`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
 
 ### `func quickstart info`
 
