@@ -143,17 +143,17 @@ To verify that your unified model API works as expected, test it in the API Mana
 
 Client applications can call the unified model API using any OpenAI-compatible SDK. Point the SDK's base URL at your API Management endpoint and use an API Management subscription key or another supported authentication method for authentication.
 
-The following example uses the Python OpenAI SDK and passes an API Management subscription key in the header for authentication. The request body specifies a client-facing model name configured in API Management, for example, `gpt` or `claude-sonnet`.:
+The following example uses the Python OpenAI SDK and passes an API Management subscription key in the header for authentication. The request body specifies a client-facing model alias configured in API Management, for example, `gpt` or `claude-sonnet`.:
 
 ```python
 from openai import OpenAI
 
 client = OpenAI(
     base_url="https://<apim-instance>.azure-api.net/llm/v1",
-    api_key="<apim-subscription-key>",
+    api_key="<api-management-subscription-key>",
 )
 
-# Specify the client-facing model name or alias
+# Specify the client-facing model alias
 response = client.chat.completions.create(
     model="gpt",  # or "claude-sonnet", "gemini", or any other configured alias
     messages=[{"role": "user", "content": "What can you do?"}],
