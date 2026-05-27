@@ -31,7 +31,9 @@ This guide shows how to create and manage a connector namespace resource in the 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Permissions to create resources and resource groups in your Azure subscription.
 
-## Create a connector namespace resource
+## 1: Create your connector namespace
+
+To create a connector namespace by using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter `connector namespace`, and select **Connector Namespace**.
 
@@ -54,19 +56,27 @@ This guide shows how to create and manage a connector namespace resource in the 
 
    :::image type="content" source="media\create-connector-namespace\connector-namespace-create-pane.png" alt-text="Screenshot shows the Azure portal and the open pane to create a connector namespace." lightbox"media\create-connector-namespace\connector-namespace-create-pane.png":::
 
-## Connect to your connector namespace in the portal
+   After deployment completes, the **Connector Namespaces** page shows your connector namespace. If not, on the page toolbar, select **Refresh**.
 
-1. After creating the connector namespace resource, go to **Connector Namespace list** in the Azure portal.
+1. Continue to the next section to sign in to your connector namespace.
 
-1. Select **Connect to Namespace** to open the connector namespace portal in a new browser tab.
+## 2: Sign in to your connector namespace
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-portal-sign-in.png" alt-text="Connector Namespace portal sign in page.":::
+1. If you navigated away from the **Connector Namespaces** page in the [Azure portal](https://portal.azure.com), in the portal search box, enter `connector namespace`, and select **Connector Namespace**.
 
-1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
+1. From the **Connector Namespaces** page, select your namespace resource.
 
-1. On the sign-in page, select your account to continue.
+   The Azure portal redirects you to the **Connector Namespaces** portal.
 
-## Manage connections, triggers, and MCP servers in your namespace
+1. Under **Welcome**, select **Sign in with Microsoft**, for example:
+
+   :::image type="content" source="media\create-connector-namespace\connector-namespace-portal-sign-in.png" alt-text="Screenshot shows the Connector Namespaces portal and sign in section." lightbox="media\create-connector-namespace\connector-namespace-portal-sign-in.png":::
+
+1. On the sign-in page, select the Microsoft account associated with your connector namespace.
+
+1. Continue to the next section to manage your connector namespace.
+
+## 3: Manage connections, triggers, and MCP servers in your namespace
 
 1. After signing in, open your connector namespace from the list displayed.
 
@@ -77,7 +87,6 @@ This guide shows how to create and manage a connector namespace resource in the 
    - **MCP servers** that expose connector tools for AI agents.
 
    :::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Azure portal homepage icons for Azure services with resources section showing no recent resources.":::
-
 
 ## Related articles
 
