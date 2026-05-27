@@ -158,11 +158,7 @@ You can skip this section if you choose to instead [create and deploy your app u
 You can choose to deploy your project code to an existing function app using various tools:
 
 ::: zone pivot="programming-language-go"
-Go deployment requires the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) preview package:
-
-```console
-npm install -g azure-functions-core-tools@preview --unsafe-perm true
-```
+Go deployment requires [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version `4.12` or later. Run `func --version` to verify your installed version.
 ::: zone-end
 
 ### [Azure CLI](#tab/azure-cli-publish)
