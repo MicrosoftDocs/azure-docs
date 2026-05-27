@@ -38,7 +38,7 @@ To learn how to create a custom role, see [Azure custom roles](../../role-based-
 
 As you create an assignment, you must choose an Azure built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. That role is assigned to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
 
-The recommended built-in role is **Storage Actions Blob Data Operator**. This is a purpose-built role for the Storage Actions managed identity. It grants exactly the data-plane permissions required to execute all operations supported by Storage Actions today — including tier changes, tags, expiry, delete, undelete, immutability, and legal hold — without granting broader access to your data.
+The recommended built-in role is **Storage Actions Blob Data Operator**. This is a purpose-built role for the Storage Actions managed identity. It grants exactly the data-plane permissions required to execute all operations supported by Storage Actions today — including tier changes, tags, expiry, delete, undelete, immutability, and legal hold - without granting broader access to your data.
 
 The **Storage Actions Blob Data Operator** role grants the following permissions:
 
