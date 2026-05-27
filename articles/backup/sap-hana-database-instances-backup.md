@@ -15,6 +15,17 @@ This article describes how to back up SAP HANA database instances that are runni
 
 Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure managed disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
+This snapshot workflow also applies to HSR-enabled SAP HANA systems when you register both nodes with the same vault and use the supported snapshot backup policy.
+
+## Snapshot consistency and backup behavior
+
+- Snapshots are triggered through SAP HANA native snapshot APIs.
+- HANA I/O is quiesced during snapshot creation.
+- Log backups continue independently through the streaming backup solution and are used for recovery.
+- The first snapshot backup transfers all disk data. Subsequent backups transfer only changed blocks since the last snapshot backup.
+- Logs aren't embedded in the snapshot, so you still need healthy log backups and weekly full backups for recovery.
+- The snapshot serves as the baseline for recovery, and logs are replayed over the snapshot during restore.
+
 
 >[!Note]
 >- You can now store the Snapshot backups in a Recovery Services vault by using **Enhanced backup policy (preview)** for HANA Snapshot backup. This provides all the vault level features, such as Immutability, Soft-delete, cross-region restore, and more, for SAP HANA snapshot backups. This policy also ensures faster restores from **instant tier**.
@@ -147,6 +158,8 @@ You'll also need to [create a policy for SAP HANA database backup](backup-azure-
 ## Discover the database instance
 
 To discover the database instance where the snapshot is present, see the [Back up SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md#discover-the-databases).
+
+For HSR-enabled systems, make sure that both HSR nodes are already registered with the same vault before you enable snapshot protection.
 
 
 [!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]

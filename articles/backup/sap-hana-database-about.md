@@ -77,7 +77,11 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 
 ## Back up a HANA system with replication enabled
 
-Azure Backup now supports backing up databases that have HSR enabled. This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
+Azure Backup now supports backing up databases that have HSR enabled. This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container.
+
+For HSR-enabled systems, Azure Backup supports both Backint-based database backups and instance snapshot backups. Use snapshot backups for fast operational recovery and Backint-based backups for long-term retention and point-in-time recovery.
+
+When you use snapshot backups with HSR, both nodes remain registered with the same vault and the service treats the HSR pair as one logical backup container.
 
 Although there are multiple physical nodes (primary and secondary), the backup service now considers them a single HSR container.
 
