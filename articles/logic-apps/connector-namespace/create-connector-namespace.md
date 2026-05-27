@@ -74,8 +74,6 @@ To access your connector namespace, follow these steps:
 
    :::image type="content" source="media\create-connector-namespace\connector-namespace-portal-sign-in.png" alt-text="Screenshot shows the Connector Namespaces portal and sign in section." lightbox="media\create-connector-namespace\connector-namespace-portal-sign-in.png":::
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Azure portal homepage icons for Azure services with resources section showing no recent resources." lightbox="media\create-connector-namespace\connector-namespace-overview-page.png":::
-
 1. From the sign-in window, select the Microsoft account associated with your connector namespace.
 
    The Connector Namespaces portal shows your connector namespaces.
@@ -94,6 +92,8 @@ The main page for your namespace shows the following sidebar sections:
 |---------|-------------|
 | **General** | - **Overview**: Shows information about your connector namespace, such as resource group, region, subscription, and any enabled managed identities. The **Resources** subsections also appear on this page. <br><br>- **Identity**: View and manage any enabled managed identities. |
 | **Resources** | - **Connections**: Create and manage connections to other services, systems, apps, and data, such as Office 365 Outlook, GitHub, or SQL Server. <br><br>- **Triggers**: Create event-based triggers that run automated workflows with event-driven actions. <br><br>- **MCP connectors**: Expose connectors as tools for AI agents to use. |
+
+:::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Screenshot shows the Connector Namespaces portal and on the sidebar, the Overview section is selected." lightbox="media\create-connector-namespace\connector-namespace-overview-page.png":::
 
 To manage your connector namespace and any connections, triggers, and MCP connectors, follow these steps:
 
