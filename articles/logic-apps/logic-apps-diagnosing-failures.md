@@ -155,7 +155,7 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, see [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
 
-### Without any running workflows, my host memory usuage is already quite high in Azure Logic Apps (Standard). What/who is consuming these memory?
+### Why does my host memory usage appear high without any workflows running in Azure Logic Apps (Standard)? What is using so much memory?
 
 There is no waste of memory. A host machine has the operating system (OS) and a number of system processes that come with the OS itself. On top of that Logic Apps backend requires a number of processes to handle several platform operations and features, such as security updates, availability of the SCM console, application monitoring, authentication, job scheduling, and many other vital features of your Logic App. These processes will run on App Service Plans even if there are no Logic Apps running or if the App Service Plan contains no Logic Apps. They will consume certain amount of resources (such as CPU, Memory and Disk space).
 
