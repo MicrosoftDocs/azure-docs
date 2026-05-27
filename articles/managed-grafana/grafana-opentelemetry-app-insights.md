@@ -7,6 +7,7 @@ ms.author: wuweng
 ms.reviewer: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
 ms.date: 05/26/2026
 ---
 
@@ -30,12 +31,12 @@ Purpose-built Grafana dashboards visualize the signals that matter for AI coding
 
 | Dashboard | What it shows | Link |
 | --- | --- | --- |
-| [GitHub Copilot](https://aka.ms/amg/dash/gh-copilot) | Operations, input/output tokens, chat sessions, tool calls, response time and TTFT by model | `aka.ms/amg/dash/gh-copilot` |
-| [Claude Code](https://aka.ms/amg/dash/claude-code) | Cost, sessions, user prompts, API requests/errors, daily cost and token trends, per-model breakdown, tool usage analytics | `aka.ms/amg/dash/claude-code` |
-| [Codex](https://aka.ms/amg/dash/codex) | Sessions, turns, token usage by type and model, turn/TTFT latency percentiles, tool reliability and latency, sandbox/approval activity, sessions by client | `aka.ms/amg/dash/codex` |
-| [OpenClaw](https://aka.ms/amg/dash/openclaw) | Messages, unique chats, response time, LLM calls, token usage, cache reads, stuck sessions, model usage breakdown | `aka.ms/amg/dash/openclaw` |
-| [OpenCode](https://aka.ms/amg/dash/opencode) | Sessions, prompts, LLM calls, token usage, tool executions, p95 prompt latency, cache hit ratio, per-model/provider breakdown | `aka.ms/amg/dash/opencode` |
-| [Gemini CLI](https://aka.ms/amg/dash/gemini) | Traces, prompts, tool calls, and session context | `aka.ms/amg/dash/gemini` |
+| [GitHub Copilot](https://aka.ms/amg/dash/gh-copilot) | Operations, input/output tokens, chat sessions, tool calls, response time and time to first token (TTFT) by model | [aka.ms/amg/dash/gh-copilot](https://aka.ms/amg/dash/gh-copilot) |
+| [Claude Code](https://aka.ms/amg/dash/claude-code) | Cost, sessions, user prompts, API requests/errors, daily cost and token trends, per-model breakdown, tool usage analytics | [aka.ms/amg/dash/claude-code](https://aka.ms/amg/dash/claude-code) |
+| [Codex](https://aka.ms/amg/dash/codex) | Sessions, turns, token usage by type and model, turn/TTFT latency percentiles, tool reliability and latency, sandbox/approval activity, sessions by client | [aka.ms/amg/dash/codex](https://aka.ms/amg/dash/codex) |
+| [OpenClaw](https://aka.ms/amg/dash/openclaw) | Messages, unique chats, response time, LLM calls, token usage, cache reads, stuck sessions, model usage breakdown | [aka.ms/amg/dash/openclaw](https://aka.ms/amg/dash/openclaw) |
+| [OpenCode](https://aka.ms/amg/dash/opencode) | Sessions, prompts, LLM calls, token usage, tool executions, p95 prompt latency, cache hit ratio, per-model/provider breakdown | [aka.ms/amg/dash/opencode](https://aka.ms/amg/dash/opencode) |
+| [Gemini CLI](https://aka.ms/amg/dash/geminicli) | Traces, prompts, tool calls, and session context | [aka.ms/amg/dash/geminicli](https://aka.ms/amg/dash/geminicli) |
 
 :::image type="content" source="media/grafana-opentelemetry-app-insights/claude-code-main.png" alt-text="Screenshot of the Claude Code dashboard in Grafana, showing cost, sessions, daily cost and token trends, per-model breakdown, and tool usage analytics." lightbox="media/grafana-opentelemetry-app-insights/claude-code-main.png":::
 
@@ -130,7 +131,7 @@ docker run -d --name otel-collector --restart unless-stopped -p 4318:4318 -p 431
 The examples in the next section assume the collector is running locally and reachable at `http://localhost:4318`. The OTLP/HTTP receiver listens on port `4318` by default, and all agents in this guide use OTLP/HTTP. For a shared or remote collector, substitute your own endpoint.
 
 > [!TIP]
-> The `--restart unless-stopped` flag keeps the collector running across Docker Desktop or machine restarts. If you omit it, the container might remain stopped after a restart until you start it manually.
+> Use `--restart unless-stopped` so the collector starts automatically after Docker Desktop or machine restarts. Without it, the container stays stopped until you start it manually.
 
 ## Step 2: Point each AI coding agent at the collector
 
@@ -401,7 +402,7 @@ Each dashboard has its own import flow and variables reference:
 - [Codex](https://aka.ms/amg/dash/codex)
 - [OpenClaw](https://aka.ms/amg/dash/openclaw)
 - [OpenCode](https://aka.ms/amg/dash/opencode)
-- [Gemini CLI](https://aka.ms/amg/dash/gemini)
+- [Gemini CLI](https://aka.ms/amg/dash/geminicli)
 
 All dashboards require **Grafana 11.6 or later** with an **Azure Monitor data source** that has access to the subscription containing your Application Insights resource.
 
