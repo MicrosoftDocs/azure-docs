@@ -1,7 +1,7 @@
 ---
 title: Create reusable connections for connector namespaces
 titleSuffix: Azure Connector Namespace
-description: Learn to create reusable connections in connector namespaces so your solutions can access other services, systems, apps, and data without having to manage authentication or credentials by using Azure Connector Namespace.
+description: Create and organize reusable connections, triggers, and MCP servers in connector namespaces so your solutions can access other services, systems, apps, and data without needing custom API client code or tool wrappers by using Azure Connector Namespace.
 author: wsilveiranz
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
@@ -14,7 +14,7 @@ ms.custom:
 # Customer intent: As a backend developer who works with Azure, I want to create resuable connections in my connector namespace so my solutions can access other services, systems, apps, and data without having to manage authentication or credentails.
 ---
 
-# Create reusable connections in connector namespaces to integrate solutions with other services by using Azure Connector Namespace (preview)
+# Create reusable connections, triggers, and MCP servers in connector namespaces to integrate your solutions with other services by using Azure Connector Namespace (preview)
 
 > [!IMPORTANT]
 >
