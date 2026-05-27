@@ -25,6 +25,8 @@ A running sandbox has three layers of state:
 
 External state is naturally durable. Local disk and in-memory state are tied to the sandbox's lifetime, so the platform provides two mechanisms to preserve them across pauses and restarts.
 
+[!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
+
 ## Sandbox lifecycle
 
 A sandbox transitions through four primary states:
