@@ -47,7 +47,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](cache-managed-identity.md).
+> When using private link, you cannot export or import data to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](cache-managed-identity.md).
 > For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
@@ -387,7 +387,7 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
-   :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
+   :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Screenshot of the Azure portal, private endpoint DNS settings." lightbox="media/cache-private-link/cache-private-ip-address.png":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
