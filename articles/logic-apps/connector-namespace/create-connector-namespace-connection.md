@@ -20,7 +20,7 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
 
-When your apps need to connect and integrate with other services, systems, apps, or data, you first need a secure way to store and manage authentication information. However, setting up and managing authentication yourself for each integration adds overhead and complexity. Azure Connector Namespace reduces these hurdles because you can create reusable connections to supported services and other sources so your integrations can subcribe to triggers and call actions without having each app separately handle and manage connections and authentication.
+When your apps need to connect and integrate with other services, systems, apps, or data, you first need a secure way to store and manage authentication information. However, setting up and managing authentication yourself for each integration adds overhead and complexity. Azure Connector Namespace reduces these hurdles because you can create reusable connections to supported services and other sources so your integrations can subscribe to triggers and call actions without having each app separately handle and manage connections and authentication.
 
 This guide shows how to create, authenticate, authorize, and use a connection in your connector namespace with your apps.
 
@@ -57,7 +57,7 @@ This guide shows how to create, authenticate, authorize, and use a connection in
 
 1. When you finish, select **Create connection**.
 
-   :::image type="content" source="media/create-connector-namespace-connection/create-connection-authenticate-connector.png" alt-text="Screenshot shows Create Connection window with with a connection name entered." lightbox="media/create-connector-namespace-connection/create-connection-authenticate-connector.png":::
+   :::image type="content" source="media/create-connector-namespace-connection/create-connection-authenticate-connector.png" alt-text="Screenshot shows Create Connection window with a connection name entered." lightbox="media/create-connector-namespace-connection/create-connection-authenticate-connector.png":::
 
 1. If a prompt appears, sign in with your credentials to authorize the connection.
 
