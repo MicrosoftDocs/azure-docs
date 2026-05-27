@@ -17,7 +17,7 @@ Use Durable Functions, a feature of [Azure Functions](../functions-overview.md),
 - **Function chaining**: Calls activities sequentially (Tokyo → Seattle → London).
 - **Fan-out/fan-in**: Calls activities in parallel across five cities, then aggregates the results.
 
-By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler-overview.md) emulator and be able to view their status in the dashboard.
+By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) emulator and be able to view their status in the dashboard.
 
 > [!div class="checklist"]
 >
@@ -28,14 +28,14 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Prerequisites
 
-- [PowerShell 7.4+](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) installed.
+- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
 - [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
 ## Set up the Durable Task Scheduler emulator
 
-The [Durable Task Scheduler emulator](../../durable-task/scheduler/durable-task-scheduler-emulator.md) provides a local development environment so you can test orchestrations without an Azure subscription. The PowerShell Functions host also requires [Azurite](../../storage/common/storage-use-azurite.md) for local storage.
+The [Durable Task Scheduler emulator](../../durable-task/scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription. The PowerShell Functions host also requires [Azurite](../../storage/common/storage-use-azurite.md) for local storage.
 
 Start both containers:
 

@@ -13,7 +13,7 @@ zone_pivot_groups: df-languages
 
 # Quickstart: Configure a Durable Functions app to use Durable Task Scheduler
 
-Use the [Durable Task Scheduler](./durable-task-scheduler-overview.md) as a backend for your [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) apps to store orchestration and entity runtime state. In this quickstart, you clone a Hello Cities sample that's already configured to use the Durable Task Scheduler, run it locally with the emulator, and then deploy it to Azure.
+Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for your [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) apps to store orchestration and entity runtime state. In this quickstart, you clone a Hello Cities sample that's already configured to use the Durable Task Scheduler, run it locally with the emulator, and then deploy it to Azure.
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Use the [Durable Task Scheduler](./durable-task-scheduler-overview.md) as a back
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="powershell"
 
-- [PowerShell 7.4+](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) installed.
+- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
 
 ::: zone-end
 
@@ -65,7 +65,7 @@ Use the [Durable Task Scheduler](./durable-task-scheduler-overview.md) as a back
 
 ## Set up the Durable Task Scheduler emulator
 
-The [Durable Task Scheduler emulator](./durable-task-scheduler-emulator.md) provides a local development environment so you can test orchestrations without an Azure subscription.
+The [Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription.
 
 ::: zone-end
 

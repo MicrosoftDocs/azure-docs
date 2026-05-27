@@ -18,7 +18,7 @@ Use Durable Functions, a feature of [Azure Functions](../functions-overview.md),
 - **Function chaining**: Calls activities sequentially (Tokyo → Seattle → London).
 - **Fan-out/fan-in**: Calls activities in parallel across five cities, then aggregates the results.
 
-By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler-overview.md) emulator and be able to view their status in the dashboard.
+By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) emulator and be able to view their status in the dashboard.
 
 > [!NOTE]
 > This quickstart uses the [v4 Node.js programming model](../functions-node-upgrade-v4.md), which is the recommended model for new projects.
@@ -39,7 +39,7 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Set up the Durable Task Scheduler emulator
 
-The [Durable Task Scheduler emulator](../../durable-task/scheduler/durable-task-scheduler-emulator.md) provides a local development environment so you can test orchestrations without an Azure subscription.
+The [Durable Task Scheduler emulator](../../durable-task/scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription.
 
 Pull and start the emulator container:
 
@@ -204,5 +204,5 @@ docker stop dtsemulator && docker rm dtsemulator
 ## Next steps
 
 - Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
-- [Deploy a Durable Functions app to Azure](durable-functions-create-first-csharp.md).
+- [Deploy a Durable Functions app to Azure](durable-functions-isolated-create-first-csharp.md).
 - Learn about [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md).
