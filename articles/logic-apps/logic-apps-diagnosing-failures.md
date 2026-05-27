@@ -143,7 +143,13 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * Consumption workflows run on multitenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
-* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md). You'll have more control to scale up or out to improve performance. Please note, **Maximum Burst** needs to be at least 2 to get app level SLA for production. The **Logic App Down or Reporting Errors** tool in the **Diagnose and solve problems** blade will flag a warning if your system is unable to scale further due to your **Maximum Burst** setting. 
+* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). You'll have more control to improve performance by scaling up or out.
+
+  > [!IMPORTANT]
+  >
+  > To get app level SLA for Standard workflows in production, set the **Maximum Burst** value to **2** instances or more.
+  >
+  > If your system can't scale further due to your **Maximum Burst** setting, on your logic app sidebar, select **Diagnose and solve problems**. On this page, the **Logic App Down or Reporting Errors** tool shows a warning.
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
