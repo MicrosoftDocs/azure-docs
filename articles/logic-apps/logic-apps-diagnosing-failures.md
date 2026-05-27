@@ -149,7 +149,11 @@ Scheduling overhead exists when running actions, while waiting time between acti
   >
   > To get app level SLA for Standard workflows in production, set the **Maximum Burst** value to **2** instances or more.
   >
-  > If your system can't scale further due to your **Maximum Burst** setting, on your logic app sidebar, select **Diagnose and solve problems**. On this page, the **Logic App Down or Reporting Errors** tool shows a warning.
+  > If your system can't scale further due to your **Maximum Burst** setting, a warning appears in the diagnostics tool named **Logic App Down or Reporting Errors**.
+  > To view this warning, follow these steps:
+  >
+  > 1. On the logic app sidebar, select **Diagnose and solve problems**.
+  > 1. In the search box, find and select **Logic App Down or Reporting Errors**.
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
