@@ -151,7 +151,7 @@ Use these top-level fields in `agents.config.yaml`:
 
 The runtime resolves values from agent front matter first, then `agents.config.yaml`, then app settings and runtime defaults. String values in `agents.config.yaml` can reference app settings, such as `$AZURE_OPENAI_DEPLOYMENT` or `$ACA_SESSION_POOL_ENDPOINT`.
 
-Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remote MCP server and connection MCP endpoint definitions in `mcp.json`.
+Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remote MCP server and connection MCP server definitions in `mcp.json`.
 
 ### Variable substitution
 
@@ -206,16 +206,16 @@ Use these fields in each `servers` entry:
 | --- | --- | --- |
 | `type` | Yes | Use `http` or `streamable-http`. Local `stdio` MCP servers aren't supported by the runtime. |
 | `url` | Yes | Remote MCP server endpoint. Environment variable substitution is supported. |
-| `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP endpoints. |
-| `auth.scope` | For connection MCP endpoints | Microsoft Entra token scope used to authenticate calls to the MCP endpoint. |
+| `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP servers. |
+| `auth.scope` | For connection MCP servers | Microsoft Entra token scope used to authenticate calls to the MCP server. |
 | `auth.client_id` | No | Client ID of the managed identity to use for this MCP server. Omit this field to use the app-wide identity selection. |
 
-Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The runtime uses connections in two ways:
+Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. Connections, connection MCP servers, and connection triggers are managed in a Connector Namespace. The runtime uses connections in two ways:
 
-+ **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
-+ **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
++ **Connection triggers** start agents from connection events, such as a new email, Teams message, or calendar event. Connection trigger schemas are documented separately as those triggers become available.
++ **Connection MCP tools** let an agent call actions exposed by an authenticated connection MCP server. Infrastructure can create the connection, enable its MCP server, and add the MCP server endpoint to `mcp.json`.
 
-A connection MCP server entry stores the endpoint and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
+A connection MCP server entry stores the endpoint and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP server. Don't store user secrets in `mcp.json`.
 
 ```json
 {
@@ -232,7 +232,7 @@ A connection MCP server entry stores the endpoint and managed identity authentic
 }
 ```
 
-In apps that use a specific user-assigned managed identity for a connection MCP endpoint, set `auth.client_id` to that managed identity's client ID. If `auth.client_id` is omitted or empty, the runtime uses the app-wide identity selection. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
+In apps that use a specific user-assigned managed identity for a connection MCP server, set `auth.client_id` to that managed identity's client ID. If `auth.client_id` is omitted or empty, the runtime uses the app-wide identity selection. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
 
 ## How the runtime starts an app
 
@@ -261,7 +261,7 @@ Common trigger patterns include:
 | Scheduled agent | Run a daily report, digest, cleanup, or reconciliation workflow. |
 | Queue or message agent | Process work items that need model reasoning or tool calls. |
 | Storage or database event agent | React to changed files, records, or events. |
-| Connection-backed agent | React to events from connected services such as Teams messages, Outlook mail, or calendar events when supported by the connector. |
+| Connection-triggered agent | React to events from connected services such as Teams messages, Outlook mail, or calendar events when supported by the connection. |
 
 Because each agent is registered as an Azure Function, the app can use Functions hosting features such as scale rules, managed identity, networking, and monitoring.
 
@@ -277,7 +277,7 @@ Use remote MCP servers when agents need to call tools hosted by another service,
 
 ### Azure connectors
 
-Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, and SQL. In a serverless agents app, infrastructure can create a connection from a connector, enable the connection's MCP endpoint, and grant the function app identity access to call it.
+Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, and SQL. In a serverless agents app, infrastructure can create a connection from a connector in a Connector Namespace, enable the connection MCP server, and grant the function app identity access to call it.
 
 This approach keeps connection authorization and service-specific API details out of your agent instructions and custom code.
 
@@ -437,7 +437,7 @@ For production apps, prefer managed identity where supported. When an app should
 
 ## Configure managed identities
 
-The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Connection MCP endpoints and blob-backed session history can use more specific identity settings.
+The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Connection MCP servers and blob-backed session history can use more specific identity settings.
 
 For model providers and sandboxed execution, set `AZURE_CLIENT_ID` when you want the runtime to use a user-assigned managed identity. If `AZURE_CLIENT_ID` isn't set, the runtime uses the standard Azure SDK credential behavior, which can include the system-assigned managed identity when one is available.
 
@@ -448,7 +448,7 @@ Use these settings to select managed identities:
 | Azure OpenAI model provider | `AZURE_CLIENT_ID` | Default credential behavior |
 | Azure AI Foundry model provider | `AZURE_CLIENT_ID` | Default credential behavior |
 | Azure Container Apps dynamic sessions sandbox | `AZURE_CLIENT_ID` | Default credential behavior |
-| Connection MCP endpoints | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then default credential behavior |
+| Connection MCP servers | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then default credential behavior |
 | Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | `AZURE_CLIENT_ID`, then default credential behavior |
 
 For Azure OpenAI, these identity settings apply only when `AZURE_OPENAI_API_KEY` isn't set. If an API key is configured, the model provider uses the key instead of managed identity.
@@ -469,14 +469,14 @@ The runtime can expose debug and composition endpoints without additional applic
 
 | Surface | Route | Azure key |
 | --- | --- | --- |
-| Chat UI | `/` for `main.agent.md`; `/agents/<AGENT_NAME>/` for other agents with `debug.chat: true` | No key required by the runtime. |
+| Chat UI | `/` for `main.agent.md`; `/agents/<AGENT_NAME>/` for other agents with `debug.chat: true` | Prompts for a function key when hosted in Azure. |
 | HTTP chat API | `POST /agent/chat` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chat` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
 | Streaming chat API | `POST /agent/chatstream` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chatstream` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
 | MCP endpoint | `/runtime/webhooks/mcp` | `mcp_extension` system key. |
 
 The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter. For non-main agents, `<AGENT_NAME>` is derived from the `.agent.md` file name, not the display `name` field.
 
-When hosted in Azure, get a function key for the HTTP chat APIs:
+When hosted in Azure, the chat UI prompts for a function key before it sends messages. You can also use this key to call the HTTP chat APIs directly:
 
 ```azurecli
 az functionapp keys list \
