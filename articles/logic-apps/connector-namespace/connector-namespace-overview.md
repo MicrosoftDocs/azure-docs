@@ -16,7 +16,7 @@ ms.custom:
 
 # What is Azure Connector Namespace? (preview)
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
 
