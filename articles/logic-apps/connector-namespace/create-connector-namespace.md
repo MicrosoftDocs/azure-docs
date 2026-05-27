@@ -54,7 +54,7 @@ To create a connector namespace by using the Azure portal, follow these steps:
 
 1. When you finish, select **Create** to deploy the connector namespace resource to Azure.
 
-   :::image type="content" source="media\create-connector-namespace\connector-namespace-create-pane.png" alt-text="Screenshot shows the Azure portal and the open pane to create a connector namespace." lightbox"media\create-connector-namespace\connector-namespace-create-pane.png":::
+   :::image type="content" source="media\create-connector-namespace\connector-namespace-create-pane.png" alt-text="Screenshot shows the Azure portal and the open pane to create a connector namespace." lightbox="media\create-connector-namespace\connector-namespace-create-pane.png":::
 
    After deployment completes, the **Connector Namespaces** page shows your connector namespace. If not, on the page toolbar, select **Refresh**.
 
