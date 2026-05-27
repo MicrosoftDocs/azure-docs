@@ -56,6 +56,22 @@ The **Storage Actions Blob Data Operator** role grants the following permissions
 > [!TIP]  
 > **Storage Actions Blob Data Operator** is the recommended role for the storage task's managed identity. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles#storage-blob-data-owner) role also covers all operations performed by Storage Actions and remains supported, but it grants broader permissions than Storage Actions requires. Prefer **Storage Actions Blob Data Operator** for new assignments.
 
+If you prefer to use a custom role for the storage task's managed identity, you must make sure that your role contains the RBAC actions necessary to perform the operations defined in the task. The following table maps each Storage Actions operation to the RBAC actions a custom role must include.
+
+> [!NOTE]  
+> For most customers, the **Storage Actions Blob Data Operator** built-in role described above is the simplest path and is preferred. The per-operation table below is intended for organizations that need to compose a tighter custom role than the built-in role provides.
+
+| Permission | RBAC actions for a custom role |
+| --- | --- |
+| SetBlobTier | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
+| SetBlobExpiry | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
+| SetBlobTags | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |
+| SetBlobImmutabilityPolicy | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/writeMicrosoft.Storage/storageAccounts/blobServices/containers/write |
+| SetBlobLegalHold | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/writeMicrosoft.Storage/storageAccounts/blobServices/containers/write |
+| DeleteBlob | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/delete |
+| UndeleteBlob | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/writeMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/readMicrosoft.Storage/storageAccounts/blobServices/containers/blobs/tags/writeMicrosoft.Storage/storageAccounts/blobServices/containers/write |
+
+
 ## See also
 
 - [Create and manage an assignment](storage-task-assignment-create.md)
