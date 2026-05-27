@@ -41,7 +41,7 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 | --- | --- | --- |
 | `function_app.py` | Yes | Imports `create_function_app()` and returns the configured Azure Functions app. |
 | `*.agent.md` | Yes | Defines agents. YAML front matter configures the agent, and the markdown body becomes the instructions. |
-| `agents.config.yaml` | Yes | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
+| `agents.config.yaml` | No | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
 | `mcp.json` | When using MCP servers | Defines remote HTTP MCP servers that agents can use as tools. This file exists only at the root of the function app project when the app uses MCP servers. |
 | `tools/` | No | Contains custom Python tools for capabilities that aren't covered by MCP servers, connections, skills, or sandboxed execution. |
 | `skills/` | No | Contains reusable `SKILL.md` prompt assets that agents can load as needed. |
@@ -49,7 +49,7 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 | `requirements.txt` | Yes | Includes the serverless agents runtime package and any app-specific Python dependencies. |
 | `infra/` | No | Contains infrastructure-as-code files used by deployment tooling such as `azd`. |
 
-At the smallest useful size, a project has `function_app.py`, `host.json`, `requirements.txt`, `agents.config.yaml`, and at least one `.agent.md` file.
+A minimal project has `function_app.py`, `host.json`, `requirements.txt`, and at least one `.agent.md` file. Add `agents.config.yaml` when the app needs app-wide runtime defaults.
 
 ### Agent files
 
@@ -125,7 +125,7 @@ tools:
 
 ### Runtime defaults in agents.config.yaml
 
-Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. In the preview templates, this file is required because it configures settings such as the model deployment and sandbox execution endpoint.
+Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. The runtime can load an app without this file. Add it when you need shared settings such as a model deployment, timeout, or sandbox execution endpoint.
 
 This file is one app-level input. The runtime also discovers MCP servers from `mcp.json`, skills from `skills/`, and custom Python tools from `tools/`. Those capabilities are enabled on agents by default. Agent front matter can override runtime defaults or filter inherited MCP servers, skills, and tools.
 
@@ -144,14 +144,14 @@ Use these top-level fields in `agents.config.yaml`:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| `model` | Yes in the preview templates | Default model or model deployment used by agents that don't set `model` in their own front matter. |
+| `model` | No | Default model or model deployment used by agents that don't set `model` in their own front matter. |
 | `timeout` | No | Default execution timeout, in seconds. The runtime default is 900 seconds. |
 | `system_tools.execute_in_sessions.session_pool_management_endpoint` | When using sandboxed execution | Management endpoint for the Azure Container Apps dynamic session pool used by sandbox tools. |
 | `tools.exclude` | No | Global exclude list for custom Python tools discovered from the `tools/` folder. |
 
 The runtime resolves values from agent front matter first, then `agents.config.yaml`, then app settings and runtime defaults. String values in `agents.config.yaml` can reference app settings, such as `$AZURE_OPENAI_DEPLOYMENT` or `$ACA_SESSION_POOL_ENDPOINT`.
 
-Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remote MCP server and connection MCP endpoint definitions in `mcp.json`.
+Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remote MCP server and connection MCP server definitions in `mcp.json`.
 
 ### Variable substitution
 
@@ -173,7 +173,7 @@ Email the summary to $TO_EMAIL.
   "servers": {
     "office365": {
       "type": "http",
-      "url": "$MICROSOFT_365_CONNECTION_MCP_ENDPOINT"
+      "url": "$O365_MCP_SERVER_URL"
     }
   }
 }
@@ -206,35 +206,33 @@ Use these fields in each `servers` entry:
 | --- | --- | --- |
 | `type` | Yes | Use `http` or `streamable-http`. Local `stdio` MCP servers aren't supported by the runtime. |
 | `url` | Yes | Remote MCP server endpoint. Environment variable substitution is supported. |
-| `tools` | No | List of allowed tool names from the server. Omit this field, or use `['*']`, to allow all tools. |
-| `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP endpoints. |
-| `authorization` | For connection MCP endpoints | Managed identity authorization settings for Azure connection MCP endpoints. |
+| `headers` | No | Static headers for a generic remote MCP server. Don't use static secrets for Azure connection MCP servers. |
+| `auth.scope` | For connection MCP servers | Microsoft Entra token scope used to authenticate calls to the MCP server. |
+| `auth.client_id` | No | Client ID of the managed identity to use for this MCP server. Omit this field to use the app-wide identity selection. |
 
-Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. The runtime uses connections in two ways:
+Azure connectors and connections are related but different. A connector defines the integration type, such as Microsoft Teams or Microsoft 365. A connection is an authenticated instance of a connector. Connections, connection MCP servers, and connection triggers are managed in a Connector Namespace. The runtime uses connections in two ways:
 
-+ **Connection-backed triggers** start agents from connector events, such as a new email, Teams message, or calendar event. Connector trigger schemas are documented separately as those triggers become available.
-+ **Connection MCP tools** let an agent call actions exposed by an authenticated connection. Infrastructure can create the connection, enable its MCP endpoint, and add the endpoint to `mcp.json`.
++ **Connection triggers** start agents from connection events, such as a new email, Teams message, or calendar event. Connection trigger schemas are documented separately as those triggers become available.
++ **Connection MCP tools** let an agent call actions exposed by an authenticated connection MCP server. Infrastructure can create the connection, enable its MCP server, and add the MCP server endpoint to `mcp.json`.
 
-A connection MCP server entry stores the endpoint, optional tool allow list, and managed identity authorization settings. Use the Azure API Hub scope when the agent consumes a connection MCP endpoint. Don't store user secrets in `mcp.json`.
+A connection MCP server entry stores the endpoint and managed identity authentication settings. Use the Azure API Hub scope when the agent consumes a connection MCP server. Don't store user secrets in `mcp.json`.
 
 ```json
 {
   "servers": {
-    "office365": {
+    "office365-outlook": {
       "type": "http",
-      "url": "$MICROSOFT_365_CONNECTION_MCP_ENDPOINT",
-      "tools": ["*"],
-      "authorization": {
-        "type": "managed-identity",
-        "identity": "system",
-        "scope": "https://apihub.azure.com/.default"
+      "url": "$O365_MCP_SERVER_URL",
+      "auth": {
+        "scope": "https://apihub.azure.com/.default",
+        "client_id": "$O365_MCP_CLIENT_ID"
       }
     }
   }
 }
 ```
 
-Use `"identity": "system"` for the system-assigned managed identity. In apps that use a user-assigned managed identity for connection MCP endpoints, set `identity` to that managed identity's client ID. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
+In apps that use a specific user-assigned managed identity for a connection MCP server, set `auth.client_id` to that managed identity's client ID. If `auth.client_id` is omitted or empty, the runtime uses the app-wide identity selection. The identity used by the function app in Azure, or your local developer identity when you run locally, must be allowed to call the connection.
 
 ## How the runtime starts an app
 
@@ -263,7 +261,7 @@ Common trigger patterns include:
 | Scheduled agent | Run a daily report, digest, cleanup, or reconciliation workflow. |
 | Queue or message agent | Process work items that need model reasoning or tool calls. |
 | Storage or database event agent | React to changed files, records, or events. |
-| Connection-backed agent | React to events from connected services such as Teams messages, Outlook mail, or calendar events when supported by the connector. |
+| Connection-triggered agent | React to events from connected services such as Teams messages, Outlook mail, or calendar events when supported by the connection. |
 
 Because each agent is registered as an Azure Function, the app can use Functions hosting features such as scale rules, managed identity, networking, and monitoring.
 
@@ -279,7 +277,7 @@ Use remote MCP servers when agents need to call tools hosted by another service,
 
 ### Azure connectors
 
-Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, and SQL. In a serverless agents app, infrastructure can create a connection from a connector, enable the connection's MCP endpoint, and grant the function app identity access to call it.
+Azure connectors let agents work with Microsoft and third-party services such as Microsoft 365, Teams, Salesforce, SAP, and SQL. In a serverless agents app, infrastructure can create a connection from a connector in a Connector Namespace, enable the connection MCP server, and grant the function app identity access to call it.
 
 This approach keeps connection authorization and service-specific API details out of your agent instructions and custom code.
 
@@ -315,7 +313,7 @@ Use these skill authoring rules:
 + Skill names must use lowercase letters, numbers, and single hyphens. Don't use spaces, underscores, uppercase letters, leading hyphens, trailing hyphens, or repeated hyphens.
 + Skill names must be unique across the app.
 + The description should explain both what the skill does and when the agent should use it. The runtime loads skill names and descriptions first so the agent can decide when to load the full skill.
-+ Skills can include multiple markdown files in the same skill folder. Reference those files from `SKILL.md` by using relative links.
++ Skills can include multiple markdown files in the same skill folder. Reference supporting markdown files from `SKILL.md` by using relative links.
 + Only markdown files are supported as skill content in the serverless agents runtime. If a skill needs executable behavior, package that code as a custom Python tool and refer to the tool by name from the skill instructions.
 
 Agents inherit all discovered skills by default. Disable or exclude skills in an agent file when a specific agent shouldn't use them:
@@ -348,7 +346,7 @@ Use these sandbox requirements:
 + The `session_pool_management_endpoint` value is the pool management endpoint.
 + In Azure, the managed identity used by the function app must have the role assignments required to execute code in the session pool. Azure Container Apps code interpreter sessions require the `Azure ContainerApps Session Executor` and `Contributor` roles on the session pool.
 + When running locally, your developer identity must have the same required access to the session pool.
-+ In apps with multiple managed identities, set `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime falls back to `AZURE_CLIENT_ID` and then to the default credential chain.
++ To use a user-assigned managed identity for sandboxed execution, set `AZURE_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses the default credential chain.
 
 The sandbox tool runs Python in an isolated session. Variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session so unrelated executions don't share state.
 
@@ -435,29 +433,23 @@ Model selection uses this general precedence:
 1. `MAF_MODEL`.
 1. The provider default.
 
-For production apps, prefer managed identity where supported. If an app uses more than one managed identity, use feature-specific client ID settings so each runtime feature uses the least-privileged identity it needs.
+For production apps, prefer managed identity where supported. When an app should use a user-assigned managed identity, set `AZURE_CLIENT_ID` so model providers and sandboxed execution use that identity.
 
 ## Configure managed identities
 
-The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Use feature-specific settings when a model provider, sandbox pool, or connection MCP endpoint should use a different identity.
+The runtime uses managed identity for Azure resources that support Microsoft Entra authentication. Use `AZURE_CLIENT_ID` as the app's default identity selector. Connection MCP servers and blob-backed session history can use more specific identity settings.
 
-The runtime uses this precedence pattern for Azure SDK credentials:
-
-```text
-feature-specific client ID
-> AZURE_CLIENT_ID
-> system-assigned managed identity or default credential chain
-```
+For model providers and sandboxed execution, set `AZURE_CLIENT_ID` when you want the runtime to use a user-assigned managed identity. If `AZURE_CLIENT_ID` isn't set, the runtime uses the standard Azure SDK credential behavior, which can include the system-assigned managed identity when one is available.
 
 Use these settings to select managed identities:
 
 | Runtime feature | Identity setting | Fallback |
 | --- | --- | --- |
-| Azure OpenAI model provider | `AZURE_OPENAI_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
-| Azure AI Foundry model provider | `FOUNDRY_CLIENT_ID`, or `AZURE_FUNCTIONS_AGENTS_MODEL_CLIENT_ID` for a shared model-provider identity | `AZURE_CLIENT_ID` |
-| Azure Container Apps dynamic sessions sandbox | `AZURE_FUNCTIONS_AGENTS_SANDBOX_CLIENT_ID` | `AZURE_CLIENT_ID` |
-| Connection MCP endpoints | The `authorization.identity` value in the server entry in `mcp.json` | System-assigned identity when `identity` is `system` |
-| Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | Azure Functions storage configuration |
+| Azure OpenAI model provider | `AZURE_CLIENT_ID` | Default credential behavior |
+| Azure AI Foundry model provider | `AZURE_CLIENT_ID` | Default credential behavior |
+| Azure Container Apps dynamic sessions sandbox | `AZURE_CLIENT_ID` | Default credential behavior |
+| Connection MCP servers | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then default credential behavior |
+| Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | `AZURE_CLIENT_ID`, then default credential behavior |
 
 For Azure OpenAI, these identity settings apply only when `AZURE_OPENAI_API_KEY` isn't set. If an API key is configured, the model provider uses the key instead of managed identity.
 
@@ -471,18 +463,40 @@ For local development without Azure storage configuration, the runtime can fall 
 
 Sandboxed execution is also session-aware. When the runtime creates sandbox tools without an explicit session ID, it uses an isolated session for the invocation instead of sharing state across unrelated agent runs.
 
-## Built-in endpoints
+## Built-in debug endpoints
 
-The runtime can expose debug and composition endpoints without additional application code.
+The runtime can expose debug and composition endpoints without additional application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
 
-| Surface | Use |
-| --- | --- |
-| Chat UI | Interact with an agent in a browser during development or testing. |
-| HTTP chat API | Call an agent programmatically with a JSON request. |
-| Streaming chat API | Stream model and tool output to a client. |
-| MCP endpoint | Expose an agent as an MCP tool for other agents or MCP clients. |
+| Surface | Route | Azure key |
+| --- | --- | --- |
+| Chat UI | `/` for `main.agent.md`; `/agents/<AGENT_NAME>/` for other agents with `debug.chat: true` | Prompts for a function key when hosted in Azure. |
+| HTTP chat API | `POST /agent/chat` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chat` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
+| Streaming chat API | `POST /agent/chatstream` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chatstream` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
+| MCP endpoint | `/runtime/webhooks/mcp` | `mcp_extension` system key. |
 
-The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter.
+The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter. For non-main agents, `<AGENT_NAME>` is derived from the `.agent.md` file name, not the display `name` field.
+
+When hosted in Azure, the chat UI prompts for a function key before it sends messages. You can also use this key to call the HTTP chat APIs directly:
+
+```azurecli
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "functionKeys.default" \
+  --output tsv
+```
+
+Pass the key in the `x-functions-key` header or the `code` query string parameter. To connect an MCP client, get the MCP extension system key instead:
+
+```azurecli
+az functionapp keys list \
+  --resource-group <RESOURCE_GROUP> \
+  --name <FUNCTION_APP_NAME> \
+  --query "systemKeys.mcp_extension" \
+  --output tsv
+```
+
+The MCP endpoint requires this system key unless the app configures anonymous access.
 
 ## When to use the serverless agents runtime
 
@@ -500,10 +514,10 @@ If you only need to expose deterministic functions as tools for another AI clien
 
 ## Get started
 
-Start with the quickstart to deploy a complete serverless agent app with a timer trigger, model deployment, connection MCP tools, and email output:
+Start with the quickstart to deploy a serverless agents app with a chat agent, a timer-triggered blog summary agent, a model deployment, sandboxed execution, and optional connection MCP tools:
 
 > [!div class="nextstepaction"]
-> [Build a serverless agent using Azure Functions](scenario-serverless-agents-runtime.md)
+> [Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Related content
 
