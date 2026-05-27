@@ -33,6 +33,8 @@ items:
       href: post-processing.md
     - name: Manage datasets
       href: manage-datasets.md
+  - name: Update artifacts
+    href: update-artifacts.md
   - name: Troubleshooting common issues
     href: troubleshooting.md
   - name: Release notes
