@@ -1,7 +1,7 @@
 ---
-title: Azure Container Apps sandboxes overview (preview)
-description: Azure Container Apps sandboxes (preview) deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture in Early Access.
-#customer intent: As a developer building AI agents, I want to understand Azure Container Apps sandboxes so that I can decide whether to use them for persistent, isolated agent workspaces.
+title: Azure Container Apps Sandboxes overview (preview)
+description: Azure Container Apps Sandboxes (preview) deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture in Early Access.
+#customer intent: As a developer building AI agents, I want to understand Azure Container Apps Sandboxes so that I can decide whether to use them for persistent, isolated agent workspaces.
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -10,22 +10,22 @@ ms.topic: overview
 ms.service: azure-container-apps
 ---
 
-# Azure Container Apps sandboxes overview (preview)
+# Azure Container Apps Sandboxes overview (preview)
 
-Azure Container Apps sandboxes provide fast, secure, ephemeral compute environments with built-in suspend and resume capabilities. Sandboxes are a first-class resource type (`Microsoft.App/SandboxGroups`) in Container Apps, alongside apps, jobs, and dynamic sessions.
+Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environments with built-in suspend and resume capabilities. Sandboxes are a first-class resource type (`Microsoft.App/SandboxGroups`) in Container Apps, alongside apps, jobs, and dynamic sessions.
 
 > [!IMPORTANT]
 > To manage and create sandboxes, you need the Azure role *Container Apps SandboxGroup Data Owner*. Assign this role to all users who create and manage sandboxes.
 >
 > Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
 >
-> The API surface for Python SDK and ACA CLI commands might change during preview.
+> The API surface for Python SDK and Azure Container Apps CLI commands might change during preview.
 
 ## Create and manage sandbox environments
 
-You can create and manage sandboxes in the [portal](https://aka.ms/aca/sandboxes/portal) or programmatically by using [Azure Container Apps CLI or SDK](https://aka.ms/aca/sandboxes/dev).
+You can create and manage sandboxes in the [Sandboxes portal](https://aka.ms/aca/sandboxes/portal) or programmatically by using [Azure Container Apps CLI or SDK](https://aka.ms/aca/sandboxes/dev).
 
-## Key characteristics of Container Apps sandboxes
+## Key characteristics of Container Apps Sandboxes
 
 - **Sub-second startup**: Sandboxes are provisioned from prewarmed pools for near-instant availability.
 
@@ -191,5 +191,5 @@ Choose dynamic sessions when you need a managed execution experience that abstra
 
 ## Related content
 
-- [Snapshots and state management for sandboxes](sandboxes-snapshots-state-management.md)
-- [Egress policies and network controls for sandboxes](sandboxes-egress-policies.md)
+- [Snapshots and state management for Sandboxes](sandboxes-snapshots-state-management.md)
+- [Egress policies and network controls for Sandboxes](sandboxes-egress-policies.md)

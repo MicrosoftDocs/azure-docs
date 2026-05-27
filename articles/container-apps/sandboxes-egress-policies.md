@@ -1,7 +1,7 @@
 ---
-title: Egress policies and network controls for Azure Container Apps sandboxes (preview)
-description: Egress policies for Azure Container Apps sandboxes let you control outbound traffic from untrusted code. Learn how to define, evaluate, and enforce rules.
-#customer intent: As a platform engineer running untrusted code in Azure Container Apps sandboxes, I want to configure egress policies, so that I can control which outbound network requests are allowed.
+title: Egress policies and network controls for Azure Container Apps Sandboxes (preview)
+description: Egress policies for Azure Container Apps Sandboxes let you control outbound traffic from untrusted code. Learn how to define, evaluate, and enforce rules.
+#customer intent: As a platform engineer running untrusted code in Azure Container Apps Sandboxes, I want to configure egress policies, so that I can control which outbound network requests are allowed.
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -10,9 +10,9 @@ ms.topic: concept-article
 ms.service: azure-container-apps
 ---
 
-# Egress policies and network controls for Azure Container Apps sandboxes (preview)
+# Egress policies and network controls for Azure Container Apps Sandboxes (preview)
 
-Azure Container Apps sandboxes are built to run code you don't fully trust, like AI-generated scripts, agent tool calls, and arbitrary user input. The network is where that code can do the most damage, so every sandbox ships with a built-in egress policy engine that decides what outbound traffic is allowed, blocked, or transformed.
+Azure Container Apps Sandboxes are built to run code you don't fully trust, like AI-generated scripts, agent tool calls, and arbitrary user input. The network is where that code can do the most damage, so every sandbox ships with a built-in egress policy engine that decides what outbound traffic is allowed, blocked, or transformed.
 
 You define the egress policy as part of the sandbox create request, alongside the disk image and resource tier, so the policy is in effect from the moment the sandbox starts. You can also update the policy on a running sandbox; subsequent outbound requests are evaluated against the updated policy.
 
@@ -105,4 +105,4 @@ Choose `Partial` or `Full` to use rules. Set inspection to `None` only when late
 ## Related content
 
 - [Snapshots overview](sandboxes-overview.md)
-- [Snapshots and state management for sandboxes](sandboxes-snapshots-state-management.md)
+- [Snapshots and state management for Container Apps Sandboxes](sandboxes-snapshots-state-management.md)

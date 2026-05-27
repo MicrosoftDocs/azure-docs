@@ -1,6 +1,6 @@
 ---
-title: Snapshots and state management for Azure Container Apps sandboxes (preview)
-description: Azure Container Apps sandbox snapshots let you pause and resume workloads without losing state. Learn how autosuspend and snapshots preserve memory and disk.
+title: Snapshots and state management for Azure Container Apps Sandboxes (preview)
+description: Azure Container Apps Sandboxes snapshots let you pause and resume workloads without losing state. Learn how autosuspend and snapshots preserve memory and disk.
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -9,9 +9,9 @@ ms.topic: concept-article
 ms.service: azure-container-apps
 ---
 
-# Snapshots and state management for Azure Container Apps sandboxes (preview)
+# Snapshots and state management for Azure Container Apps Sandboxes (preview)
 
-Azure Container Apps sandboxes are isolated, lightweight virtual machines designed for short interactive sessions and long-running agentic workloads. Both types need a way to pause and resume work without losing in-memory progress. This article explains the state model, how snapshots fit in, and how to choose between autosuspend and snapshot paths for preserving state.
+Azure Container Apps Sandboxes are isolated, lightweight virtual machines designed for short interactive sessions and long-running agentic workloads. Both types need a way to pause and resume work without losing in-memory progress. This article explains the state model, how snapshots fit in, and how to choose between autosuspend and snapshot paths for preserving state.
 
 ## What "state" means in a sandbox
 
