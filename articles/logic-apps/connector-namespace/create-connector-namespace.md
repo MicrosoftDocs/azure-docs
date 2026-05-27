@@ -1,7 +1,7 @@
 ---
 title: Create and manage connector namespaces for integration
 titleSuffix: Azure Connector Namespace
-description: Learn to create connector namespaces in Azure so you can organize and manage reusable connections, triggers, actions, and MCP servers so your solutions can access and use other services, systems, apps, and data.
+description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration.
 author: wsilveiranz
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
@@ -11,7 +11,7 @@ ms.update-cycle: 365-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-# Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions can access and use other services, systems, apps, and data.
+# Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions need to access and integrate with other services, systems, apps, and data.
 ---
 
 # Create and manage connector namespaces for integrating your solutions in Azure (preview)
@@ -29,14 +29,11 @@ This guide shows how to create and manage a connector namespace resource in the 
 ## Prerequisites
 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/free/).
-
 - Permissions to create resources and resource groups in your Azure subscription.
-
-- Access to the [Azure portal](https://portal.azure.com).
 
 ## Create a connector namespace resource
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com).
 
 1. On the homepage, select **Create a resource**.
 
