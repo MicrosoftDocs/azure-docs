@@ -89,6 +89,8 @@ This migration is designed as a cutover migration. With this approach, you build
 
 Before migrating from AWS Network Load Balancer to Azure Load Balancer, it's crucial to assess the existing architecture and identify the capabilities that need to be mapped or replaced. This assessment helps ensure a smooth migration process and maintain the functionality of your gaming platform.
 
+To plan to migrate your AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-guides) that might align to your use case.
+
 ### Direct capability mapping
 
 The platform capabilities map from AWS NLB to Azure Load Balancer as follows:

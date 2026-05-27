@@ -34,7 +34,7 @@ Azure IoT Operations supports the following upgrade scenarios:
 > Azure IoT Operations doesn't support live upgrades. Expect some downtime during the upgrade process.
 
 > [!NOTE]
-> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](../configure-observability-monitoring/health-status-reporting.md).
+> Starting with version 1.3, devices, assets, inbound endpoints, MQTT brokers, data flows, and Akri connectors report a runtime health status that's visible in the Azure portal and the operations experience web UI. After you upgrade from an earlier version, you see this health status appear on resources for the first time. This is expected behavior, not a regression. For more information, see [Unified health status reporting and observability](../deploy-iot-ops/health-status-reporting.md).
 
 ## Upgrade
 
@@ -125,11 +125,10 @@ az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
 
 To ensure zero data loss and high availability during deployment upgrades, the MQTT broker implements rolling updates across the MQTT broker pods. The health manager pod coordinates an incremental upgrade process for the MQTT broker pods to ensure that:
 
-* Active client connections remain uninterrupted.
 * Any in-flight messages are preserved.
 * Data stored on disk is properly migrated between versions.
 
-If a failure occurs during the upgrade process, the health manager pod automatically restarts the upgrade process while ensuring no loss of data or connectivity.
+If a failure occurs during the upgrade process, the health manager pod automatically rolls back the upgrade process while ensuring no loss of data or connectivity.
 
 Rolling updates can only occur if the MQTT broker is deployed with two or more backend replicas. MQTT broker upgrades aren't supported for single-replica deployments. When you deploy Azure IoT Operations, you specify the number of backend replicas to create in the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-backend-rf` parameter. The minimum value for this parameter is `2`. Setting the backend redundancy factor to `1` results in a deployment error.
 

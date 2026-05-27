@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.date: 03/13/2025
 ms.service: azure-iot-operations
+ai-usage: ai-assisted
 
 #CustomerIntent: I want to understand system, configuration, and security best practices before deploying to production.
 ---
@@ -40,9 +41,9 @@ Create an Arc-enabled cluster that meets the system requirements.
 Consider the following measures to ensure your cluster setup is secure before deployment.
 
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
-* When doing TLS encryption, [bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer) and integrate with an enterprise PKI.
+* When doing TLS encryption, [bring your own issuer](howto-bring-your-own-issuer.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
-* Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
+* Use [user-assigned managed identities](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
 [!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
@@ -53,7 +54,7 @@ If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoi
 
 ### Observability
 
-For production deployments, [deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md) on your cluster before deploying Azure IoT Operations. We also recommend setting up [Prometheus alerts in Azure Monitor](/azure/azure-monitor/alerts/prometheus-alerts).
+For production deployments, [deploy observability resources](howto-configure-observability.md) on your cluster before deploying Azure IoT Operations. We also recommend setting up [Prometheus alerts in Azure Monitor](/azure/azure-monitor/alerts/prometheus-alerts).
 
 ## Deployment
 
@@ -63,7 +64,7 @@ For a production-ready deployment, include the following configurations during t
 
 In the Azure portal deployment wizard, the broker resource is set up in the **Configuration** tab.
 
-* [Configure cardinality settings](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-cardinality-directly) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
+* [Configure cardinality settings](../deployment-plan/deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
 
   | Setting | Single node | Multi node |
   | ------- | ----------- | ---------- |
@@ -72,14 +73,79 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendRedundancyFactor** | 2 | 2 |
   | **backendWorkers** | 1 | 4 |
   | **backendPartitions** | 1 | 5 |
-  | [Memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile) | Low | High |
+  | [Memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) | Low | High |
 
   > [!NOTE]
   > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
 
-* [Encrypt internal traffic](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
+* [Encrypt internal traffic](../deployment-plan/deployment-planning-encryption.md).
 
-* Set [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size that prevents RAM overflow.
+* Set [disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md) with a max size that prevents RAM overflow.
+
+To specify cardinality settings directly, use the Azure CLI flags or a Broker configuration file.
+
+#### Use CLI flags
+
+When you deploy IoT Operations by using the `az iot ops create` command, use the following parameters to specify broker cardinality directly:
+
+```azurecli
+az iot ops create ... --broker-frontend-replicas 3 --broker-frontend-workers 4 --broker-backend-part 3 --broker-backend-workers 4 --broker-backend-rf 2
+```
+
+#### Use a configuration file
+
+Alternatively, use the `--broker-config-file` flag to specify a JSON file that includes the cardinality settings:
+
+```json
+{
+  "cardinality": {
+    "frontend": {
+      "replicas": 3,
+      "workers": 4
+    },
+    "backendChain": {
+      "partitions": 3,
+      "redundancyFactor": 2,
+      "workers": 4
+    }
+  }
+}
+```
+
+Then deploy (other parameters omitted for brevity):
+
+```azurecli
+az iot ops create ... --broker-config-file <FILE>.json
+```
+
+### Multi-node anti-affinity
+
+For multi-node deployments, the MQTT broker automatically sets [anti-affinity rules](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) for backend pods. Backend pods from the same partition have anti-affinity with each other, which distributes the load across nodes and provides resilience against node failures.
+
+These rules are predefined and can't be modified.
+
+To verify the anti-affinity settings for a backend pod, use the following command:
+
+```bash
+kubectl get pod aio-broker-backend-1-0 -n azure-iot-operations -o yaml | grep affinity -A 15
+```
+
+The output shows the anti-affinity configuration, similar to:
+
+```yaml
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - podAffinityTerm:
+        labelSelector:
+          matchExpressions:
+          - key: chain-number
+            operator: In
+            values:
+            - "1"
+        topologyKey: kubernetes.io/hostname
+      weight: 100
+```
 
 ### Schema registry and storage
 
@@ -103,7 +169,7 @@ For more information, see [Configure Azure Storage firewalls and virtual network
 
 ### Secure settings
 
-During deployment, you have the option to use test settings or secure settings. For production deployments, choose secure settings. If you're upgrading an existing test settings deployment for production, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+During deployment, you have the option to use test settings or secure settings. For production deployments, choose secure settings. If you're upgrading an existing test settings deployment for production, follow the steps in [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## Post-deployment
 
@@ -130,6 +196,7 @@ For connecting to assets at production, [configure OPC UA authentication](../dis
 
 * Don't use no-auth. Connectivity to OPC UA servers isn't supported without authentication.
 * Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate-for-the-connector-for-opc-ua) and [trust list](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+* Keep the default [PKI security validation settings](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#relax-the-certificate-validation-on-your-opc-ua-connector-optional) for production (`minimumCertificateKeySize=2048`, `rejectSha1SignedCertificates=true`). Only relax these settings in test or QA environments.
 
 ### Data flows
 

@@ -65,6 +65,8 @@ To set up an assessment:
 
 Although we recommend that you try out an assessment, performing an assessment isn't a mandatory step to be able to migrate VMs.
 
+To plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-scenarios) that might align to your use case.
+
 ## Prerequisites
 
 - Ensure that the AWS VMs you want to migrate are running a supported operating system (OS) version. AWS VMs are treated like physical machines for the migration. Review the [supported operating systems and kernel versions](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. You can use standard commands like `hostnamectl` or `uname -a` to check the OS and kernel versions for your Linux VMs. We recommend that you perform a test migration (test failover) to validate if the VM works as expected before you proceed with the migration.

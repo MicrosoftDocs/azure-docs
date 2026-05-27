@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 Before you create an Azure classic file share, consider the following requirements:
 

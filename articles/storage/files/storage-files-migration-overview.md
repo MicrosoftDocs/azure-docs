@@ -13,7 +13,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic SMB file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider (preview) or classic file shares created with the Microsoft.Storage resource provider
+:heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider or classic file shares created with the Microsoft.Storage resource provider
 
 This article covers the basic aspects of a migration to SMB Azure file shares and contains a table of migration guides. These guides help you move your files into Azure file shares. The guides are organized based on where your data is and what deployment model (cloud-only or hybrid) you're moving to.
 

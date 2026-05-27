@@ -57,7 +57,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning",
             "redirect_document_id": false
         },
         {
@@ -202,12 +202,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-add-cluster.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-configure-observability-manual.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
             "redirect_document_id": false
         },
         {
@@ -257,7 +257,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-availability-scale.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning",
             "redirect_document_id": true
         },
         {
@@ -272,27 +272,27 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-observability-manual.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-clean-up-observability-resources.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-clean-up-observability-resources",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-clean-up-observability-resources",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-add-cluster.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
             "redirect_document_id": false
         },
         {
@@ -738,6 +738,71 @@
         {
             "source_path_from_root": "/articles/iot-operations/develop-edge-apps/howto-build-wasm-modules-vscode.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/health-status-reporting.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/health-status-reporting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-configure-observability.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-clean-up-observability-resources.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-clean-up-observability-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-manage-update-uninstall.md",
+            "redirect_url": "/azure/iot-operations/manage-iot-ops/howto-manage-update-uninstall",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-clone-instance.md",
+            "redirect_url": "/azure/iot-operations/manage-iot-ops/howto-clone-instance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-upgrade.md",
+            "redirect_url": "/azure/iot-operations/manage-iot-ops/howto-upgrade",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/deploy-iot-ops/howto-enable-secure-settings.md",
+            "redirect_url": "/azure/iot-operations/secure-iot-ops/howto-enable-secure-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-configure-availability-scale.md",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-broker-mqtt-client-options.md",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning-mqtt-options",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-broker-diagnostics.md",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning-diagnostics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-disk-backed-message-buffer.md",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning-disk-buffer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/howto-encrypt-internal-traffic.md",
+            "redirect_url": "/azure/iot-operations/deployment-plan/deployment-planning-encryption",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/secure-iot-ops/built-in-rbac.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/overview-deploy",
             "redirect_document_id": false
         }
     ]

@@ -495,6 +495,7 @@ To create a certificate profile in the Azure portal:
       For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
       The value for **Certificate Type** is autopopulated based on the certificate profile type you selected.
+      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform program.
    
    b. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
    - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
@@ -503,7 +504,7 @@ To create a certificate profile in the Azure portal:
       The values for the remaining fields are autopopulated based on your selection for **Verified CN and O**.
 
       A generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
-5. Select **Create**.
+6. Select **Create**.
 
    :::image type="content" source="media/artifact-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/artifact-signing-certificate-profile-creation.png":::
 

@@ -3,8 +3,8 @@ title: What's new in firmware analysis
 author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
-ms.topic: article
-ms.date: 03/05/2026
+ms.topic: conceptual
+ms.date: 05/26/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -16,6 +16,11 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
+
+
+## May 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of five additional SBOM components: iperf3, libxml2, json-c, chrony, and iproute2. This expands SBOM coverage across firmware images and improves visibility into potential vulnerabilities.
 
 
 ## April 2026

@@ -22,6 +22,13 @@ A window transform collects messages over a fixed time interval and produces a s
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
+## Scaling limitation for stateful graphs
+
+> [!IMPORTANT]
+> Data flow graphs that contain a window transform are *stateful*—each instance accumulates messages independently. When the data flow profile has an instance count greater than one, messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't share state with each other, each instance only sees a subset of the messages. This means aggregation results such as averages, sums, and counts are computed over a partial data set and are incorrect.
+>
+> To ensure correct aggregation results, set the data flow profile [instance count](howto-configure-dataflow-profile.md#scaling) to **1** for any data flow graph that uses a window transform.
+
 ## When to use a window transform
 
 Use a window transform when you receive high-frequency sensor data and want to reduce the volume before sending it downstream. Common scenarios include:

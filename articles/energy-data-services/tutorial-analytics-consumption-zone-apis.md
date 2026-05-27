@@ -36,11 +36,8 @@ In this tutorial, you learn how to:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Data Manager for Energy (Developer Tier) instance in your Azure subscription. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
-- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled, where user-assigned managed identity allow listed for ACZ operations has **Storage Blob Data Contributor** role.
-- Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
-- cURL installed on your machine (for bash examples) or PowerShell 5.1+ (for PowerShell examples).
-- Azure CLI installed and authenticated.
-- An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
+- Azure CLI installed and authenticated (`az login`).
+- cURL (for Bash examples) or PowerShell 5.1+ (for PowerShell examples).
 
 > [!TIP]
 > **Explore the API interactively**  
@@ -50,13 +47,11 @@ In this tutorial, you learn how to:
 
 Gather these details from your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/):
 
-| Parameter | Description | Example |
-|---|---|---|
-| `base_url` | The URL of your Azure Data Manager for Energy instance. | `https://<instance>.energy.azure.com` |
-| `data_partition_id` | The data partition name. | `opendes` |
-| `storage_resource_id` | The Azure resource ID of the ADLS Gen2 storage account. | `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}` |
+## Before you begin
 
-Generate an `access_token` for authentication by following the guidance in [How to generate auth token](how-to-generate-auth-token.md).
+The code examples in this tutorial use placeholder values in `{curly-braces}` format. Replace these placeholders with your actual values when running the commands.
+
+All API calls require authentication. The Bash and PowerShell examples show inline token generation using Azure CLI. For alternative authentication methods, see [How to generate auth token](how-to-generate-auth-token.md).
 
 ## Create an ACZ
 
@@ -68,16 +63,23 @@ Use the Create ACZ API to set up a new Analytics Consumption Zone for a data par
 - Maximum of three ACZs per data partition (preview limit).
 - The ACZ name must be unique within the partition.
 - The user-assigned managed identity must be:
-  - Assigned to your Azure Data Manager for Energy resource
+  - Assigned to your Azure Data Manager for Energy resource (see [How to enable ACZ](how-to-enable-analytics-consumption-zone.md))
   - Granted **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account
-- Your user must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group.
+- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled is required.
 
 ### [Bash](#tab/bash)
 
 ```bash
+# Get auth app ID for your ADME instance
+AUTH_APP_ID=$(az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query properties.authAppId -o tsv)
+
+# Get access token
+TOKEN=$(az account get-access-token --resource $AUTH_APP_ID --query accessToken -o tsv)
+
+# Create ACZ
 curl --request POST \
   --url https://{base-url}/api/acz/v1/aczs \
-  --header 'Authorization: Bearer {access-token}' \
+  --header "Authorization: Bearer $TOKEN" \
   --header 'Content-Type: application/json' \
   --header 'data-partition-id: {data-partition-id}' \
   --data '{
@@ -131,29 +133,26 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 
 ---
 
-### Request parameters
+**Replace the placeholders:**
 
-| Parameter | Location | Description |
-|---|---|---|
-| `{base-url}` | URL | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
-| `{access-token}` | Header (Authorization) | Azure Data Manager for Energy access token. See [How to generate auth token](how-to-generate-auth-token.md) |
-| `{data-partition-id}` | Header | Your data partition ID (for example, `opendes`) |
-
-### Request body parameters
-
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `{acz-name}` | string | Yes | Display name for the ACZ (1-100 characters, for example, `my-acz-wells-and-logs`). |
-| `{acz-type}` | string | No | `LATEST_VERSION` (default) exports only the latest version. `ALL_VERSIONS` exports all versions. |
-| `{storage-resource-id}` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct`). |
-| `{base-path}` | string | No | Base path within the storage account for ACZ data output (for example, `acz-output`). |
-| `{catalog-kinds}` | string[] | No | OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*", "osdu:wks:reference-data--UnitOfMeasure:*"]`). |
-| `{wellbore-ddms-kinds}` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Subscription ID where your Azure Data Manager for Energy instance resides |
+| `{resource-group}` | Resource group containing your Azure Data Manager for Energy instance |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy instance name |
+| `{base-url}` | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
+| `{data-partition-id}` | Your data partition ID (for example, `opendes`) |
+| `{acz-name}` | Display name for the ACZ (1-100 characters, for example, `my-acz-wells-and-logs`) |
+| `{acz-type}` | Optional: `LATEST_VERSION` (default) exports only the latest version, `ALL_VERSIONS` exports all versions |
+| `{storage-resource-id}` | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`) |
+| `{base-path}` | Optional: Base path within the storage account for ACZ data output (for example, `acz-output`) |
+| `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`) |
+| `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`) |
 
 > [!NOTE]
 > You must provide at least one of `{catalog-kinds}` or `{wellbore-ddms-kinds}` in the configuration.
 
-### Sample response (201 Created)
+**Sample response (201 Created):**
 
 ```json
 {
@@ -194,11 +193,18 @@ Use the List ACZs API to get all Analytics Consumption Zones in a data partition
 ### [Bash](#tab/bash)
 
 ```bash
+# Get auth app ID for your ADME instance
+AUTH_APP_ID=$(az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query properties.authAppId -o tsv)
+
+# Get access token
+TOKEN=$(az account get-access-token --resource $AUTH_APP_ID --query accessToken -o tsv)
+
+# List ACZs
 curl --request GET \
-  --url https://{base_url}/api/acz/v1/aczs \
-  --header 'Authorization: Bearer {access_token}' \
+  --url https://{base-url}/api/acz/v1/aczs \
+  --header "Authorization: Bearer $TOKEN" \
   --header 'Accept: application/json' \
-  --header 'data-partition-id: {data_partition_id}'
+  --header 'data-partition-id: {data-partition-id}'
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -211,16 +217,26 @@ $authAppId = az resource show --ids /subscriptions/{subscription-id}/resourceGro
 $token = az account get-access-token --resource $authAppId --query accessToken -o tsv
 
 # List ACZs
-Invoke-RestMethod -Uri "https://{base_url}/api/acz/v1/aczs" -Method Get -Headers @{
+Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers @{
     "Authorization" = "Bearer $token"
     "Accept" = "application/json"
-    "data-partition-id" = "{data_partition_id}"
+    "data-partition-id" = "{data-partition-id}"
 }
 ```
 
 ---
 
-### Sample response (200 OK)
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Subscription ID where your Azure Data Manager for Energy instance resides |
+| `{resource-group}` | Resource group containing your Azure Data Manager for Energy instance |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy instance name |
+| `{base-url}` | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
+| `{data-partition-id}` | Your data partition ID (for example, `opendes`) |
+
+**Sample response (200 OK):**
 
 ```json
 {
@@ -261,16 +277,23 @@ The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED
 
 Use the Get ACZ API to get details for a specific ACZ.
 
-**API**: `GET /api/acz/v1/aczs/{acz_id}`
+**API**: `GET /api/acz/v1/aczs/{acz-id}`
 
 ### [Bash](#tab/bash)
 
 ```bash
+# Get auth app ID for your ADME instance
+AUTH_APP_ID=$(az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query properties.authAppId -o tsv)
+
+# Get access token
+TOKEN=$(az account get-access-token --resource $AUTH_APP_ID --query accessToken -o tsv)
+
+# Get ACZ details
 curl --request GET \
-  --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
-  --header 'Authorization: Bearer {access_token}' \
+  --url https://{base-url}/api/acz/v1/aczs/{acz-id} \
+  --header "Authorization: Bearer $TOKEN" \
   --header 'Accept: application/json' \
-  --header 'data-partition-id: {data_partition_id}'
+  --header 'data-partition-id: {data-partition-id}'
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -283,18 +306,27 @@ $authAppId = az resource show --ids /subscriptions/{subscription-id}/resourceGro
 $token = az account get-access-token --resource $authAppId --query accessToken -o tsv
 
 # Get ACZ details
-Invoke-RestMethod -Uri "https://{base_url}/api/acz/v1/aczs/{acz_id}" -Method Get -Headers @{
+Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs/{acz-id}" -Method Get -Headers @{
     "Authorization" = "Bearer $token"
     "Accept" = "application/json"
-    "data-partition-id" = "{data_partition_id}"
+    "data-partition-id" = "{data-partition-id}"
 }
 ```
 
 ---
 
-Replace `{acz_id}` with the ACZ identifier from the Create or List response.
+**Replace the placeholders:**
 
-### Sample response (200 OK)
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Subscription ID where your Azure Data Manager for Energy instance resides |
+| `{resource-group}` | Resource group containing your Azure Data Manager for Energy instance |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy instance name |
+| `{base-url}` | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
+| `{data-partition-id}` | Your data partition ID (for example, `opendes`) |
+| `{acz-id}` | ACZ identifier from the Create or List response (for example, `acz-abc123def456`) |
+
+**Sample response (200 OK):**
 
 ```json
 {
@@ -330,7 +362,7 @@ To track ACZ provisioning, check the `status` and `historicalSnapshotStatus` fie
 
 Use the Delete ACZ API to remove an ACZ configuration.
 
-**API**: `DELETE /api/acz/v1/aczs/{acz_id}`
+**API**: `DELETE /api/acz/v1/aczs/{acz-id}`
 
 > [!WARNING]
 > This delete action can't be undone. It removes all ACZ configuration and stops sync. Data already in the destination ADLS storage account stays intact.
@@ -338,11 +370,18 @@ Use the Delete ACZ API to remove an ACZ configuration.
 ### [Bash](#tab/bash)
 
 ```bash
+# Get auth app ID for your ADME instance
+AUTH_APP_ID=$(az resource show --ids /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name} --query properties.authAppId -o tsv)
+
+# Get access token
+TOKEN=$(az account get-access-token --resource $AUTH_APP_ID --query accessToken -o tsv)
+
+# Delete ACZ
 curl --request DELETE \
-  --url https://{base_url}/api/acz/v1/aczs/{acz_id} \
-  --header 'Authorization: Bearer {access_token}' \
+  --url https://{base-url}/api/acz/v1/aczs/{acz-id} \
+  --header "Authorization: Bearer $TOKEN" \
   --header 'Accept: application/json' \
-  --header 'data-partition-id: {data_partition_id}'
+  --header 'data-partition-id: {data-partition-id}'
 ```
 
 ### [PowerShell](#tab/powershell)
@@ -355,16 +394,27 @@ $authAppId = az resource show --ids /subscriptions/{subscription-id}/resourceGro
 $token = az account get-access-token --resource $authAppId --query accessToken -o tsv
 
 # Delete ACZ
-Invoke-RestMethod -Uri "https://{base_url}/api/acz/v1/aczs/{acz_id}" -Method Delete -Headers @{
+Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs/{acz-id}" -Method Delete -Headers @{
     "Authorization" = "Bearer $token"
     "Accept" = "application/json"
-    "data-partition-id" = "{data_partition_id}"
+    "data-partition-id" = "{data-partition-id}"
 }
 ```
 
 ---
 
-### Sample response (204 No Content)
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Subscription ID where your Azure Data Manager for Energy instance resides |
+| `{resource-group}` | Resource group containing your Azure Data Manager for Energy instance |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy instance name |
+| `{base-url}` | Your Azure Data Manager for Energy instance URL (for example, `myinstance.energy.azure.com`) |
+| `{data-partition-id}` | Your data partition ID (for example, `opendes`) |
+| `{acz-id}` | ACZ identifier from the Create or List response (for example, `acz-abc123def456`) |
+
+**Sample response (204 No Content):**
 
 A successful delete returns HTTP `204` with no response body. The ACZ status changes to `DELETING` while cleanup runs.
 

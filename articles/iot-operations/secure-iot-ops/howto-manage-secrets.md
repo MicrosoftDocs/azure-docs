@@ -35,7 +35,7 @@ Secrets management for Azure IoT Operations uses the Azure Key Vault secret stor
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-After the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints**. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
+After the [set up secrets management](howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints** using the [operations experience](https://iotoperations.azure.com) web UI. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
 
 You can create a synced secret on the cluster using either the operations experience web UI or the Azure CLI. The two flows partially overlap: the operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow assumes the secret already exists in Azure Key Vault and only handles the sync:
 

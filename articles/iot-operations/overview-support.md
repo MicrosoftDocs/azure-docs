@@ -71,4 +71,4 @@ If any of the licensing terms found in these documents block your adoption of Az
 * [Pricing for Azure IoT Operations](https://azure.microsoft.com/pricing/details/iot-operations/)
 * [Overview of Azure IoT Operations](overview-iot-operations.md)
 * [Deployment details](deploy-iot-ops/overview-deploy.md)
-* [Upgrade to a new version](deploy-iot-ops/howto-upgrade.md)
+* [Upgrade to a new version](manage-iot-ops/howto-upgrade.md)

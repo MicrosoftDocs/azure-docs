@@ -1,5 +1,5 @@
 ---
-title: Configure DNS forwarding for Azure Files
+title: Configure DNS Forwarding for Azure Files
 description: Learn how to configure DNS forwarding for Azure Files to properly resolve the fully qualified domain name (FQDN) of your storage account to your private endpoint's IP address.
 author: khdownie
 ms.service: azure-file-storage
@@ -12,7 +12,9 @@ ms.custom: sfi-image-nochange
 
 # Configure DNS forwarding for Azure Files using VMs or Azure DNS Private Resolver
 
-:heavy_check_mark: **Applies to:** All Azure file shares
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the `Microsoft.Storage` resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the `Microsoft.FileShares` resource provider
 
 Azure Files enables you to create private endpoints for the storage accounts containing your file shares. Although useful for many different applications, private endpoints are especially useful for connecting to your Azure file shares from your on-premises network using a VPN or ExpressRoute connection using private-peering. 
 

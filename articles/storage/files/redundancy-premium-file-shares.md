@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the SSD media tier
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Files supports SSD file shares in a subset of all Azure regions. Use this article to determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for SSD file shares.
 
