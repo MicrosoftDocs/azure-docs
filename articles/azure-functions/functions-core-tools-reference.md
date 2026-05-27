@@ -900,10 +900,10 @@ Match the workloads you install to the stack you're developing in. The recommend
 
 | Stack | Recommended workloads |
 | ----- | ----- |
-| **Python** | `python`, `python-worker`, `extension-bundles`, `host`, `python-templates` |
-| **Node.js / TypeScript** | `node`, `node-worker`, `extension-bundles`, `host`, `node-templates` |
+| **Python** | `python`, `python-worker`, `bundles`, `host`, `python-templates` |
+| **Node.js / TypeScript** | `node`, `node-worker`, `bundles`, `host`, `node-templates` |
 | **.NET (isolated, C# / F#)** | `dotnet`, `host`, `dotnet-templates` |
-| **Go** | `go`, `go-worker`, `extension-bundles`, `host` |
+| **Go** | `go`, `go-worker`, `bundles`, `host` |
 
 What each role does:
 
@@ -911,12 +911,12 @@ What each role does:
 | ----- | ----- |
 | **Stack** (`python`, `node`, `dotnet`, `go`) | Project initialization and language-specific tooling for `func init`. Also contributes templates for `func quickstart`. |
 | **Worker** (`python-worker`, `node-worker`, `go-worker`) | The language worker that the Functions host uses to execute your functions at run time. |
-| **`extension-bundles`** | Pre-built Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
+| **`bundles`** | Pre-built Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
 | **`host`** | The Azure Functions host runtime used by `func run`. |
 | **`<stack>-templates`** | Function templates surfaced by `func new`. One package per stack (`node-templates`, `python-templates`, `dotnet-templates`); each ships independently and side-by-side. |
 
 > [!NOTE]
-> The `extension-bundles` workload is recommended for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
+> The `bundles` workload is recommended for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
 
 You don't have to install these one at a time. The first time you run `func init`, `func new`, or `func run`, the CLI prompts you to install the recommended set for your chosen stack. You can also run `func setup` to install the standard set up-front.
 
@@ -927,7 +927,7 @@ Run `func workload search` to see the current catalog.
 | Alias | Display name | Description |
 | ----- | ----- | ----- |
 | `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
-| `extension-bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
+| `bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
 | `dotnet` | .NET | Azure Functions tooling for .NET (C#, F#) projects. |
 | `dotnet-templates` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
 | `python` | Python | Azure Functions CLI tooling for Python projects. |
@@ -1158,11 +1158,11 @@ func setup [<PATH>] [options]
 
 | Feature | Workloads installed |
 | ----- | ----- |
-| `node` | `host`, `extension-bundles`, `node-worker`, `node`, `node-templates` |
-| `python` | `host`, `extension-bundles`, `python-worker`, `python`, `python-templates` |
-| `go` | `host`, `extension-bundles`, `go-worker`, `go` |
+| `node` | `host`, `bundles`, `node-worker`, `node`, `node-templates` |
+| `python` | `host`, `bundles`, `python-worker`, `python`, `python-templates` |
+| `go` | `host`, `bundles`, `go-worker`, `go` |
 | `dotnet-isolated` | `host`, `dotnet`, `dotnet-templates` |
-| `runtime` | `host`, `extension-bundles` |
+| `runtime` | `host`, `bundles` |
 | `host` | `host` only |
 
 `--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`).
@@ -1317,7 +1317,7 @@ Equivalent to `func --version`. Pass `func --verbose` (with no subcommand) for d
 
 ## Workload contributions
 
-The sections below document what each stack workload adds to `func init`. Templates workloads (`<stack>-templates`) are content-only and don't change the command surface; they're consumed by `func new`. Content workloads (`host`, `extension-bundles`, `<stack>-worker`) similarly contribute no commands.
+The sections below document what each stack workload adds to `func init`. Templates workloads (`<stack>-templates`) are content-only and don't change the command surface; they're consumed by `func new`. Content workloads (`host`, `bundles`, `<stack>-worker`) similarly contribute no commands.
 
 ### `dotnet` workload
 
