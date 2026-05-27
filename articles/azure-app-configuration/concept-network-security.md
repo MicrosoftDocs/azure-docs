@@ -12,7 +12,7 @@ ms.date: 05/18/2026
 ---
 # Network security for Azure App Configuration
 
-Azure App Configuration integrates with Azure's network security offerings, letting you apply network security policies that protect your configuration data. You can restrict or disable public network access to your store, and you can enable private access from your virtual networks through private endpoints.
+Azure App Configuration integrates with Azure's network security offerings, letting you apply network security policies that protect your configuration data. You can restrict or disable your App Configuration store's ability to communicate with the public internet, and you can enable private access from your virtual networks through private endpoints.
 
 ## Restrict or disable public network access
 
