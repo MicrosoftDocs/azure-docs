@@ -34,18 +34,21 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 - [Node.js 20+](https://nodejs.org/) installed.
 - [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
-- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
+- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
 ## Set up the Durable Task Scheduler emulator
 
-The [Durable Task Scheduler emulator](../../durable-task/scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription.
+The [Durable Task Scheduler emulator](../../durable-task/scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription. The Functions host also requires [Azurite](../../storage/common/storage-use-azurite.md) for local storage.
 
-Pull and start the emulator container:
+Start both containers:
 
 ```bash
 docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
   mcr.microsoft.com/dts/dts-emulator:latest
+
+docker run -d --name azurite -p 10000:10000 -p 10001:10001 -p 10002:10002 \
+  mcr.microsoft.com/azure-storage/azurite
 ```
 
 > [!TIP]
@@ -74,29 +77,60 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 
 1. In a separate terminal, trigger the **function chaining** orchestration:
 
-   ```bash
-   curl -X POST http://localhost:7071/api/StartChaining
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
+   $response
+   ```
+
+   The response contains status URLs for the orchestration instance. Copy the `statusQueryGetUri` value and run it to check the result:
+
+   ```powershell
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
    ```
 
 1. Trigger the **fan-out/fan-in** orchestration:
 
-   ```bash
-   curl -X POST http://localhost:7071/api/StartFanOutFanIn
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartFanOutFanIn
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
    ```
 
 ## Expected output
 
-The chaining orchestration greets three cities sequentially and returns:
+The POST request returns a JSON response with status URLs. For example:
 
 ```json
-["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+{
+  "id": "<instanceId>",
+  "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/<instanceId>?code=...",
+  "sendEventPostUri": "...",
+  "terminatePostUri": "...",
+  "purgeHistoryDeleteUri": "..."
+}
 ```
 
-The fan-out/fan-in orchestration greets all five cities in parallel and returns:
+When you query `statusQueryGetUri` and the orchestration's `runtimeStatus` is `Completed`, you can find the greeting results in the `output` field. The chaining orchestration returns:
 
 ```json
-["Hello Tokyo!", "Hello Seattle!", "Hello London!", "Hello Paris!", "Hello Berlin!"]
+{
+  "name": "ChainingOrchestration",
+  "runtimeStatus": "Completed",
+  "output": ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+}
 ```
+
+The fan-out/fan-in orchestration returns:
+
+```json
+{
+  "name": "FanOutFanInOrchestration",
+  "runtimeStatus": "Completed",
+  "output": ["Hello Tokyo!", "Hello Seattle!", "Hello London!", "Hello Paris!", "Hello Berlin!"]
+}
+```
+
+> [!TIP]
+> If `runtimeStatus` shows `Running` or `Pending`, wait a moment and query the `statusQueryGetUri` again.
 
 Open the Durable Task Scheduler dashboard at `http://localhost:8082` to view the orchestration status and execution history.
 
@@ -195,10 +229,10 @@ The emulator connection string is set in `local.settings.json`:
 
 ## Clean up resources
 
-Stop the emulator container when you're done:
+Stop the emulator containers when you're done:
 
 ```bash
-docker stop dtsemulator && docker rm dtsemulator
+docker stop dtsemulator azurite && docker rm dtsemulator azurite
 ```
 
 ## Next steps

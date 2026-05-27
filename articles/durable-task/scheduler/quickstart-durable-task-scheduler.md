@@ -221,11 +221,18 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 
 1. In a separate terminal, trigger an orchestration:
 
-   ```bash
-   curl -X POST http://localhost:7071/api/StartChaining
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
+   $response
    ```
 
-1. Copy the `statusQueryGetUri` from the response and open it in your browser. You should see the orchestration completed with greeting output.
+1. The response contains status URLs for the orchestration instance. Query the `statusQueryGetUri` to check the result:
+
+   ```powershell
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
+   ```
+
+   When the orchestration's `runtimeStatus` is `Completed`, the output contains greeting results. If `runtimeStatus` shows `Running` or `Pending`, wait a moment and query again.
 
 1. View more details about the orchestration instance in the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) at `http://localhost:8082`.
 

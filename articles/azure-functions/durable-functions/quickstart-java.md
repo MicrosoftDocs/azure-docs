@@ -29,7 +29,7 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Prerequisites
 
-- [Java 11+](https://adoptium.net/) (JDK) installed.
+- [Java 11+](https://www.oracle.com/java/technologies/downloads/) (JDK) installed.
 - [Apache Maven](https://maven.apache.org/download.cgi) 3.0 or later.
 - [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
@@ -74,25 +74,60 @@ docker run -d --name azurite -p 10000:10000 -p 10001:10001 -p 10002:10002 \
 
 1. In a separate terminal, trigger the **function chaining** orchestration:
 
-   ```bash
-   curl -X POST http://localhost:7071/api/StartChaining
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
+   $response
+   ```
+
+   The response contains status URLs for the orchestration instance. Copy the `statusQueryGetUri` value and run it to check the result:
+
+   ```powershell
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
    ```
 
 1. Trigger the **fan-out/fan-in** orchestration:
 
-   ```bash
-   curl -X POST http://localhost:7071/api/StartFanOutFanIn
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartFanOutFanIn
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
    ```
 
 ## Expected output
 
-The chaining orchestration greets three cities sequentially and returns:
+The POST request returns a JSON response with status URLs. For example:
 
-```
-Hello Tokyo! Hello Seattle! Hello London!
+```json
+{
+  "id": "<instanceId>",
+  "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/<instanceId>?code=...",
+  "sendEventPostUri": "...",
+  "terminatePostUri": "...",
+  "purgeHistoryDeleteUri": "..."
+}
 ```
 
-The fan-out/fan-in orchestration greets all five cities in parallel and returns the aggregated results.
+When you query `statusQueryGetUri` and the orchestration's `runtimeStatus` is `Completed`, you can find the greeting results in the `output` field. The chaining orchestration returns:
+
+```json
+{
+  "name": "ChainingOrchestration",
+  "runtimeStatus": "Completed",
+  "output": "Hello Tokyo! Hello Seattle! Hello London!"
+}
+```
+
+The fan-out/fan-in orchestration returns:
+
+```json
+{
+  "name": "FanOutFanInOrchestration",
+  "runtimeStatus": "Completed",
+  "output": ["Hello Tokyo!", "Hello Seattle!", "Hello London!", "Hello Paris!", "Hello Berlin!"]
+}
+```
+
+> [!TIP]
+> If `runtimeStatus` shows `Running` or `Pending`, wait a moment and query the `statusQueryGetUri` again.
 
 Open the Durable Task Scheduler dashboard at `http://localhost:8082` to view the orchestration status and execution history.
 
