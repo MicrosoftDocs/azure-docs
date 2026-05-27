@@ -4,7 +4,7 @@ description: Learn how to check which pipelines are ready to migrate and which o
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: article
-ms.date: 03/30/2026
+ms.date: 05/26/2026
 ms.custom: pipelines
 ---
 
@@ -73,6 +73,9 @@ Answer: No. It only scans your configuration and lists findings in the side pane
 Answer: It means the product team is actively adding support for those items. 
 If they're critical to your pipeline, plan to migrate later when support is added, redesign the affected steps, or as an alternative use the [PowerShell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) for scripted migration scenarios.
 
+> [!NOTE]
+> Mapping data flows (MDF) migration is now supported in preview. Mapping data flows are converted to Spark transforms in Dataflow Gen2 during migration. For details, see [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric](https://aka.ms/datafactoryoverview).
+
 **What if only one activity is Not compatible?**
 
 Answer: You can still migrate the pipeline after you refactor or replace that activity. The assessment helps you identify exactly where to focus.
@@ -84,6 +87,8 @@ Answer: Yes, you can rerun anytime to validate updates.
 ## Related content
 
 [Upgrade your Azure Data Factory pipelines to Fabric (preview)](how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md)
+
+[Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](https://aka.ms/datafactoryoverview)
 
 [Upgrade your Azure Synapse Analytics pipelines to Fabric (preview)](how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md)
 
