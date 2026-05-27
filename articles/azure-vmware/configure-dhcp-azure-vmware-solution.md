@@ -3,7 +3,7 @@ title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure DHCP by using either NSX Manager to host a DHCP server or use a third-party external DHCP server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 1/22/2025
+ms.date: 05/13/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -30,7 +30,7 @@ In this article, learn how to use NSX Manager to configure DHCP for Azure VMware
 >[!IMPORTANT]
 >For clouds created on or after July 1, 2021, the simplified view of NSX operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
 >
->DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
+>DHCP doesn't work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter. NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
 ## Use the Azure portal to create a DHCP server or relay
 
@@ -64,7 +64,7 @@ If you want to use NSX to host your DHCP server, create a DHCP server and a rela
 
 1. Under **Networking** > **Tier-1 Gateways**, select the gateway where the segments are connected that DHCP is required. Edit the Tier-1 Gateway by clicking on the three ellipses and choose **Edit**.
 
-1. Select **Set DHCP Configuration**, select **DHCP Server** and then select the DHCP Server Profile created earlier. Select **Save**, then **Close Editing**.
+1. Select **Set DHCP Configuration**, select **DHCP Server** then, select the DHCP Server Profile created earlier. Select **Save**, then **Close Editing**.
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the NSX Tier-1 Gateway for using a DHCP server." border="true" lightbox="./media/manage-dhcp/edit-tier-1-gateway.png":::
 
@@ -100,7 +100,7 @@ When you create a relay to a DHCP server, you need to specify the DHCP IP addres
       
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges for using a DHCP server." border="true" lightbox="./media/manage-dhcp/edit-subnet.png":::
       
-1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
+1. Select **Apply**, and then **Save**. The segment gets assigned a DHCP server pool.
       
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment for using a DHCP server." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
 
@@ -154,9 +154,9 @@ When you create a relay to a DHCP server, you need to specify the DHCP IP addres
       
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true" lightbox="./media/manage-dhcp/edit-subnet.png":::
       
-1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
+1. Select **Apply**, and then **Save**. The segment gets assigned a DHCP server pool.
       
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool gets assigned to a segment." border="true" lightbox="./media/manage-dhcp/assigned-to-segment.png":::
 
 ## Next steps
 
