@@ -34,7 +34,7 @@ A single function app combines connector triggers and actions with the bindings 
 The preview has the following availability:
 
 - **Region for the Connector Namespace** - West Central US (`westcentralus`). Your function app can be deployed in any region that supports the chosen hosting plan.
-- **Languages** - .NET 10 and .NET 8 isolated worker, Python 3.13+, and Node.js 22+ (JavaScript and TypeScript). Java, PowerShell, and Go aren't yet supported.
+- **Languages** - .NET 10 and .NET 8 isolated worker, Python 3.13+, and Node.js 22+ (JavaScript and TypeScript). Java, PowerShell, and Go aren't currently supported.
 - **Hosting plans** - Flex Consumption (recommended), Premium, Dedicated (App Service plan), and Azure Container Apps.
 - **Pricing** - Standard Azure Functions pricing applies. There's no extra charge for the connector trigger or SDK during preview. The Connector Namespace resource has its own billing.
 
