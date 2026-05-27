@@ -38,7 +38,7 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - An existing Connector Namespace resource. If you don't have one, [create a connector namespace](create-connector-namespace.md).
 
-- An existing Application Insights resource. If you don't have one, [create an application insights](../..).
+- An existing Application Insights resource. If you don't have one, [create an application insights](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
 
 ## Create a hosted MCP server
 
@@ -58,11 +58,11 @@ This quickstart uses Playwright as the example, but the process is generally the
 
 1. Wait for the required connection and server to be provisioned and deployed.
 
-Don't close the pop-up. You'll set up an application insights resource to collect telemetry from your server. 
+Don't close the pop-up after server is deployed. You'll set up an application insights resource to collect telemetry from your server. 
 
 ### Enable monitoring on the server
 
-1. Open another tab to get the connection string of your application insights resource on Azure portal.
+1. Open another tab to [get the connection string](/azure/azure-monitor/app/create-workspace-resource#get-the-connection-string) of your application insights resource on Azure portal.
 
 1. Go back to the namespace portal and click **Enable monitoring**.
 
