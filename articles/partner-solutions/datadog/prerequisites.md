@@ -1,10 +1,11 @@
 ---
-title: Configure your environment for Datadog - Azure Native Integration
-description: Learn how to configure your Azure environment before creating a Datadog resource, including account requirements, resource provider registration, and enterprise application setup for single sign-on.
+title: Configure your environment for Datadog
+description: This article describes how to configure your Azure environment to create an instance of Datadog.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: how-to
 ms.date: 03/10/2025
 ms.custom: sfi-image-nochange
-#customer intent: As a developer or IT admin, I want to prepare my Azure environment before deploying Datadog so the setup goes smoothly on the first attempt.
 ---
 
 # Configure your environment for Datadog

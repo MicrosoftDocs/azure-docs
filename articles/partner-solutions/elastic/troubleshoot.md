@@ -1,10 +1,12 @@
 ---
-title: Troubleshoot Elastic Cloud on Azure - Azure Native Integration
-description: Diagnose and resolve common issues with Elastic Cloud on Azure - including creation failures, Marketplace purchase errors, missing logs, and diagnostic settings that won't turn off.
+title: Troubleshooting Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
+description: This article provides information about troubleshooting Elastic integration with Azure.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: troubleshooting-general
 ms.date: 02/03/2026
-ms.custom: sfi-image-nochange
-#customer intent: As an Azure developer or cloud engineer, I want to troubleshoot common issues with my Elastic resource on Azure so I can restore search, observability, or security monitoring.
+
+
 ---
 
 # Troubleshoot Elastic Cloud on Azure

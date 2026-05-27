@@ -1,10 +1,11 @@
 ---
-title: What is Elastic on Azure? - Azure Native Integration
-description: Learn about the Elastic Azure Native Integration, which provides managed Elasticsearch, Observability, and Security services deployed and billed directly through Azure.
+title: Elastic integrations overview
+description: Learn about using the Elastic Cloud-Native Observability Platform in Azure Marketplace.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: overview
 ms.date: 07/01/2025
 ai-usage: ai-assisted
-#customer intent: As a developer or cloud engineer, I want to understand what Elastic on Azure offers so I can decide whether to use it for search, observability, or security monitoring.
 ---
 
 # What is Elastic on Azure?

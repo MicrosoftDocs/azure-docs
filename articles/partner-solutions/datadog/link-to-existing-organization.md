@@ -1,12 +1,15 @@
 ---
-title: Link to an existing Datadog organization - Azure Native Integration
-description: Learn how to connect your Azure subscription to an existing Datadog organization to monitor Azure resources using Datadog.
+title: Link to existing Datadog
+description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
-ms.date: 05/25/2026
+ms.date: 1/29/2026
 ms.custom:
   - references_regions
   - sfi-image-nochange
-#customer intent: As a developer who already uses Datadog, I want to link my Azure subscription to my existing Datadog organization so I can monitor Azure resources without creating a new org.
+
+
 ---
 
 # QuickStart: Link to an existing Datadog organization

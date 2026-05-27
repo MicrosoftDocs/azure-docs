@@ -1,10 +1,11 @@
 ---
-title: Troubleshoot Datadog on Azure - Azure Native Integration
-description: Diagnose and resolve common issues with the Datadog Azure Native Integration, including creation errors, missing logs and metrics, SSO failures, agent installation problems, and diagnostic settings.
+title: Troubleshooting for Datadog
+description: This article provides information about troubleshooting for Datadog on Azure.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: troubleshooting-general
 ms.date: 01/29/2026
 ms.custom: sfi-image-nochange
-#customer intent: As a developer or cloud engineer, I want to troubleshoot issues with my Datadog resource on Azure so I can restore monitoring functionality.
 ---
 
 # Troubleshoot Datadog on Azure

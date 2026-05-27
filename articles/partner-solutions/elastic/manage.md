@@ -1,12 +1,15 @@
 ---
-title: Manage your Elastic resource - Azure Native Integration
-description: Learn how to manage your Elastic resource in Azure, including configuring logs, deploying agents, setting up Azure OpenAI, traffic filters, multi-subscription monitoring, and resource deletion.
+title: Manage settings for your Elastic resource in the Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource by using the Azure portal.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: how-to
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/30/2025
 ms.custom: sfi-image-nochange
-#customer intent: As an Azure developer, I want to manage my Elastic resources so I can configure monitoring, deploy agents, and optimize my search, observability, or security setup.
+#customer intent: As an Azure developer, I want to use the Azure portal manage my Elastic resources that use search, log analytics, and security monitoring functions for Azure environments.
 
+---
 ---
 
 # Manage your Elastic resource

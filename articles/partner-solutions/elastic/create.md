@@ -1,12 +1,15 @@
 ---
-title: Create an Elastic resource - Azure Native Integration
-description: Learn how to create Elastic Search, Elastic Observability, or Elastic Security resources in Azure, configure log forwarding, and connect Azure OpenAI.
+title: Create Elastic application
+description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
 zone_pivot_groups: elastic-resource-type
 ms.date: 12/01/2025
 ms.custom: sfi-image-nochange
 #customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
+---
 ---
 
 # QuickStart: Create an Elastic resource

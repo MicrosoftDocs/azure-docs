@@ -1,13 +1,14 @@
 ---
-title: What is Datadog on Azure? - Azure Native Integration overview
-description: Learn how the Azure Native Integration for Datadog provides unified monitoring, log forwarding, and metrics collection for your Azure workloads with integrated billing, SSO, and agent management.
+title: Datadog overview
+description: Discover Datadog, a monitoring and analytics platform for large-scale applications integrated with Azure for streamlined management and enhanced performance.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: overview
 ms.date: 03/10/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/03/2024
-#customer intent: As a developer or cloud engineer, I want to understand what the Datadog Azure Native Integration offers and why I should use it instead of setting up Datadog manually.
 ---
 
 # What is Datadog on Azure?

@@ -1,6 +1,8 @@
 ---
-title: Manage your Datadog resource - Azure Native Integration
-description: Learn how to manage your Datadog resource in Azure, including configuring metrics, logs, agents, SSO, multi-subscription monitoring, API keys, billing, and resource deletion.
+title: Manage settings for your Datadog resource via Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: how-to
 ms.date: 03/10/2025
 ms.custom:
@@ -9,7 +11,6 @@ ms.custom:
   - ai-seo-date:12/03/2024
   - ai-gen-title
   - sfi-image-nochange
-#customer intent: As a developer or cloud engineer, I want to manage my Datadog resource on Azure so I can configure monitoring, troubleshoot issues, and optimize my setup.
 ---
 
 # Manage your Datadog resource

@@ -1,16 +1,17 @@
 ---
-title: Create a new Datadog organization - Azure Native Integration
-description: Get started with Datadog on Azure by creating a new organization using the Azure portal or Azure CLI, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
+title: Create a Datadog resource
+description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
 zone_pivot_groups: datadog-create
-ms.date: 05/25/2026
+ms.date: 12/01/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
   - ai-gen-desc
   - ai-seo-date:12/03/2024
   - sfi-image-nochange
-#customer intent: As a developer or cloud engineer, I want to create a Datadog resource on Azure so I can start monitoring my infrastructure and applications.
 ---
 
 # QuickStart: Create a new Datadog organization
