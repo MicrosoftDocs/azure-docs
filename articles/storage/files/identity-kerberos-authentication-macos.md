@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Entra Kerberos authentication for 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2026
+ms.date: 05/27/2026
 ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for SMB Azure file shares on macOS devices using Platform SSO, so that macOS users can mount and access Azure file shares without being prompted for credentials.
 ---
@@ -28,7 +28,7 @@ Before configuring Azure Files access on macOS by using Platform SSO, complete t
 
 ### macOS device requirements
 
-- macOS 14.6 Sonoma or later with the latest updates installed.
+- macOS Tahoe 26.5 or later with the latest updates installed.
 - [Microsoft Intune Company Portal](/mem/intune/apps/apps-company-portal-macos) version 5.2408.0 or later installed on the device.
 - The macOS device must be enrolled in a mobile device management (MDM) solution.
 - macOS Platform SSO must already be configured and deployed to devices. If you didn't configure Platform SSO, refer to the [Platform SSO documentation](/entra/identity/devices/macos-psso) or the [Intune deployment guide](/mem/intune/configuration/platform-sso-macos) before continuing.
@@ -52,7 +52,7 @@ To run the app registration update script described in this article, you need:
 When you enable a storage account for Microsoft Entra Kerberos authentication, the system automatically registers a Microsoft Entra application with identifier URIs that include a `CIFS/<storageaccount>.file.core.windows.net` prefix. macOS requires the `cifs` prefix to be **lowercase** when mounting an SMB file share by using Kerberos. If any identifier URI contains the uppercase `CIFS` prefix, macOS clients can't authenticate and mount the share.
 
 > [!IMPORTANT]
-> This step is required for macOS clients to access Azure file shares by using Microsoft Entra Kerberos with Platform SSO. If you don't update the `CIFS` identifier URI to lowercase `cifs`, the file share mount fails.
+> This step is required for macOS clients to access existing Azure file shares by using Microsoft Entra Kerberos with Platform SSO. If you don't update the `CIFS` identifier URI to lowercase `cifs`, the file share mount fails.
 
 To update the identifier URI, use the PowerShell script provided in the [Azure Files samples repository](https://github.com/Azure-Samples/azure-files-samples/blob/master/update-app-manifest/updateappmanifestazurefiles.ps1). The script updates identifier URIs in app registrations from `CIFS/<storageaccount>.file.core.windows.net` to `cifs/<storageaccount>.file.core.windows.net`. It supports both single-app and bulk updates through a CSV file, and it creates an audit log of all changes.
 
