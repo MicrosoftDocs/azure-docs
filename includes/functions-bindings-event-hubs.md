@@ -91,7 +91,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 [!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 ::: zone-end
 

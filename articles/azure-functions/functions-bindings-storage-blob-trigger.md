@@ -361,7 +361,7 @@ func processBlob(ctx context.Context, client *blob.Client) error {
 ```
 
 > [!NOTE]
-> The Blob trigger in Go uses the extension trigger model, which provides an authenticated Azure SDK `*blob.Client` directly to your handler. You must add a blank import for `triggers/blob` to activate the extension.
+> The Blob trigger in Go provides an authenticated Azure SDK `*blob.Client` directly to your handler. You must add a blank import for `triggers/blob` to make the Blob trigger package available to the Go worker.
 
 ::: zone-end  
 

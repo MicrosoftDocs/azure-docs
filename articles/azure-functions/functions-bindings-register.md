@@ -16,7 +16,7 @@ The Azure Functions runtime natively runs HTTP and timer triggers. The behaviors
 Projects that use a .NET class library use binding extensions that are installed in the project as NuGet packages.
 ::: zone-end
 
-::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
 Extension bundles allow non-.NET apps to use binding extensions without having to interact with .NET infrastructure.
 
 ## Extension bundles
@@ -26,12 +26,17 @@ Extension bundles add a predefined set of compatible binding extensions to your 
 When you create an Azure Functions project from a non-.NET template, extension bundles are already enabled in the app's `host.json` file.
 
 When possible, use the latest version range to obtain optimal app performance and access to the latest features. To learn more about extension bundles, see [Azure Functions extension bundles](extension-bundles.md).
+::: zone-end
 
+::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
 In the unlikely event that you can't use an extension bundle, you must instead explicitly install extensions.
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
 ## Explicitly install extensions
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 For projects that use a compiled C# class library, you install the NuGet packages for the extensions that you need as you normally would in your apps. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).
 
@@ -61,10 +66,6 @@ To manually install binding extensions:
 1. Validate your app functionality locally and then redeploy your project, including `extensions.csproj`, to your function app in Azure.  
 
 As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#define-an-extension-bundle-reference).
-::: zone-end
-
-::: zone pivot="programming-language-go"
-Go function apps don't use the extension bundle or explicit extension installation steps described in this article. Register supported triggers directly in Go code. For Blob Storage triggers, add the blank import described in the [Go developer reference](functions-reference-go.md#extension-triggers).
 ::: zone-end
 
 ## Related content

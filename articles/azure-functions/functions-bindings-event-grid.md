@@ -85,7 +85,7 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
@@ -97,7 +97,7 @@ Considerations for the Event Grid extension:
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-You don't install a language-specific extension package for Go Event Grid triggers. Register Event Grid triggers in code by using `app.EventGrid()`. Event Grid output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to publish events.
+Register Event Grid triggers in code by using `app.EventGrid()`. Event Grid output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to publish events.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

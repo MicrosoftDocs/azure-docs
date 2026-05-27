@@ -553,9 +553,11 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone pivot="programming-language-csharp"
 For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](extension-bundles.md).
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your *host.json* file should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the *host.json* file, see [Extension bundles](extension-bundles.md).
+::: zone pivot="programming-language-go,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+Functions provides _extension bundles_ to make it easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your *host.json* file should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the *host.json* file, see [Extension bundles](extension-bundles.md).
+::: zone-end
 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
 
@@ -586,10 +588,6 @@ The following considerations apply to Core Tools installations:
 ::: zone pivot="programming-language-csharp,programming-language-javascript"  
 + Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
 ::: zone-end  
-
-::: zone pivot="programming-language-go"
-Go function apps don't use extension bundles or explicit extension installation. Supported triggers are registered in Go code by using the Go worker SDK. For Blob Storage triggers, add the blank import described in the [Go developer reference](functions-reference-go.md#extension-triggers).
-::: zone-end
 
 ## Related content
 
