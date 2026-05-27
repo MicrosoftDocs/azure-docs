@@ -60,13 +60,13 @@ To create a connector namespace by using the Azure portal, follow these steps:
 
 1. Continue to the next section to sign in to your connector namespace.
 
-## 2: Sign in to your connector namespace
+## 2: Sign in to the Connector namespaces portal
 
 1. If you navigated away from the **Connector Namespaces** page in the [Azure portal](https://portal.azure.com), in the portal search box, enter `connector namespace`, and select **Connector Namespace**.
 
 1. From the **Connector Namespaces** page, select your namespace resource.
 
-   The Azure portal redirects you to the **Connector Namespaces** portal.
+   The Azure portal redirects you to the Connector Namespaces portal.
 
 1. Under **Welcome**, select **Sign in with Microsoft**, for example:
 
@@ -74,11 +74,17 @@ To create a connector namespace by using the Azure portal, follow these steps:
 
 1. On the sign-in page, select the Microsoft account associated with your connector namespace.
 
-1. Continue to the next section to manage your connector namespace.
+   The Connector Namespaces portal opens and shows your connector namespaces.
 
-## 3: Manage connections, triggers, and MCP servers in your namespace
+1. From the connector namespaces list, select your namespace.
 
-1. After signing in, open your connector namespace from the list displayed.
+   The portal shows the main information page for your namespace.
+
+1. Continue to the next section so you can manage your connector namespace along with any connections, triggers, actions, or MCP servers.
+
+## 3: Manage your connector namespace
+
+connections, triggers, and MCP servers in your namespace
 
 1. Use the namespace portal to create and manage:
 
