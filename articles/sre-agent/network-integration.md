@@ -18,7 +18,7 @@ This article explains why network-level control matters for enterprise deploymen
 
 ## Why network control matters
 
-By default, the SRE Agent can reach any endpoint on the internet. For development and test workloads, this permissive behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
+By default, the SRE Agent can reach any endpoint on the internet. For development and test workloads, this behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
 
 Two risks drive the enterprise requirement for network controls:
 
@@ -92,13 +92,17 @@ To configure preinstalled packages:
 
 ## VNet bypass controls
 
-When you enable full VNet mode, the **On the infra network** section of the workspace configuration page lets you selectively route certain categories of traffic outside your VNet over the public internet. If you don't enable any of these controls, all agent traffic routes through your VNet.
+When you enable full VNet mode, the **On the infra network** section of the workspace configuration page lets you route categories of traffic outside your VNet over the public internet. If you don't enable any of these controls, all agent traffic routes through your VNet.
 
-If you don't have control over every part of your environment, configure these settings to account for those unknowns in the VNet.
+If you don't control every part of your environment, configure these settings to handle gaps in the VNet.
 
 Not every external service provides an Azure service tag. GitHub, for example, isn't an Azure service and doesn't expose a service tag. If your agent needs to reach GitHub, your only option with a Layer 4, IP-based firewall is to maintain a list of the provider's IP addresses, and those lists change frequently. A firewall that doesn't stay current breaks the agent.
 
-The bypass controls help you handle exactly these situations. While your network team updates firewall rules or transitions to a firewall capable of hostname-based filtering, you can keep the agent running. Service tags and DNS were invented to solve the brittleness of IP-based rules. This feature acknowledges that reality and gives you time to get your network configuration in order. These settings aren't a permanent alternative to proper network configuration.
+The bypass controls help when the agent needs to reach hosts that are hard to express as a static IP allow list. Major public services such as GitHub, PyPI, npm, NuGet, and container registries operate from large, frequently changing global IP ranges and aren't covered by Azure service tags. If your egress firewall does L4 (IP-based) filtering only, keeping these IP lists current is costly and a stale list breaks the agent.
+
+The bypass toggles let the agent reach these hosts through the platform egress while your network team updates firewall rules or moves to a firewall that supports hostname or FQDN-based filtering. Examples include Azure Firewall Premium with FQDN rules, or an NVA that supports TLS inspection.
+
+Treat the bypass controls as a transitional aid, not a permanent substitute for hostname-aware egress filtering.
 
 The following controls are available:
 
@@ -115,13 +119,19 @@ Access to these controls is scoped to users with the SRE Agent Administrator rol
 
 ## Limitations
 
-The following limitations apply during public preview.
+The following limitations apply during preview.
 
 - **Egress only**: VNet integration controls outbound (egress) traffic only. Inbound connections to the agent from inside a private network aren't supported.
 
-- **Connectors don't route through the VNet**: Routing connector traffic through the VNet is out of scope for V1 and requires additional engineering work.
+- **Connectors don't route through the VNet**: There's no support for routing connector traffic through the VNet.
 
-- **kubectl requires managed identity**: kubectl works only with managed identity credentials during the public preview of VNet integration. On-behalf-of (OBO) credential support for kubectl isn't available.
+- **kubectl against private clusters requires managed identity**: When the agent reaches a private [Azure Kubernetes Service (AKS) API server through VNet integration](/azure/aks/access-private-cluster), kubectl commands run through the AKS command invoke flow.
+
+  This flow supports the agent's managed identity but doesn't propagate on-behalf-of (OBO) user credentials.
+
+  Command invoke also has operational limits including a 60-second ARM API timeout and a 512 KB output size limit. Long-running or high-output kubectl operations can truncate or fail.
+
+  If you need OBO support for kubectl, or you need to run operations that exceed those limits, keep the AKS API server publicly reachable and use *Unrestricted* or *Limited* mode.
 
 > [!NOTE]
 > MCP servers and Azure resources behind the VNet are accessible as expected, provided your IP address and service tag configuration is correct.
