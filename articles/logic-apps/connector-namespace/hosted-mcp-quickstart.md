@@ -36,7 +36,9 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - [Azure CLI](/cli/azure/install-azure-cli) installed. 
 
-- An existing Connector Namespace resource. If you don't have one, [create a connector namespace](create-connector-namespace.md) first.
+- An existing Connector Namespace resource. If you don't have one, [create a connector namespace](create-connector-namespace.md).
+
+- An existing Application Insights resource. If you don't have one, [create an application insights](../..).
 
 ## Create a hosted MCP server
 
@@ -50,17 +52,27 @@ This quickstart uses Playwright as the example, but the process is generally the
 
 1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
 
-1. In the namespace instance, select **Create MCP Server** under *Quick Actions*.
+1. In the namespace instance, select **Create MCP connector**. 
 
 1. Search for **Playwright**.
 
-1. Wait for the required connection and resources to be provisioned and deployed.
+1. Wait for the required connection and server to be provisioned and deployed.
 
-1. Once the server is created, select **Done**.
+Don't close the pop-up. You'll set up an application insights resource to collect telemetry from your server. 
+
+### Enable monitoring on the server
+
+1. Open another tab to get the connection string of your application insights resource on Azure portal.
+
+1. Go back to the namespace portal and click **Enable monitoring**.
+
+1. Paste the connection string into the box and click **Enable**.
+
+1. Click **Done** when app insights is configured.  
 
 ### Get server endpoint
 
-1. Go to the **MCP Servers** tab on the left menu.
+1. Go to the **MCP Connectors** tab on the left menu.
 
 1. Click the name of the server you deployed.
 
@@ -131,6 +143,14 @@ This quickstart uses Playwright as the example, but the process is generally the
 
 > [!IMPORTANT]
 > Manually passing access tokens is suitable only for local development and testing. For production scenarios, use managed identities or OAuth flows to acquire tokens automatically.
+
+## Viewing server logs 
+
+1. Go to the Azure portal and find the application insights resource you configured with the MCP server. 
+
+1. On the left menu, find **Investigate -> Search**. 
+
+1. Set the **Local Time** filter on the top to the last 30 minutes. 
 
 ## Related articles
 
