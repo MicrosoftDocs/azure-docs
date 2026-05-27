@@ -1,7 +1,7 @@
 ---
 title: Create and manage connector namespaces for integration
 titleSuffix: Azure Connector Namespace
-description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration.
+description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration by using Azure Connector Namespace.
 author: wsilveiranz
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
@@ -91,17 +91,23 @@ The main page for your namespace shows the following sidebar sections:
 | Section | Description |
 |---------|-------------|
 | **General** | - **Overview**: Shows information about your connector namespace, such as resource group, region, subscription, and any enabled managed identities. The **Resources** subsections also appear on this page. <br><br>- **Identity**: View and manage any enabled managed identities. |
-| **Resources** | - **Connections**: Create and manage connections to other services, systems, apps, and data, such as Office 365 Outlook, GitHub, or SQL Server. <br><br>- **Triggers**: Create event-based triggers that run automated workflows with event-driven actions. <br><br>- **MCP connectors**: Expose connectors as tools for AI agents to use. |
+| **Resources** | - **Connections**: Create and manage connections to other services, systems, apps, and data, such as Office 365 Outlook, GitHub, or SQL Server. <br><br>- **Triggers**: Create event-based triggers that run automated workflows with event-driven actions. <br><br>- **MCP servers**: Expose connectors as tools for AI agents to use. |
 
 :::image type="content" source="media\create-connector-namespace\connector-namespace-overview-page.png" alt-text="Screenshot shows the Connector Namespaces portal and on the sidebar, the Overview section is selected." lightbox="media\create-connector-namespace\connector-namespace-overview-page.png":::
 
-To manage your connector namespace and any connections, triggers, and MCP connectors, follow these steps:
+To manage your connector namespace and any connections, triggers, and MCP servers, follow these steps:
+
+1. In the [Connector Namespaces portal](https://connectors.azure.com/), sign in and select your connector namespace if you didn't complete this step.
 
 1. On the main page for your connector namespace, select the section for the component that you want to create or manage.
 
 1. To create the component you want, follow the UX and wizards for creating that component.
 
+   > [!IMPORTANT]
+   >
+   > Before you can use specific triggers, you need to first [create any necessary connections](create-connector-namespace-connection.md).
+
 ## Related content
 
-- [Create connections](create-connector-namespace-connection.md)
+- [Create resusable connections in connector namespaces](create-connector-namespace-connection.md)
 - [What is Azure Connector Namespace?](connector-namespace-overview.md)
