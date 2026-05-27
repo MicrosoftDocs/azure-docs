@@ -46,11 +46,15 @@ This guide shows how to create and manage a connector namespace resource in the 
    | **Namespace name** | A unique name with 2-64 characters for your connector namespace resource. <br><br>**Tip**: Use only alphanumeric, hyphen, or underscore characters. |
    | **Region** | The Azure region where you want to create the connector namespace. |
 
+   > [!NOTE]
+   >
+   > The **Identity** section shows that by default, the system assigned managed identity is enabled for your new connector namespace resource. You can also add any existing user assigned managed identities to your resource. Currently, during preview, managed identity authentication for connections isn't available yet but is planned for later release.
+
 1. When you finish, select **Create** to deploy the connector namespace resource to Azure.
 
    :::image type="content" source="media\create-connector-namespace\connector-namespace-create-pane.png" alt-text="Screenshot shows the Azure portal and the open pane to create a connector namespace." lightbox"media\create-connector-namespace\connector-namespace-create-pane.png":::
 
-## Connect to your namespace in the portal
+## Connect to your connector namespace in the portal
 
 1. After creating the connector namespace resource, go to **Connector Namespace list** in the Azure portal.
 
