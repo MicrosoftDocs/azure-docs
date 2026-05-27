@@ -15,14 +15,14 @@ ms.custom:
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the SSD media tier with LRS redundancy
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 Zonal placement allows you to select the specific availability zone in which your Azure Files storage account resides. If desired, you can place your virtual machines (VMs) in the same zone to reduce latency between compute and storage.
 
 This feature is currently available only for SSD (premium) storage accounts using [locally redundant storage (LRS)](files-redundancy.md#locally-redundant-storage) in [supported regions](#region-support).
 
 > [!NOTE]
-> This article applies to classic Azure file shares only (Microsoft.Storage). Zonal placement isn't currently possible for file shares created with the Microsoft.FileShares resource provider (preview).
+> This article applies to classic Azure file shares only (Microsoft.Storage). Zonal placement isn't currently possible for file shares created with the Microsoft.FileShares resource provider.
 
 ## Prerequisites
 
