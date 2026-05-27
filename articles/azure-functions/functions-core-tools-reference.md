@@ -1,6 +1,6 @@
 ---
 title: Azure Functions CLI reference
-description: Reference documentation for the Azure Functions CLI (func.exe) and its predecessor, Azure Functions Core Tools.
+description: Reference documentation for the Azure Functions CLI and its predecessor, Azure Functions Core Tools.
 ms.topic: reference
 ms.date: 05/27/2026
 ms.custom:
