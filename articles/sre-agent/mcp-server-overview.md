@@ -13,7 +13,7 @@ ms.custom: mcp, model context protocol, azure mcp server, copilot, claude code, 
 
 # SRE Agent Model Context Protocol (MCP) server overview
 
-The SRE Agent tools in Azure MCP Server lets MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you're working with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client.
+The SRE Agent tools in Azure MCP Server let MCP clients discover Azure SRE Agent resources, open investigation threads, send follow-up messages, and manage agent configuration from an agentic development environment. Use this experience when you're working with SRE Agent from GitHub Copilot CLI, Claude Code, VS Code, or another MCP-capable client.
 
 For more information on how to work with the Azure MCP server, see [Get started with the Azure MCP Server](/azure/developer/azure-mcp-server/get-started).
 
