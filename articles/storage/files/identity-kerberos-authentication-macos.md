@@ -18,7 +18,7 @@ This article explains how to configure Microsoft Entra Kerberos authentication f
 > [!IMPORTANT]
 > Access to Azure Files by using the Platform SSO Kerberos TGT feature is currently in **preview**. To participate in the preview, contact [azurefiles@microsoft.com](mailto:azurefiles@microsoft.com) for onboarding support.
 
-macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues both on-premises and cloud-based Kerberos TGTs, which are shared with the native macOS Kerberos stack through TGT mapping in PSSO. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
+macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues a cloud Kerberos TGT, which is shared with the native macOS Kerberos stack through TGT mapping in PSSO. On-premises Kerberos TGTs can also be obtained when the client is configured (for example, via Intune) to query on-premises domain controllers. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
 
 For more information about Microsoft Entra Kerberos authentication for Azure Files, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md#microsoft-entra-kerberos).
 
@@ -49,10 +49,11 @@ To run the app registration update script described in this article, you need:
 
 ## Update the app registration identifier URI
 
-When you enable a storage account for Microsoft Entra Kerberos authentication, the system automatically registers a Microsoft Entra application with identifier URIs that include a `CIFS/<storageaccount>.file.core.windows.net` prefix. macOS requires the `cifs` prefix to be **lowercase** when mounting an SMB file share by using Kerberos. If any identifier URI contains the uppercase `CIFS` prefix, macOS clients can't authenticate and mount the share.
+This step is only required if you have existing file shares in the storage account. It doesn't apply to newly created file shares. If there are no existing file shares in the storage account, you can skip this step.
 
-> [!IMPORTANT]
-> This step is required for macOS clients to access existing Azure file shares by using Microsoft Entra Kerberos with Platform SSO. If you don't update the `CIFS` identifier URI to lowercase `cifs`, the file share mount fails.
+In order for macOS clients to access existing Azure file shares by using Microsoft Entra Kerberos with Platform SSO, you must update the `CIFS` identifier URI to lowercase `cifs`, or the file share mount fails.
+
+When you enable a storage account for Microsoft Entra Kerberos authentication, the system automatically registers a Microsoft Entra application with identifier URIs that include a `CIFS/<storageaccount>.file.core.windows.net` prefix. macOS requires the `cifs` prefix to be **lowercase** when mounting an SMB file share by using Kerberos. If any identifier URI contains the uppercase `CIFS` prefix, macOS clients can't authenticate and mount the share.
 
 To update the identifier URI, use the PowerShell script provided in the [Azure Files samples repository](https://github.com/Azure-Samples/azure-files-samples/blob/master/update-app-manifest/updateappmanifestazurefiles.ps1). The script updates identifier URIs in app registrations from `CIFS/<storageaccount>.file.core.windows.net` to `cifs/<storageaccount>.file.core.windows.net`. It supports both single-app and bulk updates through a CSV file, and it creates an audit log of all changes.
 
@@ -331,6 +332,12 @@ app-sso platform -s
 ```
 
 Confirm that the output includes a Kerberos ticket for the Microsoft Entra ID Cloud Kerberos realm, indicated by a `ticketKeyPath` value of **tgt_cloud**. If you also deployed the on-premises AD Kerberos profile, a second ticket with `ticketKeyPath` set to **tgt_ad** should also be present.
+
+Verify that port 445 is open:
+
+```console
+nc -vz exampleaccount.file.core.windows.net 445
+```
 
 ### Verify file share access
 
