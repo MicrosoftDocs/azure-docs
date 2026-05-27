@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.reviewer: v-uhabiba
+monikerRange: migrate-classic
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
