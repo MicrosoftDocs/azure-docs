@@ -6,8 +6,8 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/13/2025
-ms.author: cherylmc 
+ms.date: 05/26/2026
+ms.author: cherylmc
 
 #Audience ID values are not sensitive data.
 
@@ -123,6 +123,5 @@ Next, you examine the profile configuration package, configure the Azure VPN Cli
 
 Configure the Azure VPN Client. You can use the steps in the VPN Gateway client documentation to configure the Azure VPN Client for Virtual WAN.
 
-* [Azure VPN Client for Linux](../vpn-gateway/point-to-site-entra-vpn-client-linux.md)
 * [Azure VPN Client for Windows](../vpn-gateway/point-to-site-entra-vpn-client-windows.md)
 * [Azure VPN Client for macOS](../vpn-gateway/point-to-site-entra-vpn-client-mac.md)
