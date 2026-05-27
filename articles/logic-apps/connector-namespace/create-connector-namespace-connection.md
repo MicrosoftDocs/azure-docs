@@ -1,7 +1,7 @@
 ---
-title: Create connections in a connector namespace
+title: Create reusable connections in connector namespaces
 titleSuffix: Azure Connector Namespace
-description: Learn to create connections in a connector namespace so you can integrate your apps with other services, systems, apps, and data.
+description: Learn to create reusable connections in connector namespaces so your solutions can access and integrate with other services, systems, apps, and data.
 author: wsilveiranz
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
@@ -11,12 +11,12 @@ ms.update-cycle: 365-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-# Customer intent: As a backend developer who works with Azure, I want to create connections to other services, systems, apps, and data in my connector namespace so I can integrate these sources with my apps.
+# Customer intent: As a backend developer who works with Azure, I want to my solutions to access and integrate with other services, systems, apps, and data by creating resuable connections in my connector namespace.
 ---
 
-# Create connections in a connector namespace for Azure Connector Namespace (preview)
+# Create reusable connections in connector namespaces to integrate solutions with other services by using Azure Connector Namespace (preview)
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
 
