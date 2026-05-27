@@ -137,7 +137,7 @@ While Azure Connector Namespace is in preview, make sure you review the followin
 |---------------|-------------|
 | No Service Level Agreement (SLA) for preview | Azure Connector Namespace (preview) isn't currently recommended for production workloads. |
 | Region availability | Support for regions is currently limited, but expands over time. |
-| Connector coverage | Standard and high-usage connectors are available first. Enterprise connectors, such as SAP, IBM MQ, and Oracle Database, follow in later waves. |
+| Connector coverage | High-usage and standard connectors are available first, while enterprise connectors, such as SAP, IBM MQ, and Oracle Database, follow in later waves. |
 | Identity | API key and OAuth connections are currently supported. Managed identity support arrives later, but is planned earlier for select MCP servers. |
 | Versioning | SDK and namespace runtime versions are paired during preview. Expect breaking changes between preview milestones. |
 | Pricing | The pricing model isn't yet finalized. Metering shape might change before general availability. |
