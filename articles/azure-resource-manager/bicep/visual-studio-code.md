@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 02/04/2026
+ms.date: 05/27/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -57,7 +57,7 @@ The `build` command converts a Bicep file to a JSON ARM template. The new templa
 
 ### Build Parameters File command
 
-The `build-params` command also converts a [Bicep parameters file](./parameter-files.md#parameters-file) to a [JSON parameters file](../templates/parameter-files.md#parameter-file). The new parameters file is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. See [build-params](./bicep-cli.md#build-params) for an example.
+The `build-params` command also converts a [Bicep parameters file](./parameter-files.md) to a [JSON parameters file](../templates/parameter-files.md#parameter-file). The new parameters file is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. See [build-params](./bicep-cli.md#build-params) for an example.
 
 ### Create Bicep Configuration File command
 

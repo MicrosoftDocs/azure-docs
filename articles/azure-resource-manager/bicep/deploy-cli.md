@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-arm-template
   - devx-track-bicep
   - build-2025
-ms.date: 10/30/2025
+ms.date: 05/27/2026
 ---
 
 # Deploy Bicep files with the Azure CLI
@@ -200,7 +200,7 @@ az deployment group create \
   --parameters '@storage.parameters.json'
 ```
 
-You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#parameter-precedence).
+You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#deploy-bicep-file-with-parameters-file).
 
 ## Preview changes
 
