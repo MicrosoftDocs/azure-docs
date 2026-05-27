@@ -21,9 +21,7 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 >
 > The API surface for Python SDK and Azure Container Apps CLI commands might change during preview.
 
-## Create and manage sandbox environments
-
-You can create and manage sandboxes in the [Sandboxes portal](https://aka.ms/aca/sandboxes/portal) or programmatically by using [Azure Container Apps CLI or SDK](https://aka.ms/aca/sandboxes/dev).
+[!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
 
 ## Key characteristics of Container Apps Sandboxes
 

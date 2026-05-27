@@ -18,6 +18,12 @@ You define the egress policy as part of the sandbox create request, alongside th
 
 This article covers the policy model, how rules are evaluated, and the patterns recommended for running untrusted workloads safely.
 
+To edit egress policies, expand the menu to reveal the menu where you can select **Egress Policy**.
+
+:::image type="content" source="media/sandboxes-egress-policies/azure-container-apps-egress-policies.png" alt-text="Screenshot of of the egress policy editor drop down list." lightbox="media/sandboxes-egress-policies/azure-container-apps-egress-policies.png":::
+
+[!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
+
 ## Egress policy model
 
 An egress policy answers two questions for every outbound request a sandbox makes:
