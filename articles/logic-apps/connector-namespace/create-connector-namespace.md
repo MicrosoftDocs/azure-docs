@@ -22,13 +22,13 @@ ms.custom:
 
 When you build solutions that need to connect with other services, systems, apps, and data, you usually have to set up and manage the authentication, credential management, end system polling, webhook delivery, and Model Context Protocol (MCP) server hosting yourself. Azure Connector Namespace is a fully managed service that removes overhead and complexity by handling these security and management tasks for you.
 
-When you create a connector namespace resource, you get a managed environment and a connector catalog so you can create and organize resuable connections, event triggers, actions, AI agent tools, and MCP server tools that your solutions can use when integrating with other components. This connector namespace makes it easy for your solutions to work with other components without needing custom API client code or tool wrappers.
+When you create a connector namespace resource, you get a managed environment and a connector catalog so you can create and organize resuable connections, event triggers, actions, AI agent tools, and MCP server tools that your solutions can use to integrate with other components. Connector namespaces make integration easy so your solutions can work with other components without needing custom API client code or tool wrappers.
 
-This guide shows how to create and manage a connector namespace resource in the Azure portal, and then create the components that your solutions need for easier integration.
+This guide shows how to create and manage a connector namespace resource in the Azure portal, and then create the components that your solutions can use for integration.
 
 ## Prerequisites
 
-- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/free/).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Permissions to create resources and resource groups in your Azure subscription.
 
 ## Create a connector namespace resource
