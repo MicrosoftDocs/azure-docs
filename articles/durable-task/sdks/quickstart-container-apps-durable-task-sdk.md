@@ -654,7 +654,7 @@ When you're done testing, remove the deployed resources:
 azd down
 ```
 
-## Related content
+## Next steps
 
 - [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
 - [Configure autoscaling for Durable Task Scheduler](./durable-task-scheduler-auto-scaling.md)

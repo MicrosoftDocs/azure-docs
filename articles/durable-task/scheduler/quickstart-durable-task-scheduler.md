@@ -53,14 +53,11 @@ Use the [Durable Task Scheduler](./durable-task-scheduler-overview.md) as a back
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="powershell"
 
-[!INCLUDE [preview-sample-limitations](./includes/preview-sample-limitations.md)]
-
-> [!NOTE]
-> PowerShell support for Durable Task Scheduler is in preview. For a full quickstart experience, select a different language tab above.
+- [PowerShell 7.4+](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) installed.
 
 ::: zone-end
 
-::: zone pivot="csharp,javascript,python,java"
+::: zone pivot="csharp,javascript,python,java,powershell"
 
 - [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
@@ -72,9 +69,9 @@ The [Durable Task Scheduler emulator](./durable-task-scheduler-emulator.md) prov
 
 ::: zone-end
 
-::: zone pivot="java"
+::: zone pivot="java,powershell"
 
-The Java Functions host also requires [Azurite](../../storage/common/storage-use-azurite.md) for local storage. Start both containers:
+The Java and PowerShell Functions hosts also require [Azurite](../../storage/common/storage-use-azurite.md) for local storage. Start both containers:
 
 ```bash
 docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
@@ -97,7 +94,7 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 
 ::: zone-end
 
-::: zone pivot="csharp,javascript,python,java"
+::: zone pivot="csharp,javascript,python,java,powershell"
 
 > [!TIP]
 > Once the emulator is running, you can access the Durable Task Scheduler dashboard at `http://localhost:8082` to monitor orchestrations.
@@ -190,7 +187,37 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 
 ::: zone-end
 
-::: zone pivot="csharp,javascript,python,java"
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="powershell"
+
+1. Navigate to the sample directory:
+
+   ```bash
+   cd samples/durable-functions/powershell/HelloCities
+   ```
+
+1. Create a `local.settings.json` file:
+
+   ```json
+   {
+     "IsEncrypted": false,
+     "Values": {
+       "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+       "FUNCTIONS_WORKER_RUNTIME": "powershell",
+       "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None"
+     }
+   }
+   ```
+
+1. Start the function app:
+
+   ```bash
+   func start
+   ```
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
 
 1. In a separate terminal, trigger an orchestration:
 
@@ -201,6 +228,10 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 1. Copy the `statusQueryGetUri` from the response and open it in your browser. You should see the orchestration completed with greeting output.
 
 1. View more details about the orchestration instance in the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) at `http://localhost:8082`.
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
 
 ## Understand the Durable Task Scheduler configuration
 
@@ -238,6 +269,8 @@ The connection string points to the local emulator for development:
 
 > [!NOTE]
 > To migrate an existing Durable Functions app, update these two files and add the appropriate extension package for your language. For .NET, install the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) NuGet package. For other languages, update the extension bundle in `host.json` to version `[4.32.0, 5.0.0)`.
+
+::: zone-end
 
 ## Run your app in Azure
 

@@ -946,6 +946,14 @@ await client.stop();
 
 ::: zone-end
 
+## Clean up resources
+
+Stop the emulator container when you're done:
+
+```bash
+docker stop dtsemulator && docker rm dtsemulator
+```
+
 ## Next steps
 
 Now that you've run the sample locally using the Durable Task Scheduler emulator, try creating a scheduler and task hub resource and deploying to Azure Container Apps.

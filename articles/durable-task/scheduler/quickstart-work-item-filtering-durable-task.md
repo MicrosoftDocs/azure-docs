@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Work Item Filtering With .NET Durable Task SDK"
-description: Learn how to use work item filtering with the .NET Durable Task SDK to route orchestrations to dedicated workers. Deploy the sample to Azure Container Apps with Azure Developer CLI.
+description: Use work item filtering with the .NET Durable Task SDK to route orchestrations to dedicated workers. Deploy to Azure Container Apps.
 ms.subservice: durable-task-scheduler
 ms.author: hannahhunter
 author: hhunter-ms
