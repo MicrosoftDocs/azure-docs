@@ -271,6 +271,11 @@
       href: functions-bindings-expressions-patterns.md
     - name: Handle binding errors
       href: functions-bindings-errors.md
+  - name: Managed connectors
+    items:
+    - name: Use connectors in Azure Functions
+      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+      href: functions-connectors-overview.md
   - name: Frameworks
     items:
     - name: Express.js
