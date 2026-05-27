@@ -59,6 +59,16 @@ sections:
         answer: |
           Under the hood, express is built entirely on [Azure Container Apps Sandboxes](https://aka.ms/aca/sandboxes-blog), a foundational platform primitive that delivers subsecond startup from prewarmed pools, strong isolation, and massive scale-out. You don't need to understand Sandboxes to use express. Express is the opinionated, developer-friendly experience built on top of Sandboxes.
 
+      - question: |
+          How does express compare to Azure Container Instances (ACI)?
+        answer: |
+          Azure Container Instances (ACI) is a low-level primitive for running a single container or container group with no built-in HTTP ingress, scaling, revisions, or app lifecycle management. Azure Container Apps express is a full application platform: it gives you a public HTTPS endpoint, automatic scale to and from zero, multi-replica scale-out, secrets, environment variables, log streaming, and exec access, without requiring you to provision an environment. ACI gives you a container; express gives you a production-ready app. If you're running a web app, API, MCP server, or agent endpoint, express is the better fit.
+
+      - question: |
+          Will the cold start and provisioning improvements in express be brought back to standard Azure Container Apps?
+        answer: |
+          The provisioning and cold start gains in express come from a new architecture (pre-provisioned capacity and a streamlined data plane) that is specific to the express tier. Standard Azure Container Apps environments continue to receive ongoing improvements, but the subsecond cold starts and instant provisioning available in express aren't planned to be replicated in standard Azure Container Apps environments. Customers who need those characteristics should use express.
+
   - name: Getting started
     questions:
       - question: |
@@ -136,6 +146,16 @@ sections:
           New features are being shipped on a rapid cadence throughout the preview. The [express documentation](https://aka.ms/aca/express) includes a current list of supported and upcoming features, updated frequently.
 
       - question: |
+          Are there any requirements for the container image I deploy to express?
+        answer: |
+          During preview, express supports Linux containers built for the `linux/amd64` architecture. Images can be pulled from any registry that supports anonymous or token-based pull (for example, Docker Hub, Azure Container Registry, or GitHub Container Registry). There's no special base-image requirement. You bring a standard Open Container Initiative (OCI) container image that listens on the port you declare with `--target-port`.
+
+      - question: |
+          Can I use private (virtual network) inbound or outbound networking with express?
+        answer: |
+          Not during the initial preview. Express apps run with a public default ingress domain and don't yet support VNet integration for inbound traffic, private endpoints, or VNet-routed outbound traffic. If your workload requires private networking today, use Azure Container Apps with workload profiles. VNet support is on the express roadmap. For the latest status, see the [express documentation](https://aka.ms/aca/express).
+
+      - question: |
           When will express reach feature parity with Azure Container Apps?
         answer: |
           Express is shipping new features on a rapid cadence throughout the preview. The [express documentation](https://aka.ms/aca/express) includes a current feature support matrix that is updated frequently.
@@ -168,6 +188,11 @@ sections:
           Is there a free tier for express?
         answer: |
           Yes. Express includes the same generous free grant that applies to Azure Container Apps consumption workloads. You aren't charged until your usage exceeds the free grant thresholds. Combined with scale-to-zero, express ensures you only pay for what you use.
+
+      - question: |
+          Is there a cost for image caching or image pulls in express?
+        answer: |
+          No. Express doesn't charge a separate fee for image caching or registry pulls. You only pay the standard Azure Container Apps consumption rates for vCPU and memory while your app is running. Any registry-side egress or storage costs are billed by your container registry, not by express.
 
   - name: Migration
     questions:
