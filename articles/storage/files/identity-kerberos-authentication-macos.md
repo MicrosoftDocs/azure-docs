@@ -13,10 +13,7 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-This article explains how to configure Microsoft Entra Kerberos authentication for Azure Files on macOS devices by using [macOS Platform Single Sign-On (PSSO)](/entra/identity/devices/macos-psso). By using this configuration, Microsoft Entra joined macOS devices can access SMB Azure file shares seamlessly by using cloud-based Kerberos Ticket Granting Tickets (TGTs), without prompting users for credentials.
-
-> [!IMPORTANT]
-> Access to Azure Files by using the Platform SSO Kerberos TGT feature is currently in **preview**. To participate in the preview, contact [azurefiles@microsoft.com](mailto:azurefiles@microsoft.com) for onboarding support.
+This article explains how to configure Microsoft Entra Kerberos authentication for Azure Files on macOS devices by using [macOS Platform Single Sign-On (PSSO)](/entra/identity/devices/macos-psso) (preview). By using this configuration, Microsoft Entra joined macOS devices can access SMB Azure file shares seamlessly by using cloud-based Kerberos Ticket Granting Tickets (TGTs), without prompting users for credentials.
 
 macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues a cloud Kerberos TGT, which is shared with the native macOS Kerberos stack through TGT mapping in PSSO. On-premises Kerberos TGTs can also be obtained when the client is configured (for example, via Intune) to query on-premises domain controllers. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
 
@@ -355,8 +352,6 @@ If users are prompted to enter credentials when connecting to the Azure file sha
 - Admin consent is granted to the Azure Files app registration in Microsoft Entra ID.
 - The user has share-level permissions on the Azure file share.
 - MFA is disabled for the Microsoft Entra app representing the storage account.
-
-If you verify all of the preceding conditions and users are still prompted for credentials, contact [azurefiles@microsoft.com](mailto:azurefiles@microsoft.com).
 
 ### Script errors
 
