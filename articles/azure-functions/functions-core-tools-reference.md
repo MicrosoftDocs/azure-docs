@@ -900,10 +900,10 @@ Match the workloads you install to the stack you're developing in. The recommend
 
 | Stack | Recommended workloads |
 | ----- | ----- |
-| **Python** | `python`, `python-worker`, `bundles`, `host`, `python-templates` |
-| **Node.js / TypeScript** | `node`, `node-worker`, `bundles`, `host`, `node-templates` |
-| **.NET (isolated, C# / F#)** | `dotnet`, `host`, `dotnet-templates` |
-| **Go** | `go`, `go-worker`, `bundles`, `host` |
+| **Python** | `python`, `python-worker`, `python-templates`, `host`, `bundles` |
+| **Node.js / TypeScript** | `node`, `node-worker`, `node-templates`, `host`, `bundles` |
+| **.NET (C# / F#)** | `dotnet`, `dotnet-templates`, `host` |
+| **Go** | `go`, `go-worker`, `host`, `bundles` |
 
 What each role does:
 
