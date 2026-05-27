@@ -157,7 +157,15 @@ The action timeout value can't be changed and is fixed at 2 minutes. If you're u
 
 ### Why does my host memory usage appear high without any workflows running in Azure Logic Apps (Standard)? What is using so much memory?
 
-There is no waste of memory. A host machine has the operating system (OS) and a number of system processes that come with the OS itself. On top of that Logic Apps backend requires a number of processes to handle several platform operations and features, such as security updates, availability of the SCM console, application monitoring, authentication, job scheduling, and many other vital features of your Logic App. These processes will run on App Service Plans even if there are no Logic Apps running or if the App Service Plan contains no Logic Apps. They will consume certain amount of resources (such as CPU, Memory and Disk space).
+No memory waste is happening. The host machine has an operating system (OS) and system processes that come with this OS. The Azure Logic Apps backend requires processes that handle several platform operations, security updates, and features, for example:
+
+- Application monitoring
+- Authentication
+- Job scheduling
+- Source Control Management (SCM) console for the Kudu service
+- Other important logic app features
+
+These processes continue running on App Service plans, even when no workflows are running in your logic app or when the App Service plan doesn't contain any logic app resources. The processes still consume some resources such as CPU, memory, and disk space.
 
 ### My host memory stays elevated after processing messages in Azure Logic Apps (Standard). Could this be a memory leak?
 
