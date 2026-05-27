@@ -80,12 +80,12 @@ VMware Cloud Director is deployed in two stages:
 :::image type="content" source="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-cloud-director/vmware-cloud-director-ovf-install.png":::
 
 
-2.	For initial configuration of primary appliance, sign-in to the VMware Cloud Director Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
+2.	For initial configuration of primary appliance, sign-in to the VMware Cloud Director Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480.
     - Fill the form (NFS Share, DB Password, and Admin User, VMware Cloud Director Settings) and start the configuration.
     - When the initial configuration is complete, you can access the VMware Cloud Director instance.
-    - Verify that the primary cell is up and running by logging  to the VMware Cloud Director Service Provider Admin Portal at https://primary_eth0_ip_address/provider
-    - To verify the PostgreSQL database health, log in as root to the appliance management user interface at https://primary_eth1_ip_address:5480. The primary node must be in a running status.
-3.	Deploy two instances of the VMware Cloud Director appliance as standby cells. Log in to the VAMI interface of the standby cell and enter the same NFS mount used in the Primary Cell configuration.
+    - Verify that the primary cell is up and running by logging  to the VMware Cloud Director Service Provider Admin Portal at https://primary_eth0_ip_address/provider.
+    - To verify the PostgreSQL database health, sign in as root to the appliance management user interface at https://primary_eth1_ip_address:5480. The primary node must be in a running status.
+3.	Deploy two instances of the VMware Cloud Director appliance as standby cells. Sign in to the VAMI interface of the standby cell and enter the same NFS mount used in the Primary Cell configuration.
     - After the initial standby appliance deployment, the replication manager begins synchronizing its database with the primary appliance database.
     - During this time, the VMware Cloud Director database and therefore the VMware Cloud Director UI are unavailable.
 4.	You can monitor the cluster status by using the VMware Cloud Director appliance management user interface.
@@ -103,13 +103,13 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 
 ### Prerequisites
 
--	Retrieve Azure VMware solution vCenter VMCA certificate manually by going to https://vCenterFQDN and then select **download trusted root CA certificate**. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. 
-    - You must perform this task before adding Azure VMware Solution vCenter server is added to VMware Cloud Director, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads. Learn more using this link.
+-	Retrieve Azure VMware solution vCenter VMCA certificate manually by going to https://vCenterFQDN and then select **download trusted root CA certificate**. Locate the VMCA in the zip file contents and then add it to the VMware Cloud Director trusted certificates. 
+    - You must perform this task before adding Azure VMware Solution vCenter server is added to VMware Cloud Director. If you don't, it could impact features such as Console proxy, Powering on VM with guest customization, and OVF/Media uploads. Learn more using this link.
 -	[Create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
-    - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VMware Cloud Director, else adding provide gateway will fail.
+    - You must perform this task before Azure VMware Solution NSX-T manager is added to VMware Cloud Director. If you don't, adding a provider gateway will fail.
 -	Integrate Azure VMware Solution vCenter and NSX-T using credentials mapped with “CloudAdmin” role
     - CloudAdmin credentials can be found in the Azure portal under your Private Cloud resource by navigating to Manage and then selecting VMware Credentials.
-    - Learn about [CloudAdmin role and permissions](architecture-identity.md).
+    - Learn more about [CloudAdmin role and permissions](architecture-identity.md).
 
 -	Create a resource pool to map with Provide Virtual datacenter (PVDC). The cluster or resource pool must be available for use in a connected vCenter server instance. 
 
@@ -148,7 +148,7 @@ VMware Cloud Director on Azure VMware solution is supported for eligible enterpr
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
-The customer is responsible for installing, configuring, monitoring, and managing lifecycle of VMware Cloud Director. It includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](introduction.md)
+The customer is responsible for installing, configuring, monitoring, and managing lifecycle of VMware Cloud Director. It includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn more about [Azure VMware Solution responsibility matrix.](introduction.md)
 
 ### Can I use non vSAN storage using VMware Cloud Director with Azure VMware Solution?
 
