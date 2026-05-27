@@ -55,7 +55,7 @@ For enhanced resilience, consider creating a private endpoint for each replica o
 
 ### Considerations for stores associated with a network security perimeter
 
-If a store's network access is governed by a [network security perimeter](./concept-network-security-perimeter.md), no additional configuration is required to allow requests from a private endpoint. Valid requests through a private endpoint are always permitted, regardless of the perimeter's association mode or profile rules.
+If an App Configuration store's network access is governed by a [network security perimeter](./concept-network-security-perimeter.md), no additional configuration is required to allow inbound requests from a private endpoint. Valid inbound requests to an App Configuration store through a private endpoint are always permitted, regardless of the perimeter's association mode or profile rules.
 
 ### Private endpoint connections
 

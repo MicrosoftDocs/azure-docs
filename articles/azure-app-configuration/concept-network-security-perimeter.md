@@ -14,7 +14,7 @@ ms.date: 05/18/2026
 
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources, such as an App Configuration store, that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
-When you associate an App Configuration store with a network security perimeter, you can control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter).
+When you associate an App Configuration store with a network security perimeter, you can control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter)
 
 ## Transitioning to a network security perimeter
 
@@ -26,7 +26,7 @@ To enforce network restrictions with a network security perimeter, ensure the ne
 
 ## Considerations for private endpoint requests
 
-Traffic through a valid [private endpoint](./concept-private-endpoint.md) is always permitted by a network security perimeter regardless of the perimeter's association mode or profile rules.
+Inbound requests to the App Configuration store through a valid [private endpoint](./concept-private-endpoint.md) are always permitted by a network security perimeter regardless of the perimeter's association mode or profile rules.
 
 ## Considerations for customer-managed key encryption
 
@@ -49,7 +49,7 @@ If your App Configuration store has [monitoring](./monitor-app-configuration.md)
 
 ## Troubleshooting
 
-**RP registration errors**
+### RP registration errors
 
 If you associate an App Configuration store with a network security perimeter in a different subscription than the store, you must ensure that the network security perimeter's subscription has the `Microsoft.AppConfiguration` resource provider registered. If the resource provider isn't registered, you receive the following error when performing the association:
 
@@ -61,7 +61,7 @@ To resolve this error, take the following steps:
 
 For more information about registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-**Customer-managed key access errors**
+### Customer-managed key access errors
 
 If your App Configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), you might receive the following error when associating the store with a network security perimeter:
 
