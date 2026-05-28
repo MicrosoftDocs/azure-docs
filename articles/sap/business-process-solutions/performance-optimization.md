@@ -27,7 +27,7 @@ To enable the native execution engine in your environment:
 4. Select **Publish** to apply the changes.
 
 When enabled, all subsequent jobs and notebooks in the environment inherit the setting automatically.
-For more information on the native execution engine and its performance benefits, see [Native execution engine in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/native-execution-engine-overview).
+For more information on the native execution engine and its performance benefits, see [Native execution engine in Microsoft Fabric](https://learn.microsoft.com/fabric/data-engineering/native-execution-engine-overview).
 
 ## Enable high concurrency mode
 
@@ -45,7 +45,7 @@ To enable high concurrency mode in your workspace:
    :::image type="content" source="./media/performance-optimization/enable-high-concurrency.png" alt-text="Screenshot showing the High concurrency section in workspace Spark settings with both toggles enabled." lightbox="./media/performance-optimization/enable-high-concurrency.png":::
 5. Select **Save**.
 
-For more information on high concurrency mode and its performance benefits, see [High concurrency mode in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-engineering/configure-high-concurrency-session-notebooks-in-pipelines).
+For more information on high concurrency mode and its performance benefits, see [High concurrency mode in Microsoft Fabric](https://learn.microsoft.com/fabric/data-engineering/configure-high-concurrency-session-notebooks-in-pipelines).
 
 ## Summary
 
