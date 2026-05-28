@@ -881,8 +881,6 @@ These commands ship with the base CLI install. `func new` is currently a preview
 | [`func profile`](#func-profile) | Inspect and manage Azure Functions CLI profiles. |
 | [`func setup`](#func-setup) | Prepare local Azure Functions CLI dependencies (host runtime, language workers, extension bundles). |
 | [`func workload`](#func-workload) | Manage installed CLI workloads. |
-| [`func help`](#func-help) | Display help for the CLI or a specific command. |
-| [`func version`](#func-version) | Display version information. |
 
 Workloads MAY contribute additional top-level commands; those appear only after the contributing workload is installed.
 
@@ -1028,8 +1026,13 @@ The `func run` command supports these options:
 | **`--output`** | Output mode: `compact` (interactive TUI), `plain` (CI / non-TTY), or `json` (NDJSON for programmatic consumers and AI agents). Defaults to autodetect based on the terminal. |
 | **`--no-tui`** | Alias for `--output=plain`. Disables the interactive TUI. |
 | **`--log-file`** | Mirror all host events to the specified log file. |
+| **`--no-azurite`** | Disable managed Azurite. The host starts without probing or starting a local emulator. |
 
 With the project running, call the function endpoints directly to verify behavior.
+
+### Managed Azurite
+
+When your project uses local storage (for example, `AzureWebJobsStorage=UseDevelopmentStorage=true`), `func run` automatically probes for a running Azurite emulator and starts one if none is found. The emulator is stopped when `func run` exits. Pass `--no-azurite` to opt out and manage Azurite yourself.
 
 ### Output modes
 
@@ -1064,7 +1067,7 @@ The `func quickstart` command supports these options:
 | **`--iac`** | Filter by infrastructure-as-code type (for example, `bicep`, `terraform`, `none`). |
 | **`--search`** | Case-insensitive substring filter applied to template names and descriptions. |
 | **`--fetch`** | Catalog fetch strategy: `auto` (default), `git`, or `http`. `auto` probes for `git` and falls back to HTTP. |
-| **`--force`** | Scaffold even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
+| **`--force`** | Scaffold even when the target folder isn't empty. (Coming soon.) Clears the folder (except `.git`) before scaffolding. |
 
 Subcommands:
 
@@ -1086,7 +1089,7 @@ func quickstart list [options]
 | **`--language`**, **`-l`** | Filter by worker runtime or language (for example, `python`, `node`, `java`, `dotnet`). |
 | **`--resource`**, **`-r`** | Filter by trigger or binding resource. |
 | **`--iac`** | Filter by infrastructure-as-code type. |
-| **`--search`**, **`-s`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
+| **`--search`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
 
 ### `func quickstart info`
 
@@ -1162,11 +1165,14 @@ func setup [<PATH>] [options]
 | `node` | `host`, `bundles`, `node`, `node-worker`, `node-templates` |
 | `python` | `host`, `bundles`, `python`, `python-worker`, `python-templates` |
 | `go` | `host`, `bundles`, `go`, `go-worker` |
-| `dotnet-isolated` | `host`, `dotnet`, `dotnet-templates` |
+| `dotnet` | `host`, `dotnet`, `dotnet-templates` |
 | `runtime` | `host`, `bundles` |
 | `host` | `host` only |
 
-`--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`).
+`--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`). `dotnet-isolated` is accepted as an alias for `dotnet`.
+
+> [!NOTE]
+> The `*-templates` workloads are included in the planned setup behavior and aren't yet installed by the current `func setup` preview build. They land in an upcoming release.
 
 | Option | Description |
 | ----- | ----- |
@@ -1175,7 +1181,7 @@ func setup [<PATH>] [options]
 | **`--profiles`** | Comma-separated list of Azure Functions profiles to use for version constraints. |
 | **`--install-policy`** | Install policy: `latest-compatible` (default) or `if-needed`. |
 | **`--source`** | NuGet package source to use for workload resolution and installation. |
-| **`--prerelease`** | Allow prerelease workload versions when resolving from the catalog. |
+| **`--prerelease`** | Allow prerelease workload versions when resolving from the catalog. Default: enabled while workloads are in preview. |
 | **`--non-interactive`** | Don't prompt for input. |
 | **`--yes`**, **`-y`** | Answer yes to setup prompts. |
 | **`--check`** | Verify whether the selected dependencies are installed, without making changes. |
@@ -1226,7 +1232,7 @@ When `<QUERY>` is omitted, all workloads in the catalog are listed.
 | Option | Description |
 | ----- | ----- |
 | **`--source`** | Catalog source URL to search. Defaults to the configured catalog. |
-| **`--prerelease`** | Include prerelease versions in the results. |
+| **`--prerelease`** | Include prerelease versions in the results. Default: enabled while workloads are in preview. |
 | **`--json`** | Emit machine-readable JSON instead of a table. |
 
 ### `func workload install`
@@ -1243,7 +1249,7 @@ func workload install <ID> [options]
 | ----- | ----- |
 | **`--version`**, **`-v`** | Specific version to install. Default: the latest stable version in the catalog. |
 | **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
-| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: stable only. |
+| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
 | **`--force`**, **`-f`** | Overwrite an existing install of the same ID and version. Also skips the "use update instead" prompt. |
 | **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
 
@@ -1265,7 +1271,7 @@ Pass an `<ID>` to update a single workload, or `--all` to update every installed
 | **`--all`** | Update every installed workload. Mutually exclusive with `<ID>`. |
 | **`--major`** | Allow crossing a major-version boundary. Default: same major only. |
 | **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
-| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: stable only. |
+| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
 | **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
 
 ### `func workload uninstall`
@@ -1295,26 +1301,6 @@ When `<ID>` is omitted, every installed workload is pruned.
 | Option | Description |
 | ----- | ----- |
 | **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
-
-## `func help`
-
-Displays help for the CLI or for a specific command.
-
-```command
-func help [<COMMAND>]
-```
-
-When `<COMMAND>` is omitted, top-level help is displayed.
-
-## `func version`
-
-Displays the version of the Azure Functions CLI.
-
-```command
-func version
-```
-
-Equivalent to `func --version`. Pass `func --verbose` (with no subcommand) for detailed build, runtime, OS, and architecture information.
 
 ## Workload contributions
 
@@ -1377,7 +1363,7 @@ These options are available on most commands:
 
 | Option | Description |
 | ----- | ----- |
-| **`--help`**, **`-h`**, **`-?`** | Display help for the command. |
+| **`--help`**, **`-h`** | Display help for the command. |
 | **`--version`** | Display the Azure Functions CLI version. Use `--verbose` together with `--version` for detailed build information. |
 | **`--verbose`** | Enable verbose output. Propagates to all subcommands. When passed at the root with no subcommand, prints detailed build, runtime, OS, and architecture information. |
 
