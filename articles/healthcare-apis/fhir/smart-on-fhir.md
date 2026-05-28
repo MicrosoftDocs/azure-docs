@@ -13,12 +13,39 @@ ms.custom: sfi-image-nochange
 
 # SMART on FHIR
 
-Substitutable Medical Applications and Reusable Technologies ([SMART on FHIR](https://docs.smarthealthit.org/)) is a healthcare standard through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR&reg; interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
+Azure Health Data Services (AHDS) FHIR service supports Substitutable Medical Applications and Reusable Technologies ([SMART on FHIR] (https://docs.smarthealthit.org/)) by implementing the key server-side behaviors required for SMART clients to securely access FHIR data using OAuth 2.0 and OpenID Connect. SMART on FHIR is an implementation guide through which applications can access clinical information through a data store. It adds a security layer based on open standards including OAuth2 and OpenID Connect, to FHIR&reg; interfaces to enable integration with EHR systems. Using SMART on FHIR provides at least three important benefits:
 - Applications have a known method for obtaining authentication/authorization to a FHIR repository.
 - Users accessing a FHIR repository with SMART on FHIR are restricted to resources associated with the user, rather than having access to all data in the repository.
 - Users have the ability to grant applications access to a limited set of their data by using SMART clinical scopes.
 
-The following tutorials provide steps to enable SMART on FHIR applications with FHIR Service.
+A SMART client typically performs these steps:
+
+1. Discover: Call /.well-known/smart-configuration on the FHIR server to find endpoints and capabilities.
+1. Authorize: Redirect the user to the authorization endpoint with requested SMART scopes. 
+1. Token: Exchange authorization code for an access token, then call FHIR APIs with the bearer token.
+
+SMART adds healthcare-specific requirements such as clinical scopes and (often) launch context to support EHR launch and patient-centric access patterns. 
+
+AHDS publishes /.well-known/smart-configuration as the discovery document used by SMART clients and enforces scope restrictions at the FHIR API layer as defined by the SMART on FHIR implementation guide. This includes limiting access based on the user’s fhirUser context and the scopes present in the token. AHDS provides a FHIR SMART user role concept. Users added to this role can access the FHIR service if their requests comply with SMART requirements; access is constrained by the user’s fhirUser compartment and clinical scopes
+
+### Set up FHIR SMART user role 
+Follow the steps listed in section [Manage Users: Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Any user added to this role will be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide. The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+
+> [!NOTE]
+>  A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
+
+### Identity Provider support
+FHIR service provides integration with Entra ID and smart aware third party IDP. Launch context resolution and scope syntax resolution depends on Identity provider behavior.
+### Entra ID integration
+Microsoft Entra ID is a fully-featured OAuth 2.0 / OpenID Connect identity provider. Integration with Microsoft Entra ID as the identity provider, additional components are required to complete the end-to-end SMART on FHIR experience.This is because SMART on FHIR introduces behaviors that are not natively supported by enterprise identity providers like Entra ID. To bridge this gap, Microsoft provides reference solutions (samples). Sample as an orchestration layer between SMART clients and Entra ID.
+Sample support is needed as
+1. A scope value such as patient/Patient.rs is not a registered Entra ID permission — Entra ID would reject the authorize request.
+2. It does not offer a per-request scope picker for the SMART resource verbs. Entra's consent screen reflects pre-registered application permissions, not the dynamic patient/<Resource>.<verbs> the SMART app sends on each launch.
+3. It does not return SMART launch-context fields (patient, encounter, fhirUser, need_patient_banner) in the token response.
+4. It does not advertise a SMART discovery document — smart-configuration is FHIR-server territory, not IdP territory.
+
+### Smart-aware third party IDP integration
+
 
 ## Prerequisites
 
@@ -31,11 +58,7 @@ The following tutorials provide steps to enable SMART on FHIR applications with 
      
 ## SMART on FHIR using Azure Health Data Services Samples (SMART on FHIR (Enhanced))
 
-### Step 1: Set up FHIR SMART user role 
-Follow the steps listed in section [Manage Users: Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Any user added to this role will be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide. The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
-
-> [!NOTE]
-> SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
+### Step 1:
 
 ### Step 2: FHIR server integration with samples
 Azure Health Data and AI Samples open source repo provides samples for [SMART on FHIR v1.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v1) and [SMART on FHIR v2.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v2). The steps listed in the document enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
