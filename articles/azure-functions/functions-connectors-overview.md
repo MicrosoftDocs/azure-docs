@@ -29,7 +29,7 @@ Connectors extend the Azure Functions programming model with two capabilities th
 A single function app combines connector triggers and actions with the bindings you already use, including HTTP, timer, queue, Service Bus, Event Grid, and Durable Functions.
 
 > [!IMPORTANT]
-> The Connector Namespace is a separate Azure resource owned by the connectors platform. It hosts connector trigger configurations and outbound connections, and it manages authentication to SaaS systems. This article describes how Functions consume that resource. For the resource model itself, see [Azure connectors overview](/azure/connectors/overview) and [Connector Namespace](/azure/connectors/connector-namespace).
+> The Connector Namespace is a separate Azure resource owned by the connectors platform. It hosts connector trigger configurations and outbound connections, and it manages authentication to SaaS systems. This article describes how Functions consume that resource. For more information, see [What is Azure Connector Namespace?](/azure/logic-apps/connector-namespace/connector-namespace-overview).
 
 The preview has the following availability:
 
@@ -368,7 +368,7 @@ Because this check runs at the App Service edge, your function code never sees a
 ```
 
 > [!IMPORTANT]
-> This section covers authentication between the Connector Namespace and your function app and how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/azure/connectors/overview) for the connector-to-SaaS authentication model.
+> This section covers authentication between the Connector Namespace and your function app and how the connector runtime proves its identity when calling the function. Authentication from the Connector Namespace to the upstream service (for example, Microsoft 365, Teams, or SharePoint) is owned by the connectors team and managed through the connection resource on the Connector Namespace. That authentication flow is out of scope for this article. See [Azure connectors overview](/connectors/overview) for the connector-to-SaaS authentication model.
 
 ### Related content
 
@@ -481,5 +481,5 @@ A single function app can combine all three patterns. You can add a connector tr
 - [Azure Functions Connector Extension repository](https://github.com/Azure/azure-functions-connector-extension)
 - [Operations to Azure Functions signature mapping](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md)
 - [Azure connectors overview](/azure/connectors/overview)
-- [Connector Namespace](/azure/connectors/connector-namespace)
+- [What is Azure Connector Namespace?](/azure/logic-apps/connector-namespace/connector-namespace-overview)
 - [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
