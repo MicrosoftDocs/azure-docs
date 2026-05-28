@@ -136,7 +136,7 @@ Create a custom table in your Log Analytics workspace with the Log Ingestion API
 1. Select **Next**.
 1. In **Schema and Transformation**, upload [the JSON schema sample](#step-3-prepare-sample-json-schema). You don't need to configure DCR transformation because the schema is fully stabilized on the client side.
 
-### Step 5. Prepare service principal for authentication
+### Step 5. Prepare service principal and collect DCR identifier
 
 1. Register an app in **Microsoft Entra ID**.
 
@@ -152,7 +152,7 @@ Create a custom table in your Log Analytics workspace with the Log Ingestion API
    The stream name format is always: `Custom-<Log Analytics table name>`.
    For example, if your table name is `AppLogs_CL`, the stream name will be: `Custom-AppLogs_CL`.
    
-   In the next step, you will configure the corresponding `logStream`, `eventStream`, `metricStream`, or `metaStream` values and logDcr , eventDcr, metricDcr, metaDcr values in the Spark configuration using these stream names. 
+   In the next step, you will configure the corresponding `logStream`, `eventStream`, `metricStream` values and logDcr , eventDcr, metricDcr values in the Spark configuration using these stream names. 
 
    :::image type="content" source="media\data-collector-to-log-ingestion\stream-name.png" alt-text="Screenshot showing the retrieve the stream name and DCR ID." lightbox="media\data-collector-to-log-ingestion\stream-name.png":::
 
@@ -166,7 +166,7 @@ An Apache Spark Configuration in Azure Synapse Analytics stores Spark settings a
 - Choose Option 2 if your organization requires certificate-based authentication and centralized certificate management in Azure Key Vault.
 - Choose Option 3 if you use certificate-based authentication and want to retrieve the certificate from Azure Key Vault through a Synapse linked service (workspace MSI accesses Key Vault).
 
-In both options, you can select Add from .yml in the environment to import a .yml configuration file.
+In either option, you can click the **Import** button to quickly load a configuration YAML file.
 
 #### Option 1: Configure with service principal and client secret
 
@@ -174,7 +174,7 @@ Use this option for quick setup with service principal credentials and a client 
 
 1. Create an Apache Spark configuration.
 
-1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
+1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/log_ingestion_cert_secret_option1_synapse.yml), which already contains the required properties.
 
    ```properties
    spark.synapse.diagnostic.emitters: <EMITTER_NAME>
@@ -200,7 +200,7 @@ Use this option when your organization requires certificate-based authentication
 Before you start, ensure that your service principal is created with a certificate. For more information, see [Create a service principal containing a certificate using Azure CLI](/cli/azure/azure-cli-sp-tutorial-3).
 
 1. Create an Apache Spark configuration.
-1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
+1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/log_ingestion_cert_keyvault_option2_synapse.yml), which already contains the required properties.
 
    ```properties
    spark.synapse.diagnostic.emitters: "<EMITTER_NAME>"
@@ -223,9 +223,9 @@ Before you start, ensure that your service principal is created with a certifica
 #### Option 3: Configure with a linked service
 
 > [!NOTE]
-> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
+> In this option, you need to grant read certificate permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
-To configure a Key Vault linked service in Synapse Studio to store the workspace key, follow these steps:
+To configure a Key Vault linked service in Synapse Studio to store the service principal certificate, follow these steps:
 
 1. Follow all the steps in the preceding section, "Option 2."
 1. Create a Key Vault linked service in Synapse Studio:
@@ -238,8 +238,8 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
 
     d. Choose your key vault, and select **Create**.
 
-1. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
-1. Add the following **Spark properties** with the appropriate values to the environment artifact, or select **Import** in the ribbon to download the [sample yaml file](), which already containing the required properties.
+1. Add a `spark.synapse.diagnostic.emitters: <EMITTER_NAME>.certificate.keyVault.linkedService` item to the Apache Spark configuration.
+1. Add the following **Spark properties** with the appropriate values to the spark configuration, or select **Import** in the ribbon to download the [sample yaml file](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/log_ingestion_cert_linkedservice_option3_synapse.yml), which already contains the required properties.
 
 ```properties
    spark.synapse.diagnostic.emitters: <EMITTER_NAME>
@@ -257,18 +257,6 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault: https://<KEYVAULT_NAME>.vault.azure.net/
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.certificateName: <SP_CERT_NAME>
    spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService: <AZURE_KEY_VAULT_LINKED_SERVICE>
-```
-
-Alternatively, use the following properties:
-
-```properties
-spark.synapse.diagnostic.emitters LA
-spark.synapse.diagnostic.emitter.LA.type: "AzureLogAnalytics"
-spark.synapse.diagnostic.emitter.LA.categories: "Log,EventLog,Metrics"
-spark.synapse.diagnostic.emitter.LA.workspaceId: <LOG_ANALYTICS_WORKSPACE_ID>
-spark.synapse.diagnostic.emitter.LA.secret.keyVault: <AZURE_KEY_VAULT_NAME>
-spark.synapse.diagnostic.emitter.LA.secret.keyVault.secretName: <AZURE_KEY_VAULT_SECRET_KEY_NAME>
-spark.synapse.diagnostic.emitter.LA.secret.keyVault.linkedService: <AZURE_KEY_VAULT_LINKED_SERVICE>
 ```
 
 For a list of Apache Spark configurations, see [Available Apache Spark configurations](../monitor-synapse-analytics-reference.md#available-apache-spark-configurations)
@@ -345,7 +333,7 @@ The following is an example of querying Apache Spark events:
 
 ```kusto
 SparkEventTest_CL
-| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
+| where workspaceName_s == "{SynapseWorkspace}" and Event_s== "EventName"
 | order by TimeGenerated desc
 | limit 100
 ```
@@ -353,8 +341,7 @@ SparkEventTest_CL
 Here's an example of querying the Apache Spark application driver and executors logs:
 
 ```kusto
-SparkLogTest_CL
-| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
+| where workspaceName_s == "{SynapseWorkspace}" and Message contains "SampleMessage"
 | order by TimeGenerated desc
 | limit 100
 ```
@@ -362,11 +349,10 @@ SparkLogTest_CL
 And here's an example of querying Apache Spark metrics:
 
 ```kusto
-SparkMetricsTest_CL
-| where fabricWorkspaceId_g == "{FabricWorkspaceId}" and artifactId_g == "{ArtifactId}" and fabricLivyId_g == "{LivyId}"
-| where name_s endswith "jvm.total.used"
-| summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
-| order by TimeGenerated asc
+SparkMetricsTest_CL 
+| where workspaceName_s == "{SynapseWorkspace}" and name_s== "{MetricsName}"
+| order by TimeGenerated desc
+| limit 100
 ```
 
 ## Create and manage alerts
