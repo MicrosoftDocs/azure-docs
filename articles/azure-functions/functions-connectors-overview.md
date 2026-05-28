@@ -480,6 +480,6 @@ A single function app can combine all three patterns. You can add a connector tr
 - [.NET sample: built-in authentication with managed identity](https://github.com/Azure-Samples/functions-connectors-net-builtinauth)
 - [Azure Functions Connector Extension repository](https://github.com/Azure/azure-functions-connector-extension)
 - [Operations to Azure Functions signature mapping](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md)
-- [Azure connectors overview](/azure/connectors/overview)
+- [Azure connectors overview](/connectors/overview)
 - [Connector Namespace](/azure/connectors/connector-namespace)
 - [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
