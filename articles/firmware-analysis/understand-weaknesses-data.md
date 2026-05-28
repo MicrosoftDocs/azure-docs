@@ -124,10 +124,10 @@ Each weakness signal represents a different perspective:
 
 - **CVE**: What the vulnerability is.
 - **CVSS**: Technical severity and impact.
-- **KEV**: Evidence of active exploitation,
+- **KEV**: Evidence of active exploitation.
 - **EPSS**: Likelihood of near-term exploitation.
 - **Exploit maturity**: Availability of exploit techniques.
-- **CWE**: Underlying weakness category,
+- **CWE**: Underlying weakness category.
 
 Rather than relying on a single field, evaluating these signals together provides a more complete understanding of potential risk.
 
