@@ -4,7 +4,7 @@ description:  Enable the use of React application options in several ways.
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
