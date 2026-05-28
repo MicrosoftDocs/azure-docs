@@ -1,6 +1,6 @@
 ---
 title: Understand and Prioritize Weaknesses Data in Firmware Analysis
-description: Learn about weaknesses data in the CVE view of the Firmware analysis results.
+description: Learn about weaknesses data in the CVE view of the firmware analysis results.
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.service: azure
 
 Firmware analysis identifies weaknesses in firmware components. These results can help you understand potential security risks, but you should interpret them carefully and in the appropriate context.
 
-This article explains weakness-related fields you might see in Firmware analysis results. It explains how these fields relate to one another and how to collectively evaluate them to effectively prioritize risk.
+This article explains weakness-related fields you might see in firmware analysis results. It explains how these fields relate to one another and how to collectively evaluate them to effectively prioritize risk.
 
 > [!NOTE]
 > The presence of a weakness or Common Vulnerabilities and Exposures (CVE) vulnerability in firmware analysis doesn't necessarily mean a device is vulnerable. The actual impact of a weakness depends on how the affected component is used within the system.
@@ -66,7 +66,7 @@ Some CVEs might be marked as part of the Cybersecurity and Infrastructure Securi
 > [!NOTE]
 >
 > - KEV status reflects observed exploitation activity, not whether a specific device is affected.
-> - KEV status in Firmware analysis is currently a static value. It reflects the state of the Firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date KEV status, re-scan your firmware image.
+> - KEV status in firmware analysis is currently a static value. It reflects the state of the firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date KEV status, re-scan your firmware image.
 
 KEV is a strong signal of immediate risk.
 
@@ -88,7 +88,7 @@ To filter by EPSS in the Azure portal, specify the EPSS score in a decimal form.
 Percentile rankings are often more operationally useful, as they show how a CVE ranks relative to the broader vulnerability ecosystem.
 
 > [!NOTE]
-> The EPSS value is currently static. It reflects the state of the Firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date EPSS status, re-scan your firmware image.
+> The EPSS value is currently static. It reflects the state of the firmware analysis CVE database at the time the scan was conducted. This value isn't updated dynamically. To view the most up-to-date EPSS status, re-scan your firmware image.
 
 EPSS provides a forward-looking likelihood signal, not a guarantee of exploitation.
 
