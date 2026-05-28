@@ -202,7 +202,13 @@ Common causes of processing errors:
 - An expression references an incompatible data type (for example, using a JSON object in arithmetic).
 - A state store used for enrichment is unreachable.
 
-To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
+
+## Scaling limitation for stateful graphs
+
+Data flow graphs that contain stateful transforms, such as [window](howto-dataflow-graphs-window.md), must run with a [data flow profile instance count](howto-configure-dataflow-profile.md#scaling) of **1**. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't communicate state with each other, each instance only sees a fraction of the messages. This causes aggregation results like averages, sums, and counts to be computed over incomplete data.
+
+Stateless data flow graphs (those that use only map, filter, branch, and concat transforms) can safely use higher instance counts to increase throughput.
 
 ## Performance guidance
 
@@ -211,13 +217,6 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Prefer fewer transforms with more rules.** If you have many transformation rules that operate on the same structure, put them in a single map transform rather than creating separate transforms for each rule.
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
-
-## Prerequisites
-
-To use data flow graphs, you need:
-
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- The default registry endpoint that points to `mcr.microsoft.com`, which is created automatically during deployment.
 
 ## Next steps
 

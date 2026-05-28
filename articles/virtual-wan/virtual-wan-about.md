@@ -36,6 +36,7 @@ For spoke connectivity with SD-WAN/VPN devices, users can either manually set it
 
 * **Integrated connectivity solutions in hub and spoke:** Automate site-to-site configuration and connectivity between on-premises sites and an Azure hub.
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
+* **At-scale spoke onboarding with Azure Virtual Network Manager:** Use Virtual Network Manager network groups and connectivity configurations to connect many virtual networks to a Virtual WAN hub and apply routing behavior consistently by using a connection policy. For more information, see [Virtual Network Manager and Virtual WAN integration overview](virtual-network-manager-integration.md) and [deployment instructions](../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md).
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure, and then use this information to take required actions.
 
 > [!NOTE]

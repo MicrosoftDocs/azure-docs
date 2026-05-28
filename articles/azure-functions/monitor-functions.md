@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 12/08/2025
+ms.date: 05/21/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-functions
@@ -58,6 +58,12 @@ Azure Functions also offers the ability to collect more than Azure Monitor resou
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+
+### View built-in Grafana dashboards
+
+Azure Functions provides Dashboards with Grafana in the Azure portal for a prebuilt view of a function app's health and performance. From your function app, under **Monitoring**, select **Dashboards with Grafana** to open a dashboard scoped to the current app. The dashboard brings together OpenTelemetry semantic convention metrics and Application Insights telemetry, including health checks, invocation count and success rate, execution duration, exceptions, error and warning logs, HTTP response codes, startup errors, and system resource signals such as CPU, memory, thread pool queue length, thread count, and active HTTP requests.
+
+You can use the prebuilt dashboard as-is, or save a copy that you can customize and share. This experience uses Azure Monitor dashboards with Grafana and doesn't require you to deploy a separate Azure Managed Grafana instance. For more information, see [Use Azure Monitor dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards).
 
 ### Analyze metrics for Azure Functions
 

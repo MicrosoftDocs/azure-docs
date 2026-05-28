@@ -119,6 +119,9 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
     * **Path**
 
         The subdirectory path for object REST API. For full volume access, leave this field blank or use `/` for the root directory.
+
+      > [!IMPORTANT]
+      > The specified directory must already exist on the volume. If it doesn’t exist, bucket creation fails.
         
     **Protocol access**
 
