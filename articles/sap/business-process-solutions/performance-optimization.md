@@ -20,7 +20,7 @@ The native execution engine accelerates Spark jobs by running queries directly o
 
 To enable the native execution engine in your environment:
 
-1. Navigate to the workspace containing your environment and select the environment.
+1. Navigate to your workspace and select the environment that starts with **bps_env**.
 2. Under **Spark compute**, select **Acceleration**.
 3. Select the **Enable native execution engine** checkbox.
    :::image type="content" source="./media/performance-optimization/enable-native-execution-engine.png" alt-text="Screenshot showing how to enable the native execution engine in the Acceleration tab of the environment settings." lightbox="./media/performance-optimization/enable-native-execution-engine.png":::
