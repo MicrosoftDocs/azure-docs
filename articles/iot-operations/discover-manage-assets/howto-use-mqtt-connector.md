@@ -58,7 +58,7 @@ Your IT administrator must configure the connector for MQTT template for your Az
 
 You need credentials to access the MQTT source. If the MQTT source requires authentication, you need to create a Kubernetes secret that contains the username and password for the MQTT source.
 
-## Prerequisite: MQTT connector template instance
+### MQTT connector template instance
 
 Before an OT user can create a device that uses the connector for MQTT, an IT administrator must add an MQTT connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
@@ -70,59 +70,52 @@ Before an OT user can create a device that uses the connector for MQTT, an IT ad
 
 To configure the connector for MQTT, first create a device that defines the connection to the MQTT topic to subscribe from. The device includes the address of the MQTT topic and any credentials you need to access it. You can configure the inbound endpoint to connect to an external MQTT broker or the built-in MQTT broker in Azure IoT Operations:
 
+- **External MQTT broker**: Use this option when connecting to an MQTT broker other than the built-in MQTT broker on your Azure IoT Operations instance. You must supply the server URL in the specified format and any required authentication credentials.
+- **Built-in MQTT broker**: Use this option when you want to subscribe to topics on the built-in MQTT broker that's part of your Azure IoT Operations instance. This option is useful for bridging data between the built-in broker and other parts of the system by routing it through the asset model.
+
+The connector also discovers assets from MQTT topics based on a topic filter and forwards data to a unified namespace path defined by a topic mapping prefix:
+
+- The **topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets.
+- The **topic mapping prefix** maps the incoming topic to a unified namespace path. For example, if the prefix is `X/Y` and the incoming topic is `A/B/asset1`, the connector forwards data to `X/Y/A/B/asset1`.
+
+> [!IMPORTANT]
+> Configure the topic filter carefully before creating the device. After the device is created, you can't change the asset discovery configuration unless you delete and recreate the device. If the filter is misconfigured, no assets are discovered and no error is reported. Messages that don't match the filter are silently ignored.
+
+# [Operations experience](#tab/portal)
+
 1. In the operations experience web UI, select **Devices** in the left navigation pane. Then select **Create new**.
 
 1. Enter a name for your device, such as `mqtt-connector`. To add the inbound endpoint for the connector for MQTT, select **New** on the **Microsoft.Mqtt** tile.
 
-    Choose the broker type based on your scenario:
+1. On the **Basic** page, add the endpoint details:
 
-    - **External MQTT broker**: Use this option when connecting to an MQTT broker other than the built-in MQTT broker on your Azure IoT Operations instance. You must supply the server URL in the specified format and any required authentication credentials.
-    - **Built-in MQTT broker**: Use this option when you want to subscribe to topics on the built-in MQTT broker that's part of your Azure IoT Operations instance. This option is useful for bridging data between the built-in broker and other parts of the system by routing it through the asset model.
+    - **External MQTT broker**: Add an endpoint name, server URL, and any authentication credentials.
+    - **Built-in MQTT broker**: Add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication credentials.
 
-# [External MQTT broker](#tab/external)
+        > [!TIP]
+        > The built-in MQTT broker configuration doesn't require authentication values and has a known URL. The values you enter are ignored.
 
-To connect to an external MQTT broker:
+1. On the **Advanced** page, configure the topic discovery and broker connection settings:
 
-1. Add an endpoint name, server URL, and any authentication credentials on the **Basic** page.
+    :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png" alt-text="Screenshot that shows how to add a subscription to the connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png":::
 
-1. Optionally, configure the following settings for the external broker connection on the **Advanced** page:
+    - Add the **Topic filter** and **Topic mapping prefix** values.
+    - If you're using the built-in MQTT broker, enable the **Use built in mqtt broker** setting. Ignore the external broker configuration settings.
+    - If you're connecting to an external MQTT broker, optionally configure the following settings:
 
-    :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png":::
+        :::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint.png":::
 
-    | Setting | Type | Default | Description |
-    |---------|------|---------|-------------|
-    | `keepAlive` | integer | 60 | The keep alive interval in seconds for the MQTT connection. |
-    | `receiveMax` | integer | 65535 | The maximum number of in-flight QoS 1 and QoS 2 publishes that the client is willing to process concurrently. |
-    | `receivePacketSizeMax` | integer | None | The maximum packet size in bytes that the client accepts. |
-    | `sessionExpiry` | integer | 3600 | The expiry of the session in seconds. |
-    | `connectionTimeout` | integer | 30 | The connection timeout in seconds for the MQTT connection. |
+        | Setting | Type | Default | Description |
+        |---------|------|---------|-------------|
+        | `keepAlive` | integer | 60 | The keep alive interval in seconds for the MQTT connection. |
+        | `receiveMax` | integer | 65535 | The maximum number of in-flight QoS 1 and QoS 2 publishes that the client is willing to process concurrently. |
+        | `receivePacketSizeMax` | integer | None | The maximum packet size in bytes that the client accepts. |
+        | `sessionExpiry` | integer | 3600 | The expiry of the session in seconds. |
+        | `connectionTimeout` | integer | 30 | The connection timeout in seconds for the MQTT connection. |
 
-# [Built-in MQTT broker](#tab/built-in)
+1. Select **Apply** to save the endpoint.
 
-To connect to the built-in MQTT broker:
-
-1. On the **Basic** page, add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication credentials.
-
-    > [!TIP]
-    > The built-in MQTT broker configuration doesn't require authentication values and has a known URL. The values you enter are ignored.
-
-1. On the **Advanced** page, enable the **Use built in mqtt broker** setting. Ignore the external broker configuration settings if you're using the built-in MQTT broker.
----
-
-To configure how the connector discovers assets from topics, add the topic details on the **Advanced** page:
-
-:::image type="content" source="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png" alt-text="Screenshot that shows how to add a subscription to the connector for MQTT endpoint." lightbox="media/howto-use-mqtt-connector/add-mqtt-connector-endpoint-subscription.png":::
-
-- The **Topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets.
-
-  > [!IMPORTANT]
-  > Configure the topic filter carefully before saving. After the device is created, you can't change the asset discovery configuration unless you delete and recreate the device. If the filter is misconfigured, no assets are discovered and no error is reported. Messages that don't match the filter are silently ignored.
-
-- The **Topic mapping prefix** maps the incoming topic to a unified namespace path. For example, if the prefix is `X/Y` and the incoming topic is `A/B/asset1`, the connector forwards data to `X/Y/A/B/asset1`.
-
-Select **Apply** to save the endpoint.
-
-To finish creating the device, select **Next** on the **Device details** page to complete the remaining steps in the device creation workflow:
+1. On the **Device details** page, select **Next** to continue.
 
 1. On the **Add custom property** page, add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the device. Then select **Next** to continue.
 
@@ -131,6 +124,91 @@ To finish creating the device, select **Next** on the **Device details** page to
 1. After the device is created, you can view it in the **Devices** list:
 
     :::image type="content" source="media/howto-use-mqtt-connector/mqtt-connector-device-created.png" alt-text="Screenshot that shows the list of devices." lightbox="media/howto-use-mqtt-connector/mqtt-connector-device-created.png":::
+
+# [Azure CLI](#tab/cli)
+
+To connect to an external MQTT broker, run the following commands. Replace the topic filter and topic mapping prefix values to match your scenario:
+
+```azurecli
+az iot ops ns device create \
+  -n mqtt-connector-cli \
+  -g {your resource group name} \
+  --instance {your instance name}
+
+az iot ops ns device endpoint inbound add mqtt \
+  --device mqtt-connector-cli \
+  -g {your resource group name} \
+  -i {your instance name} \
+  --name mqtt-connector-0 \
+  --endpoint-address "mqtt://my-broker:1883" \
+  --topic-filter "A/B/+" \
+  --topic-mapping-prefix "X/Y"
+```
+
+To connect to the built-in MQTT broker, use `aio-broker:18883` as the endpoint address:
+
+```azurecli
+az iot ops ns device endpoint inbound add mqtt \
+  --device mqtt-connector-cli \
+  -g {your resource group name} \
+  -i {your instance name} \
+  --name mqtt-connector-0 \
+  --endpoint-address "aio-broker:18883" \
+  --topic-filter "A/B/+" \
+  --topic-mapping-prefix "X/Y"
+```
+
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create a device with an inbound endpoint for the MQTT connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively. Adjust the endpoint address, topic filter, and topic mapping prefix to match your scenario:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+  name: 'mqtt-connector'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    endpoints: {
+      outbound: {
+        assigned: {}
+      }
+      inbound: {
+        'mqtt-connector-0': {
+          endpointType: 'Microsoft.Mqtt'
+          address: 'mqtt://my-broker:1883'
+          additionalConfiguration: string({
+            topicFilter: 'A/B/+'
+            topicMappingPrefix: 'X/Y'
+          })
+        }
+      }
+    }
+  }
+}
+```
+
+To connect to the built-in MQTT broker, use `aio-broker:18883` as the `address` value.
+
+This configuration deploys a new `device` resource called `mqtt-connector` to the cluster with an inbound endpoint called `mqtt-connector-0`.
+
+---
 
 ### Configure a device to use a username and password
 

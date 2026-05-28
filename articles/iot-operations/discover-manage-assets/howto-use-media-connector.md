@@ -178,7 +178,7 @@ Example uses of the media connector include:
 
 - Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode/transform the stream based on the operators requirements. This media server is not part of the media connector.
 
-## Prerequisite: media connector template instance
+### media connector template instance
 
 Before an OT user can create a device that uses the media connector, an IT administrator must add a media connector template instance to your Azure IoT Operations instance. If you save snapshots or video clips to storage, the IT administrator must also attach a persistent volume claim to the template. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md) and [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
 

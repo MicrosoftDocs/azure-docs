@@ -55,7 +55,7 @@ Your IT administrator must configure the connector for HTTP/REST template for yo
 
 You need any credentials required to access the HTTP source. If the HTTP source requires authentication, you need to create a Kubernetes secret that contains the username and password for the HTTP source.
 
-## Prerequisite: HTTP/REST connector template instance
+### HTTP/REST connector template instance
 
 Before an OT user can create a device that uses the connector for HTTP/REST, an IT administrator must add an HTTP/REST connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 

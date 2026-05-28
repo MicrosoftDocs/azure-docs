@@ -37,19 +37,11 @@ To create a template for a custom Akri connector that you build yourself, see [B
 
 ## Create a basic connector template instance
 
-To make a built-in connector available to OT users, create a connector template instance from the connector's metadata artifact. For Microsoft connectors, the metadata artifact is published to Microsoft Container Registry (MCR):
-
-| Connector | Metadata artifact |
-|--|--|
-| HTTP/REST | `mcr.microsoft.com/azureiotoperations/akri-connectors/rest-metadata:VERSION` |
-| Media | `mcr.microsoft.com/azureiotoperations/akri-connectors/media-metadata:VERSION` |
-| MQTT | `mcr.microsoft.com/azureiotoperations/akri-connectors/mqtt-metadata:VERSION` |
-| ONVIF | `mcr.microsoft.com/azureiotoperations/akri-connectors/onvif-metadata:VERSION` |
-| SSE | `mcr.microsoft.com/azureiotoperations/akri-connectors/sse-metadata:VERSION` |
-
-To list available versions for a Microsoft connector, run `curl https://mcr.microsoft.com/v2/azureiotoperations/akri-connectors/TYPE-metadata/tags/list`, where `TYPE` is `rest`, `media`, `mqtt`, `onvif`, or `sse`.
+To make a built-in connector available to OT users, create a connector template instance from the connector's metadata artifact.
 
 # [Azure portal](#tab/portal)
+
+When you create a connector template instance in the Azure portal, the connector metadata is pre-populated based on the type and version you select. The wizard guides you through the remaining configuration steps, such as adding secrets or storage if your connector requires them.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure IoT Operations instance, select **Connector templates**, and then select **Create connector template**:
 
@@ -72,6 +64,18 @@ To list available versions for a Microsoft connector, run `curl https://mcr.micr
 1. On the **Review** page, review the details of the connector template instance, and then select **Create**.
 
 # [Azure CLI](#tab/cli)
+
+For Microsoft connectors, the metadata artifact is published to Microsoft Container Registry (MCR):
+
+| Connector | Metadata artifact |
+|--|--|
+| HTTP/REST | `mcr.microsoft.com/azureiotoperations/akri-connectors/rest-metadata:VERSION` |
+| Media | `mcr.microsoft.com/azureiotoperations/akri-connectors/media-metadata:VERSION` |
+| MQTT | `mcr.microsoft.com/azureiotoperations/akri-connectors/mqtt-metadata:VERSION` |
+| ONVIF | `mcr.microsoft.com/azureiotoperations/akri-connectors/onvif-metadata:VERSION` |
+| SSE | `mcr.microsoft.com/azureiotoperations/akri-connectors/sse-metadata:VERSION` |
+
+To list available versions for a Microsoft connector, run `curl https://mcr.microsoft.com/v2/azureiotoperations/akri-connectors/TYPE-metadata/tags/list`, where `TYPE` is `rest`, `media`, `mqtt`, `onvif`, or `sse`.
 
 Use the [az iot ops connector template create](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-create) command to create a connector template instance. The `--connector-metadata-ref` parameter points to the metadata artifact for the connector type.
 

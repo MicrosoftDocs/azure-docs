@@ -92,7 +92,7 @@ The connector enables support for the following capabilities:
 - Imaging control such as filters and receiving motion and tampering events.
 - Controlling device PTZ.
 
-## Prerequisite: ONVIF connector template instance
+### ONVIF connector template instance
 
 Before an OT user can create a device that uses the connector for ONVIF, an IT administrator must add an ONVIF connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 

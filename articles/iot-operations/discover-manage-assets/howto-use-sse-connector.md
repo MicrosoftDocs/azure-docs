@@ -57,7 +57,7 @@ You need any credentials required to access the SSE source. If the SSE source re
 
 Have the event identification ready for each SSE source event you want to receive.
 
-## Prerequisite: SSE connector template instance
+### SSE connector template instance
 
 Before an OT user can create a device that uses the connector for SSE, an IT administrator must add an SSE connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
