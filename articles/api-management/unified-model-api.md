@@ -91,15 +91,20 @@ To create a unified model API:
 
 Model aliases give clients a stable, provider-neutral name to use when calling a model. By assigning an alias like `gpt` or `claude-sonnet`, you decouple the client-facing model name from the actual backend deployment. When you upgrade a model or want to run an A/B test, you can update the alias target without any changes to client code.
 
-To add a model or update an alias after creating the unified model API:
+### Update or add a model alias
 
-1. In the Azure portal, go to your API Management instance, then select **Models**.
+To update a model alias after creating the unified model API:
+
+1. In the Azure portal, go to your API Management instance, then select **APIs**.
 1. Select the unified model API.
-1. Select **+ Add model** to open the **Add model** pane.
-1. Under **Backend configuration**, enter the backend **Model** name and select the **API format** the backend expects.
-1. Under **Authorization credentials**, configure authentication by entering header credentials or selecting **Managed Identity**.
-1. Under **Client configuration**, update the **Alias** to the new client-facing name, and optionally update the **Alias description**.
+1. Select the **Models** tab to update or add a model alias.
+     - To update a client-facing alias, select the alias you want to update, then update the **Backend configuration** to specify the backend model. Add **Authorization credentials** for the new backend.
+    - To add a new model, select **+ Add** and configure the backend, authorization, and client settings as described in the previous section.
 1. Select **Save**.
+
+### Discover model aliases
+
+Developers can discover available models and their aliases by calling the `/models` endpoint of the unified model API. API Management returns a list of models with their client-facing aliases.
 
 ## Test the unified model API
 
