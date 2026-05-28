@@ -61,7 +61,7 @@ To create a unified model API:
 1. In the [Azure portal](https://portal.azure.com/), go to your API Management instance.
 1. In the sidebar menu, under **APIs**, select **Models** > **+ Add** > **Unified model API**.
     
-:::image type="content" source="media/unified-model-api/unified-model-api-tile.png" alt-text="Screenshot of unified model API tile in the Azure portal.":::
+    :::image type="content" source="media/unified-model-api/unified-model-api-tile.png" alt-text="Screenshot of unified model API tile in the Azure portal.":::
 1. On the **Configure Unified Model API** tab:
    1. Enter a **Display name** for the API. API Management automatically generates an API **Name** based on the display name, but you can edit it if you want.
    1. In **API path**, enter the path that clients use to call the API. The default is `/llm/v1`, which results in a chat completions endpoint at `/llm/v1/chat/completions`.
@@ -72,12 +72,13 @@ To create a unified model API:
       - In **Model**, enter the backend model name (for example, `gpt-4o` or `claude-sonnet-4.6`).
       - In **API format**, select the format the backend model expects, such as **OpenAI Chat Completions API** or **Anthropic Messages API**.
       - In **URL**, enter the backend endpoint URL, for example, a model deployment in Foundry or, for other providers, the provider's API endpoint URL.
-      - Under **Authorization credentials**, select how API Management authenticates to the backend:
+   1.  Under **Authorization credentials**, select how API Management authenticates to the backend:
         - **Headers**: Enter a **Header name** (for example, `api-key` or `Authorization`) and the corresponding **Header value** (your API key or secret).
         - **Managed Identity**: For model deployments in Azure, you can use the instance's system-assigned managed identity or a user-assigned managed identity to authenticate to the backend. 
         
         For an explanation of settings for the managed identity, see the reference for the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
-
+    
+   :::image type="content" source="media/unified-model-api/add-model.png" alt-text="Screenshot of the Add model pane to add model settings in the portal.":::
     
 1. On the **Manage token consumption** tab, optionally configure the following policies to monitor and manage token usage:
    - [Manage token consumption](llm-token-limit-policy.md)
