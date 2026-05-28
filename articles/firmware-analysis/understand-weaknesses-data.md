@@ -21,7 +21,7 @@ This article explains weakness-related fields you might see in firmware analysis
 
 Firmware analysis can improve findings with multiple, industry-standard signals. Each signal represents a different aspect of risk and shouldn't be interpreted in isolation.
 
-###  Common Vulnerabilities and Exposures (CVEs)
+###  Common Vulnerabilities and Exposures (CVE)
 
 CVEs are known security vulnerabilities that are publicly disclosed. Firmware analysis associates CVEs with extracted firmware components when a match is identified. A single firmware component might be associated with multiple CVEs, and a single CVE might appear across multiple devices or components.
 
