@@ -150,7 +150,7 @@ New-AzResourceGroupDeployment `
 
 ### JSON parameters files
 
-The JSON parameters file can local or an external file with an accessible URI.
+The JSON parameters file can be local or an external file with an accessible URI.
 
 To pass a local parameters file, use the `TemplateParameterFile` switch with a JSON parameters file:
 

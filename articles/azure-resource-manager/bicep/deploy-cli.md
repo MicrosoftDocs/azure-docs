@@ -140,7 +140,7 @@ To pass in an object, use JSON (when setting tags, for example). Your Bicep file
 }
 ```
 
-As shown in the following Bash script, you can also can pass in a JSON string to set the parameter. Use double quotes around the JSON that you want to pass into the object:
+As shown in the following Bash script, you can also pass in a JSON string to set the parameter. Use double quotes around the JSON that you want to pass into the object:
 
 ```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
