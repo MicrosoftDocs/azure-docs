@@ -77,45 +77,6 @@ The following predefined JSON schema samples each map to a specific data type. D
 - Spark driver and executor logs - [Log table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/synapse-sample-table-log-schema.json)
 - Spark metrics - [Metric table JSON schema sample](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/synapse-sample-table-metric-schema.json)
 
-Here's an example log table JSON schema sample for Spark driver and executor logs in Azure Log Analytics. Use this schema as a reference when creating your custom tables and DCRs for log ingestion.
-
-
-```json
-[
-  {
-    "applicationId_s": "<APPLICATION_ID>",
-    "applicationName_s": "<SPARK_APPLICATION_NAME>",
-
-    "artifactType_s": "SynapseSparkJob",
-    "sparkPoolName_s": "<SPARK_POOL_NAME>",
-    "workspaceName_s": "<WORKSPACE_NAME>",
-
-    "executorId_s": "driver",
-    "executorMax_s": 9,
-    "executorMin_s": 1,
-
-    "category_s": "Log",
-
-    "level_s": "INFO",
-    "logger_name_s": "org.apache.spark.scheduler.ExecutorAllocationManager",
-    "thread_name_s": "spark-listener-group-executorManagement",
-
-    "message_s": "Executor 1 is removed.",
-
-    "timeGenerated": "<TIME_GENERATED>",
-
-    "jobId_s": "<JOB_ID>",
-    "sessionId_s": "<SESSION_ID>",
-    "userId_s": "<USER_ID>",
-
-    "extraFields": {
-      "category": "Log",
-      "jobId": "<JOB_ID>"
-    }
-  }
-]
-```
-
 ### Step 4. Create custom table (Direct Ingest)
 
 Create a custom table in your Log Analytics workspace with the Log Ingestion API option, and upload the JSON schema sample to the associated DCR. This step is required to set up the destination for Spark diagnostics and ensure that the ingested data conforms to the expected schema. The region of the Log Analytics workspace, DCE, and DCR must be the same for successful ingestion.
@@ -238,7 +199,7 @@ To configure a Key Vault linked service in Synapse Studio to store the service p
 
     d. Choose your key vault, and select **Create**.
 
-1. Add a `spark.synapse.diagnostic.emitters: <EMITTER_NAME>.certificate.keyVault.linkedService` item to the Apache Spark configuration.
+1. Add a `spark.synapse.diagnostic.emitter.<EMITTER_NAME>.certificate.keyVault.linkedService` item to the Apache Spark configuration.
 1. Add the following **Spark properties** with the appropriate values to the spark configuration, or select **Import** in the ribbon to download the [sample yaml file](https://tridentvscodeextension.z13.web.core.windows.net/diagnostics/SparkDiagnosticSampleConfig/log_ingestion_cert_linkedservice_option3_synapse.yml), which already contains the required properties.
 
 ```properties
@@ -341,6 +302,7 @@ SparkEventTest_CL
 Here's an example of querying the Apache Spark application driver and executors logs:
 
 ```kusto
+SparkLogTest_CL
 | where workspaceName_s == "{SynapseWorkspace}" and Message contains "SampleMessage"
 | order by TimeGenerated desc
 | limit 100
