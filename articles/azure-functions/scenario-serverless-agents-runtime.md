@@ -31,8 +31,7 @@ Completing this quickstart can incur a small cost in your Azure account because 
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 + Permissions to create resource groups, function apps, managed identities, Microsoft Foundry resources, model deployments, Azure Container Apps session pools, Connector Namespaces, and connections in your subscription.
-+ To enable email delivery, a Microsoft 365 account that you can sign in to and that can send email.
-+ To enable email delivery, a recipient email address that you can use to verify the agent output. We recommend using the same email account that you use to authorize the connection.
++ To enable email delivery, a Microsoft 365 account that you can sign in to, that can send email, and that you can use as the recipient address to verify the agent output.
 
 ## Initialize the project
 
