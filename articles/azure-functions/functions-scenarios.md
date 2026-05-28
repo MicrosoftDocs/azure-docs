@@ -292,18 +292,22 @@ For examples, see these code snippets:
 
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-python)
 ::: zone-end
-<!-- replace when these langs are fully supported by the quickstart
+
+::: zone pivot="programming-language-java" 
++ [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-java)
+::: zone-end
+
 ::: zone pivot="programming-language-javascript" 
-+ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-javascript)
++ [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ Quickstart: [Azure Functions Timer trigger](scenario-scheduled-tasks.md?pivots=programming-language-powershell)
++ [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-powershell)
 ::: zone-end
 
-::: zone pivot="programming-language-java" 
-+ [Timer trigger for Azure Functions](functions-bindings-timer.md?pivots=programming-language-java)
-::: zone-end-->
+::: zone pivot="programming-language-typescript" 
++ [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-typescript)
+::: zone-end
 
 ## Build a scalable web API
 
@@ -415,11 +419,11 @@ Some processes need to log, audit, or perform other operations when stored data 
 
 :::image type="content" source="media/functions-scenarios/respond-to-database-changes.png" alt-text="Diagram of a function being used to respond to database changes." lightbox="media/functions-scenarios/respond-to-database-changes-expanded.png":::
 
-::: zone pivot="programming-language-csharp,programming-language-typescript,programming-language-python" 
 Consider these examples:
 
 + [Quickstart: Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md)
 
+::: zone pivot="programming-language-csharp,programming-language-typescript,programming-language-python" 
 + [Quickstart: Respond to database changes in Azure SQL Database using Azure Functions](scenario-database-changes-azure-sqldb.md)
 ::: zone-end
 ::: zone pivot="programming-language-csharp" 
@@ -427,6 +431,15 @@ Consider these examples:
 
 + [Sample: Azure Functions with Azure SQL Database (trigger)](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql)  
 ::: zone-end  
+::: zone pivot="programming-language-java" 
++ [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb)
+::: zone-end
+::: zone pivot="programming-language-javascript" 
++ [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb)
+::: zone-end
+::: zone pivot="programming-language-powershell" 
++ [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb)
+::: zone-end
 ::: zone pivot="programming-language-typescript" 
 + [Sample: Azure Functions with Azure Cosmos DB Trigger](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb)
 
