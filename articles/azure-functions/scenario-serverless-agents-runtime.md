@@ -64,9 +64,9 @@ Before you deploy, review the project files that define the serverless agent app
 
 | File or folder | Purpose |
 | --- | --- |
-| `src/main.agent.md` | Defines the chat agent. This agent can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook connection MCP server. |
+| `src/main.agent.md` | Defines the chat agent and enables built-in endpoints for the debug chat UI. This agent can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook connection MCP server. |
 | `src/daily_microsoft_blog_summary.agent.md` | Defines the timer-triggered Microsoft blog summary agent. The YAML front matter declares the timer trigger, and the markdown body contains the agent instructions. |
-| `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and Azure Container Apps session pool endpoint used by agents in the app. |
+| `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and Azure Container Apps dynamic session pool endpoint used by agents in the app. |
 | `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the Microsoft 365 Outlook connection MCP server when email delivery is enabled. |
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, session pool, optional Connector Namespace resources, and identity configuration. |
 | `src/function_app.py` | Required bootstrap file for the Functions host. You usually don't need to edit this file. |
@@ -111,7 +111,7 @@ After authorization succeeds, the function app's managed identity can call the c
 
 The sample includes a chat agent that can use Python code execution through the Azure Container Apps dynamic session pool. The chat UI is a debug surface for testing the deployed agent app.
 
-After `azd up` completes, open the function app endpoint shown in the deployment output. The default chat UI is served from the app root. When the chat UI loads, it prompts for a function key so it can call the agent's chat endpoint.
+After `azd up` completes, open the function app endpoint shown in the deployment output, and then go to `/agents/main/`. When the chat UI loads, it prompts for a function key so it can call the agent's chat endpoint.
 
 Get the default function key for the app:
 

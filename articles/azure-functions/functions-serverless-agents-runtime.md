@@ -31,7 +31,7 @@ Azure Functions already provides an event-driven compute model for those operati
 + **Events start agents.** Functions triggers let agents run on a schedule, react to queues and events, or expose HTTP endpoints.
 + **Capabilities are configured first, with code when you need it.** Agents can use remote MCP servers, MCP-enabled connections, skills, and sandboxed code execution from configuration. Use custom Python tools for app-specific logic.
 + **Hosting is serverless.** Flex Consumption supports scale-to-zero, per-second billing, managed identity, virtual network integration, and Application Insights.
-+ **Operational plumbing is built in.** The runtime handles agent discovery, trigger registration, tool assembly, session history, and optional debug endpoints.
++ **Operational plumbing is built in.** The runtime handles agent discovery, trigger registration, tool assembly, session history, and optional built-in endpoints.
 
 ## Project anatomy
 
@@ -75,7 +75,7 @@ You are a news assistant. When triggered, do the following:
 
 The front matter declares how the agent is invoked. The markdown body is the instruction block that the runtime passes to the model during execution. Environment variable substitution lets instructions and configuration values reference app settings such as `$TO_EMAIL`.
 
-Each `.agent.md` file defines one agent. The file name is used to derive the Azure Function name and optional debug route slug. The `name` field is a display name used in logs, labels, and documentation.
+Each `.agent.md` file defines one agent. The file name is used to derive the Azure Function name and the route segment for built-in endpoints. The `name` field is a display name used in logs, labels, and documentation.
 
 Use these front matter fields to configure an agent:
 
@@ -83,10 +83,10 @@ Use these front matter fields to configure an agent:
 | --- | --- | --- |
 | `name` | Yes | Display name for the agent. |
 | `description` | Yes | Short description of what the agent does and when it should be used. |
-| `trigger` | Yes, except for `main.agent.md` | Defines how the agent is invoked. Only one trigger is allowed per agent file. |
+| `trigger` | Yes, unless `builtin_endpoints` is enabled | Defines how the agent is invoked. Only one trigger is allowed per agent file. |
 | `model` | No | Overrides the default model configured in `agents.config.yaml` or app settings. |
 | `timeout` | No | Overrides the default execution timeout, in seconds. |
-| `debug` | No | Enables optional debug surfaces. Use `true` to enable all debug surfaces, or configure `chat`, `http`, and `mcp` individually. |
+| `builtin_endpoints` | No | Enables built-in debug and composition endpoints. Use `true` to enable all built-in endpoints, or configure `debug_chat_ui`, `chat_api`, and `mcp` individually. |
 | `logger` | No | Controls whether runtime logging is enabled for the agent. Defaults to `true`. |
 | `mcp` | No | Controls access to MCP servers discovered from `mcp.json`. Use `false` to disable MCP servers for this agent, or use `exclude` to remove specific servers. |
 | `skills` | No | Controls access to discovered skills. Use `false` to disable skills for this agent, or use `exclude` to remove specific skills. |
@@ -107,7 +107,7 @@ trigger:
     schedule: "0 0 15 * * *"
 ```
 
-Common trigger types include `http_trigger`, `timer_trigger`, `queue_trigger`, `blob_trigger`, `event_grid_trigger`, and `service_bus_trigger`. Connection-backed triggers can also start agents from connector events, such as a new email or message, when supported by the connection. A separate connector trigger article will describe those trigger schemas in more detail.
+Common trigger types include `http_trigger`, `timer_trigger`, `queue_trigger`, `blob_trigger`, `event_grid_trigger`, and `service_bus_trigger`. Connection triggers can also start agents from connection events, such as a new email or message, when supported by the connection. A separate connection trigger article will describe those trigger schemas in more detail.
 
 By default, an agent inherits the discovered MCP servers, skills, and custom Python tools in the app. Use exclude lists when one agent shouldn't use a shared capability:
 
@@ -131,10 +131,10 @@ This file is one app-level input. The runtime also discovers MCP servers from `m
 
 ```yaml
 system_tools:
-  execute_in_sessions:
-    session_pool_management_endpoint: $ACA_SESSION_POOL_ENDPOINT
+  dynamic_sessions_code_interpreter:
+    endpoint: $ACA_SESSION_POOL_ENDPOINT
 
-model: $AZURE_OPENAI_DEPLOYMENT
+model: $FOUNDRY_MODEL
 timeout: 900
 ```
 
@@ -146,7 +146,8 @@ Use these top-level fields in `agents.config.yaml`:
 | --- | --- | --- |
 | `model` | No | Default model or model deployment used by agents that don't set `model` in their own front matter. |
 | `timeout` | No | Default execution timeout, in seconds. The runtime default is 900 seconds. |
-| `system_tools.execute_in_sessions.session_pool_management_endpoint` | When using sandboxed execution | Management endpoint for the Azure Container Apps dynamic session pool used by sandbox tools. |
+| `system_tools.dynamic_sessions_code_interpreter.endpoint` | When using sandboxed execution | Management endpoint for the Azure Container Apps dynamic session pool used by sandbox tools. |
+| `system_tools.dynamic_sessions_code_interpreter.client_id` | No | Client ID of the managed identity used to call the session pool. |
 | `tools.exclude` | No | Global exclude list for custom Python tools discovered from the `tools/` folder. |
 
 The runtime resolves values from agent front matter first, then `agents.config.yaml`, then app settings and runtime defaults. String values in `agents.config.yaml` can reference app settings, such as `$AZURE_OPENAI_DEPLOYMENT` or `$ACA_SESSION_POOL_ENDPOINT`.
@@ -158,10 +159,10 @@ Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remo
 The runtime can substitute app settings and environment variables into string values in agent front matter, agent instruction bodies, `agents.config.yaml`, and `mcp.json`. Use `$SETTING_NAME` or `%SETTING_NAME%`. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
 
 ```yaml
-model: $AZURE_OPENAI_DEPLOYMENT
+model: $FOUNDRY_MODEL
 system_tools:
-  execute_in_sessions:
-    session_pool_management_endpoint: %ACA_SESSION_POOL_ENDPOINT%
+  dynamic_sessions_code_interpreter:
+    endpoint: %ACA_SESSION_POOL_ENDPOINT%
 ```
 
 ```markdown
@@ -245,7 +246,7 @@ When the Azure Functions host imports the app, `create_function_app()` builds a 
 1. Compose app-wide defaults and per-agent configuration.
 1. Validate the resolved agent configuration.
 1. Build the final tool and skill capabilities for each agent.
-1. Register Azure Functions triggers and optional debug endpoints.
+1. Register Azure Functions triggers and optional built-in endpoints.
 
 After startup, the Azure Functions host indexes the registered triggers just like it does for other function apps. When a trigger fires, the runtime builds the agent with its instructions, model setting, tools, skills, and session history, then executes it through Microsoft Agent Framework.
 
@@ -336,17 +337,17 @@ Configure sandboxed execution in `agents.config.yaml`:
 
 ```yaml
 system_tools:
-  execute_in_sessions:
-    session_pool_management_endpoint: $ACA_SESSION_POOL_ENDPOINT
+  dynamic_sessions_code_interpreter:
+    endpoint: $ACA_SESSION_POOL_ENDPOINT
 ```
 
 Use these sandbox requirements:
 
 + The session pool must be a Python code interpreter session pool, such as a pool created with `--container-type PythonLTS`.
-+ The `session_pool_management_endpoint` value is the pool management endpoint.
++ The `endpoint` value is the session pool management endpoint.
 + In Azure, the managed identity used by the function app must have the role assignments required to execute code in the session pool. Azure Container Apps code interpreter sessions require the `Azure ContainerApps Session Executor` and `Contributor` roles on the session pool.
 + When running locally, your developer identity must have the same required access to the session pool.
-+ To use a user-assigned managed identity for sandboxed execution, set `AZURE_CLIENT_ID` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses the default credential chain.
++ To use a user-assigned managed identity for sandboxed execution, set `system_tools.dynamic_sessions_code_interpreter.client_id` to the client ID of the identity that has the required role assignments. If this setting isn't set, the runtime uses `AZURE_CLIENT_ID`, then the default credential chain.
 
 The sandbox tool runs Python in an isolated session. Variables, imports, and files can persist across tool calls in the same agent session. When no agent session ID is available, the runtime uses a fresh sandbox session so unrelated executions don't share state.
 
@@ -354,7 +355,7 @@ Agents inherit sandboxed execution when it's configured globally. Disable it for
 
 ```yaml
 system_tools:
-  execute_in_sessions: false
+  dynamic_sessions_code_interpreter: false
 ```
 
 ### Custom Python tools
@@ -424,13 +425,13 @@ tools:
 
 The runtime uses Microsoft Agent Framework to call model providers. Preview support includes Azure OpenAI, Azure AI Foundry, and OpenAI.
 
-Provider selection is based on app settings. You can pin the provider with `MAF_PROVIDER`, or let the runtime infer the provider from settings such as `AZURE_OPENAI_ENDPOINT`, `FOUNDRY_PROJECT_ENDPOINT`, or `OPENAI_API_KEY`.
+Provider selection is based on app settings. You can pin the provider with `AZURE_FUNCTIONS_AGENTS_PROVIDER`, or let the runtime infer the provider from settings such as `AZURE_OPENAI_ENDPOINT`, `FOUNDRY_PROJECT_ENDPOINT`, or `OPENAI_API_KEY`.
 
 Model selection uses this general precedence:
 
 1. The model requested by the agent or runtime call.
 1. Provider-specific settings, such as `AZURE_OPENAI_DEPLOYMENT` or `FOUNDRY_MODEL`.
-1. `MAF_MODEL`.
+1. `AZURE_FUNCTIONS_AGENTS_MODEL`.
 1. The provider default.
 
 For production apps, prefer managed identity where supported. When an app should use a user-assigned managed identity, set `AZURE_CLIENT_ID` so model providers and sandboxed execution use that identity.
@@ -447,7 +448,7 @@ Use these settings to select managed identities:
 | --- | --- | --- |
 | Azure OpenAI model provider | `AZURE_CLIENT_ID` | Default credential behavior |
 | Azure AI Foundry model provider | `AZURE_CLIENT_ID` | Default credential behavior |
-| Azure Container Apps dynamic sessions sandbox | `AZURE_CLIENT_ID` | Default credential behavior |
+| Azure Container Apps dynamic sessions sandbox | `system_tools.dynamic_sessions_code_interpreter.client_id` | `AZURE_CLIENT_ID`, then default credential behavior |
 | Connection MCP servers | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then default credential behavior |
 | Blob-backed session history | `AzureWebJobsStorage__clientId` when using identity-based storage | `AZURE_CLIENT_ID`, then default credential behavior |
 
@@ -463,18 +464,18 @@ For local development without Azure storage configuration, the runtime can fall 
 
 Sandboxed execution is also session-aware. When the runtime creates sandbox tools without an explicit session ID, it uses an isolated session for the invocation instead of sharing state across unrelated agent runs.
 
-## Built-in debug endpoints
+## Built-in endpoints
 
-The runtime can expose debug and composition endpoints without additional application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
+The runtime can expose built-in debug and composition endpoints without additional application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
 
 | Surface | Route | Azure key |
 | --- | --- | --- |
-| Chat UI | `/` for `main.agent.md`; `/agents/<AGENT_NAME>/` for other agents with `debug.chat: true` | Prompts for a function key when hosted in Azure. |
-| HTTP chat API | `POST /agent/chat` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chat` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
-| Streaming chat API | `POST /agent/chatstream` for `main.agent.md`; `POST /agents/<AGENT_NAME>/chatstream` for other agents with `debug.chat: true` or `debug.http: true` | Function key. |
+| Chat UI | `/agents/<AGENT_NAME>/` when `builtin_endpoints.debug_chat_ui: true` | Prompts for a function key when hosted in Azure. |
+| HTTP chat API | `POST /agents/<AGENT_NAME>/chat` when `builtin_endpoints.chat_api: true` | Function key. |
+| Streaming chat API | `POST /agents/<AGENT_NAME>/chatstream` when `builtin_endpoints.chat_api: true` | Function key. |
 | MCP endpoint | `/runtime/webhooks/mcp` | `mcp_extension` system key. |
 
-The default `main.agent.md` can expose these surfaces automatically. Other agent files can opt in through debug settings in their front matter. For non-main agents, `<AGENT_NAME>` is derived from the `.agent.md` file name, not the display `name` field.
+Any agent file can opt in through `builtin_endpoints` settings in its front matter. The `<AGENT_NAME>` route segment is derived from the `.agent.md` file name, not the display `name` field. For example, `main.agent.md` uses `/agents/main/`.
 
 When hosted in Azure, the chat UI prompts for a function key before it sends messages. You can also use this key to call the HTTP chat APIs directly:
 
