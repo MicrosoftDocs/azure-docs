@@ -103,15 +103,15 @@ As you work with Logic Apps Automation, you learn more about the following core 
 
 | Component | Description |
 |-----------|-------------|
-| Project | A top-level unit that organizes and groups your apps. |
-| Apps | A deployment container that stores your workflow definitions and settings. |
-| Workflow | A sequence of tasks that always start with an event. A workflow uses items like built-in operations, connectors, agents, and MCP servers. |
-| Trigger | An event that starts a workflow, such as an incoming HTTP request, message arrival, or schedule occurrence. |
-| Action | A step that runs in a workflow, such as an outgoing HTTP call, conditional branch, loop, or transformation. |
-| Connection | A reusable authenticated link to a service, for example, an API key or OAuth. |
-| Agent | An AI agent with tool capabilities. |
-| Tool | A tool that an agent can call to complete a task. |
-| Sub or "child" workflow | A nested workflow that another workflow calls and runs. |
+| *Project* | A top-level unit that organizes and groups your *applications*. |
+| *Application* | A deployment package that stores your *workflow* definitions and settings. |
+| *Workflow* | A sequence of tasks that always start with an event *trigger*. A workflow uses items like built-in operations, *connections*, *agents*, and *MCP servers*. |
+| *Connection* | A reusable authenticated link to a service, for example, an API key or OAuth. |
+| *Trigger* | An event that runs a workflow, such as an incoming HTTP request, message arrival, or schedule occurrence. |
+| *Action* | A step that runs in a workflow, such as an outgoing HTTP call, conditional branch, loop, or transformation. |
+| *Agent* | An AI agent with tool capabilities. |
+| *Tool* | A tool that an agent calls to complete a task. |
+| *Sub-workflow* | A nested workflow that another workflow calls and runs. |
 
 ## Next steps
 

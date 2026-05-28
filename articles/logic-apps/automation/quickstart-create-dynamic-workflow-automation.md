@@ -10,7 +10,7 @@ ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered automation workflow by using Logic Apps Automation.
+#Customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered automation workflow by using Logic Apps Automation.
 ---
 
 # Quickstart: Build dynamic workflows with Logic Apps Automation (preview)
@@ -19,17 +19,32 @@ ms.custom:
 >
 > This preview capability, might incur charges, and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+When you automate business processes, you often have the following tasks before you can even build and test a single workflow:
 
-This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. The example workflow performs the followng tasks:
+- Connect different services, systems, apps, and data.
+- Write extra code to connect these components.
+- Set up any necessary servers or other infrastructure.
+
+When the business process steps are unpredictable or when requirements change quickly, this setup work slows you down, forcing you to divert focus away from building out your business logic.
+
+Logic Apps Automation removes this effort. You describe what you want to automate, and the platform provides a visual designer, an AI assistant, and 1,400+ ready-to-use connectors so you can build, test, and monitor workflows entirely inside your browser. There's nothing to install on your computer.
+
+This quickstart shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. You create an automation project, add an application, and build your first workflow that accepts a web request and returns a response. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
+
+The example workflow performs the following tasks:
 
 1. Check for new stories at the Wall Street Journal by using an RSS feed.
 1. Feed the results into a conversational agent loop.
 1. Accept and handle questions about the stories through the chat interfact.
 1. Summarize the conversation and send to email.
 
+If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+
 ## Prerequisites
 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+  Typically, use a Microsoft work or school account that can access the [Logic Apps Automation portal](https://automation.azure.com).
 
 - To follow the example, you need the URL for any RSS URL that doesn't need HTTP authorization, for example:
 
@@ -39,7 +54,21 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
 
 - An email account for Office 365 Outlook or Outlook.com
 
+## How Logic Apps Automation organizes work
+
+Logic Apps Automation organizes your work into the following levels:
+
+| Level | Contents |
+|-------|----------|
+| *Project* | The top-level container that groups and stores your *applications*. |
+| *Application* | A package that holds workflows, connections, parameters, analytics, and settings. |
+| *Workflow* | The actual automation workload or process, which includes the starting event (*trigger*) plus a series of steps (*actions*). |
+
+For the full list of components and terminology, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology).
+
 ## 1: Create your automation project
+
+A *project* organizes applications and controls who has access. Create a project for each business area or team.
 
 1. Go to the [Logic Apps Automation portal](https://automation.azure.com). Sign in with your Azure account.
 
@@ -47,7 +76,7 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
 
 1. On the home page, under **Get started**, select **Create a project**.
 
-   The Azure portal opens the **Automation Projects** page so you can create an automation project.
+   The Azure portal opens the **Automation Projects** page for you to create an automation project.
 
 1. On the **Automation Projects** toolbar, select **+ Create**.
 
@@ -58,67 +87,72 @@ This guide shows how to create a dynamically-run [*workflow*](dynamic-workflow-a
    | **Subscription** | Your Azure subscription. |
    | **Resource group** | The [Azure resource group](../../azure-resource-manager/management/overview.md#terminology) for organizing your project resources. Enter a unique name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
    | **Name** | Enter a unique project name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
-   | **Region** | The Azure region for your project. |
+   | **Region** | The Azure region closest to your end users or the components that your workflows need to use. |
 
    For example:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/create-automation-project.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-workflow-automation/create-automation-project.png":::
 
-1. When you finish, select **Review + create** > **Create**.
+1. Select **Review + create** > **Create**.
 
-   The Azure portal starts creating and deploying your automation project resource.
+   Azure starts setting up, creating, and deploying your automation project.
 
    > [!NOTE]
    >
    > This process might take several minutes to finish.
 
-   After project creation completes, the automation project opens. If not, select **Go to resource**.
+   After setup completes, the automation project opens. If not, select **Go to resource**.
 
-1. On the project toolbar, select **Open in Automation Portal** to open the Logic Apps Automation portal.
+1. On the project toolbar, select **Open in Automation Portal**, which returns you to the Logic Apps Automation portal.
 
 1. Sign in to the Logic Apps Automation portal.
 
-## 2: Create your app
+## 2: Create your application
+
+An *application* holds your workflows, connections, parameters, and analytics. Consider it a folder that groups related automations together. Create an application for each set of related tasks, for example, `order-processing` or `daily-reports`.
 
 1. In the Logic Apps Automation portal, find and select your project. For example:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/project-list.png" alt-text="Screenshot that shows the Logic Apps Automation portal and project list." lightbox="media/quickstart-create-dynamic-workflow-automation/project-list.png":::
 
-   The **Applications** page opens. New projects don't contain any apps, so create your app.
+   The **Applications** page opens. A new project doesn't have any applications yet.
 
-1. On the **Applications** page, select **+ Create Application**. For example:
+1. On the **Applications** page, select **+ Create Application**.
+
+   For example:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/create-application.png" alt-text="Screenshot that shows the Logic Apps Automation portal and Applications page." lightbox="media/quickstart-create-dynamic-workflow-automation/create-application.png":::
 
-1. In the **Create Application** box, for **Application name**, enter a name for your app, and select **Create**.
+1. In the **Create Application** box, for **Application name**, enter a descriptive name for your application, and then select **Create**.
 
    > [!NOTE]
    >
-   > This process might take several minutes to finish.
+   > Creating an application might take a minute or two. Monitor the **Status** column for when the application is ready.
 
-   After app creation completes, the app appears on the **Applications** page.
+1. When the application appears on the **Applications** page, select your application.
 
-1. Select your app.
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created application." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created app." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
+   The application opens the **Workflows** tab, which shows a workflow builder and any existing workflows.
 
-1. Under **Get started with your first workflow**, choose an approach from the following table:
-
-   | Path | Link to steps |
-   |------|---------------|
-   | Generate the workflow by using a prompt. | [Generate your workflow from a prompt](#prompt) |
-   | Build your workflow by starting with an empty designer. | [Build your workflow with the designer](#designer) |
-   | Prepopulate a workflow by using a template. | [Create your workflow from a template](#template) |
-
-## 3: Build your workflow
+## 3: Build your first workflow
 
 Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
 
-Based on your previous selection for building your workflow, follow the corresponding path:
+In the section, **Get started with your first workflow**, choose a path from the following table:
 
-<a id="prompt"></a>
 
-### [Prompt](#tab/prompt)
+   | Path | Link to steps |
+   |------|---------------|
+   | Generate the workflow with the AI assistant. | [Generate your workflow using the a assistant](#assistant) |
+   | Build your workflow by starting with an empty designer. | [Build your workflow with the designer](#designer) |
+   | Prepopulate a workflow by using a template. | [Create your workflow from a template](#template) |
+
+This example creates a workflow that responds to a web request and sends back a response. Choose one of the following approaches:
+
+<a id="assistant"></a>
+
+### [AI assistant](#tab/assistant)
 
 This approach generates a workflow based on your prompt that describes the workflow's behavior.
 

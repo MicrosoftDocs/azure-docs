@@ -1,0 +1,281 @@
+---
+title: Create Your First Automation Project in Logic Apps Automation
+titleSuffix: Logic Apps Automation
+description: Get started with Logic Apps Automation by creating an automation project, application, and workflow you can test from your browser without installing anything on your computer.
+services: azure-logic-apps
+ms.reviewers: estfan, divswa, azla
+ms.topic: quickstart
+ai-usage: ai-assisted
+ms.update-cycle: 180-days
+ms.date: 06/02/2026
+ms.custom:
+  - build-2026
+#customer intent: As an automation developer, I want to create my first automation project and workflow in Logic Apps Automation so I can start building cloud-based workflow automations.
+---
+
+# Quickstart: Create an automation project in Logic Apps Automation (preview)
+
+> [!NOTE]
+>
+> This preview capability might incur charges and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Automating business processes often means connecting different services, writing extra code to link them, and setting up servers before you can test a single workflow. When steps are unpredictable or requirements change quickly, that setup work slows you down.
+
+Logic Apps Automation removes that effort. You describe what you want to automate, and the platform gives you a visual designer, an AI assistant, and 1,400+ ready-to-use connectors so you can build, test, and monitor workflows entirely from your browser. There's nothing to install on your computer. For more information about what Logic Apps Automation offers and when to use it, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+
+In this quickstart, you create an automation project, add an application, and build your first workflow that accepts a web request and returns a response. By the end, you have a working workflow you can test and monitor from the portal.
+
+## How a project is organized
+
+Your work is organized into three levels: a **project** holds **applications**, and each application holds **workflows**. The following table summarizes each level:
+
+| Level | What it is |
+|-------|------------|
+| **Project** | The top-level container. Create one for each business area or team. |
+| **Application** | A package inside a project that holds workflows, connections, parameters, analytics, and settings. Create one for each related set of tasks, such as `order-processing` or `daily-reports`. |
+| **Workflow** | The automation itself: a starting event (trigger) plus a series of steps (actions). |
+
+For the full list of components and terminology, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology).
+
+## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+- A work or school account that can sign in to [the Logic Apps Automation portal](https://automation.azure.com).
+
+## Create an automation project
+
+A *project* groups your applications and controls who has access.
+
+1. Go to the [Logic Apps Automation portal](https://automation.azure.com), and sign in with your work or school account.
+
+1. On the home page, under **Get started**, select **Create a project**.
+
+   The Azure portal opens the **Automation Projects** page.
+
+1. On the **Automation Projects** toolbar, select **+ Create**.
+
+1. On the **Create an Automation Project** page, on the **Basics** tab, provide the following information:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Subscription** | Select your Azure subscription. |
+   | **Resource group** | Select an existing [resource group](../../azure-resource-manager/management/overview.md#terminology), or select **Create new** to make one. Use only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
+   | **Name** | Enter a unique name for the project. Use only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
+   | **Region** | Select the Azure region closest to your users or to the services your workflows connect to. |
+
+1. Select **Review + create**, and then select **Create**.
+
+   Azure starts setting up your automation project.
+
+   > [!NOTE]
+   >
+   > This process might take several minutes to finish.
+
+1. After setup finishes, select **Go to resource** if the project doesn't open automatically.
+
+1. On the project toolbar, select **Open in Automation Portal** to switch to the Logic Apps Automation portal.
+
+## Create an application
+
+An *application* holds your workflows, connections, parameters, and analytics. Think of it as a folder that groups related automations together.
+
+1. In the Logic Apps Automation portal, find and select your project.
+
+   The **Applications** page opens. A new project doesn't have any applications yet.
+
+1. Select **+ Create Application**.
+
+1. In the **Create Application** box, for **Application name**, enter a descriptive name for your application, such as `my-first-app`, and then select **Create**.
+
+   > [!NOTE]
+   >
+   > Creating the application might take a minute or two. Watch the **Status** column change from **Building** to **Ready** before you continue.
+
+1. After the status shows **Ready**, select your application.
+
+   The application opens to the **Workflows** tab, which shows a workflow builder at the top and a list of existing workflows below the builder.
+
+## Build your first workflow
+
+This example creates a workflow that responds to a web request and sends back a response. Choose one of the following approaches:
+
+### [Use the AI assistant](#tab/assistant)
+
+The AI assistant builds a workflow from an everyday description of what you want.
+
+1. On the **Workflows** page, in the description box labeled **Describe what your workflow should do**, enter the following prompt:
+
+   `When a web request arrives with a JSON body, respond with a 200 OK that includes a greeting message and the current date and time.`
+
+   > [!TIP]
+   >
+   > Be specific in your description. Include how the workflow should start, what you want to happen, and what the result should look like. The more detail you provide, the closer the generated workflow matches what you need.
+
+1. Select **Build**.
+
+   The AI assistant generates the workflow and opens the designer canvas. The process might take a few moments.
+
+   > [!IMPORTANT]
+   >
+   > The AI assistant creates the workflow outline, including triggers, actions, and branches, but can't fill in sign-in details or settings specific to your setup. Before your first successful run, you need to:
+   >
+   > - Set up connections for each action that uses an outside service.
+   > - Fill any required fields that the assistant left blank. Look for fields marked with an asterisk (*) or a red outline.
+   > - Fix any alerts that appear on individual steps.
+
+1. On the designer, select each step that shows an alert to find and complete any remaining tasks.
+
+### [Build from scratch](#tab/scratch)
+
+This approach starts with an empty designer where you add each step yourself.
+
+#### Create a blank workflow
+
+1. On the **Workflows** page, select **Build from scratch**.
+
+1. For **Workflow name**, enter a name such as `http-hello-world`.
+
+1. From the template list, select **Blank workflow**, and then select **Build**.
+
+   The designer opens with an empty canvas that shows an **Add a trigger** placeholder.
+
+#### Add the trigger
+
+A *trigger* is the event that starts your workflow. For the full list of available triggers, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology). This example uses a trigger that fires when a web request arrives.
+
+1. On the empty designer, select **Add a trigger**.
+
+   The **Add a trigger** pane opens so you can search or browse the trigger gallery.
+
+1. In the search box, enter **Request**.
+
+1. From the results, select the trigger named **When an HTTP request is received**.
+
+   The trigger appears on the canvas, and the trigger information box opens.
+
+1. On the **Parameters** tab, for **Request Body JSON Schema**, enter the following schema so the workflow knows what data to expect:
+
+   ```json
+   {
+     "type": "object",
+     "properties": {
+       "name": {
+         "type": "string"
+       }
+     }
+   }
+   ```
+
+1. Close the trigger information box.
+
+#### Add a response action
+
+An *action* is a step that runs after the trigger fires. For the full list of available actions, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology). This example adds an action that sends a response back to the caller.
+
+1. On the designer canvas, select the plus sign (**+**) below the trigger to add an action.
+
+   The **Add an action** pane opens.
+
+1. In the search box, enter **Response**.
+
+1. From the results, select the action named **Response**.
+
+1. On the **Parameters** tab, provide the following values:
+
+   | Property | Value |
+   |----------|-------|
+   | **Status Code** | `200` |
+   | **Body** | Select in the field, and then use the **Expressions** tab to enter: `Hello, @{triggerBody()?['name']}! The current time is @{utcNow()}.` |
+
+1. Close the action information box.
+
+---
+
+## Save and publish the workflow
+
+Changes you make are automatically saved to a *draft* version. The *published* version is what runs in production.
+
+1. On the designer toolbar at the bottom of the canvas, confirm that the indicator shows **Draft**.
+
+1. Select **Publish** to make the draft the live version.
+
+   > [!NOTE]
+   >
+   > For workflows started by a web request, you can test the draft directly by selecting **Test your draft** without publishing first. For workflows started by a schedule or an outside event, you must publish before the trigger fires.
+
+## Test the workflow
+
+After you publish, test the workflow to make sure everything works as expected.
+
+1. On the designer toolbar, select **Test your draft**.
+
+   A dialog opens where you can provide test data.
+
+1. In the test data field, enter the following JSON body:
+
+   ```json
+   {
+     "name": "Azure Developer"
+   }
+   ```
+
+1. Select **Run**.
+
+   The workflow runs, and the monitoring view shows progress in real time.
+
+## Review the run history
+
+After a run finishes, you can check what happened at every step.
+
+1. Switch to the **Monitoring** tab.
+
+   The run history list shows your completed run with status, timestamp, and duration.
+
+1. Select the run to open the detail view.
+
+   The canvas updates to show color-coded status for each step. The **Execution log** at the bottom lists every action in order with timing details.
+
+1. Select any step in the execution log or on the canvas to see the data.
+
+   | Tab | What it shows |
+   |-----|---------------|
+   | **Output** | The data the step produced. |
+   | **Input** | The data the step received. |
+   | **Properties** | Details such as status, how long it ran, and tracking ID. |
+
+   For the trigger, you can see the incoming web request headers and body. For the response action, you can confirm the response body matches what you expected.
+
+   > [!TIP]
+   >
+   > For failed steps, the same panel shows the error message so you can find the problem without leaving the run view.
+
+## Iterate and refine
+
+You don't have to get everything right on the first pass. The following table describes three ways to make changes:
+
+| Method | How to use it |
+|--------|---------------|
+| **Visual designer** | Select any step on the canvas to change settings, add new actions, or rearrange the flow. |
+| **AI assistant** | Open the assistant inside the designer and type follow-up instructions, such as "add error handling to the response action" or "add a condition that checks whether the name field is empty." |
+| **Code view** | Select **Code** on the bottom toolbar to open the JSON code side by side with the canvas. Changes in either view stay in sync. |
+
+All edits go into a draft. Publish again when you're ready to send changes to production.
+
+## Clean up resources
+
+If you no longer need the resources you created in this quickstart, delete the resource group to avoid extra charges:
+
+1. In the Azure portal search bar, enter the resource group name.
+
+1. Select the resource group from the results.
+
+1. On the resource group page, select **Delete resource group**.
+
+1. Enter the resource group name to confirm, and then select **Delete**.
+
+## Related content
+
+- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflow-automation.md)
+- [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-capabilities-models.md)
