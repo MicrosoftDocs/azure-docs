@@ -203,7 +203,9 @@ In the previous command, the `--config` parameter specifies the `application/vnd
 
 ## Create a connector template instance
 
-A connector template instance defines a reusable configuration of a connector type. An operator uses a connector template instance when they create an inbound endpoint on a device in the operations experience. To create a connector template instance from your connector, follow these steps:
+A connector template instance defines a reusable configuration of a connector type. An operator uses a connector template instance when they create an inbound endpoint on a device in the operations experience. To create a connector template instance from your connector, use either the Azure portal or the Azure CLI.
+
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Azure IoT Operations instance.
 
@@ -225,6 +227,41 @@ A connector template instance defines a reusable configuration of a connector ty
 1. On the **Review** page, review the settings and select **Create** to create the connector template instance. The new connector template instance appears in the list of connector templates.
 
     :::image type="content" source="media/howto-develop-akri-connectors/connector-template.png" alt-text="Screenshot of connector template instance in Azure IoT Operations in the Azure portal." lightbox="media/howto-develop-akri-connectors/connector-template.png":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops connector template create](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-create) command to create a connector template instance from the connector metadata artifact you pushed to your container registry. The `--connector-metadata-ref` parameter points to the metadata artifact. The command automatically populates connector-specific settings from the metadata, such as the endpoint type - `Contoso.Http` in this example.
+
+```azurecli
+az iot ops connector template create \
+    --name my-rest-connector \
+    --resource-group <ResourceGroupName> \
+    --instance <AioInstanceName> \
+    --connector-metadata-ref <YOUR CONTAINER REGISTRY NAME>.azurecr.io/connector-metadata:latest
+```
+
+> [!TIP]
+> The template name - `my-rest-connector` in this example - is the prefix of the connector pod name in the Kubernetes cluster. For example, `my-rest-connector-80625de9-ss-`.
+
+To customize deployment parameters such as the number of replicas, log level, or image pull secrets, use the optional parameters. For example:
+
+```azurecli
+az iot ops connector template create \
+    --name my-rest-connector \
+    --resource-group <ResourceGroupName> \
+    --instance <AioInstanceName> \
+    --connector-metadata-ref <YOUR CONTAINER REGISTRY NAME>.azurecr.io/connector-metadata:latest \
+    --replicas 1 \
+    --log-level info
+```
+
+To verify the connector template instance was created, run the [az iot ops connector template list](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-list) command:
+
+```azurecli
+az iot ops connector template list --resource-group <ResourceGroupName> --instance <AioInstanceName> --output table
+```
+
+---
 
 The connector template instance is now available for operators to use when they create devices in the operations experience UI.
 
