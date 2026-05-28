@@ -36,9 +36,9 @@ After your infrastructure is set up, you can log in to [Microsoft Discovery Stud
 
 :::image type="content" source="media/quickstart-agents-studio/studio-home.jpg" alt-text="Screenshot of the Microsoft Discovery Studio homepage." lightbox="media/quickstart-agents-studio/studio-home.jpg":::
 
-After signing in, you land on the **Home** tab, which provides quick access to recent shared sessions and common actions like creating new shared sessions or tasks.
+After signing in, you land on the **Discovery** tab, which provides quick access to recent shared sessions and common actions like creating new project or links to the official documentation.
 
-You must sign in with your Entra ID (work or school account) credentials. Studio supports Single Sign-On (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
+You must sign in with your Entra ID (work or school account) credentials. Microsoft Discovery Studio supports Single Sign-On (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
 
 > [!NOTE]
 > If you have access to multiple Entra tenants, make sure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
@@ -56,8 +56,7 @@ In this example, create a basic Chemistry Agent that answers questions about che
    :::image type="content" source="media/quickstart-agents-studio/create-project-list.jpg" alt-text="Screenshot showing the Project list page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/create-project-list.jpg":::
 1. Open the project that we created in the [previous tutorial](./quickstart-infrastructure-portal.md#9-create-a-project) by selecting the name. It will open the project in a new tab.
    :::image type="content" source="media/quickstart-agents-studio/studio-welcome.jpg" alt-text="Screenshot showing the Welcome page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/studio-welcome.jpg":::
-1. In the **Resources** tab in the left navigation pane, select the **+** button next to **Agents** to create a new agent.
-1. In the **New Agent** tab, select **Agent** as the type.
+1. In the **Resources** tab in the left navigation pane, select the **+** button next to **AGENTS (FOUNDRY)** to create a new agent.
 1. Enter a **Name** and **Description** for the agent. For example:
    - **Name**: `ChemistryAgent`
    - **Description**: `A chemistry expert agent that answers questions about chemical properties of molecules and provides high-level plans for computational needs.`
@@ -67,7 +66,7 @@ In this example, create a basic Chemistry Agent that answers questions about che
    You are a chemistry expert agent who can answer questions about chemical properties of molecules and provide high-level plans for the user's computational needs.
    ```
 1. Select **Create agent**.
-:::image type="content" source="media/quickstart-agents-studio/create-agent.jpg" alt-text="Screenshot showing the Create Agent page in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent-lightbox.jpg":::
+:::image type="content" source="media/quickstart-agents-studio/create-agent.jpg" alt-text="Screenshot showing the Create Agent page in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent.jpg":::
 :::image type="content" source="media/quickstart-agents-studio/create-agent-resources.jpg" alt-text="Screenshot showing the recently created Agent and resources pane in Discovery Studio." lightbox="media/quickstart-agents-studio/create-agent-resources.jpg":::
 
 > [!NOTE]
@@ -79,7 +78,7 @@ Shared sessions are research studies within a project where you can chat with yo
 
 To create a shared session, simply type a prompt in the chat box on the Welcome page and select **Send**. A new shared session is automatically created and the agent responds to your prompt. By default, the **Discovery** agent is selected.
 
-Alternatively, you can select **New shared session** from the **Home** tab in the left navigation pane.
+Alternatively, you can select **New shared session** from the **Discovery** tab in the left navigation pane.
 
 ## 4. Start a chat
 

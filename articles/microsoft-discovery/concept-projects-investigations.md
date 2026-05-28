@@ -64,7 +64,7 @@ Each shared session maintains its own conversation history and context, allowing
 
 ### Creating a shared session
 
-You create shared sessions from the **Home** tab within your project in Discovery Studio, or by simply typing a prompt in the chat box on the Welcome page. For step-by-step instructions, see [Create a shared session](quickstart-agents-studio.md#3-create-a-shared-session).
+You create shared sessions from the **Discovery** tab within your project in Discovery Studio, or by simply typing a prompt in the chat box on the Welcome page. For step-by-step instructions, see [Create a shared session](quickstart-agents-studio.md#3-create-a-shared-session).
 
 ## How projects and shared sessions fit in the platform
 

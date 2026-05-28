@@ -45,7 +45,7 @@ The following sections describe the key elements of the Studio interface.
 | Element | Description |
 | --- | --- |
 | **Navigation sidebar** | The left-side menu that provides access to all major sections: Home, Workspaces, Projects, and Resources. |
-| **Resources section** | A group within the sidebar for managing shared platform resources: Agents, Tools, Project Storage, and Knowledge Bases. |
+| **Resources section** | A group within the sidebar for managing shared platform resources: Tools, Knowledge, and Data. |
 | **Main working area** | The central pane that displays content based on your current selection—workspace and project lists and details. |
 | **Breadcrumb bar** | Appears at the top of the working area to show your current location and allow quick navigation back to previous levels. |
 | **Profile menu** | Located in the top-right corner. View your account information, switch Microsoft Entra ID tenants, or sign out. |
@@ -93,11 +93,10 @@ When you open a project, Microsoft Discovery Studio transitions into a full **Vi
 
 The project includes:
 
-- **Home tab**: A sidebar that lists quick actions and all shared sessions in the current project. Select a shared session to open it and begin chatting with agents.
+- **Discovery tab**: A sidebar that lists quick actions and all shared sessions in the current project. Select a shared session to open it and begin chatting with agents.
 - **Chat interface**: Open a shared session to view the chat interface where you interact with agents through natural language conversations. Use the agent selector dropdown or type `@` to route messages to specific agents.
-- **Agent logs**: Use agent logs to view a detailed view of your agent interaction including prompts, responses, and tool call logs including raw log output.
-- **Tasks**: Manage Discovery Engine tasks created within shared sessions in the tasks sidebar.
 - **Preferences**: Manage user and project preferences, which help you customize agentic behavior to your style.
+- **Agent logs**: Use agent logs to view a detailed view of your agent interaction including prompts, responses, and tool call logs including raw log output.
 - **Resources**: A sidebar that lists all project related resources that you can use such as agents, tools, and knowledge bases. The **Project Storage** pane lets you browse storage containers and storage assets available in the project.
 
 :::image type="content" source="media/concept-studio/studio-project-vscode.jpg" alt-text="Screenshot of the project view in Microsoft Discovery Studio showing the shared sessions panel and chat." lightbox="media/concept-studio/studio-project-vscode.jpg":::
@@ -111,7 +110,7 @@ Because Microsoft Discovery Studio is built on Visual Studio Code for the Web, y
 
 ### Working with shared sessions
 
-Shared sessions are the primary research sessions in Microsoft Discovery Studio. The Shared Sessions panel in the **Home** tab lists all shared sessions in the current project. Each shared session contains:
+Shared sessions are the primary research sessions in Microsoft Discovery Studio. The Shared Sessions panel in the **Discovery** tab lists all shared sessions in the current project. Each shared session contains:
 
 - A conversational thread with one or more agents
 - Agent-generated outputs such as HTML reports, calculations, and data analyses
