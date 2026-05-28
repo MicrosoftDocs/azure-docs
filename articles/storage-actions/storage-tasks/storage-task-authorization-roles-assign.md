@@ -52,7 +52,7 @@ The **Storage Actions Blob Data Operator** role grants the following permissions
 | Set immutability policies and legal holds | Data action | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action` |
 
 > [!TIP]  
-> **Storage Actions Blob Data Operator** is the recommended role for the storage task's managed identity. The [Storage Blob Data Owner](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) role also covers all operations performed by Storage Actions and remains supported, but it grants broader permissions than Storage Actions requires. Prefer **Storage Actions Blob Data Operator** for new assignments.
+> **Storage Actions Blob Data Operator** is the recommended role for the storage task's managed identity. The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role also covers all operations performed by Storage Actions and remains supported, but it grants broader permissions than Storage Actions requires. Prefer **Storage Actions Blob Data Operator** for new assignments.
 
 If you prefer to use a custom role for the storage task's managed identity, you must make sure that your role contains the RBAC actions necessary to perform the operations defined in the task. The following table maps each Storage Actions operation to the RBAC actions a custom role must include.
 
