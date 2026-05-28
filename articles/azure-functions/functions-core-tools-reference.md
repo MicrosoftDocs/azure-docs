@@ -1067,7 +1067,7 @@ The `func quickstart` command supports these options:
 | **`--iac`** | Filter by infrastructure-as-code type (for example, `bicep`, `terraform`, `none`). |
 | **`--search`** | Case-insensitive substring filter applied to template names and descriptions. |
 | **`--fetch`** | Catalog fetch strategy: `auto` (default), `git`, or `http`. `auto` probes for `git` and falls back to HTTP. |
-| **`--force`** | Scaffold even when the target folder isn't empty. (Coming soon.) Clears the folder (except `.git`) before scaffolding. |
+| **`--force`** | Scaffold even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
 
 Subcommands:
 
@@ -1170,9 +1170,6 @@ func setup [<PATH>] [options]
 | `host` | `host` only |
 
 `--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`). `dotnet-isolated` is accepted as an alias for `dotnet`.
-
-> [!NOTE]
-> The `*-templates` workloads are included in the planned setup behavior and aren't yet installed by the current `func setup` preview build. They land in an upcoming release.
 
 | Option | Description |
 | ----- | ----- |
