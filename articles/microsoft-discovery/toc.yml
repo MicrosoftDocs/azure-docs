@@ -6,6 +6,9 @@ items:
       - name: What is Microsoft Discovery?
         href: overview-what-is-microsoft-discovery.md
         displayName: Microsoft Discovery, services, overview, introduction
+      - name: Microsoft Discovery & the Microsoft Discovery app
+        href: concept-discovery-and-discovery-app.md
+        displayName: Microsoft Discovery, services, app, overview
       - name: Service architecture overview
         href: overview-service-architecture.md
         displayName: Microsoft Discovery, service architecture, resource model, workspace, supercomputer, project
