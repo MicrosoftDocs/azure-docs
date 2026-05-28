@@ -944,7 +944,7 @@ Kubernetes core API.</p>
 <td>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.4/spec/#namespacedpolicytargetreference">
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#namespacedpolicytargetreference">
 Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
