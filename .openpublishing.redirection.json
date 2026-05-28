@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/data-factory/transform-data-using-data-lake-analytics.md",
+      "redirect_url": "/azure/data-factory/transform-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/neon/create-service-connection.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/neon/create-service-connection",
       "redirect_document_id": false
