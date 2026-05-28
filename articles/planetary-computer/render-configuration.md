@@ -245,7 +245,9 @@ For more information on configuring collections, see [Configure a collection wit
 
 **Using the API:**
 
-Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
+Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint.
+
+# [REST API](#tab/restapi)
 
 ```python
 import requests
@@ -265,7 +267,7 @@ response = requests.post(
     f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options",
     json=render_config, # Your list of render config dicts
     headers=headers,
-    params={"api-version": "2025-04-30-preview"} # Use the appropriate API version
+    params={"api-version": "2026-04-15"} # Use the appropriate API version
 )
 
 if response.status_code == 200:
@@ -276,7 +278,28 @@ else:
     print(response.text)
 
 ```
-For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md). 
+
+# [Python SDK](#tab/pythonsdk)
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+collection_id = "<your-collection-id>"
+client.stac.create_render_option(collection_id, render_config)
+print("Render configuration updated successfully.")
+```
+
+For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+
+---
+
+For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md).
 
 ## Examples
 

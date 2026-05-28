@@ -51,6 +51,8 @@ To visualize the data assets within this collection in the Explorer, the collect
 
 ## Get an access token
 
+# [REST API](#tab/restapi)
+
 Accessing a GeoCatalog requires a token to authenticate requests. Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to retrieve a token:
 
 ```python
@@ -77,7 +79,7 @@ response = requests.post(
     f"{geocatalog_url}/stac/collections",
     json=collection,
     headers=headers,
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 )
 print(response.status_code)
 ```
@@ -90,7 +92,7 @@ You can now read this collection at the `/stac/collections/{collection_id}` endp
 geocatalog_collection = requests.get(
     f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers=headers,
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 ).json()
 ```
 
@@ -134,7 +136,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
         f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/render-options",
         json=render_option,
         headers=headers,
-        params={"api-version": "2025-04-30-preview"}
+        params={"api-version": "2026-04-15"}
     )
     print(response.status_code)
     ```
@@ -152,7 +154,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
         f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/mosaics",
         json=mosaic,
         headers=headers,
-        params={"api-version": "2025-04-30-preview"}
+        params={"api-version": "2026-04-15"}
     )
     print(response.status_code)
     ```
@@ -174,7 +176,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
         f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/tile-settings",
         json=tile_settings,
         headers=headers,
-        params={"api-version": "2025-04-30-preview"}
+        params={"api-version": "2026-04-15"}
     )
     ```
 
@@ -189,7 +191,7 @@ response = requests.put(
     f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers={"Authorization": f"Bearer {token.token}"},
     json=collection,
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 )
 print(response.status_code)
 ```
@@ -210,7 +212,7 @@ The quickstart, [Add STAC Items to a collection](./add-stac-item-to-collection.m
 response = requests.delete(
     f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2025-04-30-preview"}
+    params={"api-version": "2026-04-15"}
 )
 print(response.status_code)
 ```
@@ -219,6 +221,97 @@ A status code of `204` indicates that your Collection was deleted.
 
 > [!WARNING]
 > If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name / ID. If you attempt to create a new collection using the same name as the deleted collection, you receive an error. If this error occurs, try to recreate the collection after a 45-second wait.
+
+# [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity
+```
+
+## Add a collection to a GeoCatalog
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+# 'collection' is the STAC collection dict defined in the previous section
+result = client.stac.create_collection(collection)
+print(result)
+```
+
+## Read a collection
+
+```python
+geocatalog_collection = client.stac.get_collection(collection["id"])
+```
+
+## Configure a collection
+
+1. Define a render configuration:
+
+    ```python
+    render_option = {
+        "id": "default",
+        "name": "Default",
+        "description": "Land cover classification using 9 class custom colormap",
+        "type": "raster-tile",
+        "options": f"assets=data&exitwhenfull=False&skipcovered=False&{colormap}",
+        "minZoom": 6,
+    }
+
+    client.stac.create_render_option(collection["id"], render_option)
+    ```
+
+2. Define a mosaic:
+
+    ```python
+    mosaic = {
+        "id": "most-recent",
+        "name": "Most recent available",
+        "description": "Show the most recent available data",
+        "cql": [],
+    }
+
+    client.stac.create_mosaic(collection["id"], mosaic)
+    ```
+
+3. Define tile settings:
+
+    ```python
+    tile_settings = {
+        "minZoom": 6,
+        "maxItemsPerTile": 35,
+    }
+
+    client.stac.update_tile_settings(collection["id"], tile_settings)
+    ```
+
+## Update a collection
+
+```python
+collection["description"] += " (Updated)"
+client.stac.update_collection(collection["id"], collection)
+```
+
+## Clean up resources
+
+```python
+client.stac.delete_collection(collection["id"])
+```
+
+> [!WARNING]
+> If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name / ID.
+
+For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+
+---
 
 
 ## Next step

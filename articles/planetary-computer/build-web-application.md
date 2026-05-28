@@ -186,7 +186,7 @@ The GeoCatalog STAC API provides endpoints for discovering and querying geospati
 
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 async function listCollections(accessToken, catalogUrl) {
   const url = `${catalogUrl}/stac/collections?api-version=${API_VERSION}`;
@@ -211,7 +211,7 @@ async function listCollections(accessToken, catalogUrl) {
 [ ![Screenshot showing the list of STAC items in a sample web application.](media/list-stac-items.gif) ](media/list-stac-items.gif#lightbox)
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 async function listItems(accessToken, catalogUrl, collectionId, limit = 10) {
   const url = `${catalogUrl}/stac/collections/${collectionId}/items?limit=${limit}&api-version=${API_VERSION}`;
@@ -236,7 +236,7 @@ async function listItems(accessToken, catalogUrl, collectionId, limit = 10) {
 [ ![Screenshot showing how to use the STAC search to return items of interest.](media/stac-search-demo.gif) ](media/stac-search-demo.gif#lightbox)
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 async function searchItems(accessToken, catalogUrl, searchParams) {
   const url = `${catalogUrl}/stac/search?api-version=${API_VERSION}`;
@@ -277,8 +277,8 @@ The GeoCatalog Tiler API serves raster data as map tiles. Construct tile URLs wi
 [ ![Screenshot showing how to display tiles for a single item.](media/tile-single-image.gif) ](media/tile-single-image.gif#lightbox)
 
 ```http
-{catalogUrl}/data/collections/{collectionId}/items/{itemId}/tiles/{z}/{x}/{y}@1x.png
-  ?api-version=2025-04-30-preview
+{catalogUrl}/data/mosaic/collections/{collectionId}/items/{itemId}/tiles/{z}/{x}/{y}@1x.png
+  ?api-version=2026-04-15
   &tileMatrixSetId=WebMercatorQuad
   &assets=visual
 ```
@@ -286,7 +286,7 @@ The GeoCatalog Tiler API serves raster data as map tiles. Construct tile URLs wi
 ### Tile URL builder function
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 /**
  * Build a tile URL template for a STAC item.
@@ -295,7 +295,7 @@ const API_VERSION = '2025-04-30-preview';
 function buildTileUrl(catalogUrl, collectionId, itemId, options = {}) {
   const { assets = 'visual', colormap, rescale } = options;
   
-  const base = `${catalogUrl}/data/collections/${collectionId}/items/${itemId}/tiles/{z}/{x}/{y}@1x.png`;
+  const base = `${catalogUrl}/data/mosaic/collections/${collectionId}/items/${itemId}/tiles/{z}/{x}/{y}@1x.png`;
   
   const params = new URLSearchParams();
   params.set('api-version', API_VERSION);
@@ -321,7 +321,7 @@ const tileUrl = buildTileUrl(
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
-| `api-version` | Yes | API version (`2025-04-30-preview`) |
+| `api-version` | Yes | API version (`2026-04-15`) |
 | `tileMatrixSetId` | Yes | Use `WebMercatorQuad` for web maps |
 | `assets` | Yes | Asset names to render (example: `visual`, `image`) |
 | `colormap_name` | No | Named colormap (example: `viridis`, `terrain`) |
@@ -428,14 +428,14 @@ function addTileLayer(map, tileUrl, bounds) {
 To view all items in a collection as a seamless layer, register a mosaic search and use the returned search ID:
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 /**
  * Register a mosaic search for a collection.
  * Returns a search ID that can be used to fetch mosaic tiles.
  */
 async function registerMosaic(catalogUrl, collectionId, accessToken) {
-  const url = `${catalogUrl}/data/mosaic/register?api-version=${API_VERSION}`;
+  const url = `${catalogUrl}/data/mosaic/searches?api-version=${API_VERSION}`;
   
   const response = await fetch(url, {
     method: 'POST',
@@ -463,7 +463,7 @@ async function registerMosaic(catalogUrl, collectionId, accessToken) {
 function buildMosaicTileUrl(catalogUrl, searchId, collectionId, options = {}) {
   const { assets = 'visual' } = options;
   
-  const base = `${catalogUrl}/data/mosaic/${searchId}/tiles/{z}/{x}/{y}@1x.png`;
+  const base = `${catalogUrl}/data/mosaic/searches/${searchId}/tiles/{z}/{x}/{y}@1x.png`;
   
   const params = new URLSearchParams();
   params.set('api-version', API_VERSION);
@@ -489,7 +489,7 @@ The SAS API provides time-limited tokens for downloading raw asset files (GeoTIF
 ### Get a SAS token
 
 ```javascript
-const API_VERSION = '2025-04-30-preview';
+const API_VERSION = '2026-04-15';
 
 /**
  * Get a SAS token for accessing assets in a collection.

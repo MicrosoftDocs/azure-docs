@@ -20,6 +20,8 @@ For example, when retrieving **collection-level assets** such as Zarr data, a SA
 
 This example shows how to request a collection-level SAS token from the `/sas/token/{collection_id}` route.
 
+# [REST API](#tab/restapi)
+
 ## 1. Get Access Token for Authorization to a GeoCatalog
 
 ```python
@@ -52,7 +54,7 @@ collection_id = "<your-collection-id>"
 response = requests.get(
         f"{geocatalog_url}/sas/token/{collection_id}",
         headers=getBearerToken(),
-        params={"api-version": "2025-04-30-preview"}
+        params={"api-version": "2026-04-15"}
     )
 
 sas_token = response.json()["token"]
@@ -61,3 +63,37 @@ print(f"SAS Token: {sas_token}")
 ```
 
 The `sas_token` variable contains the token string you can pass into applications that need to retrieve collection-level assets.
+
+# [Python SDK](#tab/pythonsdk)
+
+## Prerequisites
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity
+```
+
+## Request a SAS Token for a STAC Collection
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+collection_id = "<your-collection-id>"
+sas_response = client.sas.get_token(collection_id)
+sas_token = sas_response["token"]
+
+print(f"SAS Token: {sas_token}")
+```
+
+The `sas_token` variable contains the token string you can pass into applications that need to retrieve collection-level assets.
+
+For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+
+---

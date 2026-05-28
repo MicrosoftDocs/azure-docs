@@ -433,10 +433,10 @@ Add the following operations:
 
 | Display name | Method | URL template |
 |-------------|--------|-------------|
-| POST register search | POST | `/data/mosaic/register` |
+| POST register search | POST | `/data/mosaic/searches` |
 | GET data collection | GET | `/data/mosaic/collections/{collectionId}/*` |
 
-#### POST /data/mosaic/register policy
+#### POST /data/mosaic/searches policy
 
 This policy validates the `collections` array in the JSON body against the allowed set. Requests without a `collections` parameter are rejected.
 

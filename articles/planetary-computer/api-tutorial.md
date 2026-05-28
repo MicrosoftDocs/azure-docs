@@ -24,6 +24,12 @@ In this tutorial, you:
 
 This tutorial shows and explains capabilities through code snippets, for an interactive notebook style experience, [download this tutorial as a Jupyter notebook](https://github.com/Azure/microsoft-planetary-computer-pro/blob/main/notebooks/GeoCatalog_Tutorial.ipynb). 
 
+> [!TIP]
+> This tutorial demonstrates the REST API approach. You can also use the [Planetary Computer Pro Python SDK](/python/api/azure-planetarycomputer) (`pip install azure-planetarycomputer`) for a simplified client experience. See the individual quickstart guides for SDK examples:
+> - [Create a STAC collection](./create-stac-collection.md)
+> - [Add STAC items to a collection](./add-stac-item-to-collection.md)
+> - [Get a collection SAS token](./get-collection-sas-token.md)
+
 ## Prerequisites
 
 Before running this tutorial, you need a Planetary Computer Pro GeoCatalog deployed in your Azure subscription. You also need an environment to execute this notebook and install the necessary packages. We suggest running this tutorial through an Azure Machine Learning Virtual Machine or Visual Studio Code's notebook integration in a Python virtual environment. However, this notebook should run wherever you can run Jupyter notebooks, provided the following requirements are met:
@@ -53,7 +59,7 @@ geocatalog_url = (
 )
 geocatalog_url = geocatalog_url.rstrip("/")  # Remove trailing slash if present
 
-api_version = "2025-04-30-preview"
+api_version = "2026-04-15"
 
 # User selections for demo
 
