@@ -5,7 +5,7 @@ description: Learn how to integrate Azure AD B2C authentication with itsme OIDC 
 author: gargi-sinha
 manager: martinco
 ms.author: gasinh
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 10/11/2024
 ms.subservice: b2c
