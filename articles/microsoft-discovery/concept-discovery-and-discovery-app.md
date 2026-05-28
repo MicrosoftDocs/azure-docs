@@ -101,7 +101,7 @@ In many cases, an individual or team will start with the Discovery app and then 
 
 ## Next steps
 
-* **Get started with the Microsoft Discovery platform:** [Register for access](https://azure.microsoft.com/en-us/solutions/discovery/).
+* **Get started with the Microsoft Discovery platform:** Contact your Microsoft account representative. 
 
 * **Get started with the Microsoft Discovery app:** Download the app and review documentation on [GitHub](https://github.com/microsoft/discovery). Ensure you have a GitHub Copilot account (or a compatible license) before launching the app.
 
