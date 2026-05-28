@@ -102,6 +102,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DBforMySQL](./permissions/databases.md#microsoftdbformysql) | Managed MySQL database service for app developers. | [Azure Database for MySQL](/azure/mysql/) |
 > | [Microsoft.DBforPostgreSQL](./permissions/databases.md#microsoftdbforpostgresql) | Managed PostgreSQL database service for app developers. | [Azure Database for PostgreSQL](/azure/postgresql/) |
 > | [Microsoft.DocumentDB](./permissions/databases.md#microsoftdocumentdb) | A NoSQL document database-as-a-service. | [Azure Cosmos DB](/azure/cosmos-db/) |
+> | [Microsoft.InferenceService](./permissions/databases.md#microsoftinferenceservice) |  |  |
 > | [Microsoft.Sql](./permissions/databases.md#microsoftsql) | Managed, intelligent SQL in the cloud. | [Azure SQL Database](/azure/azure-sql/database/index)<br/>[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/index)<br/>[Azure Synapse Analytics](/azure/synapse-analytics/) |
 > | [Microsoft.SqlVirtualMachine](./permissions/databases.md#microsoftsqlvirtualmachine) | Host enterprise SQL Server apps in the cloud. | [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview) |
 

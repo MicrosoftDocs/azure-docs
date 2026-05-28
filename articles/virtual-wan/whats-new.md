@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 03/27/2025
+ms.date: 05/27/2026
 ms.author: cherylmc
 ms.custom:
   - build-2025
@@ -77,6 +77,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Retirement|Remote User connectivity/Point-to-site VPN|[Retirement of Azure VPN Client for Linux (Preview)](azure-vpn-client-linux-retirement.md?)|The Azure VPN Client for Linux (Preview) is being retired on August 31, 2026. For more information on how to migrate to a new client for Linux, see the [Azure VPN Client for Linux (Preview) — Retirement Overview](azure-vpn-client-linux-retirement.md) article.|June 2026||
 |Feature|Remote User connectivity/Point-to-site VPN |[User Groups and IP address pools for P2S User VPNs](user-groups-about.md) |Ability to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials.|May 2023| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Global profile include/exclude](global-hub-profile.md#include-or-exclude-a-hub-from-a-global-profile)|Ability to mark a point-to-site gateway as "excluded", meaning users who connect to global profile won't be load-balanced to that gateway.|February 2022| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Forced tunneling for P2S VPN](how-to-forced-tunnel.md)|Ability to force all traffic to Azure Virtual WAN for egress.|October 2021|Only available for Azure VPN Client version 2:1900:39.0 or newer.|
@@ -105,7 +106,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |10 |Unable to update route tables and routing configuration (propagated route table and label)  for on-premises (VPN, ExpressRoute, NVA) connections. | When a Virtual WAN hub and its gateway(s) are in different Azure resource groups, updating routing configuration results in a "resource not found" error. | March 2025| This issue is caused by a code defect in Azure portal. Use Terraform, PowerShell, CLI or REST API to manage your Virtual WAN deployment.|
 |11| Hub won't advertise routes to VPN sites | When a customer uses Route-Maps for the first time it triggers an upgrade. After the upgrade is complete, If VPN sites aren't advertising routes to the hub, the hub won't advertise routes to the VPN sites. | December 2024 | If the VPN sites start adverting any routes to the hub, the hub will start adverting routes again.|
 |12| Virtual Hub router does not select local routes over remote. | When the same route is advertised from on-premises to Azure to multiple Virtual WAN hubs, the local Virtual WAN hub may experience a race condition where a route learnt from a remote hub may be selected over a route learnt from a local on-premises site. This happens in scenarios where the local route's AS-PATH length is 2 or more AS-PATH lengths **longer** than that of the remote hub. For example, the race condition is triggered when the local VPN route has AS-PATH length 4 and the remote VPN route has AS-PATH length 2.| | Ensure the difference in AS-PATH length between local and remote routes is at most 1. In the example provided in the description of this known issue, you can increase the AS-PATH length of the remote VPN route, or decrease the length of the local VPN route by modifying on-premises AS-PATH pre-pending or applying [route maps](route-maps-about.md).   |
-|13|Incomplete activity log and resource change history| Certian operations on certain Virtual WAN hub and connected Virtual Networks are not properly tracked by Azure Resource Manager, resulting in incomplete activity log and resource change history (change analysis). ||None|
+|13|Incomplete activity log and resource change history| Certain operations on certain Virtual WAN hub and connected Virtual Networks are not properly tracked by Azure Resource Manager, resulting in incomplete activity log and resource change history (change analysis). ||None|
 
 ## Next steps
 

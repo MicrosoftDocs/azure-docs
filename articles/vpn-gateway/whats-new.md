@@ -4,7 +4,7 @@ description: Learn what's new with Azure VPN Gateway such as the latest release 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/06/2026
+ms.date: 05/26/2026
 ms.author: cherylmc
 ms.custom:
   - build-2025
@@ -28,10 +28,12 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 > [!NOTE]
 > Timelines are subject to change.<br>
-> Basic IP deprecation timeline for all **VPN Gateways** is moved to **End of June 2026**
+> Basic IP deprecation timeline for all **VPN Gateways** is moved to **End of June 2026**<br>
+> Azure VPN Client for Linux (Preview) retirement date is **August 31, 2026**.
 
 | Event | Customer impact| Anticipated timelines | Customer action/ prerequisites | Documentation | Announcement Links |
 |---|---|---|---|---|---|
+|Azure VPN Client for Linux (Preview) Retirement |- Azure VPN Client for Linux no longer supported.<br>- End user clients may fail to connect after the retirement date if using Azure VPN Client for Linux.|- **August 31, 2026**: Azure VPN Client for Linux (Preview) is retired |- Update gateway configuration and end clients following guidance in documentation|- [How to migrate to a new Linux Client](azure-vpn-client-linux-retirement.md)<br> -[Frequently Asked Questions](vpn-gateway-vpn-faq.md#linux-client-retirement)|[Azure VPN Client for Linux (Preview) Retirement](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D) |
 |Basic SKU public IP address migration - For all VPN SKUs except Basic SKU gateway |- New [pricing changes](https://azure.microsoft.com/pricing/details/ip-addresses/).<br>- Up to 10 min downtime during migration.<br>- IP address un-changed.|- **Jan 2026**: General Availability for Active-Passive gateways. <br>- **Apr 2026**: General Availability for Active-Active gateways. |- Verify IP address space and subnet size [here](basic-public-ip-migrate-about.md#considerations). <br>- Migrate Basic to Standard SKU public IP. <br> - No action if already on Standard SKU.|- [About Basic SKU Public IP address migration](basic-public-ip-migrate-about.md) <br>  - [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal)|[Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
 |Basic SKU public IP address - For Basic SKU gateway | - IP address unchanged.<br> - No connectivity interruption. | - **Mar 2026**: Available. <br> | - Removing Basic public IP reference from VPN Gateway virtual network gateways. [FAQ](basic-sku-public-ip-remove.md) | [Remove Basic Public IP Reference from Basic SKU VPN Gateway](basic-sku-public-ip-remove.md)  | [Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
 |Non-AZ gateway SKU retirement |- New AZ SKUs pricing applied since Jan 2025.<br>- No downtime expected.<br>- New Non-AZ SKU creates blocked in 2025. |- **Jan 2025**: New pricing activated.<br> - **May 2025 - Sep 2026**: Non-AZ SKU migration.<br> - **Sep 2026**: Non-AZ SKU retirement.|- Migrate Basic IP address to Standard IP if applicable. <br> - Upgrade the gateway SKU from portal. |[VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md)| [Non-AZ gateway SKU retirement](https://azure.microsoft.com/updates?id=vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)|
@@ -61,7 +63,7 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 ### <a name="linux"></a>Azure VPN Client - Linux
 
-[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 ### <a name="macos"></a>Azure VPN Client - macOS
 

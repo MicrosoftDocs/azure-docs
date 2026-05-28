@@ -19,7 +19,7 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 ## Azure VPN Client - Linux
 
-[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 ## Azure VPN Client - macOS
 

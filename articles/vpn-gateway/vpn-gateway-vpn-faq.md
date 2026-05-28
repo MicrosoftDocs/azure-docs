@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/13/2026
+ms.date: 05/27/2026
 ms.author: cherylmc
 # Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
@@ -209,6 +209,10 @@ See the following articles:
 
 ### Is IP fragmentation in site-to-site VPN tunnels supported?
 No. IP fragmentation is not supported for ESP packets or for any packets encapsulated within the site-to-site VPN tunnel.
+
+## <a name="linux-client-retirement"></a>Retirement of (Preview) Azure VPN Client for Linux
+
+The Azure VPN Client for Linux (Preview) is being retired on August 31, 2026. For more information, see the [Azure VPN Client for Linux (Preview) — Retirement Overview](azure-vpn-client-linux-retirement.md) article.
 
 ## <a name="sku-deprecate"></a>Deprecation of older SKUs
 

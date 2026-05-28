@@ -23,26 +23,82 @@ The project source uses the Azure Developer CLI (azd) extension with Visual Stud
 
 ## Initialize the project
 
-You can use the `azd init` command from the command palette to create a local Azure Functions code project from a template.
-
-1. In Visual Studio Code, open a folder or workspace in which you want to create your project.
-
-1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Initialize App (init)`, and then choose **Select a template**.
-
-1. When prompted, search for and select `Azure Functions with SQL Triggers and Bindings`.
-
-1. When prompted, enter a unique environment name, such as `sqldbchanges`.
+Use the Azure Developer CLI (`azd`) to create a local Azure Functions code project from a template.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp" 
-This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+1. From a terminal, run this `azd init` command to create a local project from the template:
+
+    ```console
+    azd init --template functions-quickstart-dotnet-azd-sql -e sqldbchanges
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-dotnet-azd-sql
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+1. From a terminal, run this `azd init` command to create a local project from the template:
+
+    ```console
+    azd init --template functions-quickstart-python-azd-sql -e sqldbchanges
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-python-azd-sql
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-typescript" 
-This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-sql) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+1. From a terminal, run this `azd init` command to create a local project from the template:
+
+    ```console
+    azd init --template functions-quickstart-typescript-azd-sql -e sqldbchanges
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-sql) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-typescript-azd-sql
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+3. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:
+
+    ### [Linux/macOS](#tab/linux)
+    
+    Run this command with sufficient privileges:
+
+    ```bash
+    chmod +x ./infra/scripts/*.sh
+    ```
+
+    ### [Windows](#tab/windows-cmd)
+    
+    Run this command from the Windows command prompt:
+ 
+    ```cmd
+    pwsh -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    ```
+
+    If prompted, select **Yes** to approve the policy change.     
+
+    ---
+
+4. Open the project in Visual Studio Code:
+
+    ```console
+    code .
+    ```
+
 Before you can run your app locally, you must create the resources in Azure.
 
 ## Create Azure resources

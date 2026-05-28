@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 02/12/2025
+ms.date: 05/26/2026
 ms.service: azure-virtual-wan
 ms.topic: include
 ---
@@ -14,7 +14,6 @@ ms.topic: include
 | | OpenVPN | Windows | [Azure VPN client](../articles/virtual-wan/vpn-client-certificate-windows.md)<br>[OpenVPN client version 2.x](../articles/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md)<br>[OpenVPN client version 3.x](../articles/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md) |
 | | OpenVPN | macOS | [OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-mac.md) |
 | | OpenVPN | iOS | [OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-ios.md) |
-| | OpenVPN |Linux | [Azure VPN client](../articles/virtual-wan/point-to-site-azure-vpn-client-certificate-linux.md)<br>[OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-linux.md)|
+| | OpenVPN |Linux | [OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-linux.md)|
 | Microsoft Entra ID | OpenVPN | Windows | [Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-windows.md) |
 |  | OpenVPN | macOS | [Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-mac.md) |
-|  | OpenVPN| Linux |[Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-linux.md) |

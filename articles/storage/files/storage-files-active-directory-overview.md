@@ -15,7 +15,7 @@ ms.author: kendownie
 
 This article explains how you can use identity-based authentication, either on-premises or in Azure, to enable identity-based access to Azure Files over Server Message Block (SMB) protocol. Just like Windows file servers, you can grant permissions to an identity at the share, directory, or file level. There's no extra service charge to enable identity-based authentication on your storage account.
 
-Azure Files supports identity-based authentication over SMB for Windows, [Linux](storage-files-identity-auth-linux-kerberos-enable.md), and macOS clients. Azure Files doesn't currently support identity-based authentication for Network File System (NFS) file shares.
+Azure Files supports identity-based authentication over SMB for Windows, [Linux](storage-files-identity-auth-linux-kerberos-enable.md), and [macOS](identity-kerberos-authentication-macos.md) clients. Azure Files doesn't currently support identity-based authentication for Network File System (NFS) file shares.
 
 ## Why use identity-based authentication?
 
@@ -56,6 +56,8 @@ Use the following guidelines to determine which identity source you should choos
 - If you want to authenticate cloud-only identities without using domain controllers, choose Microsoft Entra Kerberos.
 
 - If you already use Microsoft Entra Domain Services, choose Microsoft Entra Domain Services as your identity source.
+
+- If you need to authenticate macOS clients, choose Microsoft Entra Kerberos.
 
 ## Enable an identity source on your storage account
 

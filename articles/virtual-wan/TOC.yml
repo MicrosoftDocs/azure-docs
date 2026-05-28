@@ -192,6 +192,8 @@
     href: about-client-address-pools.md
   - name: About global and hub profiles
     href: global-hub-profile.md
+  - name: Migrate from the Azure VPN Client for Linux
+    href: azure-vpn-client-linux-retirement.md
   - name: Configure P2S - Certificate authentication
     items:
     - name: P2S server configuration

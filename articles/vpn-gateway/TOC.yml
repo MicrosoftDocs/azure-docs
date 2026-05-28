@@ -184,6 +184,8 @@
       href: point-to-site-about.md
     - name: About point-to-site VPN routing
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: Migrate from Azure VPN Client for Linux
+      href: azure-vpn-client-linux-retirement.md
     - name: Configure P2S - certificate authentication
       items:
         - name: P2S gateway configuration

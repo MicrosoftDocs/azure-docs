@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB with macOS using Fi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/13/2024
+ms.date: 05/28/2026
 ms.author: kendownie
 # Customer intent: As a macOS user, I want to mount an Azure file share using SMB, so that I can easily access and manage my cloud storage directly through Finder or Terminal.
 ---
@@ -16,7 +16,7 @@ ms.author: kendownie
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS High Sierra 10.13+.
 
 > [!WARNING]
-> Mounting a file share using storage account keys carries inherent security risks. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md). Azure Files doesn't currently support using identity-based authentication to mount a file share on macOS.
+> Mounting a file share using storage account keys carries inherent security risks. Use [identity-based authentication](identity-kerberos-authentication-macos.md) instead. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 ## Prerequisites for mounting an Azure file share on macOS
 

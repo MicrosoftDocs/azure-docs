@@ -566,6 +566,51 @@ Create and manage Azure Cache for Redis resources. Cannot read or write data sto
 }
 ```
 
+## Semantic Reranker User
+
+Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/read | Reads an inference service. |
+> | **NotActions** |  |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/write | Creates or updates an inference service. |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/delete | Deletes an inference service. |
+> | **DataActions** |  |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/invoke/semanticReranker/action | Invokes the semantic reranker on an inference account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6c74a7c5-4a87-40f9-bb03-61e49aecbc78",
+  "name": "6c74a7c5-4a87-40f9-bb03-61e49aecbc78",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.InferenceService/inferenceAccounts/read"
+      ],
+      "notActions": [
+        "Microsoft.InferenceService/inferenceAccounts/write",
+        "Microsoft.InferenceService/inferenceAccounts/delete"
+      ],
+      "dataActions": [
+        "Microsoft.InferenceService/inferenceAccounts/invoke/semanticReranker/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Semantic Reranker User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## SQL DB Contributor
 
 Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers.

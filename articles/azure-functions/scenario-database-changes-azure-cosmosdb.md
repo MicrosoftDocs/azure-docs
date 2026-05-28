@@ -28,58 +28,100 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 ## Initialize the project
 
-You can use the `azd init` command from the command palette to create a local Azure Functions code project from a template.
- 
-1. In Visual Studio Code, open a folder or workspace in which you want to create your project.
-
-1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Initialize App (init)`, and then choose **Select a template**.
-
-    There might be a slight delay while `azd` initializes the current folder or workspace.  
+Use the Azure Developer CLI (`azd`) to create a local Azure Functions code project from a template.
  
 ::: zone pivot="programming-language-csharp" 
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions with Cosmos DB Bindings (.NET)`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-dotnet`.
+    ```console
+    azd init --template functions-quickstart-dotnet-azd-cosmosdb -e cosmosdbchanges-dotnet
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-dotnet-azd-cosmosdb
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions with Cosmos DB Bindings (Java)`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-java`.
+    ```console
+    azd init --template functions-quickstart-java-azd-cosmosdb -e cosmosdbchanges-java
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-java-azd-cosmosdb
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions JavaScript CosmosDB trigger`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-js`.
+    ```console
+    azd init --template functions-quickstart-javascript-azd-cosmosdb -e cosmosdbchanges-js
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-javascript-azd-cosmosdb
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions PowerShell CosmosDB trigger`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-ps`.
+    ```console
+    azd init --template functions-quickstart-powershell-azd-cosmosdb -e cosmosdbchanges-ps
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-powershell-azd-cosmosdb
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions TypeScript CosmosDB trigger`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-ts`.
+    ```console
+    azd init --template functions-quickstart-typescript-azd-cosmosdb -e cosmosdbchanges-ts
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-typescript-azd-cosmosdb
+    ```
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions Python with CosmosDB triggers and bindings...`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `cosmosdbchanges-py`.
+    ```console
+    azd init --template functions-quickstart-python-azd-cosmosdb -e cosmosdbchanges-py
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb) and initializes the project in the current folder or workspace. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-cosmosdb) and initializes the project in a new folder. In `azd`, the environment is used to maintain a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure. 
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-python-azd-cosmosdb
+    ```
 ::: zone-end
 
-5. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:
+3. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:
 
     ### [Linux/macOS](#tab/linux)
     
@@ -100,6 +142,12 @@ You can use the `azd init` command from the command palette to create a local Az
     If prompted, select **Yes** to approve the policy change.     
 
     ---
+
+4. Open the project in Visual Studio Code:
+
+    ```console
+    code .
+    ```
 
 Before you can run your app locally, you must create the resources in Azure. This project doesn't use local emulation for Azure Cosmos DB.
 
