@@ -1086,20 +1086,26 @@ func quickstart list [options]
 
 | Option | Description |
 | ----- | ----- |
-| **`--language`**, **`-l`** | Filter by worker runtime or language (for example, `python`, `node`, `java`, `dotnet`). |
+| **`--stack`**, **`-s`** | The stack to use (for example, `python`, `node`, `dotnet`). |
+| **`--language`**, **`-l`** | The programming language. Supported values come from installed quickstart providers. |
 | **`--resource`**, **`-r`** | Filter by trigger or binding resource. |
 | **`--iac`** | Filter by infrastructure-as-code type. |
 | **`--search`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
+| **`--json`** | Emit machine-readable JSON instead of a table. |
 
 ### `func quickstart info`
 
 Displays detailed information about a specific template.
 
 ```command
-func quickstart info <ID>
+func quickstart info <ID> [options]
 ```
 
 `<ID>` is the template ID from the catalog. Use `func quickstart list` to discover available IDs.
+
+| Option | Description |
+| ----- | ----- |
+| **`--json`** | Emit machine-readable JSON instead of formatted output. |
 
 ## `func profile`
 
