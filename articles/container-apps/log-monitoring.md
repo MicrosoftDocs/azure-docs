@@ -109,36 +109,101 @@ The `ContainerAppHTTPLogs` schema contains the following fields and descriptions
    | **Ingress diagnostics** | | |
    | `EnvoyPodName` | string | Name of the ingress pod that produced this record. Useful for cross-referencing ingress logs during incident investigation. |
    | `EnvoyContainerId` | string | Container ID of the ingress instance. Useful for cross-referencing ingress logs during incident investigation. |
-| --- | --- |
-| `StartTime` | UTC timestamp when request processing started at ingress. |
-| `ContainerAppName` | Name of the container app that handled the request. |
-| `RevisionName` | Revision name for the container app instance that served the request. |
-| `EnvironmentName` | Container Apps environment name. |
-| `Method` | HTTP method, for example `GET` or `POST`. |
-| `Path` | Request path after sanitization and conditional redaction. |
-| `Authority` | Host/authority value after sanitization and conditional redaction. |
-| `Protocol` | Application protocol observed by ingress, for example `HTTP/1.1` or `HTTP/2`. |
-| `StatusCode` | Final HTTP status code returned to the client. |
-| `ResponseCodeDetails` | Envoy response classification detail string. |
-| `ResponseFlags` | Envoy response flag markers for transport or routing conditions. |
-| `RequestDuration` | End-to-end request duration at ingress. |
-| `UpstreamHost` | Upstream endpoint selected by Envoy. |
-| `UpstreamRequestAttemptCount` | Number of upstream attempts made for the request. |
-| `RequestId` | Correlation identifier for the request. |
-| `ConnectionId` | Connection identifier, when present. |
-| `BytesReceived` | Number of request bytes received. |
-| `BytesSent` | Number of response bytes sent. |
-| `UserAgent` | User agent value after sanitization and conditional redaction. |
-| `XForwardedFor` | Forwarded client IP chain from ingress headers. |
-| `EnvoyPodName` | Name of the ingress Envoy pod that produced the log record. |
-| `EnvoyContainerId` | Container ID of the ingress Envoy instance. |
-| `ReplicaName` | Replica name associated with the request, when present. |
 
 > [!NOTE]
 > After you enable HTTP logs, it can take several minutes before the `ContainerAppHTTPLogs` table appears in Log Analytics.
 
 
 ### Query HTTP logs in Log Analytics
+
+Use the following triage-focused queries first, then use the additional analysis examples that follow.
+
+#### View recent HTTP errors
+
+When to use: You see elevated error rates in your dashboards, customers report failures, or you want a quick triage of what is failing right now.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(1h)
+| where StatusCode >= 400
+| project TimeGenerated, ContainerAppName, RevisionName, Method, Path,
+  StatusCode, ResponseCodeDetails, RequestDuration, RequestId
+| order by TimeGenerated desc
+| take 100
+```
+
+Tip: Check `ResponseCodeDetails` to see why a request failed. For example, `route_not_found` indicates a routing misconfiguration, while `via_upstream` means your container returned the error itself.
+
+#### Find slow requests
+
+When to use: Your app feels slow, you are investigating a latency complaint, or you want to verify a performance fix.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(1h)
+| where ContainerAppName == "<app-name>"
+| top 50 by RequestDuration desc
+| project TimeGenerated, Method, Path, StatusCode, RequestDuration,
+  ReplicaName, UpstreamRequestAttemptCount, RequestId
+```
+
+Tip: `RequestDuration` is reported in milliseconds. If you see high values together with `UpstreamRequestAttemptCount > 1`, the request was retried, which adds to the total time.
+
+#### Track request volume and error rate by revision
+
+When to use: You just deployed a new revision and want to confirm it is healthy, or you are running a blue/green rollout and want to compare two revisions side by side.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(6h)
+| where ContainerAppName == "<app-name>"
+| summarize Requests = count(),
+  Errors = countif(StatusCode >= 500),
+  ErrorRatePct = round(100.0 * countif(StatusCode >= 500) / count(), 2),
+  P95DurationMs = percentile(RequestDuration, 95)
+  by RevisionName, bin(TimeGenerated, 5m)
+| order by TimeGenerated desc
+| render timechart
+```
+
+Tip: A new revision suddenly serving `0` requests usually means a traffic-weight problem in your ingress configuration. A new revision with a higher error rate or P95 than the previous one is a deployment regression; consider rolling back.
+
+#### Trace a single request end-to-end
+
+When to use: A customer reports a specific failed transaction and gives you their request ID (the `x-request-id` header value they saw). You need to find that exact request and any related app logs.
+
+```kusto
+let _requestId = "<request-id>";
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(24h)
+| where RequestId == _requestId
+| project TimeGenerated, ContainerAppName, RevisionName, ReplicaName,
+  Method, Path, StatusCode, ResponseCodeDetails, ResponseFlags,
+  RequestDuration, UpstreamHost, UserAgent, XForwardedFor
+```
+
+Tip: Once you have the `ReplicaName` from the row above, join with `ContainerAppConsoleLogs_CL` filtered to the same replica and a small time window around `TimeGenerated` to see your app's own log lines for that request.
+
+#### Identify your top failing endpoints
+
+When to use: You see lots of errors but do not know where to focus first. This query surfaces which paths are responsible for the most failures, so you can prioritize fixes by impact.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(24h)
+| where StatusCode >= 400
+| summarize Errors = count(),
+  DistinctClientIPs = dcount(XForwardedFor),
+  SampleStatusCodes = make_set(StatusCode, 5),
+  ExampleDetails = take_any(ResponseCodeDetails)
+  by ContainerAppName, Method, Path
+| order by Errors desc
+| take 20
+```
+
+Tip: A high `DistinctClientIPs` count alongside the errors suggests a real, broadly impacting issue. A low count usually indicates a single misbehaving client (for example, a scanner or a buggy retry loop).
+
+#### Inspect recent HTTP log records
 
 Use this query to inspect recent HTTP log records:
 
@@ -152,7 +217,7 @@ ContainerAppHTTPLogs
 
 Use the following examples for common HTTP log analysis scenarios.
 
-Status code distribution:
+#### Status code distribution
 
 ```kusto
 ContainerAppHTTPLogs
@@ -161,7 +226,7 @@ ContainerAppHTTPLogs
 | order by Count desc
 ```
 
-Error-focused view (4xx/5xx):
+#### Error-focused view (4xx/5xx)
 
 ```kusto
 ContainerAppHTTPLogs
@@ -180,17 +245,7 @@ ContainerAppHTTPLogs
 | top 100 by Time desc
 ```
 
-5xx trend by app and path:
-
-```kusto
-ContainerAppHTTPLogs
-| where TimeGenerated > ago(2h)
-| where toint(StatusCode) >= 500
-| summarize Count = count() by bin(TimeGenerated, 5m), ContainerAppName, Path
-| order by TimeGenerated desc, Count desc
-```
-
-Latency (P50/P95/P99) by app and path:
+#### Latency (P50/P95/P99) by app and path
 
 ```kusto
 ContainerAppHTTPLogs
@@ -202,30 +257,6 @@ ContainerAppHTTPLogs
     P99 = percentile(RequestDuration, 99)
   by ContainerAppName, Path
 | order by P95 desc
-```
-
-Retry-focused view (multiple upstream attempts):
-
-```kusto
-ContainerAppHTTPLogs
-| where TimeGenerated > ago(2h)
-| where toint(UpstreamRequestAttemptCount) > 1
-| project
-    Time = TimeGenerated,
-    ContainerAppName,
-    RevisionName,
-    ReplicaName,
-    Method,
-    Path,
-    StatusCode,
-    UpstreamRequestAttemptCount,
-    ResponseFlags,
-    ResponseCodeDetails,
-    UpstreamHost,
-    RequestId,
-    ConnectionId
-| order by Time desc
-| take 200
 ```
 
 
