@@ -5,11 +5,9 @@ author: TaylorCorbett
 ms.author: gecorbet
 ms.service: planetary-computer-pro
 ms.topic: tutorial
-ms.date: 4/25/2025
+ms.date: 05/27/2026
 
 #customer intent: As a user, I want to create a GeoCatalog collection and populate it with satellite imagery so that I can learn how to repeat the process with my own data.
-ms.custom:
-  - build-2025
 ---
 
 # Tutorial: Using the Microsoft Planetary Computer Pro APIs to ingest and visualize data

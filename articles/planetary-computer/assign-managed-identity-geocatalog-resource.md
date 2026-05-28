@@ -4,10 +4,8 @@ description: Learn how to assign a User-assigned managed identity to a Microsoft
 author: jglixon
 ms.topic: how-to
 ms.service: planetary-computer-pro
-ms.date: 04/24/2025
+ms.date: 05/27/2026
 ms.author: jglixon
-ms.custom:
-  - build-2025
 ---
 
 # Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog via the CLI

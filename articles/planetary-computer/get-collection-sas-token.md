@@ -5,10 +5,8 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 04/29/2025
+ms.date: 05/27/2026
 #customer intent: help customers get a sas token for a collection.
-ms.custom:
-  - build-2025
 ---
 # Quickstart: Request a STAC collection SAS token
 

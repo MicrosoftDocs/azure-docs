@@ -5,10 +5,8 @@ author: nelsontam-afk
 ms.author: nelsontam
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 04/24/2025
+ms.date: 05/27/2026
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
-ms.custom:
-  - build-2025
 ---
 
 # Quickstart: Create a STAC Collection in Microsoft Planetary Computer Pro GeoCatalog with Python

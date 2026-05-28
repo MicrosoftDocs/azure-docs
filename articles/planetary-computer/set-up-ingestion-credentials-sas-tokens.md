@@ -5,11 +5,9 @@ author: SilviaMSFT
 ms.author: silviadiana
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 05/27/2026
 
 #customer intent: Help customers understand how credentials work and how to add them ahead of an ingestion for SAS Tokens.
-ms.custom:
-  - build-2025
 ---
 
 # Set up an ingestion source for Microsoft Planetary Computer Pro using SAS tokens

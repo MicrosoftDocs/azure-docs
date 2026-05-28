@@ -5,10 +5,8 @@ author: TaylorCorbett
 ms.author: gecorbet
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't Change
-ms.date: 04/18/2024
+ms.date: 05/27/2026
 #customer intent: As a geocatalog user, I want to use the Bulk Ingestion API so that I can efficiently ingest a large amount of geospatial data into my GeoCatalog.
-ms.custom:
-  - build-2025
 ---
 
 # Ingest data into GeoCatalog with the Bulk Ingestion API

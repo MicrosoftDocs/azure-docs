@@ -5,9 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
-ms.custom:
-  - build-2025
+ms.date: 05/27/2026
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro

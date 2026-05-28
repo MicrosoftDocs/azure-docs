@@ -5,7 +5,7 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't change
-ms.date: 03/27/2026
+ms.date: 05/27/2026
 
 #customer intent: As a GeoCatalog administrator, I want to create an API proxy for my GeoCatalog using Azure API Management so that I can enable anonymous access and restrict which collections are visible to external callers.
 ---
@@ -433,10 +433,10 @@ Add the following operations:
 
 | Display name | Method | URL template |
 |-------------|--------|-------------|
-| POST register search | POST | `/data/mosaic/searches` |
+| POST register search | POST | `/data/mosaic/register` |
 | GET data collection | GET | `/data/mosaic/collections/{collectionId}/*` |
 
-#### POST /data/mosaic/searches policy
+#### POST /data/mosaic/register policy
 
 This policy validates the `collections` array in the JSON body against the allowed set. Requests without a `collections` parameter are rejected.
 

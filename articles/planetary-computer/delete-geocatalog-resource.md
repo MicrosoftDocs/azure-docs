@@ -4,10 +4,8 @@ description: Learn how to delete a GeoCatalog resource using Azure portal, Azure
 author: meaghanlewis
 ms.topic: how-to
 ms.service: planetary-computer-pro
-ms.date: 04/14/2025
+ms.date: 05/27/2026
 ms.author: adamloverro
-ms.custom:
-  - build-2025
 # customer intent: As a GeoCatalog user I want to delete a GeoCatalog resource so that I can remove this resource from my Azure Subscription.
 ---
 

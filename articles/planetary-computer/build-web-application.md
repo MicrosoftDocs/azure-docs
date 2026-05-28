@@ -5,7 +5,7 @@ author: aloverro
 ms.author: adamloverro
 ms.service: azure
 ms.topic: quickstart
-ms.date: 01/09/2026
+ms.date: 05/27/2026
 
 #customer intent: As a web developer, I want to build a browser application that can authenticate users and display geospatial data from Microsoft Planetary Computer Pro so that I can create custom visualization and analysis tools.
 
@@ -435,7 +435,7 @@ const API_VERSION = '2026-04-15';
  * Returns a search ID that can be used to fetch mosaic tiles.
  */
 async function registerMosaic(catalogUrl, collectionId, accessToken) {
-  const url = `${catalogUrl}/data/mosaic/searches?api-version=${API_VERSION}`;
+  const url = `${catalogUrl}/data/mosaic/register?api-version=${API_VERSION}`;
   
   const response = await fetch(url, {
     method: 'POST',
