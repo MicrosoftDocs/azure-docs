@@ -3,7 +3,7 @@ title: Set up GitHub connector (OAuth or PAT)
 description: Configure the GitHub connector for github.com using OAuth or PAT authentication to enable issue, PR, and workflow operations.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 05/27/2026
+ms.date: 05/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -12,7 +12,7 @@ ms.ai-usage: ai-assisted
 
 # Set up GitHub connector (OAuth or PAT)
 
-Connect `github.com` to your agent through the GitHub connector path in **Builder > Connectors**.
+Use the GitHub connector to connect `github.com` to your agent for managing issues, pull requests, and workflows. Configure the connector through **Builder > Connectors** in the portal.
 
 > [!NOTE]
 > This tutorial covers the GitHub Connector for issue, PR, and workflow operations. For code context during investigations, see [Connect source code](connect-source-code.md). For GitHub Enterprise Cloud, see [Connect GitHub Enterprise Cloud](connect-github-enterprise-cloud.md).
@@ -23,14 +23,14 @@ Connect `github.com` to your agent through the GitHub connector path in **Builde
 - Access to `github.com` repositories you want the agent to use
 - Agent role: **Administrator** or **Standard User**
 
-## Open GitHub connector setup
+## Open the GitHub connector setup
 
 1. Open your agent in the portal.
-1. Navigate to **Builder > Connectors**.
+1. Go to **Builder > Connectors**.
 1. Select **Add connector**.
 1. Select **GitHub OAuth connector**.
 
-## Choose authentication
+## Choose an authentication method
 
 Choose one method:
 
@@ -53,7 +53,7 @@ Choose one method:
 1. Select **Connect**.
 1. Confirm status shows **Connected**.
 
-## Confirm runtime operations
+## Confirm GitHub connector runtime operations
 
 After saving the connector, test with a chat prompt:
 
@@ -84,14 +84,14 @@ Get me recent issues from owner/repo.
 | Connector can't access private repos | Token scope too narrow | Use `repo` scope for private repos |
 | Popup doesn't open | Browser popup blocked | Allow popups for the portal domain |
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Connect source code](connect-source-code.md)
-
 ## Related content
 
 - [GitHub connector](github-connector.md)
 - [Connect GitHub Enterprise Cloud](connect-github-enterprise-cloud.md)
 - [Connect source code](connect-source-code.md)
 - [Set up an MCP connector](mcp-connector.md)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Connect source code](connect-source-code.md)

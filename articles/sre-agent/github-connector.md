@@ -12,7 +12,7 @@ ms.ai-usage: ai-assisted
 
 # GitHub connector in Azure SRE Agent
 
-Connect your GitHub repositories so your agent can read source code, search for errors, create issues, trigger workflows, and correlate deployments with incidents.
+Connect your GitHub repositories so your agent can read source code, search for errors, create issues, trigger workflows, and match deployments with incidents.
 
 > [!TIP]
 > **Quick overview**
@@ -22,9 +22,9 @@ Connect your GitHub repositories so your agent can read source code, search for 
 > - **GitHub MCP** provides full GitHub tool access with governance controls.
 > - Authenticate with **OAuth**, **PAT**, or **BYO GitHub App** — all three work on `github.com`. GitHub Enterprise Cloud (`*.ghe.com`) requires BYO App.
 
-GitHub is where your source code, infrastructure definitions, deployment configs, skills, and runbooks live. When your agent can read these artifacts, investigations go from generic troubleshooting to root cause analysis that references the exact file, the exact commit, and the exact config change.
+Your source code, infrastructure definitions, deployment configs, skills, and runbooks live in GitHub. When your agent can read these artifacts, investigations go from generic troubleshooting to root cause analysis that references the exact file, the exact commit, and the exact config change.
 
-## How your agent uses GitHub
+## How your agent uses the GitHub connector
 
 Azure SRE Agent connects to GitHub in three ways, each serving a different purpose:
 
@@ -36,9 +36,9 @@ Azure SRE Agent connects to GitHub in three ways, each serving a different purpo
 
 You can use multiple connection types on the same agent. Each serves a different runtime purpose.
 
-## How you authenticate
+## Authentication methods for the GitHub connector
 
-Separately from what the agent does, you choose how it authenticates to GitHub. Three methods are available, and they work across all connection types.
+Separately from what the agent does, choose how it authenticates to GitHub. Three methods are available, and they work across all connection types.
 
 | Auth method | How it works | Supported hosts | Best for |
 |---|---|---|---|
@@ -59,11 +59,11 @@ For `github.com`, all three methods work across all connection types. For GitHub
 > [!TIP]
 > **OAuth tokens refresh automatically**
 >
-> GitHub OAuth tokens are refreshed automatically before expiration using a pre-expiry buffer. This helps keep connector access stable for long investigations and scheduled tasks without frequent manual sign-in.
+> GitHub OAuth tokens are refreshed automatically before expiration by using a pre-expiry buffer. This process helps keep connector access stable for long investigations and scheduled tasks without frequent manual sign-in.
 >
 > **When you need to re-authenticate:** If refresh can no longer complete, if you revoke the GitHub App authorization, or if your connector credentials are no longer valid in GitHub.
 
-## What the agent can do with GitHub
+## What the agent can do with the GitHub connector
 
 ### Source code analysis
 
@@ -88,9 +88,9 @@ For `github.com`, all three methods work across all connection types. For GitHub
 
 ## GitHub Enterprise Cloud
 
-Connect repositories hosted on GitHub Enterprise Cloud (`<tenant>.ghe.com`) using a BYO GitHub App. The agent uses your app's private key—stored in Azure Key Vault—to mint short-lived installation tokens for each repository.
+Connect repositories hosted on GitHub Enterprise Cloud (`<tenant>.ghe.com`) by using a BYO GitHub App. The agent uses your app's private key, which you store in Azure Key Vault, to create short-lived installation tokens for each repository.
 
-You need:
+Make sure you have:
 
 - A GitHub App created on your GHE instance with **Contents: Read-only** permission
 - The app's private key stored as a secret in Azure Key Vault
@@ -98,7 +98,7 @@ You need:
 
 For the full setup guide, see [Connect GitHub Enterprise Cloud repositories](connect-github-enterprise-cloud.md).
 
-## Same repository in multiple paths
+## Configure the same repository in multiple paths
 
 You can configure the same repo in multiple GitHub paths. Each path serves different runtime jobs.
 
@@ -128,7 +128,7 @@ You can configure the same repo in multiple GitHub paths. Each path serves diffe
 | Clone/read fails after auth succeeds | Missing Metadata/Contents read permissions on app or token | Grant required repo permissions and retry |
 | PR or issue actions fail | Missing issue/PR permissions | Add issue/PR permissions to OAuth/PAT scope or GitHub App |
 
-## Get started
+## Get started with the GitHub connector
 
 | What you want to do | Guide |
 |---|---|
