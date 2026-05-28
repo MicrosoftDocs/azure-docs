@@ -3,10 +3,9 @@ title: Install Update on Azure Stack Edge Pro GPU device | Microsoft Docs
 description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device.
 services: databox
 author: sipastak
-
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 07/17/2025
+ms.date: 05/28/2026
 ms.author: sipastak
 ---
 # Update your Azure Stack Edge Pro GPU
@@ -22,36 +21,36 @@ Apply the software updates or hotfixes to keep your Azure Stack Edge Pro device 
 
 ## About latest updates
 
-The current version is Update 2506. This update installs two updates, the device update followed by Kubernetes updates. 
+The current version is Update 2604. This update installs two updates, the device update followed by Kubernetes updates. 
 
 The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2506 (3.3.2506.1090).
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2506 (3.3.2506.1090).
-- Device Kubernetes workload profile: Other workloads.
-- Kubernetes server version: v1.30.4.
-- IoT Edge version: 0.1.0-beta15.
-- Azure Arc version: 1.23.3.
-- GPU driver version: 535.183.06.
-- CUDA version: 12.2.
+- Device software version: Azure Stack Edge 2604 (3.3.2604.3097)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2604 (3.3.2604.3097)
+- Device Kubernetes workload profile: Other workloads
+- Kubernetes server version: v1.35.0
+- IoT Edge version: 0.1.0-beta15
+- Azure Arc version: 1.31.7
+- GPU driver version: 590.48.01
+- CUDA version: 13.1
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2506-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2604-release-notes.md).
 
-**To apply the 2506 update, your device must be running version 2501 or later.**
+**To apply the 2604 update, your device must be running version 2510 or later.**
 
 - If you aren't running the minimum required version, you see this error:
  
   *Update package can't be installed as its dependencies aren't met.*
 
-- You can update to 2501 from 2403 or later, and then install 2506.
+- You can update to 2510 from 2501 or later, and then install 2604.
 
 Supported update paths:
 
-| Current version of Azure Stack Edge software and Kubernetes | Upgrade to Azure Stack Edge software and Kubernetes | Desired update to 2506 |
-|-------|----------|------------ |
-| earlier than 2403  | update to 2403, then to 2501  | 2506  |
-| earlier than 2501  | update to 2501  | 2506  |
-| 2501  | Directly to | 2506  |
+| Current version of Azure Stack Edge software and Kubernetes | Update to Azure Stack Edge software and Kubernetes | Desired update to 2604 |
+| ------------------------------------------------------------| ---------------------------------------------------| -----------------------|
+| earlier than 2501                                           | update to 2501, then to 2510                       | 2604                   |
+| earlier than 2510                                           | update to 2510                                     | 2604                   |
+| 2510                                                        | Directly to                                        | 2604                   |
 
 ### Update Azure Kubernetes service on Azure Stack Edge
 
