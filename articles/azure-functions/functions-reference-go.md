@@ -36,7 +36,7 @@ Choose the environment that fits your workflow and get started with Azure Functi
 
 - [Go 1.24](https://go.dev/dl/) or later
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version `4.12` or later. Run `func --version` to verify your installed version.
-- [Azure CLI](/cli/azure/install-azure-cli), when you deploy packages to Azure
+- [Azure CLI](/cli/azure/install-azure-cli) version `2.87.0` or later, when you create Azure resources or deploy packages to Azure. Run `az version` to verify your installed version.
 
 ## Programming model
 

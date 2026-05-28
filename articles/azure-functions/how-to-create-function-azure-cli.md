@@ -29,6 +29,8 @@ Make sure to select your preferred development language at the top of the articl
 + [Go 1.24](https://go.dev/dl/) or later.
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version `4.12` or later. Run `func --version` to verify your installed version.
+
++ [Azure CLI](/cli/azure/install-azure-cli) version `2.87.0` or later. Run `az version` to verify your installed version.
 ::: zone-end
 ::: zone pivot="programming-language-other"  
 ### [Rust](#tab/rust)
@@ -36,7 +38,9 @@ Make sure to select your preferred development language at the top of the articl
 
 ---
 ::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 + [Azure CLI](/cli/azure/install-azure-cli)
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
