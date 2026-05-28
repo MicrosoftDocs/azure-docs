@@ -29,14 +29,7 @@ When the business process steps are unpredictable or when requirements change qu
 
 Logic Apps Automation removes this effort. You describe what you want to automate, and the platform provides a visual designer, an AI assistant, and 1,400+ ready-to-use connectors so you can build, test, and monitor workflows entirely inside your browser. There's nothing to install on your computer.
 
-This quickstart shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. You create an automation project, add an application, and build your first workflow that accepts a web request and returns a response. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
-
-The example workflow performs the following tasks:
-
-1. Check for new stories at the Wall Street Journal by using an RSS feed.
-1. Feed the results into a conversational agent loop.
-1. Accept and handle questions about the stories through the chat interfact.
-1. Summarize the conversation and send to email.
+This quickstart shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
 
 If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
 
@@ -133,67 +126,83 @@ An *application* holds your workflows, connections, parameters, and analytics. C
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created application." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
 
-   The application opens the **Workflows** tab, which shows a workflow builder and any existing workflows.
+   The application opens the **Workflows** page, which shows the workflow builder and any existing workflows.
 
 ## 3: Build your first workflow
 
 Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
 
-In the section, **Get started with your first workflow**, choose a path from the following table:
+On the **Workflows** page, in the section named **Get started with your first workflow**, choose the path shows the following paths, choose a path from the following table:
 
-
-   | Path | Link to steps |
-   |------|---------------|
-   | Generate the workflow with the AI assistant. | [Generate your workflow using the a assistant](#assistant) |
-   | Build your workflow by starting with an empty designer. | [Build your workflow with the designer](#designer) |
-   | Prepopulate a workflow by using a template. | [Create your workflow from a template](#template) |
-
-This example creates a workflow that responds to a web request and sends back a response. Choose one of the following approaches:
+| Path |
+|------|
+| [Generate your workflow with the AI assistant](#assistant) |
+| [Build your workflow starting with the empty designer](#designer) |
+| [Prepopulate your workflow from a template](#template) |
 
 <a id="assistant"></a>
 
 ### [AI assistant](#tab/assistant)
 
-This approach generates a workflow based on your prompt that describes the workflow's behavior.
+To generate a workflow by using plain words to describe the behavior you want, use the AI assistant.
 
-1. On the **Workflows** page, in the workflow description box, enter a detailed description for the process to automate.
+1. On the **Workflows** page, in the workflow description box, enter the detailed description about the process you want to automate.
 
    > [!TIP]
    >
-   > To view an example, from the **Examples** list, select a sample description that you can reuse or edit.
+   > Make your description as specific as possible. Include the trigger event or condition that makes your workflow run, the actions that you want to happen, and what the result looks like. The more details you provide, the closer the generated workflow matches what you need.
+   >
+   > For examples, from the **Examples** list, select a sample description that you can reuse or edit.
 
-   For example, to create a workflow named `check-wsj-rss-feed-with-prompt`, use the following prompt:
+   Here's some examples you might try:
 
-   `Check the RSS feed at 'https://feeds.content.dowjones.io/public/rss/RSSMarketsMain' by using the RSS trigger. Follow the link to each story, read the story, and create a summary. Send the story to my email account in Office 365 Outlook.`
+   - Simpler: Create a workflow that accepts a web request from an external caller, and returns a response to the caller:
 
-1. When you finish, select **Build**.
+     Prompt: `When a web request arrives with a JSON body, respond with a 200 OK status that includes a greeting message and the current date and time.`
 
-   The following screenshot shows the example prompt:
+     For this example, the workflow name is `http-hello-world`.
+
+   - More complex: To create a workflow that completes the following tasks, use the specified prompt:
+   
+     1. Checks the Wall Street Journal RSS feed for new stories.
+     1. Feeds the results into an agent.
+     1. Accept and handle questions about the stories through chat.
+     1. Summarize the conversation and send to email.
+     
+     Prompt: `Check the RSS feed at 'https://feeds.content.dowjones.io/public/rss/RSSMarketsMain' by using the RSS trigger. Follow the link to each story, read the story, and create a summary. Send the story to my email account in Office 365 Outlook.`
+
+     For this example, the workflow name is `check-wsj-rss-feed-with-prompt`.
+
+1. When you're ready, select **Build**.
+
+   The AI assistant generates and validates the workflow, and then opens the designer canvas. Based on the workflow's complexity, the process might need between a few moments and minutes to complete.
+
+   > [!IMPORTANT]
+   >
+   > The AI assistant creates the workflow outline and structure, including the trigger, actions, and any branches, but can't provide sign-in credentials, parameter values, or settings values specific to your setup. Before your first successful run, you must complete the following steps:
+   >
+   > - Set up connections for each operation that calls an outside service or system.
+   > - Provide values for any required fields that the assistant left empty. Find the fields marked with an asterisk (*) or a red outline.
+   > - Fix any alerts that appear on individual steps.
+
+   The following example shows a sample prompt:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/build-prompt.png" alt-text="Screenshot that shows the Workflows page with an entered prompt and selected option for Build." lightbox="media/quickstart-create-dynamic-workflow-automation/build-prompt.png":::
 
-   The workflow builder might need a few minutes to generate and validate the workflow. The following example shows the generated workflow, which might slightly differ from your version even if you use the same prompt:
+   The following example shows the generated workflow, which might slightly differ from your version even if you use the same prompt:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/generated-workflow.png" alt-text="Screenshot that shows the designer with the workflow generated from the prompt and alerts for further setup." lightbox="media/quickstart-create-dynamic-workflow-automation/generated-workflow.png":::
 
-   Alert icons appear on operations that need extra setup, such as missing input values, connections, settings, and tools that you want agent loops to use.
+   Alert icons appear on operations that need extra setup, such as missing input values, connections, settings, and tools that you want agent loops or agents to use.
 
-1. On the designer, select each operation that shows an alert so you can find the follow-up tasks to complete, for example:
+1. On the designer, select each operation that shows an alert to find and complete any follow-up tasks, for example:
 
-   - On the **Parameters** tab, check for values that you need to provide or change.
-   - On the **Connections** tab, create any missing connections.
-   - On the **Settings** tab, check the values to confirm whether they're set the way you want.
-   - For **Agent Loop** actions, set up any tools you want the agent loop to use, such as actions, MCP server tools, other workflows, or agents.
-
-     1. On the designer, move your mouse over the agent loop action.
-
-     1. From the pop-up box, select **+ Add Tool**, and then select an option:
-
-        | Option | Description |
-        |--------|-------------|
-        | **Action** | A connector operation or built-in operation. |
-        | **MCP Tool** | A tool from an MCP server. |
-        | **Sub-workflow** | Another workflow in the same application or an agent. |
+   | Area | Action |
+   |------|--------|
+   | **Parameters** tab | Check for values that you need to provide or change. |
+   | **Connections** tab | Create missing connections or provide missing connection information. |
+   | **Settings** tab | Check the values to confirm whether they're set the way you want. |
+   | **Agent loop** actions | Set up any tools you want the agent loop to use, such as actions, MCP server tools, agents, or other workflows. <br><br>1. On the designer, move your mouse over the agent loop action. <br><br>2. In the pop-up box, select **+ Add Tool**, and then select an option: <br><br>- **Action**: A connector operation or built-in operation that performs a task. <br><br>- **MCP Tool**: A tool from an MCP server. <br><br>- **Sub-workflow**: Another workflow in the same application or in an agent. |
 
 <a id="designer"></a>
 
