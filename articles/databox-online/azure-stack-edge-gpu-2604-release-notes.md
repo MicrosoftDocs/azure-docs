@@ -43,7 +43,6 @@ There are no new features or enhancements in this release, but the following is 
 
 - Multi-node updates have been deprecated. Multi-node devices will remain on version 2510 or earlier.
 
-
 ## Known issues in this release
 
 There are no known issues in this release.

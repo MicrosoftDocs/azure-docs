@@ -57,22 +57,22 @@ Supported update paths:
 > [!IMPORTANT]
 > Use the following procedure only if you are an SAP or a PMEC customer.
 
-If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are earlier than 2403, you must update in multiple steps to apply 2506.
+If you have Azure Kubernetes service deployed and your Azure Stack Edge device and Kubernetes versions are earlier than 2501, you must update in multiple steps to apply 2604.
 
-Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2506:
+Use the following steps to update your Azure Stack Edge version and Kubernetes version to 2604:
 
-1. Update your device version to 2501.
-1. Update your Kubernetes version to 2403.
+1. Update your device version to 2510.
 1. Update your Kubernetes version to 2501.
-1. Update both device software and Kubernetes to 2506.
+1. Update your Kubernetes version to 2510.
+1. Update both device software and Kubernetes to 2604.
 
-If you're running earlier than 2403, you update both your device version and Kubernetes version to 2403, then to 2501, and then to 2506.
+If you're running earlier than 2501, you update both your device version and Kubernetes version to 2501, then to 2510, and then to 2604.
 
-If you're running 2501, you can update both your device version and Kubernetes version directly to 2506.
+If you're running 2510, you can update both your device version and Kubernetes version directly to 2604.
 
-In Azure portal, the process requires two clicks, the first update gets your device version to 2501 and your Kubernetes version to 2403, and the second update gets your Kubernetes version upgraded to 2506.
+In Azure portal, the process requires two clicks, the first update gets your device version to 2510 and your Kubernetes version to 2501, and the second update gets your Kubernetes version upgraded to 2604.
 
-From the local UI, you'll have to run each update separately: update the device version to 2501, update Kubernetes version to 2403, update Kubernetes version to 2501, and then the third update gets both the device version and Kubernetes version to 2506.
+From the local UI, you'll have to run each update separately: update the device version to 2510, update Kubernetes version to 2501, update Kubernetes version to 2510, and then the third update gets both the device version and Kubernetes version to 2604.
 
 Each time you change the Kubernetes profile, you're prompted for the Kubernetes update. Go ahead and apply the update.
 
