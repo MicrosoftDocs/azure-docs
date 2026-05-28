@@ -1,22 +1,21 @@
 ---
-title: Import and manage a unified model API - Azure API Management
+title: Create and manage a unified model API - Azure API Management
 description: Learn how to create a unified model API in Azure API Management to route and transform requests across AI models from multiple LLM providers using a single client-facing API format.
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/27/2026
+ms.date: 05/28/2026
 author: dlepow
 ms.author: danlep
 ---
 
-# Import and manage a unified model API
+# Create and manage a unified model API
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-<!-- which tiers support? -->
-
-You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format — the OpenAI Chat Completions API — while API Management automatically translates requests to the correct backend format, whether that's Azure OpenAI, Anthropic, Amazon Bedrock, or Google Gemini.
+You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format - the OpenAI Chat Completions API - while API Management automatically translates requests to the correct backend format, whether that's Azure OpenAI, Anthropic, or Amazon Bedrock.
 
 > [!NOTE]
-> The unified model API is currently in public preview.
+> The unified model API is in public preview. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
 
 By centralizing model access behind a single API layer, you can:
 
@@ -43,8 +42,8 @@ The unified model API supports the following backend providers:
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - One or more model deployments in a supported backend. 
-- If you want to track token usage by the API, see [Emit custom metrics](/azure/api-management/api-management-howto-app-insights#emit-custom-metrics) for prerequisites.
-- If you want to enforce content safety checks on the API, see [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) for prerequisites.
+- To track token usage by the API, see [Emit custom metrics](/azure/api-management/api-management-howto-app-insights#emit-custom-metrics) for prerequisites.
+- To enforce content safety checks on the API, see [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) for prerequisites.
 
 ## Create a unified model API - Azure portal
 
@@ -78,6 +77,8 @@ To create a unified model API:
         - **Managed Identity**: For model deployments in Azure, you can use the instance's system-assigned managed identity or a user-assigned managed identity to authenticate to the backend. 
         
         For an explanation of settings for the managed identity, see the reference for the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
+
+    
 1. On the **Manage token consumption** tab, optionally configure the following policies to monitor and manage token usage:
    - [Manage token consumption](llm-token-limit-policy.md)
    - [Track token usage](llm-emit-token-metric-policy.md)
@@ -97,18 +98,6 @@ To add a model or update an alias after creating the unified model API:
 1. Under **Backend configuration**, enter the backend **Model** name and select the **API format** the backend expects.
 1. Under **Authorization credentials**, configure authentication by entering header credentials or selecting **Managed Identity**.
 1. Under **Client configuration**, update the **Alias** to the new client-facing name, and optionally update the **Alias description**.
-1. Select **Save**.
-
-## Configure cross-provider fallback
-
-You can configure fallback so that if a primary model is unavailable or returns an error, API Management automatically retries the request against an alternate model or provider. This is useful for building resilient multi-model architectures.
-
-To configure fallback on the unified model API:
-
-1. In the Azure portal, go to your API Management instance, then select **Models**.
-1. Select the unified model API, then select **Models**.
-1. Select the primary model for which you want to configure fallback.
-1. Under **Fallback**, select the model to use as the fallback target.
 1. Select **Save**.
 
 ## Test the unified model API

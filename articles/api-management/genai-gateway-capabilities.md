@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 05/13/2026
+ms.date: 05/28/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -24,8 +24,11 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 * **Language model APIs** that conform to one of the following API schemas:
     * OpenAI Chat Completions or Responses API
     * Anthropic Messages API (currently supported in API Management v2 tiers)
+    * Google Vertex AI API
 
     Models can be deployed in a variety of environments, including [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) or non-Microsoft providers such as Amazon Bedrock.
+    
+    To help you manage language models from multiple providers, API Management also provides a [unified model API (preview)](unified-model-api.md). It exposes all backends through a single OpenAI-compatible endpoint, handles format translation automatically, and lets you apply governance policies once across all models.
 
 * Remote **MCP servers** and **A2A agent APIs**
 * **Self-hosted** models and endpoints
@@ -38,7 +41,7 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 > * Related governance and developer features are in [Azure API Center](../api-center/overview.md). 
 
 > [!TIP]
-> AI gateway can now be integrated directly into Microsoft Foundry, enabling you to govern AI models, agents, and tools from within your Foundry environment. Learn more in the [AI gateway in Microsoft Foundry](#ai-gateway-in-microsoft-foundry-preview) section.
+> You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI models, agents, and tools from within your Foundry environment. Learn more in the [AI gateway in Microsoft Foundry](#ai-gateway-in-microsoft-foundry-preview) section.
 
 ## Why use an AI gateway?
 
@@ -60,19 +63,22 @@ As AI adoption matures, especially in larger enterprises, the AI gateway helps a
 
 By using the AI gateway, you can:
 
-* Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs
-* Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock
-* Govern chat completions, responses, and real-time APIs
-* Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers
-* Import and manage A2A agent APIs
+* Quickly import and configure OpenAI-compatible or passthrough LLM endpoints as APIs.
+* Manage models deployed in Microsoft Foundry or providers such as Amazon Bedrock.
+* Govern chat completions, responses, and real-time APIs.
+* Expose your existing REST APIs as MCP servers, and support passthrough to MCP servers.
+* Import and manage A2A agent APIs.
 
 For example, to onboard a model deployed in Microsoft Foundry or another provider, API Management provides streamlined wizards to import the schema and set up authentication to the AI endpoint by using a managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for API scalability, security, and observability.
 
 :::image type="content" source="media/genai-gateway-capabilities/ai-foundry-import.png" alt-text="Screenshot of Microsoft Foundry model import in the Azure portal." lightbox="media/genai-gateway-capabilities/ai-foundry-import-lightbox.png"::: 
 
+> [!TIP]
+> For new implementations to manage language models across providers, the **[unified model API (preview)](unified-model-api.md)** can expose multiple LLM backends through a single client-facing endpoint. It consolidates import, routing, format translation, and policy governance for models from multiple providers.
 
 More information:
 
+* [Create and manage a unified model API (preview)](unified-model-api.md)
 * [Import a Microsoft Foundry API](azure-ai-foundry-api.md)
 * [Import a language model API](openai-compatible-llm-api.md)
 * [Expose a REST API as an MCP server](export-rest-mcp-server.md)
@@ -135,9 +141,9 @@ More information:
 
 An AI gateway secures and controls access to your AI APIs. By using the AI gateway, you can:
 
-* Use managed identities to authenticate to AI services in Azure, so you don't need API keys for authentication
-* Configure OAuth authorization for AI apps and agents to access APIs or MCP servers by using API Management's credential manager
-* Apply policies to automatically moderate LLM prompts by using [Azure AI Content Safety](/azure/ai-services/content-safety/overview)
+* Use managed identities to authenticate to AI services in Azure, so you don't need API keys for authentication.
+* Configure OAuth authorization for AI apps and agents to access APIs or MCP servers by using API Management's credential manager.
+* Apply policies to automatically moderate LLM prompts by using [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 :::image type="content" source="media/genai-gateway-capabilities/content-safety.png" alt-text="Diagram of content safety policy in API Management.":::
 
@@ -203,7 +209,7 @@ More information:
 
 ## Developer experience
 
-Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamline development and deployment of your AI APIs, MCP servers, and other AI assets. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, you can take advantage of:
+Use the AI gateway and [Azure API Center](../api-center/overview.md) to streamline development and deployment of your AI APIs, MCP servers, and other AI assets. In addition to the user-friendly import and policy configuration experiences for common AI scenarios in API Management, take advantage of these features:
 
 * Easy registration of APIs, MCP servers, skills, and other assets in an organizational catalog in Azure API Center
 * Self-service access through developer portals in API Management and API Center
