@@ -29,14 +29,14 @@ Grafana gives you a single pane of glass for these questions across multiple cod
 
 Purpose-built Grafana dashboards visualize the signals that matter for AI coding agents — cost, token consumption, sessions, model usage, tool invocations, latency, and errors:
 
-| Dashboard | What it shows | Link |
-| --- | --- | --- |
-| [GitHub Copilot](https://aka.ms/amg/dash/gh-copilot) | Operations, input/output tokens, chat sessions, tool calls, response time and time to first token (TTFT) by model | [aka.ms/amg/dash/gh-copilot](https://aka.ms/amg/dash/gh-copilot) |
-| [Claude Code](https://aka.ms/amg/dash/claude-code) | Cost, sessions, user prompts, API requests/errors, daily cost and token trends, per-model breakdown, tool usage analytics | [aka.ms/amg/dash/claude-code](https://aka.ms/amg/dash/claude-code) |
-| [Codex](https://aka.ms/amg/dash/codex) | Sessions, turns, token usage by type and model, turn/TTFT latency percentiles, tool reliability and latency, sandbox/approval activity, sessions by client | [aka.ms/amg/dash/codex](https://aka.ms/amg/dash/codex) |
-| [OpenClaw](https://aka.ms/amg/dash/openclaw) | Messages, unique chats, response time, LLM calls, token usage, cache reads, stuck sessions, model usage breakdown | [aka.ms/amg/dash/openclaw](https://aka.ms/amg/dash/openclaw) |
-| [OpenCode](https://aka.ms/amg/dash/opencode) | Sessions, prompts, LLM calls, token usage, tool executions, p95 prompt latency, cache hit ratio, per-model/provider breakdown | [aka.ms/amg/dash/opencode](https://aka.ms/amg/dash/opencode) |
-| [Gemini CLI](https://aka.ms/amg/dash/geminicli) | Traces, prompts, tool calls, and session context | [aka.ms/amg/dash/geminicli](https://aka.ms/amg/dash/geminicli) |
+| Dashboard | What it shows |
+| --- | --- |
+| [GitHub Copilot](https://aka.ms/amg/dash/gh-copilot) | Operations, input/output tokens, chat sessions, tool calls, response time and time to first token (TTFT) by model |
+| [Claude Code](https://aka.ms/amg/dash/claude-code) | Cost, sessions, user prompts, API requests/errors, daily cost and token trends, per-model breakdown, tool usage analytics |
+| [Codex](https://aka.ms/amg/dash/codex) | Sessions, turns, token usage by type and model, turn/TTFT latency percentiles, tool reliability and latency, sandbox/approval activity, sessions by client |
+| [OpenClaw](https://aka.ms/amg/dash/openclaw) | Messages, unique chats, response time, LLM calls, token usage, cache reads, stuck sessions, model usage breakdown |
+| [OpenCode](https://aka.ms/amg/dash/opencode) | Sessions, prompts, LLM calls, token usage, tool executions, p95 prompt latency, cache hit ratio, per-model/provider breakdown |
+| [Gemini CLI](https://aka.ms/amg/dash/geminicli) | Traces, prompts, tool calls, and session context |
 
 :::image type="content" source="media/grafana-opentelemetry-app-insights/claude-code-main.png" alt-text="Screenshot of the Claude Code dashboard in Grafana, showing cost, sessions, daily cost and token trends, per-model breakdown, and tool usage analytics." lightbox="media/grafana-opentelemetry-app-insights/claude-code-main.png":::
 
