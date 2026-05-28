@@ -149,6 +149,8 @@ While Azure Connector Namespace is in preview, make sure that you review the fol
 
 - [Quickstart: Create connector namespaces for integration](create-connector-namespace.md)
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
+- Learn about [hosted MCP servers](connector-namespace-hosted-mcp.md) and how they differ from managed MCP servers.
+- Add a [hosted MCP server](hosted-mcp-quickstart.md) from the catalog and configure it for your scenario.
 
 <!---
 What are these links? Seems like they belong to how-to docs:

@@ -290,14 +290,18 @@ items:
             href: support-non-unicode-character-encoding.md
           - name: Troubleshoot errors
             href: logic-apps-diagnosing-failures.md
-      - name: Connector namespaces
+      - name: Connector Namespace
         items:
           - name: Overview
             href: connector-namespace/connector-namespace-overview.md
-          - name: Create connector namespaces
+          - name: Create connector namespace
             href: connector-namespace/create-connector-namespace.md
-          - name: Create connector namespace connections
+          - name: Create connector namespace connection
             href: connector-namespace/create-connector-namespace-connection.md
+          - name: Hosted MCP servers
+            href: connector-namespace/connector-namespace-hosted-mcp.md
+          - name: Create a hosted MCP server
+            href: connector-namespace/hosted-mcp-quickstart.md
       - name: Access on-premises data sources
         items:
           - name: Install on-premises data gateway
