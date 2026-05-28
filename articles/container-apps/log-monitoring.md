@@ -77,7 +77,38 @@ Use HTTP logs to inspect request volume, paths, methods, and response outcomes w
 
 The `ContainerAppHTTPLogs` schema contains the following fields and descriptions:
 
-| Field | Description |
+ | Field | Type | Description |
+   | --- | --- | --- |
+   | **Request** | | |
+   | `Method` | string | HTTP request method (e.g. `GET`, `POST`). |
+   | `Path` | string | Request path including query string. Sensitive values such as tokens or API keys may appear here if your clients pass them in the query — handle accordingly. |
+   | `Authority` | string | The HTTP `Host` header (or HTTP/2 `:authority` pseudo-header) sent by the client. |
+   | `Protocol` | string | Protocol version observed by ingress, one of `HTTP/1.1`, `HTTP/2`, or `HTTP/3`. |
+   | `UserAgent` | string | Client `User-Agent` header. |
+   | `XForwardedFor` | string | Client IP chain from the `X-Forwarded-For` header. Contains end-user IPs — treat as PII. |
+   | `BytesReceived` | long | Size of the request body received from the client, in bytes([`%BYTES_RECEIVED%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | **Response** | | |
+   | `StatusCode` | int | HTTP response status code returned to the client. `0` indicates the client disconnected before the response started([`%RESPONSE_CODE%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | `ResponseCodeDetails` | string | Short token explaining who set the status code and why — for example `via_upstream`, `direct_response`, `route_not_found`, `upstream_per_try_timeout`([full list](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/response_code_details)). |
+   | `ResponseFlags` | string | One or more short codes describing transport-level conditions — for example `-` (none), `UH` (no healthy upstream), `UT` (upstream timeout), `NR` (no route) ([full list](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-response-flags)). |
+   | `BytesSent` | long | Size of the response body sent to the client, in bytes([`%BYTES_SENT%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | **Timing** | | |
+   | `StartTime` | datetime | Time (UTC) ingress began processing the request([`%START_TIME%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-start-time)). |
+   | `RequestDuration` | long | Total time, in milliseconds, from request start to last response byte sent([`%DURATION%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-duration)). |
+   | **Identifiers** | | |
+   | `RequestId` | string | Request correlation ID. Reflects the `x-request-id` header if the client supplied one; otherwise ingress generates a value. Not guaranteed to be a UUID. |
+   | `ConnectionId` | string | Identifier of the downstream connection on which this request arrived. Multiple requests on the same connection share this value([`%CONNECTION_ID%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-connection-id)). |
+   | **App / Routing** | | |
+   | `ContainerAppName` | string | Container App that handled the request. |
+   | `RevisionName` | string | Revision of the Container App that served the request. |
+   | `ReplicaName` | string | Replica (pod) that served the request. |
+   | `EnvironmentName` | string | Container Apps environment hosting the app. |
+   | **Upstream** | | |
+   | `UpstreamHost` | string | Address (`IP:port`) of the upstream endpoint that served the request([`%UPSTREAM_HOST%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-upstream-host)). |
+   | `UpstreamRequestAttemptCount` | int | Number of times the request was attempted upstream, including retries. `0` means it was never attempted. |
+   | **Ingress diagnostics** | | |
+   | `EnvoyPodName` | string | Name of the ingress pod that produced this record. Useful for cross-referencing ingress logs during incident investigation. |
+   | `EnvoyContainerId` | string | Container ID of the ingress instance. Useful for cross-referencing ingress logs during incident investigation. |
 | --- | --- |
 | `StartTime` | UTC timestamp when request processing started at ingress. |
 | `ContainerAppName` | Name of the container app that handled the request. |
