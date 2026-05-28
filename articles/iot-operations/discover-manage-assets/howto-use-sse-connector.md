@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 05/28/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
@@ -57,9 +57,9 @@ You need any credentials required to access the SSE source. If the SSE source re
 
 Have the event identification ready for each SSE source event you want to receive.
 
-## Deploy the connector for SSE
+## Prerequisite: SSE connector template instance
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+Before an OT user can create a device that uses the connector for SSE, an IT administrator must add an SSE connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
 ## Configure a certificate trust list for the connector
 

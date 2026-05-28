@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 05/28/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -58,9 +58,9 @@ Your IT administrator must configure the connector for MQTT template for your Az
 
 You need credentials to access the MQTT source. If the MQTT source requires authentication, you need to create a Kubernetes secret that contains the username and password for the MQTT source.
 
-## Deploy the connector for MQTT
+## Prerequisite: MQTT connector template instance
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+Before an OT user can create a device that uses the connector for MQTT, an IT administrator must add an MQTT connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
 ## Configure a certificate trust list for the connector
 
