@@ -39,7 +39,7 @@ The default endpoint uses the following settings:
 - Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
 - Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
 - TLS: Enabled
-- Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [default root CA](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates)
+- Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [default root CA](../deploy-iot-ops/howto-bring-your-own-issuer.md#default-self-signed-issuer-and-root-ca-certificate)
 
 > [!CAUTION]
 > Don't delete the default endpoint. If you delete the default endpoint, you must recreate it with the same settings.
@@ -329,7 +329,7 @@ Then, go to the Event Grid namespace > **Access control (IAM)** > **Add role ass
 1. On the **Role** tab select an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for all topic spaces in the namespace. To learn more, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
 1. On the **Members** tab:
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 Alternatively, you can assign the role at the topic space level. Go to the topic space > **Access control (IAM)** > **Add role assignment**. Assign the managed identity with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`. This gives the managed identity the necessary permissions to send or receive messages for the specific topic space.
 
@@ -699,7 +699,7 @@ mqttSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the MQTT broker:
 
@@ -871,7 +871,7 @@ Before configuring the data flow endpoint, create a secret with the certificate 
 # [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 > [!IMPORTANT]
 > The operations experience web UI currently has a known issue where creating an X.509 secret results in a secret with incorrectly encoded data. To learn more and the workaround, see [known issues](../troubleshoot/known-issues.md).

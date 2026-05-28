@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the Provisioned v1 or pay-as-you-go billing model
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview) or classic file shares using the Provisioned v2 billing model
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider or classic file shares using the Provisioned v2 billing model
 
 Azure always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Microsoft Online Services](https://azure.microsoft.com/support/legal/sla/storage/).
 

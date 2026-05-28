@@ -19,6 +19,7 @@ This article provides information about new features and documentation improveme
 | Date | Area | Description |
 | --- | --- | --- |
 | May 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). Removed Microsoft.ClassicNetwork and Microsoft.ClassicStorage permissions. |
+| May 2026 | Roles | Added [Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) role. |
 | May 2026 | Roles | Updated Microsoft Foundry roles.<br/>[Foundry Account Owner](./built-in-roles/ai-machine-learning.md#foundry-account-owner)<br/>[Foundry Owner](./built-in-roles/ai-machine-learning.md#foundry-owner)<br/>[Foundry Project Manager](./built-in-roles/ai-machine-learning.md#foundry-project-manager)<br/>[Foundry User](./built-in-roles/ai-machine-learning.md#foundry-user) |
 | May 2026 | Roles | Added [Azure Managed Redis Contributor](./built-in-roles/databases.md#azure-managed-redis-contributor) and [Azure Managed Redis Reader](./built-in-roles/databases.md#azure-managed-redis-reader) roles. |
 | May 2026 | Classic administrators | Updated documentation to reflect that classic administrator roles are fully retired as of May 2026 and the Classic Administrators tab has been removed from the Azure portal. See [Azure classic subscription administrators](classic-administrators.md). |
