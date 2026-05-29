@@ -28,7 +28,7 @@ Production agents need more than a prompt and a model. They need reliable ways t
 Azure Functions already provides an event-driven compute model for those operational concerns. The serverless agents runtime applies that model to agents:
 
 + **Agents are the unit of work.** A `.agent.md` file defines the trigger and the instructions for one agent.
-+ **Events start agents.** Functions triggers let agents run on a schedule, react to messages and events, or expose HTTP endpoints.
++ **Events start agents.** Functions triggers let agents run on a schedule, react to queues and events, or expose HTTP endpoints.
 + **Capabilities are configured first, with code when you need it.** Agents can use remote MCP servers, MCP servers hosted in connector namespaces, skills, and sandboxed code execution from configuration. Use custom tools for app-specific logic.
 + **Hosting is serverless.** Flex Consumption supports scale-to-zero, per-second billing, managed identity, virtual network integration, and Application Insights.
 + **Operational plumbing is built in.** The runtime handles agent discovery, trigger registration, tool assembly, session history, and optional built-in endpoints.
@@ -39,14 +39,14 @@ A serverless agents app is a Python Azure Functions app with agent-specific file
 
 | File or folder | Required | Purpose |
 | --- | --- | --- |
+| `function_app.py` | Yes | Imports `create_function_app()` and returns the configured Azure Functions app. |
 | `*.agent.md` | Yes | Defines agents. YAML front matter configures the agent, and the markdown body becomes the instructions. |
 | `agents.config.yaml` | No | Defines app-wide runtime defaults, such as model, timeout, and sandbox settings. |
-| `mcp.json` | When using MCP servers or connector tools | Defines remote HTTP MCP servers that agents can use as tools, including connector for tasks such as sending email or working with Teams. |
-| `tools/` | No | Contains custom Python tools for capabilities that aren't covered by MCP servers, skills, or sandboxed execution. |
+| `mcp.json` | When using MCP servers or connector tools | Defines remote HTTP MCP servers that agents can use as tools, including connector tools for tasks such as sending email or working with Teams. |
+| `tools/` | No | Contains custom Python tools for capabilities that aren't covered by MCP servers, connections, skills, or sandboxed execution. |
 | `skills/` | No | Contains reusable `SKILL.md` prompt assets that agents can load as needed. |
 | `host.json` | Yes | Configures the Azure Functions host. |
 | `requirements.txt` | Yes | Includes the serverless agents runtime package and any app-specific Python dependencies. |
-| `function_app.py` | Yes | Bootstraps the serverless agents runtime. |
 | `infra/` | No | Contains infrastructure-as-code files used by deployment tooling such as `azd`. |
 
 A minimal project has `function_app.py`, `host.json`, `requirements.txt`, and at least one `.agent.md` file. Add `agents.config.yaml` when the app needs app-wide runtime defaults.
@@ -95,9 +95,10 @@ Use these front matter fields to configure an agent:
 | `input_schema` | No | JSON Schema used to validate HTTP request bodies for HTTP-triggered agents. |
 | `response_schema` | No | JSON Schema used to validate structured responses returned by HTTP-triggered agents. |
 | `response_example` | No | Example response shape used to guide structured responses from HTTP-triggered agents. |
+| `metadata` | No | Custom metadata for your own organization or tooling. |
 | `substitute_variables` | No | Controls whether environment variable substitution is applied to the front matter and instructions. Defaults to `true`. |
 
-## Configure runtime defaults
+### Runtime defaults in agents.config.yaml
 
 Use `agents.config.yaml` for app-wide runtime defaults that every agent can inherit. The runtime can load an app without this file. Add it when you need shared settings such as a model deployment, timeout, or sandbox execution endpoint.
 
@@ -128,7 +129,7 @@ The runtime resolves values from agent front matter first, then `agents.config.y
 
 Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remote MCP server definitions, including MCP server endpoints from connector namespaces, in `mcp.json`.
 
-## Variable substitution
+### Variable substitution
 
 The runtime can substitute app settings and environment variables into string values in agent front matter, agent instruction bodies, `agents.config.yaml`, and `mcp.json`. Use `$SETTING_NAME` or `%SETTING_NAME%`. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
 
@@ -205,20 +206,6 @@ Because each agent is registered as an Azure Function, the app can use Functions
 ## Give agents tools
 
 Agents become useful when they can act. Start with configured capabilities: remote MCP servers, MCP servers hosted in connector namespaces, skills, and sandboxed execution. Use custom Python tools for app-specific capabilities that don't fit those options.
-
-By default, an agent inherits the discovered MCP servers, skills, and custom Python tools in the app. Use exclude lists when one agent shouldn't use a shared capability:
-
-```yaml
-mcp:
-  exclude:
-    - microsoft-learn
-skills:
-  exclude:
-    - incident-response
-tools:
-  exclude:
-    - submit_ticket
-```
 
 ### Remote MCP servers
 
