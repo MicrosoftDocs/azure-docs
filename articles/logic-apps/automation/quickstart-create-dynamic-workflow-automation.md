@@ -345,7 +345,7 @@ The designer automatically saves the changes you make to a *draft* version. The 
 
 > [!TIP]
 >
-> For workflows that start with a web request or webhook trigger, you can immediately test the draft version without publishing first. Just select **Test your draft**.
+> For workflows that start with a web request or webhook trigger, you can immediately test the draft version without publishing first. See [Test your workflow](#test-workflow).
 >
 > For workflows that start with a schedule-based trigger or an outside event, you must publish before the trigger can fire.
 
@@ -353,15 +353,17 @@ The designer automatically saves the changes you make to a *draft* version. The 
 
 1. Select **Publish** to make the draft live.
 
+<a id="test-workflow"></a>
+
 ## 5: Test the workflow
 
-After you publish, test the workflow to make sure everything works as expected.
+To make sure everything works as expected, test your workflow by following these steps:
 
-1. On the designer toolbar, select **Test your draft**.
+1. On the designer canvas, select **Test your draft**.
 
-   A dialog opens where you can provide test data.
+   A window opens where you can enter your test data.
 
-1. In the test data field, enter the following JSON body:
+1. In the test data box, enter the following JSON body:
 
    ```json
    {
@@ -373,10 +375,63 @@ After you publish, test the workflow to make sure everything works as expected.
 
    The workflow runs, and the monitoring view shows progress in real time.
 
+## 6: Review the run history
+
+After your workflow run completes, you can inspect what happened at every step.
+
+1. Switch to the **Monitoring** tab.
+
+   The run history list shows each completed workflow run with its status, timestamp, and duration.
+
+1. Select the run to open the detail view.
+
+   The canvas shows a color-coded status for each step. The **Execution log** lists every action in execution order with timing details.
+
+1. To review the data, select any step on the canvas or in the execution log.
+
+   | Tab | Shows |
+   |-----|-------|
+   | **Output** | The data that the step produced. |
+   | **Input** | The data that the step received. |
+   | **Properties** | Details such as the workflow status, the run duration, and the tracking ID. |
+
+   For a web request trigger, you can review the headers and body from the incoming web request. For the **Response** action, you can confirm that the response body matches what you expected.
+
+   > [!TIP]
+   >
+   > For failed steps, the same panel shows the error message so you can find the problem without leaving the run history view.
+
+## Iterate and refine
+
+You don't have to get everything right on the first pass. The following table describes three ways to make changes:
+
+| Method | How to use it |
+|--------|---------------|
+| **Visual designer** | Select any step on the canvas to change settings, add new actions, or rearrange the flow. |
+| **AI assistant** | Open the assistant inside the designer and type follow-up instructions, such as "add error handling to the response action" or "add a condition that checks whether the name field is empty." |
+| **Code view** | Select **Code** on the bottom toolbar to open the JSON code side by side with the canvas. Changes in either view stay in sync. |
+
+All edits go into a draft. Publish again when you're ready to send changes to production.
+
 ## 4: Manage users and permissions
 
 ## 5: Set up an agent
 
+## Clean up resources
+
+If you no longer need the resources you created in this quickstart, delete the resource group to avoid extra charges:
+
+1. In the Azure portal search bar, enter the resource group name.
+
+1. Select the resource group from the results.
+
+1. On the resource group page, select **Delete resource group**.
+
+1. Enter the resource group name to confirm, and then select **Delete**.
+
 ## Related content
 
+- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflow-automation.md)
+- [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-capabilities-models.md)
 
