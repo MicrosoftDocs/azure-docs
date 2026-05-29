@@ -46,7 +46,7 @@ Here are three tiers store that store data in memory:
     :::image type="content" source="media/how-to-scale/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/how-to-scale/sku-tiers-large.png":::
 
 Here's the tier that stores data both in-memory and on-disk:
-- **Flash Optimized (preview)** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
+- **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
   :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
