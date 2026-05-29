@@ -128,7 +128,7 @@ For more informationabout v2 workflow components and action types, see [Agent ty
 
 After you recreate all resources, verify that your v2 environment matches your v1 functionality.
 
-1. Create an investigation in your v2 project. For detailed steps, see [Quickstart: Get started with agents and investigations](quickstart-agents-studio.md#3-create-an-investigation).
+1. Create a shared session in your v2 project. For detailed steps, see [Quickstart: Get started with agents and shared sessions](quickstart-agents-studio.md#3-create-a-shared-session).
 1. Test each prompt agent by sending messages with `@AgentName` in the chat.
 1. Verify that each tool executes correctly when invoked by agents.
 1. Run each workflow agent end-to-end to confirm the action flow produces expected results.
