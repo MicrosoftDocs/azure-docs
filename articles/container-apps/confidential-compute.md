@@ -5,7 +5,7 @@ services: container-apps
 author: jefmarti
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/19/2026
+ms.date: 05/29/2026
 ms.author: jefmarti
 ---
 
@@ -16,7 +16,7 @@ Confidential compute in Azure Container Apps helps protect containerized workloa
 > [!IMPORTANT]
 > Confidential compute is currently available in preview and is supported only in specific regions and workload profile configurations.
 
-## Benefits of confidential compute
+## Benefits of confidential compute in Azure Container Apps
 
 Confidential compute complements Azure encryption at rest and encryption in transit by protecting data while it's being processed. When you run workloads on a confidential compute workload profile, you get:
 
@@ -78,7 +78,7 @@ The `--workload-profile-name my-wp-confidential` parameter assigns the app to th
 
 For steps on adding and managing workload profiles, see [Manage workload profiles with the Azure CLI](workload-profiles-manage-cli.md).
 
-## Verify confidential compute configuration
+## Verify your confidential compute configuration
 
 Use this quick check to confirm the app is assigned to a DC-series workload profile.
 
