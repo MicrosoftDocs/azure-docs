@@ -93,13 +93,12 @@ Subscription
 - **One project per research initiative** — Scope each project to a distinct research initiative or team. This keeps agents, knowledge bases, and data isolated and manageable.
 - **Use descriptive shared session names** — Since shared sessions track the evolution of a research question, use names that reflect the research objective (for example, `Aspirin Synthesis` or `Molecule Screening`).
 - **Leverage workspace-level resources** — Chat model deployments and supercomputers are shared at the workspace level. You don't need to create them for each project.
-- **Plan your agent structure first** — Before creating shared sessions, set up the agents your research requires. You can create agents individually or deploy a preconfigured set using [agent bundles](quickstart-agents-bundles.md).
+- **Plan your agent structure first** — Before creating shared sessions, set up the agents your research requires. You can create agents individually or use the default Discovery agent provided with every project.
 
 ## Related content
 
 - [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md)
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
-- [Add agents using bundles](quickstart-agents-bundles.md)
 - [Microsoft Discovery agents](concept-discovery-agent.md)
 - [Agent types in Microsoft Discovery](concept-discovery-agent-types.md)
 - [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)

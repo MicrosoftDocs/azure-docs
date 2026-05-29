@@ -110,7 +110,7 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
      - `searchSubnet`: `10.0.6.0/24`
 1. For `workspaceSubnet`, `agentSubnet` and `searchSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg" alt-text="Screenshot of the Create virtual network subnet page showing subnet delegation settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg":::
-1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage.Global`.
+1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg" alt-text="Screenshot of the Create virtual network subnet page showing service endpoint settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg":::
 1. Optionally, you can remove the `default` subnet from the list. 
 1. Review and create the virtual network.
@@ -341,5 +341,4 @@ Projects help you organize and manage scientific investigations within a workspa
 
 After you create your project, continue with the following next step:
 
-- [Get started with agents and investigations in Microsoft Discovery Studio](quickstart-agents-studio.md)
-- [Get started with agent bundles](quickstart-agents-bundles.md)
+- [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)

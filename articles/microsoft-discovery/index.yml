@@ -37,8 +37,6 @@ landingContent:
             url: quickstart-infrastructure-bicep.md
           - text: Run your first agent and investigation
             url: quickstart-agents-studio.md
-          - text: Add agents using bundles
-            url: quickstart-agents-bundles.md
 
   - title: Agents and investigations
     linkLists:
