@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 04/14/2026
+ms.date: 05/29/2026
 ms.topic: whats-new
 ms.custom:
   - references_regions
@@ -13,6 +13,13 @@ appliesto:
 # What's New in Azure Managed Redis
 
 Find out what's new in Azure Managed Redis.
+
+## May 2026
+
+### General Availability for some Flash Optimized SKUs
+
+Azure Managed Redis Flash Optimized A250, A500, A700, and A1000 are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+
 
 ## April 2026
 
