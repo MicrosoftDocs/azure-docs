@@ -137,7 +137,7 @@ On the **Workflows** page, in the section named **Get started with your first wo
 | Path |
 |------|
 | [Generate your workflow with the AI assistant](#assistant) |
-| [Build your workflow starting with the empty designer](#designer) |
+| [Build your workflow starting with the empty designer](#empty-designer) |
 | [Prepopulate your workflow from a template](#template) |
 
 <a id="assistant"></a>
@@ -162,7 +162,7 @@ To generate a workflow by using plain words to describe the behavior you want, u
 
      For this example, the workflow name is `http-hello-world`.
 
-   - More complex: To create a workflow that completes the following tasks, use the specified prompt:
+   - More complex: Create a workflow that completes the following tasks:
    
      1. Checks the Wall Street Journal RSS feed for new stories.
      1. Feeds the results into an agent.
@@ -179,10 +179,10 @@ To generate a workflow by using plain words to describe the behavior you want, u
 
    > [!IMPORTANT]
    >
-   > The AI assistant creates the workflow outline and structure, including the trigger, actions, and any branches, but can't provide sign-in credentials, parameter values, or settings values specific to your setup. Before your first successful run, you must complete the following steps:
+   > The AI assistant creates the workflow structure, including the trigger, actions, and any branches, but can't provide sign-in credentials, parameter values, or settings values specific to your setup. Before your first successful run, complete the following steps:
    >
-   > - Set up connections for each operation that calls an outside service or system.
-   > - Provide values for any required fields that the assistant left empty. Find the fields marked with an asterisk (*) or a red outline.
+   > - Set up connections for operations that call outside services or systems.
+   > - Provide values for any required fields that the assistant left empty. Required fields show an asterisk (*) or a red outline.
    > - Fix any alerts that appear on individual steps.
 
    The following example shows a sample prompt:
@@ -202,78 +202,72 @@ To generate a workflow by using plain words to describe the behavior you want, u
    | **Parameters** tab | Check for values that you need to provide or change. |
    | **Connections** tab | Create missing connections or provide missing connection information. |
    | **Settings** tab | Check the values to confirm whether they're set the way you want. |
-   | **Agent loop** actions | Set up any tools you want the agent loop to use, such as actions, MCP server tools, agents, or other workflows. <br><br>1. On the designer, move your mouse over the agent loop action. <br><br>2. In the pop-up box, select **+ Add Tool**, and then select an option: <br><br>- **Action**: A connector operation or built-in operation that performs a task. <br><br>- **MCP Tool**: A tool from an MCP server. <br><br>- **Sub-workflow**: Another workflow in the same application or in an agent. |
+   | **Agent loop** actions | Set up any tools you want the agent loop to use, such as actions, MCP server tools, agents, or other workflows. <br><br>1. On the designer, move your mouse over the agent loop action. <br><br>2. In the pop-up box, select **+ Add Tool**, and then select an option: <br><br>- **Action**: A connector operation or built-in operation that performs a task. <br>- **MCP Tool**: A tool from an MCP server. <br>- **Sub-workflow**: Another workflow in the same application or in an agent. |
 
-<a id="designer"></a>
+<a id="empty-designer"></a>
 
 ### [Blank template](#tab/blank)
 
-This approach builds a workflow starting with an empty designer. The following sections show how to add an example trigger and action for a workflow.
+The blank workflow template starts with an empty designer where you add the trigger, actions, agents, or MCP servers yourself.
 
-#### 3a: Select the blank workflow
+#### 3a: Select the blank workflow template
 
-1. On the **Workflows** page, select **Build from scratch**, for example:
+1. On the **Workflows** page, select **Build from scratch**.
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/select-designer.png" alt-text="Screenshot that shows the Workflows page with selected option for Build from scratch." lightbox="media/quickstart-create-dynamic-workflow-automation/select-designer.png":::
 
-1. For **Workflow name**, enter a name to use.
+1. For **Workflow name**, enter the name to use.
 
-1. Select a workflow template, and then select **Build**:
+1. From the template list, select **Blank workflow**, and then select **Build**.
 
-   | Template | Description |
-   |----------|-------------|
-   | **Blank workflow** | Start with an empty designer. Add a trigger to run the workflow. Add actions, agents, or MCP servers as tools. <br><br>Continue with [Build a workflow with the blank template](#designer). |
-   | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
-   | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow with a non-blank template](#template). |
-   | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
+   The designer opens an empty canvas with the **Add a trigger** placeholder.
 
 <a id="add-trigger"></a>
 
 #### 3b: Add the trigger to start the workflow
 
-The trigger runs a workflow after a specific condition or criteria is met. As an example, this section uses the **RSS** trigger named **When a feed item is published**. The trigger checks the URL for an RSS feed at the Wall Street Journal.
+The *trigger* is the event or condition that runs your workflow, for example:
 
-1. On the empty designer, select **Add a trigger**.
+| Trigger type | Operation name | Event or condition |
+|--------------|----------------|--------------------|
+| **Request** | **When an HTTP request is received** | Runs when a web request arrives from an outside caller. |
+| **RSS** | **When a feed item is published** | Runs on the specified schedule to check an RSS feed for new stories. |
 
-   The **Add a trigger** pane opens so you can find a trigger by browsing the gallery or using search, for example:
+1. On the designer canvas, select **Add a trigger**.
+
+   The **Add a trigger** pane opens so you can find the trigger you want.
+
+1. Use search or browse the triggers or trigger groups. Select the trigger that works best for your scenario.
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/empty-designer.png" alt-text="Screenshot that shows the empty Logic Apps Automation workflow designer and the Add a trigger pane." lightbox="media/quickstart-create-dynamic-workflow-automation/empty-designer.png":::
 
    For more information about the gallery, see [Operations gallery](#operations-gallery).
 
-1. Select a specific trigger name or group.
-
-   If you select a group, review the resulting triggers. If the results include a trigger that matches your scenario, select that trigger.
-
-   -or-
-
-   In the search box, enter the trigger name. If the results include a trigger that matches your scenario, select that trigger.
-
-   This example selects the **RSS** trigger named **When a feed item is published**:
+   The following example selects the **RSS** trigger named **When a feed item is published**:
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/select-trigger.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer, Add a trigger pane, and selected RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/select-trigger.png":::
 
-   The trigger information box appears so you can enter the trigger's inputs and configure settings.
+   The trigger appears on the designer, and the information box opens so you can enter the inputs and configure settings for the trigger.
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-before-setup.png" alt-text="Screenshot that shows the information box for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-before-setup.png":::
 
 1. In the trigger information box, enter the values that the trigger needs to work.
 
-   For example, the trigger requires an RSS feed URL and a connection name.
+   For the example trigger, enter an RSS feed URL and a connection name.
 
-   1. Select the **Parameters** tab. For **The RSS feed URL**, enter the following value:
+   1. On the **Parameters** tab, for **The RSS feed URL**, enter the following value:
 
       `https://feeds.content.dowjones.io/public/rss/RSSMarketsMain`
 
       :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-url.png" alt-text="Screenshot that shows the information box and Parameters tab with URL for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-url.png":::
 
-   1. Select the **Connection** tab, and then select **Create new connection**.
+   1. On the **Connection** tab, select **Create new connection**.
 
-   1. For **Name your onnection**, enter a descriptive name like `wsj-connection-example`, and select **Create connection**.
+   1. For **Name your connection**, enter a descriptive name like `wsj-connection-example`, and select **Create connection**.
 
       :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-create-connection.png" alt-text="Screenshot that shows the information box and Connection tab with new connection name for the RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-create-connection.png":::
 
-1. When you're done, close the trigger information box.
+1. When you finish, close the trigger information box.
 
    The designer automatically saves your changes in draft mode until you're ready to publish to production.
 
@@ -281,31 +275,31 @@ The trigger runs a workflow after a specific condition or criteria is met. As an
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/trigger-complete.png" alt-text="Screenshot that shows the Logic Apps Automation workflow designer and configured RSS trigger named When a feed item is published." lightbox="media/quickstart-create-dynamic-workflow-automation/trigger-complete.png":::
 
-1. Continue to the next section so you can add an action to your workflow.
-
 <a id="add-action"></a>
 
 #### 3c: Add an action to perform a task
 
 An action completes a specific task in the workflow.
 
-1. On the designer, select the plus sign (+) to add an action.
+An *action* runs after the trigger fires and performs a specific task in the workflow. This example adds an action that sends a response back to the caller.
 
-   The **Add an action** pane opens so you can find an action by name or browse the gallery.
+1. On the designer canvas, under the trigger, select the plus sign (+) to add an action.
 
-1. In the search box, enter the action name.
+   The **Add an action** pane opens so you can find the action you want.
 
-   -or-
-
-   Select a specific trigger name or group.
+1. Use search or browse the actions or action groups. Select the action that works best for your scenario.
 
    For more information about the gallery, see [Operations gallery](#operations-gallery).
 
-   After you select a trigger, the trigger information box appears so you can enter the trigger's inputs and configure settings.
+   The action appears on the designer, and the information box opens so you can enter the inputs and configure settings for the action.
 
-1. In the trigger information box, enter the values that the trigger needs to work.
+1. In the action information box, enter the values that the action needs to work.
 
-#### Operations gallery
+1. When you finish, close the action information box.
+
+<a id="operations-gallery"></a>
+
+## Operations gallery
 
 The following tables list only some examples from the 600+ and constantly growing gallery of services, systems, apps, and data sources that you can include in your workflow.
 
@@ -337,7 +331,47 @@ The following tables list only some examples from the 600+ and constantly growin
 
 ### [Non-blank template](#tab/non-blank)
 
+   | Template | Description |
+   |----------|-------------|
+   | **Request-Response** | Run the workflow when an HTTPS request arrives from an external caller. Return an HTTP response to the caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
+   | **Try-Catch Error Handler** | Catch and handle errors by using structured **Scope** actions. <br><br>Continue with [Build the workflow with a non-blank template](#template). |
+   | **HTTP Request Handler** | Run the workflow when POST requests arrive from external callers. Return a JSON response to the original caller when the workflow completes. <br><br>Continue with [Build a workflow with a non-blank template](#template). |
+
 ---
+
+## 4: Save and publish the workflow
+
+The designer automatically saves the changes you make to a *draft* version. The *published* version runs in production.
+
+> [!TIP]
+>
+> For workflows that start with a web request or webhook trigger, you can immediately test the draft version without publishing first. Just select **Test your draft**.
+>
+> For workflows that start with a schedule-based trigger or an outside event, you must publish before the trigger can fire.
+
+1. On the designer, at the canvas bottom, confirm that the **Draft** label appears.
+
+1. Select **Publish** to make the draft live.
+
+## 5: Test the workflow
+
+After you publish, test the workflow to make sure everything works as expected.
+
+1. On the designer toolbar, select **Test your draft**.
+
+   A dialog opens where you can provide test data.
+
+1. In the test data field, enter the following JSON body:
+
+   ```json
+   {
+     "name": "Azure Developer"
+   }
+   ```
+
+1. Select **Run**.
+
+   The workflow runs, and the monitoring view shows progress in real time.
 
 ## 4: Manage users and permissions
 
