@@ -1,11 +1,11 @@
 ---
 title: Select models for agents in Microsoft Discovery
-description: Learn how to choose the right OpenAI model for your Microsoft Discovery agents based on use case, output quality, cost, and response time.
+description: Learn how to choose the right model for your Microsoft Discovery agents based on use case, output quality, cost, and response time across Microsoft Discovery and Discovery app.
 author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 05/29/2026
 
 #CustomerIntent: As a researcher or scientist, I want to select the best model for my Discovery agents so that I can balance output quality, cost, and response time.
 ---
@@ -14,7 +14,14 @@ ms.date: 04/15/2026
 
 Microsoft Discovery is built on [Microsoft Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). All models available in the [Foundry model catalog](https://ai.azure.com/catalog/models) are accessible for Discovery agents. During public preview, we recommend OpenAI GPT-5.x series models for the best experience with Discovery agents.
 
-This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time.
+This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time. The guidance applies to both **Microsoft Discovery** and **Discovery app**, with additional flexibility available in Discovery app for third-party model endpoints.
+
+## Applicability
+
+| Offering | Model guidance | Additional options |
+| --- | --- | --- |
+| **Microsoft Discovery** | All guidance in this article applies. Models are deployed as workspace-level managed resources. | Models from the [Foundry model catalog](https://ai.azure.com/catalog/models) |
+| **Discovery app** | Same model selection principles apply. | Supports bring-your-own-model (BYOM) endpoints from third-party platforms |
 
 ## Prerequisites
 
@@ -79,11 +86,11 @@ Interactive agents handle Question and Answer, onboarding, or exploratory conver
 - **GPT-5.2-Chat / GPT-5.4-Chat**—Optimized for conversational interactions. Chat models provide natural, responsive dialogue, with lower latency and cost compared to their base counterparts.
 - **GPT-5-mini**—A strong choice for high-volume interactive scenarios if cost efficiency matters. Delivers good conversational quality at a fraction of the cost.
 
-### Workflow agents
+### Multi-agent orchestration
 
-Workflow agents orchestrate multiple prompt agents through action flows. The workflow agent itself doesn't use a model directly. Instead, each prompt agent invoked within the workflow uses its own model deployment. Apply the guidance in the previous sections to each prompt agent in your workflow.
+When using the [Discovery Engine](concept-discovery-engine.md) for multi-agent orchestration, each prompt agent invoked by the engine uses its own model deployment. Apply the guidance in the previous sections to each prompt agent in your project.
 
-For multi-agent workflows, you can mix models across agents. For example, use GPT-5-mini for a routing agent, GPT-5.2 for a data-processing agent, and GPT-5.2-Pro for a synthesis agent. This approach optimizes cost without sacrificing output quality where it matters.
+For multi-agent scenarios, you can mix models across agents. For example, use GPT-5-mini for a routing agent, GPT-5.2 for a data-processing agent, and GPT-5.2-Pro for a synthesis agent. This approach optimizes cost without sacrificing output quality where it matters.
 
 ## Evaluate tradeoffs between quality, cost, and speed
 
@@ -103,7 +110,7 @@ Use the following decision matrix to guide your model selection.
 - **Start with GPT-5.2.** It's the recommended default for Discovery agents. Move to a different model only when you have a specific reason.
 - **Use smaller models for simple tasks.** Routing, classification, and formatting tasks don't need Pro-level reasoning. GPT-5-mini or GPT-5-nano reduces cost significantly.
 - **Reserve Pro models for high-value tasks.** Deep research synthesis, complex hypothesis generation, and advanced code analysis justify the higher cost.
-- **Mix models in workflows.** Assign different models to different agents within the same workflow based on each agent's task complexity.
+- **Mix models across agents.** Assign different models to different agents based on each agent's task complexity.
 
 ## Configure a model deployment for your agent
 
@@ -123,6 +130,37 @@ You configure model deployments at the workspace level. All agents in a project 
 1. Save the agent. Each save creates a new immutable version.
 
 You can deploy multiple models in the same workspace and assign different deployments to different agents. Reference deployments by name, not resource ID.
+
+## Model selection in Discovery app
+
+The model selection guidance in this article applies equally to Discovery app. The same principles for matching models to agent use cases, evaluating quality-cost-speed tradeoffs, and configuring response controls remain valid.
+
+### Bring your own model (BYOM)
+
+Discovery app provides additional flexibility by allowing you to connect third-party model endpoints directly. In addition to models from the Foundry model catalog, Discovery app supports:
+
+- **OpenAI endpoints**—Connect directly to OpenAI API endpoints (for example, GPT-4o, GPT-5) using your own API keys
+- **Anthropic endpoints**—Connect to Anthropic Claude models directly
+- **Other third-party platforms**—Any model endpoint that follows standard API conventions
+
+This flexibility enables you to:
+
+- Experiment with models not yet available in the Foundry catalog
+- Compare performance across different model providers
+- Use specialized models for domain-specific tasks
+
+> [!IMPORTANT]
+> When using third-party model endpoints in Discovery app, you are responsible for endpoint security, data handling, and compliance with your organization's policies. Microsoft Discovery model guidance remains the recommended baseline for production and team use.
+
+### Configuration in Discovery app
+
+To configure a third-party model endpoint in Discovery app:
+
+1. Open Discovery app settings.
+1. Add a new model endpoint by providing the endpoint URL and authentication credentials.
+1. Reference the configured endpoint when creating or editing your custom agent.
+
+The same temperature, Top-P, and other response control parameters apply regardless of the model provider.
 
 ## Related content
 
