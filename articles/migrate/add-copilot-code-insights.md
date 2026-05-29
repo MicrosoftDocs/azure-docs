@@ -8,7 +8,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 10/23/2025
 ms.custom: engagement-fy24
-# Customer intent: As a cloud administrator, I want to upload AppCAT scan results as a zip to a web app assessment so that the assessment includes code-based migration insights.
+# Customer intent: As a cloud administrator, I want to upload AppCAT scan results as a ZIP to a web app assessment so that the assessment includes code-based migration insights.
 ---
 
 
@@ -19,18 +19,18 @@ This article describes how to add code scan insights using GitHub Copilot Modern
 In this article, you learn how to: 
 
 - Generate GitHub Copilot code assessment report for web apps.
-- Add code insights for Web apps from Applications inventory and assessment blades
-- Add code insights for Web apps from Web apps inventory and assessment blades
+- Add code insights for Web apps from Applications inventory and assessment page
+- Add code insights for Web apps from Web apps inventory and assessment page
 - View code insights
 
 You can add code insights to web app assessment using either of the following two methods:  
 
-- Upload using .zip file - Use this method when you already have a code scan report or have permissions to generate one.
-- Request report through GitHub issue - Use this method when you cannot generate code insights report yourself or do not have access to code repository. This approach allows Cloud administrators and Application developers to collaborate while adhering to their organization’s code security guidelines. 
+- **Upload using ZIP file** - Use this method when you already have a code scan report or have permissions to generate one.
+- **Request report through GitHub issue** - Use this method when you cannot generate code insights report yourself or do not have access to code repository. This approach allows Cloud administrators and Application developers to collaborate while adhering to their organization’s code security guidelines. 
 
-##  Manually upload code scan reports using a .zip File
+##  Manually upload code scan reports using a ZIP File
 
-With this approach, you must generate the code scan report manually and upload it as a .zip file. 
+With this approach, you must generate the code scan report manually and upload it as a ZIP file. 
 
 ### Prerequisites
 
@@ -46,7 +46,7 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 2. Open the source code of your Web app from GitHub repository. You must have permissisons to the code repository.
 3. On the sidebar, select the GitHub Copilot app modernization pane, where you can select **Migrate to Azure** or **Run Assessment** in the **ASSESSMENT** section.
 4. Upon completion of assessment, you can download **report.json** file at the location of your choice.
-5. Create a .zip file for all the reports you want to add.
+5. Create a ZIP file for all the reports you want to add.
 
 **AppCAT CLI**
 
@@ -57,29 +57,29 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 2. Generate AppCAT Reports
    - After installing AppCAT, generate reports for all assessed web apps: For .NET applications, use the .NET CLI to analyze applications. For more details, see [Analyze applications with the .NET CLI](/dotnet/azure/migration/appcat/dotnet-cli). 
     - For Java applications: To run AppCAT against a sample Java project, see [Run AppCAT against a sample Java project](/azure/migrate/appcat/appcat-7-quickstart?tabs=windows#run-appcat-against-a-sample-java-project).
-3. Create a .zip file for all the reports you want to add.
+3. Create a ZIP file for all the reports you want to add.
 
-### Upload a .zip file 
+### Upload a ZIP file 
 
-1.You can add code assessment report from any of the below mentioned blades:
-    - On the Azure Migrate **Overview** page under **Explore inventory**, select **Web apps**.
-    - On the Azure Migrate **Overview** page under **Explore Applications**, select **Applications**.
-    - On the Azure Migrate **Overview** page under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
+1.You can add code assessment report from any of the following:
+    - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
+    - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
+    - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
 2. In **Add code insights** dropdown, select **GitHub Copilot assessment**. 
 
 :::image type="content" source="./media/add-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/using-github-copilot-assessment.png":::
 
-3. In the Add Code Insights page, select **Upload a zip file**.  
+3. In the Add Code Insights page, select **Upload a ZIP file**.  
 
-:::image type="content" source="./media/add-copilot-code-insights/upload-zip-file.png" alt-text="The screenshot shows how to upload a zip file." lightbox="./media/add-copilot-code-insights/upload-zip-file.png":::
+:::image type="content" source="./media/add-copilot-code-insights/upload-ZIP-file.png" alt-text="The screenshot shows how to upload a ZIP file." lightbox="./media/add-copilot-code-insights/upload-ZIP-file.png":::
 
-4. Select **Browse**, and select the location of the ZIP file containing reports you want to import and then select **Upload**. Wait for the upload and validation to complete.
+4. Select **Browse**. Select the location of the ZIP file that contains the reports to import, and then select **Upload**. Wait for the upload and validation to complete.
 
 :::image type="content" source="./media/add-copilot-code-insights/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/add-copilot-code-insights/add-code-insights.png":::
 
 5. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from ZIP file**. 
 
-:::image type="content" source="./media/add-copilot-code-insights/upload-from-zip-file.png" alt-text="The screenshot shows how to upload from the zip file." lightbox="./media/add-copilot-code-insights/upload-from-zip-file.png":::
+:::image type="content" source="./media/add-copilot-code-insights/upload-from-ZIP-file.png" alt-text="The screenshot shows how to upload from the ZIP file." lightbox="./media/add-copilot-code-insights/upload-from-ZIP-file.png":::
 
 6. Select the appropriate report to map to the corresponding web app. Repeat these steps for all required web app.  
 7. After mapping, select **Add** and wait for the process to complete.
@@ -87,7 +87,7 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 :::image type="content" source="./media/add-copilot-code-insights/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/add-copilot-code-insights/add.png":::
  
 8. After mapping is complete, Code changes column in Applications and Web apps pages shows **Available**. All assessments for the selected web apps or application are marked as outdated. Select **Recalculate** to initiate recalculation.
-9. View the code insights by clicking on **Available** in Applications and Web apps pages. If the code changes were added from assessments, you would be able to view the number of changes for the recommended Azure target.
+9. Select **Available** on the Applications or Web apps page to view code insights. If code changes are included, the number of changes for the recommended Azure target are displayed.
 
 ## Request report via GitHub
 
@@ -176,7 +176,7 @@ Collate the following GitHub App details and private key and create a GitHub con
 
 ### Request code scan report for web app and application assessment using GitHub issue
 
-1. You can add code assessment report from any of the below mentioned blades:
+1. You can add code assessment report from any of the following:
     - On the Azure Migrate **Overview** page under **Explore inventory**, select **Web apps**.
     - On the Azure Migrate **Overview** page under **Explore Applications**, select **Applications**.
     - On the Azure Migrate **Overview** page under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
@@ -207,7 +207,7 @@ Collate the following GitHub App details and private key and create a GitHub con
 8. Azure Migrate creates GitHub issue in the repository specified in the connection details. 
 9. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app and corresponding Applications.
 10. After mapping is complete, Code changes column in Applications and Web apps pages shows **Available**. All assessments for the selected web apps or application are marked as outdated. Select **Recalculate** to initiate recalculation.
-9. View the code insights by clicking on **Available** in Applications and Web apps pages. If the code changes were added from assessments, you would be able to view the number of changes for the recommended Azure target.
+9. Select **Available** on the Applications or Web apps page to view code insights. If code changes are included, the number of changes for the recommended Azure target are displayed.
 
 ### Generate code scan report using GitHub Copilot app modernization extension
 
@@ -233,31 +233,31 @@ After you add code scan reports, the readiness and migration strategy for the re
 
 ## Troubleshooting 
 
-This section helps resolve issues related to importing paths or uploading zip files that don’t meet the required constraints.
+This section helps resolve issues related to importing paths or uploading ZIP files that don’t meet the required constraints.
 
 ### Upload using Zip file
 
-1. When failed to upload reports as zip file: Follow these guidelines to successfully import paths and upload zip files without errors.
+1. When failed to upload reports as ZIP file: Follow these guidelines to successfully import paths and upload ZIP files without errors.
 
 **Unable only Zip files that meet these requirements**:
 
  - Contains only JSON files.
  - Zip file is less than 50 MB. 
- - Total number of files in zip file is less than 100. 
- - Maximum size of uncompressed zip file is less than 500 MB.
- - Zip file doesn't contain another nested zip files.
+ - Total number of files in ZIP file is less than 100. 
+ - Maximum size of uncompressed ZIP file is less than 500 MB.
+ - Zip file doesn't contain another nested ZIP files.
 
-  You might see errors if the uploaded zip file doesn’t meet the required constraints. Here are some examples:
+  You might see errors if the uploaded ZIP file doesn’t meet the required constraints. Here are some examples:
  
- - The uploaded blob content type '%Value;' isn't supported. - *Occurs when the uploaded file is not a zip file*. 
- - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - *Occurs when the zip file contains more than 100 files*. 
- - Total uncompressed size %UncompressedSize; MB of uploaded zip file exceeds limit of %MaxUncompressedSize;MB. - *Occurs when the uncompressed size of the zip file exceeds 500 MB*.
- - Zip entry '%EntryName;' is invalid (possible path traversal). - *Occurs when a file name in the zip contains path traversal characters such as ../../.*  
- - The uploaded zip file is empty and contains no valid files. - *Occurs when the zip file does not contain any files.*
+ - The uploaded blob content type '%Value;' isn't supported. - *Occurs when the uploaded file is not a ZIP file*. 
+ - Zip contains too many files (%FileCount;). Limit is %MaxFileCount;. - *Occurs when the ZIP file contains more than 100 files*. 
+ - Total uncompressed size %UncompressedSize; MB of uploaded ZIP file exceeds limit of %MaxUncompressedSize;MB. - *Occurs when the uncompressed size of the ZIP file exceeds 500 MB*.
+ - Zip entry '%EntryName;' is invalid (possible path traversal). - *Occurs when a file name in the ZIP contains path traversal characters such as ../../.*  
+ - The uploaded ZIP file is empty and contains no valid files. - *Occurs when the ZIP file does not contain any files.*
 
-If you see any of these errors, remove the invalid or extra files and recreate the zip file before uploading it again.
+If you see any of these errors, remove the invalid or extra files and recreate the ZIP file before uploading it again.
 
-2. **Partial files or No files accepted for report generation**: Even if the zip file meets all guidelines and is processed, you might not see the reports for every file in the zip. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
+2. **Partial files or No files accepted for report generation**: Even if the ZIP file meets all guidelines and is processed, you might not see the reports for every file in the ZIP. This can happen due to issues such as JSON schema incompatibility or unsupported targets in the report file.
 When this occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like:
 
  - The report content is invalid or not in the expected JSON format. - Occurs when the JSON report schema is invalid or incompatible. 
