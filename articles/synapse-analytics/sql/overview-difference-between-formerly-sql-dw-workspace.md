@@ -11,6 +11,8 @@ ms.date: 10/06/2024
 
 # Difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 *Originally posted as a techcommunity blog at: https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772*
 
 There has been confusion for a while when it comes to Microsoft Docs and the two distinct sets of documentation for dedicated SQL pools. When you do an internet search for an Azure Synapse related doc and land on Microsoft Learn Docs site, the Table of Contacts has a toggle switch between two sets of documentation.

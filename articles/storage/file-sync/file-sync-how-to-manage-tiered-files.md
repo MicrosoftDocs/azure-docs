@@ -100,7 +100,7 @@ When you exclude a file type or pattern, it won't be tiered from that server any
 
 For example, if you exclude PDF files, the PDF files that you create directly on the server won't be tiered. However, any PDF files that you create on a different endpoint, such as another server endpoint or the Azure file share, will still download as tiered files. These excluded tiered files will be fully recalled within the next 3-4 days.
 
-If you don't want any files to be in a tiered state, enable [proactive recalling](file-sync-cloud-tiering-overview.md#proactive-recalling). This feature will prevent tiered download of all files and stop background tiering.
+If you don't want any files to be in a tiered state, enable [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recall). This feature will prevent tiered download of all files and stop background tiering.
 
 ### More information
 

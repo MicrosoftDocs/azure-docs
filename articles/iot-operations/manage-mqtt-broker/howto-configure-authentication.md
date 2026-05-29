@@ -1,12 +1,12 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 05/20/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -42,7 +42,7 @@ Azure IoT Operations deploys a default BrokerAuthentication resource named `defa
 1. Select the **Authentication** tab.
 1. From the authentication policy list, select the **default** policy name.
 
-    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy.":::
+    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy." lightbox="media/howto-configure-authentication/authentication-policy-default.png":::
 
 To add new authentication methods, select **Add method**.
 
@@ -138,7 +138,7 @@ If you need to make changes, modify the `authenticationMethods` field in this re
 
 The order of the specified authentication methods determines how the MQTT broker authenticates clients. The MQTT broker tries to authenticate the client's credentials by using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
 
-For each method, the MQTT broker first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, the MQTT broker treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets the MQTT broker fall back to other methods if the custom authentication server is unreachable.
 
@@ -191,7 +191,7 @@ To add an authentication method to a policy:
 1. Add a new method by selecting **Add method**.
 1. Choose the method type from the dropdown list, and then select **Add details** to configure the method.
 
-    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot that shows using the Azure portal to add an MQTT broker authentication policy method.":::
+    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot that shows using the Azure portal to add an MQTT broker authentication policy method." lightbox="media/howto-configure-authentication/create-authentication-policy.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -262,7 +262,7 @@ In this example, assume a configuration file named `my-authn-policy.json` with t
 }
 ```
 
-An example command to create a new authentication policy named `my-policy` is as follows:
+The following example creates a new authentication policy named `my-policy`:
 
 ```azurecli
 az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-policy --config-file ~/my-authn-policy.json
@@ -413,7 +413,7 @@ To change the configuration, modify the `authenticationMethods` setting in this 
 
 To learn more about each of the authentication options, see the next sections for each method.
 
-For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
@@ -969,7 +969,7 @@ Modify the `authenticationMethods` setting in a BrokerAuthentication resource to
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **Kubernetes SAT** from the dropdown list. Then select **Add details** to configure the method.
 
-:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker SAT authentication method.":::
+:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker SAT authentication method." lightbox="media/howto-configure-authentication/sat-method.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -1215,11 +1215,17 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
     authenticationMethods: [
       {
         method: 'Custom'
-        serviceAccountTokenSettings: {
-          audiences: [
-            'aio-internal'
-            'my-audience'
-          ]
+        customSettings: {
+          endpoint: 'https://auth-server-template'
+          caCertConfigMap: 'custom-auth-ca'
+          auth: {
+            x509: {
+              secretRef: 'custom-auth-client-cert'
+            }
+          }
+          headers: {
+            header_key: 'header_value'
+          }
         }
       }
     ]

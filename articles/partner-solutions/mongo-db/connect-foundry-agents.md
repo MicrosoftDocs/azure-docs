@@ -1,6 +1,8 @@
 ---
 title: Connect Microsoft Foundry Agents to MongoDB Atlas
 description: Learn how to connect Microsoft Foundry Agents to MongoDB Atlas using the MongoDB MCP Server for data retrieval and vector search.
+author: vpriyanshi
+ms.author: priyverma
 ms.topic: how-to
 ms.date: 03/20/2026
 ---

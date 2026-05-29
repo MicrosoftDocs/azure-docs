@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 01/07/2026
+ms.date: 05/19/2026
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 # Customer intent: As a system administrator, I want to understand the different distribution modes of Azure Load Balancer so that I can select the appropriate routing strategy for optimizing application performance and session persistence.
 ---
@@ -39,6 +39,9 @@ The hash is used to route traffic to healthy backend instances within the backen
 In order to configure hash based distribution, you must select session persistence to be **None** in the Azure portal. This specifies that successive requests from the same client can be handled by any virtual machine.
 
 :::image type="content" source="media/load-balancer-overview/load-balancer-distribution.png" alt-text="Screenshot of five-tuple hash based distribution mode diagram showing traffic routing to virtual machines.":::
+
+> [!NOTE]
+> When there is limited variation in source IP addresses and ports, the load balancer may not have enough distinct flow information to distribute traffic evenly across backends. In scenarios where intermediate devices (such as firewalls performing SNAT) reduce the number of visible source IP addresses and assign source ports in predictable patterns, the available variation in traffic flows can be significantly limited, especially when traffic originates from a small number of clients. This may result in highly skewed or no distribution across backend instances. If you experience uneven distribution, increase the number of clients sending traffic through the intermediate device, or try adjusting the number of intermediate device instances or load balancer backends to break the hashing symmetry.
 
 
 ## Session persistence 

@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create a Java Durable Functions app"
-description: Create and publish a Java Durable Functions app in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
+description: "Create and publish a Java Durable Functions app in Azure Functions. Choose manual setup, Maven, or Visual Studio Code to get started with stateful serverless workflows."
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
 ms.service: azure-functions
-ms.date: 07/24/2024
+ms.date: 04/23/2026
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: mode-api, devx-track-extended-java
@@ -16,15 +16,19 @@ zone_pivot_groups: create-java-durable-options
 
 Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-In this quickstart, you create and test a "hello world" Durable Functions app in Java.
+In this quickstart, you create and test a Durable Functions app in Java.
 
-The most basic Durable Functions app has three functions:
+A basic Durable Functions app has three functions:
 
-* **Orchestrator function**: A workflow that orchestrates other functions.
-* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
-* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
+* **Orchestrator function** (`Cities`): A workflow that orchestrates other functions.
+* **Activity function** (`Capitalize`): A function that the orchestrator calls to perform work and return a value.
+* **Client function** (`StartOrchestration`): An HTTP-triggered function that starts the orchestrator.
 
-This quickstart describes different ways to create this "hello world" app. Use the selector at the top of the page to set your preferred approach.
+This quickstart offers three setup paths. Use the selector at the top of the page to choose your preferred approach:
+
+- **Manual setup**: Create each file by hand for full control over the project structure.
+- **Maven command**: Use a Maven archetype to scaffold the project in one command.
+- **Visual Studio Code**: Use the VS Code Azure Functions extension to generate the project through a guided UI.
 
 ## Prerequisites
 
@@ -39,6 +43,8 @@ To complete this quickstart, you need:
   For Azure Functions _4.x_, Core Tools version 4.0.4915 or later is required.
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+
+* [Visual Studio Code](https://code.visualstudio.com/) with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed (required only for the **Visual Studio Code** setup path).
  
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
@@ -48,7 +54,7 @@ To complete this quickstart, you need:
 
 ## Add required dependencies and plugins to your project
 
-Add the following code to your _pom.xml_ file:
+Add the following code to your _pom.xml_ file. Before you copy it, replace `your-unique-app-name` with a globally unique function app name. Adjust `region`, `javaVersion`, and `resourceGroup` to match your environment.
 
 ```xml
 <properties>
@@ -141,7 +147,7 @@ Add a _host.json_ file to your project directory. It should look similar to the 
 ```
 
 > [!NOTE]
-> It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is _not_ supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../extension-bundles.md).
+> Durable Functions for Java requires extension bundle v4. Earlier bundles aren't supported. For more information, see the [extension bundles documentation](../extension-bundles.md).
 
 Durable Functions needs a storage provider to store runtime state. Add a _local.settings.json_ file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
 
@@ -155,7 +161,10 @@ Durable Functions needs a storage provider to store runtime state. Add a _local.
 }
 ```
 
-## Create your functions
+> [!IMPORTANT]
+> The _local.settings.json_ file can contain secrets. Make sure you add it to your _.gitignore_ file to avoid committing it to source control.
+
+## Create your Durable Functions orchestrator, activity, and client functions
 
 The following sample code shows a basic example of each type of function:
 
@@ -218,7 +227,7 @@ public class DurableFunctionsSample {
 
 ::: zone pivot="create-option-maven-command"
 
-## Create a local project by using the Maven command
+## Create a local Durable Functions project by using the Maven command
 
 Run the following command to generate a project that contains the basic functions of a Durable Functions app:
 
@@ -252,11 +261,9 @@ At the prompts, provide the following information:
   | **package** | Enter **com.function**. |
   | **Y** | Enter **Y** and select Enter to confirm. |
 
-Now you have a local project that has the three functions that are in a basic Durable Functions app.
+Now you have a local project that has the three functions that are in a basic Durable Functions app. The archetype includes `com.microsoft:durabletask-azure-functions` as a dependency in your _pom.xml_ file automatically.
 
-Check to ensure that `com.microsoft:durabletask-azure-functions` is set as a dependency in your _pom.xml_ file.  
-
-## Configure the back-end storage provider
+## Configure the back-end storage provider for Durable Functions
 
 Durable Functions needs a storage provider to store runtime state. You can set Azure Storage as the storage provider in _local.settings.json_. Use the connection string of your Azure storage account as the value for `AzureWebJobsStorage` like in this example:
 
@@ -270,6 +277,9 @@ Durable Functions needs a storage provider to store runtime state. You can set A
 }
 ```
 
+> [!IMPORTANT]
+> The _local.settings.json_ file can contain secrets. Make sure you add it to your _.gitignore_ file to avoid committing it to source control.
+
 ::: zone-end
 
 ::: zone pivot="create-option-vscode"
@@ -278,7 +288,7 @@ Durable Functions needs a storage provider to store runtime state. You can set A
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select  **Azure Functions: Create New Project**.
 
-   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the create new functions project command.":::
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the Azure Functions Create New Project command in the Visual Studio Code command palette.":::
 
 1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -296,7 +306,7 @@ Durable Functions needs a storage provider to store runtime state. You can set A
     | **Select the build tool for Java project** | Select **Maven**. |
     | **Select how you would like to open your project** | Select **Open in new window**. |
 
-You now have a project that has an example HTTP function. You can remove this function if you'd like to, because you add the basic functions of a Durable Functions app in the next step.  
+You now have a project that has an example HTTP function. You can remove the generated HTTP function, because you add the Durable Functions in the next step.
 
 ## Add functions to the project
 
@@ -316,7 +326,7 @@ You now have a project that has an example HTTP function. You can remove this fu
 
 You should now have the three basic functions generated for a Durable Functions app.
 
-## Configure pom.xml and host.json
+## Configure pom.xml and host.json for Durable Functions
 
 Add the following dependency to your _pom.xml_ file:
 
@@ -328,10 +338,21 @@ Add the following dependency to your _pom.xml_ file:
 </dependency>
 ```
 
-Add the `extensions` property to your _host.json_ file:
+Add the `extensions` property to your _host.json_ file. If the file already has other properties, merge the `extensions` block into the existing JSON:
 
 ```json
-"extensions": { "durableTask": { "hubName": "JavaTestHub" }}
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "hubName": "JavaTestHub"
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}
 ```
 
 ::: zone-end
@@ -339,9 +360,6 @@ Add the `extensions` property to your _host.json_ file:
 ## Test the function locally
 
 Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer.
-
-> [!NOTE]
-> Durable Functions for Java requires Azure Functions Core Tools version 4.0.4915 or later. You can see which version is installed by running the `func --version` command in the terminal.
 
 1. If you're using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
@@ -357,9 +375,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
+   :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of the terminal output showing the HTTP endpoint URL for the local Azure Functions runtime.":::
 
-1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint.
+1. Use your [HTTP test tool](../functions-develop-local.md#http-test-tools) to send an HTTP POST request to the URL endpoint.
 
     The response should look similar to the following example:
 

@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: Create a Standard V2 Azure NAT Gateway - Deployment templates'
-description: This quickstart shows how to create a NAT gateway by using an Azure Resource Manager template (ARM template) and Bicep template.
+description: This quickstart shows how to create a NAT gateway by using an Azure Resource Manager template (ARM template), Bicep template, or Terraform.
 author: asudbring
 ms.service: azure-nat-gateway
 ms.topic: quickstart
-ms.date: 09/24/2025
+ms.date: 04/08/2026
 ms.author: allensu
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-terraform
 ---
 
 # Quickstart: Create a Standard V2 Azure NAT Gateway - Deployment templates
 
-Get started with NAT Gateway V2 by using an Azure Resource Manager template (ARM template) or Bicep template. The templates deploy a NAT gateway, virtual network, subnet, and Ubuntu virtual machine for testing NAT gateway functionality. The NAT gateway is assigned to a subnet of the virtual network.
+Get started with NAT Gateway V2 by using an Azure Resource Manager template (ARM template), Bicep template, or Terraform. The templates deploy a NAT gateway, virtual network, subnet, and Ubuntu virtual machine for testing NAT gateway functionality. The NAT gateway is assigned to a subnet of the virtual network.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,6 +28,12 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 # [Bicep](#tab/Bicep)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+# [Terraform](#tab/Terraform)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ---
 
@@ -66,6 +72,23 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates a virtual network subnet.
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): Creates a network interface.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): Creates a virtual machine.
+
+# [Terraform](#tab/Terraform)
+
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-nat-gateway-v2-create). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-nat-gateway-v2-create/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
+
+The following Azure resources are defined in the Terraform configuration:
+
+- [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group): Creates a resource group.
+- [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip): Creates a public IP address.
+- [azurerm_nat_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway): Creates a NAT gateway resource.
+- [azurerm_nat_gateway_public_ip_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway_public_ip_association): Associates a public IP with the NAT gateway.
+- [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network): Creates a virtual network.
+- [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet): Creates a virtual network subnet.
+- [azurerm_subnet_nat_gateway_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_nat_gateway_association): Associates the NAT gateway with the subnet.
+- [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group): Creates a network security group.
+- [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface): Creates a network interface.
+- [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine): Creates a virtual machine.
 
 ---
 
@@ -194,6 +217,41 @@ Multiple Azure resources are defined in the template:
     DeploymentDebugLogLevel :
     ```
 
+# [Terraform](#tab/Terraform)
+
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-v2-create/providers.tf":::
+
+1. Create a file named `main.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-v2-create/main.tf":::
+
+1. Create a file named `variables.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-v2-create/variables.tf":::
+
+1. Create a file named `outputs.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-v2-create/outputs.tf":::
+
+> [!IMPORTANT]
+> If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
+
+### Initialize Terraform
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+### Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+### Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
 ---
 
 ## Validate the deployment
@@ -269,6 +327,10 @@ Remove-AzResourceGroup -Name myResourceGroup
 az group delete --name myResourceGroup
 ```
 
+# [Terraform](#tab/Terraform)
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
 ---
 
 ## Next steps
@@ -278,3 +340,7 @@ For more information on Azure NAT Gateway, see:
 > [Azure NAT Gateway overview](nat-overview.md)
 >
 > [Azure NAT Gateway resource](nat-gateway-resource.md)
+
+For more information on Terraform with Azure, see:
+> [!div class="nextstepaction"]
+> [Terraform on Azure documentation](/azure/developer/terraform)

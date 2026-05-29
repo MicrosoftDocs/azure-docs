@@ -41,7 +41,7 @@ These articles show you how to create your first functions using your IDE of cho
 
 ### Project scaffolding
 
-If you prefer command line development from the Terminal, the simplest way to scaffold Java-based function projects is to use `Apache Maven` archetypes. The Java Maven archetype for Azure Functions is published under the following _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+If you prefer command line development from the Terminal, the simplest way to scaffold Java-based function projects is to use `Apache Maven` archetypes. The Java Maven archetype for Azure Functions is published under the following _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://central.sonatype.com/artifact/com.microsoft.azure/azure-functions-archetype). 
 
 The following command generates a new Java function project using this archetype:
 

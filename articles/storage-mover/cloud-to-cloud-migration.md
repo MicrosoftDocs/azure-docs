@@ -6,6 +6,9 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
 ms.date: 11/04/2025
+ms.collection:
+  - migration
+  - aws-to-azure
 ---
 
 # Get started with cloud-to-cloud migration in Azure Storage Mover
@@ -15,6 +18,8 @@ The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to secure
 The feature utilizes Azure Arc multicloud connectors for AWS (Amazon Web Services) to simplify authentication and resource management capabilities to resources outside of the Azure cloud. These capabilities and resources can include on-premises servers, multicloud environments, and edge computing devices. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
 
 This article guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. The process consists of creating a multicloud connector for AWS, configuring endpoints, and creating and running a migration job.
+
+To plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws), which includes [example migration scenarios](/azure/migration/migrate-storage-from-aws#migration-guides) that might align to your use case.
 
 ## Prerequisites
 

@@ -1,14 +1,15 @@
 ---
 title: Configure data flow profile in Azure IoT Operations
 description: How to configure a data flow profile in Azure IoT Operations to change a data flow behavior.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 05/15/2026
+ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
+#CustomerIntent: As an operator, I want to understand how I can configure a data flow profile to control data flow behavior.
 ---
 
 # Configure data flow profile
@@ -156,6 +157,9 @@ spec:
 You can scale the data flow profile to adjust the number of instances that run the data flows. For a given data flow, instance count is the number of copies that run on your cluster. Increasing the instance count can improve the throughput of the data flows by creating multiple clients to process the data. When using data flows with cloud services that have rate limits per client, increasing the instance count can help you stay within the rate limits.
 
 Scaling can also improve the resiliency of the data flows by providing redundancy in case of failures.
+
+> [!IMPORTANT]
+> **Stateful data flow graphs must use a single instance.** Data flow graphs that contain stateful transforms such as [window](howto-dataflow-graphs-window.md) accumulate state independently in each instance. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions), and the separate instances don't share state with each other. As a result, each instance only aggregates a subset of the messages, which produces incorrect results. Set the instance count to **1** for any data flow profile that is associated with a stateful data flow graph.
 
 To manually scale the data flow profile, specify the number of instances you want to run. For example, to set the instance count to 3:
 

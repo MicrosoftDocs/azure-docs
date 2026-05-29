@@ -19,7 +19,7 @@ This article walks you through configuring [Azure API Management](../../api-mana
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [Azure API Management](../../api-management/index.yml) instance.
 - An SAP system with [SAP Gateway](https://help.sap.com/viewer/product/SAP_GATEWAY) and OData services activated.
 - A Microsoft Entra tenant with permissions to create app registrations.

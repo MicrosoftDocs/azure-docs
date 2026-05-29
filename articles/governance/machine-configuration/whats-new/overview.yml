@@ -23,8 +23,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: What's new in the Azure machine configuration agent
-            url: ./agent.md
+          - text: What's new in the Azure machine configuration Windows agent
+            url: ./agent/windows.md
+          - text: What's new in the Azure machine configuration Linux agent
+            url: ./agent/linux.md
           - text: What's new in the Azure machine configuration docs
             url: ./docs.md
 

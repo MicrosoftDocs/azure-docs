@@ -84,7 +84,6 @@ Configure report generation in one of the following ways:
 - **Define configuration**: Specify the scope, settings, and configuration to use when generating the report.
 - **Use configuration from an existing assessment**: Select an existing assessment and reuse its scope, settings, and configuration to generate the report.
 
-
 ## Next steps 
 
 - Learn how to [build a report](how-to-build-a-report.md). 

@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2202 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2202 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/28/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2202 release notes

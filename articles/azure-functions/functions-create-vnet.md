@@ -42,18 +42,18 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`. |
     | **Publish** | Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
-    | **Version** | 8 (LTS) | This tutorial uses .NET 8.0 running [in the same process as the Functions host](./functions-dotnet-class-library.md). |
+    | **Version** | 8 (LTS), Isolated worker model | This tutorial uses .NET 8.0 running in the [isolated worker model](./dotnet-isolated-process-guide.md). |
     | **Region** | Preferred region | Choose a [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) near you or near other services that your functions access. |
     | **Operating system** | Windows | This tutorial uses Windows but also works for Linux. |
     | **[Plan](./functions-scale.md)** | Functions Premium | Hosting plan that defines how resources are allocated to your function app. By default, when you select **Premium**, a new App Service plan is created. The default **Sku and size** is **EP1**, where *EP* stands for _elastic premium_. For more information, see the list of [Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/><br/>When you run JavaScript functions on a Premium plan, choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions). |
 
-1. Select **Next: Storage**. On the **Storage** page, enter the following settings.
+1. On the **Storage** page, enter the following settings.
 
     | Setting | Suggested value | Description |
     | ------------ | ---------------- | ----------- |
     | **[Storage account](../storage/common/storage-account-create.md)** | Globally unique name | Create a storage account used by your function app. Storage account names must be between 3 and 24 characters long. They might contain numbers and lowercase letters only. You can also use an existing account that isn't restricted by firewall rules and meets the [storage account requirements](./storage-considerations.md#storage-account-requirements). When you use Functions with a locked down storage account, you need a v2 storage account. This version is the default storage version created when creating a function app with networking capabilities through the Azure portal. |
 
-1. Select **Next: Networking**. On the **Networking** page, enter the following settings.
+1. On the **Networking** page, enter the following settings.
 
     > [!NOTE]
     > Some of these settings aren't visible until other options are selected.
@@ -92,11 +92,17 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
     | **Private endpoint subnet** | Create New | This setting creates a new subnet for your inbound private endpoint on the storage account. Multiple private endpoints might be added to a singular subnet. Provide a **Subnet Name**. The **Subnet Address Block** might be left at the default value. Select **Ok**. |
     | **DNS** | Azure Private DNS Zone | This value indicates which DNS server your private endpoint uses. In most cases if you're working within Azure, Azure Private DNS Zone is the DNS zone you should use as using **Manual** for custom DNS zones will have increased complexity. |
 
-1. Select **Next: Monitoring**. On the **Monitoring** page, enter the following settings.
+1. On the **Monitoring** page, enter the following settings.
 
     | Setting | Suggested value | Description |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](./functions-monitoring.md)** | Default | Create an Application Insights resource of the same app name in the nearest supported region. Expand this setting if you need to change the **New resource name** or store your data in a different **Location** in an [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/). |
+
+1. On the **Advanced** page, enable the following setting.
+
+    | Setting | Suggested value | Description |
+    | ------------ | ---------------- | ----------- |
+    | **System assigned identity** | On | Enables a system-assigned managed identity for the function app, which you use later to connect to Service Bus without connection strings. |
 
 1. Select **Review + create** to review the app configuration selections.
 
@@ -106,10 +112,11 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-Congratulations! You successfully created your premium function app.
+Keep these considerations in mind when creating and deploying your app:
 
-> [!NOTE]
-> Some deployments might occasionally fail to create the private endpoints in the storage account with the error `StorageAccountOperationInProgress`. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually.
+- When you create a Premium plan function app in the portal with a storage account that uses private endpoints, the portal automatically sets the `vnetContentShareEnabled` site property to `true`. This property ensures that traffic to the Azure Files content share, used to scale-out a Premium plan app, is routed through the virtual network. For more information, see the [vnetContentShareEnabled](functions-app-settings.md#vnetcontentshareenabled) site property reference. For automated deployments, you must explicitly set this site property in your deployment template. For more information, see [Secured deployments](functions-infrastructure-as-code.md?pivots=premium-plan#secured-deployments).
+
+- Some deployments might occasionally fail to create the private endpoints in the storage account with the error `StorageAccountOperationInProgress`. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually.
 
 ### Create a Service Bus
 
@@ -196,29 +203,31 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
 
 1. Select **Create**.
 
-> [!IMPORTANT]
-> This tutorial currently shows you how to connect to Service Bus using a connection string, which requires you to handle a share secret. For improved security, you should instead use managed identities when connecting to Service Bus from your app. For more information, see [Identity-based connections](functions-bindings-service-bus-trigger.md?tabs=extensionv5#identity-based-connections) in the Service Bus binding reference article.
+## Grant your function app access to Service Bus
 
-## Get a Service Bus connection string
+Since you enabled a system-assigned managed identity during app creation, you can now use role-based access control (RBAC) to grant the function app access to your Service Bus.
 
-1. In your Service Bus, in the menu under **Settings**, select **Shared access policies**.
+1. In your Service Bus namespace, select **Access control (IAM)**.
 
-1. Select **RootManageSharedAccessKey**. Copy and save the **Primary Connection String**. You need this connection string when you configure the app settings.
+1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="./media/functions-create-vnet/7-get-service-bus-connection-string.png" alt-text="Screenshot of how to get a Service Bus connection string.":::
+1. Search for **Azure Service Bus Data Receiver**, select the role, and then select **Next**.
+
+1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
+
+1. Select **+ Select members**, find and select the managed identity for your function app, and then select **Select**.
+
+1. Select **Review + assign** to complete the role assignment.
+
+For more information about identity-based connections, see [Identity-based connections](functions-bindings-service-bus-trigger.md?tabs=extensionv5#connections) in the Service Bus binding reference article.
 
 ## Configure your function app settings
 
-1. In your function app, in the menu under **Settings**, select **Configuration**.
+1. In your function app, in the menu under **Settings**, select **Environment variables**.
 
-1. To use your function app with virtual networks and service bus, update the app settings shown in the following table. To add or edit a setting, select **+ New application setting** or the **Edit** icon in the rightmost column of the app settings table. When you finish, select **Save**.
+1. To connect your function app to the Service Bus using managed identity, you need to add a Service Bus namespace setting. Select **+ Add** to create a new setting named **SERVICEBUS_CONNECTION__fullyQualifiedNamespace** with a value of **\<SERVICE_BUS_NAMESPACE\>.servicebus.windows.net**, replacing **\<SERVICE_BUS_NAMESPACE\>** with the name of your Service Bus namespace. When you finish, select **Apply**.
 
-    | Setting | Suggested value | Description |
-    | ------------ | ---------------- | ---------------- |
-    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create this app setting for the connection string of your Service Bus. This storage connection string is from the [Get a Service Bus connection string](#get-a-service-bus-connection-string) section. |
-    | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when your storage account is restricted to a virtual network. |
-
-1. Since you're using an Elastic Premium hosting plan, In the **Configuration** view, select the **Function runtime settings** tab. Set **Runtime Scale Monitoring** to **On**. Then select **Apply**. Runtime-driven scaling allows you to connect non-HTTP trigger functions to services that run inside your virtual network.
+1. Since you're using an Elastic Premium hosting plan, In the **Environment variables** view, select the **App settings** tab. Verify that the **FUNCTIONS_WORKER_RUNTIME** setting has a value of **dotnet-isolated**. Then select the **Function runtime settings** tab. Set **Runtime Scale Monitoring** to **On**. Then select **Apply**. Runtime-driven scaling allows you to connect non-HTTP trigger functions to services that run inside your virtual network.
 
     :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of how to enable runtime-driven scaling for Azure Functions.":::
 
@@ -227,8 +236,10 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
 
 ## Deploy a Service Bus trigger and HTTP trigger
 
-> [!NOTE]
-> Enabling private endpoints on a function app also makes the Source Control Manager (SCM) site publicly inaccessible. The following instructions give deployment directions using the Deployment Center within the function app. Alternatively, use [zip deploy](functions-deployment-technologies.md#zip-deploy) or [self-hosted](/azure/devops/pipelines/agents/docker) agents that are deployed into a subnet on the virtual network.
+> [!IMPORTANT]
+> Because public access is disabled, the SCM deployment site isn't reachable. You must temporarily re-enable public access so that Deployment Center can deploy your code. For production workloads, deploy from a [self-hosted](/azure/devops/pipelines/agents/docker) agent deployed into a subnet on the virtual network, or connect your development machine by using a [point-to-site VPN](../vpn-gateway/point-to-site-about.md). For more information, see [Secured virtual networks](functions-deployment-technologies.md#secured-virtual-networks).
+
+1. In your function app, in the menu under **Settings**, select **Networking**. Set **Public network access** to **Enabled from select virtual networks and IP addresses**, and then select **Save**.
 
 1. In GitHub, go to the following sample repository. It contains a function app and two functions, an HTTP trigger, and a Service Bus queue trigger.
 
@@ -247,7 +258,7 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
     | **Repository** | functions-vnet-tutorial | The repository forked [from here](https://github.com/Azure-Samples/functions-vnet-tutorial). |
     | **Branch** | main | The main branch of the repository you created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
-    | **Version** | .NET Core 3.1 | The runtime version. |
+    | **Version** | .NET 8 Isolated | The runtime version. |
 
 1. Select **Save**.
 
@@ -255,11 +266,13 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
 
 1. Your initial deployment might take a few minutes. When your app is successfully deployed, on the **Logs** tab, you see a **Success (Active)** status message. If necessary, refresh the page.
 
+1. Now that deployment is complete, re-secure your app. In your function app, go to **Settings** > **Networking** and set **Public network access** back to **Disabled**. Select **Save**.
+
 Congratulations! You successfully deployed your sample function app.
 
 ### Test your locked-down function app
 
-Here's a way to monitor your function by using Application Insights:
+Because the function app has public access disabled, you can't invoke the HTTP trigger endpoint from the public internet. Instead, you verify the Service Bus queue trigger by sending a message and monitoring the function execution in Application Insights.
 
 1. In your function app, in the menu under **Monitoring**, select **Application Insights**. Choose **Apply**, and then select **View Application Insights data**.
 

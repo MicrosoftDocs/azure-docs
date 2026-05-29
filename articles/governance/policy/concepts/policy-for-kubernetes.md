@@ -20,8 +20,6 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
-> [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 > [!IMPORTANT]
 > Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
@@ -610,17 +608,28 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.16.0
+#### 1.15.5-1
 Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
-Patch CVE-2026-25679, CVE-2026-27142, and CVE-2026-27139.
-Security improvements.
-- Released: Apr 2026
-- Kubernetes: 1.29+
-- Gatekeeper: 3.22.0
 
-##### Gatekeeper 3.22.0
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
+The addon is now fully FIPS-compliant.
+
+Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, CVE-2026-32280, CVE-2025-68121, CVE-2025-61726, CVE-2025-61728, CVE-2026-32281, CVE-2026-32283.
+
+Security improvements.
+- Released: May 2026
+- Kubernetes: 1.36+
+- Gatekeeper: 3.22.2-1
+
+##### Gatekeeper 3.22.2
+Patch CVE-2026-31790, CVE-2026-4437, CVE-2026-32283, CVE-2026-31789, CVE-2026-28388, CVE-2026-39883, CVE-2026-33186, CVE-2026-32280, CVE-2026-27142, CVE-2026-39882, CVE-2025-58181, CVE-2026-25679, CVE-2025-47914, CVE-2026-4438, CVE-2026-27139, CVE-2026-28389, CVE-2026-32288, CVE-2026-24051, CVE-2026-32289, CVE-2026-28390, CVE-2026-32281, CVE-2026-32282.
+
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.2
+
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.22.1...v3.22.2
+
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
 
 #### 1.15.5
 Security improvements.
@@ -866,6 +875,8 @@ aligns with how the add-on was installed:
   helm uninstall azure-policy-addon
   ```
 ## Limitations
+> [!IMPORTANT]
+> Permissions to edit or delete validating webhook configurations, mutating webhook configurations, validating admission policies and bindings, and mutating admission policies and bindings should be treated as highly privileged. Kubernetes's design does not allow policies to protect these resource types, in order to avoid circular dependencies.
 
   - For general Azure Policy definitions and assignment limits, review [Azure Policy's documented limits](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-policy-limits)
   - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.

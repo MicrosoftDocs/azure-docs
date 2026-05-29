@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -467,7 +467,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | `Microsoft.Migrate/castScanReports/codeScanIssues/read` | Get the cast scan issues |
 > | `Microsoft.Migrate/locations/operationResults/read` | Locations Operation Results |
 > | `Microsoft.Migrate/locations/operationStatuses/read` | Get Operation Status |
-> | `Microsoft.Migrate/locations/operationStatuses/read` | Update Operation Status |
+> | `Microsoft.Migrate/locations/operationStatuses/write` | Update Operation Status |
 > | `Microsoft.Migrate/locations/rmsOperationResults/read` | Gets the status of the subscription wide location based operation |
 > | `Microsoft.Migrate/migrateProjects/read` | Gets the properties of migrate project |
 > | `Microsoft.Migrate/migrateProjects/write` | Creates a new migrate project or updates an existing migrate project |
@@ -475,6 +475,8 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | `Microsoft.Migrate/migrateProjects/registerTool/action` | Registers tool to a migrate project |
 > | `Microsoft.Migrate/migrateProjects/RefreshSummary/action` | Refreshes the migrate project summary |
 > | `Microsoft.Migrate/migrateProjects/registrationDetails/action` | Provides the tool registration details |
+> | `Microsoft.Migrate/migrateProjects/generatewaveplan/action` | Generate the Wave Plan |
+> | `Microsoft.Migrate/migrateProjects/refreshentities/action` | Refresh Entities |
 > | `Microsoft.Migrate/migrateProjects/tasksummary/action` | Update the Task details |
 > | `Microsoft.Migrate/migrateProjects/DatabaseInstances/read` | Gets the properties of a database instance |
 > | `Microsoft.Migrate/migrateProjects/Databases/read` | Gets the properties of a database |

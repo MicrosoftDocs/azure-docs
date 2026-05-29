@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 02/20/2026
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -664,7 +664,6 @@ The following items are prefixed with either:
     op monitor interval=20 on-fail=restart timeout=105 op start interval=0 timeout=600 op stop interval=0 timeout=600
    
     sudo pcs resource group add g-QAS_AERS rsc_sap_QAS_ERS01
-    sudo pcs resource meta rsc_sap_QAS_ERS01 resource-stickiness=3000
    
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS score=-5000
@@ -728,6 +727,12 @@ The following items are prefixed with either:
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 

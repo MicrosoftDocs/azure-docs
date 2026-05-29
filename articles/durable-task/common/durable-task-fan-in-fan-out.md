@@ -1,20 +1,20 @@
 ---
-title: Fan-out/fan-in scenarios in Durable Functions - Azure
-description: Learn how to implement a fan-out-fan-in scenario using Durable Functions or Durable Task SDKs.
+title: "Fan-Out/Fan-In Pattern Scenarios in Durable Functions"
+description: Learn how to implement the fan-out/fan-in pattern in Durable Functions and Durable Task SDKs to run multiple tasks in parallel and aggregate results. Try it now.
 ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
-ms.date: 02/04/2026
+ms.date: 04/22/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Fan-out/fan-in scenario
+# Fan-out/fan-in pattern
 
 ::: zone pivot="durable-functions"
 
-*Fan-out/fan-in* runs multiple functions in parallel and then aggregates the results. This article shows an example that uses [Durable Functions](what-is-durable-task.md) to back up some or all of an app's site content to Azure Storage.
+Use the *fan-out/fan-in* pattern to run multiple functions in parallel and then aggregate the results. This pattern is a common approach for parallel processing in Azure serverless workflows. In this tutorial, you implement the fan-out/fan-in pattern with [Durable Functions](what-is-durable-task.md) to back up an app's site content to Azure Storage.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -22,7 +22,11 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-task-sdks"
 
-*Fan-out/fan-in* runs multiple activities in parallel and then aggregates the results. This article shows how to implement the pattern by using the Durable Task SDKs for .NET, JavaScript, Python, and Java.
+Use the *fan-out/fan-in* pattern for parallel processing in workflow orchestration:
+- Fan out work across multiple activities running concurrently.
+- Fan in by aggregating the results. 
+
+In this tutorial, you implement the fan-out/fan-in pattern with the Durable Task SDKs for .NET, JavaScript, Python, and Java.
 
 ::: zone-end
 
@@ -30,31 +34,29 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-In this sample, the functions upload all files under a specified directory (recursively) to blob storage. They also count the total number of bytes uploaded.
+This sample demonstrates parallel processing by uploading all files under a directory (recursively) to Azure Blob Storage and counting the total bytes uploaded.
 
-A single function can handle everything, but it doesn't scale. A single function execution runs on one virtual machine (VM), so throughput is limited to that VM. Reliability is another concern. If the process fails midway through, or takes more than five minutes, the backup can end in a partially completed state. Then you restart the backup.
+A single function can handle the upload, but it doesn't scale. One function execution runs on one virtual machine (VM), so throughput is limited to that VM. Reliability is another concern: if the process fails midway through or takes more than five minutes, the backup ends in a partially completed state and must be restarted.
 
-A more robust approach is to use two separate functions: one enumerates the files and adds file names to a queue, and the other reads from the queue and uploads the files to blob storage. This approach improves throughput and reliability, but you need to set up and manage the queue. More importantly, this approach adds complexity for state management and coordination, like reporting the total number of bytes uploaded.
+A queue-based approach with two functions improves throughput and reliability, but introduces complexity for state management and coordination, such as reporting the total bytes uploaded.
 
-Durable Functions provides all these benefits with little overhead.
+Durable Functions gives you parallel processing, reliability, and coordination with minimal overhead, no queue management required.
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-In the following example, the orchestrator processes multiple work items in parallel and then aggregates the results. This pattern is useful when you need to:
+In this example, a workflow orchestrator fans out work across multiple activities for parallel processing, then fans in by aggregating the results. Use the fan-out/fan-in pattern when you need to:
 
-- Process a batch of items where each item can be processed independently
+- Process a batch of items where each item can be handled independently
 - Distribute work across multiple machines for better throughput
 - Aggregate results from all parallel operations
 
-Without the fan-out/fan-in pattern, you either process items sequentially, which limits throughput, or you manage your own queuing and coordination logic, which adds complexity.
-
-The Durable Task SDKs handle parallelization and coordination, so the pattern is simple to implement.
+Without this pattern, you either process items sequentially (limiting throughput) or build your own queuing and coordination logic (adding complexity). The Durable Task SDKs handle parallelization and coordination for you, making the fan-out/fan-in pattern straightforward to implement.
 
 ::: zone-end
 
-## The functions
+## Function components
 
 ::: zone pivot="durable-functions"
 
@@ -80,7 +82,7 @@ This article describes the components in the example code:
 
 ::: zone pivot="durable-functions"
 
-This orchestrator function does the following:
+This orchestrator function does the following tasks:
 
 1. Takes `rootDirectory` as input.
 1. Calls a function to get a recursive list of files under `rootDirectory`.
@@ -90,7 +92,7 @@ This orchestrator function does the following:
 
 # [C#](#tab/csharp)
 
-Here is the code that implements the orchestrator function:
+The following code demonstrates implementing the orchestrator function:
 
 <details>
 <summary><b>Isolated model</b></summary>
@@ -128,7 +130,7 @@ public static class BackupSiteContent
 }
 ```
 
-Notice the `await Task.WhenAll(tasks);` line. The code doesn't await the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `Task.WhenAll`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with the Task Parallel Library (TPL) in .NET, this pattern is familiar. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `await Task.WhenAll(tasks);` line. The code doesn't await the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `Task.WhenAll`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with the Task Parallel Library (TPL) in .NET, this pattern is familiar. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 After the orchestrator awaits `Task.WhenAll`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded. Calculate the total by adding the return values.
 
@@ -157,16 +159,16 @@ The function uses the standard *function.json* for orchestrator functions.
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_BackupSiteContent/function.json":::
 
-Here is the code that implements the orchestrator function:
+The following code demonstrates implementing the orchestrator function:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_BackupSiteContent/index.js":::
 
-Notice the `yield context.df.Task.all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.df.Task.all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `yield context.df.Task.all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.df.Task.all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
 > Although tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
 
-After the orchestrator yields `context.df.Task.all`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
+After the orchestrator yields `context.df.Task.all`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all the return values together.
 
 </details>
 
@@ -175,16 +177,16 @@ After the orchestrator yields `context.df.Task.all`, all function calls are comp
 <details>
 <summary><b>V4 programming model</b></summary>
 
-Here is the code that implements the orchestrator function:
+The following code demonstrates implementing the orchestrator function:
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,4,7-35":::
 
-Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function were *not* yielded, which allows them to run in parallel. When we pass this array of tasks to `context.df.Task.all`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function weren't yielded, which allows them to run in parallel. When we pass this concept array of tasks to `context.df.Task.all`, we get back a task that doesn't complete *until all the copy operations are completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
 > Although tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
 
-After yielding from `context.df.Task.all`, we know that all function calls have completed and have returned values back to us. Each call to `copyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
+After yielding from `context.df.Task.all`, we know all function calls are completed and returned values back to us. Each call to `copyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all the return values together.
 
 </details>
 
@@ -194,14 +196,14 @@ The function uses the standard *function.json* for orchestrator functions.
 
 [!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
 
-Here is the code that implements the orchestrator function:
+The following code demonstrates implementing the orchestrator function:
 
 [!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
 
-Notice the `yield context.task_all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.task_all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this is not new to you. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `yield context.task_all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.task_all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
-> Although tasks are conceptually similar to Python awaitables, orchestrator functions should use `yield` as well as the `context.task_all` and `context.task_any` APIs to manage task parallelization.
+> Although tasks are conceptually similar to Python await-ables, orchestrator functions should use `yield` and the `context.task_all` and `context.task_any` APIs to manage task parallelization.
 
 After the orchestrator yields `context.task_all`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so we can calculate the sum total byte count by adding all the return values together.
 
@@ -219,7 +221,7 @@ A Java sample isn't available yet.
 
 ::: zone pivot="durable-task-sdks"
 
-The orchestrator does the following:
+The orchestrator does the following tasks:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a task for each work item and processing them in parallel.
@@ -262,7 +264,7 @@ public class ParallelProcessingOrchestration : TaskOrchestrator<List<string>, Di
 }
 ```
 
-Use `Task.WhenAll()` to wait for all parallel tasks to complete. The Durable Task SDK ensures that the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
+Use `Task.WhenAll()` to wait for all parallel tasks to complete. The Durable Task SDK ensures the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
 
 # [JavaScript](#tab/javascript)
 
@@ -290,7 +292,7 @@ const fanOutFanInOrchestrator: TOrchestrator = async function* (
 };
 ```
 
-Use `whenAll()` to wait for all parallel tasks to complete. The Durable Task SDK ensures that the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
+Use `whenAll()` to wait for all parallel tasks to complete. The Durable Task SDK ensures the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
 
 # [Python](#tab/python)
 
@@ -298,7 +300,7 @@ Use `whenAll()` to wait for all parallel tasks to complete. The Durable Task SDK
 from durabletask import task
 
 def fan_out_fan_in_orchestrator(ctx: task.OrchestrationContext, work_items: list) -> dict:
-    """Orchestrator that demonstrates fan-out/fan-in pattern."""
+    """Orchestrator demonstrating fan-out/fan-in pattern."""
 
     # Fan-out: Create a task for each work item
     parallel_tasks = []
@@ -314,7 +316,7 @@ def fan_out_fan_in_orchestrator(ctx: task.OrchestrationContext, work_items: list
     return final_result
 ```
 
-Use `task.when_all()` to wait for all parallel tasks to complete. The Durable Task SDK ensures that the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
+Use `task.when_all()` to wait for all parallel tasks to complete. The Durable Task SDK ensures the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
 
 # [PowerShell](#tab/powershell)
 
@@ -355,7 +357,7 @@ DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorker
     .build();
 ```
 
-Use `ctx.allOf(tasks).await()` to wait for all parallel tasks to complete. The Durable Task SDK ensures that the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
+Use `ctx.allOf(tasks).await()` to wait for all parallel tasks to complete. The Durable Task SDK ensures the tasks can run on multiple machines concurrently, and the execution is resilient to process restarts.
 
 ---
 
@@ -365,7 +367,7 @@ Use `ctx.allOf(tasks).await()` to wait for all parallel tasks to complete. The D
 
 ::: zone pivot="durable-functions"
 
-The helper activity functions are regular functions that use the `activityTrigger` binding.
+The helper activity functions are regular functions using the `activityTrigger` binding.
 
 ### E2_GetFileList activity function
 
@@ -617,7 +619,7 @@ public class ProcessWorkItemActivity : TaskActivity<string, Dictionary<string, i
     {
         _logger.LogInformation("Processing work item: {WorkItem}", workItem);
 
-        // Process the work item (this is where you do the actual work)
+        // Process the work item (where you do the actual work)
         var result = new Dictionary<string, int>
         {
             { workItem, workItem.Length }
@@ -650,8 +652,8 @@ Unlike orchestrators, activities can perform I/O operations like HTTP calls, dat
 from durabletask import task
 
 def process_work_item(ctx: task.ActivityContext, item: int) -> dict:
-    """Activity that processes a single work item."""
-    # Process the work item (this is where you do the actual work)
+    """Activity processing a single work item."""
+    # Process the work item (where you do the actual work)
     result = item * item
     return {"item": item, "result": result}
 ```
@@ -750,7 +752,7 @@ Unlike orchestrators, activities can perform I/O operations like HTTP calls, dat
 from durabletask import task
 
 def aggregate_results(ctx: task.ActivityContext, results: list) -> dict:
-    """Activity that aggregates results from multiple work items."""
+    """Activity aggregating results from multiple work items."""
     sum_result = sum(item["result"] for item in results)
     return {
         "total_items": len(results),
@@ -771,7 +773,7 @@ In the Java sample, the orchestrator aggregates results after `ctx.allOf(tasks).
 
 ::: zone-end
 
-## Run the sample
+## Run the fan-out/fan-in sample
 
 ::: zone pivot="durable-functions"
 
@@ -834,7 +836,7 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2019-06-29T18:50:55Z","lastUpdatedTime":"2019-06-29T18:51:26Z"}
 ```
 
-The response shows that the orchestration is complete and the approximate time to finish. The `output` field indicates that the orchestration uploaded about 450 KB of logs.
+The response shows the orchestration is complete and the approximate time to finish. The `output` field indicates the orchestration uploaded about 450 KB of logs.
 
 ::: zone-end
 
@@ -915,7 +917,7 @@ import java.util.List;
 List<String> sentences = Arrays.asList(
     "Hello, world!",
     "The quick brown fox jumps over the lazy dog.",
-    "Always remember that you are absolutely unique.");
+    "Always remember you are absolutely unique.");
 
 String instanceId = client.scheduleNewOrchestrationInstance(
     "FanOutFanIn_WordCount",

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
@@ -61,7 +61,7 @@ Send logs to a Log Analytics workspace for long-term retention and centralized q
 
 ### Prioritize incidents based on business impact
 
-Tag Azure resources with criticality levels based on business impact, revenue dependency, and regulatory scope. Configure automated severity scoring in Microsoft Sentinel that considers asset criticality, data sensitivity, and threat intelligence confidence. Automatically escalate incidents involving regulatory-protected data or critical business systems. For more information, see [Tag resources](/azure/azure-resource-manager/management/tag-resources).
+Tag Azure resources with criticality levels based on business impact, revenue dependency, and regulatory scope. Configure automated severity scoring in Microsoft Sentinel that considers asset criticality, data sensitivity, and threat intelligence confidence. Automatically escalate incidents involving regulatory-protected data or critical business systems. For more information, see [Tag resources](../../azure-resource-manager/management/tag-resources.md).
 
 ## Contain and recover from incidents
 
@@ -72,7 +72,7 @@ Automate response to match the speed of automated attacks.
 Evidence collection delays and improper handling compromise forensic integrity. Automate evidence preservation:
 
 - **VM snapshots**: Create point-in-time snapshots for compromised VMs before remediation
-- **Immutable storage**: Export logs and evidence to Azure Storage with [immutable storage policies](/azure/storage/blobs/immutable-storage-overview) and legal hold
+- **Immutable storage**: Export logs and evidence to Azure Storage with [immutable storage policies](../../storage/blobs/immutable-storage-overview.md) and legal hold
 - **Network packet capture**: Use Azure Network Watcher for network forensics
 - **Memory dumps**: Collect volatile evidence using Azure extensions
 

@@ -355,7 +355,7 @@ items:
       displayName: externalInput,getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
-      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
+      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,roleDefinitions,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
       href: bicep-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant
@@ -586,6 +586,9 @@ items:
     - name: What-if check
       displayName: whatif, what if
       href: deploy-what-if.md
+    - name: Preflight check
+      displayName: preflight, pre-flight
+      href: deploy-preflight.md
     - name: Deploy - VS Code
       displayName: visual studio code,vscode
       href: deploy-vscode.md
@@ -624,7 +627,7 @@ items:
   - name: Resource reference
     href: /azure/templates/
   - name: Bicep CLI
-    displayName: build,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
+    displayName: build,console,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
     href: bicep-cli.md
   - name: Azure CLI
     href: /cli/azure/resource
@@ -778,3 +781,6 @@ items:
       href: diagnostics/bcp420.md
     - name: BCP422
       href: diagnostics/bcp422.md
+  - name: Programmatic Bicep usage with JSON-RPC
+    href: bicep-cli-jsonrpc.md
+    displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic

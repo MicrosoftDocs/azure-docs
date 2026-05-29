@@ -1,10 +1,10 @@
 ---
-title: Developer's Guide to Durable Entities in .NET - Azure Functions
-description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
+title: "Developer's Guide: Durable Entities in .NET - Azure Functions"
+description: "Learn how to define, access, and manage durable entities in .NET using the Azure Functions Durable Functions extension. Explore class-based and function-based syntax with examples."
 author: sebastianburckhardt
 ms.topic: concept-article
 ms.service: azure-functions
-ms.date: 10/24/2023
+ms.date: 04/23/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
@@ -12,28 +12,41 @@ zone_pivot_groups: function-worker-process
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
-# Developer's guide to durable entities in .NET
+# Durable entities in .NET developer's guide
 
-In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
+This guide covers how to define, access, and manage durable entities with .NET, including examples and general advice.
 
-Entity functions provide serverless application developers with a convenient way to organize application state as a collection of fine-grained entities. For more detail about the underlying concepts, see the [Durable Entities: Concepts](../../durable-task/common/durable-task-entities.md) article.
+Entity functions let you organize application state as a collection of fine-grained entities in a serverless environment. For the underlying concepts, see [Durable entities: Concepts](../../durable-task/common/durable-task-entities.md).
 
-We currently offer two APIs for defining entities:
+In this article:
 
-- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner through interfaces. 
+- [Define entity classes](#define-entity-classes) — Class-based and `TaskEntity<TState>` examples
+- [Access entities directly](#access-entities-directly) — Signal, read state, and call from orchestrations
+- [Access entities through interfaces](#access-entities-through-interfaces) — Type-safe proxy access (in-process only)
+- [Entity serialization](#entity-serialization) — JSON serialization and schema evolution
+- [Entity construction](#entity-construction) — Custom initialization, bindings, and dependency injection
+- [Function-based syntax](#function-based-syntax) — Lower-level dispatch for advanced scenarios
 
-- The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
+## Choose your syntax
 
-This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax.
+Two APIs are available for defining entities:
+
+- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces readable code and allows operations to be invoked in a type-checked manner through interfaces. **Recommended for most applications.**
+
+- The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched and how the entity state is managed. Use it when you need custom abstractions or library-level genericity.
 
 > [!NOTE]
-> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+> The class-based syntax is a layer on top of the function-based syntax. Both variants can be used interchangeably in the same application.
 
-## Defining entity classes
+## Define entity classes
 
 The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
 
 ::: zone pivot="in-proc"
+
+> [!IMPORTANT]
+> The .NET in-process model is in maintenance mode. For new projects, use the **.NET isolated worker model** (select the pivot at the top of this page). See [Migrate to the isolated worker model](../migrate-dotnet-to-isolated-model.md) for guidance.
+
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
 public class Counter
@@ -150,11 +163,11 @@ public class Counter : TaskEntity<int>
 > [!WARNING]
 > When writing entities that derive from `ITaskEntity` or `TaskEntity<TState>`, it's important to **not** name your entity trigger method `RunAsync`. This causes runtime errors when invoking the entity, as there's an ambiguous match with the method name "RunAsync" due to `ITaskEntity` already defining an instance-level "RunAsync".
 
-### Deleting entities in the isolated model
+### Delete entities in the isolated model
 
 Deleting an entity in the isolated model is accomplished by setting the entity state to `null`, and this process depends on the entity implementation path used.
 
-#### Delete with ITaskEntity or function-based syntax
+### Delete with ITaskEntity or function-based syntax
 
 When deriving from `ITaskEntity` or using [function based syntax](#function-based-syntax), delete is accomplished by calling `TaskEntityOperation.State.SetState(null)`:
 
@@ -168,7 +181,7 @@ switch (operation.Name.ToLowerInvariant())
 }
 ```
 
-#### Delete with TaskEntity\<TState\>
+### Delete with TaskEntity\<TState\>
 
 When deriving from `TaskEntity<TState>`, a delete operation is implicitly defined. However, it can be overridden by defining a method `Delete` on the entity. State can also be deleted from any operation via `this.State = null`.
 
@@ -192,7 +205,7 @@ public class Counter : TaskEntity<int?>
 }
 ```
 
-#### Delete with a POCO entity
+### Delete with a POCO entity
 
 When using a POCO as your state (not deriving from `TaskEntity<TState>`), a delete operation is implicitly defined. It's possible to override the delete operation by defining a method `Delete` on the POCO. However, there isn't a way to set state to `null` in the POCO route, so the implicitly defined delete operation is the only true delete.
 
@@ -213,20 +226,20 @@ public class Counter
 
 ::: zone-end
 
-::: zone pivot="in-proc"
-### Class Requirements
+### Entity class requirements
 
 Entity classes are POCOs (plain old CLR objects) that don't require special superclasses, interfaces, or attributes. However:
 
 - The class must be constructible (see [Entity construction](#entity-construction)).
 - The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
 
-Also, any method invoked as an operation must satisfy other requirements:
+Any method invoked as an operation must satisfy these rules:
 
-- An operation must have at most one argument but not have any overloads or generic type arguments.
+- An operation must have at most one argument and must not have overloads or generic type arguments.
 - An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
 - Arguments and return values must be serializable values or objects.
 
+::: zone pivot="in-proc"
 ### What can operations do?
 
 All entity operations can read and update the entity state, and changes to the state are automatically persisted to storage. Moreover, operations can perform external I/O or other computations, within the general limits common to all Azure Functions.
@@ -254,13 +267,13 @@ public void Add(int amount)
 ```
 ::: zone-end
 
-## Accessing entities directly
+## Access entities directly
 
 Class-based entities can be accessed directly, using explicit string names for the entity and its operations. This section provides examples. For a deeper explanation of the underlying concepts (such as signals vs. calls), see the discussion in [Access entities](../../durable-task/common/durable-task-entities.md#access-entities). 
 
 ::: zone pivot="in-proc"
 > [!NOTE]
-> Where possible, you should [accesses entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
+> Where possible, you should [accesses entities through interfaces](#access-entities-through-interfaces), because it provides more type checking.
 
 ### Example: client signals entity
 
@@ -374,7 +387,7 @@ public static async Task<int> Run([OrchestrationTrigger] TaskOrchestrationContex
 ```
 ::: zone-end
 
-## Accessing entities through interfaces
+## Access entities through interfaces
 
 ::: zone pivot="in-proc"
 Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what's implemented. It's recommended to use interfaces when possible to access entities.
@@ -396,7 +409,7 @@ public class Counter : ICounter
 }
 ```
 
-Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](../../durable-task/common/durable-task-entities.md#comparison-with-virtual-actors).
+Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](../../durable-task/common/durable-task-entities.md#comparison-of-durable-entities-with-virtual-actors).
 
 Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity can implement multiple interfaces, a single entity can serve multiple roles. Also, since multiple entities can implement an interface, general communication patterns can be implemented as reusable libraries.
 
@@ -446,7 +459,7 @@ public static async Task<int> Run(
 
 Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. One can change this default behavior, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
 
-### Shorter option for specifying the target
+### Specify entity target by key only
 
 When calling or signaling an entity using an interface, the first argument must specify the target entity. The target can be specified by defining the entity ID or just the entity key when there's only one class that implements the entity:
 
@@ -474,7 +487,7 @@ If any of these rules are violated, an `InvalidOperationException` is thrown at 
 ::: zone-end
 
 ::: zone pivot="isolated"
-This isn't currently supported in the .NET isolated worker.
+Interface-based entity access isn't currently supported in the .NET isolated worker. Use [direct string-based access](#access-entities-directly) instead. Track the feature request in the [Azure Functions Durable extension repository](https://github.com/Azure/azure-functions-durable-extension/issues).
 ::: zone-end
 
 ## Entity serialization
@@ -537,7 +550,7 @@ public class Counter
 
 By default, the name of the class isn't* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
 
-### Making changes to class definitions
+### Make changes to class definitions
 
 Some care is required when making changes to a class definition after an application runs because the stored JSON object can no longer match the new class definition. It is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`. The following are examples of changes and their impact:
 
@@ -551,7 +564,13 @@ There are many options available for customizing the behavior of Json.NET. For e
 ::: zone-end
 
 ::: zone pivot="isolated"
-Serialization default behavior has changed from `Newtonsoft.Json` to `System.Text.Json`. For more information, see [Customizing serialization and deserialization](durable-functions-serialization-and-persistence.md?tabs=csharp-isolated#customizing-serialization-and-deserialization).
+The isolated worker model uses `System.Text.Json` by default instead of `Newtonsoft.Json`. This changes how entity state is serialized and deserialized. Key differences include:
+
+- Properties are **case-sensitive** by default (compared to case-insensitive in `Newtonsoft.Json`).
+- `[JsonProperty]` attributes from `Newtonsoft.Json` aren't recognized. Use `[JsonPropertyName]` from `System.Text.Json.Serialization`.
+- `Dictionary<TKey, TValue>` serialization uses camelCase keys by default.
+
+For detailed guidance on customizing serialization behavior, see [Customizing serialization and deserialization](durable-functions-serialization-and-persistence.md?tabs=csharp-isolated#customize-serialization-and-deserialization).
 ::: zone-end
 
 ## Entity construction
@@ -748,7 +767,7 @@ public class HttpEntity : TaskEntity<object?>
 
 ## Function-based syntax
 
-So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it can be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax.
+So far this guide focuses on the class-based syntax, which is recommended for most applications. The function-based syntax gives you direct control over operation dispatch and state management. Use it when you need custom abstractions or library-level genericity.
 
 With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
 
@@ -842,3 +861,8 @@ public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher
 
 > [!div class="nextstepaction"]
 > [Learn about entity concepts](../../durable-task/common/durable-task-entities.md)
+
+- [Data persistence and serialization](durable-functions-serialization-and-persistence.md)
+- [Durable Functions isolated process overview](durable-functions-dotnet-isolated-overview.md)
+- [Durable Functions overview](durable-functions-overview.md)
+- [Get started with Durable Task Scheduler](../../durable-task/scheduler/quickstart-durable-task-scheduler.md)

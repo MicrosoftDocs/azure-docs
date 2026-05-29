@@ -1,0 +1,59 @@
+### YamlMime:FAQ
+metadata:
+  title: Napster Companion API frequently asked questions
+  description: Answers to common questions about using Napster Companion API on Azure Marketplace and in the Azure portal.
+  author: shijoy
+  ms.author: shijoy
+  ms.topic: faq
+  ms.date: 05/20/2026
+
+title: Napster Companion API FAQ
+summary: |
+  Find quick answers about subscribing to, creating, managing, and developing with Napster Companion API, an Azure Native Integration codeveloped by Microsoft and Napster.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Napster Companion API?
+        answer: |
+          Napster Companion API is a codeveloped Azure Native Integration by Microsoft and Napster that lets you build, deploy, and operate persistent multimodal AI agents (Omniagents) - with consistent identity, knowledge, and memory across video, voice, text, and telephony channels - from the Azure portal or Azure Marketplace. Napster owns and runs the SaaS application, while Azure handles billing and resource lifecycle through the `Napster.CompanionAPI` resource provider. Learn more in the [overview](overview.md).
+
+      - question: How do I subscribe to Napster Companion API?
+        answer: |
+          You can start a subscription from the [Azure portal](overview.md#subscribe-to-napster-companion-api) or [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/touchcastinc1655995956899.napster_companion_api). Choose the plan that fits your needs, then complete the subscription flow to enable unified billing through Azure.
+
+      - question: How do I create a Napster Companion API resource in Azure?
+        answer: |
+          Use the Azure portal quickstart to create a Napster Companion API resource. In the **Create** wizard, complete the **Basics** tab (project details, Azure resource details, and Napster organization details), optionally add tags, then select **Review + create**. See [Quickstart: Get started with Napster Companion API](create.md) for the full flow.
+
+      - question: What Azure resource details do I need to provide during creation?
+        answer: |
+          In the **Basics** tab, you specify a subscription, resource group, unique resource name, and region, along with Napster organization details. Required fields are marked with a red asterisk. Steps are detailed in the [create guide](create.md#basics-tab).
+
+      - question: How is billing handled for Napster Companion API?
+        answer: |
+          Billing is unified through Azure. When you subscribe and create a Napster Companion API resource from Azure Marketplace or the Azure portal, your plan charges appear on your Azure bill as a single line item.
+
+      - question: Is single sign-on enabled for Napster Companion API?
+        answer: |
+          Yes. Single sign-on with Microsoft Entra ID is enabled when you create the Napster Companion API resource. From the resource overview in the Azure portal, select the single sign-on (SSO) URL to access the Companion API Dashboard. The first sign-in might prompt for user or admin consent depending on your tenant settings. See [single sign-on details](manage.md#single-sign-on).
+
+      - question: Where do I manage my Napster Companion API resource after creation?
+        answer: |
+          Go to the Napster Companion API resource in the Azure portal to view essentials (resource group, location, plan, status, SSO URL) and use links to manage settings. The **Go to Napster Companion API** button opens the Companion API Dashboard to create and manage your Omniagents. See [Manage a Napster Companion API resource](manage.md#resource-overview).
+
+      - question: How do I delete a Napster Companion API resource?
+        answer: |
+          In the Azure portal, open your Napster Companion API resource and select **Delete**. Confirm the deletion to remove the resource and stop billing. For steps and considerations, see [Delete a Napster Companion API resource](manage.md#delete-a-napster-companion-api-resource).
+
+      - question: What developer tools can I use with Napster Companion API?
+        answer: |
+          Use the Companion API Dashboard to create and configure Omniagents, generate API keys, and test in the Playground. Napster also provides full developer documentation - including quickstarts, authentication guidance, build/deploy/monitor guides, and the API reference - at the [Napster developer portal](https://developers.napster.com/docs). See [developer resources and tools](tools.md#developer-tools).
+
+      - question: What channels can my Omniagents operate on?
+        answer: |
+          Omniagents built on Napster Companion API maintain a consistent identity, knowledge, and memory across video, voice, text, and telephony channels. See the [Napster developer documentation](https://developers.napster.com/docs/building-your-omniagent/overview) for channel-specific guidance.
+
+      - question: Where can I get support for Napster Companion API?
+        answer: |
+          Request help directly in the Azure portal from your Napster Companion API resource under **Support + Troubleshooting**, or contact Napster support at [help.napster.com](https://help.napster.com). Links are provided in the [manage article](manage.md#get-support).
