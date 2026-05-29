@@ -535,8 +535,6 @@
       items: 
         - name: Manage cache volumes 
           href: configure-cache-volumes.md
-        - name: Manage file access logs in Azure NetApp Files cache volumes
-          href: manage-file-access-logs-cache-volumes.md
     - name: Manage ransomware protection 
       items: 
       - name: Manage advanced ransomware protection 
