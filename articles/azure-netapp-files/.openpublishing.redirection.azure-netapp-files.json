@@ -89,7 +89,7 @@
             "source_path_from_root": "/articles/azure-netapp-files/enable-cross-subscription-replication.md",
             "redirect_url": "/azure/azure-netapp-files/cross-region-replication-introduction", 
             "redirect_document_id": false
-        }
+        },
         {
             "source_path_from_root": "/articles/azure-netapp-files/manage-file-access-logs-cache-volumes.md",
             "redirect_url": "/azure/azure-netapp-files/manage-file-access-logs", 
