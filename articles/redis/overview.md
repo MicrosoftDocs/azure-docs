@@ -26,10 +26,10 @@ Azure Managed Redis can be deployed standalone, or deployed along with other Azu
 
 Azure Managed Redis improves application performance by supporting common application architecture patterns. Some of the most common include the following patterns:
 
-| Pattern      | Description                                        |
-| ------------ | -------------------------------------------------- |
-| Data cache | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
-| Content cache | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
+| Pattern | Description |
+| --- | --- |
+| Data cache | Databases are often too large to load directly into a cache. It's common to use the [cache-aside](/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache. |
+| Content cache | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Managed Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET. |
 | Session store | This pattern is commonly used with shopping carts and other user history data that a web application might associate with user cookies. Storing too much in a cookie can have a negative effect on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. When you use an in-memory cache, like Azure Managed Redis, to associate information with a user is faster than interacting with a full relational database. |
 | [Deduplication](https://redis.io/solutions/deduplication/) | Often, you need to determine if an action already happened in a system, such as determining if a username is taken or if a customer was already sent an email. In Azure Managed Redis, bloom filters can rapidly determine duplicates, and prevent problems. |
 | Leaderboards | Redis offers simple and powerful support for developing leaderboards of all kinds using the [sorted set](https://redis.io/solutions/leaderboards/) data structure. Additionally, using [active geo-replication](how-to-active-geo-replication.md) can allow one leaderboard to be shared globally. |
@@ -133,7 +133,7 @@ This table shows the max connections by tier and memory size in the Memory Optim
 | 120       | 150,000             | 200,000  | 200,000              |
 | 175       | 200,000             | 200,000  | 200,000              |
 | 235       | 200,000             | 200,000  | 200,000              |
-| 350      | 200,000             | 200,000  | 200,000              |
+| 350       | 200,000             | 200,000  | 200,000              |
 | 480 *     | 200,000             | 200,000  | 200,000              |
 | 720 *     | 200,000             | 200,000  | 200,000              |
 | 960 *     | 200,000             | 200,000  | -                    |
@@ -145,17 +145,17 @@ This table shows the max connections by tier and memory size in the Memory Optim
 
 #### Flash Optimized SKU
 
-This table shows the max connections by tier and memory size in the Flash optimized (preview) SKU.
+This table shows the max connections by tier and memory size in the Flash optimized SKU.
 
-| Size (GB) | Flash<br>Optimized<br>(preview) |
-|:---------:|:-------------------------------:|
-| 235 *     | 75,000                          |
-| 480 *     | 150,000                         |
-| 720 *     | 200,000                         |
-| 960 *     | 200,000                         |
-| 1440 *    | 200,000                         |
-| 1920 *    | 200,000                         |
-| 4500 *    | 200,000                         |
+| Size (GB) | Flash<br>Optimized |
+|:---------:|:------------------:|
+| 235       | 75,000             |
+| 480       | 150,000            |
+| 720       | 200,000            |
+| 960       | 200,000            |
+| 1440 *    | 200,000            |
+| 1920 *    | 200,000            |
+| 4500 *    | 200,000            |
 
 \* The sizes with an asterisk are in Public Preview.
 
