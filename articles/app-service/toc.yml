@@ -23,6 +23,8 @@ items:
     href: scenario-ai-openapi-tool.md
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
+  - name: MCP hosting options
+    href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models
     href: scenario-ai-local-small-language-model.md
   - name: Secure AI applications
@@ -302,7 +304,7 @@ items:
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Stream diagnostic logs
+    - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md

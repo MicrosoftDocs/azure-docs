@@ -3,7 +3,7 @@ title: Data encryption models in Microsoft Azure
 description: This article provides an overview of data encryption models In Microsoft Azure.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/02/2026
+ms.date: 04/20/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -87,6 +87,9 @@ For scenarios where organizations have specific requirements to control their en
 Some services might store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In this scenario, customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key) or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations, it uses the customer's configured key encryption key as the root key for all encryption operations.
 
 Loss of key encryption keys means loss of data. For this reason, don't delete keys. Always back up keys when you create or rotate them. When a KEK is rotated, the service re-wraps the data encryption keys with the new key version — the underlying data is not re-encrypted. Both old and new key versions must remain enabled until all data encryption keys have been re-wrapped. To protect against accidental or malicious cryptographic erasure, [Soft-Delete and purge protection](/azure/key-vault/general/soft-delete-overview) must be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false on the key encryption key. Use access controls to revoke access to individual users or services in [Azure Key Vault](/azure/key-vault/general/security-features#access-model-overview) or [Managed HSM](/azure/key-vault/managed-hsm/secure-your-managed-hsm).
+
+> [!WARNING]
+> If you suspect a key has been compromised, do not immediately disable or delete it. Disabling or deleting a key takes all dependent services offline, but does not invalidate any copies of the key that were backed up and restored to another vault, and those copies remain fully functional. Instead, rotate to a new key and migrate all dependent services before disabling the compromised key. For the full incident response procedure, see [Backup security considerations](/azure/key-vault/general/backup#security-considerations) and [Key compromise response](/azure/key-vault/keys/secure-keys#key-compromise-response).
 
 For customer-managed key scenarios, Azure Key Vault Premium tier (HSM-backed) is recommended as the minimum for compliance requirements that mandate HSM-protected keys. Azure Managed HSM is recommended for workloads requiring key sovereignty or dedicated HSM capacity.
 

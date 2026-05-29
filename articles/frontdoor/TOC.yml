@@ -245,6 +245,8 @@
   items:
   - name: High availability implementation guide
     href: high-availability.md
+  - name: Video on-demand and live streaming
+    href: video-on-demand-live-streaming.md
   - name: WebSocket
     href: standard-premium/websocket.md
   - name: HTTP/2

@@ -3,11 +3,11 @@ title: How to choose the right key management solution
 titleSuffix: How to choose between Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM
 description: This article provides a detailed explanation of how to choose the right Key Management solution in Azure.
 services: security
-author: chenkaren
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 04/02/2026
-ms.author: chenkaren
+ms.date: 04/07/2026
+ms.author: mbaldwin
 ---
 
 # How to choose the right Azure key management solution

@@ -5,7 +5,7 @@ services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 04/02/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
@@ -29,7 +29,7 @@ You can store customer-managed keys on-premises or, more commonly, in a cloud ke
 
 Azure offers several options for storing and managing your keys in the cloud, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM. These options differ in terms of their FIPS compliance level, management overhead, and intended applications.
 
-For a comprehensive guide to choosing the right key management solution for your specific needs, see [How to Choose the Right Key Management Solution](/azure/security/fundamentals/key-management-choose).
+For a comprehensive guide to choosing the right key management solution for your specific needs, see [How to Choose the Right Key Management Solution](key-management-choose.md).
 
 ### Azure Key Vault (Standard Tier)
 
@@ -75,7 +75,7 @@ Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM offer dedica
 
 ## Encryption at rest
 
-Azure Key Vault and Azure Key Vault Managed HSM integrate with Azure Services and Microsoft 365 for Customer Managed Keys. You can use your own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption at rest of data stored in these services. Azure Cloud HSM and Azure Payment HSM are Infrastructure-as-Service offerings and don't offer integrations with Azure Services. For an overview of encryption at rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption at Rest](/azure/security/fundamentals/encryption-atrest).
+Azure Key Vault and Azure Key Vault Managed HSM integrate with Azure Services and Microsoft 365 for Customer Managed Keys. You can use your own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption at rest of data stored in these services. Azure Cloud HSM and Azure Payment HSM are Infrastructure-as-Service offerings and don't offer integrations with Azure Services. For an overview of encryption at rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption at Rest](encryption-atrest.md).
 
 ## APIs
 
@@ -83,7 +83,7 @@ Azure Cloud HSM supports the PKCS#11, OpenSSL, JCA/JCE, and KSP/CNG APIs. Azure 
 
 ## What's next
 
-- [How to Choose the Right Key Management Solution](/azure/security/fundamentals/key-management-choose)
+- [How to Choose the Right Key Management Solution](key-management-choose.md)
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
 - [Azure Cloud HSM](/azure/cloud-hsm/overview)

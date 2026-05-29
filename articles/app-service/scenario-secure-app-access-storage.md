@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 07/31/2023
+ms.date: 03/17/2026
 ms.devlang: csharp
 # ms.devlang: csharp, azurecli
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, AppServiceIdentity
@@ -17,7 +17,6 @@ ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-r
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-dotnet-storage-managed-identity/introduction.md)]
 
 ## Access Blob Storage
-
 
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
 
@@ -76,7 +75,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 
     try
     {
-        // Create the container if it does not exist.
+        // Create the container if it doesn't exist.
         await containerClient.CreateIfNotExistsAsync();
 
         // Upload text to a new block blob.

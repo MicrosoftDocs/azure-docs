@@ -61,7 +61,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]  
-> This sample requires that you have permission to create a [Microsoft Entra app](https://docs.azure.cn/entra/fundamentals/what-is-entra) in the Azure subscription you use.
+> This sample requires that you have permission to create a [Microsoft Entra app](/entra/identity/role-based-access-control/custom-available-permissions#create-and-delete) in the Azure subscription you use.
 
 ## Get started with a sample project
 

@@ -103,6 +103,7 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - A volume's throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 - Volumes contain a capacity of between 50 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 GiB and 1 PiB.
+- By default, all existing and new regular Azure NetApp Files volumes support a maximum file size of 64 TiB.
 
 ## Elastic volumes 
 

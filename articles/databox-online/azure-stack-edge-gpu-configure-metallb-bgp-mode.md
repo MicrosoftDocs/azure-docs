@@ -2,12 +2,12 @@
 title: Configure MetalLB via BGP on Azure Stack Edge
 description: Describes how to configure MetalLB via Border Gateway Protocol for load balancing on your Azure Stack Edge device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Configure load balancing with MetalLB on your Azure Stack Edge
 

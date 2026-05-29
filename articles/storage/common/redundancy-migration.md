@@ -47,7 +47,7 @@ Geo-redundancy and read-access can be changed at the same time. However, any cha
 
 For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
 > [!NOTE]
-> For storage accounts that leverage the smart tier public preview, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that leverage smart tier, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Changing redundancy configuration
 

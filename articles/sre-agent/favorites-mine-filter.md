@@ -17,7 +17,7 @@ Use **Favorites** and the **Mine** filter to organize your agent's chat sidebar.
 
 > [!TIP]
 > - Star any thread to pin it in a dedicated **Favorites** section at the top of your sidebar.
-> - Use the **Mine** filter to see only threads you created or favorited.
+> - The **Mine** filter is active by default—your sidebar shows only your threads when you open it.
 > - Favorites persist across sessions and are stored per-user in the backend, not just in your browser.
 > - Works immediately on any agent requiring no setup or configuration needed.
 
@@ -39,7 +39,7 @@ Use the following steps to organize your chat sidebar with favorites and the **M
 
 :::image type="content" source="media/favorites-mine-filter/favorites-sidebar-categories.png" alt-text="Screenshot of chat sidebar showing Favorites section at the top and Chats section below." lightbox="media/favorites-mine-filter/favorites-sidebar-categories.png":::
 
-**3. Use Mine to focus.** Select the **Mine** toggle button above the thread list to filter both sections. In **Favorites**, the filter shows threads you personally starred. In **Chats**, the filter shows threads you created. One select removes the noise from shared agents.
+**3. Mine is on by default.** The **Mine** filter is active when you open the sidebar, showing only threads you started in **Chats** and threads you starred in **Favorites**. Toggle it off to see all threads on the agent.
 
 :::image type="content" source="media/favorites-mine-filter/favorites-mine-filter-active.png" alt-text="Screenshot of Mine filter button active with filtered thread list." lightbox="media/favorites-mine-filter/favorites-mine-filter-active.png":::
 
@@ -47,7 +47,7 @@ Use the following steps to organize your chat sidebar with favorites and the **M
 
 **5. Unfavorite when done.** Right-click a favorited thread and select **Remove from favorites** to move it back to the **Chats** section. Keep your **Favorites** list focused on active work.
 
-**6. Favorites persist across sessions.** The backend stores your favorites per user. They survive page refreshes, browser restarts, and device switches. Filter toggles (**Mine**, **Unread**) reset on page refresh.
+**6. Favorites persist across sessions.** The backend stores your favorites per user. They survive page refreshes, browser restarts, and device switches. The **Mine** filter is active by default—when you open the sidebar, you see your own threads first. The **Unread** filter resets on page refresh.
 
 ## What makes this approach different
 

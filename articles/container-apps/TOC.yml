@@ -5,8 +5,12 @@ items:
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Express overview
+      href: express-overview.md
     - name: Introduction to containers
       href: start-containers.md
+    - name: "Deploy an express container app"
+      href: deploy-express-cli.md
     - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts
@@ -215,9 +219,23 @@ items:
         - name: Create a Functions app through the portal and CLI
           href: functions-usage.md
         - name: Manage a Functions app
-          href: functions-manage.md 
+          href: functions-manage.md
+        - name: Managing Secrets in Functions on ACA
+          items:
+            - name: Overview
+              href: functions-secrets-tutorial.md
+            - name: Store app-level secrets
+              href: functions-secrets-app-level.md
+            - name: Configure host key storage
+              href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -236,7 +254,7 @@ items:
           href: troubleshooting.md
         - name: Errors and failures
           items:
-            - name: Container create
+            - name: Container exits
               href: troubleshoot-container-create-failures.md
             - name: Open Container Initiative (OCI)
               href: troubleshoot-open-container-initiative-errors.md
@@ -271,7 +289,35 @@ items:
     - name: Overview
       href: observability.md
       displayName: Observability overview
-    - name: Troubleshoot and resolve issues with an agent
+    - name: Develop and debug with real-time logs
+      items:
+        - name: Log streaming
+          href: log-streaming.md
+        - name: Container console
+          href: container-console.md
+        - name: Container debug console
+          href: container-debug-console.md
+    - name: Monitor production workloads
+      items:
+        - name: Application logging
+          href: logging.md
+        - name: Logging options
+          href: log-options.md
+        - name: Log monitoring
+          href: log-monitoring.md
+        - name: Metrics
+          href: metrics.md
+        - name: Alerts
+          href: alerts.md
+    - name: End-to-end tracing and dashboards
+      items:
+        - name: Aspire Dashboard
+          href: aspire-dashboard.md
+        - name: OpenTelemetry agents
+          href: opentelemetry-agents.md
+        - name: Grafana dashboards
+          href: grafana-dashboards.md
+    - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
           href: ../sre-agent/overview.md
@@ -279,28 +325,6 @@ items:
           href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
           href: ../sre-agent/troubleshoot-azure-container-apps.md
-    - name: Application logging
-      href: logging.md
-    - name: Real time data
-      href: aspire-dashboard.md
-    - name: Logging options
-      href: log-options.md
-    - name: Log streaming
-      href: log-streaming.md
-    - name: Container console
-      href: container-console.md
-    - name: Container debug console
-      href: container-debug-console.md
-    - name: Metrics
-      href: metrics.md
-    - name: Log monitoring
-      href: log-monitoring.md
-    - name: Alerts
-      href: alerts.md
-    - name: OpenTelemetry agents
-      href: opentelemetry-agents.md
-    - name: Grafana dashboards
-      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -372,6 +396,8 @@ items:
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
+    - name: Relocate to another region
+      href: relocate-region.md
 - name: Dedicated compute
   items:
     - name: Workload profiles
@@ -644,6 +670,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

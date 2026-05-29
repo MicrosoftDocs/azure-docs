@@ -349,7 +349,7 @@
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
-  - name: REST
+  - name: REST API
     href: /rest/api/application-gateway/application-gateways
   - name: Azure Resource Manager
     displayName: ARM

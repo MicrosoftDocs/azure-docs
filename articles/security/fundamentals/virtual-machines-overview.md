@@ -8,7 +8,7 @@ ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ---
 
@@ -42,7 +42,7 @@ You can enable trusted launch on existing VMs and Virtual Machine Scale Sets. Fo
 
 ## Confidential computing
 
-[Azure confidential computing](/azure/confidential-computing/overview) protects data while in use through hardware-based trusted execution environments. Confidential VMs use AMD SEV-SNP technology to create a hardware-enforced boundary between your application and the virtualization stack.
+[Azure confidential computing](../../confidential-computing/overview.md) protects data while in use through hardware-based trusted execution environments. Confidential VMs use AMD SEV-SNP technology to create a hardware-enforced boundary between your application and the virtualization stack.
 
 Confidential VMs provide:
 
@@ -51,7 +51,7 @@ Confidential VMs provide:
 * **Secure key release**: Cryptographic binding between platform attestation and VM encryption keys.
 * **Attestation**: Customizable policies to ensure host compliance before deployment.
 
-For more information, see [Azure confidential VMs](/azure/confidential-computing/confidential-vm-overview).
+For more information, see [Azure confidential VMs](../../confidential-computing/confidential-vm-overview.md).
 
 ## Virtual machine disk encryption
 
@@ -89,7 +89,7 @@ For more information, see [What is Azure Key Vault?](/azure/key-vault/general/ov
 
 ## Virtual machine backup
 
-[Azure Backup](/azure/backup/backup-overview) is a scalable solution that protects your VM data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs. With Azure Backup, your virtual machines running Windows and Linux are protected.
+[Azure Backup](../../backup/backup-overview.md) is a scalable solution that protects your VM data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs. With Azure Backup, your virtual machines running Windows and Linux are protected.
 
 Azure Backup provides:
 
@@ -99,11 +99,11 @@ Azure Backup provides:
 - **Soft delete protection**: Deleted backup data is retained for 14 additional days, allowing recovery with no data loss
 - **Cross Region Restore**: Restore Azure VMs in a secondary Azure paired region for disaster recovery scenarios
 
-For more information, see [What is Azure Backup?](/azure/backup/backup-overview) and [Azure Backup service FAQ](/azure/backup/backup-azure-backup-faq).
+For more information, see [What is Azure Backup?](../../backup/backup-overview.md) and [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.yml).
 
 ## Azure Site Recovery
 
-[Azure Site Recovery](/azure/site-recovery/site-recovery-overview) helps orchestrate replication, failover, and recovery of workloads and apps so they're available from a secondary location if your primary location goes down.
+[Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so they're available from a secondary location if your primary location goes down.
 
 Site Recovery:
 
@@ -112,7 +112,7 @@ Site Recovery:
 * **Supports failover and recovery**: Provides test failovers for disaster recovery drills without affecting production environments
 * **Eliminates secondary datacenters**: Replicate to Azure, eliminating the cost and complexity of maintaining a secondary site
 
-For more information, see [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview), [How does Azure Site Recovery work?](/azure/site-recovery/azure-to-azure-architecture), and [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+For more information, see [What is Azure Site Recovery?](../../site-recovery/site-recovery-overview.md), [How does Azure Site Recovery work?](../../site-recovery/azure-to-azure-architecture.md), and [What workloads are protected by Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## Virtual networking
 
@@ -120,7 +120,7 @@ Virtual machines require network connectivity. Azure requires virtual machines t
 
 An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
-For more information, see [Azure network security overview](/azure/security/fundamentals/network-overview) and [Virtual Network overview](/azure/virtual-network/virtual-networks-overview).
+For more information, see [Azure network security overview](network-overview.md) and [Virtual Network overview](../../virtual-network/virtual-networks-overview.md).
 
 ## Security policy management
 
@@ -146,8 +146,8 @@ For more information, see [Introduction to Microsoft Defender for Cloud](/azure/
 
 Azure Virtual Machines is certified for FISMA, FedRAMP, HIPAA, PCI DSS Level 1, and other key compliance programs. This certification makes it easier for your Azure applications to meet compliance requirements and for your business to address domestic and international regulatory requirements.
 
-For more information, see [Microsoft Trust Center: Compliance](https://www.microsoft.com/trust-center/compliance/compliance-overview) and [Azure compliance documentation](/azure/compliance/).
+For more information, see [Microsoft Trust Center: Compliance](https://www.microsoft.com/trust-center/compliance/compliance-overview) and [Azure compliance documentation](../../compliance/index.yml).
 
 ## Next steps
 
-Learn about [security best practices](/azure/security/fundamentals/iaas) for VMs and operating systems.
+Learn about [security best practices](iaas.md) for VMs and operating systems.

@@ -1,8 +1,8 @@
 ---
 title: Configure WebAssembly Graph Definitions For Data Flow Graphs
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs and connectors.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 02/27/2026
@@ -16,7 +16,7 @@ Graph definitions are central to WASM development because they define how your m
 
 ## Prerequisites
 
-- Familiarity with [developing custom WASM modules](howto-develop-wasm-modules.md)
+- Familiarity with [developing custom WASM modules](howto-build-wasm-modules.md)
 - Basic understanding of YAML syntax
 
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing data flow graphs, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
@@ -292,12 +292,12 @@ moduleConfigurations:
 
 The `name` field in each configuration entry must match the operator name defined in the graph's `operations` section. Each parameter under `parameters` becomes a key-value tuple in the `configuration.properties` list that your operator's `init` function receives.
 
-For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
+For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](concepts-wasm-modules.md#module-configuration-parameters).
 
 For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/operators/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
-- [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
+- [Develop WebAssembly modules for data flow graphs](howto-build-wasm-modules.md)
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)- [Data flow graph samples with schema validation and WIT composition](https://github.com/Azure-Samples/azure-edge-extensions-aio-dataflow-graphs) on GitHub

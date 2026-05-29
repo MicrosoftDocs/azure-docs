@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 03/27/2026
+ms.date: 04/14/2026
 ms.topic: whats-new
 ms.custom:
   - references_regions
@@ -15,6 +15,15 @@ appliesto:
 Find out what's new in Azure Managed Redis.
 
 ## April 2026
+
+### Dashboards with Grafana
+
+*Dashboards with Grafana* in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
+
+### Keyspace notifications (preview)
+
+In preview in Azure Managed Redis, Redis keyspace notifications allow clients to subscribe to Pub/Sub channels to receive events that affect the data set in the cache. For more information, see [Enable Redis keyspace notifications (preview)](enable-redis-keyspace-notifications.md).
+
 
 ### General Availability for M/B/X 350 SKUs (350 GB)
 

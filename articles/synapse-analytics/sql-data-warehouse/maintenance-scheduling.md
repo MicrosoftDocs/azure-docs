@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # Use maintenance schedules to manage service updates and maintenance
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 The maintenance schedule feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and maintenance scheduling service for Synapse SQL pool (data warehouse) within Azure Synapse Analytics.
 
 You should use maintenance scheduling to choose a time window when it's convenient to receive new features, upgrades, and patches. You need to choose a primary and a secondary maintenance window within a seven-day period, each window must be within separate day ranges.
