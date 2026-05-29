@@ -26,6 +26,92 @@ A prompt agent wraps a single large language model (LLM) invocation with system 
 - **Planning and coordination**—Generating research plans, making routing decisions, or summarizing results
 - **Data operations**—Interacting with storage assets, running computations, producing scientific outputs
 
+### Prompt agent components
+
+Every prompt agent consists of core components you configure through Discovery Studio.
+
+#### Name and description
+
+The agent name serves as a unique identifier within your project scope. You use this name to:
+
+- **Invoke agents directly**—Type `@AgentName` in chat to route messages to specific agents
+- **Reference in orchestration**—The Discovery Engine reference prompt agents by name
+- **Discover capabilities**—Names appear in Discovery Studio and help routing agents make delegation decisions
+
+The description provides a short summary of the agent's purpose, visible in the UI and used by other agents to understand capabilities.
+
+#### Instructions
+
+Instructions are natural language prompts that define your agent's behavior, persona, and reasoning approach. This component determines how the agent interprets inputs, uses tools, and generates outputs.
+
+**Effective instructions should:**
+
+- Specify the agent's role and boundaries clearly
+- Describe expected output format
+- Include relevant domain context and constraints
+- Reference workflow context when operating as part of a team
+- Stay under 32,000 characters
+
+#### Model selection
+
+The AI model powers your agent's reasoning. Discovery supports workspace-level model deployments shared across all project agents. **GPT-5.4** is the recommended model for all Discovery agents and is available in all production regions.
+
+GPT-5.2 provides robust capabilities for both tool-heavy operations and advanced reasoning tasks, including:
+
+- Reliable tool execution for agents that frequently invoke tools, run computations, or call APIs
+- Enhanced reasoning for planning, summarization, literature review, and analysis tasks
+- Consistent performance across scientific workflows
+
+You can also deploy models from the [Foundry model catalog](https://ai.azure.com/catalog/models) at the workspace level and reference them by deployment name. Models can be deployed as ARM resources. 
+
+When creating agents, reference your chat model deployment by specifying the deployment name (for example, `my-gpt-4o-deployment`) rather than a resource ID. Discovery resolves deployment names at the workspace level, making them available to all agents within the project.
+
+#### Response controls
+
+Two parameters control model response characteristics for non-reasoning models:
+
+- **Temperature** (0–2)—Lower values produce deterministic outputs; higher values increase creativity. Use `0` for routing and planning agents requiring consistent behavior.
+
+- **Top-P** (0–1)—Controls nucleus sampling diversity. Use lower values for precision tasks; higher values for exploratory or creative tasks.
+
+#### Structured inputs
+
+Structured inputs define typed parameters your agent accepts from callers or workflows. Each input specifies:
+
+- **Name**—Variable name referenced in instructions using `{{variableName}}` syntax
+- **Description**—Explains what the input provides
+- **Required**—Whether the input must be supplied at invocation
+- **Default value**—Optional fallback when not provided
+
+When the Discovery Engine or other agents invoke prompt agents, they map variables to structured inputs through argument bindings.
+
+#### Structured output
+
+Configure agents to return structured JSON instead of free-form text. This capability is essential when outputs need programmatic parsing, such as:
+
+- Router agents returning next agent selections
+- Critic agents returning evaluation scores
+- Data processing agents returning structured results
+
+Define the expected output schema using JSON Schema format.
+
+#### Tools
+
+Tools extend agent capabilities beyond language generation. Discovery supports several tool types:
+
+| Tool Type | Description | Configuration |
+| --- | --- | --- |
+| **Discovery Tools** | Domain-specific scientific and data operation tools | Discovery UI |
+| **Code Interpreter** | Executes Python code with scientific libraries like RDKit | Foundry UI |
+| **MCP Tools** | Connects to Model Context Protocol servers for dynamic tool discovery | Foundry UI |
+| **Built-in Foundry Tools** | Standard tools including file search and web search | Foundry UI |
+| **Custom Functions** | User-defined Azure Functions or API endpoints | Foundry UI |
+
+#### Knowledge bases
+
+Knowledge bases provide retrieval-augmented grounding, allowing agents to access domain-specific information beyond the model's training data. Create knowledge bases at the subscription level and attach them to agents by reference. This capability helps agents answer questions with factual, current information grounded in your specific documents and datasets.
+
+
 ### Multi-agent orchestration with Discovery Engine
 
 For scenarios requiring multiple agents to collaborate, use the [Discovery Engine](concept-discovery-engine.md). The Discovery Engine dynamically selects agents, plans execution, monitors progress, and adapts when results differ from expectations. This approach provides:
@@ -68,90 +154,6 @@ Discovery app agents are ideal for:
 - Private knowledge retrieval from local sources
 
 
-## Prompt agent components
-
-Every prompt agent consists of core components you configure through Discovery Studio.
-
-### Name and description
-
-The agent name serves as a unique identifier within your project scope. You use this name to:
-
-- **Invoke agents directly**—Type `@AgentName` in chat to route messages to specific agents
-- **Reference in orchestration**—The Discovery Engine and other agents reference prompt agents by name
-- **Discover capabilities**—Names appear in Discovery Studio and help routing agents make delegation decisions
-
-The description provides a short summary of the agent's purpose, visible in the UI and used by other agents to understand capabilities.
-
-### Instructions
-
-Instructions are natural language prompts that define your agent's behavior, persona, and reasoning approach. This component determines how the agent interprets inputs, uses tools, and generates outputs.
-
-**Effective instructions should:**
-
-- Specify the agent's role and boundaries clearly
-- Describe expected output format
-- Include relevant domain context and constraints
-- Reference workflow context when operating as part of a team
-- Stay under 32,000 characters
-
-### Model selection
-
-The AI model powers your agent's reasoning. Discovery supports workspace-level model deployments shared across all project agents. **GPT-5.2** is the recommended model for all Discovery agents and is available in all production regions.
-
-GPT-5.2 provides robust capabilities for both tool-heavy operations and advanced reasoning tasks, including:
-
-- Reliable tool execution for agents that frequently invoke tools, run computations, or call APIs
-- Enhanced reasoning for planning, summarization, literature review, and analysis tasks
-- Consistent performance across scientific workflows
-
-You can also deploy models from the [Foundry model catalog](https://ai.azure.com/catalog/models) at the workspace level and reference them by deployment name. Models can be deployed as ARM resources. 
-
-When creating agents, reference your chat model deployment by specifying the deployment name (for example, `my-gpt-4o-deployment`) rather than a resource ID. Discovery resolves deployment names at the workspace level, making them available to all agents within the project.
-
-### Response controls
-
-Two parameters control model response characteristics for non-reasoning models:
-
-- **Temperature** (0–2)—Lower values produce deterministic outputs; higher values increase creativity. Use `0` for routing and planning agents requiring consistent behavior.
-
-- **Top-P** (0–1)—Controls nucleus sampling diversity. Use lower values for precision tasks; higher values for exploratory or creative tasks.
-
-### Structured inputs
-
-Structured inputs define typed parameters your agent accepts from callers or workflows. Each input specifies:
-
-- **Name**—Variable name referenced in instructions using `{{variableName}}` syntax
-- **Description**—Explains what the input provides
-- **Required**—Whether the input must be supplied at invocation
-- **Default value**—Optional fallback when not provided
-
-When the Discovery Engine or other agents invoke prompt agents, they map variables to structured inputs through argument bindings.
-
-### Structured output
-
-Configure agents to return structured JSON instead of free-form text. This capability is essential when outputs need programmatic parsing, such as:
-
-- Router agents returning next agent selections
-- Critic agents returning evaluation scores
-- Data processing agents returning structured results
-
-Define the expected output schema using JSON Schema format.
-
-### Tools
-
-Tools extend agent capabilities beyond language generation. Discovery supports several tool types:
-
-| Tool Type | Description | Configuration |
-| --- | --- | --- |
-| **Discovery Tools** | Domain-specific scientific and data operation tools | Discovery UI |
-| **Code Interpreter** | Executes Python code with scientific libraries like RDKit | Foundry UI |
-| **MCP Tools** | Connects to Model Context Protocol servers for dynamic tool discovery | Foundry UI |
-| **Built-in Foundry Tools** | Standard tools including file search and web search | Foundry UI |
-| **Custom Functions** | User-defined Azure Functions or API endpoints | Foundry UI |
-
-### Knowledge bases
-
-Knowledge bases provide retrieval-augmented grounding, allowing agents to access domain-specific information beyond the model's training data. Create knowledge bases at the subscription level and attach them to agents by reference. This capability helps agents answer questions with factual, current information grounded in your specific documents and datasets.
 
 ## Related content
 
