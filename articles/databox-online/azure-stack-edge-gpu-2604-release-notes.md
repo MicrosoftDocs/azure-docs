@@ -27,7 +27,7 @@ To apply the 2604 update, your device must be running version **2510** or later.
 
    *Update package can't be installed as its dependencies aren't met.*
 
- - You can update to **2510** from 2401 or later, and then update directly to 2604.
+ - You can update to **2510** from 2501 or later, and then update directly to 2604.
 
 You can update to the latest version using the following update paths:
 
