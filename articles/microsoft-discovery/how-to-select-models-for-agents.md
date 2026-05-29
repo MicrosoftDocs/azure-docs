@@ -145,7 +145,7 @@ Discovery app provides additional flexibility by allowing you to connect third-p
 
 This flexibility enables you to:
 
-- Experiment with models not yet available in the Foundry catalog
+- Experiment with models not currently available in the Foundry catalog
 - Compare performance across different model providers
 - Use specialized models for domain-specific tasks
 
