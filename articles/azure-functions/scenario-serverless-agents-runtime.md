@@ -1,6 +1,6 @@
 ---
 title: Build serverless agents using Azure Functions
-description: "Learn how to create and deploy serverless agents that use a model deployment, sandboxed execution, and optional MCP tools from an Office 365 Outlook connection by using Azure Functions."
+description: "Learn how to create and deploy serverless agents that use a model deployment, sandboxed execution, and optional MCP tools from a Microsoft 365 Outlook connector by using Azure Functions."
 ms.date: 05/20/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
@@ -17,11 +17,11 @@ ms.custom:
 In this quickstart, you deploy serverless agents to Azure Functions by using the Azure Developer CLI (`azd`). The sample includes two agents:
 
 + A chat agent that you can use to test the deployed app in a browser. This agent can use sandboxed Python code execution and browse the web.
-+ A timer-triggered agent that gathers recent Microsoft blog posts, summarizes them, and can email the digest through a Microsoft 365 Outlook connection exposed as Model Context Protocol (MCP) tools.
++ A timer-triggered agent that gathers recent Microsoft blog posts, summarizes them, and can email the digest through MCP tools from a managed MCP server for a Microsoft 365 Outlook connector.
 
 The project uses the [Azure Functions serverless agents runtime](functions-serverless-agents-runtime.md). You define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
 
-The template provisions a Flex Consumption function app, storage, monitoring, a Microsoft Foundry project and model deployment, an Azure Container Apps dynamic session pool, and the required identity assignments. When email delivery is enabled, it also provisions a Connector Namespace, a Microsoft 365 Outlook connection, and a connection MCP server.
+The template provisions a Flex Consumption function app, storage, monitoring, a Microsoft Foundry project and model deployment, an Azure Container Apps dynamic session pool, and the required identity assignments. When email delivery is enabled, it also provisions a Connector Namespace, a Microsoft 365 Outlook connection, and a managed MCP server for the connector.
 
 Completing this quickstart can incur a small cost in your Azure account because the app uses the Flex Consumption plan and related Azure resources.
 
@@ -47,7 +47,7 @@ Use the `azd init` command to create a local project from the sample repository.
 
     This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/functions-quickstart-serverless-agents-azd) and initializes the project in the current folder. The `-e` flag names the current `azd` environment, which tracks deployment state and is used in Azure resource names.
 
-1. Enable email delivery by setting the recipient email address used by the timer agent. Later in this quickstart, you must sign in to a Microsoft 365 account to authorize the Outlook connection that sends the email.
+1. Enable email delivery by setting the recipient email address used by the timer agent. Later in this quickstart, you must sign in to a Microsoft 365 account to authorize the Microsoft 365 Outlook connection that sends the email.
 
     ```console
     azd env set EMAIL_RECIPIENT <recipient@example.com>
@@ -55,7 +55,7 @@ Use the `azd init` command to create a local project from the sample repository.
 
     Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block external recipients, so sending the test message to yourself is the most reliable option.
 
-    Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Office 365 Outlook connection, or connection MCP server. The timer agent still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
+    Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Microsoft 365 Outlook connection, or managed MCP server. The timer agent still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
 
 ## Review the project
 
@@ -63,10 +63,10 @@ Before you deploy, review the project files that define the serverless agent app
 
 | File or folder | Purpose |
 | --- | --- |
-| `src/main.agent.md` | Defines the chat agent and enables built-in endpoints for the debug chat UI. This agent can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook connection MCP server. |
+| `src/main.agent.md` | Defines the chat agent and enables built-in endpoints for the debug chat UI. This agent can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook managed MCP server. |
 | `src/daily_microsoft_blog_summary.agent.md` | Defines the timer-triggered Microsoft blog summary agent. The YAML front matter declares the timer trigger, and the markdown body contains the agent instructions. |
 | `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and Azure Container Apps dynamic session pool endpoint used by agents in the app. |
-| `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the Microsoft 365 Outlook connection MCP server when email delivery is enabled. |
+| `src/mcp.json` | Lists the remote MCP servers available to the agents. In this template, `src` is the function app project root, and this file includes the managed MCP server endpoint for Microsoft 365 Outlook when email delivery is enabled. |
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, session pool, optional Connector Namespace resources, and identity configuration. |
 | `src/function_app.py` | Required bootstrap file for the Functions host. You usually don't need to edit this file. |
 
@@ -90,7 +90,7 @@ After the command completes, the app is deployed to a new function app in Azure.
 
 ## Authorize the connection
 
-When `EMAIL_RECIPIENT` is set, the deployment creates a Connector Namespace, a Microsoft 365 Outlook connection, and a connection MCP server that the timer agent uses to send email. A connector defines the integration type, such as Microsoft Teams or Microsoft 365 Outlook. A connection is an authenticated instance of a connector. Before the agent can call the connection MCP server's tools, authorize the connection by signing in to a Microsoft 365 account that can send email.
+When `EMAIL_RECIPIENT` is set, the deployment creates a Connector Namespace with a Microsoft 365 Outlook connection and a managed MCP server. This setup lets the timer agent send email through connector tools without custom Outlook API code. Before the agent can send email, authorize the connection by signing in to a Microsoft 365 account that can send email.
 
 If you didn't set `EMAIL_RECIPIENT`, skip this section.
 
@@ -98,13 +98,13 @@ If you didn't set `EMAIL_RECIPIENT`, skip this section.
 
 1. Open the Connector Namespace resource created by `azd`. The resource is in the resource group created by `azd`, whose name starts with `rg-` and includes the environment name you chose during `azd init`.
 
-    Selecting the resource opens the connector namespace portal, a separate experience for browsing and managing the connections, triggers, and MCP servers in the namespace.
+    Selecting the resource opens the Connector Namespaces portal, a separate experience for browsing and managing the connections, triggers, and MCP servers in the namespace.
 
-1. In the connector namespace portal, find the Microsoft 365 Outlook connector, and then open the connection created by the deployment.
+1. In the Connector Namespaces portal, find the Microsoft 365 Outlook connector, and then open the connection created by the deployment.
 
 1. Select **Authorize**, and then sign in with the Microsoft 365 account that can send email.
 
-After authorization succeeds, the function app's managed identity can call the connection MCP server.
+After authorization succeeds, the function app's managed identity can call the managed MCP server, which uses the authorized connection to send email.
 
 ## Use the debug chat agent
 
@@ -126,7 +126,7 @@ Paste the returned key into the chat UI prompt.
 
 Try asking the chat agent a question that benefits from current public information or code execution. For example, ask `What's the weather in Seattle right now?` or `Compare the current weather in Seattle and New York.`
 
-The chat agent doesn't use the Microsoft 365 Outlook connection MCP server. Email delivery is only used by the timer-triggered blog summary agent.
+The chat agent doesn't use the Microsoft 365 Outlook managed MCP server. Email delivery is only used by the timer-triggered blog summary agent.
 
 ## Run the timer agent on demand
 
@@ -156,7 +156,7 @@ You can also use Application Insights to review the execution after telemetry is
 
 1. Use **Transaction search** or **Logs** to find the execution that started when you manually ran the function.
 
-The run is complete when the logs show that the function execution finished successfully. If email delivery is enabled and the Office 365 Outlook connection is authorized, check the recipient inbox for the Microsoft blog digest. Otherwise, review the agent's final response in the function logs or Application Insights.
+The run is complete when the logs show that the function execution finished successfully. If email delivery is enabled and the Microsoft 365 Outlook connection is authorized, check the recipient inbox for the Microsoft blog digest. Otherwise, review the agent's final response in the function logs or Application Insights.
 
 ## Clean up resources
 
