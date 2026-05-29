@@ -3,7 +3,7 @@ title: Register Plugins in Your API Center
 description: Learn how to register plugins in Azure API Center to create a centralized plugins registry for your organization. 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 05/08/2026
+ms.date: 05/29/2026
 ai-usage: ai-assisted
 
 
