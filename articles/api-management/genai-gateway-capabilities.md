@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 05/28/2026
+ms.date: 05/29/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.custom:
@@ -28,7 +28,7 @@ Use the AI gateway to manage a wide range of AI endpoints, including:
 
     Models can be deployed in a variety of environments, including [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry) or non-Microsoft providers such as Amazon Bedrock.
     
-    To help you manage language models from multiple providers, API Management also provides a [unified model API (preview)](unified-model-api.md). It exposes all backends through a single OpenAI-compatible endpoint, handles format translation automatically, and lets you apply governance policies once across all models.
+    To help you manage language model APIs from multiple providers, API Management also provides a [unified model API (preview)](unified-model-api.md). It exposes multiple backends through a single OpenAI-compatible endpoint, handles format translation automatically, and lets you apply governance policies once across all models.
 
 * Remote **MCP servers** and **A2A agent APIs**
 * **Self-hosted** models and endpoints

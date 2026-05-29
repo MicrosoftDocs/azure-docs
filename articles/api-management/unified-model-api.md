@@ -3,7 +3,7 @@ title: Create and manage a unified model API - Azure API Management
 description: Learn how to create a unified model API in Azure API Management to route and transform requests across AI models from multiple LLM providers using a single client-facing API format.
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 05/29/2026
 author: dlepow
 ms.author: danlep
 ---
@@ -12,31 +12,26 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format - the OpenAI Chat Completions API - while API Management automatically translates requests to the correct backend format, whether that's Azure OpenAI, Anthropic, or Amazon Bedrock.
+You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format - the OpenAI Chat Completions API - while API Management automatically translates requests to the backend models using OpenAI Chat Completions API or Anthropic Messages API.
 
 > [!NOTE]
 > The unified model API is in public preview. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
 
 By centralizing model access behind a single API layer, you can:
 
-- **Route requests** to the correct backend based on the model name the client specifies.
-- **Translate request and response formats** between the client-side OpenAI Chat Completions format and each backend provider's native format.
-- **Define model aliases** so clients can use stable names like `gpt` or `claude-sonnet` that you can remap to new model versions without client-side changes.
-- **Configure cross-provider fallback** so that requests automatically retry against an alternate model or provider if the primary is unavailable.
-- **Apply governance policies** for token limits, usage metrics, and content safety across all models in the API.
+- Standardize on a single API format for clients independently from the formats used by backend models.
+- Unify observability, security, and governance with policies across model providers.
+- Configure model failover across model providers.
+- Decouple client-facing model names from backend model names using aliases.
 
 To learn more about managing AI APIs in API Management, see [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md).
 
 ## Supported backends
 
-The unified model API supports the following backend providers:
+The unified model API supports the following backend API formats:
 
-| Backend | Description |
-|---------|-------------|
-| Azure OpenAI | Azure OpenAI model deployments in Microsoft Foundry |
-| Non-Azure OpenAI | OpenAI model deployments hosted outside of Azure |
-| Anthropic in Foundry | Anthropic Claude models deployed through Microsoft Foundry |
-| Amazon Bedrock | Anthropic and other models hosted in Amazon Bedrock |
+- OpenAI Chat Completions API 
+- Anthropic Messages API 
 
 ## Prerequisites
 
@@ -105,34 +100,6 @@ To update a model alias after creating the unified model API:
 ### Discover model aliases
 
 Developers can discover available models and their aliases by calling the `/models` endpoint of the unified model API. API Management returns a list of models with their client-facing aliases.
-
-## Test the unified model API
-
-To verify that your unified model API works as expected, test it in the API Management test console.
-
-1. Select the unified model API you created.
-1. Select the **Test** tab.
-1. Select the **chat completions** operation.
-1. In the **Request body**, enter a chat completions request. Use the `model` field to specify the client-facing model name or alias you configured:
-
-   ```json
-   {
-     "model": "gpt",
-     "messages": [
-       {
-         "role": "user",
-         "content": "What can you do?"
-       }
-     ]
-   }
-   ```
-
-   > [!NOTE]
-   > In the test console, API Management automatically adds an `Ocp-Apim-Subscription-Key` header and sets the subscription key for the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key provides access to every API in the API Management instance.
-
-1. Select **Send**.
-
-   When the test is successful, the backend responds with a successful HTTP response code and a chat completions response. The response includes token usage data to help you monitor and manage your language model token consumption.
 
 ## Call the API from a client application
 
