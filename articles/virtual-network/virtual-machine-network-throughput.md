@@ -51,13 +51,31 @@ Data transfer between endpoints requires creation of several flows in addition t
 
 ## Flow limits and active connections recommendations
 
-Today, the Azure networking stack supports 1M total flows (500k inbound and 500k outbound) for a VM. Total active connections handled by a VM in different scenarios are as follows.
+Today, the Azure networking stack supports at least 500K total connections (500k inbound + 500k outbound flows) for all VM sizes. For the smallest sizes (2-7 vCPU), we recommend that your workload utilizes 100K or fewer total connections. Recommended connection limits vary based on the VM vCPU count and are shared below.
 
-- VMs that belong to a virtual network can handle 500k ***active connections*** for all VM sizes with 500k ***active flows in each direction***.
+### Azure Boost VM Sizes with MANA
+| VM Size(#vCPUs) | Recommended Connection Limit
+| ------------------- |  ------------------ |
+| 2-7                 |  100,000            |
+| 8-15                |  500,000            |
+| 16-31                 |  700,000            |
+| 32-63               |  800,000            |
+| 64+                 |  2,000,000          |
 
-- VMs with NVAs such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the previous diagram.
+### Other VM Sizes
+| VM Size(#vCPUs) | Recommended Connection Limit
+| ------------------- |  ------------------ |
+| 2-7                 |  100,000            |
+| 8-15                |  500,000            |
+| 16-31                 |  700,000            |
+| 32-63               |  800,000            |
+| 64+                 |  1,000,000          |
 
-Once this limit is hit, other connections are dropped. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs.
+Network Optimized VM sizes have improved network connection performance that differs from the limits above. For information on Network Optimized VM connection limits see [the following article](/azure/virtual-network/network-optimized-vm-network-connection-acceleration)
+
+Above the recommended limit, connections may be dropped or encounter reduced performance. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs. Microsoft has released a tool to make this easier, see [NCPS Tool](https://aka.ms/ncps) for more details. 
+
+Note, NVAs such as gateways, proxies, firewalls, and other applications that forward traffic should use half the recommended connection limits, as forwarding traffic consumes twice the number of flows when compared to typical client-server communication.  
 
 Metrics are available in [Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances. It's possible that the number of flows tracked by your VM guest OS is different than the number of flows tracked by the Azure network stack for various reasons. To ensure your network connections aren't dropped, use the Inbound and Outbound Flows metric.
 

@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: This article describes how to integrate Azure Relay with Azure Private Link Service to secure access to Azure Relay resources only from a private network.
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell

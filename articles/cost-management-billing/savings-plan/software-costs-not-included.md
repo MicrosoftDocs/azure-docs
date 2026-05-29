@@ -1,17 +1,17 @@
 ---
-title: Software costs not included in Azure saving plans
+title: Software costs not included in savings plans
 titleSuffix: Microsoft Cost Management
-description: Learn how savings plan discounts apply only to Azure compute infrastructure costs and not to the software costs.
+description: Learn how savings plan discounts apply only to infrastructure costs and not to the software costs.
 author: nwokolo
 ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.topic: conceptual
-ms.date: 07/09/2025
+ms.topic: glossary
+ms.date: 03/14/2026
 ---
 
-# Software costs not included in saving plans
+# Software costs not included in savings plans
 
 Savings plan discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VMs, and you have a savings plan, and you don't have an Azure Hybrid Benefit for your VMs, then you're charged for the software meters listed in the following sections.
 
@@ -54,19 +54,19 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 | dc72ee45-2ab7-4698-b435-e2cf10d1f9f6 | Cloud Services 64 vCPU License |
 | 7a803026-244c-4659-834c-11e6b2d6b76f | Cloud Services 80 vCPU License |
 
-## Get rates for Azure meters
+## Get rates for meters
 
-For information on how to get the pay-as-you-go rates for each Azure meter, see [Download Azure price sheet](download-savings-plan-price-sheet.md). EA customers should follow the first 7 steps in their section, while Microsoft Customer Agreement customers should follow the first five steps in their sections.
+For information on how to get the pay-as-you-go rates for each meter, see [Download Azure price sheet](download-savings-plan-price-sheet.md). EA customers should follow the first 7 steps in their section, while Microsoft Customer Agreement customers should follow the first five steps in their sections.
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides savings plan expert support requests in English.
 
 ## Related content
 
-To learn more about Azure savings plans, see the following articles:
+To learn more about savings plans, see the following articles:
 
-- [What are Azure savings plans?](buy-savings-plan.md)
-- [Manage an Azure savings plan](manage-savings-plan.md)
-- [How saving plan discount is applied](discount-application.md)
-- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
+- [What are savings plans?](savings-plan-overview.md)
+- [Manage a savings plan](manage-savings-plan.md)
+- [How savings plan discount is applied](discount-application.md)
+- [View savings plan cost and usage details](utilization-cost-reports.md)

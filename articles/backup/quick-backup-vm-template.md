@@ -3,7 +3,7 @@ title: Quickstart - Resource Manager template VM Backup
 description: Learn how to back up your virtual machines with Azure Resource Manager template
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/30/2025
+ms.date: 12/19/2025
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -64,11 +64,11 @@ Azure PowerShell is used to deploy the ARM template in this quickstart. The [Azu
 
 ### Start a backup job
 
-The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](./quick-backup-vm-powershell.md#start-a-backup-job).
+The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](./quick-backup-vm-powershell.md#trigger-an-azure-vm-backup-job).
 
 ### Monitor the backup job
 
-To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powershell.md#monitor-the-backup-job).
+To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powershell.md#monitor-the-backup-job-for-the-azure-vm).
 
 ## Clean up resources
 

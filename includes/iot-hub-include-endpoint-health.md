@@ -4,7 +4,7 @@ description: include file
 author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/28/2019
 ms.author: sonialopez
 ms.custom: include file

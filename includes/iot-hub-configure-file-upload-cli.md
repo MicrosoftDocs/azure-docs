@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 12/05/2024
+ms.date: 12/01/2025
 ms.custom: devx-track-azurecli
 ---
 
@@ -13,9 +13,9 @@ ms.custom: devx-track-azurecli
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 
-* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../articles/storage/common/storage-account-create.md).
+* An Azure Storage account with a blob container. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create an Azure storage account](../articles/storage/common/storage-account-create.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -23,7 +23,7 @@ ms.custom: devx-track-azurecli
 
 Sign in to your Azure account and select your subscription. If you're using Azure Cloud Shell, you should be signed in already; however, you still might need to select your Azure subscription if you have multiple subscriptions.
 
-1. At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli):
+1. At the command prompt, run the [az login](/cli/azure/get-started-with-azure-cli) command:
 
     ```azurecli
     az login
@@ -31,7 +31,7 @@ Sign in to your Azure account and select your subscription. If you're using Azur
 
     Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
 
-2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts](/cli/azure/account) available for you to use:
+2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [az account list](/cli/azure/account) command to list the Azure accounts available for you to use:
 
     ```azurecli
     az account list
@@ -83,7 +83,7 @@ The configuration requires the following values:
 
 * **File notification settings default TTL**: The time-to-live of a file upload notification before it expires. Set to one day by default.
 
-* **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
+* **File notification maximum delivery count**: The number of times the IoT hub attempts to deliver a file upload notification. Set to 10 by default.
 
 * **File notification lock duration**: The lock duration for the file notification queue. Set to 60 seconds by default.
 

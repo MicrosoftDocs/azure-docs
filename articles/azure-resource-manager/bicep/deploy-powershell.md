@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
 
 # Deploy Bicep files with Azure PowerShell
 
-This article explains how to use Azure PowerShell with Bicep files to deploy your resources to Azure. If you aren't familiar with the deploying and managing your Azure solutions, see [What is Bicep?](./overview.md).
+This article explains how to use Azure PowerShell with Bicep files to deploy your resources to Azure. If you aren't familiar with the deploying and managing your Azure solutions, see [What is Bicep?](./overview.md)
 
 ## Prerequisites
 

@@ -2,12 +2,11 @@
 title: How To - Run an application with Fortanix Confidential Computing Manager
 description: Learn how to use Fortanix Confidential Computing Manager to convert your containerized images
 services: virtual-machines
-author: ju-shim
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+author: cynthn
+ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.author: jushiman
+ms.author: cynthn
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to configure and run applications using Fortanix Confidential Computing Manager, so that I can securely handle sensitive data in a containerized environment on Azure's infrastructure."
 ---
@@ -30,7 +29,7 @@ For Fortanix support, join the [Fortanix Slack community](https://fortanix.com/c
 
 - If you don't have a Fortanix Confidential Computing Manager account, [sign up](https://ccm.fortanix.com/auth/sign-up) before you start.
 - You need a private [Docker](https://docs.docker.com/) registry to push converted application images.
-- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you start.
+- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 > [!NOTE]
 > Free trial accounts don't have access to the virtual machines used in this tutorial. To complete the tutorial, you need a pay-as-you-go subscription.

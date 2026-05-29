@@ -7,8 +7,8 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 08/12/2025
-#Customer intent: I want to learn about how to Azure App Configuration emulator for local development.
+ms.date: 11/12/2025
+#Customer intent: I want to learn about how to use Azure App Configuration emulator for local development.
 ---
 
 # Azure App Configuration emulator overview
@@ -26,8 +26,7 @@ The following table lists the features supported by the latest Azure App Configu
 | Web UI                                                           | Available |
 | Anonymous Authentication                                         | Available |
 | [HMAC Authentication](./rest-api-authentication-hmac.md)         | Available |
-| [Entra Id Authentication](./rest-api-authentication-azure-ad.md) | WIP       |
-| .NET Aspire Integration                                          | WIP       |
+| .NET Aspire Integration                                          | Available |
 
 | API                                                              | Status    |
 | ---------------------------------------------------------------- | --------- |
@@ -45,7 +44,7 @@ The following table lists the features supported by the latest Azure App Configu
 Use [Docker](https://hub.docker.com/) to pull the latest [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) by using the following console command:
 
 ```console
-docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
+docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
 ```
 
 ### [GitHub](#tab/github)
@@ -81,7 +80,7 @@ The following command runs the App Configuration emulator Docker image. The `-p 
 docker run -d -p 8483:8483 \
     -e Tenant:AnonymousAuthEnabled=true \
     -e Authentication:Anonymous:AnonymousUserRole=Owner \
-    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
+    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
 ```
 
 If you want to have persisted data for the emulator, you can use a [bind mount](https://docs.docker.com/engine/storage/bind-mounts).
@@ -91,7 +90,7 @@ docker run -d -p 8483:8483 \
     -v "C:\aace:/app/.aace" \
     -e Tenant:AnonymousAuthEnabled=true \
     -e Authentication:Anonymous:AnonymousUserRole=Owner \
-    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.0-preview
+    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
 ```
 
 ### [GitHub](#tab/github)

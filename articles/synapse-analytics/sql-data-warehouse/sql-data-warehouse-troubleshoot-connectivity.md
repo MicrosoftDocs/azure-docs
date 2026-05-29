@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 03/27/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom:
   - azure-synapse
   - devx-track-csharp
@@ -15,6 +15,8 @@ ms.custom:
 ---
 
 # Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article lists common troubleshooting techniques around connecting to your dedicated SQL pool database (formerly SQL DW).
 

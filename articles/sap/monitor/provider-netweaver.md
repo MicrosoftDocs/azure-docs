@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: article
 ms.date: 08/22/2024
-ms.author: sujaj
+ms.author: jacobjaygbay
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 # Customer intent: As a system administrator, I want to configure the SAP NetWeaver provider for Azure Monitor, so that I can effectively collect and analyze performance metrics from my SAP systems.
 ---
@@ -39,6 +39,7 @@ You can collect the following metric using SAP NetWeaver Provider:
 - Transactional RFC (**transaction code - SM59**) (RFC)
 - STMS Change Transport System Metrics (**transaction code - STMS**) (RFC)
 
+> Please note: SMON metrics (as listed above) are currently not available for SAP S/4HANA 2023 SP1 and later versions. This limitation is due to an underlying issue in SAP, where the APIs used to retrieve SMON data are not supported in these versions. As a result, Azure Monitor for SAP solutions cannot collect SMON metrics for these systems. This is a known limitation and is dependent on SAP for resolution.
 
 ## Prerequisites
 

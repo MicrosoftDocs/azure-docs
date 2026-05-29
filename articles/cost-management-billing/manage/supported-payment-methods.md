@@ -2,15 +2,16 @@
 title: Supported payment methods
 description: Learn about the payment methods that are supported for Azure subscriptions, based on your country or region.
 author: KennyDay
-ms.reviewer: drjones
+ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 09/17/2025
-ms.author: drjones
+ms.date: 03/12/2026
+ms.author: souchak
 ms.custom:
 - references_regions
 - build-2025
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Supported payment methods for Azure subscriptions
@@ -33,7 +34,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Australia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Austria | ✔   |     |     | ✔   | ✔   |     |     |      |
+| Austria | ✔   |     |     | ✔   | ✔   |     |     | ✔     |
 | Azerbaijan | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahamas | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahrain | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -75,7 +76,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Finland | ✔   |     |     | ✔   | ✔   |     |     |     |
 | France | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Georgia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Germany | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Germany | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
 | Ghana | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Greece | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Guatemala | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -115,7 +116,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Morocco |  ✔   |     |     | ✔   | ✔   |     |     |     |
 | Namibia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nepal |     |     |     |  ✔   |   ✔  |     |     |     |
-| Netherlands | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Netherlands | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
 | New Zealand | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nicaragua | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nigeria | ✔   |     |     | ✔   | ✔   |     |     |     |

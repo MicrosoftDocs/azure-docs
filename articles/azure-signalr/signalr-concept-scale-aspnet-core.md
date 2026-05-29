@@ -3,7 +3,7 @@ title: Scale SignalR Apps with Azure SignalR
 description: An overview of using Azure SignalR service to scale SignalR applications.
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: overview
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 11/11/2023
@@ -38,7 +38,7 @@ For ASP.NET Core SignalR, another reason might be you have no requirements to ac
 
 ## How does it scale?
 
-It's common to scale SignalR with SQL Server, Azure Service Bus, or Azure Cache for Redis. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
+It's common to scale SignalR with SQL Server, Azure Service Bus, or Azure Managed Redis. Azure SignalR Service handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each unit supports up to 1000 client connections.
 
 ## Next steps
 

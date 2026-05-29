@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 12/05/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -1080,15 +1080,19 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, the tracing capability is disabled because tracing might negatively affect performance and quickly consume the application host's storage space. 
 
-You can control this tracing capability at the application level by adding the following settings:
+> [!NOTE]
+>
+> Error logging is enabled even without enabling NCo tracing. To find the error log (.log) files, go to the following default location: `C:\home\site\wwwroot`. If the app setting named **SAP_RFC_TRACE_DIRECTORY** specifies a different location, the error logs are stored there instead.
+
+To enable tracing at the application level, add the following settings:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the app settings.
 
-1. On the **Environment variables** page, on the **App settings** tab, add the following application settings:
+1. On the **Environment variables** page, on the **App settings** tab, add the following app settings:
 
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
@@ -1108,7 +1112,7 @@ You can control this tracing capability at the application level by adding the f
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
 
-1. Save your changes. This step restarts the application.
+1. Save your changes, which restarts the application.
 
 <a name="trace-levels"></a>
 

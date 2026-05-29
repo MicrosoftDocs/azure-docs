@@ -1,7 +1,7 @@
----
+﻿---
 title: Request just-in-time access
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/24/2024
 ---
 
@@ -103,3 +103,4 @@ The principal ID of the account requesting JIT access must be explicitly include
 ## Next steps
 
 To learn about approving requests for JIT access, see [Approve just-in-time access in Azure Managed Applications](approve-just-in-time-access.md).
+

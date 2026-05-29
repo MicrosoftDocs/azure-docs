@@ -18,6 +18,38 @@ This article provides the release notes for Azure Migrate application and code a
 
 ## Release history
 
+### 7.7.0.10
+
+This release contains the following features and enhancements:
+- Add openjdk25 capability entry.
+- Strip pre-release label before dependency version check.
+- Fix transitive dependency location resolution.
+
+### 7.7.0.9
+
+This release contains the following features:
+- Replaced Code Impact with Story Points in the static report.
+- Added detection for the legacy Azure SDK for Java.
+
+### 7.7.0.8
+
+This release contains the following features:
+- Added incremental report generation support.
+- Improved performance for builtin rules.
+
+### 7.7.0.7
+
+This release contains the following fixes and enhancements:
+- Fixed a potential deadlock during Eclipse Java Development Tools Language Server (JDTLS) search.
+- Added rule support for Jakarta EE and other migration scenarios.
+- Improved XML match fallback when location resolution fails.
+
+### 7.7.0.6
+
+This release contains the following features and fixes:
+- Add a new issue-only analysis mode that detects issues only and doesn't discover the technologies used by the project.
+- Fail fast when the underlying analysis service times out, instead of getting stuck.
+
 ### 7.7.0.4
 
 This release contains the following new features and enhancements:
@@ -147,6 +179,28 @@ This release is based on a different set of components of the Konveyor project.
 - A new engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
+### 7.7.0.10
+
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+
+### 7.7.0.9
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+
+### 7.7.0.7
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+
+### 7.7.0.6
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.7.0.4
 

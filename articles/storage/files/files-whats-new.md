@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 04/20/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -15,9 +15,45 @@ ms.custom:
 
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
+## What's new in 2026
+
+### 2026 quarter 2 (April, May, June)
+
+#### Azure file share using Microsoft.FileShares is now generally available
+
+Azure Files introduces a new file share service management experience, now generally available, in which shares are deployed as independent, top-level Azure resources through the Microsoft.FileShares resource provider, removing the dependency on storage accounts. Each file share has dedicated performance, security, networking, and billing, enabling better isolation, predictable performance, and granular cost tracking. The experience also significantly improves scale and efficiency, supporting up to 10,000 shares per subscription per region, faster provisioning, and cloud-native automation through ARM templates, Bicep, and CI/CD workflows. It is currently available for NFS 4.1 shares.
+
+To learn more, read the [blog post](https://aka.ms/MFS/GA).
+
+#### Entra-only identity support for SMB Azure file shares is now generally available
+
+With native Microsoft Entra ID authentication, organizations can grant secure, identity-based access to SMB file shares using cloud-native-only identities.
+
+This means no Active Directory, hybrid sync, or managed domain controllers required, significantly simplifying architecture while reducing ongoing management and maintenance costs.
+
+To learn more, read the [blog post](https://azure.microsoft.com/blog/azure-files-entra-only-identities-advancing-cloud-native-identity-and-security/).
+
+#### Managed identity support for SMB Azure file shares is now generally available
+
+Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability enables applications and virtual machines to securely access Azure Files without secrets, passwords, or key distribution. The GA release includes AKS workload identity support, co-existence of application identities and end-user identity access on the same storage account, and simplified enablement via the Azure portal.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-keyless-application-access-with-managed-identities---now-ga-in-azure-file/4513053).
+
 ## What's new in 2025
 
 ### 2025 quarter 4 (October, November, December)
+
+#### Azure File Sync is now available in new Azure regions 
+
+[Azure File Sync](../file-sync/file-sync-introduction.md) is now available in Italy North, Poland Central, Spain Central, and New Zealand North. This expansion brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.
+
+If Azure File Sync isn't available in your preferred region, fill out this [survey](https://forms.office.com/r/WPBWniQXNa) to express interest.
+
+#### Managed identity support for SMB Azure file shares is now in public preview
+
+Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability provides a secure, identity-driven approach that eliminates credentials-based access and integrates seamlessly with Microsoft Entra ID. This preview feature unlocks secure file share access for both Azure services and customer applications, helping organizations meet industry standard security requirements for file shares.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-seamless-access-using-managed-identities-with-azure-files-smb/4477565).
 
 #### Entra-only identity support for SMB Azure file shares is now in public preview
 
@@ -198,7 +234,7 @@ NFS nconnect is a client-side Linux mount option that increases performance at s
 Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](files-redundancy.md).
 
 > [!NOTE]
-> Azure File Sync is zone-redundant in all regions that [support availability zones](../../reliability/availability-zones-region-support.md) except US Gov Virginia.
+> Azure File Sync is zone-redundant in all regions that [support availability zones](/azure/reliability/availability-zones-region-support) except US Gov Virginia.
 
 ## What's new in 2022
 

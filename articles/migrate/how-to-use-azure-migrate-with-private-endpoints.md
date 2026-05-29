@@ -16,7 +16,7 @@ ms.custom:
 
 # Support requirements and considerations for private endpoint connectivity
 
-This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Migrate to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md).
+This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Migrate to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md)
 
 We recommend the method of private endpoint connectivity when there's an organizational requirement to access Azure Migrate and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
 
@@ -37,6 +37,9 @@ Software inventory | Discover apps, roles, and features running on VMware VMs. |
 Dependency visualization | Use dependency analysis to identify and understand dependencies across servers. <br/><br/> [Agentless dependency visualization](./how-to-create-group-machine-dependencies-agentless.md) is supported natively with Azure Migrate support for Private Link. <br/><br/>[Agent-based dependency visualization](./how-to-create-group-machine-dependencies.md) requires internet connectivity. [Learn how to use private endpoints for agent-based dependency visualization](/azure/azure-monitor/logs/private-link-security). | Azure Migrate Discovery and Assessment
 Migration | Perform [agentless VMware migrations](./tutorial-migrate-vmware.md), perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md), or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Azure Migrate and Modernize
 
+> [!NOTE]
+> 'Export' functionality in Azure Migrate portal might not work when using a private endpoint. It is recommended to use a machine with public network access for exporting csv files.
+
 ### Other integrated tools
 
 Other migration tools might not be able to upload usage data to the Azure Migrate project if public network access is turned off. The Azure Migrate project should be configured to allow traffic from all networks so that it can receive data from other Microsoft or external offerings.
@@ -56,6 +59,7 @@ Consideration | Details
 Pricing | See [Azure page blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 Virtual network requirements | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
 PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Private Link support in Azure Migrate.
+Multiple Appliances | Adding new appliances to the project would require further private IPs from virtual network, please plan accordingly.
 
 ## Related content
 

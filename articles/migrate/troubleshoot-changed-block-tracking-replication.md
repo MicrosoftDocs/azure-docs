@@ -28,25 +28,13 @@ You might occasionally see replication cycles failing for a VM. These failures c
 
 Use the following steps to monitor the replication status for your virtual machines:
 
-1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
-  
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+1. Go to the **Execute>Migrations** page in Azure Migrate on the Azure portal.
+   
+2. You'll see a list of servers in execution stage along with information about stage, status. The **Execution stage** column indicates the current migration stage of the VM (Preparation, Testing & Completion). The **Execution status** column shows the current status of the VM (In progress, In error, Action pending & Completed). [Learn more](end-to-end-portal-experience-server-migrations.md#track-migrations) about Execution stage and Execution status.
 
-1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
+3. In **Execution status** column, click on any VM with **In error** status to open the detailed migration job pane. Then, click on the error link to view the detailed error message and related remediation guidance for the same. 
 
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
-
-1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot.
-
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
-
-1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
-
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/recent-events.png" alt-text="Screenshot of Recent Events option.":::
-
-1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
-
-    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/error-details.png" alt-text="Screenshot of error message in the Error details screen.":::
+ 
 
 ## Common Replication Errors
 
@@ -96,7 +84,7 @@ The component trying to replicate data to Azure is either down or not responding
 2. Check if the gateway service is running on the appliance:
    1.  Sign in to the Azure Migrate appliance using remote desktop.
 
-   2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
+   2.  Go to the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account:
 
@@ -151,7 +139,7 @@ The component trying to replicate data to Azure is either down or not responding
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
     ```
     _test-netconnection Key Vault URI -P 443_
     ```
@@ -238,7 +226,7 @@ The possible causes include:
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
 
     ```
     _test-netconnection Key Vault URI -P 443_

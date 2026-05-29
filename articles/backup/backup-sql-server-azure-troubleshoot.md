@@ -116,7 +116,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li><li>Another Azure Backup job may be in progress.</li></ul>| Disable the other backup product to resolve the issue. In case there is any other Azure Backup job in progress, wait for its completion.
 
 
 ### UserErrorSQLPODoesNotExist

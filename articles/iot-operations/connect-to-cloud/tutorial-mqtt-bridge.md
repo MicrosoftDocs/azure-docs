@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Bi-directional MQTT bridge to Azure Event Grid"
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations data flows.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
@@ -15,13 +15,14 @@ ms.custom:
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the Azure IoT Operations MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - **Data flow profile**. See [Configure data flow profile](howto-configure-dataflow-profile.md).
 
 ## Set environment variables
@@ -309,7 +310,9 @@ Next, execute the following command in your terminal. Replace `<FILE>` with the 
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -454,7 +457,9 @@ Like the data flow endpoint, execute the following command in your terminal:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 
 ```yaml
@@ -520,7 +525,9 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 
 Currently, Bicep doesn't apply to deploy MQTT client.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Download `mqtt-client.yaml` deployment from the GitHub sample repository.
 
@@ -625,10 +632,7 @@ In this tutorial, you learned how to configure Azure IoT Operations for bi-direc
 
 * To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `sensor`, like `sensor/temperature` or `sensor/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local Azure IoT Operations broker.
 * To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
-
-## Related content
-
 * About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 * [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
 * [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-tls-auto.md)
+* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md)

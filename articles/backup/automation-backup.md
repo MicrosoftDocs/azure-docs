@@ -2,7 +2,7 @@
 title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -44,7 +44,7 @@ As a backup admin, you need to deal with new infrastructure getting added period
 
 However, this operation must be performant at-scale. Also, you need to schedule them periodically and monitor each run. To ease the automation operations, Azure Backup now uses Azure Policy and provides [built-in backup specific Azure Policies](backup-center-govern-environment.md#azure-policies-for-backup) to govern the backup estate.
 
-Once you assign an Azure Policy to a scope, all VMs that meet your criteria are backed-up automatically, and newer VMs are scanned and protected periodically by the Azure Policy. You can also view a compliance report via [Backup center](backup-center-overview.md) that provides visibility into noncompliant resources.
+Once you assign an Azure Policy to a scope, all VMs that meet your criteria are backed-up automatically, and newer VMs are scanned and protected periodically by the Azure Policy. You can also view a compliance report via [Resiliency](../resiliency/resiliency-overview.md) that provides visibility into noncompliant resources.
 
 [Learn more about built-in Azure Policies for backup](backup-azure-auto-enable-backup.md).
 

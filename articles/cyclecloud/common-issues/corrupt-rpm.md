@@ -5,7 +5,7 @@ author: andyhoward
 ms.date: 06/30/2025
 ms.update-cycle: 3650-days
 ms.author: anhoward
-ms.topic: conceptual
+ms.topic: troubleshooting-problem-resolution
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---

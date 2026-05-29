@@ -1,9 +1,9 @@
----
+﻿---
 title: Use Bicep to create Azure role-based access control (Azure RBAC) resources
 description: Learn how to use Bicep to create role assignments and definitions.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 10/30/2025
+ms.date: 12/22/2025
 ---
 
 # Use Bicep to create Azure role-based access control (Azure RBAC) resources 

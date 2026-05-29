@@ -1,7 +1,7 @@
----
+﻿---
 title: Move Azure resources to a new resource group or subscription
 description: Learn how to move resources to a new resource group or subscription, and understand the steps to ensure a successful move operation.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/29/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
@@ -267,7 +267,7 @@ To move to a new subscription, include a value for the `DestinationSubscriptionI
 
 #### Validate
 
-To test your move scenario without actually moving resources in real time, use the [`ResourceManagementClient.resources.begin_validate_move_resources`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcesoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcesoperations-begin-validate-move-resources) method. Use this method only when you need to model the results without following through.
+To test your move scenario without actually moving resources in real time, use the [`ResourceManagementClient.resources.begin_validate_move_resources`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcesoperations#azure-mgmt-resource-resources-operations-resourcesoperations-begin-validate-move-resources) method. Use this method only when you need to model the results without following through.
 
 ```python
 import os
@@ -307,7 +307,7 @@ An output doesn't display if the validation succeeds. However, if the validation
 
 #### Move
 
-To move existing resources to another resource group or subscription, use the [`ResourceManagementClient.resources.begin_move_resources`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcesoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcesoperations-begin-move-resources) method in Python. The following example shows how to move several resources to a new resource group.
+To move existing resources to another resource group or subscription, use the [`ResourceManagementClient.resources.begin_move_resources`](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcesoperations#azure-mgmt-resource-resources-operations-resourcesoperations-begin-move-resources) method in Python. The following example shows how to move several resources to a new resource group.
 
 ```python
 import os
@@ -466,7 +466,7 @@ Another common example involves moving a virtual network where you might have to
 
 Resource Manager validates your move request before attempting a move. This validation includes checking policies defined for the resources involved in the move. For example, the validation fails when you're attempting to move a key vault but your organization has a policy to deny creating a key vault in the target resource group. The returned error code is ### RequestDisallowedByPolicy**.
 
-For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md).
+For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md)
 
 ### Why can't I move some resources in Azure?
 
@@ -491,3 +491,4 @@ No, you can't move a resource group to a new subscription. But, you can move all
 ## Next steps
 
 To verify which Azure resources support move operations, see [Move operation support for resources](move-support-resources.md).
+

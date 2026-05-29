@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 01/10/2025
+ms.date: 03/31/2026
 ms.author: duau
 
 ---
@@ -47,7 +47,7 @@ If you plan to use only your primary link to transmit traffic, the bandwidth for
 
 ### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
 
-If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute will only skip charing egress data. Egress data will still be charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
+If you're connecting to a service using Microsoft Peering with unlimited data, then ExpressRoute skips charges for egress data. Egress data is still charged for services such as compute, storage, or any other services that are accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
 
 ### Can I use the same private network connection with virtual network and other Azure services simultaneously?
 
@@ -66,6 +66,17 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 ### What happens if the prefix limit on an ExpressRoute connection gets exceeded?
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
+
+### How can I reduce the number of prefixes advertised from Azure to on-premises?
+
+ExpressRoute private peering has a maximum number of IPv4 prefixes that can be advertised on a single ExpressRoute connection (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+For hub-and-spoke topologies, the default behavior is to advertise the hub address space and peered spoke address spaces to on-premises. To reduce the number of prefixes advertised from Azure to on-premises, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead and suppress advertisement of covered spoke address spaces.
+
+> [!NOTE]
+> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
 
 ## How can I adjust the number of prefixes advertised to the gateway to ensure it's within the maximum limitation?
 
@@ -180,13 +191,13 @@ You don't lose connectivity if one of the cross connections fails. A redundant c
 
 ### How is redundancy implemented for private peering?
 
-Multiple ExpressRoute circuits from different peering locations or up to four connections from the same peering location can be connected to the same virtual network to provide high-availability in the case a single circuit becomes unavailable. You can then [assign higher weights](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) to one of the local connections to prefer a specific circuit. It's recommended that your setup has at least two ExpressRoute circuits to avoid single points of failure. 
+All ExpressRoute Circuits include 2 redundant physical links. This design protects against loss of connectivity due to hardware failures, device maintenance, or other causes of downtime. We also recommend multi-site architectures for critical workloads. This can be achieved by deploying multiple ExpressRoute Circuits in different peering locations connected to the same virtual network or through ExpressRoute Metro. ExpressRoute Metro is a single ExpressRoute Circuit with the physical links residing in two separate locations in the same city. Multi-site deployments protect your connectivity in the case of a location becoming unavailable. 
 
 See [here](./designing-for-high-availability-with-expressroute.md) for designing for high availability and [here](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) for designing for disaster recovery.  
 
 ### How is redundancy implemented for Microsoft peering?
 
-We recommended when you're using Microsoft peering to access Azure public services like Azure Storage, Azure SQL, or you're using Microsoft peering for Microsoft 365 that you implement multiple circuits in different peering locations to avoid single points of failure. You can either advertise the same prefix on both circuits and use [AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
+We recommend when you're using Microsoft peering to access Azure public services like Azure Storage, Azure SQL, or you're using Microsoft peering for Microsoft 365 that you implement multiple circuits in different peering locations to avoid single points of failure. You can either advertise the same prefix on both circuits and use [AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
 
 See [here](./designing-for-high-availability-with-expressroute.md) for designing for high availability.
 
@@ -353,18 +364,18 @@ An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tappi
 
 ### What is the connectivity scope for different ExpressRoute circuit SKUs?
 
-The following diagram shows the connectivity scope of different ExpressRoute circuit SKUs. In this example, your on-premises network is connected to an ExpressRoute peering site in London. With a Local SKU ExpressRoute circuit, you can connect to resources in Azure regions in the same metro as the peering site. In this case, your on-premises network can access UK South Azure resources over ExpressRoute. For more information, see [What is ExpressRoute Local?](#what-is-expressroute-local). When you configure a Standard SKU ExpressRoute circuit, connectivity to Azure resources expand to all Azure regions in a geopolitical area. As explained in the diagram, your on-premises can connect to resources in West Europe and France Central. To allow your on-premises network to access resources globally across all Azure regions, you need to configure an ExpressRoute premium SKU circuit. For more information, see [What is ExpressRoute premium?](#what-is-expressroute-premium).
+The following diagram shows the connectivity scope of different ExpressRoute circuit SKUs. In this example, your on-premises network is connected to an ExpressRoute peering site in London. With a Local SKU ExpressRoute circuit, you can connect to resources in Azure regions in the same metro as the peering site. In this case, your on-premises network can access UK South Azure resources over ExpressRoute. For more information, see [What is ExpressRoute Local?](#what-is-expressroute-local) When you configure a Standard SKU ExpressRoute circuit, connectivity to Azure resources expand to all Azure regions in a geopolitical area. As explained in the diagram, your on-premises can connect to resources in West Europe and France Central. To allow your on-premises network to access resources globally across all Azure regions, you need to configure an ExpressRoute premium SKU circuit. For more information, see [What is ExpressRoute premium?](#what-is-expressroute-premium)
 
 :::image type="content" source="./media/expressroute-faqs/sku-scope.png" alt-text="Diagram of connectivity scope for different ExpressRoute circuit SKUs.":::
 
 ## ExpressRoute FastPath
 
-### What happens when the IP address limits are reached ?
+### What happens when the IP address limits are reached?
 When the limit is reached, new routes don't get programmed on FastPath, and instead traffic flows through the ExpressRoute gateway.
 All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
- 
-### Can I use Azure Firewall with FastPath ?
-Yes. To support traffic traversing from On-Premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
+
+### Can I use Azure Firewall with FastPath?
+Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
 
 ## ExpressRoute premium
 
@@ -458,7 +469,7 @@ Refer to [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/ur
 
 Microsoft 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
 
-### What regions is ExpressRoute for Microsoft 365 supported in?
+### What regions are ExpressRoute for Microsoft 365 supported in?
 
 See [ExpressRoute partners and locations](expressroute-locations.md) for information.
 
@@ -537,7 +548,7 @@ You should experience minimal to no disruption during maintenance on your Expres
 
 ### Does ExpressRoute Traffic Collector support availability zones?
 
-ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it is available. For information about region availability, see [Availability zones supported regions](../reliability/availability-zones-region-support.md). 
+ExpressRoute Traffic Collector deployment by default has availability zones enabled in the regions where it is available. For information about region availability, see [Availability zones supported regions](/azure/reliability/availability-zones-region-support). 
 
 ### How should I incorporate ExpressRoute Traffic Collector into my disaster recovery plan?
 

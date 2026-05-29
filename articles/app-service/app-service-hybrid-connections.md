@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: how-to
-ms.date: 10/27/2025
+ms.date: 12/16/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -175,8 +175,8 @@ To support the Hybrid Connections it's configured with, the Hybrid Connection Ma
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
-- Windows clients must have ports 4999-5001 available.
-- Linux clients must have port 5001 available.
+- Windows clients use ports 4999-5001 by default. These ports can be [modified if needed](#configure-custom-ports).
+- Linux clients use port 5001 by default. This port can be [modified if needed](#configure-custom-ports).
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
 ### Getting started with the Hybrid Connection Manager GUI
@@ -221,7 +221,7 @@ On Windows, you can use the Hybrid Connection Manager CLI by searching for and o
 
 # [Linux](#tab/linux)
 
-On Linux, once installed, you can run `hcm help` to confirm the Hybrid Connection Manager is installed and to see the available commands.
+On Linux, once installed, you can run `hcm --help` to confirm the Hybrid Connection Manager is installed and to see the available commands.
 
 -----
 
@@ -245,6 +245,45 @@ You can also show the details of a specific Hybrid Connection with the `hcm show
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details-cli.png" alt-text="Screenshot of Hybrid Connection Details in CLI.":::
 
+### Configure custom ports
+
+By default, the Hybrid Connection Manager uses ports 4999-5001 on Windows and port 5001 on Linux. You can configure custom ports if the default ports are unavailable or if your environment requires different port assignments.
+
+> [!NOTE]
+> Custom port configuration is only supported on Hybrid Connection Manager version 1.2.5 or later.
+
+# [Windows](#tab/windows)
+
+To configure custom ports on Windows, navigate to **Edit the system environment variables** with Windows Search and add the following environment variables. Ensure you're editing the **System Variables** section, not the user variables.
+
+- `HCM_GUI_PORT`
+- `HCM_SERVICE_PORT`
+
+Set the value of each variable to the port number you want to use. For example, `HCM_GUI_PORT=1234`.
+
+> [!NOTE]
+> If you set these environment variables after the Hybrid Connection Manager is installed, you need to restart **HybridConnectionManagerService** through **Services** from Windows Search. We recommend setting these variables before you install the Hybrid Connection Manager to avoid issues with the service picking up these values.
+
+# [Linux](#tab/linux)
+
+To configure a custom port on Linux:
+
+1. Set the environment variable and add it to `/etc/environment`. Replace `<PORT-NUMBER>` with the port number you want to use:
+
+    ```bash
+    export HCM_SERVICE_PORT=<PORT-NUMBER> && sudo sh -c "echo HCM_SERVICE_PORT=$HCM_SERVICE_PORT >> /etc/environment"
+    ```
+
+1. To apply the new port configuration, run the Hybrid Connection Manager setup script:
+
+    ```bash
+    sudo ./setup.sh
+    ```
+
+    If running the setup script with sudo doesn't apply the port change, try running it without sudo.
+
+----- 
+
 ### Configure proxy server settings
 
 If you need to configure proxy server settings for the Hybrid Connection Manager, edit the `ProxySettings` section in the `appsettings.json` file located at:
@@ -257,7 +296,7 @@ After you edit the configuration file, restart the Hybrid Connection Manager ser
 - **Windows**: Restart the service through **Services** from the **Start Menu**.
 - **Linux**: Run `systemctl restart hybridconnectionmanager.service`.
 
-Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS traffic so that the Hybrid Connection Manager can communicate with the Azure Relay Service.
+Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS and WebSocket traffic over port 443 so that the Hybrid Connection Manager can communicate with Azure Relay. If your proxy supports DNS allowlisting, allow `*.servicebus.windows.net`. If you can't use a wildcard, allow the specific Relay namespace hostname and the gateway hostnames for that namespace.
 
 > [!NOTE]
 > All addresses set in `appsettings.json` (`ProxyAddress`, `BypassList`) should be in RegEx format if not an exact match.
@@ -348,7 +387,7 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
 - Does your host have outbound access to Azure on port 443? You can test from your Hybrid Connection Manager host using the PowerShell command `Test-NetConnection Destination -P Port`.
 - Is your Hybrid Connection Manager potentially in a bad state? Try restarting the **Azure Hybrid Connection Manager Service** local service.
 - Do you have conflicting software installed? Hybrid Connection Manager can't coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. When you install the Hybrid Connection Manager, you should remove any versions of these packages first.
-- Do you have a firewall between your Hybrid Connection Manager host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL *AND* the Service Bus gateways that service your Hybrid Connection.
+- Do you have a firewall between your Hybrid Connection Manager host and Azure? If so, allow outbound HTTPS and WebSocket traffic over port 443. If your firewall supports DNS allowlisting, allow `*.servicebus.windows.net`, which is the preferred configuration. If you can't use a wildcard, allow the Relay namespace hostname and the gateway hostnames for that namespace. IP allowlists aren't recommended because the Relay gateway IP addresses can change.
 
   - You can find the Service Bus endpoint URL in the Hybrid Connection Manager GUI.
 
@@ -358,31 +397,33 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
   
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint-cli.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint in the CLI.":::
 
-  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
+  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through Azure Relay. The gateway hostnames are in the format `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure datacenter where your Service Bus endpoint exists.
 
-  - If you can use a wildcard, you can allowlist *\*.servicebus.windows.net*.
-  - If you can't use a wildcard, you must allowlist all 256 of the gateways.
+  - If your firewall or proxy supports DNS allowlisting, allow `*.servicebus.windows.net`. This approach is simpler to maintain and avoids relying on changing IP addresses.
+  - If your firewall or proxy doesn't support wildcard DNS rules, allow the namespace hostname shown in the Hybrid Connection Manager and all gateway hostnames for that namespace. Use hostnames, not IP addresses.
 
     You can find out the stamp using *nslookup* on the Service Bus endpoint URL.
 
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-stamp-name.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus.":::
 
-    In this example, the stamp is `sn3-010`. To allowlist the Service Bus gateways, you need the following entries:
+    In this example, the stamp is `sn3-010`. If you need namespace-specific DNS rules instead of `*.servicebus.windows.net`, allow the namespace hostname and the following gateway hostnames:
 
-    G0-prod-sn3-010-sb.servicebus.windows.net  
-    G1-prod-sn3-010-sb.servicebus.windows.net  
-    G2-prod-sn3-010-sb.servicebus.windows.net  
-    G3-prod-sn3-010-sb.servicebus.windows.net  
-    ...  
-    G126-prod-sn3-010-sb.servicebus.windows.net  
-    G127-prod-sn3-010-sb.servicebus.windows.net  
-    GV0-prod-sn3-010-sb.servicebus.windows.net  
-    GV1-prod-sn3-010-sb.servicebus.windows.net  
-    GV2-prod-sn3-010-sb.servicebus.windows.net  
-    GV3-prod-sn3-010-sb.servicebus.windows.net  
-    ...  
-    GV126-prod-sn3-010-sb.servicebus.windows.net  
+    ```text
+    G0-prod-sn3-010-sb.servicebus.windows.net
+    G1-prod-sn3-010-sb.servicebus.windows.net
+    G2-prod-sn3-010-sb.servicebus.windows.net
+    G3-prod-sn3-010-sb.servicebus.windows.net
+    ...
+    G126-prod-sn3-010-sb.servicebus.windows.net
+    G127-prod-sn3-010-sb.servicebus.windows.net
+    GV0-prod-sn3-010-sb.servicebus.windows.net
+    GV1-prod-sn3-010-sb.servicebus.windows.net
+    GV2-prod-sn3-010-sb.servicebus.windows.net
+    GV3-prod-sn3-010-sb.servicebus.windows.net
+    ...
+    GV126-prod-sn3-010-sb.servicebus.windows.net
     GV127-prod-sn3-010-sb.servicebus.windows.net
+    ```
 
 If your status says **Connected** but your app can't reach your endpoint then:
 

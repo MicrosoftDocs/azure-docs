@@ -7,8 +7,8 @@ ms.date: 07/09/2025
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 

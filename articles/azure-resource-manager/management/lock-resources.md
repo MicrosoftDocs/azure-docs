@@ -1,7 +1,7 @@
----
+﻿---
 title: Lock your Azure resources to protect your infrastructure
 description: Learn how to lock all users and roles to protect your Azure resources from updates or deletions.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/06/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: AI-contribution
@@ -96,11 +96,11 @@ Applying locks can lead to unexpected results. Some operations that don't seem t
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor can't store the results of its queries.
 
-- A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/rest/api/application-gateway/application-gateways/backend-health), which a read-only lock blocks.
+- A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses a POST method](/azure/application-gateway/application-gateway-backend-health), which a read-only lock blocks.
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
-- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents you from removing certain resource links related to Site Recovery when you remove the protection or disable replication. If you plan to protect the virtual machine again later, remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the virtual machine. For more information, see [Troubleshoot Azure-to-Azure VM replication errors](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents you from removing certain resource links related to Site Recovery when you remove the protection or disable replication. If you plan to protect the virtual machine again later, remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the virtual machine. For more information, see [Troubleshoot Azure-to-Azure VM replication errors](../../site-recovery/azure-to-azure-virtual-machine-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
 
 - For **PostgreSQL**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks might interfere with network and Domain Name System operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
 
@@ -478,7 +478,7 @@ az lock delete --ids $lockid
 
 ### Python
 
-To lock deployed resources with Python, use the [`ManagementLockClient.management_locks.create_or_update_at_resource_group_level`](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-create-or-update-at-resource-group-level) command.
+To lock deployed resources with Python, use the [`ManagementLockClient.management_locks.create_or_update_at_resource_group_level`](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-create-or-update-at-resource-group-level) command.
 
 To lock a resource, provide the resource name, resource type, and resource group name.
 
@@ -526,7 +526,7 @@ lock_result = lock_client.management_locks.create_or_update_at_resource_group_le
 )
 ```
 
-To get information about all locks in your subscription, use [ManagementLockClient.management_locks.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-list-at-subscription-level).
+To get information about all locks in your subscription, use [ManagementLockClient.management_locks.list_at_subscription_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-list-at-subscription-level).
 
 To get all the locks in your subscription, use:
 
@@ -658,5 +658,6 @@ In the request, include a JSON object that specifies the lock properties.
 ## Next steps
 
 - To learn how to logically organize your resources, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
-- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
+- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md)
 - For guidance on how to use the Azure portal to manage subscription policies, see [Manage Azure subscription policies](/azure/cost-management-billing/manage/manage-azure-subscription-policy).
+

@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-description
 ---
 
-# Azure Event Hubs Premium preview
+# Azure Event Hubs Premium overview
 
 Azure Event Hubs Premium (Premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The Premium tier provides reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant platform-as-a-service (PaaS) environment.
 
@@ -66,10 +66,10 @@ The Premium tier offers all the features of the Standard plan but with better pe
 
 ## High availability with availability zones
 
-Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../reliability/availability-zones-service-support.md) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
+Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/azure/reliability/availability-zones-service-support) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
 
 > [!IMPORTANT]
-> - Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+> - Availability zone support is only available in [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 >
 
 ## Premium vs. Dedicated tiers

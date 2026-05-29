@@ -16,6 +16,7 @@ The following limits are common across all tiers.
 | Maximum size of any messaging entity path: queue or topic | 260 characters. | &nbsp; |
 | Maximum size of any messaging entity name: namespace, subscription, or subscription rule | 50 characters. | &nbsp; |
 | Maximum size of a message ID | 128 | &nbsp; |
+| Maximum number of session states per messaging entity: queue or subscription | 1,000,000 | &nbsp; |
 | Maximum size of a message session ID | 128 | &nbsp; |
 | Message property size for a queue, topic, or subscription entity | <p>Maximum message property size for each property is 32 KB.</p><p>Cumulative size of all properties can't exceed 64 KB. This limit applies to the entire header of the brokered message, which has both user properties and system properties, such as sequence number, label, and message ID.</p><p>Maximum number of header properties in property bag: **byte/int.MaxValue**.</p> | The exception `SerializationException` is generated.| 
 | Number of SQL filters per topic | 2,000 | Subsequent requests for creation of additional filters on the topic are rejected, and the calling code receives an exception. |

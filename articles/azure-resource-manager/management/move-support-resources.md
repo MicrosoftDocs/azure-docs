@@ -1,8 +1,8 @@
----
+﻿---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
-ms.topic: conceptual
-ms.date: 04/29/2025
+ms.date: 05/26/2026
+ms.topic: article
 ms.custom: tbd
 ---
 
@@ -300,11 +300,15 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > [!IMPORTANT]
 > If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md) to learn more.
 
+> [!NOTE]
+> Azure Cache for Redis is being retired. For more information, see [Azure Cache for Redis retirement FAQ](../../azure-cache-for-redis/retirement-faq.yml).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | redis | **Yes** | **Yes** | No |
-> | redisenterprise | No | No | No |
+> | redisenterprise (Azure Cache for Redis Enterprise) | No | No | No |
+> | redisenterprise (Azure Managed Redis) | No | No | No |
 
 ## Microsoft.Capacity
 
@@ -333,6 +337,8 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | edgenodes | No | No | No |
 > | profiles | **Yes** | **Yes** | No |
 > | profiles / endpoints | **Yes** | **Yes** | No |
+> [!IMPORTANT]
+> **Azure Front Door Standard/Premium** objects (profiles, endpoints, routes, WAF policies) appear under the **Microsoft.Cdn** provider. The support move across **resource groups** and **subscriptions**. Region moves aren't supported. See the FAQ and **Networking move guidance** for prerequisites. 
 
 ## Microsoft.CertificateRegistration
 
@@ -1393,6 +1399,11 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | vpnserverconfigurations | No | No | No |
 > | vpnsites (Virtual WAN) | No | No | No |
 
+> [!NOTE]
+> **Azure Front Door Standard/Premium** resources are provided under the **Microsoft.Cdn** resource provider (see the **Microsoft.Cdn** section below). The **support moves between resource groups and subscriptions**.  
+> If you're using **Front Door (classic)** (`Microsoft.Network/frontdoors`), **migrate to Standard or Premium first**, then perform the move.  
+> For more information, see [Front Door FAQ — move support](../../frontdoor/front-door-faq.yml#can-i-move-front-door-and-cdn-profiles-between-resource-groups-or-subscriptions-without-any-downtime-) and [Migrate Front Door (classic) to Standard/Premium](../../frontdoor/migrate-tier.md).
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1806,9 +1817,9 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sqlvirtualmachinegroups | **No** | **No** | No |
-> | sqlvirtualmachines | **No** | **No** | No |
+> | sqlvirtualmachines | **Yes** | **Yes** | No |
 
-If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
+When moving a virtual machine registered with the SQL IaaS Agent extension, include the associated `Microsoft.SqlVirtualMachine/sqlVirtualMachines` resource in the same move request as the `Microsoft.Compute/virtualMachines` resource. Region move isn't supported for SQL virtual machines.
 
 ## Microsoft.Storage
 
@@ -1921,7 +1932,7 @@ If you need to move your SQL virtual machines resource, first delete the [SQL Ia
 ## Microsoft.VisualStudio
 
 > [!IMPORTANT]
-> See [Manage billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json) to learn learn how to change the subscription for Azure DevOps.
+> See [Manage billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json) to learn how to change the subscription for Azure DevOps.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |

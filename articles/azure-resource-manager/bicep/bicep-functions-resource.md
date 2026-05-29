@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 06/18/2025
+ms.date: 04/17/2026
 ---
 
 # Resource functions for Bicep
@@ -198,8 +198,8 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't neede
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| apiVersion |No |string |If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
+| apiVersion | No | string | If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
+| functionValues | No | object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 
@@ -490,7 +490,7 @@ resource location_lock 'Microsoft.Authorization/policyAssignments@2025-03-01' = 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -533,7 +533,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`. If the response isn't empty, the region supports availability zones.
 
@@ -661,6 +661,48 @@ output storageID string = storageAccount.id
 
 For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid).
 
+## roleDefinitions
+
+`roleDefinisions(roleName)`
+
+Returns information about the specified role definition, including `id` and `roleDefinitionId`. It's a name-based helper for Azure RBAC role assignments. Instead of requiring you to hardcode the GUID of a built-in role definition (like Contributor, Reader, and others), it lets you provide the built-in role’s display name, and the function resolves the corresponding role definition information at deployment time.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| roleName | Yes | string | The display name of the role definition. |
+
+### Return value
+
+An object representing the role definition, including `id` and `roleDefinitionId`.
+
+### Examples
+
+The following Bicep code creates a deterministic Azure RBAC role assignment that grants a specified principal the **Storage Blob Data Reader** built‑in role at the deployment scope by resolving the role definition by name at deployment time.
+
+```bicep
+@description('Specifies the role definition ID used in the role assignment.')
+param roleDefinitionName string = 'Storage Blob Data Reader'
+
+@description('Specifies the principal ID assigned to the role.')
+param principalId string
+
+var roleAssignmentName= guid(principalId, roleDefinitionName, resourceGroup().id)
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: roleAssignmentName
+  properties: {
+    roleDefinitionId: roleDefinitions(roleDefinitionName).id
+    principalId: principalId
+  }
+}
+
+```
+
+For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#roledefinitions).
+
 ## subscriptionResourceId
 
 `subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
@@ -681,7 +723,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the subscription](deploy-to-subscription.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a resource group value.
 
-### subscriptionResourceID example
+### subscriptionResourceId example
 
 The following Bicep file assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 
@@ -777,7 +819,7 @@ A string representing the logical availability zone (for example, `1`, `2`, or `
 * The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration in the specified region.
 * Logical zones are standardized identifiers (for example, `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
 * Physical zone identifiers are region-specific and may vary between subscriptions. Use the [`toPhysicalZone`](#tophysicalzone) function to reverse this mapping.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the physical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-subscription or multi-region scenarios.
 
@@ -891,7 +933,7 @@ A string representing the physical availability zone identifier (for example, `w
 * The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration in the specified region.
 * Physical zones are data center-specific identifiers that may vary between subscriptions, while logical zones (for example, `1`, `2`, `3`) are standardized for resource configurations.
 * Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the logical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
 

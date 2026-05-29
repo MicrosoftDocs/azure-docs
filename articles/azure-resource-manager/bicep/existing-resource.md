@@ -1,7 +1,7 @@
----
+﻿---
 title: Reference existing resource in Bicep
 description: Learn how to reference resources that exist.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -46,3 +46,4 @@ If you attempt to reference a resource that doesn't exist, you get the `NotFound
 ## Next steps
 
 For the syntax to deploy a resource, see [Resource declaration in Bicep](resource-declaration.md).
+

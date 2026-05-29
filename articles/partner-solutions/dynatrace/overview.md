@@ -1,6 +1,8 @@
 ---
 title: Azure Native Dynatrace Service overview
 description: Learn about using the Dynatrace Cloud-Native Observability Platform in Azure Marketplace.
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: overview
 ms.date: 03/13/2025
 ---
@@ -31,7 +33,7 @@ Azure Native Dynatrace Service provides the following capabilities:
 - **Seamless onboarding** - Easily onboard and use Dynatrace as natively integrated service on Azure.
 - **Unified billing** - Get a single bill for all the resources you consume on Azure, including Dynatrace.
 - **Single-Sign on to Dynatrace** - You need not sign-up or sign in separately to Dynatrace. Sign in once in the Azure portal and seamlessly transition to Dynatrace portal when needed.
-- **Log monitoring** - Enables automated monitoring of subscription activity and resource logs to Dynatrace
+- **Log monitoring** - Enables automated monitoring of subscription activity and resource logs to Dynatrace. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 - **Manage Dynatrace OneAgent on VMs and App Services** - Provides a single experience to install and uninstall Dynatrace OneAgent on virtual machines and App Services.
 
 ### Billing

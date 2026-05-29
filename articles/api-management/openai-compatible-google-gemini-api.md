@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 07/06/2025
+ms.date: 02/26/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom: template-how-to
@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows you how to import an OpenAI-compatible Google Gemini API to access models such as `gemini-2.0-flash`. For these models, Azure API Management can manage an OpenAI-compatible chat completions endpoint.
+This article shows you how to import an OpenAI-compatible Google Gemini API to access models such as `gemini-2.5-flash-lite`. For these models, Azure API Management can manage an OpenAI-compatible chat completions endpoint.
 
 Learn more about managing AI APIs in API Management:
 
@@ -28,9 +28,9 @@ Learn more about managing AI APIs in API Management:
 - An API key for the Gemini API. If you don't have one, create it at [Google AI Studio](https://aistudio.google.com/apikey) and store it in a safe location.
 
 
-## Import an OpenAI-compatible Gemini API using the portal
+## Import an OpenAI-compatible Gemini API by using the portal
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select **Language Model API**.
     
@@ -50,12 +50,12 @@ Learn more about managing AI APIs in API Management:
 
 1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import a language model API](openai-compatible-llm-api.md).
 1. Select **Review**.
-1. After settings are validated, select **Create**.
+1. After the portal validates the settings, select **Create**.
 
 API Management creates the API and configures the following:
 
 * A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Google Gemini endpoint.
-*  Access to the LLM backend using the Gemini API key you provided. The key is protected as a secret [named value](api-management-howto-properties.md) in API Management.
+*  Access to the LLM backend by using the Gemini API key you provided. API Management protects the key as a secret [named value](api-management-howto-properties.md).
 * (optionally) Policies to help you monitor and manage the API.
 
 ### Test Gemini model
@@ -65,11 +65,11 @@ After importing the API, you can test the chat completions endpoint for the API.
 1. Select the API that you created in the previous step.
 1. Select the **Test** tab.
 1. Select the `POST  Creates a model response for the given chat conversation` operation, which is a `POST` request to the `/chat/completions` endpoint.
-1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the `gemini-2.0-flash` model is used.
+1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the `gemini-2.5-flash-lite` model is used.
 
     ```json
     {
-        "model": "gemini-2.0-flash",
+        "model": "gemini-2.5-flash-lite",
         "messages": [
             {
                 "role": "system",
@@ -84,7 +84,7 @@ After importing the API, you can test the chat completions endpoint for the API.
     }
     ```
     
-    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
+    When the test succeeds, the backend responds with a successful HTTP response code and some data. The response includes token usage data to help you monitor and manage your language model token consumption.
 
     :::image type="content" source="media/openai-compatible-google-gemini-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
 

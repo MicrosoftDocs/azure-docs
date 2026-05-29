@@ -3,7 +3,7 @@ title: Resiliency and disaster recovery in Azure SignalR Service
 description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: overview
 ms.devlang: csharp
 ms.date: 03/01/2019
 ms.author: lianwei
@@ -23,6 +23,8 @@ For regional disaster recovery, we recommend the following two approaches:
 - **Enable Geo-Replication** (Easy way). This feature handles regional failover for you automatically. When enabled, there's only one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
 - **Utilize Multiple Endpoints in Service SDK**. Our service SDK supports multiple SignalR service instances and automatically switches to other instances when some of them are unavailable. With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so **in this document**.
 
+> [!NOTE]
+> To learn more about reliability in Azure SignalR Service, including how your solution can be resilient to various types of faults, see [Reliability in Azure SignalR Service](/azure/reliability/reliability-signalr?toc=/azure/azure-signalr/TOC.json).
 
 ## High available architecture for SignalR service
 

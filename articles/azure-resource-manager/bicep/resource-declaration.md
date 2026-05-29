@@ -1,7 +1,7 @@
----
+﻿---
 title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/24/2025
 ---
@@ -102,7 +102,7 @@ Markdown-formatted text can be used for the description text.
 
 ### onlyIfNotExists
 
-By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates the resource if it doesn’t exist or updates it if it does. If an existing resource has properties that differ from your template, ARM might attempt to update it—or fail if updates aren’t permitted.
+By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates the resource if it doesn't exist or updates it if it does. If an existing resource has properties that differ from your template, ARM might attempt to update it-or fail if updates aren't permitted.
 
 Starting with Bicep version v0.38.3, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it does not already exist. If a resource with the resource ID is found, ARM skips creation and leaves the existing resource unchanged.
 
@@ -250,3 +250,4 @@ resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 - To conditionally deploy a resource, see [Conditional deployment in Bicep](./conditional-resource-deployment.md).
 - To reference an existing resource, see [Existing resources in Bicep](existing-resource.md).
 - To learn about how deployment order is determined, see [Resource dependencies in Bicep](resource-dependencies.md).
+

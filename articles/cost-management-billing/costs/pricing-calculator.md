@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: abhishekjois
+service.tree.id: f1f7b33f-4313-4ddd-b083-bca26910a24b
 ---
 
 # Estimate costs with the Azure pricing calculator

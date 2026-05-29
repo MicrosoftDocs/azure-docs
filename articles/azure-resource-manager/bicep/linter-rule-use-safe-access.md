@@ -1,7 +1,7 @@
----
+﻿---
 title: Linter rule - Use the safe access (.?) operator
 description: Use the safe access (.?) operator instead of checking object contents with the 'contains' function.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -105,3 +105,4 @@ var test = contains(foo, target) ? bar[notTarget] : 'baz'
 ## Next steps
 
 For more information about the linter, see [Use Bicep linter](./linter.md).
+

@@ -69,7 +69,7 @@ As you configure the appliance, you must specify the following values in the app
 
 To add credentials and initiate a discovery, follow these steps:
 
-1. Open the appliance configuration manager, and complete the prerequisite checks and registration of the appliance.
+1. Go to the appliance configuration manager, and complete the prerequisite checks and registration of the appliance.
 1. Go to the **Manage credentials and discovery sources** panel.
 1. In **Step 1: Provide vCenter Server credentials for discovery or VMware VMs**, select **Add credentials**. Then provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 1. In **Step 2: Provide vCenter Server details**, select **Add discovery source**. Select the friendly name for credentials from the dropdown list, and then specify the **IP address/FQDN** value for the discovery source.

@@ -1,6 +1,6 @@
 --- 
-title: Integrate application code scan reports from CAST highlights  
-description: Pull code scan insights from CAST highlights in Azure Migrate application assessments and review the application report 
+title: Integrate Application Code Scan Reports from CAST Highlights in Azure Migrate
+description: Pull code scan insights from CAST highlights into Azure Migrate application assessments to review the application readiness. 
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate 
@@ -25,7 +25,7 @@ Integrating CAST Highlight with Azure Migrate allows you to import code-level in
 
 ## Steps to Add CAST Highlight Code Insights in Azure Migrate
 
-1. **Open Azure Migrate & Select Application**
+1. **Go to Azure Migrate & Select Application**
    - In the Azure Migrate portal, navigate to your project.
    - Go to **Servers, Databases & Web Apps > Applications** (under **Discovery and Assessment**).
    - Locate the application (or group of VMs) you want to enrich with code insights.

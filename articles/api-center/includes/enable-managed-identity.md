@@ -2,16 +2,14 @@
 title: Include file
 description: Include file
 services: api-center
-author: dlepow
+
 
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 12/20/2024
-ms.author: danlep
+
 ms.custom: Include file
 ---
-
-## Enable a managed identity in your API center
 
 For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access Azure resources. Depending on your needs, enable either a system-assigned or one or more user-assigned managed identities. 
 
@@ -19,8 +17,8 @@ The following examples show how to enable a system-assigned managed identity by 
 
 #### [Portal](#tab/portal)
 
-1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, under **Security**, select **Managed identities**.
+1. In the [portal](https://azure.microsoft.com), go to your API center.
+1. In the sidebar menu, under **Security**, select **Managed identities**.
 1. Select **System assigned**, and set the status to **On**.
 1. Select **Save**.
 

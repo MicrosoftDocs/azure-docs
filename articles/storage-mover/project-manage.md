@@ -49,7 +49,7 @@ The first step in defining a migration job is the creation of a project resource
 
    1. Navigate to the **Project Explorer** page in the [Azure portal](https://portal.azure.com) to access your projects. The default **All projects** view displays the names of any provisioned projects and a summary of the jobs they contain.
 
-       :::image type="content" source="media/project-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure Portal showing " lightbox="media/project-manage/project-explorer-lrg.png":::
+       :::image type="content" source="media/project-manage/project-explorer-sml.png" alt-text="Image of the Project Explorer's Overview tab within the Azure portal showing " lightbox="media/project-manage/project-explorer-lrg.png":::
 
    1. Select **Create project** to open the **Create a Project** pane. Provide a project name value in the **Project name** field, but leave the **Project description** field empty. Finally, select **Create** to provision the project.
 
@@ -235,7 +235,7 @@ Follow the steps in this section to view projects accessible to your Storage Mov
 
 ## Delete a project
 
-The removal of a project resource should be a relatively rare occurrence in your production environment, though there may be occasions where it may be helpful. To delete a Storage Mover project resource, follow the provide example.
+The removal of a project resource should be a relatively rare occurrence in your production environment, though there may be occasions where it may be helpful. To delete a Storage Mover project resource, follow the provided example.
 
 > [!WARNING]
 > Deleting a project is a permanent action and cannot be undone. It's a good idea to ensure that you're prepared to delete the project since you will not be able to restore it at a later time.

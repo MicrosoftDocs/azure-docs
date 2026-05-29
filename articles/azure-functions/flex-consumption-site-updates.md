@@ -4,7 +4,7 @@ ms.service: azure-functions
 description: Learn how to configure zero downtime deployments and choose the right site update strategy for your Flex Consumption app.
 ms.custom: vs-azure
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 12/04/2025
 ---
 
 # Site update strategies in Flex Consumption
@@ -16,8 +16,7 @@ The Flex Consumption plan currently supports these update strategies:
 - **Recreate**: Functions restarts all running instances after replacing your code with the latest version. This approach might cause brief downtime while instances are recycled and preserves the default behavior from other Azure Functions hosting plans.
 - **Rolling update** (preview): Provides zero-downtime deployments by draining and replacing instances in batches. In-progress executions complete naturally without forced termination.
 
-> [!IMPORTANT]
-> The rolling update strategy is currently in preview and isn't recommended for production apps. Review the current [limitations and considerations](#rolling-update-strategy-considerations) before enabling this strategy in any production app.
+[!INCLUDE [functions-flex-rolling-updates-preview-note](../../includes/functions-flex-rolling-updates-preview-note.md)]
 
 ## Strategy comparison
 
@@ -94,7 +93,7 @@ Keep these current behaviors and limitations in mind when using the rolling upda
 - **No real-time monitoring**: There's currently no visibility into how many instances are draining, how many batches remain, or current progress percentages.
 - **No completion signal**: However, you can monitor instance logs to estimate when an update completes.
 - **Single-instance scenarios**: Apps running on one instance experience brief downtime similar to recreate, though in-progress executions still complete.
-- **Durable Functions**: Because mixing versions during updates can cause unexpected behavior in a Durable orchestration, use an explicit [orchestration version match strategy](durable/durable-functions-orchestration-versioning.md).
+- **Durable Functions**: Because mixing versions during updates can cause unexpected behavior in a Durable orchestration, use an explicit [orchestration version match strategy](../durable-task/common/durable-orchestration-versioning.md).
 - **Infrastructure as Code**: Deploying code and configuration changes together triggers multiple rolling updates that might overlap.
 - **Backward compatibility**: Make sure that your changes work with the previous version during the rolling update transition period.
 

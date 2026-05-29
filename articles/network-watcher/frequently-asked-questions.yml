@@ -214,7 +214,10 @@ sections:
           Can I use a storage account in a different subscription than the network security group or virtual network that the flow log is enabled for?
         answer: |
           Yes, you can use a storage account from a different subscription as long as this subscription is in the same region of the network security group and associated with the same Microsoft Entra tenant of the network security group or virtual network's subscription.
-
+      - question: |
+          How can I ensure that Traffic Analytics has visibility into resources within a subscription?
+        answer: |
+          You must enable at least one Virtual Network Flow Log in the subscription. Traffic Analytics processes data only from enabled flow logs, so configuring a flow log ensures that Traffic Analytics can access and analyze network activity for the resources in that subscription.
       - question: |
           How do I use flow logs with a storage account behind a firewall?
         answer: |
@@ -386,7 +389,12 @@ sections:
         answer: |
           Traffic analytics is metered. The metering is based on processing of raw flow log data by the service. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).          
           Enhanced logs ingested in Log Analytics workspace can be retained at no charge for up to first 31 days (or 90 days if Microsoft Sentinel is enabled on the workspace). For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-          
+
+      - question: |
+          Why do I see additional storage transactions when NSG flow logs and Traffic Analytics are enabled?
+        answer: |
+          When NSG flow logs are enabled, flow log records are written to the configured Azure Storage account. To generate Traffic Analytics insights, Azure Network Watcher performs backend operations on this stored data to process, aggregate, and enrich flow log records. These backend storage interactions are required for analytics functionality and occur even if you don't actively query the data. You can control the overall cost impact by adjusting flow log scope, retention, and whether Traffic Analytics is enabled. For more information, see [NSG flow logs pricing](/azure/network-watcher/nsg-flow-logs-overview#pricing).
+      
       - question: |
           How frequently does traffic analytics process data?
         answer: |

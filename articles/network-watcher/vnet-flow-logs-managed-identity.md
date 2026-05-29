@@ -69,7 +69,7 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcher
 
 ```azurepowershell-interactive
 # Dissociate a user-assigned managed identity from an existing flow log
-Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION> -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId <USER ASSIGNED MANAGED IDENTITY ID>
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name <FLOW LOG NAME> -NetworkWatcherName NetworkWatcher_<REGION> -ResourceGroupName NetworkWatcherRG  -StorageId <STORAGE ID> -TargetResourceId <VNET ID> -UserAssignedIdentityId {None}
 ```
 
 ## Related content

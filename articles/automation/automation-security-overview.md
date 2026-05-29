@@ -8,8 +8,8 @@ ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation account authentication overview
@@ -72,7 +72,7 @@ To renew the service principal, you need to be a member of one of the following 
 - [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator)
 - [Application Developer](../active-directory/roles/permissions-reference.md#application-developer)
 
-Membership can be assigned to **ALL** users in the tenant at the directory level, which is the default behavior. You can grant membership to either role at the directory level. For more information, see [Who has permission to add applications to my Microsoft Entra instance?](../active-directory/develop/how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+Membership can be assigned to **ALL** users in the tenant at the directory level, which is the default behavior. You can grant membership to either role at the directory level. For more information, see [Who has permission to add applications to my Microsoft Entra instance?](../active-directory/develop/how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
 
 ### Automation account permissions
 

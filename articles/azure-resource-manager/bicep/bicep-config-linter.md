@@ -1,9 +1,9 @@
----
+﻿---
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 06/19/2025
+ms.date: 03/12/2026
 ---
 
 # Add linter settings in the Bicep config file
@@ -179,9 +179,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
         "no-hardcoded-env-urls": {
           "level": "warning",
           "disallowedhosts": [
-            "api.loganalytics.io",
-            "api.loganalytics.iov1",
-            "asazure.windows.net",
             "azuredatalakeanalytics.net",
             "azuredatalakestore.net",
             "batch.core.windows.net",
@@ -193,8 +190,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
             "login.microsoftonline.com",
             "management.azure.com",
             "management.core.windows.net",
-            "region.asazure.windows.net",
-            "trafficmanager.net",
             "vault.azure.net"
           ],
           "excludedhosts": [

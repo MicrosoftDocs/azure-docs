@@ -1,8 +1,8 @@
----
+﻿---
 title: Overview of custom resource providers
 description: Learn about Azure Custom Resource Providers and how to extend the Azure API plane to fit your workflows.
 author: jjbfour
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2019
 ms.author: jobreen
 ---
@@ -137,3 +137,4 @@ In this article, you learned about custom resource providers. Go to the next art
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+

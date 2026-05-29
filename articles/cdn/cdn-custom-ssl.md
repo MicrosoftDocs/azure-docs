@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 08/07/2025
+ms.date: 02/28/2026
 ms.custom: mvc
 ROBOTS: NOINDEX
 

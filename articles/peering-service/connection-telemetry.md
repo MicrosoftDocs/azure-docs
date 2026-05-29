@@ -1,13 +1,13 @@
 ---
-title: Access connection telemetry
+title: Access Connection Telemetry
 titleSuffix: Azure Peering Service
 description: Learn how to access Azure Peering Service connection telemetry including prefix latency and prefix events.
 services: peering-service
 author: halkazwini
+ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 03/03/2025
-ms.author: halkazwini
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.

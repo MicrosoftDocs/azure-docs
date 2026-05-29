@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 10/22/2025
+ms.date: 05/06/2026
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -14,7 +14,45 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Map Control.
 
+## v4 (next)
+
+### [4.0.0-preview.1] (CDN: May 4, 2026, npm: May 6, 2026)
+
+#### Security fixes
+* Bump `@azure/msal-browser` to 5.2.0 to address a vulnerability that could allow auth code theft via Cross-Origin Opener Policy (COOP) handling during redirect flows. This dependency upgrade introduces breaking changes, so the Map Control major version is bumped to 4.
+
 ## v3 (latest)
+
+### [3.7.4] (CDN: April 7, 2026, npm: April 10, 2026)
+
+#### Bug fixes
+* Fixed an issue where style asset URL rewriting could produce a duplicated https:// when the configured service domain already included a protocol.
+* Fixed an issue where the Style Control's list layout wasn't scrollable on small canvases.
+
+### [3.7.2] (CDN: December 15, 2025, npm: December 17, 2025)
+
+#### New features
+- Added support for the following languages:
+  - Basque (eu-ES)
+  - Catalan (ca-ES)
+  - Croatian (hr-HR)
+  - Estonian (et-EE)
+  - Galician (gl-ES)
+  - Hebrew (he-IL)
+  - Hindi (hi-IN)
+  - Japanese (ja-JP)
+  - Kazakh (kk-KZ)
+  - Latvian (lv-LV)
+  - Romanian (ro-RO)
+  - Serbian (Cyrillic) (sr-CYRL-RS)
+  - Serbian (Latin) (sr-LATN-RS)
+  - Ukrainian (uk-UA)
+  - Vietnamese (vi-VN)
+
+#### Bug fixes
+- Fixed an issue where custom markers (user images) of Symbol layer would disappear from the map after switching the map style.
+- Resolved an issue on touch devices where the Style Picker control required a double-tap to activate instead of a single tap.
+- Fixed type definition errors to ensure smoother compilation in strict TypeScript environments.
 
 ### [3.7.1] (CDN: October 20, 2025, npm: October 22, 2025)
 
@@ -654,6 +692,9 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[4.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/4.0.0-preview.1
+[3.7.4]: https://www.npmjs.com/package/azure-maps-control/v/3.7.4
+[3.7.2]: https://www.npmjs.com/package/azure-maps-control/v/3.7.2
 [3.7.1]: https://www.npmjs.com/package/azure-maps-control/v/3.7.1
 [3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
 [3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0

@@ -40,10 +40,18 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
-- The XLSX file should contain the vInfo, vPartition & vMemory sheets. The columns in these sheets are as follows:
-    - **vInfo** - VM, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID.
-    - **vPartition** - VM, VM UUID, Capacity MiB, Consumed MiB.
-    - **vMemory** - VM, VM UUID, Size MiB, Reservation.
+- The XLSX file should contain the vInfo, vHost, vDatastore, vSnapshot, vPartition & vMemory sheets. The columns in these sheets are as follows:
+    - **vInfo** - VM, VM UUID, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file
+    - **vHost** - Host, Cluster, Datacenter, Config status, in Maintenance Mode, in Quarantine Mode, CPU Model, Speed, #CPU, Cores per CPU, # Cores, CPU usage %, # Memory, Memory usage %, VM Used memory, VM Memory Swapped, VM Memory Ballooned, #NICs, # vCPUs, vRAM, ESX Version, Vendor, Model, Object ID, UUID
+    - **vDatastore** - Name, Object ID, Type, Hosts, Capacity MiB, Provisioned MiB, In Use MiB
+    - **vSnapshot** - VM, VM UUID, Powerstate, Size MiB (vmsn), Size MiB (total), Quiesced, Datacenter, Cluster, Host
+    - **vPartition** - VM, VM UUID, Capacity MiB, Consumed MiB
+    - **vMemory** - VM, VM UUID, Size MiB, Reservation
+    - **vDisk** - VM, VM UUID, Shared Bus, Controller
+    - **vCD** - VM, VM UUID, Powerstate, Device Type, Connected
+    - **vUSB** - VM, VM UUID, Powerstate, Device Type, Connected
+    - **vNetwork** - VM, VM UUID, Switch, Connected
+    - **dvPort** - Object ID, Port, Switch, Type, VLAN, Allow Promiscuous, Mac changes, Forged Transmits
 
 > [!NOTE]
 > The number of disks that will be seen in the discovered and assessed machines will be one. However, the total configured and used storage capacity is being considered from the RVTools file import.

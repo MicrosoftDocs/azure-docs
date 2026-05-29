@@ -48,7 +48,7 @@ Compute services:
 
 Target services:
 
-* Azure AI services
+* Foundry Tools
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard, Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
@@ -56,6 +56,7 @@ Target services:
 * Azure Database for PostgreSQL
 * Azure Event Hubs
 * Azure Key Vault
+* Azure Managed Redis
 * Azure Service Bus
 * Azure SQL Database
 * Azure SignalR Service

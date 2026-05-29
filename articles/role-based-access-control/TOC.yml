@@ -201,8 +201,6 @@
       href: built-in-roles/ai-machine-learning.md
     - name: Internet of Things
       href: built-in-roles/internet-of-things.md
-    - name: Mixed reality
-      href: built-in-roles/mixed-reality.md
     - name: Integration
       href: built-in-roles/integration.md
     - name: Identity
@@ -211,6 +209,8 @@
       href: built-in-roles/security.md
     - name: DevOps
       href: built-in-roles/devops.md
+    - name: Migration
+      href: built-in-roles/migration.md
     - name: Monitor
       href: built-in-roles/monitor.md
     - name: Management and governance
@@ -241,8 +241,6 @@
       href: permissions/ai-machine-learning.md
     - name: Internet of Things
       href: permissions/internet-of-things.md
-    - name: Mixed reality
-      href: permissions/mixed-reality.md
     - name: Integration
       href: permissions/integration.md
     - name: Identity

@@ -82,6 +82,10 @@ The following table provides definitions for the properties of a custom health p
 | Interval |Probe interval in seconds. This value is the time interval between two consecutive probes |
 | Time-out |Probe time-out in seconds. If a valid response isn't received within this time-out period, the probe is marked as failed  |
 | Unhealthy threshold |Probe retry count. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold |
+| MinServers |Minimum number of servers that are always marked healthy. Default value is 0, which means health probe results determine the health status of all backend servers. When set to a value greater than 0, the specified number of servers are always marked as healthy regardless of probe results. This property is only configurable via PowerShell, Azure CLI, or ARM templates (not available in Azure portal).|
+
+> [!WARNING]
+> Use the **MinServers** parameter with caution. When MinServers is set to a value greater than 0, Application Gateway always marks that minimum number of backend servers as healthy, even if their health probes are failing. This can result in traffic being sent to unhealthy servers, potentially causing 502 Bad Gateway errors or other connectivity issues for clients. Only configure MinServers if you have specific availability requirements and understand the implications of overriding health probe results.
 
 ### Probe matching
 

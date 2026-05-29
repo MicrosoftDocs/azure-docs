@@ -17,6 +17,7 @@ The [$expand operation](https://hl7.org/fhir/R4/valueset-operation-expand.html),
 |---|---|
 |url|Canonical reference of the value set.|
 | valueSet| Provide the value set directly as part of the request.|
+|context| The context of the value set. For more information see [$expand](https://hl7.org/fhir/R4/valueset-operation-expand.html).|
 
 > [!NOTE]
 > Other $expand parameters beyond this list aren't currently supported.
@@ -74,6 +75,11 @@ POST request body:
     }
   ]
 }
+```
+
+**Expanding a value set for a particular element, for what a client is allowed to PUT/POST**
+```
+GET [base]/ValueSet/$expand? context=http://fhir.org/guides/argonaut-clinicalnotes/StructureDefinition/argo-diagnosticreport#DiagnosticReport.category
 ```
 ## Related content
 [US Core overview in Azure Health Data Services FHIR](./us-core.md)

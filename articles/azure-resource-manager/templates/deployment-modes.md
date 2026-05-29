@@ -1,7 +1,7 @@
----
+﻿---
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 04/28/2025
 ---
@@ -138,3 +138,4 @@ The following example shows a linked template set to incremental deployment mode
 * To learn about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about deploying resources, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).
+

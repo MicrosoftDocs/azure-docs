@@ -1,9 +1,9 @@
----
+﻿---
 title: Variables in Bicep
 description: Describes how to define variables in Bicep
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/30/2025
+ms.date: 12/22/2025
 ---
 
 # Variables in Bicep
@@ -14,7 +14,7 @@ Resource Manager resolves variables before starting the deployment operations. W
 
 ## Define variables
 
-A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators). 
+A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators).
 
 ### Untyped variables
 
@@ -84,7 +84,7 @@ Starting with [Bicep CLI version 0.36.X](https://github.com/Azure/bicep/releases
 - **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
 - **Code clarity**: Explicit types make it clear what kind of data a variable holds.
 - **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
-- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
+- **Refactoring safety**: Ensures that changes to variable assignments don't inadvertently break type expectations.
 
 To define a typed variable, use the `var` keyword followed by the variable name, the type, and the assigned value:
 

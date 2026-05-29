@@ -25,6 +25,10 @@ highlightedContent:
       itemType: overview # controls the icon image and super-title text 
       url: /azure/networking/security/network-security
     # Card
+    - title: Azure network security Zero Trust recommendations
+      itemType: concept
+      url: /azure/networking/security/zero-trust-network-security
+    # Card
     - title: Azure best practices for network security
       itemType: concept
       url: ../../security/fundamentals/network-best-practices.md

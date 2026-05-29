@@ -7,7 +7,7 @@ ms.topic: include
 
 #This include is used in multiple articles. Before modifying, verify that any changes apply to all articles that use this include.
 ---
-Virtual Network connections to Virtual WAN hubs have a configurable property named **VNetLocalRouteOverrideCriteria** (**Bypass Next Hop IP  for workloads within this VNet** in Azure Portal). 
+Virtual Network connections to Virtual WAN hubs have a configurable property named **VNetLocalRouteOverrideCriteria** (**Bypass Next Hop IP  for workloads within this VNet** in Azure portal). 
 
 This property defines how traffic is routed to workloads deployed in a Virtual WAN spoke VNET when a static route is configured on the Virtual WAN spoke Virtual Network connection and **the Virtual Network address space is a subnet within the static route**.
 

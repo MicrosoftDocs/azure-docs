@@ -1,8 +1,8 @@
 ---
 title: Create or link an API Center from the Azure portal
 description: "How to create a new API Center or link an existing API Center to an API Management service from the Azure portal."
-author: ProfessorKendrick
-ms.author: kkendrick
+author: dlepow
+ms.author: danlep
 ms.service: azure-api-management
 ms.topic: tutorial  
 ms.date: 10/20/2025
@@ -13,11 +13,13 @@ ms.date: 10/20/2025
 
 # Tutorial: Create or link an API Center to API Management
 
-This tutorial shows how to integrate an Azure API Management instance with an Azure API Center. When linked, the API Management instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory. API Center is a central catalog and governance hub for APIs and related artifacts, and API Management customers use it to discover and reuse APIs, share definitions across teams, and apply consistent governance and lifecycle policies.
+This tutorial shows how to integrate (link) an Azure API Management instance with an Azure API Center. When linked, the API Management instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory. API Center is a central catalog and governance hub for APIs and related artifacts, and API Management customers use it to discover and reuse APIs, share definitions across teams, and apply consistent governance and lifecycle policies.
 
 > [!NOTE]
 > 
 > Only one API Center can be linked to a single API Management instance.
+
+[!INCLUDE [free-standard-plan-linked-api-management](../../api-center/includes/free-standard-plan-linked-api-management.md)]
 
 In this tutorial, you:
 
@@ -69,20 +71,20 @@ These steps show how to link an API Management instance to an API Center that al
 
 Use this section to verify the integration state and to view APIs that synchronized from API Management.
 
-1. In the [Azure portal](https://portal.azure.com), open the API Center resource.
-2. In the API Center left-hand menu, go to **Platforms** > **Integrations**. 
+1. In the [Azure portal](https://portal.azure.com), go to the API Center resource.
+2. In the API Center sidebar menu, go to **Platforms** > **Integrations**. 
     The state for the integration with API Management should say *Linked and syncing*. 
-1. To view synchronized APIs, go to **Assets** > **APIs**.<br />
+1. To view synchronized APIs, go to **Inventory** > **Assets**.<br />
     An icon appears indicating that the APIs are linked.
-    :::image type="content" source="media/link-api-center/api-center-menu.png" alt-text="An API Center instance in Azure portal with APIs emphasized in the left-hand menu and link icons emphasized in the main panel":::
+    :::image type="content" source="media/link-api-center/api-center-menu.png" alt-text="Screenshot showing an API Center instance in Azure portal with Assets highlighted in the sidebar menu and link icons emphasized in the main panel":::
 
 ## Remove link to API Center
 
 Follow these steps to remove the link between API Management and the API Center or to delete the API Center resource.
 
-1. In the API Center resource, find the linked API Management instance.
-1. In the left-hand menu, go to **Platforms** > **Integrations**.
-2. Select the trash can icon to delete the link.
+1. In the API Center resource, go to **Platforms** > **Integrations**.
+1. Find the linked API Management instance.
+1. Select the trash can icon to delete the link.
 
 ## Clean up resources
 

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot server issues
 description: See links to troubleshooting issues caused by conditions on an Azure Cache for Redis server or the virtual machines that host it.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/10/2025
 appliesto:
   - ✅ Azure Cache for Redis

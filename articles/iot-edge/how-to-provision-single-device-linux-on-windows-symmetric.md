@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 03/02/2026
 ms.custom:
   - linux-related-content
   - sfi-ropc-nochange
@@ -24,7 +24,7 @@ The steps in this article walk through a process called manual provisioning, whe
 
 * **Symmetric keys**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
 
-  This authentication method is faster to get started, but not as secure.
+  This authentication method is faster to get started, but isn't as secure.
 
 * **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
 
@@ -33,7 +33,7 @@ The steps in this article walk through a process called manual provisioning, whe
 This article covers using symmetric keys as your authentication method. If you want to use X.509 certificates, see [Create and provision an IoT Edge for Linux on Windows device using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md).
 
 > [!NOTE]
-> If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
+> If you need to set up many devices and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
 >
 > * [Create and provision IoT Edge for Linux on Windows devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
 > * [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
@@ -41,7 +41,7 @@ This article covers using symmetric keys as your authentication method. If you w
 
 ## Prerequisites
 
-This article covers registering your IoT Edge device and installing IoT Edge for Linux on Windows. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
+This article covers registering your IoT Edge device and installing IoT Edge for Linux on Windows. These tasks have different prerequisites and use different utilities. Make sure you meet all the prerequisites before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
@@ -57,9 +57,9 @@ This article covers registering your IoT Edge device and installing IoT Edge for
 
 ## Provision the device with its cloud identity
 
-You're ready to set up your device with its cloud identity and authentication information.
+Set up your device with its cloud identity and authentication information.
 
-To provision your device using symmetric keys, you need your device's **connection string**.
+To provision your device using symmetric keys, you need your device *connection string*.
 
 Run the following command in an elevated PowerShell session on your target device. Replace the placeholder text with your own values.
 
@@ -71,18 +71,18 @@ For more information about the `Provision-EflowVM` command, see [PowerShell func
 
 ## Verify successful configuration
 
-Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
+Verify that IoT Edge for Linux on Windows is successfully installed and configured on your IoT Edge device.
 
-1. Sign in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
+1. Sign in to your IoT Edge for Linux on Windows virtual machine by using the following command in your PowerShell session:
 
    ```powershell
    Connect-EflowVm
    ```
 
-   >[!NOTE]
-   >The only account allowed to SSH to the virtual machine is the user that created it.
+   > [!NOTE]
+   > The only account allowed to SSH to the virtual machine is the user that created it.
 
-1. Once you're logged in, you can check the list of running IoT Edge modules using the following Linux command:
+1. After you sign in, check the list of running IoT Edge modules by using the following Linux command:
 
    ```bash
    sudo iotedge list
@@ -96,23 +96,23 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        sudo iotedge system logs
        ```
 
-    2. Use the `check` tool to verify configuration and connection status of the device.
+    1. Use the `check` tool to verify configuration and connection status of the device.
 
        ```bash
        sudo iotedge check
        ```
 
-    >[!NOTE]
-    >On a newly provisioned device, you might see an error related to IoT Edge Hub:
+    > [!NOTE]
+    > On a newly provisioned device, you might see an error related to IoT Edge Hub:
     >
-    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    > **× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
     >
-    >**Could not check current state of edgeHub container**
+    > **Could not check current state of edgeHub container**
     >
-    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+    > This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 
-When you create a new IoT Edge device, it displays the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+When you create a new IoT Edge device, it displays the status code **417 -- The device's deployment configuration is not set** in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
 [!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]

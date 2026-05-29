@@ -27,8 +27,6 @@ items:
       href: oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault.md
     - name: Oracle Exadata Database on Dedicated Infrastructure Logs on Azure for Enhanced Observability
       href: oracle-db/oracle-exadata-database-dedicated-infrastructure-logs.md
-    - name: Onboard Oracle Exadata VM Clusters to Microsoft Defender for Cloud using Azure Arc 
-      href: oracle-db/exadata-vm-clusters.md
   - name: Onboarding
     items:
     - name: Onboard Oracle Database@Azure

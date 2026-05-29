@@ -76,9 +76,9 @@ To exclude files or folders from cloud tiering, follow these steps:
    To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
-   To exclude all files under a folder having one or more of these characters from tiering (for example, D:\ShareRoot\+$Folder\() SubFolder), run the following command: 
-   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\ShareRoot\\\+\$Folder\\\(\)SubFolder /f**
-
+   To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\\+\$Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f****
+  
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 
@@ -87,13 +87,20 @@ To exclude files or folders from cloud tiering, follow these steps:
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
 
+> [!NOTE]
+> When specifying folder paths that include special characters, you must prefix each instance of the following characters with an escape character (`\`):
+>
+> `^ $ ( ) [ ] { } +`
+>
+> If you don't escape these characters, the exclusion policy won't work correctly for any folder path that contains them.
+
 ### Tiered downloads
 
 When you exclude a file type or pattern, it won't be tiered from that server anymore. However, all files changed or created in a different endpoint will continue to be downloaded as tiered files and will stay tiered. These files will be recalled gradually based on exclusion policy.
 
 For example, if you exclude PDF files, the PDF files that you create directly on the server won't be tiered. However, any PDF files that you create on a different endpoint, such as another server endpoint or the Azure file share, will still download as tiered files. These excluded tiered files will be fully recalled within the next 3-4 days.
 
-If you don't want any files to be in a tiered state, enable [proactive recalling](file-sync-cloud-tiering-overview.md#proactive-recalling). This feature will prevent tiered download of all files and stop background tiering.
+If you don't want any files to be in a tiered state, enable [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recall). This feature will prevent tiered download of all files and stop background tiering.
 
 ### More information
 

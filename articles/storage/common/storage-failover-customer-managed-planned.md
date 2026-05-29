@@ -30,8 +30,6 @@ This article describes what happens during a customer-managed planned failover a
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5lHyDgJffhs" title="Azure Storage Planned Failover - Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
-
 <!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 
 ## Redundancy management during planned failover and failback
@@ -78,6 +76,8 @@ After the failover is complete, the original primary region becomes the new seco
 :::image type="content" source="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png" alt-text="Diagram that shows the storage account status post-failover to secondary region." lightbox="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png":::
 
 While in the failover state, perform your disaster recovery testing.
+> [!NOTE]
+> Azure Files maintains stateful connections, which means applications may need to remount file shares or restart after a failover to continue accessing data.
 
 ### The planned failback process (GRS/RA-GRS)
 

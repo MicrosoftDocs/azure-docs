@@ -1,8 +1,8 @@
 ---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
-ms.topic: conceptual
-ms.date: 08/04/2025
+ms.topic: article
+ms.date: 02/27/2026
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,8 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can’t contain a sequence of more than two hyphens.<br><br>Can’t start with or end with a hyphen. |
-> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.| Only alphanumerics are valid. |
+> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can't contain a sequence of more than two hyphens.<br><br>Can't start with or end with a hyphen. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can't exceed 60 characters.| Only alphanumerics are valid. |
 
 \* {storeName}-{replicaName} needs to be globally unique.
 
@@ -214,7 +214,7 @@ In the following tables, the term alphanumeric refers to:
 > | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics, underscores, and hyphens |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens |
-> | galleries | resource group | 1-80 | Alphanumerics and periods<br><br>Start and end with alphanumeric. |
+> | galleries | resource group | 1-80 | Alphanumerics, underscores, and periods<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric. |
 > | galleries / applications/versions | application | 32-bit integer | Numbers and periods<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.) |
 > | galleries / images | gallery | 1-80 | Alphanumerics, underscores, hyphens, and periods<br><br>Start and end with alphanumeric. |
@@ -961,3 +961,4 @@ In the following tables, the term alphanumeric refers to:
 - For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 - Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+

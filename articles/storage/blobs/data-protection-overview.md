@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.custom: copilot-scenario-highlight
 ms.service: azure-blob-storage
-ms.date: 07/29/2024
+ms.date: 12/10/2025
 ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
@@ -118,6 +118,10 @@ Azure Storage always maintains multiple copies of your data so that it's protect
 If your storage account is configured for geo-redundancy, you have the option to initiate an unplanned failover from the primary to the secondary region during a data center failure. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover). 
 
 Customer-managed failover currently supports storage accounts with a hierarchical namespace enabled in preview status only. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#plan-for-failover).
+
+## Microsoft Defender for Storage
+Microsoft Defender for Storage prevents malicious file uploads, sensitive data exfiltration, and data corruption, ensuring the security and integrity of your data and workloads. To learn more, see [What is Microsoft Defender for Storage](../common/azure-defender-storage-configure.md). 
+
 
 ## Next steps
 

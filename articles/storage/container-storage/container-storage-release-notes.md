@@ -4,7 +4,7 @@ description: Release notes for Azure Container Storage
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: release-notes
-ms.date: 09/03/2025
+ms.date: 01/30/2026
 ms.author: kendownie
 # Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
@@ -17,13 +17,15 @@ This article provides the release notes for Azure Container Storage. It's import
 The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
-|----|----------------|
+|-----------|--------|
+|1.4.1 - Patch Release | Supported |
+|2.1.0 - Minor Release | Supported |
+|2.0.1 - Patch Release | Supported |
 |2.0.0 - Major Release | Supported |
+|1.4.0 - Minor Release | Supported |
 |1.3.2 - Patch Release | Supported |
 |1.3.1 - Patch Release | Supported |
 |1.3.0 - Minor Release | Supported |
-|1.2.1 - Patch Release | Supported |
-|1.2.0 - Minor Release | Supported |
 
 ## Unsupported versions
 
@@ -32,6 +34,28 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 ## Major vs. minor vs. patch releases
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+
+## Version 1.4.1
+
+### Improvements and issues that are fixed
+
+- Resolved security vulnerabilities through component updates.
+- Fixed an issue in the CSI node unstage workflow where the presence of filesystem journal entries after a successful unmount was incorrectly treated as a fatal error. This behavior could block NodeUnstage and disrupt operations such as pod failover, storage cleanup, upgrades, or Azure Container Storage uninstallation.
+- Improved Azure authentication reliability for Elastic SAN provisioning and networking operations.
+
+## Version 2.1.0
+
+### Improvements and new features
+
+- **Elastic SAN integration**: Added [Elastic SAN](../elastic-san/elastic-san-introduction.md) as a supported storage type.
+- **Modular installation**: Users can now selectively deploy the components required for their selected storage type. This reduces Azure Container Storage's install times and cluster footprint.
+- **Node selector support**: Added node selector support for Azure Container Storage components so users can control placement on dedicated storage node pools or mixed topologies.
+
+## Version 2.0.1
+
+### Improvements and issues that are fixed
+
+- Address a vulnerability where full customer pod details, including potentially sensitive data, pass through environment variables and are logged. The system now logs only the pod name to prevent exposure of sensitive information.
 
 ## Version 2.0.0
 
@@ -52,6 +76,16 @@ A **major release** introduces significant changes, often including new features
 
 There are significant breaking changes in version 2.0.0. Users looking to migrate from version 1.x.x to version 2.0.0 should completely [remove prior versions](remove-container-storage-version-1.md) of Azure Container Storage and review the new setup guides to get started.
 
+## Version 1.4.0
+
+### Improvements and issues that are fixed
+
+- Resolved security vulnerabilities through component updates.
+- Introduced pre-upgrade and post-upgrade hooks for the Azure SAN CSI driver to better manage the CSI driver and volume attachments, ensuring seamless upgrades and preventing resource leaks.
+- Fixed an issue with the etcd watcher that could cause disk pools to remain in the "Creating" status after an upgrade.
+- Renamed mutating and validating webhooks to more specific names to avoid potential naming conflicts.
+- Extended end-of-life support for the v1.x release series.
+
 ## Version 1.3.2
 
 ### Improvements and issues that are fixed
@@ -66,7 +100,7 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 ### Improvements and issues that are fixed
 
 - **Bug fixes and recovery improvements**: We made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. To improve reliability, this release fixes a failure during Azure Container Storage extension installation with Azure Elastic SAN. The issue was caused by a missing etcd certificate. Now, etcd components are only deployed when needed.
-- **Expanded platform compatibility and scheduling fixes**: To improve scheduling accuracy, this release ensures Azure Container Storage pods are no longer placed on Windows nodes in mixed OS clusters. We fixed this by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
+- **Expanded platform compatibility and scheduling fixes**: To improve scheduling accuracy, this release ensures Azure Container Storage pods are no longer placed on Windows nodes in mixed OS clusters. We fixed this issue by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
 - **Safeguards to prevent storage pool deletion**: Measures are implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
   
 ## Version 1.3.0
@@ -123,12 +157,16 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 - **Patch releases**: Have the same end of life as the subsequent major/minor release.  
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
-|----|----------------| ------------| -------- |
+|-----------------|---------------|-------------|-------------------------------|
+|1.4.1 - Patch Release | 2/17/2026  | 12/15/2026 | 1.34, 1.33, 1.32 |
+|2.1.0 - Minor Release | 02/03/2026 | 02/02/2027 | 1.34, 1.33, 1.32 |
+|2.0.1 - Patch Release | 12/16/2025 | 09/09/2026 | 1.34, 1.33, 1.32 |
+|1.4.0 - Minor Release | 12/16/2025 | 12/15/2026 | 1.33, 1.32, 1.31 |
 |2.0.0 - Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
-|1.3.2 - Patch Release | 9/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.3.2 - Patch Release | 09/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.1 - Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.0 - Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
-|1.2.1 - Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
+|1.2.1 - Patch Release | 02/10/2025 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.2.0 - Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.1.2 - Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 |1.1.1 - Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
@@ -169,7 +207,7 @@ To receive the latest features and fixes for Azure Container Storage in future v
 
 To enable auto-upgrade, run the following command:
 
-```azurecli-interactive
+```azurecli
 # For v1.x, use azurecontainerstorage for extension name
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version true -n azurecontainerstorage
 
@@ -179,7 +217,7 @@ az k8s-extension update --cluster-name <cluster name> --resource-group <resource
 
 If you'd like to disable auto-upgrades, run the following command:
 
-```azurecli-interactive
+```azurecli
 # For v1.x, use azurecontainerstorage for extension name
 az k8s-extension update --cluster-name <cluster name> --resource-group <resource-group> --cluster-type managedClusters --auto-upgrade-minor-version false -n azurecontainerstorage
 

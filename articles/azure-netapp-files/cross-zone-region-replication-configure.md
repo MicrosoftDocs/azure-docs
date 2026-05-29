@@ -5,11 +5,11 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 12/09/2025
 ms.author: anfdocs 
 # Customer intent: As a cloud administrator, I want to configure cross-zone-region replication for Azure NetApp Files, so that I can ensure data accessibility and disaster recovery across multiple regions and availability zones.
 ---
-# Manage cross-zone-region replication for Azure NetApp Files (preview)
+# Manage cross-zone-region replication for Azure NetApp Files 
 
 Azure NetApp Files supports volume cross-zone and cross-region replication on the same source volume. 
 
@@ -23,9 +23,10 @@ Azure NetApp Files supports volume cross-zone and cross-region replication on th
 >[!NOTE]
 >Data protection is limited to two volumes.
 
+<!--
 ## Register for cross-zone-region replication 
 
-Cross-zone-region replication for Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
+You need to register for cross-zone-region replication before using the feature for the first time. Feature registration may take up to 60 minutes to complete.
 
 1. Register the feature
 
@@ -36,12 +37,13 @@ Cross-zone-region replication for Azure NetApp Files is currently in preview. Yo
 2. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOneToTwoReplication
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+-->
 
 ## Configure replication
 

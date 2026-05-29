@@ -1,8 +1,8 @@
----
+﻿---
 title: Use Bicep to manage secrets 
 description: Learn how to use Bicep and Azure Key Vault to manage secrets.
-ms.topic: conceptual
-ms.date: 10/30/2025
+ms.topic: article
+ms.date: 12/22/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ropc-nochange

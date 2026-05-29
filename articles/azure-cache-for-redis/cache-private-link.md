@@ -1,7 +1,7 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2024
 appliesto:
   - ✅ Azure Cache for Redis
@@ -34,7 +34,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Scope of availability
 
-|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis (preview)
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis
 |--------- |:------------------:|:---------:|:---------:|
 |Available | Yes          |  Yes  | Yes |
 
@@ -47,9 +47,13 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](cache-managed-identity.md).
+> When using private link, you cannot export or import data to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](cache-managed-identity.md).
 > For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
+
+> [!IMPORTANT]
+> If the private endpoint is created in a **different subscription** than the Azure Cache for Redis instance, you must register the `Microsoft.Cache` resource provider in the subscription that contains the private endpoint. Otherwise, creating, approving, or managing the private endpoint connection can fail, often with a `Forbidden` error. For more information on how to register, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+> 
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
 
@@ -383,7 +387,7 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 
-   :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
+   :::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Screenshot of the Azure portal, private endpoint DNS settings." lightbox="media/cache-private-link/cache-private-ip-address.png":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 

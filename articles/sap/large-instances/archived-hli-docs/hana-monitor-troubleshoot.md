@@ -2,14 +2,14 @@
 title: Monitoring and troubleshooting from HANA side on SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to monitor and troubleshoot your SAP HANA on Azure (Large Instances) using resources provided by SAP HANA.
 services: virtual-machines-linux
-author: ju-shim
+author: jjaygbay1 
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 6/18/2021
-ms.author: jushiman
+ms.author: jacobjaygbay
 ms.custom:
   - H1Hack27Feb2017
   - sfi-image-nochange

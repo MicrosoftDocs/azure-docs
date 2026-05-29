@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 02/11/2026
 ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
@@ -321,7 +321,14 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-This feature isn't yet supported in the Azure App Configuration Java Spring Provider.
+Specify the `loadBalancingEnabled` property in the `application.properties` file of your application.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].load-balancing-enabled=true
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **6.1.0** or later
 
 ### [Kubernetes](#tab/kubernetes)
 
@@ -377,7 +384,7 @@ appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 
 ## Use geo-replication with Azure Front Door
 
-Replica discovery and load balancing cannot be enabled when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, see [Origins and origin groups in Azure Front Door](/azure/frontdoor/origin).
+Replica discovery and load balancing cannot be enabled at the application level when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, refer to [Failover and Load Balancing](./concept-hyperscale-client-configuration.md#failover-and-load-balancing).
 
 
 ## Next steps

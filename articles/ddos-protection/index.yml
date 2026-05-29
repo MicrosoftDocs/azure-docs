@@ -5,9 +5,9 @@ summary: "Learn how the Azure DDoS Protection, when combined with application de
 metadata: 
   description: "Learn how the Azure DDoS Protection, when combined with application design best practices, provides defense against DDoS attacks."
   keywords: azure ddos protection
-  author: AbdullahBell
-  ms.author: abell
-  ms.date: 03/17/2025
+  author: duongau
+  ms.author: duau
+  ms.date: 03/17/2026
   ms.service: azure-ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
@@ -39,7 +39,7 @@ landingContent:
           - text: Security baseline
             url: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
           - text: Reliability
-            url: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
+            url: /azure/reliability/reliability-ddos?toc=/azure/ddos-protection/TOC.json
       - linkListType: architecture
         links:
           - text: Features

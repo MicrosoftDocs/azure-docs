@@ -1,7 +1,7 @@
----
+﻿---
 title: Approve just-in-time access
 description: Describes how consumers of Azure Managed Applications approve requests for just-in-time access to a managed application.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/24/2024
 ---
 
@@ -44,9 +44,9 @@ This article focuses on the actions consumers take to enable JIT access and appr
 
    By default, a managed application with JIT enabled has the following settings:
 
-   - Approval mode – automatic
-   - Maximum access duration – 8 hours
-   - Approvers – none
+   - Approval mode - automatic
+   - Maximum access duration - 8 hours
+   - Approvers - none
 
    When the approval mode is set to **automatic**, the approvers receive a notification for each request but the request is automatically approved. When set to **manual**, the approvers receive a notification for each request, and one of them must approve it.
 
@@ -103,3 +103,4 @@ To approve requests through Microsoft Entra Privileged Identity Management:
 ## Next steps
 
 To learn about publishing a managed application with JIT access, see [Request just-in-time access in Azure Managed Applications](request-just-in-time-access.md).
+

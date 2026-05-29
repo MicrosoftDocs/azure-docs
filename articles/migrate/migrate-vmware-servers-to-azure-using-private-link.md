@@ -42,14 +42,10 @@ The following diagram illustrates the agentless replication workflow with privat
 
 Enable replication as follows:
 
-1. In the Azure Migrate project > **Execute** > **Migration** > **Migration**, select **Replicate**.
-1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
-1. In **On-premises appliance**, select the name of the Azure Migrate appliance. Select **OK**.
-1. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment, in **Import migration settings from an Azure Migrate assessment?**,
-     - Select **Yes**, and select the VM group and assessment name.  
-     - Select **No** if you aren't using assessment settings.
-
-1. In **Virtual machines**, select VMs you want to migrate. Then select **Next**. 
+1. In the Azure Migrate project > **Execute** > **Migrations** > select **Start Execution**.
+1. On the **Specify intent** pane, select Servers or Virtual machines (VMs), and choose Azure VM as the target. You can either select an existing assessment or manually select servers from the discovered inventory. Configure this setting using the **How will you select workloads?** drop-down menu.
+1. Under **Discovery method**, select the VMWare appliance. Appliances that are already installed appear in the list. select Agentless migration and click **Continue**.
+1. In **Workloads**, select the servers that you want to replicate, and configure the required security security setting. You can select up to 10 servers in a single selection.
 
 1. In **Target settings**, select the **target region** in which the Azure VMs will reside after migration.  
 
@@ -83,7 +79,7 @@ Enable replication as follows:
     - Double encryption with platform-managed and customer-managed keys 
 
     >[!Note] 
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps managed disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
@@ -100,7 +96,7 @@ Enable replication as follows:
     - **Availability Set**: Specify the Availability Set to use. 
     >[!Note] 
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines. 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then select **Next**. 
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (Standard SSD/HDD or premium-managed disks) in Azure. Then select **Next**. 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 

@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 02/24/2026
 ms.custom: template-how-to
 # Customer intent: As a cloud engineer, I want to create a virtual machine with a dual-stack network in Azure using the portal, CLI, or PowerShell, so that I can ensure both IPv4 and IPv6 connectivity for my applications.
 ---
@@ -47,7 +47,25 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 In this section, you create a resource group and dual-stack virtual network for the virtual machine in the Azure portal.
 
+### Create a resource group
+
 1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+1. In the portal, search for and select **Resource groups**.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab, enter or select the following values:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Enter *myResourceGroup*. |
+    | **Region** | Select **(US) East US 2**. |
+
+1. Select **Review + create**, and then select **Create**.
+
+### Create a virtual network
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -59,7 +77,7 @@ In this section, you create a resource group and dual-stack virtual network for 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> In **Name**, enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
     | Name | Enter **myVNet**. |
     | Region | Select **East US 2**. |
@@ -317,6 +335,9 @@ In this section, you create the virtual machine and its supporting resources.
 
 9. The private key downloads to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
 
+> [!NOTE]
+> The network security group created with the virtual machine blocks all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../../bastion/quickstart-host-portal.md).
+
 ### Configure network interface
 
 A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you add the IPv6 configuration to the existing network interface.
@@ -349,6 +370,19 @@ A network interface is automatically created and attached to the chosen virtual 
 # [Azure CLI](#tab/azurecli/)
 
 In this section, you create the virtual machine and its supporting resources.
+
+### Create a network security group
+
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The default rules in the network security group deny all inbound access from the internet.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNSG
+```
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../../bastion/quickstart-host-portal.md).
 
 ### Create network interface
 
@@ -397,6 +431,22 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
 # [Azure PowerShell](#tab/azurepowershell/)
 
 In this section, you create the virtual machine and its supporting resources.
+
+### Create a network security group
+
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The default rules in the network security group deny all inbound access from the internet.
+
+```azurepowershell-interactive
+$nsg = @{
+    Name = 'myNSG'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+}
+New-AzNetworkSecurityGroup @nsg
+```
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../../bastion/quickstart-host-portal.md).
 
 ### Create network interface
 
@@ -516,23 +566,151 @@ New-AzVM @vm -GenerateSshKey
 
 ---
 
-## Test SSH connection
+## Install nginx
+
+In this section, you create a network security group rule to allow HTTP traffic and install nginx on the virtual machine using the Run Command feature.
 
 # [Azure portal](#tab/azureportal)
 
-You connect to the virtual machine with SSH to test the IPv4 public IP address.
+### Create an inbound security rule
+
+1. In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results.
+
+1. Select **myNSG**.
+
+1. Select **Inbound security rules** in **Settings**.
+
+1. Select **+ Add**.
+
+1. Enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Source | Leave the default of **Any**. |
+    | Source port ranges | Leave the default of **\***. |
+    | Destination | Leave the default of **Any**. |
+    | Service | Select **HTTP**. |
+    | Action | Leave the default of **Allow**. |
+    | Priority | Enter **100**. |
+    | Name | Enter *myNSGRuleHTTP*. |
+
+1. Select **Add**.
+
+### Install nginx with Run Command
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **myVM**.
+
+1. In **Operations**, select **Run command**.
+
+1. Select **RunShellScript**.
+
+1. Enter the following commands:
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y nginx
+    ```
+
+1. Select **Run**.
+
+1. Wait for the command to complete. The output pane displays **Enable succeeded** when complete.
+
+# [Azure CLI](#tab/azurecli/)
+
+### Create an inbound security rule
+
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create a network security group rule to allow HTTP traffic.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name myNSGRuleHTTP \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 80 \
+    --access allow \
+    --priority 100
+```
+
+### Install nginx
+
+Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to install nginx on the virtual machine.
+
+```azurecli-interactive
+  az vm run-command invoke \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --command-id RunShellScript \
+    --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+### Create an inbound security rule
+
+Use [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) and [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig) to create a network security group rule to allow HTTP traffic.
+
+```azurepowershell-interactive
+## Place the network security group into a variable. ##
+$nsg = @{
+    Name = 'myNSG'
+    ResourceGroupName = 'myResourceGroup'
+}
+$nsgObj = Get-AzNetworkSecurityGroup @nsg
+
+## Create the network security group rule. ##
+$nsgRule = @{
+    Name = 'myNSGRuleHTTP'
+    Protocol = '*'
+    Direction = 'Inbound'
+    Priority = 100
+    SourceAddressPrefix = '*'
+    SourcePortRange = '*'
+    DestinationAddressPrefix = '*'
+    DestinationPortRange = 80
+    Access = 'Allow'
+}
+$nsgObj | Add-AzNetworkSecurityRuleConfig @nsgRule | Set-AzNetworkSecurityGroup
+```
+
+### Install nginx
+
+Use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) to install nginx on the virtual machine.
+
+```azurepowershell-interactive
+$vm = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myVM'
+    CommandId = 'RunShellScript'
+    ScriptString = 'sudo apt-get update && sudo apt-get install -y nginx'
+}
+Invoke-AzVMRunCommand @vm
+```
+
+---
+
+## Test dual-stack connectivity
+
+Verify nginx is running by connecting to the public IPv4 address of the virtual machine.
+
+# [Azure portal](#tab/azureportal)
 
 1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
 
-2. Select **myPublicIP-IPv4**.
+1. Select **myPublicIP-IPv4**.
 
-3. The public IPv4 address is in the **Overview** in **IP address**. In this example it's, **20.22.46.19**.
+1. Note the public IPv4 address in the **Overview** under **IP address**. In this example, it's **203.0.113.77**.
 
-4. Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine. Replace **`azureuser`** with the username you chose during virtual machine creation. The **`-i`** is the path to the private key that you downloaded earlier. In this example, it's **~/.ssh/mySSHKey.pem**.
+1. Open your web browser and browse to `http://203.0.113.77`. Replace the IP address with the public IPv4 address of your virtual machine.
 
-    ```bash
-    ssh -i ~/.ssh/mySSHkey.pem azureuser@20.22.46.19
-    ```
+1. The default nginx welcome page is displayed, confirming that the web server is running and accessible over IPv4.
+
 # [Azure CLI](#tab/azurecli/)
 
 Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to display the IP addresses of the virtual machine.
@@ -545,14 +723,9 @@ Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-i
     --output tsv
 ```
 
-```azurecli-interactive
-user@Azure:~$ az network public-ip show \
->     --resource-group myResourceGroup \
->     --name myPublicIP-IPv4 \
->     --query ipAddress \
->     --output tsv
-20.119.201.208
-```
+Open your web browser and browse to the IPv4 address displayed. The default nginx welcome page confirms that the web server is running and accessible.
+
+Use the following command to display the IPv6 address:
 
 ```azurecli-interactive
   az network public-ip show \
@@ -560,21 +733,6 @@ user@Azure:~$ az network public-ip show \
     --name myPublicIP-IPv6 \
     --query ipAddress \
     --output tsv
-```
-
-```azurecli-interactive
-user@Azure:~$ az network public-ip show \
->     --resource-group myResourceGroup \
->     --name myPublicIP-IPv6 \
->     --query ipAddress \
->     --output tsv
-2603:1030:408:6::9d
-```
-
-Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
-
-```azurecli-interactive
-  ssh azureuser@20.119.201.208
 ```
 
 # [Azure PowerShell](#tab/azurepowershell/)
@@ -589,13 +747,9 @@ $ip4 = @{
 Get-AzPublicIPAddress @ip4 | select IpAddress
 ```
 
-```azurepowershell-interactive
-PS /home/user> Get-AzPublicIPAddress @ip4 | select IpAddress
+Open your web browser and browse to the IPv4 address displayed. The default nginx welcome page confirms that the web server is running and accessible.
 
-IpAddress
----------
-20.72.115.187
-```
+Use the following command to display the IPv6 address:
 
 ```azurepowershell-interactive
 $ip6 = @{
@@ -603,20 +757,6 @@ $ip6 = @{
     Name = 'myPublicIP-IPv6'
 }  
 Get-AzPublicIPAddress @ip6 | select IpAddress
-```
-
-```azurepowershell-interactive
-PS /home/user> Get-AzPublicIPAddress @ip6 | select IpAddress
-
-IpAddress
----------
-2603:1030:403:3::1ca
-```
-
-Open an SSH connection to the virtual machine by using the following command. Replace the IP address with the IP address of your virtual machine.
-
-```azurepowershell-interactive
-ssh azureuser@20.72.115.187
 ```
 
 ---

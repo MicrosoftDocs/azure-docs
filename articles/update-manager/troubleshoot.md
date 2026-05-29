@@ -7,6 +7,7 @@ ms.topic: troubleshooting-known-issue
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator who manages virtual machines, I want to troubleshoot issues with Azure Update Manager so that I can ensure successful patching and compliance for my deployed resources.
 ---
 

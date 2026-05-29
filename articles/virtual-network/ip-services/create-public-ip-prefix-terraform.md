@@ -29,9 +29,11 @@ In this article, you learn how to:
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a standard zone-redundant public IPv4 address prefix named **myIPv4**
+> * Create a standard v2 zone-redundant public IPv4 address prefix named **myIPv4Stdv2**
 > * Create a standard zonal public IPv4 address named **myIPv4Zonal**
 > * Create a standard public IPv4 address named **myIPv4RPInternet** that supports the Routing Preference feature
 > * Create a standard zone-redundant public IPv6 address prefix named **myIPv6**
+> * Create a standard v2 zone-redundant public IPv6 address prefix named **myIPv6Stdv2**
 > * Create a standard zonal public IPv6 address named **myIPv6Zonal**
 > * Create a static public IP IPv4 address from an IP prefix
 > * Create a static public IP IPv6 address from an IP prefix
@@ -67,6 +69,22 @@ To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. 
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="12-22" highlight="7-8,10":::
 
+# [Zone-Redundant Standardv2 IPv4 prefix](#tab/ipv4-v2-zone-redundant)
+
+To create a Standard v2 IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. All Standardv2 IPv4 public IP prefixes must be zone-redundant, so specify **["1", "2", "3"]** as the `zones` value.
+
+```terraform
+resource "azurerm_public_ip_prefix" "public_ip_prefix_ipv4_stdv2" {
+  name                = "myIPv4Stdv2"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  ip_version          = "IPv4"
+  prefix_length       = 28
+  sku                 = "Standard_v2"
+  zones               = ["1", "2", "3"]
+}
+```
+
 # [Zonal IPv4 prefix](#tab/ipv4-zonal)
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zonal IP prefix in zone 2, specify **["2"]** as the `zone` value.
@@ -74,7 +92,7 @@ To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="24-34"  highlight="7-8,10":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ---
 
@@ -94,6 +112,22 @@ To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. 
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="60-70"  highlight="7-8,10":::
 
+# [Zone-Redundant Standardv2 IPv6 prefix](#tab/ipv6-v2-zone-redundant)
+
+To create a Standard v2 IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. All Standardv2 IPv6 public IP prefixes must be zone-redundant, so specify **["1", "2", "3"]** as the `zones` value.
+
+```terraform
+resource "azurerm_public_ip_prefix" "public_ip_prefix_ipv6_stdv2" {
+  name                = "myIPv6Stdv2"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  ip_version          = "IPv6"
+  prefix_length       = 124
+  sku                 = "Standard_v2"
+  zones               = ["1", "2", "3"]
+}
+```
+
 # [Zonal IPv6 prefix](#tab/ipv6-zonal)
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a zone redundant IPv6 prefix, specify **["2"]** as the `zone` value.
@@ -101,7 +135,7 @@ To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="72-82"  highlight="7-8,10":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ---
 

@@ -1,9 +1,9 @@
----
+﻿---
 title: Child resources in Bicep
 description: Describes how to set the name and type for child resources in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Set name and type for child resources in Bicep
@@ -13,10 +13,6 @@ Child resources are resources that exist only within the context of another reso
 Each parent resource accepts only certain resource types as child resources. The hierarchy of resource types is available in the [Bicep resource reference](/azure/templates/).
 
 This article show different ways you can declare a child resource.
-
-### Training resources
-
-If you would rather learn about child resources through step-by-step guidance, see [Deploy child and extension resources by using Bicep](/training/modules/child-extension-bicep-templates).
 
 ## Name and type pattern
 
@@ -177,3 +173,4 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01
 
 * To learn about creating Bicep files, see [Understand the structure and syntax of Bicep files](./file.md).
 * To learn about the format of the resource name when referencing the resource, see the [reference function](./bicep-functions-resource.md#reference).
+

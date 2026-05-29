@@ -5,7 +5,7 @@ metadata:
   author: dlepow
   ms.service: azure-api-management
   ms.topic: faq
-  ms.date: 09/30/2025
+  ms.date: 01/13/2026
   ms.author: danlep 
   ms.custom: engagement-fy23,fasttrack-edit,build-2025
 
@@ -51,7 +51,10 @@ sections:
       - question: |
           Can I move an API Management instance from one subscription to another?
         answer: |
-          Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+          Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). Certain features or resources can't be moved and should be disabled or removed before the move, including:
+
+          * System-assigned or user-assigned managed identities.
+          * Virtual network subnet configurations.
 
       - question: |
           Can I manage my API Management instance programmatically?

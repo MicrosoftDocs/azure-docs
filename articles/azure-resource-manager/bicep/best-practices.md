@@ -1,19 +1,13 @@
----
+﻿---
 title: Learn best practices when developing Bicep files
 description: Describes practices to follow when creating your Bicep files so they work well and are easy to maintain.
-author: johndowns
-ms.author: jodowns
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ---
 # Best practices for Bicep
 
 This article recommends practices to follow when developing your Bicep files. These practices make your Bicep file easier to understand and use.
-
-### Training resources
-
-If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/training/modules/structure-bicep-code-collaboration/).
 
 ## Parameters
 
@@ -119,3 +113,4 @@ You can't create policies or role assignments at the [tenant scope](deploy-to-te
 
 * For an introduction to Bicep, see [Bicep quickstart](quickstart-create-bicep-use-visual-studio-code.md).
 * For information about the parts of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
+

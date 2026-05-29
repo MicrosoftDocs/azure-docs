@@ -12,7 +12,7 @@ ms.date: 04/03/2025
 # Control outbound traffic in Azure Container Apps with user defined routes
 
 > [!NOTE]
-> This feature is only supported for the workload profiles environment type.
+> This feature is only supported for the default workload profiles environment type. The legacy Consumption-only environment type does not support user defined routes.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
@@ -24,7 +24,7 @@ See [configuring UDR with Azure Firewall](use-azure-firewall.md) for more inform
 
 ## Prerequisites
 
-* **Workload profiles environment**: A workload profiles environment that's integrated with a virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
+* **Container Apps environment**: A Container Apps environment that's integrated with a virtual network. For more information, see the [guide for how to create a container app environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
 
 * **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 

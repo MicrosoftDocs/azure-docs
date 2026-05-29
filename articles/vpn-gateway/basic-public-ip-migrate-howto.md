@@ -1,29 +1,27 @@
 ---
-title: How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway - Preview
+title: How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway 
 titleSuffix: Azure VPN Gateway
 description: Learn how to migrate from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployment.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 01/30/2026
 ms.author: cherylmc
 #customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
 
-# How to migrate a Basic SKU public IP address to Standard SKU for VPN Gateway - Preview
+# How to migrate a Basic SKU public IP address to Standard SKU for VPN Gateway 
 
-This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5 for active-passive gateways (not active-active). For more information about Basic SKU migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
+This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5 including legacy SKU's like High-Performance and Standard SKU. For more information about Basic SKU public IP address migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
 
 > [!IMPORTANT]
-> Basic SKU public IP address migration for VPN Gateway is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> * Basic SKU public IP address migration for VPN Gateway is currently Generally Available for Active-Passive and Active-Active scenarios. <br> 
+> * The steps on this page apply to VPN gateways using gateway SKUs other than the Basic gateway SKU. If your gateway uses the Basic gateway SKU, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md).
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
 
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU might be migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
-> [!NOTE]
-> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 
 ## Workflow
 
@@ -141,23 +139,11 @@ Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
 
 ## Known Issues
 
-### Point-to-Site VPN Gateways using legacy DNS limitation
+### Guided migration for Point-to-Site VPN Gateways using legacy DNS (cloudapp.net)
 
-Point-to-Site VPN Gateways that were originally deployed using legacy cloudapp.NET DNS infrastructure have specific limitations that prevent them from using the standard migration process described in this article. This section helps you identify if your gateway has this limitation and provides guidance on next steps.
+Some Point-to-Site (P2S) VPN Gateways were originally deployed using legacy cloudapp.net DNS. These gateways cannot use the standard public IP migration process.
+Azure now provides a guided migration experience in the Azure portal that enables eligible legacy DNS P2S gateways to migrate from a Basic SKU public IP address to a Standard SKU, without requiring customers to manually reconfigure DNS or Point-to-Site settings.
 
-### Impact and timeline
-
-VPN Gateways with legacy cloudapp.NET DNS configurations cannot be migrated using the current migration tools. These gateways require a specialized migration approach that is currently under development. 
-
-A guided migration experience for legacy DNS gateways is planned for release, with the timeline to be announced by the end of January 2026. Until this specialized migration becomes available, these gateways will continue to function normally but cannot be upgraded to Standard SKU public IP addresses.
-
-### Important considerations
-
-> [!IMPORTANT]
-> If your gateway uses legacy DNS, follow these critical guidelines:
-> - **Do NOT** remove your existing Point-to-Site configuration to attempt this migration.
-> - **Do NOT** add new Point-to-Site configurations to existing gateways without Point-to-Site until the legacy DNS migration capability is released.
-> - Continue using your current gateway configuration until the specialized migration tools become available.
 
 ### Check if your gateway uses legacy DNS
 
@@ -192,9 +178,46 @@ Follow these steps to determine if your VPN Gateway uses legacy cloudapp.NET DNS
 
 For the latest updates on legacy DNS gateway migration availability, see the [VPN Gateway - What's New](whats-new.md) article.
 
+## Migration
+
+Follow these migration steps if your VPN Gateway uses legacy cloudapp.NET DNS
+
+1. Prepare for migration: The preparation steps are the same as those in [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal).
+
+1. After the preparation step completes successfully, select Download VPN Client to download the updated VPN client profile (ZIP). Then, **during or after Migrate step** use the downloaded profile to reconnect and validate Point-to-Site (P2S) connectivity.
+
+1. After that, the Migrate and Commit steps are the same as mentioned in [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal)
+
+
 ## Known Issues continuation
 
 * For VpnGw1 CSES to Virtual Machine Scale Sets migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
+
+## What is the known Traffic selector behavior during Active-Active VPN Gateway migration?
+
+When migrating an Active Active Azure VPN Gateway that has BGP enabled, IPsec tunnels may go down after migration if Narrow Traffic Selectors are both configured. 
+This behavior can cause site to site connectivity loss immediately after migration.
+ 
+* Which configurations are impacted?
+  
+This behavior applies only to the following scenario: <br>
+•	Active Active VPN Gateway <br>
+•	BGP enabled <br>
+•	Narrow (custom) traffic selectors on Azure or on the on prem device
+
+* Which configurations are not impacted?
+  
+This behavior does not apply to: <br>
+•	Gateways that accept or negotiate wildcard (0.0.0.0/0) traffic selectors <br>
+•	Gateways without BGP enabled
+
+* How can customers avoid this issue before migration?
+  
+To avoid connectivity loss during migration, customers who use Narrow Traffic Selectors should: <br>
+•	Change traffic selectors to wildcard (0.0.0.0/0) on the on premises VPN device before initiating migration, or <br>
+•	Ensure the on premises device can accept wildcard traffic selectors during IPsec negotiation <br>
+Making this change prior to migration allows tunnels to renegotiate successfully after the gateway upgrade.
+
 
 
 ## Next steps

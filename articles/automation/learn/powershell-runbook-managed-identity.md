@@ -4,12 +4,12 @@ description: In this tutorial, you learn how to use managed identities with a Po
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 06/27/2025
+ms.date: 04/14/2026
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
@@ -272,3 +272,5 @@ In this tutorial, you created a [PowerShell runbook](../automation-runbook-types
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a PowerShell Workflow runbook](automation-tutorial-runbook-textual.md)
+
+- For troubleshooting managed identity related issues during PowerShell runbook creation, see [Troubleshoot Azure Automation managed identity issues](../troubleshoot/managed-identity.md).

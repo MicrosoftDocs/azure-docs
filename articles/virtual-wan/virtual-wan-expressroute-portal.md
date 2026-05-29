@@ -37,6 +37,8 @@ Verify that you've met the following criteria before beginning your configuratio
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
+* If you plan to remove Azure BGP communities from virtual network and UDR routes, don't advertise these routes back into Azure, as this causes routing issues. We don't recommend advertising Azure routes back into Azure.
+
 ## <a name="openvwan"></a>Create a virtual WAN
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]

@@ -42,7 +42,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 ### Adding a source:
 - Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
 - [Temporary] v6 VM SKU aren't supported as a source. 
-- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an erorr stating the NIC is not on fastpath**.
+- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an error stating the NIC is not on fastpath**.
 
 ### Other Limitations
 - Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
@@ -88,10 +88,10 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 |**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
-||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
+||[FortiGate VM](https://marketplace.microsoft.com/en-us/search/products?search=FortiGate%20VM&page=1)|
 |**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
-|**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
+|**Extrahop**|[Reveal(x)](https://www.extrahop.com/resources/datasheets/extrahop-revealx)|
 |**Progress**|[Flowmon](https://www.progress.com/blogs/azure-vtap)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
 |**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|

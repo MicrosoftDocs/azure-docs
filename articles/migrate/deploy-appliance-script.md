@@ -33,8 +33,8 @@ You can use the script to deploy the Azure Migrate appliance on an existing serv
 
 Scenario | Requirements
 --- | ---
-VMware | Windows Server 2019 or Windows Server 2022, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
-Hyper-V | Windows Server 2019 or Windows Server 2022, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
+VMware | Windows Server 2022 or Windows Server 2025, with 32 GB of memory, eight vCPUs, around 80 GB of disk storage.
+Hyper-V | Windows Server 2022 or Windows Server 2025, with 16 GB of memory, eight vCPUs, around 80 GB of disk storage.
 
 - The server also needs an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [VMware](migrate-appliance.md#appliance---vmware) and [Hyper-V](migrate-appliance.md#appliance---hyper-v).
@@ -51,20 +51,7 @@ Hyper-V | Windows Server 2019 or Windows Server 2022, with 16 GB of memory, eigh
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-  | **Download** | **Hash value** |
-  | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
-
-> [!NOTE]
-> The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud.
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 
@@ -99,15 +86,6 @@ After the script has executed successfully, the appliance configuration manager 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
-::: moniker range="migrate"
-After you deploy the appliance server and before you start the configuration, ensure you complete these steps to try out the new dependency analysis enhancements: 
-
-1. On the server running the appliance, open the Registry Editor.
-2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (find the one without space)
-3. Find a registry key- DepMapAutoEnable with a type of "String" and set value as "true"
-4. Restart the appliance server and start with appliance configuration
-::: moniker-end
-
 ### Verify access
 
 Make sure that the appliance can connect to Azure URLs for the [public](migrate-appliance.md#public-cloud-urls) cloud.
@@ -121,20 +99,7 @@ Make sure that the appliance can connect to Azure URLs for the [public](migrate-
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-  | **Download** | **Hash value** |
-  | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
-
-> [!NOTE]
-> The same script can be used to set up Hyper-V appliance for either Azure public or Azure Government cloud.
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 

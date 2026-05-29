@@ -1,15 +1,16 @@
 ---
-title: Schemas for tracking B2B transactions - Standard workflows
+title: Schemas for Tracking B2B Transactions - Standard workflows
 description: Learn about schemas for tracking B2B transactions in Standard workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.reviewer: estfan, divswa, pravagar, azla
-ms.date: 03/20/2025
-# As a B2B integration solutions developer, I want to better understand the data structures used fo storing B2B transaction data for Standard workflows in Azure Logic Apps.
+ms.reviewers: estfan, divswa, pravagar, azla
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+#Customer intent: As a B2B integration solutions developer who works with Azure Logic Apps, I want to learn about the data structures for storing B2B transaction data in Standard workflows.
 ---
 
-# Tracking schemas for B2B transactions in Standard workflows for Azure Logic Apps (Preview)
+# Tracking schemas for B2B transactions in Standard workflows for Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 

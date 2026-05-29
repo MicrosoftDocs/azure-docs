@@ -5,7 +5,7 @@ ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
 ms.reviewer: susabat
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/29/2025
 ms.custom:
   - build-2025

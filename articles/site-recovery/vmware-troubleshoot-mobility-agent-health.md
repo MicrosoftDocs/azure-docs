@@ -1,11 +1,12 @@
 ---
-title: Troubleshoot VMware mobility agent health errors in Azure Site Recovery 
-description: This article describes troubleshooting mobility agent health errors in Azure Site Recovery. 
+title: Troubleshoot VMware mobility agent health errors in Azure Site Recovery
+description: This article describes troubleshooting mobility agent health errors in Azure Site Recovery.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: v-gajeronika
-ms.date: 08/21/2024
+ms.reviewer: v-gajeronika
+ms.date: 02/12/2026
 
 # Customer intent: As a system administrator, I want to troubleshoot mobility agent health errors in VMware virtual machines, so that I can ensure successful replication and maintain data integrity in Azure Site Recovery.
 ---
@@ -18,9 +19,9 @@ This article describes how to troubleshoot mobility agent health errors in your 
 
 ## Before you start
 
-Before you start troubleshooting, ensure that:
+Before you start troubleshooting, make sure that you:
 
-- You understand how to [deploy Azure Site Recovery replication appliance - Modernized](./deploy-vmware-azure-replication-appliance-modernized.md).
+- Understand how to [deploy Azure Site Recovery replication appliance - Modernized](./deploy-vmware-azure-replication-appliance-modernized.md).
 - Review the [support requirements for Azure Site Recovery replication appliance](./replication-appliance-support-matrix.md).
 
 
@@ -32,8 +33,8 @@ If you see the following error in the mobility agent status:
 
 To troubleshoot mobility agent health errors, follow these recommendations:
 
-1. Log in to source machine whose health is critical and check the `svagents_curr<>.log` file.
-1. Locate the `svagents_curr<>.log` file in the following location:
+1. Sign in to the source machine with critical health and check the `svagents_curr<>.log` file.
+1. Find the `svagents_curr<>.log` file in the following location:
     - **Linux**: `/var/log/svagents_curr<>.log`
     - **Windows**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
@@ -81,8 +82,8 @@ If you get the following error in the `svagents_curr<>.log` file:
 ##### Resolution
 
 Follow these recommendations:
-1. Navigate to the replication appliance where the process server component health is critical and log in into the appliance.
-1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) process server on the appliance to the latest version and wait for an hour.
+1. Go to the replication appliance where the process server component health is critical and sign in to the appliance.
+1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) the process server on the appliance to the latest version and wait for an hour.
 1. Restart the services - *Process Server* and *Process Server Monitor* and wait for an hour.
 
 
@@ -112,10 +113,10 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 Follow these recommendations:
 
-1. Navigate to the replication appliance where the Proxy Server component health is critical and log in into the replication appliance. 
-1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) proxy server on the appliance to the latest version and wait for an hour.
+1. Go to the replication appliance where the Proxy Server component health is critical and sign in to the replication appliance. 
+1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) the proxy server on the appliance to the latest version and wait for an hour.
 1. If the proxy server is already on the latest version, try restarting the services *Microsoft Azure RCM Proxy Agent* and *Microsoft Azure RCM Proxy Management Service*  and wait for an hour.
-1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance. 
+1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with the appliance. 
 
 
 #### Error 4 - mismatch of fingerprints received
@@ -143,8 +144,8 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 Follow this recommendation:
 
-[Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance. 
+[Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with the appliance. 
 
 ## Next steps
 
-If you're still facing issues, contact Microsoft Support for further assistance.
+If you still face issues, contact Microsoft Support for help.

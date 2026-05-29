@@ -1,7 +1,7 @@
----
+﻿---
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 08/08/2025
 ---
@@ -252,3 +252,4 @@ You can define variables that hold related values for configuring an environment
 - To learn more about available properties for variables, see [the structure and syntax of ARM templates](./syntax.md).
 - For recommendations about creating variables, see [best practices - variables](./best-practices.md#variables).
 - For an example template that assigns security rules to a network security group, see [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json).
+

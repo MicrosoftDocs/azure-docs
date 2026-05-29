@@ -1,7 +1,7 @@
----
+﻿---
 title: Set resource dependencies in Bicep
 description: Describes how to specify the order resources are deployed.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -108,3 +108,4 @@ Visual Studio Code provides a tool for visualizing the dependencies. Open a Bice
 ## Next steps
 
 For the syntax to deploy a resource, see [Resource declaration in Bicep](resource-declaration.md).
+

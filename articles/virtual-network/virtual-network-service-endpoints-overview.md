@@ -17,7 +17,7 @@ ms.custom: sfi-image-nochange
 Azure virtual network service endpoints provide secure and direct connectivity to Azure services over an optimized route through the Azure backbone network. These endpoints allow you to secure critical Azure service resources exclusively to your virtual networks, enabling private IP addresses to reach Azure services without requiring public IP addresses. This guide covers how to configure service endpoints, their benefits, and best practices for implementation.
 
 > [!NOTE]
-> Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md).
+> Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
@@ -43,7 +43,7 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*): Generally available in all Azure regions where App service is available.
 
-- **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
+- **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Foundry Tools are available.
 
 - **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Generally available in all Azure regions where Azure Container Registry is available.
 
@@ -73,7 +73,7 @@ Service endpoints provide the following benefits:
 
 - For Azure Data Lake Storage (ADLS) Gen 1, the virtual network Integration capability is only available for virtual networks within the same region. Virtual network integration for ADLS Gen1 uses the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate extra security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. The *Microsoft.AzureActiveDirectory* tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Microsoft Entra ID doesn't support service endpoints natively. For more information about Azure Data Lake Store Gen 1 virtual network integration, see [Network security in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-- A virtual network can be associated with up to 200 different subscriptions and regions by each supported service with active virtual network rules configured.
+- A virtual network can be associated with up to 500 different subscriptions and regions by each supported service with active virtual network rules configured.
 
 ## Secure Azure services to virtual networks
 

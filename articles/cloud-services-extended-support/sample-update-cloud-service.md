@@ -2,12 +2,13 @@
 title: Azure PowerShell samples - Update an Azure Cloud Service (extended support)
 description: Sample scripts for updating Azure Cloud Service (extended support) deployments
 ms.topic: sample
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
-ms.custom: devx-track-azurepowershell
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, cloud-services-extended-support
 # Customer intent: As a cloud engineer, I want to use PowerShell scripts to modify Azure Cloud Service deployments, so that I can manage extensions, scale roles, and update configurations efficiently.
 ---
 

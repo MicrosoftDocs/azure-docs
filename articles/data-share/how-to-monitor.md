@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure Data Share status and history
 description: Learn how to monitor invitation status, share subscriptions, and snapshot history for Azure Data Share 
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 01/20/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -44,12 +44,12 @@ In the **History** tab of a share, you're able to view when data is copied from 
 
 ![Screenshot shows Sent Shares in the Azure portal.](./media/sent-shares.png "Snapshot history")
 
-You can view more details about each snapshot run by selecting the run start date. Then select on the status for each dataset to view the amount of data transferred, number of files/records copied, duration of the snapshot, number of vCores used and error message if there's any.
+You can view more details about each snapshot run by selecting the run start date. Then select the status for each dataset to view the amount of data transferred, number of files/records copied, duration of the snapshot, number of vCores used and error message if there's any.
 
 Up to 30 days of snapshot history is displayed. If you need to save and see more than 30 days worth of history, you can use diagnostic setting.
 
 ## Related content
 
 - Learn more about [Azure Data Share terminology](terminology.md).
-- See [Monitor Data Share](monitor-data-share.md) for more details about monitoring Data Share.
+- Find more details about [monitoring Data Share](monitor-data-share.md).
 

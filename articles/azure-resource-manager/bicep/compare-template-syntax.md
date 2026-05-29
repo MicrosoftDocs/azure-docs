@@ -1,9 +1,9 @@
----
+﻿---
 title: Compare syntax for Azure Resource Manager templates in JSON and Bicep
 description: Compares Azure Resource Manager templates developed with JSON and Bicep, and shows how to convert between the languages.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Comparing JSON and Bicep for templates

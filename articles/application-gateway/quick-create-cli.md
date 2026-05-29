@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: quickstart
-ms.date: 05/30/2024
+ms.date: 02/25/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -76,6 +76,19 @@ az network public-ip create \
   --sku Standard
 ```
 
+## Create a network security group
+
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The default rules in the network security group block all inbound access from the internet.
+
+```azurecli-interactive
+az network nsg create \
+  --resource-group myResourceGroupAG \
+  --name myNSG
+```
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
 ## Create the backend servers
 
 A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install NGINX on the virtual machines to test the application gateway.
@@ -137,12 +150,14 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --name myNic$i \
     --vnet-name myVNet \
-    --subnet myBackendSubnet
+    --subnet myBackendSubnet \
+    --network-security-group myNSG
   az vm create \
     --resource-group myResourceGroupAG \
     --name myVM$i \
     --nics myNic$i \
     --image Ubuntu2204 \
+    --public-ip-address "" \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt

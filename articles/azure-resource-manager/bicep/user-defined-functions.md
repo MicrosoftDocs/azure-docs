@@ -1,9 +1,9 @@
----
+﻿---
 title: User-defined functions in Bicep
 description: Describes how to define and use user-defined functions in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/16/2025
+ms.date: 12/22/2025
 ---
 
 # User-defined functions in Bicep

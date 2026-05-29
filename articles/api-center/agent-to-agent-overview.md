@@ -1,11 +1,11 @@
 ---
 title: Agent registry in Azure API Center
 description: "Overview of the agent registry for discovering, registering, and managing A2A agents in API Center."
-author: ProfessorKendrick
-ms.author: kkendrick
+
+
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 11/03/2025
+ms.date: 02/24/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 
@@ -25,13 +25,13 @@ Azure API Center provides a centralized platform for discovering, registering, a
 
 **Governance and Security**: Addresses shadow IT and uncontrolled AI tool adoption by providing a governed channel for accessing AI agents, improving security and compliance.
 
-**Integration with API Management**: AI agents can be placed behind an API Management gateway for private endpoints, enhanced security, and controlled access.
+**Integration with API Management**: AI agents can be placed behind an API Management gateway for private endpoints, enhanced security, and controlled access.  A2A agent APIs in a linked API Management instance synchronize automatically to API Center.
 
 **Customizable Metadata**: Organizations can define and store relevant metadata for each registered AI agent, facilitating filtering and searching.
 
 ## Register an AI agent
 
-You can register AI agents in API Center similar to how you register other APIs. During registration, specify the API type as **A2A** and fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
+You can register AI agents in API Center similar to how you register other assets such as APIs and MCP servers. During registration, fill in details for **Agent Card**, **Agent Skills**, and **Agent Capabilities**.  
 
 For detailed steps, see [Register agent](register-manage-agents.md#register-agent).
 

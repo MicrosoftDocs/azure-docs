@@ -1,13 +1,14 @@
 ---
-title: Peering registered prefix requirements
+title: Peering Registered Prefix Requirements
 titleSuffix: Internet Peering
 description: Learn about the technical requirements to register your prefixes for Azure Peering Service and how to troubleshoot some possible validation errors.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
-ms.date: 10/24/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: As a network administrator, I want to understand the technical requirements for announcing registered prefixes for a peering service, so that I can successfully validate and troubleshoot any validation errors to ensure optimal connectivity.
 ---
 

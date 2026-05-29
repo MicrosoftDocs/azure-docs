@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/18/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,7 +29,7 @@ This article shows how to automate backup and restore operations of your API Man
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
 
 > [!IMPORTANT]
-> Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
+> Restore operation doesn't change custom hostname configuration of the target service. We recommend using the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
@@ -399,18 +399,7 @@ Restore is a long-running operation that may take several minutes to complete. I
 ## Storage networking constraints
 
 
-If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it's recommended to use the API Management instance's system-assigned managed identity for access to the account. Ensure that you have networking line of sight from API Management. Configure one of the following network access options on the resource:
-
-- Allow public access from all networks.
-
-- Set a network security rule to allow API Management traffic based on the IP address or virtual network connectivity.
-
-- Secure traffic from API Management with Private Link connectivity.
-
-- Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure the resource and allow traffic from API Management. 
-
-> [!IMPORTANT]
-> Starting March 2026, trusted service connectivity to Azure services from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from API Management after this change, ensure that you choose a supported network access option as described above. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md)
+If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it's recommended to use the API Management instance's system-assigned managed identity for access to the account. Ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
@@ -430,7 +419,7 @@ Check out the following related resources for the backup/restore process:
 
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 - [How to move Azure API Management across regions](api-management-howto-migrate.md)
-- API Management **Premium** tier also supports [zone redundancy](../reliability/migrate-api-mgt.md), which provides resiliency and high availability to a service instance in a specific Azure region (location).
+- API Management **Premium** tier also supports [zone redundancy](/azure/reliability/migrate-api-mgt), which provides resiliency and high availability to a service instance in a specific Azure region (location).
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

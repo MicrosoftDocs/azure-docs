@@ -3,7 +3,7 @@ title: Linter rule - no location expressions outside of parameter default values
 description: Linter rule - no location expressions outside of parameter default values
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/19/2025
+ms.date: 12/22/2025
 ---
 
 # Linter rule - no location expressions outside of parameter default values

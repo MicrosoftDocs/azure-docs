@@ -1,7 +1,7 @@
 ---
 title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-ms.date: 04/25/2025
+ms.date: 05/19/2026
 ms.topic: how-to
 ms.devlang: csharp
 # Customer intent: As a cloud engineer managing large-scale Batch solutions, I want to count the states of tasks and compute nodes, so that I can effectively monitor job progress and ensure adequate compute resources are available for optimal performance.
@@ -21,21 +21,21 @@ At times, the numbers returned by these operations may not be up to date. If you
 The `Get` Task Counts operation counts tasks by the following states:
 
 - **Active**: A task that's queued and ready to run but isn't currently assigned to any compute node. A task is also `active` if it's [dependent on a parent task](batch-task-dependencies.md) that hasn't yet completed.
-- **Running**: A task that has been assigned to a compute node but hasn't yet finished. A task is counted as `running` when its state is either `preparing` or `running`, as indicated by the [`Get`information about a task](/rest/api/batchservice/task/get) operation.
+- **Running**: A task that has been assigned to a compute node but hasn't yet finished. A task is counted as `running` when its state is either `preparing` or `running`, as indicated by the [`Get`information about a task](/rest/api/batchservice/tasks/get-task) operation.
 - **Completed**: A task that's no longer eligible to run, because it either finished successfully, or finished unsuccessfully and also exhausted its retry limit.
-- **Succeeded**: A task where the result of task execution is `success`. Batch determines whether a task has succeeded or failed by checking the `TaskExecutionResult` property of the [executionInfo](/rest/api/batchservice/task/get) property.
+- **Succeeded**: A task where the result of task execution is `success`. Batch determines whether a task has succeeded or failed by checking the `TaskExecutionResult` property of the [executionInfo](/rest/api/batchservice/tasks/get-task) property.
 - **Failed**: A task where the result of task execution is `failure`.
 
 The following .NET code sample shows how to retrieve task counts by state.
 
-```csharp
-var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
+```C# Snippet:resource_counts_job_tasks
+BatchTaskCountsResult taskCounts = await batchClient.GetJobTaskCountsAsync("job-1");
 
-Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
-Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);
-Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
-Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
-Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
+Console.WriteLine("Task count in active state: {0}", taskCounts.TaskCounts.Active);
+Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.TaskCounts.Running);
+Console.WriteLine("Task count in completed state: {0}", taskCounts.TaskCounts.Completed);
+Console.WriteLine("Succeeded task count: {0}", taskCounts.TaskCounts.Succeeded);
+Console.WriteLine("Failed task count: {0}", taskCounts.TaskCounts.Failed);
 ```
 
 You can use a similar pattern for REST and other supported languages to get task counts for a job.
@@ -53,15 +53,15 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **Reimaging**: A node where the OS is being reinstalled.
 - **Running** : A node that is running one or more tasks (other than the start task).
 - **Starting**: A node where the Batch service is starting up.
-- **StartTaskFailed**: A node where the [start task](/rest/api/batchservice/pool/add#starttask) failed after all retries, and `waitForSuccess` is enabled. This node cannot run tasks.
+- **StartTaskFailed**: A node where the [start task](/rest/api/batchmanagement/pool/create#starttask) failed after all retries, and `waitForSuccess` is enabled. This node cannot run tasks.
 - **Unknown**: A node that lost contact with the Batch service and whose state isn't known.
 - **Unusable**: A node that can't be used for task execution because of errors.
 - **WaitingForStartTask**: A node on which the start task is running, but `waitForSuccess` is enabled and it hasn't completed.
 
 The following C# snippet shows how to list node counts for all pools in the current account:
 
-```csharp
-foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
+```C# Snippet:resource_counts_pool_nodes
+await foreach (BatchPoolNodeCounts nodeCounts in batchClient.GetPoolNodeCountsAsync())
 {
     Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
 
@@ -81,8 +81,9 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
 
 The following C# snippet shows how to list node counts for a given pool in the current account.
 
-```csharp
-foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))
+```C# Snippet:resource_counts_pool_nodes_filter
+await foreach (BatchPoolNodeCounts nodeCounts in batchClient.GetPoolNodeCountsAsync(
+    filter: "poolId eq 'testpool'"))
 {
     Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
 

@@ -2,10 +2,8 @@
   href: index.yml
 - name: What is Edge Secured-core?
   href: overview.md
-- name: Program requirements
-  href: program-requirements-edge-secured-core.md
-- name: Get your device certified
-  href: edge-secured-core-get-certified.md
+- name: Requirements
+  href: requirements-edge-secured-core.md
 - name: List of certified devices
   href: edge-secured-core-devices.md
 - name: Validate Edge Secured-core device

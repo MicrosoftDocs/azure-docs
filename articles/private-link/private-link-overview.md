@@ -2,11 +2,11 @@
 title: What is Azure Private Link?
 description: Overview of Azure Private Link features, architecture, and implementation. Learn how Azure Private Endpoints and Azure Private Link service works and how to use them.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 03/25/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
 # Customer intent: As a network architect, I want to implement Azure Private Link to access Azure services privately, so that I can enhance security and eliminate data leakage risks while maintaining seamless connectivity across my organization's virtual networks.
 ---
@@ -47,7 +47,7 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants. 
 
 > [!NOTE]
-> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](../reliability/availability-zones-overview.md) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
+> Azure Private Link, along with Azure Virtual Network, span across [Azure Availability Zones](/azure/reliability/availability-zones-overview) and are therefore zone resilient. To provide high availability for the Azure resource using a private endpoint, ensure that resource is zone resilient.
 
 ## Availability 
 

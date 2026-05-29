@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 10/14/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -15,7 +15,7 @@ This article provides troubleshooting information to back up SAP HANA databases 
 
 ## Prerequisites and Permissions
 
-See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
+See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the preregistration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) sections before configuring backups.
 
 ## Common user errors for backup and restore of SAP HANA databases
 
@@ -152,10 +152,10 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorRecoverySysScriptFailedToTriggerRestore
 
-**Error message** | `RecoverySys.py could not be run successfully to restore System DB.`
+**Error message** | `recoverSys.py could not be run successfully to restore System DB.`
 -------- | ---------
-**Possible causes** | Possible causes for System DB restore to fail are:<ul><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. It happens when the HANA environment isn't set up properly.</li><li>**Recoverysys.py** is present, but when you trigger this script, it fails to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
-**Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, run the HDSetting.sh command in sid-adm prompt and see the log trace. For example, _/usr/sap/SID/HDB00/HDBSetting.sh_.</li></ul>Share these findings with the SAP HANA team to get the issue fixed.
+**Possible causes** | Possible causes for System DB restore to fail are:<ul><li>Azure Backup is unable to find **recoverSys.py** on the HANA machine. It happens when the HANA environment isn't set up properly.</li><li>**recoverSys.py** is present, but when you trigger this script, it fails to invoke HANA to perform the restore.</li><li>recoverSys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
+**Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, run the HDBsettings.sh command in sid-adm prompt and see the log trace. For example, _/usr/sap/SID/HDB00/HDBsettings.sh_.</li></ul>Share these findings with the SAP HANA team to get the issue fixed.
 
 ### UserErrorDBNameNotInCorrectFormat
 
@@ -168,12 +168,12 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 **Error message** | `Default sid-adm directory changed.`
 ------- | -------
-**Possible causes** | The default **sid-adm** directory was changed, and **HDBSetting.sh** isn't available in this default directory.
+**Possible causes** | The default **sid-adm** directory was changed, and **HDBsettings.sh** isn't available in this default directory.
 **Recommended action** | If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
 
 ### UserErrorHDBsettingsScriptNotFound
 
-**Error message** | `HDBSetting.sh file cannot be found.`
+**Error message** | `HDBsettings.sh file cannot be found.`
 --------- | -------
 **Possible causes** | System databases restore failed as the **&lt;sid&gt;adm** user environment couldn't find the **HDBsettings.sh** file to trigger restore.
 **Recommended action** | Work with the SAP HANA team to fix this issue.<br><br>If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
@@ -299,7 +299,7 @@ Upgrades to the OS, SDC version change, or MDC version change that don't cause a
 - Ensure that the new OS version, SDC, or MDC version are currently [supported by Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
 - [Stop protection with retain data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) for the database
 - Perform the upgrade or update
-- Rerun the pre-registration script. Often, the upgrade process might remove [the necessary roles](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). Run the pre-registration script to verify all the required roles.
+- Rerun the pre-registration script. Often, the upgrade process might remove [the necessary roles](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup). Run the pre-registration script to verify all the required roles.
 - Resume protection for the database again
 
 ## SDC to MDC upgrade with no change in SID

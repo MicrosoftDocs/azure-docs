@@ -86,6 +86,15 @@ The selected dev box isn't deleted.
 
 If you don't see a dev box tile with a pending deletion notice, check with your admin that you still have access to the project containing the dev box.
 
+> [!NOTE]
+> If the Dev Box does not appear in the developer portal when you sign in:
+> - Confirm you are signing in with the same directory and user account where the Dev Box was created.
+> - Verify that you still have access to the project and Dev Box pool. If access is removed, your Dev Box will no longer show in the portal.
+> - Check with your project admin to ensure the Dev Box has not already been deleted or moved.
+>
+> Dev Boxes only display when the user retains project access. If you received a deletion notice but cannot locate the Dev Box in the portal, contact your administrator to restore access or confirm the Dev Box status.
+
+
 ## Related content
 
 - [Autostop your Dev Boxes on schedule](how-to-configure-stop-schedule.md)

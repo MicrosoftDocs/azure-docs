@@ -1,11 +1,11 @@
----
+﻿---
 title: Iterative loops in Bicep
 description: Learn how to use loops to iterate over collections in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 10/30/2025
+ms.date: 12/10/2025
 ---
 
 # Iterative loops in Bicep
@@ -13,10 +13,6 @@ ms.date: 10/30/2025
 This article shows you how to use the `for` syntax to iterate over items in a collection. This functionality is supported starting in v0.3.1 onward. You can use loops to define multiple copies of a resource, module, variable, property, or output. Use loops to avoid repeating syntax in your Bicep file and to dynamically set the number of copies to create during deployment. See [Quickstart: Create multiple resource instances in Bicep](./quickstart-loops.md) for a quickstart of how to use different `for` syntaxes to create multiple resource instances in Bicep.
 
 To use loops to create multiple resources or modules, each instance must have a unique value for the `name` property. You can use the index value or unique values in arrays or collections to create the names.
-
-### Training resources
-
-For step-by-step guidance about loops, see the [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/) module in Microsoft Learn.
 
 ## Loop syntax
 
@@ -457,3 +453,4 @@ Note in the preceding ARM JSON template, `languageVersion` must be set to `1.10-
 ## Next steps
 
 To learn how to create Bicep files, see [Bicep file structure and syntax](./file.md).
+

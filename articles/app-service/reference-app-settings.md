@@ -1,8 +1,8 @@
 ---
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
-ms.topic: conceptual
-ms.date: 03/28/2025
+ms.topic: reference
+ms.date: 02/26/2026
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
@@ -34,6 +34,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
 | `WEBSITE_HOSTNAME` | Read-only. Primary host name for the app. This setting doesn't account for custom host names. |
+| `WEBSITE_DEFAULT_HOSTNAME` | Read-only. The default host name for the app. This could be either in the original format `<sitename>.azurewebsites.net` or the unique hostname `<sitename>-<randomhash>.<region>.azurewebsites.net`. This setting is sticky and not swappable. |
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. |
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version that the app is using. |
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for concurrent WebSocket requests. For the `Standard` tier and higher, the value is `-1`, but there's still a per-VM limit based on your VM size. See [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits). |
@@ -48,11 +49,12 @@ The following environment variables are related to the app environment in genera
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring).<br/><br/>Example: `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name that you want. If a file share with the specified name doesn't exist, App Service creates it for you.<br/><br/>Example: `myapp123` |
+| `WEBSITE_BYOS_BLOB_DIRECT_IO` | Set to `false` by default. If enabled, all transactions will query the remote storage directly and caching will be bypassed. This setting is applied at the application level and therefore affects all blob shares mounted by the application.<br/><br/> Only relevant when using custom-mounted Azure Blob Storage. Applicable to Linux containers only (not applicable to Windows). |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). |
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). |
 | `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolution. |
 | `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolution. |
-| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`.<br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. |
+| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`. For Linux, the startup time limit must be between a minimum of `10` seconds, and a maximum of `1800` seconds. <br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. The time span for Windows Containers must be between a minimum of `00:01:00` - 1 minute, and maximum of `00:15:00` - 15 minutes. |
 
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED
@@ -85,7 +87,7 @@ The following table shows environment variable prefixes that App Service uses fo
 | `SERVICEBUSCONNSTR_` | Connection string to an instance of Azure Service Bus. |
 | `EVENTHUBCONNSTR_` | Connection string to an event hub in Azure Event Hubs. |
 | `DOCDBCONNSTR_` | Connection string to a database in Azure Cosmos DB. |
-| `REDISCACHECONNSTR_` | Connection string to a cache in Azure Cache for Redis. |
+| `REDISCACHECONNSTR_` | Connection string to a Redis cache. |
 | `FILESHARESTORAGE_` | Connection string to a custom file share. |
 
 ## Deployment
@@ -305,7 +307,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > | `WORDPRESS_ADMIN_EMAIL` | Deployment only | Not applicable | Not applicable | WordPress admin email. |
 > | `WORDPRESS_ADMIN_PASSWORD` | Deployment only | Not applicable | Not applicable | WordPress admin password. This setting is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [Reset your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). |
 > | `WORDPRESS_ADMIN_USER` | Deployment only | Not applicable | Not applicable|WordPress admin username. |
-> | `WORDPRESS_ADMIN_LOCALE_CODE` | Deployment only | Not applicable | Not applicable | Database username used to connect to WordPress. |
+> | `WORDPRESS_LOCALE_CODE` | Deployment only | `en_US` | Not applicable | WordPress localization code for site language. |
 
 ## Domain and DNS
 

@@ -12,6 +12,8 @@ ms.topic: overview
 
 # What is Azure Web Application Firewall?
 
+**Applies to:** :heavy_check_mark: Application Gateway :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic) :heavy_check_mark: CDN Standard from Microsoft (classic)
+
 Azure Web Application Firewall provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications increasingly encounter malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=b23e4db1-5007-4f42-ae55-3a564a4ab7d3]
@@ -23,7 +25,7 @@ Preventing such attacks in application code is challenging. It can require rigor
 A WAF solution can react to a security threat faster by centrally patching a known vulnerability, instead of securing each individual web application.
 
 > [!NOTE]
-> Azure Web Application Firewall is one of the services in the category of network security for Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Firewall](../firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [What is Azure network security?](../networking/security/network-security.md).
+> Azure Web Application Firewall is one of the services in the category of network security for Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Firewall](../firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [What is Azure network security?](../networking/security/network-security.md)
 
 ## Supported services
 

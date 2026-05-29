@@ -2,7 +2,7 @@
 title: Azure Resource Manager and Bicep files
 description: Azure Resource Manager and Bicep files for use with Recovery Services vaults and Azure Backup features
 ms.topic: sample
-ms.date: 01/31/2025
+ms.date: 06/03/2025
 ms.custom:
   - mvc
   - devx-track-bicep

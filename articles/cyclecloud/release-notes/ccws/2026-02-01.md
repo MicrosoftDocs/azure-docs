@@ -1,0 +1,40 @@
+---
+title: CycleCloud Workspace for Slurm - Release Notes 2026.02.01
+description: These release notes for Azure CycleCloud Workspace for Slurm 2026.02.01 summarize new features and bug fixes included in the release. 
+author: abatallas
+ms.date: 02/01/2026
+ms.author: padmalathas
+---
+
+# CycleCloud Workspace for Slurm version 2026.02.01
+
+Azure CycleCloud Workspace for Slurm 2026.02.01 was released as General Audience. This article provides you with information about:
+
+* Recent releases
+* Previews underway with known limitations (if applicable)
+* Known issues
+* Deprecated functionality (if applicable)
+
+The following release notes identify the new features and the open issues for the 2026.02.01 release of Azure CycleCloud Workspace for Slurm.
+
+The release notes are continuously updated. Open known issues that require a workaround are added when they're discovered. Carefully review the information in the release notes before deploying Azure CycleCloud Workspace for Slurm.
+
+This release corresponds to the software version:
+
+- **CycleCloud Workspace for Slurm version 2026.02.01** 
+
+## What's new in CycleCloud Workspace for Slurm version 2026.02.01?
+
+Azure CycleCloud Workspace for Slurm is updated regularly. Stay up to date with the latest announcements. 
+
+This release contains the following new features:
+
+* Use of CycleCloud Marketplace Image 8.8.2
+* Updates to Microsoft Entra ID utility scripts to support CycleCloud 8.8.2
+* Support for IP addresses in the Open OnDemand FQDN field
+  * Resolves known issue from release 2025.12.01
+* Support for Slurm 25.05.5
+
+## Known issues in this release
+
+- **Azure US Gov Only**: Marketplace deployment validation fails due to an incorrect API version. To mitigate this issue, refer: [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](../../how-to/ccws/deploy-with-cli.md).

@@ -2,15 +2,16 @@
 title: Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method for an Azure subscription.
 author: kennyday
-ms.reviewer: drjones
+ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/16/2025
-ms.author: drjones
+ms.date: 04/19/2026
+ms.author: souchak
 ms.custom:
 - references_regions
 - sfi-image-nochange
+service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
 # Add, update, or delete a payment method
@@ -35,11 +36,20 @@ The Reserve Bank of India has a [regulation for storing credit card information]
 
 If you get an error after you add a credit card, see [Troubleshoot a declined card](../troubleshoot-billing/troubleshoot-declined-card.md).
 
+> [!NOTE]
+> Additional information for SEPA Direct Debit users in Europe:
+> - SEPA Direct Debit is connected to the specific billing account where it is set up. If you have multiple billing accounts and want to use SEPA Direct Debit, you need to add this payment method separately to each account.
+> - If you have an MCA billing account type, you must have Billing account owner or Billing account contributor role to add or manage SEPA Direct Debit payment method. You can learn more about administrative roles [here](understand-mca-roles.md).
+
 <a id="addcard"></a>
 
 ## Manage pay-as-you-go credit cards
 
 The following sections apply to customers who have a Microsoft Online Subscription Program billing account. You can [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Subscription Program, payment methods are associated with individual Azure subscriptions.
+
+> [!NOTE]
+> Only the Account owner can manage the payment instrument for Microsoft Online Subscription Program pay-as-you-go subscriptions.
+> - If you need to allow another user to manage the payment instrument, you will need to transfer the subscription to the user. Find out more about subscription transfer [here](billing-subscription-transfer.md).
 
 ### Change the credit card for all subscriptions by adding a new credit card
 

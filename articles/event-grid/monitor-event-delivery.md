@@ -1,7 +1,7 @@
 ---
 title: View Azure Event Grid metrics and set alerts
 description: This article describes how to use the Azure portal to view metrics for Azure Event Grid topics and subscriptions, and create alerts on them. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2021
 ---
 

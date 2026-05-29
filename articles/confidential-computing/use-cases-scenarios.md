@@ -2,12 +2,11 @@
 title: Common Azure Confidential Computing Scenarios and Use Cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
-author: ju-shim
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+author: cynthn
+ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 11/04/2021
-ms.author: jushiman
+ms.author: cynthn
 # Customer intent: As a cloud architect, I want to implement confidential computing in my applications, so that I can ensure data privacy and security while meeting regulatory compliance amidst multiparty collaboration and sensitive data processing needs.
 ---
 # Confidential computing use cases

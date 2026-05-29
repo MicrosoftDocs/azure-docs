@@ -5,11 +5,12 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/29/2025
+ms.topic: concept-article
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.custom:
 - build-2025
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
@@ -47,7 +48,7 @@ You're given the following roles on the new billing account:
 
 You use your billing profile to track charges and Azure credits balance for your organization, similar to your Enterprise Agreement enrollment.
 
-- For more information about how to view credit balance for a billing profile, see [Track Azure credit balance for your billing profile](mca-check-azure-credits-balance.md).
+- For more information about how to view credit balance for a billing profile, see [Track Azure credit balance for your billing profile](../benefits/credits/mca-check-azure-credits-balance.md).
 - For more information about how to view charges for a billing profile, see [Understand the charges on your Microsoft Customer Agreement's invoice](../understand/review-customer-agreement-bill.md).
 
 ### View charges for a department

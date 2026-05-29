@@ -38,7 +38,7 @@ Follow the steps listed in section [Manage Users: Assign Users to Role](/azure/r
 > SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
 
 ### Step 2: FHIR server integration with samples
-Azure Health Data and AI Samples open source repo provides samples for [SMART on FHIR v1.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir) and [SMART on FHIR v2.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v2). The steps listed in the document enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+Azure Health Data and AI Samples open source repo provides samples for [SMART on FHIR v1.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v1) and [SMART on FHIR v2.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v2). The steps listed in the document enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples are used to demonstrate how Azure Health Data Services (AHDS) and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Microsoft Entra ID as the identity provider workflow.  
@@ -48,7 +48,7 @@ Azure Health Data and AI Samples open source repo provides samples for [SMART on
 The following lists the different scopes supported in SMART v1.0.0 and SMART v2.0.0. Please note that you cannot mix and match SMART v1.0.0 and SMART v.2.0.0 scopes in the same client app registration; you must choose one or the other. 
 
 #### SMART v1: 
-[SMART on FHIR v1.0.0 sample](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
+[SMART on FHIR v1.0.0 sample](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v1)
 
 
 Scopes:

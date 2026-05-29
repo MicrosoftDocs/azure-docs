@@ -1,7 +1,7 @@
----
+﻿---
 title: Move Azure Networking resources to new subscription or resource group
 description: Use Azure Resource Manager to move virtual networks and other networking resources to a new resource group or subscription.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 09/15/2025
 ---
@@ -30,7 +30,7 @@ To move a peered virtual network, you must first disable the virtual network pee
 
 ## Subnet links
 
-You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if an Azure Cache for Redis resource is deployed into a subnet, that subnet has a resource navigation link.
+You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if an Azure Databricks resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## Private endpoints
 
@@ -57,3 +57,4 @@ All other private-link resources don't support move.
 ## Next steps
 
 For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
+

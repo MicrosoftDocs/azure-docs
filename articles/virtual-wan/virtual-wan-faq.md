@@ -4,7 +4,7 @@ description: See answers to frequently asked questions about Azure Virtual WAN n
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: faq
-ms.date: 03/26/2025
+ms.date: 05/27/2026
 ms.author: cherylmc
 ms.custom:
   - devx-track-azurepowershell
@@ -74,6 +74,10 @@ No, each Azure Virtual Hub must have their own Firewall. The deployment of custo
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client. A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
+
+## <a name="linux-client-retirement"></a>Retirement of (Preview) Azure VPN Client for Linux
+
+The Azure VPN Client for Linux (Preview) is being retired on August 31, 2026. For more information, see the [Azure VPN Client for Linux (Preview) — Retirement Overview](azure-vpn-client-linux-retirement.md) article.
 
 ### For User VPN (point-to-site)- why is the P2S client pool split into two routes?
 
@@ -430,19 +434,11 @@ The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure thes
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
 ### What is the recommended hub address space during hub creation?
-The recommended address space for a Virtual WAN hub is **/23**. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
 
-The Virtual WAN hub automatically assigns subnets from the specified address space to various Azure services, including:
-
-- Virtual Hub Router
-- ExpressRoute
-- Site-to-site VPN
-- Point-to-site VPN
-- Azure Firewall
-
-For scenarios where Network Virtual Appliances (NVAs) are deployed inside the virtual hub, an additional subnet is allocated for the NVA instances. Typically, a **/28 subnet** is assigned for a small number of NVAs. However, if multiple NVAs are provisioned, a **/27 subnet** might be allocated.
-
-To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** during hub creation.
+The Virtual WAN hub address space **can't be modified after the hub is created**. Use the following information to select the proper hub address size for your deployment:
+* To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** or larger during hub creation.
+* If you are using an Azure Firewall within Virtual WAN, a minimum hub address space of **/22** is required to ensure Azure Firewall is able to allocate sufficient IP addresses to scale to maximum throughput.
+* If you are using Network Virtual Appliances in the Virtual WAN hub, the size of your Virtual WAN hub determines the number of usable IP addresses allocated to NVAs. See [NVA documentation](about-nva-hub.md#hubspace) for the mapping between hub address space and allocatable IP addresses to NVAs.
 
 ### Is there support for IPv6 in Virtual WAN?
 
@@ -609,6 +605,9 @@ We recommend aggregating the prefixes before advertising them over ExpressRoute 
 ### Can I use user-defined route tables on spoke Virtual Networks connected to Virtual WAN hub?
 
 Yes. The routes that Virtual WAN hub advertises to resources deployed in connected spoke Virtual Networks are routes of type Border Gateway Protocol (BGP). If a user-defined route table is associated to a subnet connected to Virtual WAN, the "Propagate Gateway Routes" setting **must** be set to "Yes"  for Virtual WAN to advertise  to resources deployed in that subnet. Azure's underlying software-defined networking platform uses the following algorithm to select routes based on the [Azure route selection algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
+
+###  Why do I face connectivity issues after advertising Azure routes back into Azure?
+If you plan to remove Azure BGP communities from virtual network and UDR routes, don't advertise these routes back into Azure, as this causes routing issues. We don't recommend advertising Azure routes back into Azure.
 
 ## Next steps
 

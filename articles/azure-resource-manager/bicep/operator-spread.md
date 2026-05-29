@@ -1,7 +1,7 @@
----
+﻿---
 title: Bicep spread operator
 description: Describes Bicep spread operator.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 10/30/2025
 ---
@@ -162,3 +162,4 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 - To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 - To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](./bicep-functions-any.md).
+

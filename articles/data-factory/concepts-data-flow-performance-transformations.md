@@ -3,7 +3,7 @@ title: Optimizing performance of transformations in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about optimizing performance of transformations in mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse

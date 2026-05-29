@@ -2,7 +2,7 @@
 title: Authenticate from an application - Azure Relay 
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Relay resources. 
 ms.topic: article
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 ---
 
 # Authenticate and authorize an application with Microsoft Entra ID to access Azure Relay entities 

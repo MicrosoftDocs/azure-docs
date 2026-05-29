@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 05/09/2024
+ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot runbook issues
@@ -52,13 +52,13 @@ do {
 ## It is no longer possible to use cmdlets from imported non-default modules in graphical PowerShell runbooks
 
 ### Issue
-When you import a PowerShell module you will not be able to use its cmdlets in graphical PowerShell runbooks.
+When you import a PowerShell module you won't be able to use its cmdlets in graphical PowerShell runbooks.
 
 ### Cause
-To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they cannot be used when authoring graphical PowerShell runbooks.
+To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they can't be used when authoring graphical PowerShell runbooks.
 
 ### Resolution
-There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VS Code for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
+There's no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VS Code for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
 
 
 ## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
@@ -83,7 +83,7 @@ We recommend that you revert to [1.8.0 version](https://www.powershellgallery.co
 
 ### Resolution
 
-Currently, we are working to deploy a fix to address this issue.
+Currently, we're working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -126,7 +126,7 @@ When creating new Automation jobs, you might experience a delay or failure of jo
 This is because of the high load from customers' runbooks using the Automation service in the West Europe region.
 
 ### Resolution
-Perform the following action if it is feasible as per your requirement and environment to reduce the chance of failure: 
+Perform the following action if it's feasible as per your requirement and environment to reduce the chance of failure: 
 
 - If you’re using the top of the hour for the job creation (at 12:00, 1:00, 2:00, and so on.), typically on the hour, or half hour, we recommend that you move the job start time to five minutes before or after the hour/half hour. This is because a most of the customers use the beginning of the hour for job execution which drastically increases the load on the service, while the load is relatively low at the other time slots.
 
@@ -142,7 +142,7 @@ get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-a
 
 ### Cause
 
-This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+This can happen when the Managed Identity (or other account used in the runbook) hasn't been granted any permissions to access the subscription.
 
 ### Resolution
 Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
@@ -165,7 +165,7 @@ The Azure Firewall on Azure Storage is enabled.
 
 ### Resolution
 
-Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
+Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](/azure/key-vault/general/network-security), or [Azure SQL](/azure/azure-sql/database/firewall-configure) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation isn't a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 
@@ -334,7 +334,7 @@ Get-AzVM : The client '<client-id>' with object id '<object-id> does not have au
    ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
 ```
 
-or like this one:
+Or like this one:
 
 ```error
 Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
@@ -768,7 +768,7 @@ Possible causes for this issue are:
 
 #### Not using a Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershell-runbook-managed-identity.md#assign-permissions-to-managed-identities) to ensure that you are using a Run As account to access Key Vault.
+Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershell-runbook-managed-identity.md#assign-permissions-to-managed-identities) to ensure that you're using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
@@ -784,10 +784,10 @@ Total Length of Runbook Parameter names and values exceeds the limit of 30,000 c
 ```
 
 ### Cause
-There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
+There's a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
 
 ### Resolution
-To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30,000 characters. 
+To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length doesn't exceed 30,000 characters. 
 
 
 ## Recommended documents
@@ -801,4 +801,5 @@ If you don't see your problem here or you're unable to resolve your issue, try o
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects you to the Azure community for answers, support, and experts.
-* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
+* If you plan to open a support case for an unresolved issue, collect the required diagnostic data before opening it. See [Data to collect when opening a case for Microsoft Azure Automation](collect-data-microsoft-azure-automation-case.md).
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

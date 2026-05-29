@@ -43,7 +43,9 @@ items:
     - name: Networking requirements
       href: device-update-networking.md
     - name: Components enumerator
-      href: components-enumerator.md   
+      href: components-enumerator.md
+    - name: Agent status API
+      href: device-update-agent-status.md
   - name: Updates and deployments
     items:
     - name: Import updates
@@ -60,6 +62,8 @@ items:
       href: device-update-proxy-updates.md
     - name: Multi-step updates
       href: device-update-multi-step-updates.md
+    - name: Delta updates
+      href: delta-updates.md
     - name: Region mapping for scan and failover
       href: device-update-region-mapping.md  
   - name: Diagnostic features
@@ -97,8 +101,8 @@ items:
   - name: Create a log collection operation
     href: device-update-log-collection.md
     displayName: Azure CLI, az iot, az iot du
-  - name: Use delta updates
-    href: delta-updates.md
+  - name: Deploy delta updates
+    href: deploy-delta-updates.md
   - name: Use related files
     href: related-files.md
   - name: Use TLS downloads
@@ -156,8 +160,6 @@ items:
           href: ../iot-edge/index.yml
         - name: Azure Maps
           href: ../azure-maps/index.yml
-        - name: Time Series Insights
-          href: ../time-series-insights/index.yml
     - name: Terraform modules
       items:
       - name: Device Update account resource

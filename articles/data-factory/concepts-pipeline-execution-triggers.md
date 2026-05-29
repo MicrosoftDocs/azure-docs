@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/08/2025
 ms.custom: synapse
 ---

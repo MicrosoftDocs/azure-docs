@@ -19,6 +19,9 @@ The Azure Migrate appliance is a lightweight tool that discovers on-premises ser
 
 To use these features, you add server and guest credentials in the appliance configuration manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
+>[!IMPORTANT]
+> In addition to configuring least‑privileged credentials for the Azure Migrate appliance, ensure that users are assigned the appropriate Azure Migrate built‑in roles in Azure. These roles provide the minimum required permissions for discovery, assessment, and migration activities. [Learn more](prepare-azure-accounts.md).
+
 ## Discovery of the VMware estate
 
 To discover the basic settings of servers running in the VMware estate, you need the following permissions.
@@ -117,7 +120,7 @@ For quick discovery of Windows servers, create a Windows user account that belon
 
 The guest user account needs permission to access the **CIMV2** namespace and its sub-namespaces in the **WMI Control** item in Control Panel. To set the access, use the following steps:
 
-1. On the target Windows server, open the **Start** menu, search for **Run**, and then select it.
+1. On the target Windows server, go to the **Start** menu, search for **Run**, and then select it.
 
 1. In the **Run** dialog, type `wmimgmt.msc` and then press the Enter key.
   

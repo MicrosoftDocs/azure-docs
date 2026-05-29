@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 03/19/2026
 ms.author: primittal
 ---
 
@@ -66,6 +66,9 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
 - CSP subscriptions
 - Microsoft Azure Sponsorship subscriptions (offer number: MS-AZR-0036P)
+
+> [!NOTE]
+> Reservations may be applied to eligible resources running in Sponsorship-backed subscriptions; however, Azure Sponsorship credits cannot be used to purchase Reservations.
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 

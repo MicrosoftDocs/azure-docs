@@ -1,5 +1,5 @@
 ---
-author: ju-shim
+author: cynthn
 ms.service: azure-virtual-machine-scale-sets
 ms.topic: include
 ms.date: 11/09/2018

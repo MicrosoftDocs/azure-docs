@@ -1,9 +1,9 @@
----
+﻿---
 title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/01/2025
+ms.date: 12/22/2025
 ---
 
 # User-defined data types in Bicep
@@ -143,7 +143,13 @@ The valid type expressions include:
 - Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
-    type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
+    type oneOfSeveralObjects = {
+      foo: 'bar'
+    } | {
+      fizz: 'buzz'
+    } | {
+      snap: 'crackle'
+    }
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
@@ -476,3 +482,4 @@ Unlike user-defined data types, resource-derived types are checked by Bicep when
 ## Related content
 
 For a list of the Bicep data types, see [Data types](./data-types.md).
+

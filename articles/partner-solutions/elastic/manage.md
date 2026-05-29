@@ -1,6 +1,8 @@
 ---
 title: Manage settings for your Elastic resource in the Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource by using the Azure portal.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: how-to
 zone_pivot_groups: elastic-resource-type
 ms.date: 07/30/2025
@@ -218,6 +220,20 @@ To view the list of resources emitting logs to Elastic, select **Elastic deploym
 
 ## Monitor multiple subscriptions
 
+### Prerequisites
+
+- To perform these actions, you must have both of the following Azure permissions:
+
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for Elastic (Elastic.Observability) must be registered in the target subscription.
+
+### Add subscriptions 
+
+> [!IMPORTANT]
+> When you link a subscription to an Elastic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+
 To monitor multiple subscriptions:
 
 1. Select **Elastic deployment configuration** > **Monitored Subscriptions**.
@@ -238,6 +254,9 @@ To monitor multiple subscriptions:
 Once the subscription is added, the status changes to *Active*.
 
 ### Remove subscriptions
+
+> [!IMPORTANT]
+> When you unlink a subscription from an Elastic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
 
 To unlink subscriptions from an Elastic resource:
 
@@ -469,4 +488,4 @@ You can also request support in the Azure portal from the [resource overview](#r
 ## Related content
 
 - [What is Azure private link?](../../private-link/private-link-overview.md)
-
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)

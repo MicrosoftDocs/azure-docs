@@ -7,10 +7,12 @@ ms.author: danzhang
 ms.date: 03/18/2025
 ms.service: azure-synapse-analytics
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Azure Synapse Analytics connectivity settings
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article explains how to configure connectivity settings in Azure Synapse Analytics, including both dedicated SQL pools and serverless SQL pools where applicable.
 

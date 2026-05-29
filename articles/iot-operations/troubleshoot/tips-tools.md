@@ -9,11 +9,26 @@ ms.date: 01/27/2025
 
 # Tips and tools for troubleshooting your Azure IoT Operations instance
 
-This article describes how to use some common tools when you're learning, exploring, or troubleshooting your Azure IoT Operations instances. These tools are in addition to the capabilities provided by the Azure portal, Azure CLI, operations experience web UI, and [observability resources](../configure-observability-monitoring/howto-configure-observability.md).
+This article describes how to use some common tools when you're learning, exploring, or troubleshooting your Azure IoT Operations instances. These tools are in addition to the capabilities provided by the Azure portal, Azure CLI, operations experience web UI, and [observability resources](../deploy-iot-ops/howto-configure-observability.md).
 
 ## Kubernetes tools
 
 Azure IoT Operations components run in a standard Kubernetes cluster. You can use the `kubectl` and `k9s` CLI tools to interact with and manage your cluster.
+
+### Manage components using Kubernetes deployment manifests
+
+> [!IMPORTANT]
+> The use of Kubernetes deployment manifests is not supported in production environments and should only be used for debugging and testing.
+
+In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
+
+However, in a debug or test environment you can  manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature has some limitations:
+
+- Unless you enable resource sync in Azure IoT Operations using `az iot ops enable-rsync` command, changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
+
+> [!IMPORTANT]
+> In production, the cloud is always the source of truth. Always create and modify resources through Azure—by using the operations experience, the Azure portal, the Azure CLI, or ARM/Bicep templates. Creating resources directly on the cluster or editing existing Kubernetes custom resources can cause the cloud and edge to go out of sync and isn't supported in production environments.
 
 ### `kubectl`
 
@@ -325,3 +340,17 @@ Make sure that MQTT Explorer has at least the `#` topic configured:
 After you connect, you can see messages in the topics you subscribed to and publish messages:
 
 :::image type="content" source="media/tips-tools/mqtt-explorer-subscription.png" alt-text="Screenshot that shows the MQTT Explorer subscribed to Azure IoT Operations topics.":::
+
+## Tips
+
+Here are some additional tips to help you work with your Azure IoT Operations instance:
+
+### Find the custom location of your Azure IoT Operations instance
+
+To find the custom location associated with your Azure IoT Operations instance, use the following command:
+
+```azurecli
+az iot ops show --name <YOUR_INSTANCE_NAME> --resource-group <YOUR_RESOURCE_GROUP> --query "extendedLocation.name" --output tsv
+```
+
+You can also find the custom location in the Azure portal on the instance overview page in the **Extended location** field.

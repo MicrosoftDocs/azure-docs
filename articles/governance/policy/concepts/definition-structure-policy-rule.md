@@ -2,7 +2,7 @@
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
 ms.date: 03/19/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure policy rule
@@ -81,6 +81,8 @@ A condition evaluates whether a value meets certain criteria. The supported cond
 - `"exists": "bool"`
 
 For `less`, `lessOrEquals`, `greater`, and `greaterOrEquals`, if the property type doesn't match the condition type, an error is thrown. String comparisons are made using `InvariantCultureIgnoreCase`.
+
+When using the `contains` and `notContains` conditions, the wildcard character (`*`) cannot be provided in the value.
 
 When using the `like` and `notLike` conditions, you provide a wildcard character (`*`) in the value. The value shouldn't have more than one wildcard character.
 
@@ -661,6 +663,16 @@ The following functions are only available in policy rules:
        "notIn": "[split(requestContext().identity.acrs, ',')]"
       }
     ```
+
+  - `http: //schemas.microsoft.com/identity/claims/objectidentifier`: returns the user (or object) ID associated with the request.
+    ```json
+       "value": "[tryGet(requestContext().identity, 'http: //schemas.microsoft.com/identity/claims/objectidentifier')]",
+       "in": ['userId']
+    ```
+    
+> [!WARNING]
+> When you use the `requestContext().identity` function, the policy engine marks the policy as `NotApplicable` for compliance evaluation/scans. As a result, compliance results for that policy show as `NotApplicable`, but enforcement of effects such as `Deny`, `DeployIfNotExists`, and `Modify` still occurs at request time.
+
 
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).

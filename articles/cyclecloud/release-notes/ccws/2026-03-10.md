@@ -1,0 +1,39 @@
+---
+title: CycleCloud Workspace for Slurm - Release Notes 2026.03.10
+description: These release notes for Azure CycleCloud Workspace for Slurm 2026.03.10 summarize new features and bug fixes included in the release. 
+author: abatallas
+ms.date: 02/01/2026
+ms.author: padmalathas
+---
+
+# CycleCloud Workspace for Slurm version 2026.03.10
+
+Azure CycleCloud Workspace for Slurm 2026.03.10 was released as General Audience. This article provides you with information about:
+
+* Recent releases
+* Previews underway with known limitations (if applicable)
+* Known issues
+* Deprecated functionality (if applicable)
+
+The following release notes identify the new features and the open issues for the 2026.03.10 release of Azure CycleCloud Workspace for Slurm.
+
+The release notes are continuously updated. Open known issues that require a workaround are added when they're discovered. Carefully review the information in the release notes before deploying Azure CycleCloud Workspace for Slurm.
+
+This release corresponds to the software version:
+
+- **CycleCloud Workspace for Slurm version 2026.03.10** 
+
+## What's new in CycleCloud Workspace for Slurm version 2026.03.10?
+
+Azure CycleCloud Workspace for Slurm is updated regularly. Stay up to date with the latest announcements. 
+
+This release contains the following new features:
+
+* Support for CycleCloud 8.8.3
+* Support for Open OnDemand 1.1.4
+* ThinLinc integration with Open OnDemand
+* Tags for the Open OnDemand virtual machine
+
+## Known issues in this release
+
+- **Azure US Gov Only**: Marketplace deployment validation fails due to an incorrect API version. To mitigate this issue, refer: [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](../../how-to/ccws/deploy-with-cli.md).

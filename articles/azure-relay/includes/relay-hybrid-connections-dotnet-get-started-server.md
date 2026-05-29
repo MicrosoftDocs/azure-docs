@@ -2,7 +2,7 @@
 author: clemensv
 ms.service: azure-relay
 ms.topic: include
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 ms.author: samurp
 ---
 

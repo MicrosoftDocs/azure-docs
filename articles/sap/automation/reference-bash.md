@@ -1,19 +1,16 @@
 ---
-title: SAP Deployment Automation Framework Bash reference | Microsoft Docs
+title: SAP Deployment Automation Framework shell script reference
 description: Use shell scripts to deploy SAP Deployment Automation Framework components.
-services: virtual-machines-windows
-author: kimforss
-manager: kimforss
-keywords: 'Azure, SAP'
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.topic: article
-ms.date: 11/17/2021
+ms.topic: concept-article
+ms.date: 04/21/2026
 ms.author: kimforss
-# Customer intent: As a cloud administrator, I want to use shell scripts to automate the deployment of SAP components, so that I can streamline control plane and workload zone operations efficiently.
+author: kimforss
+# Customer intent: As a cloud administrator, I want to use shell scripts to automate the deployment of SAP components so that I can streamline control plane and workload zone operations efficiently.
 ---
 
-# Use SAP Deployment Automation Framework shell scripts
+# SAP Deployment Automation Framework shell script reference
 
 You can deploy all [SAP Deployment Automation Framework](deployment-framework.md) components by using shell scripts.
 
@@ -41,13 +38,11 @@ Remove the SAP system by using the [remover](bash/remover.md) shell script.
 
 ## Other operations
 
-Set the deployment credentials by using the
-[Set SPN secrets](bash/set-secrets.md) shell script.
+Set the deployment credentials by using the [Set SPN secrets](bash/set-secrets.md) shell script.
 
-Update the Terraform state file by using the
-[Update Terraform state](bash/advanced-state-management.md) shell script.
+Update the Terraform state file by using the [Update Terraform state](bash/advanced-state-management.md) shell script.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Deploy the control plane by using Bash](bash/deploy-controlplane.md)
+- [Deploy the control plane by using Bash](bash/deploy-controlplane.md)
+- [SAP Deployment Automation Framework](deployment-framework.md)

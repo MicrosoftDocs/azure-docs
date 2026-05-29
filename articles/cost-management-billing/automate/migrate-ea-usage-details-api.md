@@ -5,7 +5,7 @@ description: This article has information to help you migrate from the EA Usage 
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 07/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

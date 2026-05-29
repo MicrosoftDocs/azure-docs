@@ -1,7 +1,7 @@
----
+﻿---
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 07/23/2025
 ---
@@ -135,3 +135,4 @@ The following example shows a virtual network and subnet that are both defined a
 
 * To learn about creating ARM templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).
+

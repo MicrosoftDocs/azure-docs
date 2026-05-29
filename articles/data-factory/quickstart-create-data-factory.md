@@ -58,7 +58,7 @@ When you use the Azure portal to create a data factory, the creation options are
    - Select an existing resource group from the dropdown list.
    - Select **Create new**, and then enter the name of a new resource group.
 
-   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#resource-groups).
+   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#resource-groups)
 
 1. For **Region**, select a location for the data factory.
 

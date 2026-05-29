@@ -4,7 +4,7 @@ description: This article describes consent management in Azure Maps as it appli
 author: pbrasil
 ms.author: peterbr
 ms.date: 11/19/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: manage-account
 ---

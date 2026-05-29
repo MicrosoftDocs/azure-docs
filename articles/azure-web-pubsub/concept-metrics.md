@@ -3,7 +3,7 @@ title: Metrics in Azure Web PubSub service
 description: Metrics in Azure Web PubSub service.
 author: zackliu
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/08/2022
 ms.author: chenyl
 ms.custom:

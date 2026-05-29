@@ -6,7 +6,7 @@ author: kgaddam10
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 02/25/2026
 ms.custom: references_regions
 ms.author: kavitagaddam
 ---
@@ -302,7 +302,7 @@ Bug is now fixed and Resource will be updated if it matches the Etag header. For
 
 ## Next steps
 
-For information about the features and bug fixes in Azure Health Data Services (FHIR service, DICOM service, and MedTech service), see
+For information about the features and bug fixes in Azure Health Data Services (FHIR and DICOM services), see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure Health Data Services](../release-notes.md)

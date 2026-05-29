@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Configure routing preference for a virtual machine'
 description: Learn how to create a virtual machine with a public IP address with routing preference choice using the Azure portal.
-ms.date: 12/11/2024
+ms.date: 02/24/2026
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -43,25 +43,45 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-## Create virtual machine with a public IP address
-
 # [Azure portal](#tab/azure-portal)
 
-In this section, you create a virtual machine and public IP address in the Azure portal. During the public IP address configuration, you select **Internet** for routing preference.
+## Create a resource group
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the portal search box, enter **Virtual machine**. In the search results, select **Virtual machines**.
+2. In the portal search box, enter **Resource groups**. In the search results, select **Resource groups**.
 
-3. In **Virtual machines**, select **+ Create**, then **+ Virtual machine**.
+3. Select **+ Create**.
 
-4. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information.
+4. In the **Basics** tab of **Create a resource group**, enter, or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**.</br> Enter **TutorVMRoutePref-rg**. Select **OK**. |
+    | Resource group | Enter **TutorVMRoutePref-rg**. |
+    | **Resource details** |   |
+    | Region | Select **(US) West US 2**. |
+
+5. Select **Review + create**.
+
+6. Select **Create**.
+
+## Create virtual machine with a public IP address
+
+In this section, you create a virtual machine and public IP address in the Azure portal. During the public IP address configuration, you select **Internet** for routing preference.
+
+1. In the portal search box, enter **Virtual machine**. In the search results, select **Virtual machines**.
+
+2. In **Virtual machines**, select **+ Create**, then **+ Virtual machine**.
+
+3. In the **Basics** tab of **Create a virtual machine**, enter, or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorVMRoutePref-rg**. |
     | **Instance details** |   |
     | Virtual machine name | Enter **myVM**. |
     | Region | Select **(US) West US 2**. |
@@ -77,12 +97,14 @@ In this section, you create a virtual machine and public IP address in the Azure
     | Password | Enter a password. |
     | Confirm password | Reenter password. |
     | **Inbound port rules** |
-    | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Leave the default of **RDP (3389)**.</br> _**Opening port 3389 from the internet is not recommended for production workloads**_. |
+    | Public inbound ports | Select **None**. |
 
-5. Select **Next: Disks** then **Next: Networking**, or select the **Networking** tab.
+    > [!NOTE]
+    > All public inbound ports are closed for this virtual machine. To manage your virtual machines, deploy Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion from the Azure portal](../../bastion/quickstart-host-portal.md).
 
-6. In the networking tab, enter or select the following information.
+4. Select **Next: Disks** then **Next: Networking**, or select the **Networking** tab.
+
+5. In the networking tab, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -91,9 +113,9 @@ In this section, you create a virtual machine and public IP address in the Azure
     | Subnet | Leave the default of **(new) default (10.1.0.0/24)**. |
     | Public IP | Select **Create new**.</br> In **Name**, enter **myPublicIP**.</br> In **Routing preference**, select **Internet**.</br> In **Availability zone**, select **Zone 1**.</br> Select **OK**. |
 
-7. Select **Review + create**.
+6. Select **Review + create**.
 
-8. Select **Create**.
+7. Select **Create**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -108,6 +130,19 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --name TutorVMRoutePref-rg \
     --location westus2
 ```
+
+## Create a network security group
+
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The default rules in the network security group deny all inbound access from the internet.
+
+```azurecli-interactive
+az network nsg create \
+    --resource-group TutorVMRoutePref-rg \
+    --name myNSG
+```
+
+> [!NOTE]
+> All public inbound ports are closed for this virtual machine. To manage your virtual machines, deploy Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion from the Azure portal](/azure/bastion/quickstart-host-portal).
 
 ## Create a public IP address
 
@@ -132,6 +167,7 @@ az vm create \
 --name myVM \
 --resource-group TutorVMRoutePref-rg \
 --public-ip-address myPublicIP \
+--nsg myNSG \
 --size Standard_D2a_v4 \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
 --admin-username azureuser
@@ -151,6 +187,23 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 New-AzResourceGroup -Name 'TutorVMRoutePref-rg' -Location 'westus2'
 
 ```
+
+## Create a network security group
+
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The default rules in the network security group deny all inbound access from the internet.
+
+```azurepowershell-interactive
+## Create network security group. ##
+$nsg = @{
+    Name = 'myNSG'
+    ResourceGroupName = 'TutorVMRoutePref-rg'
+    Location = 'westus2'
+}
+New-AzNetworkSecurityGroup @nsg
+```
+
+> [!NOTE]
+> All public inbound ports are closed for this virtual machine. To manage your virtual machines, deploy Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion from the Azure portal](/azure/bastion/quickstart-host-portal).
 
 ## Create a public IP address
 
@@ -189,6 +242,7 @@ $vm = @{
     Location = 'West US 2'
     Name = 'myVM'
     PublicIpAddressName = 'myPublicIP'
+    SecurityGroupName = 'myNSG'
 }
 New-AzVM @vm
 ```

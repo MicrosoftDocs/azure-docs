@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create an Azure API Center Using the VS Code Extension
 description: Learn how to quickly create an Azure API Center resource using the Azure API Center extension for Visual Studio Code. Use the extension to build, register, govern, and discover your APIs.
-author: dlepow
-ms.author: danlep
+
+
 ms.date: 06/25/2025
 ms.topic: quickstart
 ms.service: azure-api-center

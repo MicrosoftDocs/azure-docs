@@ -3,7 +3,7 @@ title: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 description: Learn how to use a solution template to migrate data from Amazon S3 by using an external control table to store a partition list on AWS S3 with Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ms.collection:
@@ -20,6 +20,8 @@ Use the templates to migrate petabytes of data consisting of hundreds of million
 
  > [!NOTE]
  > If you want to copy small data volume from AWS S3 to Azure (for example, less than 10 TB), it's more efficient and easy to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than what you need.
+
+If you plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws), which includes [migration guides](/azure/migration/migrate-storage-from-aws#migration-guides) that might align to your use case.
 
 ## About the solution templates
 

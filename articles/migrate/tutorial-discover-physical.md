@@ -8,6 +8,10 @@ ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.collection:
+  - migration
+  - aws-to-azure
+  - gcp-to-azure
 ms.custom:
   - mvc
   - subject-rbac-steps
@@ -291,7 +295,7 @@ Select **Start discovery** to begin discovering the validated servers. After dis
 ### Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
-1.	Open the Azure Migrate dashboard.
+1.	Go to the Azure Migrate dashboard.
 2.	In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for discovered servers.
 
 ## View License support status

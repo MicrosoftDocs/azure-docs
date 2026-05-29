@@ -99,7 +99,7 @@ Follow these steps to check your access
 
 ### Remove access
 1.	Azure Migrate owner can only remove Azure Migrate Decide and Plan Expert and Azure Migrate Execute Expert role assignments. Subscription or resource group owners can remove the Azure Migrate owner role assignment. 
-2.	Open Access control (IAM) at scope subscription or resource group. 
+2.	Go to Access control (IAM) at scope subscription or resource group. 
 3.	Select role assignments
 4.	Select the role assignment that you would like to remove
 :::image type="content" source="./media/prepare-azure-accounts/remove-access.png" alt-text="Azure portal Access control IAM page showing role assignments table with a selected user row highlighted in blue and a red Delete button prominently displayed in the top toolbar, demonstrating the process to remove role assignments from users in the resource management interface." lightbox="./media/prepare-azure-accounts/remove-access.png":::

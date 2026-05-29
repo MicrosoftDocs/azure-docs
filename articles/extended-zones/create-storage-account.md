@@ -1,57 +1,56 @@
 ---
-title: Deploy a storage account in an Azure Extended Zone
-description: Learn how to deploy a storage account in an Azure Extended Zone.
-author: halkazwini
-ms.author: halkazwini
+title: Deploy a Storage Account in an Azure Extended Zone
+description: Learn how to deploy a storage account in an Azure extended zone.
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 02/25/2026
 ---
 
-# Create a storage account in an Azure Extended Zone
+# Create a storage account in an Azure extended zone
 
-In this article, you learn how to create an Azure storage account in an Extended Zone.
+In this article, you learn how to create an Azure storage account in an extended zone.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
-- Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- Access to an extended zone. For more information, see [Request access to an Azure extended zone](request-access.md).
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-## Create a storage account in an Extended Zone
+## Create a storage account in an extended zone
 
-In this section, you create a storage account in an Extended Zone.
+In this section, you create a storage account in an extended zone.
 
-1. In the search box at the top of the portal, enter ***storage***. Select **Storage accounts** from the search results.
+1. In the search box at the top of the portal, enter **storage**. Select **Storage accounts** from the search results.
 
     :::image type="content" source="./media/create-storage-account/portal-search.png" alt-text="Screenshot that shows how to search for storage accounts in the Azure portal.":::
 
-1. In the **Storage accounts** page, select **+ Create**.
+1. On the **Storage accounts** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create a storage account**, enter, or select the following information:
+1. On the **Basics** tab on the **Create a storage account** pane, enter or select the following information.
 
     | Setting | Value |
     | --- | --- |
     | **Project details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> In **Name**, enter **myResourceGroup**.</br> Select **OK**. |
     | **Instance details** |  |
     | Storage account name | Enter a unique name. |
-    | Region* | Select the target Extended Zone's **Parent Region (its *homeLocation*)** and then select **Deploy to an Azure Extended Zone**. </br> Under  **Azure Extended Zones**, select the respective **Extended Zone**. </br> Select the **Select** button. |
-    | Performance | **Premium** is the only available option for an Extended Zone. |
+    | Region* | Select the target extended zone's parent region (its `homeLocation`), and then select **Deploy to an Azure Extended Zone**.</br> Under **Azure Extended Zones**, select the respective extended zone.</br> Choose **Select**. |
+    | Performance | **Premium** is the only available option for an extended zone. |
     | Premium account type | Select **Page blobs**. Other available options are **Block blobs** and **File shares**. |
-    | Redundancy | **Locally Redundant Storage (LRS)** is the only available option for an Extended Zone. |
+    | Redundancy | **Locally-redundant storage (LRS)** is the only available option for an extended zone. |
 
-     *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
+     *If no extended zone is paired with the selected region, you can't select an extended zone location.
 
-    :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab of creating a storage account in an Azure Extended Zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
+    :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab used to create a storage account in an Azure extended zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
 
     > [!NOTE]
-    > Azure Extended Zones only supports premium storage accounts with locally-redundant storage (LRS) redundancy.
+    > Azure Extended Zones supports only premium storage accounts with locally redundant storage redundancy.
 
 1. Select **Review + create**.
 
@@ -59,18 +58,18 @@ In this section, you create a storage account in an Extended Zone.
 
 ## Clean up resources
 
-When no longer needed, delete the storage account and its resource group:
+When you no longer need the storage account, delete it and its resource group.
 
-1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
+1. In the search box at the top of the portal, enter **myResourceGroup**. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
-1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+1. On the **Delete a resource group** pane, enter **myResourceGroup**, and then select **Delete**.
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Related content
 
-- [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
-- [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
+- [Deploy a virtual machine in an extended zone](deploy-vm-portal.md)
+- [Deploy an Azure Kubernetes Service (AKS) cluster in an extended zone](deploy-aks-cluster.md)
 - [Frequently asked questions](faq.md)

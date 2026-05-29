@@ -4,7 +4,7 @@ description: The reference describes the Azure Web PubSub-supported WebSocket su
 author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.topic: reference
 ms.date: 11/08/2021
 ---
 

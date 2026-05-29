@@ -1,18 +1,18 @@
 ---
 title: Azure Functions networking options
-description: An overview of all networking options available in Azure Functions.
-author: ggailey777
-ms.topic: conceptual
-ms.date: 11/07/2024
-ms.author: cachai
+description: Explore all supported Azure Functions networking features, including IP restrictions, private and service endpoints, and virtual network integration. 
+#customer intent: As a developer, I want to integrate my Azure Function app with a virtual network so that my app can securely access private resources.
+ms.topic: concept-article
+ms.date: 03/03/2026
 ms.custom:
   - build-2024
   - sfi-image-nochange
+zone_pivot_groups: functions-hosting-plan
 ---
 
 # Azure Functions networking options
 
-This article describes the networking features available across the hosting options for Azure Functions. The following networking options can be categorized as inbound and outbound networking features. Inbound features allow you to restrict access to your app, whereas outbound features allow you to connect your app to resources secured by a virtual network and control how outbound traffic is routed. 
+This article describes the networking features available across the hosting options for Azure Functions. The following networking options can be categorized as inbound and outbound networking features. Inbound features allow you to restrict access to your app, whereas outbound features allow you to connect your app to resources secured by a virtual network and control how outbound traffic is routed.
 
 The [hosting models](functions-scale.md) have different levels of network isolation available. Choosing the correct one helps you meet your network isolation requirements.
 
@@ -22,39 +22,42 @@ The [hosting models](functions-scale.md) have different levels of network isolat
 
 Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
 
-*  ARM templates, Bicep files, and Terraform templates:
-    * [Private HTTP triggered function app](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
-    * [Private Event Hubs triggered function app](https://github.com/Azure-Samples/function-app-with-private-eventhub)
+* ARM templates, Bicep files, and Terraform templates:
+  * [Private HTTP triggered function app](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
+  * [Private Event Hubs triggered function app](https://github.com/Azure-Samples/function-app-with-private-eventhub)
 * ARM templates only:
-    * [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
-    * [Azure function app with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
+  * [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
+  * [Azure function app with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
 * Tutorials:
-    * [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md)
-    * [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
-    * [Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
+  * [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md)
+  * [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+  * [Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
 
-## Inbound networking features
+## Inbound access restrictions
 
-The following features let you filter inbound requests to your function app.
+<a name="inbound-networking-features"></a>You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
-### Inbound access restrictions
-
-You can use access restrictions to define a priority-ordered list of IP addresses that are allowed or denied access to your app. The list can include IPv4 and IPv6 addresses, or specific virtual network subnets using [service endpoints](#use-service-endpoints). When there are one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
-
-Access restrictions are available in the [Flex Consumption plan](flex-consumption-plan.md), [Elastic Premium](functions-premium-plan.md), [Consumption](consumption-plan.md), and [App Service](dedicated-plan.md).
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,consumption-plan"
 
 > [!NOTE]
 > With network restrictions in place, you can deploy only from within your virtual network, or when you put the IP address of the machine you're using to access the Azure portal on the **Safe Recipients** list. However, you can still manage the function using the portal.
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
-### Private endpoints
+::: zone-end
+::: zone pivot="container-apps"
+
+When running on [Container Apps](./functions-container-apps-hosting.md), inbound access is managed through the Container Apps environment ingress configuration rather than App Service access restrictions. For more information, see [IP restrictions in Azure Container Apps](../container-apps/ip-restrictions.md).
+
+::: zone-end
+
+## <a name="private-endpoints"></a>Private endpoints (inbound)
 
 [!INCLUDE [functions-private-site-access](../../includes/functions-private-site-access.md)]
 
 To call other services that have a private endpoint connection, such as storage or service bus, be sure to configure your app to make [outbound calls to private endpoints](#private-endpoints). For more details on using private endpoints with the storage account for your function app, visit [restrict your storage account to a virtual network](#restrict-your-storage-account-to-a-virtual-network).
 
-### Service endpoints
+## <a name="service-endpoints"></a>Service endpoints (inbound)
 
 Using service endpoints, you can restrict many Azure services to selected virtual network subnets to provide a higher level of security. Regional virtual network integration enables your function app to reach Azure services that are secured with service endpoints. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration. Follow these steps to access a secured service endpoint:
 
@@ -63,38 +66,48 @@ Using service endpoints, you can restrict many Azure services to selected virtua
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-#### Use Service Endpoints
+### Use Service Endpoints
 
-To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
+To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to.
 
 If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you selected, they're automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
 
-If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app is configured for service endpoints, which you enable later on the subnet. 
+If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app is configured for service endpoints, which you enable later on the subnet.
 
 ![Screenshot of the "Add IP Restriction" pane with the Virtual Network type selected.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules. 
+You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules.
 
 To learn how to set up service endpoints, see [Establish Azure Functions private site access](functions-create-private-site-access.md).
 
-## Outbound networking features
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
 
-You can use the features in this section to manage outbound connections made by your app.
-
-### Virtual network integration
+## <a name="virtual-network-integration"></a>Virtual network integration (outbound)
 
 This section details the features that Functions supports to control data outbound from your app.
 
-Virtual network integration gives your function app access to resources in your virtual network. Once integrated, your app routes outbound traffic through the virtual network. This allows your app to access private endpoints or resources with rules allowing traffic from only select subnets. When the destination is an IP address outside of the virtual network, the source IP will still be sent from the one of the addresses listed in your app's properties, unless you've configured a NAT Gateway.
+Virtual network integration gives your function app access to resources in your virtual network. Once integrated, your app routes outbound traffic through the virtual network. This allows your app to access private endpoints or resources with rules allowing traffic from only select subnets. When the destination is an IP address outside of the virtual network, the source IP will still be sent from one of the addresses listed in your app's properties, unless you've configured a NAT Gateway.
+
+::: zone-end
+::: zone pivot="flex-consumption-plan,premium-plan,container-apps"
+
+Azure Functions supports regional virtual network integration, which is the recommended approach. To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
+
+::: zone-end
+::: zone pivot="dedicated-plan"
 
 Azure Functions supports two kinds of virtual network integration:
 
-* [Regional virtual network integration](#regional-virtual-network-integration) for apps running on the [Flex Consumption](./flex-consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), [Dedicated (App Service)](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md) hosting plans (recommended)
-* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md) for apps running on the [Dedicated (App Service)](./dedicated-plan.md) hosting plan
+* [Regional virtual network integration](#regional-virtual-network-integration) (recommended)
+* [Gateway-required virtual network integration](../app-service/configure-gateway-required-vnet-integration.md)
 
 To learn how to set up virtual network integration, see [Enable virtual network integration](#enable-virtual-network-integration).
 
-### Regional virtual network integration
+::: zone-end
+
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
+
+## <a name="regional-virtual-network-integration"></a>Regional virtual network integration (outbound)
 
 Using regional virtual network integration enables your app to access:
 
@@ -103,7 +116,7 @@ Using regional virtual network integration enables your app to access:
 * Service endpoint secured services.
 * Resources across Azure ExpressRoute connections.
 * Resources across peered connections, which include Azure ExpressRoute connections.
-* Private endpoints 
+* Private endpoints.
 
 When you use regional virtual network integration, you can use the following Azure networking features:
 
@@ -111,36 +124,47 @@ When you use regional virtual network integration, you can use the following Azu
 * **[Route tables (UDRs)](#routes)**: You can place a route table on the integration subnet to send outbound traffic where you want.
 
 > [!NOTE]
-> When you route all of your outbound traffic into your virtual network, it's subject to the NSGs and UDRs that are applied to your integration subnet. When virtual network integrated, your function app's outbound traffic to public IP addresses is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
-> 
+> When you route all of your outbound traffic into your virtual network, it's subject to the NSGs and UDRs that are applied to your integration subnet. When virtual network is integrated, your function app's outbound traffic to public IP addresses is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
+>
 > Regional virtual network integration isn't able to use port 25.
 
-Considerations for the [Flex Consumption](./flex-consumption-plan.md) plan:
+::: zone-end
+::: zone pivot="flex-consumption-plan"
+
+Considerations for the Flex Consumption plan:
+
 * The app and the virtual network must be in the same region.
-* Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). This is needed for subnet delegation.
+* Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). This is needed for subnet delegation. The Azure portal and Azure CLI enforce this registration when you create a Flex Consumption app, since virtual network integration can be enabled at any point after your app is created.
 * The subnet delegation required when running in a Flex Consumption plan is `Microsoft.App/environments`. This differs from the Elastic Premium and Dedicated (App Service) plans, which have a different delegation requirement.
-* You can plan for 40 IP addresses to be used at the most for one function app, even if the app scales beyond 40. For example, if you have 15 Flex Consumption function apps that are integrated in the same subnet, you must plan for 15x40 = 600 IP addresses used at the most. This limit is subject to change, and isn't enforced.
+* You can plan for 40 IP addresses to be used at the most for one function app, even if the app scales beyond 40. For example, if you have 15 Flex Consumption function apps that are integrated in the same subnet, you must plan for 15x40 = 600 IP addresses used at the most. This limit is subject to change and isn't enforced.
 * The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to any other hosting plan or service). While you can share the same subnet with multiple Flex Consumption apps, the networking resources are shared across these function apps, which can lead to one app impacting the performance of others on the same subnet.
 * You can't share the same subnet between a Container Apps environment and a Flex Consumption app.
 * The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters.
 
+::: zone-end
+::: zone pivot="premium-plan,dedicated-plan,container-apps"
+
 Considerations for the [Elastic Premium](./functions-premium-plan.md), [Dedicated (App Service)](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md) plans:
 
-* The feature is available for Elastic Premium and App Service Premium V2 and Premium V3. It's also available in Standard but only from newer App Service deployments. If you are on an older deployment, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you desire after that.
-* The feature can't be used by Isolated plan apps that are in an App Service Environment.
+* The feature is available for Elastic Premium and App Service Premium V2 and Premium V3. It's also available in Standard but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you desire after that.
+* Isolated plan apps that are in an App Service Environment can't use the feature.
 * The app and the virtual network must be in the same region.
-* The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
-* The integration subnet can be used by only one App Service plan.
+* The feature requires a subnet that's a /28 or larger in an Azure Resource Manager virtual network.
+* Multiple App Service plans can use the integration subnet.
 * You can have up to two regional virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
-* The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to the Flex Consumption plan or any other service). While you can share the same subnet with multiple apps in the same App Service plan, the networking resources are shared across these function apps, which can lead to one app impacting the performance of others on the same subnet.
+* The subnet you choose can't already be used for other purposes, such as with private endpoints or service endpoints, or be delegated to any other hosting plan or service.
+* You can share the same subnet with more than one app in an App Service plan. Because the networking resources are shared across all apps, one function app might affect the performance of others on the same subnet.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
+::: zone-end
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
+
 ### Enable virtual network integration
 
-1. In your function app in the [Azure portal](https://portal.azure.com), select **Networking**, then under **VNet Integration** select **Click here to configure**.
+1. In your function app in the [Azure portal](https://portal.azure.com), under **Settings** select **Networking**. Then under **Virtual Network Integration** select **Not configured** to add.
 
-1. Select **Add VNet**.
+1. Select **Add virtual network integration**.
 
     :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Screenshot of the virtual network integration page where you can enable virtual network integration in your app." :::
 
@@ -156,24 +180,45 @@ During the integration, your app is restarted. When integration is finished, you
 
 If you prefer to only have your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) routed, follow the steps in this [App Service article](../app-service/overview-vnet-integration.md#application-routing).
 
+::: zone-end  
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
+
 ### Subnets
 
 Virtual network integration depends on a dedicated subnet. When you provision a subnet, Azure reserves the first five IP addresses for internal use. The way remaining IP addresses are consumed depends on your hosting plan. Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach.
 
-#### Elastic Premium and Dedicated Plans
+The following table summarizes the subnet requirements for each hosting plan:
+
+| Hosting plan | VNet integration | Minimum subnet size | Recommended subnet size | Subnet delegation |
+|---|---|---|---|---|
+| Flex Consumption | Supported | /27 | /27 (single app), /26 (multiple apps) | `Microsoft.App/environments` |
+| Elastic Premium (Windows) | Supported | /28 | /24 | `Microsoft.Web/serverFarms` |
+| Elastic Premium (Linux) | Supported | /28 | /26 | `Microsoft.Web/serverFarms` |
+| Dedicated (App Service) | Supported | /28 | /26 or larger | `Microsoft.Web/serverFarms` |
+| Container Apps | Managed by environment | See [Container Apps networking](../container-apps/networking.md) | See [Container Apps networking](../container-apps/networking.md) | `Microsoft.App/environments` |
+| Consumption | Not supported | N/A | N/A | N/A |
+
+Make sure to select your hosting plan at the top of the article for plan-specific details.  
+::: zone-end
+::: zone pivot="container-apps"
+
+When running on [Azure Container Apps](./functions-container-apps-hosting.md), virtual network integration is managed through the Container Apps environment. Subnet sizing and configuration are determined by the Container Apps environment, not by the function app directly. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md).
+
+::: zone-end
+::: zone pivot="premium-plan,dedicated-plan"
 
 In Elastic Premium and Dedicated (App Service) plans, each running instance of your function app consumes one IP address from the subnet. When you scale up or down, the required address space may temporarily double to accommodate the transition. If multiple apps share the same subnet, the total IP address usage is the sum of all instances across those apps, plus the temporary doubling during scaling events.
 
-**IP Consumption Scenarios**
+#### IP Consumption Scenarios
 
 | Scenario | IP Address Consumption |
 |----------|-----------------------|
-| 1 app, 1 instance | 1 IP address |
-| 1 app, 5 instances | 5 IP addresses |
-| 1 app, scaling from 5 to 10 instances | Up to 20 IP addresses (temporary, during scale operation) |
-| 3 apps, 5 instances each | 15 IP addresses |
+| One app, One instance | One IP address |
+| One app, five instances | Five IP addresses |
+| One app, scaling from five to ten instances | Up to 20 IP addresses (temporary, during scale operation) |
+| Three apps, five instances each | 15 IP addresses |
 
-**CIDR Range Recommendations**
+#### CIDR Range Recommendations
 
 | CIDR block size | Max available addresses | Max horizontal scale (instances)<sup>1</sup> |
 |-----------------|-------------------------|---------------------------------|
@@ -183,37 +228,34 @@ In Elastic Premium and Dedicated (App Service) plans, each running instance of y
 | /25             | 123                     | 61<sup>2</sup>                  |
 | /24             | 251                     | 125<sup>3</sup>                 |
 
-<sup>1</sup>Assumes that you need to scale up or down in either size or SKU at some point.
+1. Assumes that you need to scale up or down in either size or SKU at some point.
+2. Although the number of IP addresses supports 61 instances, individual apps on the Dedicated plan have a [30 instance maximum](./functions-scale.md#scale).
+3. Although the number of IP addresses supports 125 instances, individual apps on the Elastic Premium plan have a [100 instance maximum](./functions-scale.md#scale).
 
-<sup>2</sup> Although the number of IP addresses supports 61 instances, individual apps on the Dedicated plan have a [30 instance maximum](./functions-scale.md#scale).
+#### Additional Considerations
 
-<sup>2</sup> Although the number of IP addresses supports 125 instances, individual apps on the Elastic Premium plan have a [100 instance maximum](./functions-scale.md#scale).
+* To avoid any issues with subnet capacity for Functions Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
+* Each App Service plan can support up to two subnets that can be used for VNet integration. Multiple apps from a single App Service plan can join the same subnet, but apps from a different plan can't use that same subnet.
 
-**Additional Considerations**
+::: zone-end
+::: zone pivot="flex-consumption-plan"
 
-For function apps on the Elastic Premium or Dedicated plans:
-
-- To avoid any issues with subnet capacity for Functions Elastic Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
-- Each App Service plan can support up to two subnets that can be used for VNet integration. Multiple apps from a single App Service plan can join the same subnet, but apps from a different plan can't use that same subnet.
-
-#### Flex Consumption Plan
-
-In the Flex Consumption plan, outbound network traffic from function app instances are routed through shared gateways that are dedicated to the subnet. Each shared gateway consumes 1 IP address from the subnet. Regardless of how many apps are integrated with a single subnet, at most 27 shared gateways (27 IP addresses) will be used to support all instances. When selecting a subnet size, what matters is the total number of instances across all apps integrated with the subnet. When a subnet is used for too many instances or for apps performing I/O intensive workloads, network capacity issues may occur such as increased average latency and timeouts. The scale-out of apps will not be affected. 
-
-A /27 subnet size (27 usable IP addresses) is recommended to support a single function app, which can scale-out to a maximum of 1,000 instances. 
-
-If you expect your single function app to scale beyond 1,000 instances or expect the total instance count of multiple function apps to exceed 1,000 instances, then use a /26 subnet and contact the product group to request an increase to your maximum instance count.
+In the Flex Consumption plan, outbound network traffic from function app instances is routed through shared gateways that are dedicated to the subnet. At most 27 shared gateways (27 IP addresses) are used per subnet, regardless of how many apps are integrated. When a subnet is used for too many instances or for apps performing I/O-intensive workloads, network capacity issues such as increased latency and timeouts might occur. The scale-out of apps won't be affected.
 
 > [!IMPORTANT]
-> Integrating Flex Consumption function apps with a subnet size less than /27 or integrating multiple apps with a /27 size subnet reduces the available outbound network capacity for them. If you plan to do so, load test your apps with production-scale workloads to ensure network capacity constraints are not observed.
+> Integrating Flex Consumption function apps with a subnet size less than /27 or integrating multiple apps with a /27 size subnet reduces the available outbound network capacity for them. If you plan to do so, load test your apps with production-scale workloads to ensure network capacity constraints aren't observed.
 
-**IP Consumption Scenarios**
+#### CIDR Range Recommendations
 
-| Scenario | Maximum IP Address Consumption          |
-|----------|-----------------------------------------|
-| 1 app    | Up to 27 IP addresses (/27 subnet size) |
-| 2 apps   | Up to 27 IP addresses (/27 subnet size) |
-| 10 apps  | Up to 27 IP addresses (/27 subnet size) |
+| CIDR block size | Usable addresses | Max instances | Recommendation |
+|-----------------|------------------|---------------|----------------|
+| /27             | 27               | 1,000         | Recommended for a single function app |
+| /26             | 59               | 1,000+        | Recommended for multiple apps, or when scaling beyond 1,000 instances<sup>*</sup> |
+
+<sup>*</sup> Contact the product group to request an increase to your maximum instance count.
+
+::: zone-end
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
 
 ### Network security groups
 
@@ -223,7 +265,7 @@ To control inbound traffic to your app, use the Access Restrictions feature. An 
 
 ### Routes
 
-You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When [Route All](../app-service/overview-vnet-integration.md#application-routing) is enabled, all of your outbound calls are affected. When Route All is disabled, only private traffic (RFC1918) is affected by your route tables. Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
+You can use route tables to route outbound traffic from your app to wherever you want. By default, route tables only affect your RFC1918 destination traffic. When [Route All](../app-service/overview-vnet-integration.md#application-routing) is enabled, all of your outbound calls are affected. When you disable Route All, your route tables affect only private traffic (RFC1918). Routes that are set on your integration subnet won't affect replies to inbound app requests. Common destinations can include firewall devices or gateways.
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 
@@ -231,25 +273,30 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Outbound IP restrictions
 
-Outbound IP restrictions are available in a Flex Consumption plan, Elastic Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
+You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When you integrate a function app in an Elastic Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By integrating your function app with a virtual network with Route All enabled, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic. For Flex Consumption all traffic is already routed through the virtual network and **Route All** isn't needed.
+When you integrate a function app in an Elastic Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By integrating your function app with a virtual network with Route All enabled, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic. For Flex Consumption, all traffic is already routed through the virtual network, and **Route All** isn't needed.
 
-To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
+To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
 
-### Azure DNS private zones 
+### Azure DNS private zones
 
 After your app integrates with your virtual network, it uses the same DNS server that your virtual network is configured with and will work with the Azure DNS private zones linked to the virtual network.
 
 ### Automation
+
 The following APIs let you programmatically manage regional virtual network integrations:
 
-+ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
-+ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
+* **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
+* **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](/samples/azure/azure-quickstart-templates/function-premium-vnet-integration/).
+
+::: zone-end
+
+::: zone pivot="premium-plan,dedicated-plan,container-apps"
 
 ## Hybrid Connections
 
-[Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions that run on Windows in all but the Consumption plan.
+[Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application.
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application as long as you're accessing a TCP listening port. The Hybrid Connections feature doesn't know or care what the application protocol is or what you're accessing. It just provides network access.
 
@@ -258,18 +305,39 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 >[!IMPORTANT]
 > Hybrid Connections is only supported when your function app runs on Windows. Linux apps aren't supported.
 
+::: zone-end
+
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
+
 ## Connecting to Azure Services through a virtual network
 
 Virtual network integration enables your function app to access resources in a virtual network. This section overviews things you should consider when attempting to connect your app to certain services.
 
-### Restrict your storage account to a virtual network 
+### Restrict your storage account to a virtual network
 
 > [!NOTE]
 > To quickly deploy a function app with private endpoints enabled on the storage account, refer to the following template: [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. 
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints.
 
-You can use a network restricted storage account with function apps on the Flex Consumption, Elastic Premium, and Dedicated (App Service) plans; the Consumption plan isn't supported. For Elastic Premium and Dedicated plans, you have to ensure that private [content share routing](../app-service/configure-vnet-integration-routing.md#content-share) is configured. To learn how to configure your function app with a storage account secured with a virtual network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+::: zone-end
+::: zone pivot="flex-consumption-plan"
+
+To learn how to configure your function app with a storage account secured with a virtual network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+
+::: zone-end
+::: zone pivot="premium-plan,dedicated-plan"
+
+You must ensure that private [content share routing](../app-service/configure-vnet-integration-routing.md#content-share) is configured. To learn how to configure your function app with a storage account secured with a virtual network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+
+::: zone-end
+::: zone pivot="container-apps"
+
+To learn how to configure your function app with a storage account secured with a virtual network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+
+::: zone-end
+
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
 
 ### Use Key Vault references
 
@@ -277,24 +345,37 @@ You can use Azure Key Vault references to use secrets from Azure Key Vault in yo
 
 If virtual network integration is configured for the app, [Key Vault references](../app-service/app-service-key-vault-references.md) can be used to retrieve secrets from a network-restricted vault.
 
+::: zone-end
+
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan,container-apps"
+
 ### Virtual network triggers (non-HTTP)
 
-Your workload might require your app to be triggered from an event source protected by a virtual network. There's two options if you want your app to dynamically scale based on the number of events received from non-HTTP trigger sources:
+Your workload might require your app to be triggered from an event source protected by a virtual network.
 
-+ Run your function app in a [Flex Consumption](./flex-consumption-plan.md).
-+ Run your function app in an [Elastic Premium plan](./functions-premium-plan.md) and enable virtual network trigger support.
+::: zone-end
+::: zone pivot="container-apps"
 
-Function apps running on the [Dedicated (App Service)](./dedicated-plan.md) plans don't dynamically scale based on events. Rather, scale out is dictated by [autoscale](./dedicated-plan.md#scaling) rules you define.
+> [!NOTE]
+> When running on Azure Container Apps, virtual network triggers are managed through the Container Apps environment networking configuration. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md).
 
-#### Elastic Premium plan with virtual network triggers
+::: zone-end
+::: zone pivot="flex-consumption-plan"
 
-The [Elastic Premium plan](functions-premium-plan.md) lets you create functions that are triggered by services secured by a virtual network. These non-HTTP triggers are known as _virtual network triggers_.   
+The Flex Consumption plan natively supports virtual network triggers. Your function app can be triggered from event sources protected by a virtual network without requiring extra configuration for runtime scale monitoring.
+
+::: zone-end
+::: zone pivot="premium-plan"
+
+The [Elastic Premium plan](functions-premium-plan.md) lets you create functions that trigger services secured by a virtual network. These non-HTTP triggers are known as _virtual network triggers_.
+
+The Elastic Premium plan lets you create functions that trigger services secured by a virtual network.
 
 By default, virtual network triggers don't cause your function app to scale beyond their prewarmed instance count. However, certain extensions support virtual network triggers that cause your function app to scale dynamically. You can enable this _dynamic scale monitoring_ in your function app for supported extensions in one of these ways:
 
 #### [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your function app. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
 1. Under **Settings** select **Configuration**, then in the **Function runtime settings** tab set **Runtime Scale Monitoring** to **On**.
 
@@ -321,7 +402,7 @@ $Resource | Set-AzResource -Force
 > [!TIP]
 > Enabling the monitoring of virtual network triggers can affect the performance of your application, though the impact is likely to be small.
 
-Support for dynamic scale monitoring of virtual network triggers isn't available in version 1.x of the Functions runtime. 
+Support for dynamic scale monitoring of virtual network triggers isn't available in version 1.x of the Functions runtime.
 
 The extensions in this table support dynamic scale monitoring of virtual network triggers. To get the best scaling performance, you should upgrade to versions that also support [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
 
@@ -338,13 +419,18 @@ The extensions in this table support dynamic scale monitoring of virtual network
 > [!IMPORTANT]
 > When you enable virtual network trigger monitoring, only triggers for these extensions can cause your app to scale dynamically. You can still use triggers from extensions that aren't in this table, but they won't cause scaling beyond their prewarmed instance count. For a complete list of all trigger and binding extensions, see [Triggers and bindings](./functions-triggers-bindings.md#supported-bindings).
 
-#### App Service plan and App Service Environment with virtual network triggers
+::: zone-end
+::: zone pivot="dedicated-plan"
 
-When your function app runs in either an App Service plan or an App Service Environment, you can write functions that are triggered by resources secured by a virtual network. For your functions to get triggered correctly, your app must be connected to a virtual network with access to the resource defined in the trigger connection.
+When your function app runs in either an App Service plan or an App Service Environment, you can write functions that resources secured by a virtual network trigger. For your functions to get triggered correctly, your app must be connected to a virtual network with access to the resource defined in the trigger connection.
 
-For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. Integration enables a function to be triggered by that Azure Cosmos DB resource.
+For example, assume you want to configure Azure Cosmos DB to accept traffic only from a virtual network. In this case, you must deploy your function app in an App Service plan that provides virtual network integration with that virtual network. Integration enables that Azure Cosmos DB resource to trigger a function.
 
-## Testing considerations
+::: zone-end
+
+::: zone pivot="flex-consumption-plan,premium-plan,dedicated-plan"
+
+## Testing private endpoints
 
 When testing functions in a function app with private endpoints, you must do your testing from within the same virtual network, such as on a virtual machine (VM) in that network. To use the **Code + Test** option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app:
 
@@ -355,15 +441,17 @@ When testing functions in a function app with private endpoints, you must do you
 
 When you restrict access to your function app with private endpoints or any other access restriction, you also must add the service tag `AzureCloud` to the allowed list. To update the allowed list:
 
-1. Navigate to your function app and select **Settings** > **Networking** and then select **Inbound access configuration** > **Public network access**. 
+1. Navigate to your function app and select **Settings** > **Networking**. Under **Inbound traffic configuration** > **Public network access**, select **Enabled with no access restrictions**.
 
-1. Make sure that **Public network access** is set to **Enabled from select virtual networks and IP addresses**. 
+1. Make sure that **Public network access** is set to **Enabled from select virtual networks and IP addresses**.
 
-1. **Add a rule** under Site access and rules: 
+1. **Add a rule** under Site access and rules:
 
-    1. Select `Service Tag` as the Source settings **Type** and `AzureCloud` as the **Service Tag**. 
-    
+    1. Select `Service Tag` as the Source settings **Type** and `AzureCloud` as the **Service Tag**.
+
     1. Make sure the action is **Allow**, and set your desired name and priority.
+
+::: zone-end
 
 ## Troubleshooting
 
@@ -383,7 +471,7 @@ You can also use the Network troubleshooter to resolve connection issues. To ope
 
 **Subnet/VNet deletion issue** - This troubleshooter checks if your subnet has any locks and if it has any unused Service Association Links that might be blocking the deletion of the VNet/subnet.
 
-## Next steps
+## Related articles
 
 To learn more about networking and Azure Functions:
 
@@ -393,7 +481,6 @@ To learn more about networking and Azure Functions:
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
 * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
-
 
 <!--Links-->
 [VNETnsg]: ../virtual-network/network-security-groups-overview.md

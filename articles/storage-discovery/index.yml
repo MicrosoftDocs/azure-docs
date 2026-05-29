@@ -44,7 +44,7 @@ conceptualContent:
         url: management-components.md
         itemType: concept
       - text: Azure Storage reliability
-        url: ../reliability/reliability-storage-discovery.md?toc=/azure/storage-discovery/toc.json
+        url: /azure/reliability/reliability-storage-discovery?toc=/azure/storage-discovery/toc.json
         itemType: concept
 
     # Card 2    

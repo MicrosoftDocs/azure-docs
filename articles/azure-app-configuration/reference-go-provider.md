@@ -183,6 +183,9 @@ For example, if your App Configuration store contains a key named `TestApp:Setti
 
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will parse it into nested structures. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
+> [!NOTE]
+> Starting with version *1.2.0*, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ## Consume configuration
 
 The `AzureAppConfiguration` type returned by the `Load` function provides several methods to access your configuration data:
@@ -562,6 +565,15 @@ options := &azureappconfiguration.Options{
 
 appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 ```
+
+### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE] 
+> To use snapshot references, use the version *1.6.0* or later of `azureappconfiguration`.
 
 ## Geo-replication
 

@@ -33,11 +33,16 @@ This article describes key Azure Virtual Network concepts and best practices to 
 
 As you build your network in Azure, it's important to keep in mind the following universal design principles:
 
-- Ensure address spaces don't overlap. Make sure your virtual network address space (CIDR block) doesn't overlap with your organization's other network ranges.
+- Ensure address spaces don't overlap. Make sure your virtual network address spaces (CIDR blocks) don't overlap with your organization's other in-use network ranges.
+
+    - See the recommended address ranges in the [FAQ](/azure/virtual-network/virtual-networks-faq#what-address-ranges-can-i-use-in-my-virtual-networks)
 
 - Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
-- Use a few large virtual networks instead of multiple small ones to reduce management overhead.
+- Use a few large virtual networks instead of multiple small ones to reduce management overhead within a single Azure subscription.
+    
+    -  You should also follow the [Azure landing zone design principle of Subscription Democratization](/azure/cloud-adoption-framework/ready/landing-zone/design-principles#subscription-democratization) meaning it is recommended to have many subscriptions, each with their own virtual network (possibly multiple), to help you achieve and implement [Zero Trust](/security/zero-trust/azure-networking-overview) in your Azure networking.
+    -  Commonly a hub and spoke architecture is used to implement this at scale with a [traditional virtual network approach](/azure/architecture/networking/architecture/hub-spoke) or [Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
 
 - Secure your virtual networks by assigning Network Security Groups (NSGs) to the subnets beneath them. For more information about network security concepts, see [Azure network security overview](../security/fundamentals/network-overview.md).
 

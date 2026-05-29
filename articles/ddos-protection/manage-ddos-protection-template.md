@@ -2,12 +2,12 @@
 title: 'QuickStart: Create and configure Azure DDoS Network Protection - ARM template'
 description: Learn how to create and enable an Azure DDoS Protection plan using an Azure Resource Manager template (ARM template).
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.author: abell
-ms.date: 03/17/2025
+ms.author: duau
+ms.date: 03/05/2026
 # Customer intent: As a network administrator, I want to create and enable a DDoS protection plan using an ARM template, so that I can safeguard my organization's virtual networks from denial of service attacks across multiple subscriptions.
 ---
 
@@ -48,7 +48,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 1. Enter the values to create a new resource group, DDoS protection plan, and virtual network name.
 
-    :::image type="content" source="media/manage-ddos-protection-template/ddos-template.png" alt-text="DDoS quickstart template.":::
+    :::image type="content" source="media/manage-ddos-protection-template/ddos-template.png" alt-text="DDoS quickstart template." lightbox="media/manage-ddos-protection-template/ddos-template.png":::
 
     - **Subscription**: Name of the Azure subscription where the resources will be deployed.
     - **Resource group**: Select an existing resource group or create a new resource group.

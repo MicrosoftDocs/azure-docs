@@ -500,7 +500,7 @@ You should be able to refresh your web browser and click on the Items tab to see
 
 ## Collection management
 
-Now that you ingested these STAC items and their associated assets (images) into the STAC collection, you need to provide you GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog web interface.
+Now that you ingested these STAC items and their associated assets (images) into the STAC collection, you need to provide your GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog web interface.
 
 ### Collection render config
 First download a render configuration file for this collection from the Planetary Computer. This config file can be read by GeoCatalog to render images in different ways within the Explorer. This is because STAC items may contain many different assets (images) that can be combined to create entirely new images of a given area that highlight visible or nonvisible features. For instance, Sentinel-2 STAC items have over 12 different images from different portions of the electromagnetic spectrum. This render config instructs GeoCatalog on how to combine these images so it can display images in Natural Color or False Color (Color Infrared).

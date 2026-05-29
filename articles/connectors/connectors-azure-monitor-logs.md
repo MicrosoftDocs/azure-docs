@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 12/09/2025
 # Customer intent: As a developer, I want to get log data from my Log Analytics workspace or telemetry from my Application Insights resource to use with my workflow in Azure Logic Apps.
 ---
 
@@ -41,7 +41,9 @@ Both of the following actions can run a log query against a Log Analytics worksp
 
 ## Limitations
 
-- The connector has the following limits, which your workflow might reach, based on the query that you use and the size of the results:
+- Visualizations on the Logs page and the connector use different charting libraries. So, the connector currently doesn't include some functionality.
+- Query data in Basic and Auxiliary plans isn't supported by Azure Monitor Logs connector.
+- The connector has the following query limits. To avoid limits, try aggregating data to reduce the results count or volume, or adjusting the workflow recurrence to run more frequently across a smaller time range.
 
   | Limit | Value | Notes | 
   |-------|-------|-------|
@@ -49,10 +51,6 @@ Both of the following actions can run a log query against a Log Analytics worksp
   | Max number of records | 500,000 records ||
   | Max connector timeout | 110 seconds ||
   | Max query timeout | 100 seconds ||
-
-  To avoid reaching these limits, try aggregating data to reduce the results size, or adjusting the workflow recurrence to run more frequently across a smaller time range.
-
-- Visualizations on the Logs page and the connector use different charting libraries. So, the connector currently doesn't include some functionality.
 
 ## Prerequisites
 

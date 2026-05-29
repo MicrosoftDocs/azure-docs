@@ -3,7 +3,7 @@ title: SAP HANA Azure virtual machine Premium SSD configurations | Microsoft Doc
 description: Storage recommendations HANA using premium storage.
 author: msjuergent
 manager: bburns
-keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
+keywords: 'SAP, Azure HANA, Storage Ultra Disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
@@ -21,7 +21,7 @@ This document is about HANA storage configurations for Azure premium storage or 
 
 For documentation on how to configure storage for SAP HANA using the second version of Premium SSD, check the document [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 
-Within this document, we're referring to the first version of our premium SSD storage or disks as 'premium SSD' or 'Premium SSD'.
+Within this document, we're referring to the first version of our Premium SSD storage or disks as 'Premium SSD' or 'Premium SSD'.
 
 > [!IMPORTANT]
 > The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS (I/O operations per second) provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS, or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput, and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
@@ -30,7 +30,7 @@ Within this document, we're referring to the first version of our premium SSD st
 Azure Write Accelerator is a functionality that's available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure Premium SSD. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure Premium SSD. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
-> If you use Azure premium storage with M-series VMs, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series, Mv2-Series, and Mv3-series VMs only. Write Accelerator isn't working in combination with any other Azure VM families outside of M-series families.
+> If you use Azure premium storage with M-series VMs, the usage of Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for the **/hana/log** volume is **mandatory**. Write Accelerator is available for premium storage and M-Series, Mv2-Series, and Mv3-series VMs only. Write Accelerator isn't working in combination with any other Azure VM families outside of M-series families.
 
 The caching recommendations for Azure premium disks below are assuming the I/O characteristics for SAP HANA that list like:
 
@@ -43,7 +43,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 **Recommendation: As a result of these observed I/O patterns by SAP HANA, the caching for the different volumes using Azure premium storage should be set like:**
 
 - **/hana/data** - None or read caching
-- **/hana/log** - None. Enable Write Accelerator for M- and Mv2-Series VMs, the option in the Azure portal is "None + Write Accelerator."
+- **/hana/log** - None. [Enable Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator) for M-Series, Mv2-Series, and Mv3-series VMs. The option in the Azure portal is "None + Write Accelerator."
 - **/hana/shared** - read caching
 - **OS disk** - don't change default caching that's set by Azure at creation time of the VM
 
@@ -51,7 +51,7 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 > With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -67,13 +67,13 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 - Read bursts when performing transaction log or redo log backups
 
 ### Azure Performance Plus for premium storage/Premium SSD
-At creation time of managed Premium SSD disks of P30 and larger, you can [activate Performance Plus](https://learn.microsoft.com/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that's going to be delivered by the Premium SSD disks without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](https://learn.microsoft.com/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication arte not going to have Performance Plus enabled.
+At creation time of managed Premium SSDs of P30 and larger, you can [activate Performance Plus](/azure/virtual-machines/disks-enable-performance?tabs=azure-cli). Performance Plus is increasing the provisioned IOPS and throughput that's going to be delivered by the Premium SSDs without any additional activation of temporary bursting. The IOPS and throughput values delivered are listed in [Managed VM disk scalability](/azure/virtual-machines/disks-scalability-targets?source=recommendations). The lines of 'expanded provisioned' are listing the values provisioned with Performance Plus enabled. We didn't consider the enhanced IOPS and bandwidth values that can be achieved with Performance Plus in the tables we're listing. As you configure new systems using Premium SSD, you might have a chance to reduce capacity overprovisioning by using Performance Plus. And as such deviate from our tables introduced in this article. For the case, you want to combine the VM you're configuring with Azure Site Recovery be aware that the property of Performance Plus isn't replicated by Azure Site Recovery to the destination side. As a result, the disks on the destination side of the replication are not going to have Performance Plus enabled.
 
 
 ### Production recommended storage solution based on Azure premium storage
 
 > [!IMPORTANT]
-> SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
+> SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator enabled for the **/hana/log** volume.  
 
 > [!NOTE]
 > In scenarios that involve Azure premium storage, we're implementing burst capabilities into the configuration. As you're using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](/azure/virtual-machines/disk-bursting) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we aren't expecting that all tests are going to pass the criteria since some of the tests are going to exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
@@ -198,7 +198,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 
 Azure Write Accelerator only works with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure premium storage disks forming the **/hana/log** volume need to be deployed as managed disks. More detailed instructions and restrictions of Azure Write Accelerator can be found in the article [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
-You may want to use Azure Ultra disk storage instead of Azure premium storage only for the **/hana/log** volume to be compliant with the SAP HANA certification KPIs when using E-series VMs. Though, many customers are using premium storage SSD disks for the **/hana/log** volume for non-production purposes or even for smaller production workloads since the write latency experienced with premium storage for the critical redo log writes are meeting the workload requirements. The configurations for the **/hana/data** volume on Azure premium storage could look like:
+You may want to use Azure Ultra Disk storage instead of Azure premium storage only for the **/hana/log** volume to be compliant with the SAP HANA certification KPIs when using E-series VMs. Though, many customers are using premium storage SSD disks for the **/hana/log** volume for non-production purposes or even for smaller production workloads since the write latency experienced with premium storage for the critical redo log writes are meeting the workload requirements. The configurations for the **/hana/data** volume on Azure premium storage could look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Provisioned Throughput | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -223,7 +223,7 @@ You may want to use Azure Ultra disk storage instead of Azure premium storage on
 | E192(d)s_v5 | 1,832 GiB | 17,280 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
 
 
-For the other volumes, including **/hana/log** on Ultra disk, the configuration could look like:
+For the other volumes, including **/hana/log** on Ultra Disk, the configuration could look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS | /hana/shared<sup>1</sup> | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |

@@ -3,7 +3,7 @@ title: Protect web apps on Azure VMware Solution with Azure Application Gateway
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/21/2024
+ms.date: 3/18/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -57,7 +57,7 @@ The Application Gateway instance gets deployed on the hub in a dedicated subnet 
     > [!NOTE]
     > Only standard and Web Application Firewall (WAF) SKUs are supported for private frontends.
 
-4. Add a backend pool of the VMs that run on Azure VMware Solution infrastructure. Provide the details of web servers that run on the Azure VMware Solution private cloud and select **Add**.  Then select **Next: Configuration>**.
+4. Add a backend pool of the VMs that run on Azure VMware Solution infrastructure. Provide the details of web servers that run on the Azure VMware Solution private cloud and select **Add**. Then select **Next: Configuration>**.
 
 5. On the **Configuration** tab, select **Add a routing rule**.
 
@@ -89,7 +89,7 @@ Now configure Application Gateway with Azure VMware Solution VMs as backend pool
 This procedure shows you how to define backend address pools using VMs running on an Azure VMware Solution private cloud on an existing application gateway.
 
 >[!NOTE]
->This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.contoso2.com.
+>This procedure assumes you have multiple domains, so the example uses www.contoso.com and www.contoso2.com.
 
 1. In your private cloud, create two different pools of VMs. One represents Contoso and the second contoso2.
 

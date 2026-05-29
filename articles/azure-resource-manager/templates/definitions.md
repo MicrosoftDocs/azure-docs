@@ -1,7 +1,7 @@
----
+﻿---
 title: Type definitions in templates
 description: Describes how to create type definitions in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 04/28/2025
 ---
@@ -119,7 +119,7 @@ The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"
 }
 ```
 
-All properties are required unless the property’s type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+All properties are required unless the property's type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
 
 ```json
 "definitions": {
@@ -403,3 +403,4 @@ The following example shows how to reference a type definition from parameters a
 ## Next steps
 
 * To learn about the available properties for type definitions, see [Understand the structure and syntax of ARM templates](./syntax.md).
+

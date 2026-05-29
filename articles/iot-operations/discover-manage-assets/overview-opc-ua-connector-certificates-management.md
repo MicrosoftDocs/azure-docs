@@ -18,9 +18,9 @@ The connector for OPC UA is an OPC UA client application that lets you connect s
 - Application authentication
 - Message signing
 - Data encryption
-- User authentication and authorization.
+- User authentication and authorization. To learn more, see [Configure the connector for OPC UA](howto-configure-opc-ua.md).
 
-This article focuses on application authentication and how to configure the connector for OPC UA to connect securely to your OPC UA servers at the edge. In OPC UA, every application instance has an X.509 certificate that it uses to establish trust with the other OPC UA applications it communicates with.
+This article focuses on _application authentication_ and how to configure the connector for OPC UA to connect securely to your OPC UA servers at the edge. In OPC UA, every application instance has an X.509 certificate that it uses to establish trust with the other OPC UA applications it communicates with.
 
 To learn more about OPC UA application security, see [Application Authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/4.10).
 
@@ -28,7 +28,8 @@ The following diagram shows the sequence of events that occur when the connector
 
 :::image type="content" source="media/overview-opc-ua-connector-certificates-management/mutual-trust.svg" alt-text="Diagram that summarizes the OPC UA connector connection handshake." border="false":::
 
-<!-- ```mermaid
+<!--
+mermaid
 sequenceDiagram
     participant Connector as Connector for OPC UA
     participant OPCUA as OPC UA server
@@ -40,7 +41,7 @@ sequenceDiagram
     OPCUA->>Connector: Presents OPC UA server application instance certificate
 
     Connector->>Connector: Validate OPC UA server certificate against<br>connector for OPC UA trusted certificates list<br>or trusted issuers list.
-``` -->
+-->
 
 ## Connector for OPC UA application instance certificate
 
@@ -88,6 +89,42 @@ You can also upload a certificate revocation list (CRL) to the issuer certificat
 The default name for the `SecretProviderClass` custom resource that handles the issuer certificates list is *aio-opc-ua-broker-issuer-list*.
 
 To learn how to manage the issuer certificates list, see [Configure the issuer certificates list](howto-configure-opc-ua-certificates-infrastructure.md#configure-the-issuer-certificates-list).
+
+## Certificate subject alternative name
+
+Subject Alternative Name (SAN) is an X.509 certificate extension that specifies additional identities for a certificate beyond the subject field. For OPC UA certificates, the SAN typically includes:
+
+- **URI entries**: The OPC UA application URI, required by the OPC UA specification.
+- **DNS entries**: Hostnames and FQDNs where the application can be reached.
+- **IP entries**: IP addresses where the application can be reached.
+
+The connector's self-signed certificate automatically includes the application URI and the local hostname. OPC UA servers validate that the client's certificate SAN contains the hostname or IP address used for the connection. If the SAN doesn't match, the server rejects the connection.
+
+### When to configure custom SAN entries
+
+Configure custom SAN entries when:
+
+- The connector is accessed through multiple hostnames, for example `opcua.local` and `broker.contoso.com`.
+- The connector has multiple IP addresses across different network interfaces.
+- You use Kubernetes services or ingress that expose different DNS names.
+- You connect through a load balancer or proxy.
+- OPC UA servers reject connections because of a hostname or IP mismatch.
+
+### SAN configuration properties
+
+Add the following properties to the `SecurityPki` configuration section:
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `SubjectAlternativeDnsNames` | string | Comma-separated list of DNS names to include in the certificate SAN. |
+| `SubjectAlternativeIpAddresses` | string | Comma-separated list of IP addresses to include in the certificate SAN. |
+
+DNS names can be hostnames, FQDNs, or Kubernetes service names and are case-insensitive. IP addresses must be valid IPv4 or IPv6 addresses. The connector automatically trims whitespace and removes empty entries.
+
+> [!IMPORTANT]
+> Custom SAN entries only apply to self-generated certificates. If you provide a custom certificate through the `ApplicationCert` secret or specify an existing certificate through `Thumbprint`, the certificate already exists and its SAN can't be modified. Wildcard DNS names aren't supported in OPC UA certificates.
+
+To learn how to configure custom SAN entries and regenerate the connector certificate, see [Configure certificate subject alternative names](howto-configure-opc-ua-certificates-infrastructure.md#configure-certificate-subject-alternative-names).
 
 ## Features supported
 

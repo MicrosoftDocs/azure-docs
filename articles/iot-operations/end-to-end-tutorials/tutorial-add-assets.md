@@ -4,7 +4,7 @@ description: "Tutorial: Add OPC UA assets that publish messages to the MQTT brok
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 11/03/2025
+ms.date: 02/16/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -26,8 +26,7 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
-- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials. Then, to enable secure settings follow the steps in [Enable secure settings in Azure IoT Operations](../deploy-iot-ops/howto-enable-secure-settings.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest version.
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 > [!IMPORTANT]
 > It's not possible to enable secure settings on the instance you create if you follow the steps in the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) article.
@@ -47,7 +46,7 @@ Unless otherwise noted, you can run the console commands in this tutorial in eit
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as data points, events, and actions. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
 
 The tutorial also explains how to use credentials stored in Azure Key Vault to authenticate to the simulated OPC UA server.
 
@@ -265,9 +264,12 @@ To view the device and asset you created in the Azure portal, go to Azure Device
 
 :::image type="content" source="media/tutorial-add-assets/azure-portal.png" lightbox="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure Device Registry.":::
 
-The portal enables you to view the asset details. Select **JSON View** for more details:
+The portal enables you to view the following Azure Device Registry resources:
 
-:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" lightbox="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
+- Assets: You can view the `thermostat` asset you created in the previous steps.
+- Devices: You can view the `opc-ua-connector` device you created in the previous steps.
+- Namespaces: You can view the namespace that you created when you deployed Azure IoT Operations. The namespace contains the asset and device you created in the previous steps.
+- Schema Registries: You can view the schema registry that was automatically created when you created your asset.
 
 ## Verify data is flowing
 
@@ -313,7 +315,7 @@ The sample tags you added in the previous tutorial generate messages from your a
 
 ## How did we solve the problem?
 
-In this tutorial, you added a device and then defined an asset and tags. The assets and tags model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
+In this tutorial, you added a device and then defined an asset and data points. The assets and data points model data from the OPC UA server to make the data easier to use in an MQTT broker and other downstream processes.
 
 You used credentials stored in Azure Key Vault to authenticate to the OPC UA server. This approach is more secure than hardcoding credentials in your asset definition.
 

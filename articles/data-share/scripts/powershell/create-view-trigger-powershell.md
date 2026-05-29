@@ -1,11 +1,11 @@
 ---
 title: "PowerShell script: Create and view an Azure Data Share snapshot triggers"
 description: This PowerShell script creates and gets share snapshot triggers.
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 02/12/2025
+ms.date: 01/23/2026
 ms.custom: devx-track-azurepowershell
 ---
 

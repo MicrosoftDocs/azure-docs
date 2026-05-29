@@ -1,7 +1,7 @@
----
+﻿---
 title: Tag resources, resource groups, and subscriptions with Python
 description: Shows how to use Python to apply tags to Azure resources.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/15/2025
 ms.custom: devx-track-python
 content_well_notification: 
@@ -66,7 +66,7 @@ This article describes how to use Python to tag resources, resource groups, and 
 
 ## Apply tags
 
-Azure Python offers the [ResourceManagementClient.tags.begin_create_or_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-create-or-update-at-scope) method to apply tags. It replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
+Azure Python offers the [ResourceManagementClient.tags.begin_create_or_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-create-or-update-at-scope) method to apply tags. It replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
 
 The following example applies a set of tags to a storage account:
 
@@ -112,7 +112,7 @@ tags = {
 }
 ```
 
-To add tags to a resource that already has tags, use [ResourceManagementClient.tags.begin_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-update-at-scope). On the [TagsPatchResource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.models.tagspatchresource) object, set the `operation` parameter to `Merge`.
+To add tags to a resource that already has tags, use [ResourceManagementClient.tags.begin_update_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-update-at-scope). On the [TagsPatchResource](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.models.tagspatchresource) object, set the `operation` parameter to `Merge`.
 
 ```python
 import os
@@ -349,7 +349,7 @@ for resource in resources:
 
 ## List tags
 
-To get the tags for a resource, resource group, or subscription, use the [ResourceManagementClient.tags.get_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-get-at-scope) method and pass the resource ID of the entity.
+To get the tags for a resource, resource group, or subscription, use the [ResourceManagementClient.tags.get_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-get-at-scope) method and pass the resource ID of the entity.
 
 To see the tags for a resource, use:
 
@@ -505,7 +505,7 @@ print(f"Tags {tag_patch_resource.properties.tags} were removed from resource: {r
 
 The specified tags are removed.
 
-To remove all tags, use the [ResourceManagementClient.tags.begin_delete_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.tagsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-tagsoperations-begin-delete-at-scope) method.
+To remove all tags, use the [ResourceManagementClient.tags.begin_delete_at_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.tagsoperations#azure-mgmt-resource-resources-operations-tagsoperations-begin-delete-at-scope) method.
 
 ```python
 import os
@@ -527,3 +527,4 @@ resource_client.tags.begin_delete_at_scope(subscription.id)
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
 * For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 * For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
+

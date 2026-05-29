@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 03/31/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
@@ -58,6 +58,9 @@ Azure creates more default system routes for different Azure capabilities, but o
 
 * **Virtual network peering**: When you create a virtual network peering between two virtual networks, the system adds a route for each address range within the address space of each virtual network involved in the peering. Learn more about [virtual network peering](virtual-network-peering-overview.md).
 * **Virtual network gateway**: One or more routes with **Virtual network gateway** listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also **Virtual network gateway** because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
+
+    > [!TIP]
+    > For routes advertised from Azure to on-premises, you can reduce the number of prefixes advertised by configuring advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes you provide instead of advertising the hub's address space and covered spoke address spaces. For more information, see [Advertised gateway prefixes overview](advertised-gateway-prefixes-overview.md).
 * `VirtualNetworkServiceEndpoint`: Azure includes public IP addresses of certain services to the route table when you enable a service endpoint. Azure includes these routes only to subnets with service endpoints enabled. Azure automatically updates these addresses in the route table when service IP addresses change. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md) and supported services.
     > [!NOTE]
     > The **Virtual network peering** and `VirtualNetworkServiceEndpoint` next hop types are added only to route tables of subnets within virtual networks created through the Azure Resource Manager deployment model. The next hop types aren't added to route tables that are associated to virtual network subnets created through the classic deployment model. Learn more about Azure [deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -240,7 +243,7 @@ When you override the 0.0.0.0/0 address prefix, outbound traffic from the subnet
 
     * **Virtual network gateway**: If the gateway is an ExpressRoute virtual network gateway, an internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering).
 
-If your virtual network is connected to an Azure VPN gateway, don't associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For more information, see [Why are certain ports opened on my VPN gateway?](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
+If your virtual network is connected to an Azure VPN gateway, don't associate a route table to the [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For more information, see [Why are certain ports opened on my VPN gateway?](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports)
 
 For implementation details when you use virtual network gateways between the internet and Azure, see [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -1,10 +1,8 @@
 ---
 title: Restore an existing dedicated SQL pool
 description: How-to guide for restoring an existing dedicated SQL pool.
-author: realAngryAnalytics
-ms.author: stevehow
-manager: joannapea
-ms.reviewer: joanpo
+author: joannapea 
+ms.author: joanpo
 ms.date: 01/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -15,6 +13,8 @@ ms.custom:
 ---
 
 # Restore an existing dedicated SQL pool
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn how to restore an existing dedicated SQL pool in Azure Synapse Analytics using Azure portal, Synapse Studio, and PowerShell. This article applies to both restores and geo-restores. 
 

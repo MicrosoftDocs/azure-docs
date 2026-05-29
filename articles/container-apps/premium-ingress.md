@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: tutorial
-ms.date: 11/04/2025
+ms.date: 01/16/2026
 ms.author: jefmarti
 zone_pivot_groups: azure-cli-bicep
 ---
@@ -93,7 +93,7 @@ The following table describes the parameters you can set when configuring premiu
 
 | Parameter | Description | Default | Minimum | Maximum |
 |--|--|--|--|--|
-| `termination-grace-period` | The time (in seconds) to allow active connections to close before terminating the ingress. | n/a | 0 | 60 |
+| `termination-grace-period` | The time (in seconds) to allow active connections to close before terminating the ingress. | n/a | 0 | 3600  |
 | `request-idle-limit` | The time (in minutes) a request can remain idle before being disconnected. | 4 | 4 | 30 |
 | `header-count-limit` | The maximum number of HTTP headers allowed per request. | 100 | 1 | n/a |
 
@@ -142,7 +142,7 @@ az containerapp env premium-ingress remove \
 To remove the workload profile from the environment, run the following command:
 
 ````azurecli
-az containerapp env workload-profile remove \
+az containerapp env workload-profile delete \
   --resource-group my-resource-group \
   --name my-container-apps-env \
   --workload-profile-name Ingress-D4

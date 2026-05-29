@@ -2,7 +2,7 @@
 title: Secure OpenAPI tool calls from Foundry Agent Service
 description: Configure Microsoft Entra authentication to secure Microsoft Foundry tool calls with managed identity, step by step.
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 12/04/2025
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
@@ -28,13 +28,18 @@ This article shows you how to secure your App Service OpenAPI endpoints when the
 
 You need both the object ID and the application ID of your Microsoft Foundry project's managed identity to configure App Service authentication. A system-assigned managed identity is automatically created for your Microsoft Foundry project when you create it. This identity is what Foundry Agent Service uses to authenticate with your app.
 
-1. In the [Foundry portal](https://ai.azure.com), navigate to your project and select **Overview**.
+# [New Foundry portal](#tab/new-foundry)
 
-1. In the **Project details** section on the right, select the link next to **Resource group** to open the resource group in the Azure portal.
+1. In the [Foundry portal](https://ai.azure.com) make sure you select **New Foundry** in the top right corner. Note the new Foundry portal doesn't show agents created in the classic portal. 
 
-1. In the resource group, find and select your Microsoft Foundry project resource.
+1. From the top right menu, select **Operate** > **Admin**. Then select your project's parent resource in the **Parent resource** column.
 
-1. In the project resource's left menu, select **Resource Management** > **Identity**.
+1. In the parent resource's details page, select **Manage this resource in the Azure Portal**.
+
+    > [!NOTE]
+    > Before you move on, make sure you're on a Foundry resource page, *not* a Foundry project resource page.
+
+1. In the Foundry resource's left menu, select **Resource Management** > **Identity**.
 
 1. Under **System assigned**, copy the value of **Object (principal) ID** for later.
 
@@ -45,6 +50,28 @@ You need both the object ID and the application ID of your Microsoft Foundry pro
 1. On the **Overview** page, copy the value of **Application ID**. 
 
     Note the **Object ID** is the same as the one shown in the system-assigned managed identity. You need both the application ID and the object ID for configuring App Service authentication.
+
+# [Classic Foundry portal](#tab/classic)
+
+1. In the [Foundry portal](https://ai.azure.com), navigate to your project and select **Overview**.
+
+1. In the **Project details** section on the right, select the link next to **Resource group** to open the resource group in the Azure portal.
+
+1. In the resource group, find and select the Foundry resource (*not* the Foundry project resource).
+
+1. In the Foundry resource's left menu, select **Resource Management** > **Identity**.
+
+1. Under **System assigned**, copy the value of **Object (principal) ID** for later.
+
+1. In the Azure portal, search for and select **Microsoft Entra ID**.
+
+1. In the search box, search for the object ID you copied and select it in the search results.
+
+1. On the **Overview** page, copy the value of **Application ID**. 
+
+    Note the **Object ID** is the same as the one shown in the system-assigned managed identity. You need both the application ID and the object ID for configuring App Service authentication.
+
+---
 
 ## Configure Microsoft Entra authentication for your app
 
@@ -94,22 +121,38 @@ After enabling authentication, you need to update the app registration's Applica
 > [!NOTE]
 > This section assumes you already completed one of the tutorials in the [Prerequisites](#prerequisites) section, where you added your app as an OpenAPI tool in Microsoft Foundry using anonymous authentication. You now update the tool to use managed identity authentication.
 
+# [New Foundry portal](#tab/new-foundry)
+
+1. Back in the [Foundry portal](https://ai.azure.com), select your agent.
+
+1. Find the OpenAPI tool and select **...** > **Edit**.
+
+1. The **OpenAPI 3.0+ schema** box should have the schema from your App Service app. If not, paste in your OpenAPI schema. For more information, see [How to use OpenAPI with Foundry Agent Service](/azure/ai-services/agents/how-to/tools/openapi-spec).
+
+1. For **Authentication method**, select **Managed identity**.
+
+1. For **Audience**, enter your App Service app's URL. This URL must match the **Application ID URI** that you configured earlier.
+
+1. Select **Update tool**.
+
+# [Classic Foundry portal](#tab/classic)
+
 1. Back in the [Foundry portal](https://ai.azure.com), select your agent.
 
 1. Find the OpenAPI tool and select it to edit.
 
-1. In the **Define the schema for this tool** page:
+1. In the **Define the schema for this tool** page, paste your OpenAPI schema. For more information, see [How to use OpenAPI with Foundry Agent Service](/azure/ai-services/agents/how-to/tools/openapi-spec).
 
-   1. Paste your OpenAPI schema. For more information, see [How to use OpenAPI with Foundry Agent Service](/azure/ai-services/agents/how-to/tools/openapi-spec).
-   
-   1. For **Authentication method**, select **Managed Identity**.
-   
-   1. For **Audience**, enter your App Service app's URL. This URL must match the **Application ID URI** that you configured earlier.
+1. For **Authentication method**, select **Managed Identity**.
 
-   > [!TIP]
-   > Foundry Agent Service uses the system-assigned managed identity to authenticate with your app. Because you added the identity's client ID as an allowed client application and an allowed identity in your app's authentication provider configuration, the agent service is authorized to call your app's APIs.
+1. For **Audience**, enter your App Service app's URL. This URL must match the **Application ID URI** that you configured earlier.
 
-1. Review and save the tool.
+1. Save the tool.
+
+---
+
+> [!TIP]
+> Foundry Agent Service uses the system-assigned managed identity to authenticate with your app. Because you added the identity's client ID as an allowed client application and an allowed identity in your app's authentication provider configuration, the agent service is authorized to call your app's APIs.
 
 ## Test the agent
 

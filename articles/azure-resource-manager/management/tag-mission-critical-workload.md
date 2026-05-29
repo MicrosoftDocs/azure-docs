@@ -1,7 +1,7 @@
----
+﻿---
 title: Label mission-critical workloads 
 description: Learn how to label mission-critical workloads in Azure to assess Microsoft workloads.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/15/2025
 ---
 
@@ -68,3 +68,4 @@ Tagging mission-critical workloads requires that tags be applied to each Azure r
 
 - For more information about defining workloads, see [Azure Well-Architected Framework workloads](/azure/well-architected/workloads).
 - To learn more about using tags, see the Azure Cloud Adoption Framework [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide).
+

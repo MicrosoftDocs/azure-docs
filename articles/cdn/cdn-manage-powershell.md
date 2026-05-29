@@ -8,7 +8,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to manage my Azure Content Delivery Network using PowerShell scripts, so that I can automate the configuration and maintenance of CDN profiles and endpoints efficiently."
 ---

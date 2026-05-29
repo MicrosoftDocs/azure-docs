@@ -406,7 +406,7 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 > | Variable                                 | Description                                                            | Type         | Notes                        |
 > | -----------------------------------      | -----------------------------------------------------------------------| -----------  | ---------------------------- |
 > | `ANF_HANA_use_AVG`                       | Use Application Volume Group for the volumes.                          | Optional     |                              |
-> | `ANF_HANA_use_Zones`                     | Deploy the Azure NetApp Files volume zonally.                          | Optional     |                              |
+> | `ANF_HANA_use_Zones`                     | Deploy a zonal Azure NetApp Files volume.                          | Optional     |                              |
 > | `ANF_HANA_data`                          | Create Azure NetApp Files volume for HANA data.                        | Optional     |                              |
 > | `ANF_HANA_data_use_existing_volume`      | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes. |
 > | `ANF_HANA_data_volume_count`             | Number of HANA data volumes.                                           | Optional     |                              |

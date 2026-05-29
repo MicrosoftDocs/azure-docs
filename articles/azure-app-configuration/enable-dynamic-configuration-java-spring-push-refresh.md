@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 10/07/2025
+ms.date: 02/10/2026
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
+- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - An existing Azure App Configuration Store.
 
@@ -63,7 +63,7 @@ In this tutorial, you learn how to:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>6.0.0</version>
+        <version>7.0.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -248,7 +248,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
    curl -X GET https://my-azure-webapp.azurewebsites.net
    ```
 
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
+1. Open the **Azure portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
 
     | Key | Value |
     |---|---|

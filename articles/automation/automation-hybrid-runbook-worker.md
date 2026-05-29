@@ -6,8 +6,8 @@ ms.subservice: process-automation
 ms.date: 07/08/2025
 ms.topic: overview 
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Automation Hybrid Runbook Worker overview

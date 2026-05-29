@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 02/20/2025
+ms.date: 01/29/2026
 ms.author: mbender
 ms.custom:
   - sfi-image-nochange
@@ -22,7 +22,7 @@ This article provides an overview of cross-subscription load balancing with Azur
 
 Cross-subscription load balancing allows you to deploy Azure Load Balancer resources across multiple subscriptions. This feature enables you to deploy a load balancer in one subscription and have the frontend IP and backend pool instances in a different subscription. This capability is useful for organizations that have separate subscriptions for networking and application resources.
 
-:::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources.":::
+:::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Screenshot of cross-subscription load balancer concepts with two subscriptions and resources.":::
 
 This table illustrates some of the possible scenarios cross-subscription load balancing supports. 
 
@@ -38,7 +38,7 @@ Cross-subscription frontends allow the frontend IP configuration to reside in a 
 ### Public frontend IP configurations 
 Public IP addresses utilized by an Azure Load Balancer can reside in different subscription than the load balancer. If multiple public IP addresses are attached to a load balancer, each IP address can come from a different subscription. For example, if we have a Load Balancer (deployed in subscription C) with two frontend IPs, the first IP address can reside in subscription B and the second IP address can reside in subscription A.   
 
-:::image type="content" source="media/cross-subscription-load-balancer-overview/public-frontend-ip-configuration-concept.png" alt-text="Diagram of public frontend ip configuration with cross subscription load balancing.":::
+:::image type="content" source="media/cross-subscription-load-balancer-overview/public-frontend-ip-configuration-concept.png" alt-text="Screenshot of public frontend IP configuration with cross-subscription load balancing.":::
 
 An important note is that once a frontend IP configuration is set, its subscription can’t be modified. However, the frontend IP configuration can be updated with a different IP address within the same subscription. For example, if a frontend IP configuration is attached to IP address A in subscription 1, it can be updated to IP address B also in subscription 1. 
 Cross-subscription public IP addresses are only supported on the regional tier standard load balancer
@@ -66,7 +66,7 @@ With SyncMode configured as *Manual*, backend pool instances aren't synchronized
 
 In addition, cross-subscription load balancing is supported for Azure global Load Balancer. With cross-subscription global load balancer, backend regional load balancers can each be located in different subscriptions. Cross-subscription backends on a global load balancer don't need other parameters or changes to the backend pool.
 
-:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept-thumbnail.png" alt-text="Diagram of cross subscription global load balancer concept." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
+:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept-thumbnail.png" alt-text="Screenshot of cross-subscription global load balancer concept." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
 
 > [!NOTE]
 >  Cross-subscription frontends aren't supported on Azure global Load Balancer today. 

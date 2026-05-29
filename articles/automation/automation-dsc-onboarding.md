@@ -5,10 +5,10 @@ services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 04/15/2026
 ms.custom:
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Enable Azure Automation State Configuration
@@ -421,7 +421,7 @@ To view the status of the Azure VM Desired State Configuration extension:
 - For pricing information, see [Azure Automation State Configuration pricing][20].
 - For an example of using Azure Automation State Configuration in a continuous deployment pipeline,
   see [Set up continuous deployment with Chocolatey][14].
-- For troubleshooting information, see [Troubleshoot Azure Automation State Configuration][03].
+- For troubleshooting issues related to enabling Azure Automation State Configuration, see [Troubleshoot Azure Automation State Configuration issues](troubleshoot/desired-state-configuration.md).
 
 <!-- link references -->
 [00]: /powershell/dsc/managing-nodes/metaConfig

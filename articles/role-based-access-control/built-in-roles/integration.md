@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -604,7 +604,7 @@ Has read-only access to entities in the workspace. This role should be assigned 
 
 ## App Configuration Contributor
 
-Grants permission for all management operations, except purge, for App Configuration resources.
+Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -626,7 +626,7 @@ Grants permission for all management operations, except purge, for App Configura
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for all management operations, except purge, for App Configuration resources.",
+  "description": "Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "name": "fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "permissions": [
@@ -743,7 +743,7 @@ Allows read access to App Configuration data.
 
 ## App Configuration Reader
 
-Grants permission for read operations for App Configuration resources.
+Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -765,7 +765,7 @@ Grants permission for read operations for App Configuration resources.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for read operations for App Configuration resources.",
+  "description": "Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/175b81b9-6e0d-490a-85e4-0d422273c10c",
   "name": "175b81b9-6e0d-490a-85e4-0d422273c10c",
   "permissions": [
@@ -790,7 +790,7 @@ Grants permission for read operations for App Configuration resources.
 
 ## Azure API Center Compliance Manager
 
-Allows managing API compliance in Azure API Center service.
+Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources.
 
 [Learn more](/azure/api-center/enable-api-analysis-linting)
 
@@ -886,6 +886,7 @@ Allows managing Azure API Center service.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/* |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/deletedServices/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -910,6 +911,7 @@ Allows managing Azure API Center service.
     {
       "actions": [
         "Microsoft.ApiCenter/services/*",
+        "Microsoft.ApiCenter/deletedServices/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
@@ -941,7 +943,7 @@ Allows read-only access to Azure API Center service.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -966,7 +968,7 @@ Allows read-only access to Azure API Center service.
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -979,6 +981,7 @@ Allows read-only access to Azure API Center service.
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
+
 ## Azure Relay Listener
 
 Allows for listen access to Azure Relay resources.
@@ -1122,6 +1125,7 @@ Lets you create system topics and event subscriptions on all system topics expos
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a computescheduleresources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a containerserviceeventresources system topic |
 > | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToImpactReportingResources/action | Permission to perform creation and event subscription creation on a impactreportingresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToAksResources/action | Permission to perform creation and event subscription creation on a aksresources system topic |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | **NotActions** |  |
@@ -1149,6 +1153,7 @@ Lets you create system topics and event subscriptions on all system topics expos
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToImpactReportingResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToAksResources/action",
         "Microsoft.EventGrid/eventSubscriptions/write",
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
       ],
@@ -1609,7 +1614,7 @@ Read and search DICOM data.
 
 Durable Task role for all data access operations.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1650,7 +1655,7 @@ Durable Task role for all data access operations.
 
 Read all Durable Task Scheduler data.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1659,8 +1664,6 @@ Read all Durable Task Scheduler data.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/read | Gets or list orchestrations metadata, including payloads |
-> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 > | **NotDataActions** |  |
@@ -1679,8 +1682,6 @@ Read all Durable Task Scheduler data.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DurableTask/orchestrations/read",
-        "Microsoft.DurableTask/orchestrations/metadata/read",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read"
       ],
@@ -1697,7 +1698,7 @@ Read all Durable Task Scheduler data.
 
 Used by worker applications to interact with the Durable Task service
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1706,7 +1707,6 @@ Used by worker applications to interact with the Durable Task service
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/orchestrations/execute/action | Get orchestration and activity work-items and post results |
 > | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -1724,7 +1724,6 @@ Used by worker applications to interact with the Durable Task service
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.DurableTask/orchestrations/execute/action",
         "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action"
       ],
       "notDataActions": []
@@ -2046,6 +2045,77 @@ Lets you subscribe messages on topicspaces.
 }
 ```
 
+## FHIR Data Bulk Operator
+
+Role allows user or principal to perform bulk operations
+
+[Learn more](/azure/healthcare-apis/fhir/fhir-bulk-update)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/import/action | Import FHIR resources in batch. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to perform bulk operations",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/804db8d3-32c7-4ad4-a975-3f6f90d5f5f5",
+  "name": "804db8d3-32c7-4ad4-a975-3f6f90d5f5f5",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/write",
+        "Microsoft.HealthcareApis/services/fhir/resources/delete",
+        "Microsoft.HealthcareApis/services/fhir/resources/export/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/reindex/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/import/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/bulkOperator/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/write",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/delete",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/reindex/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/bulkOperator/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Bulk Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## FHIR Data Contributor
 
 Role allows user or principal full access to FHIR Data
@@ -2358,8 +2428,12 @@ Role allows user to access FHIR Service according to SMART on FHIR specification
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/readById/action | Read FHIR resource by Id |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/search/action | Search FHIR Resource |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/readById/action | Read FHIR resource by Id |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/search/action | Search FHIR Resource |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -2378,8 +2452,12 @@ Role allows user to access FHIR Service according to SMART on FHIR specification
       "notActions": [],
       "dataActions": [
         "Microsoft.HealthcareApis/services/fhir/resources/read",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/readById/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/search/action",
         "Microsoft.HealthcareApis/services/fhir/resources/smart/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/readById/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/search/action",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/smart/action"
       ],
       "notDataActions": []
@@ -3034,11 +3112,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/write | Create or update a Services Hub Connector |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/read | View or List Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/delete | Delete Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/checkAssessmentEntitlement/action | Lists the Assessment Entitlements for a given Services Hub Workspace |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/* |  |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/* |  |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/supportOfferingEntitlement/read | View the Support Offering Entitlements for a given Services Hub Workspace |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/workspaces/read | List the Services Hub Workspaces for a given User |
 > | **NotActions** |  |
@@ -3061,11 +3142,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.ServicesHub/connectors/write",
         "Microsoft.ServicesHub/connectors/read",
         "Microsoft.ServicesHub/connectors/delete",
         "Microsoft.ServicesHub/connectors/checkAssessmentEntitlement/action",
+        "Microsoft.ServicesHub/connectors/*",
+        "Microsoft.ServicesHub/*",
         "Microsoft.ServicesHub/supportOfferingEntitlement/read",
         "Microsoft.ServicesHub/workspaces/read"
       ],

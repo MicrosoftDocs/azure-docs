@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 This article hosts release information for Azure Operator Service Manager (AOSM). Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This article is updated frequently and serves as the primary announcement method for new releases. Make sure to check back often and stay up-to-date.
 
 ## Release email notifications
-To receive email notications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
+To receive email notifications upon the general availability of new AOSM releases, join the AOSM notification distribution list by submitting contact information in the following sign-up form: https://forms.office.com/r/GPkgkNi2tx
 
 ## Regional availability of releases
 Releases described herewithin are generally available and supported across the following Azure regions:
@@ -20,30 +20,45 @@ Releases described herewithin are generally available and supported across the f
 * southcentralus
 * westus3
 * uksouth
-* westeurope
 
 Use of AOSM in these regions is permitted, based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed is no longer supported. If you have been using AOSM in a not-listed region, or if you have a business need to use AOSM in a not-listed region, please open a support ticket to submit request consideration.
-  
+
+> [!NOTE]
+> The westeurope region has been retired as of 2/1/2026 and is no longer supported for deployments or ongoing operations.
+
 ## Release attestation for all versions
 All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ## Release notes for the latest release
 The following release is the latest generally available release.
 
-## Release 2509.02
-This 2509.02 Azure Operator Service Manager release includes updating the NFO version to 3.0.3243-229 and the RP version to 1.0.03180.486. This release is a hotfix to be applied only to systems presently running release 2509.01.
+## Release 2603.01
+This 2603.01 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI and Github product components. 
 
 ### Latest release details
-* NFO Release Version: 3.0.3243-229
-* RP Release Version: 1.0.03180.486
-* CLI Extension Release Version: 2.0.0b3
-* Release Date: November 19, 2025
+* Release Date: March 31, 2026
+* R2D Approvals: 184438, 180732, 180469
+* NFO Release Version: 3.0.3372-239
+* RP Release Version: 1.0.03365.558 or later
+* CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
 * Is NFO update required: YES, Update only
-* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+* Dependency Versions: Go/1.24.11 - Helm/3.18.4 - Base Image/AzureLinux 3.0
 
 ### Latest release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
-* NFO - [408044] Change maxAvailable for tls-daemonset to restart even when cluster has notReady nodes.
+* NFO - [2606984] Fix to prevent chart deletion from disabling webhook in a shared namespace. 
+* NFO - [2651233] Improved logging of helm operations including rollback.
+* RP  - [2659027] Fix to prevent incorrect skipping of nfApps after a nf-rollback.
+* CLI - [51000000959992] Resolved conflict when installing extension in newer version of az cli. 
+
+### Release updates to improve security
+* NFO - [2602088] Upgraded containerd to v1.7.29 from v1.7.27.
+* NFO - [2605002] Upgraded MSI Adapter to v1.32.3 from v1.29.3.
+* NFO - [2607039] Upgraded Geneva MDSD to 1.38.2-20260111-1 from 1.35.7-20250611-1.
+* NFO - [2604981] Upgraded Geneva Fluentd to 1.18.0-20260211-1 from 1.18.0-20250522-1.
+* NFO - [2607039] Upgraded Geneva MDM to 2.202602101834.0-20260211-1 from 2.202507111244.0-20250711-1.
+* NFO - [2571975] Upgraded Go to 1.24.3 from 1.24.11.
+* CVE - A total of 4 CVE resolved.
 
 ## Release notes for all releases 
 The following generally available releases are listed in order from oldest to newest.
@@ -405,12 +420,12 @@ This 2505.01 Azure Operator Service Manager release includes updating the NFO ve
 
 ### Release Highlights
 #### Support for artifact-manifest publisher template
-**[FEATURE 1041747 / ART-399]** adds support for the new artifact-manifest publisher template first introduced in RP API version 2025-03-30. This template improves effeciency of publisher resource cleanup, enabling the safe bulk deleteion of unused resources to automate publisher artifact-store space management. The extension remains backward compatible with earlier API versions and existing workflows. Note: When upgrading a site network service (SNS) deployed using an older API version, to this new version, a pod restart is required, following the upgrade, to ensure the local registry remains in-sync with the publisher artifact-store. If the local registry is not brought in-sync, the SNS may not function in a disconnected scenario.
+**[FEATURE 1041747 / ART-399]** adds support for the new artifact-manifest publisher template first introduced in RP API version 2025-03-30. This template improves efficiency of publisher resource cleanup, enabling the safe bulk deletion of unused resources to automate publisher artifact-store space management. The extension remains backward compatible with earlier API versions and existing workflows. Note: When upgrading a site network service (SNS) deployed using an older API version, to this new version, a pod restart is required, following the upgrade, to ensure the local registry remains in-sync with the publisher artifact-store. If the local registry is not brought in-sync, the SNS may not function in a disconnected scenario.
 
 #### Release Updates
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO - [2117907] The TLS daemonset was updateed to pre-load required packages during build time. This reduces startup latency and avoids unnecessary network traffic.
+* NFO - [2117907] The TLS daemonset was updated to pre-load required packages during build time. This reduces startup latency and avoids unnecessary network traffic.
 * NFO - [SFI] Helm version upgrade from 3.15.2 to 3.17.2.
 * NFO - [SFI] Go version upgrade from 1.22.4 to 1.24.3.
 * NFO - [SFI] Base image migrated from CBL-Mariner to AzureLinux.
@@ -433,7 +448,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 
 * NFO - [1041747] Improves support for publisher cleanup feature, fixing stability issues and addressing corner-cases such as disconnected mode.
 * NFO - [2217456] Migrates AOSM extension images to MCR source, including cluster registry and geneva images.
-* NFO - [2209250] Fixes cluster registry file corruption in broken manifest link, NFO now handles such failures and auto-recovers so that deletes can succeed.
+* NFO - [2209250] Fixes cluster registry file corruption in broken manifest link, NFO now handles such failures and auto-recovers so the deletes can succeed.
 * NFO - [2278364] Fixes behavior where upgrade fails due to a pre-upgrade hook stuck on bad node, removing the hook which is no longer needed.
 * NFO - [2196085] Remediates file system security vulnerability with TLS-Daemonset by allowing only ReadOnlyRootFilesystem access.
 * RP - [2236853] 1ES Operation Vulnerabilities.
@@ -468,7 +483,7 @@ This 2509.01 Azure Operator Service Manager release includes updating the NFO ve
 **[FEATURE 2069409 / ART-465]** introduces a method to interrupt a broken service deployment operation while in a nonterminal state. Supporting only container network functions, the interruption is triggered by applying a static tag to the network function managed resource group. This tag must later be removed to restore proper service operations. This feature provides a mechanism for customer operation teams to terminate a deployment which maybe negatively impacting service performance and otherwise could take multiple hours to reach a terminal state. For more information, see our [learn documentation](how-to-cancel-service-deployments.md).
 
 #### Support for publisher artifact store resiliency
-**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seemless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
+**[FEATURE 2129209 / ART-535]** introduces artifact store geo-resiliency between the backing ACR resources in two Azure regional location pairs. Once enabled, the artifact-store resource now  survives a single region failure, continuing to operate in read-only mode from the hot standby instance. Seamless integration with Azure Operator Service Manager's cluster registry, combined with centralized management of registry pairs, make artifact store resiliency to get and keep running. For more information, see our [learn documentation](publisher-artifact-store-resiliency.md).
 
 ### Release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
@@ -478,7 +493,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [2275729] Fix to prevent instability when encountering untagged container images.
 * RP  - [2326576] Support for artifact-store geo-replication.
 * RP  - [2327070] Support for interruption of service deployments.
-* RP  - [2388664] Fix for West Central US region test opreations.
+* RP  - [2388664] Fix for West Central US region test operations.
 * RP  - [2309471] For to create ACR Names in lower case only.
 
 ### Release updates to improve security
@@ -486,3 +501,43 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [383549] Helm version 3.18.4 downgrade (from 3.18.5).
 * RP  - [2301086] Secure Code Bugs-RP.
 * RP  - [2313679] 1ES Operational Vulnerabilities.
+
+## Release 2509.02
+This 2509.02 Azure Operator Service Manager release includes updating the NFO version to 3.0.3243-229 and the RP version to 1.0.03180.486. This release is a hotfix to be applied only to systems presently running release 2509.01.
+
+### Release details
+* NFO Release Version: 3.0.3243-229
+* RP Release Version: 1.0.03180.486
+* CLI Extension Release Version: 2.0.0b3
+* Release Date: November 19, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Release updates to improve quality
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [408044] Change maxAvailable for tls-daemonset to restart even when cluster has notReady nodes.
+
+## Release 2601.01
+This 2601.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3294-233 and the RP version to 1.0.03310.523. 
+
+### Release details
+* NFO Release Version: 3.0.3294-233
+* RP Release Version: 1.0.03310.523
+* CLI Extension Release Version: 2.0.0b3
+* Release Date: January 30, 2026
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Release updates to improve quality
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [2482164] Add self-healing TLS DaemonSet to automatically refresh registry CA on nodes
+* RP  - [2477770] Private end point creation improvements
+* RP  - [2386166] Support NF level rollback configuration for SNS Create (first PUT) for CNF workflows
+
+### Release updates to improve security
+* NFO - [CVE] A total of 6 CVEs are addressed in this release.
+* NFO - Updates cbl-mariner/base/core from 2.0.20251106 to 2.0.20251206
+* NFO - Updates Containerd from 1.7.27 to 1.7.29
+* RP  - [2254238] MISE Compliance for dSTS
+* RP  - Updates production clusters from .NET 6 to .NET 8
+

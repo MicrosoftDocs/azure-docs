@@ -11,6 +11,8 @@ ms.date: 08/28/2025
 
 # Upgrade CRS or DRS ruleset version
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 The Azure-managed **Default Rule Set (DRS)** in Azure Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. We recommend always running the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
 
 The Azure-managed Default Rule Set (DRS) is the latest generation of rulesets in Azure WAF, replacing all previous Core Rule Set (CRS) versions. Among DRS releases, always use the highest available version (for example, DRS 2.2 when released) to ensure you have the most up-to-date protections.
@@ -53,8 +55,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
     -Name $wafPolicyName ` 
     -ResourceGroupName $resourceGroupName 
     $currentExclusions = $wafPolicy.ManagedRules.Exclusions 
-    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets 
-    | Where-Object { $_.RuleSetType -eq "OWASP" } 
+    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets | Where-Object { $_.RuleSetType -eq "OWASP" } 
     $currentVersion = $currentManagedRuleset.RuleSetVersion
     ```
 
@@ -121,14 +122,15 @@ groups:
         foreach ($existingRule in $group.Rules) { 
     if (-not (Test-RuleIsRemovedFromDRS21 $existingRule.RuleId $currentVersion)) 
       { 
-       `$existingGroup = $groupOverrides | 
-    Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
+       $existingGroup = $groupOverrides | Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
     if ($existingGroup) { 
-    if (-not ($existingGroup.Rules | 
-    Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
+    if (-not ($existingGroup.Rules | Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
     $existingGroup.Rules.Add($existingRule) } } 
     else { 
-      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` -RuleGroupName $mappedGroupName ` -Rule @($existingRule) $groupOverrides += $newGroup } } } }
+      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` 
+        -RuleGroupName $mappedGroupName ` 
+        -Rule @($existingRule) 
+      $groupOverrides += $newGroup } } } }
 
     ```
 

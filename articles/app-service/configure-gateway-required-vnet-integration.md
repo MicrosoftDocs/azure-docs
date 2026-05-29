@@ -3,7 +3,7 @@ title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
 author: seligj95
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 01/30/2026
 ms.author: jordanselig
 ms.custom:
   - build-2025
@@ -12,7 +12,7 @@ ms.service: azure-app-service
 # Configure gateway-required virtual network integration
 
 > [!IMPORTANT]
-> For all virtual network integrations with App Service, the recommended method uses [regional virtual network integration](./overview-vnet-integration.md). Gateway-required virtual network integration is a legacy method with limitations that regional virtual network integration mitigates.
+> Gateway-required virtual network integration is being retired on March 31, 2027. For more information, see the [retirement announcement](https://azure.microsoft.com/updates/?id=499923) and [Migrate from SSTP to IKEv2 or OpenVPN](../vpn-gateway/ikev2-openvpn-from-sstp.md). We recommend migrating to [regional virtual network integration](./overview-vnet-integration.md), which mitigates the limitations of gateway-required virtual network integration.
 
 Gateway-required virtual network integration supports connecting to a virtual network in another region or to a classic virtual network. Gateway-required virtual network integration only works for Windows plans. We recommend using [regional virtual network integration](./overview-vnet-integration.md) to integrate with virtual networks.
 

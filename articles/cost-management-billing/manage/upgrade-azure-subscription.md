@@ -6,19 +6,20 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/28/2025
+ms.topic: how-to
+ms.date: 01/14/2026
 ms.author: jkinma
 ms.custom: sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Upgrade your Azure free account or Azure for Students Starter account
 
-You can upgrade your [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure portal.
+You can upgrade your [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to [pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) in the Azure portal.
 
-If you have an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), you can upgrade to it to an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You get $200 Azure credit in your billing currency and 12 months of free services on upgrade. If you don't qualify for a free account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have an [Azure for Students Starter account](https://azure.microsoft.com/offers/ms-azr-0144p/) and are eligible for an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), you can upgrade to an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You get $200 Azure credit in your billing currency and 12 months of free services on upgrade. If you don't qualify for a free account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) with a [support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-If you have an [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/).
+If you have an [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) account, you can upgrade to [pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn).
 
 >[!NOTE]
 >If you use resources that aren’t free and your subscription gets disabled because you run out of credit, and then you upgrade your subscription, the resources get enabled after upgrade. This situation will result in you getting charged for the resources used.

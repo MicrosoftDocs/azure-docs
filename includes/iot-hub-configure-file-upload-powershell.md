@@ -5,18 +5,17 @@ author: SoniaLopezBravo
 ms.author: sonialopez 
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 07/20/2021
+ms.date: 12/01/2025
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange
 ---
 
-
 ## Prerequisites
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in [Create an IoT hub](../articles/iot-hub/create-hub.md).
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../articles/storage/common/storage-account-create.md).
 
@@ -27,7 +26,7 @@ ms.custom:
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 
   * [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
-  * Sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+  * Sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command. To finish the authentication process, follow the steps displayed in your terminal. For more sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 
 ## Sign in and set your Azure account
@@ -105,9 +104,9 @@ The configuration requires the following values:
 
 * **SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default.
 
-* **File notification settings default TTL**: The time-to-live of a file upload notification before it's expired. Set to one day by default.
+* **File notification settings default TTL**: The time-to-live of a file upload notification before it expires. Set to one day by default.
 
-* **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
+* **File notification maximum delivery count**: The number of times the IoT hub attempts to deliver a file upload notification. Set to 10 by default.
 
 Use the [Set-AzIotHub](/powershell/module/az.iothub/set-aziothub) command to configure the file upload settings on your IoT hub:
 

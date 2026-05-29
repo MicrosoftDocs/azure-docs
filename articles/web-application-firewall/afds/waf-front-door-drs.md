@@ -5,12 +5,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/28/2025
+ms.date: 03/17/2026
 
 # Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
 
 # Web Application Firewall DRS rule groups and rules
+
+**Applies to:** :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
 

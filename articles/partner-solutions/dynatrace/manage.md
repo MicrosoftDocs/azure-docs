@@ -1,7 +1,8 @@
 ---
 title: Manage settings for your Dynatrace resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: how-to
 ms.date: 10/21/2025
 
@@ -92,6 +93,22 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 ## Monitor multiple subscriptions
 
+When you add or remove subscriptions for Dynatrace monitoring, the system updates the Monitoring Reader role assignment on the system-managed identity that's linked to the resource. 
+
+### Prerequisites
+
+- To perform these actions, you must have both of the following Azure permissions:
+
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for Dynatrace (Dynatrace.Observability) must be registered in the target subscription.
+
+### Add subscriptions 
+
+> [!IMPORTANT]
+> When you link a subscription to a Dynatrace resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+
 To monitor multiple subscriptions: 
 
 1. In the left pane, select **Dynatrace environment config** > **Monitored Subscriptions**. 
@@ -117,6 +134,9 @@ Select **Refresh** to view the subscriptions and their monitoring status.
 After a subscription is added, the status changes to **Active**. 
 
 ## Remove subscriptions 
+
+> [!IMPORTANT]
+> When you unlink a subscription from a Dynatrace resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
 
 To unlink subscriptions from a Dynatrace resource: 
 
@@ -148,4 +168,5 @@ Select **Support + Troubleshooting** from the service menu, then choose the link
 ## Related content
 
 - [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)
 

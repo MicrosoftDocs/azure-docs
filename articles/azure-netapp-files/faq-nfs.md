@@ -36,6 +36,17 @@ Many clients can experience problems if they don’t fully support NFSv4.2 or th
 
 For more information, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs).
 
+## Why do NFS mounts hang or fail when TCP timestamps are enabled?
+
+TCP timestamps (PAWS, RFC 7323) protect against stale packets. If a network device (for example, NAT, NVA, firewall, or load balancer) modifies or strips TCP timestamp values, valid packets can be dropped preventing the NFS mount from completing.
+
+The common symptoms are:
+
+* NFSv3 or NFSv4.1 mount commands hang or time out.
+* TCP connection establishes (SYN/SYN-ACK completes) connection, but the mount does not complete.
+* Mount succeeds when TCP timestamps are disabled on the client.
+
+
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
@@ -82,6 +93,10 @@ By design, the `.snapshot` directory is never visible to NFSv4.1 clients. By def
 
 No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
+## Why can I not create files larger than 16 TiB on my Azure NetApp Files volumes? 
+
+Since May 2026, Azure NetApp Files supports files up 64 TiB on new and existing regular volumes (smaller than 100 TiB). Because NFS clients only refresh the maximum file size when mounting the volume, it is necessary to remount the volume on the NFS clients to correctly recognize the new maximum file size.
+
 ## Oracle dNFS
 
 ### Are there any Oracle patches required with dNFS?
@@ -96,7 +111,7 @@ This corruption is neither a bug on ONTAP nor the Azure NetApp Files service its
 Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
 
 >[!IMPORTANT]
-> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41).
+> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41)
 
 ### Are there any patches required for use of Oracle dNFS with NFSv4.1?
 >[!IMPORTANT]
