@@ -1,9 +1,9 @@
 ---
 title: Dynamic Agentic Workflows
 titleSuffix: Logic Apps Automation
-description: Build agentic workflow automation that runs dynamically, reasons with context, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
+description: Learn about agentic workflow automation that runs dynamically, reasons with context, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
 services: azure-logic-apps
-ms.reviewers: estfan, divswa, azla
+ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: overview
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
@@ -17,7 +17,7 @@ ms.custom:
 
 > [!NOTE]
 >
-> This preview capability might incur charges and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Whether you're new to workflow automation or build automations with non-Microsoft tools, you likely hit the same wall. You can easily automate simple tasks, but you run into problems with real business processes where the steps vary, or they have undefined, unstructured, or unpredictable rules, paths, choices, and data. Requirements can change. Conditions and exceptions might suddenly arise. As a result, you wind up with brittle, hardcoded paths that break when the landscape shifts.
 
@@ -116,4 +116,6 @@ As you work with Logic Apps Automation, you learn more about the following core 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first dynamic workflow automation](quickstart-create-dynamic-workflow-automation.md)
+>
+> - [Create your first dynamic automation project](quickstart-create-dynamic-automation-projects.md)
+> - [Create your first dynamic workflow](quickstart-create-dynamic-workflows.md)

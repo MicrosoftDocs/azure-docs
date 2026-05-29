@@ -1,23 +1,23 @@
 ---
 title: Create Dynamic Agentic Workflows
 titleSuffix: Logic Apps Automation
-description: Learn how to build dynamically-run, AI-driven workflow automation that chooses actions to take either independently or with human oversight by using Logic Apps Automation.
+description: Build dynamically-run, AI-driven workflows that independently action or with human oversight by using Logic Apps Automation.
 services: azure-logic-apps
-ms.reviewers: estfan, divswa, azla
+ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#Customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered automation workflow by using Logic Apps Automation.
+#Customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered workflow by using Logic Apps Automation.
 ---
 
-# Quickstart: Build dynamic workflows with Logic Apps Automation (preview)
+# Quickstart: Build dynamic agentic workflows with Logic Apps Automation (preview)
 
 > [!NOTE]
 >
-> This preview capability, might incur charges, and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When you automate business processes, you often have the following tasks before you can even build and test a single workflow:
 
@@ -35,9 +35,11 @@ If you're new to dynamic workflow automation, see [What is Logic Apps Automation
 
 ## Prerequisites
 
-- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account associated with a Microsoft work or school account that can access the [Logic Apps Automation portal](auto.azure.com).
 
-  Typically, use a Microsoft work or school account that can access the [Logic Apps Automation portal](https://automation.azure.com).
+  Builders don't need Azure subscriptions to create automation. However, administrators do to create projects. No subscription needed.
+
+  Typically, use 
 
 - To follow the example, you need the URL for any RSS URL that doesn't need HTTP authorization, for example:
 
@@ -63,7 +65,7 @@ For the full list of components and terminology, see [Key concepts and terminolo
 
 A *project* organizes applications and controls who has access. Create a project for each business area or team.
 
-1. Go to the [Logic Apps Automation portal](https://automation.azure.com). Sign in with your Azure account.
+1. Go to the [Logic Apps Automation portal](https://auto.azure.com). Sign in with your Azure account.
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
 
@@ -434,4 +436,3 @@ If you no longer need the resources you created in this quickstart, delete the r
 - [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
 - [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflow-automation.md)
 - [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-capabilities-models.md)
-

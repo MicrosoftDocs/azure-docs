@@ -3,7 +3,7 @@ title: Compare Logic Apps Automation and Other Tools
 titleSuffix: Logic Apps Automation
 description: Learn the differences across the automation tools in Logic Apps Automation, Standard, and Consumption, Microsoft Copilot Studio, and non-Microsoft platforms. Choose the best option to automate your business processes and workloads.
 services: azure-logic-apps
-ms.reviewers: estfan, divswa, azla
+ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: conceptual
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
@@ -17,7 +17,7 @@ ms.custom:
 
 > [!NOTE]
 >
-> This preview capability might incur charges and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Logic Apps Automation builds workflows that adapt at runtime, rather than follow fixed paths or branches.
 
@@ -106,4 +106,5 @@ If you currently use other automation tools or platforms, the following table su
 ## Related content
 
 - [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Create your first dynamic workflow automation](quickstart-create-dynamic-workflow-automation.md)
+- [Create your first dynamic automation project](quickstart-create-dynamic-automation-projects.md)
+- [Create your first dynamic workflow](quickstart-create-dynamic-workflows.md)
