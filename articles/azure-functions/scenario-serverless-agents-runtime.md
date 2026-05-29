@@ -43,6 +43,7 @@ Use the `azd init` command to create a local project from the sample repository.
 
     ```console
     azd init --template Azure-Samples/functions-quickstart-serverless-agents-azd -e serverless-agents
+    cd functions-quickstart-serverless-agents-azd
     ```
 
     This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/functions-quickstart-serverless-agents-azd) and initializes the project in the current folder. The `-e` flag names the current `azd` environment, which tracks deployment state and is used in Azure resource names.
