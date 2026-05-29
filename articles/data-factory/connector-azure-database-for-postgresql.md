@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 02/09/2026
+ms.date: 05/29/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -617,9 +617,6 @@ Best practices to load data with partition option:
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Database for PostgreSQL. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Database for PostgreSQL dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
-
-> [!NOTE]
-> Currently, only basic authentication is supported for both V1 and V2 versions of the Azure Database for PostgreSQL connector in Mapping Data Flows.
 
 ### Source transformation
 
