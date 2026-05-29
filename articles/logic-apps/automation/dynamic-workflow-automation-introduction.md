@@ -1,9 +1,9 @@
 ---
 title: Dynamic Agentic Workflows
 titleSuffix: Logic Apps Automation
-description: Build agentic workflow automation that runs dynamically, reasons with context, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
+description: Learn about agentic workflow automation that runs dynamically, reasons with context, chooses actions, and adapts at runtime. Speed up development with flexible no-code, low-code tools. Reduce work for ambiguous, high-churn, high-effort, and evolving tasks.
 services: azure-logic-apps
-ms.reviewers: estfan, divswa, azla
+ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: overview
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
@@ -17,7 +17,7 @@ ms.custom:
 
 > [!NOTE]
 >
-> This preview capability might incur charges and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Whether you're new to workflow automation or build automations with non-Microsoft tools, you likely hit the same wall. You can easily automate simple tasks, but you run into problems with real business processes where the steps vary, or they have undefined, unstructured, or unpredictable rules, paths, choices, and data. Requirements can change. Conditions and exceptions might suddenly arise. As a result, you wind up with brittle, hardcoded paths that break when the landscape shifts.
 
@@ -103,17 +103,19 @@ As you work with Logic Apps Automation, you learn more about the following core 
 
 | Component | Description |
 |-----------|-------------|
-| Project | A top-level unit that organizes and groups your apps. |
-| Apps | A deployment container that stores your workflow definitions and settings. |
-| Workflow | A sequence of tasks that always start with an event. A workflow uses items like built-in operations, connectors, agents, and MCP servers. |
-| Trigger | An event that starts a workflow, such as an incoming HTTP request, message arrival, or schedule occurrence. |
-| Action | A step that runs in a workflow, such as an outgoing HTTP call, conditional branch, loop, or transformation. |
-| Connection | A reusable authenticated link to a service, for example, an API key or OAuth. |
-| Agent | An AI agent with tool capabilities. |
-| Tool | A tool that an agent can call to complete a task. |
-| Sub or "child" workflow | A nested workflow that another workflow calls and runs. |
+| *Project* | A top-level unit that organizes and groups your *applications*. |
+| *Application* | A deployment package that stores your *workflow* definitions and settings. |
+| *Workflow* | A sequence of tasks that always start with an event *trigger*. A workflow uses items like built-in operations, *connections*, *agents*, and *MCP servers*. |
+| *Connection* | A reusable authenticated link to a service, for example, an API key or OAuth. |
+| *Trigger* | An event that runs a workflow, such as an incoming HTTP request, message arrival, or schedule occurrence. |
+| *Action* | A step that runs in a workflow, such as an outgoing HTTP call, conditional branch, loop, or transformation. |
+| *Agent* | An AI agent with tool capabilities. |
+| *Tool* | A tool that an agent calls to complete a task. |
+| *Sub-workflow* | A nested workflow that another workflow calls and runs. |
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first dynamic workflow automation](quickstart-create-dynamic-workflow-automation.md)
+>
+> - [Create your first dynamic automation project](quickstart-create-dynamic-automation-projects.md)
+> - [Create your first dynamic workflow](quickstart-create-dynamic-workflows.md)
