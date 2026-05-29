@@ -153,6 +153,7 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 
 When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an Audit ACE. **For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
+---
 
 ## Enable file access logs
 
