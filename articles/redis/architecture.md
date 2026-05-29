@@ -1,7 +1,7 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 03/11/2026
+ms.date: 05/28/2026
 ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
@@ -44,7 +44,7 @@ Each Azure Managed Redis instance is internally configured to use clustering, ac
 
 ### Cluster policies
 
-Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. The _OSS_ cluster policy is good for most applications because it supports higher maximum throughput, but each version has its own advantages and disadvantages.
+Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. The _OSS_ cluster policy works well for most applications because it supports higher maximum throughput, but each version has its own advantages and disadvantages.
 
 - If you're moving from a Basic, Standard, or Premium nonclustered topology, consider using OSS clustering to improve performance. Use nonclustered configurations only if your application can't support either OSS or Enterprise topologies. The **OSS clustering policy** implements the same API as Redis open-source software. The [Redis Cluster API](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput. Throughput scales near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally offers the lowest latency and best throughput performance. However, the OSS cluster policy requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
 
@@ -156,7 +156,7 @@ Because Redis optimizes for the best performance, the instance first fills up th
 
 Workloads that run well on the Flash Optimized tier often have the following characteristics:
 
-- Read heavy, with a high ratio of read commands to write commands.
+- Read-heavy workloads with a high ratio of read commands to write commands.
 - Access focused on a subset of keys that you use much more frequently than the rest of the dataset.
 - Relatively large values in comparison to key names. (Because key names are always stored in RAM, large values can become a bottleneck for memory growth.)
 
@@ -164,7 +164,7 @@ Workloads that run well on the Flash Optimized tier often have the following cha
 
 Some workloads have access characteristics that are less optimized for the design of the Flash Optimized tier:
 
-- Write heavy workloads.
+- Write-heavy workloads.
 - Random or uniform data access patterns across most of the dataset.
 - Long key names with relatively small value sizes.
 
