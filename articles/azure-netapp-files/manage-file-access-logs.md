@@ -267,7 +267,7 @@ Response:
 }
 ```
 
-## Fetch diagnostic settings on a cache volume:
+## Fetch diagnostic settings on a cache volume
 
 The following is an example to fetch diagnostic settings on a cache volume:
 
@@ -325,7 +325,7 @@ Response:
 }    
 ```
 
-## Disable file access logs on cache volumes by removing diagnostic setting:  
+## Disable file access logs on cache volumes by removing diagnostic setting
 
 The following is an example to disable file access logs on cache volumes by removing diagnostic setting:
 
