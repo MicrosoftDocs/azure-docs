@@ -211,17 +211,6 @@ Agents become useful when they can act. Start with configured capabilities: remo
 
 When an app uses remote MCP servers, add `mcp.json` to the root of the function app project. The runtime discovers remote HTTP or streamable HTTP MCP servers from this file and makes their tools available to agents, subject to any per-agent filters.
 
-```json
-{
-  "servers": {
-    "microsoft-learn": {
-      "type": "http",
-      "url": "https://learn.microsoft.com/api/mcp"
-    }
-  }
-}
-```
-
 Use these fields in each `servers` entry:
 
 | Field | Required | Description |
