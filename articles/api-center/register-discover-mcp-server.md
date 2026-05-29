@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 05/14/2026
+ms.date: 05/29/2026
  
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
@@ -148,7 +148,7 @@ Azure API Center exposes an MCP registry endpoint that you can configure in Visu
 The registry endpoint URL is in the following format:
 
 ```
-https://<your-api-center-name>.data.<region>.azure-apicenter.ms/default/v0.1/servers
+https://<your-api-center-name>.data.<region>.azure-apicenter.ms/workspaces/default/v0.1/servers
 ```
 
 Example: `https://contoso-api-center.data.eastus.azure-apicenter.ms/default/v0.1/servers`
