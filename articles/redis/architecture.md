@@ -115,15 +115,15 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 
 This table shows a general example of the relationship of _Size_ to _vCPUs/primary shards_.
 
-| Tiers     | Flash Optimized (preview) |
-|:---------:|:-------------------------:|
-| Size (GB) | vCPUs/primary shards      |
-| 480 ¹ ²    | 16/12                |
-| 720 ¹ ²    | 24/24                |
+| Tiers     | Flash Optimized      |
+|:---------:|:--------------------:|
+| Size (GB) | vCPUs/primary shards |
+| 480 ¹     | 16/12                |
+| 720 ¹     | 24/24                |
 
-¹ These tiers are in public preview.
+¹ The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
 
-² The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
+<!-- ² These tiers are in public preview. -->
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
