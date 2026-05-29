@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 05/29/2026
 author: dlepow
 ms.author: danlep
+ai-usage: ai-assisted
 ---
 
 # Create and manage a unified model API
