@@ -25,7 +25,7 @@ Azure Managed Redis Flash Optimized A250, A500, A700, and A1000 are now generall
 
 ### Dashboards with Grafana
 
-*Dashboards with Grafana* in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
+_Dashboards with Grafana_ in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
 
 ### Keyspace notifications (preview)
 
