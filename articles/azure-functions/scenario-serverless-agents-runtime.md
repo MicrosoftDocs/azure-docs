@@ -43,7 +43,6 @@ Use the `azd init` command to create a local project from the sample repository.
 
     ```console
     azd init --template Azure-Samples/functions-quickstart-serverless-agents-azd -e serverless-agents
-    cd functions-quickstart-serverless-agents-azd
     ```
 
     This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/functions-quickstart-serverless-agents-azd) and initializes the project in the current folder. The `-e` flag names the current `azd` environment, which tracks deployment state and is used in Azure resource names.
@@ -51,7 +50,7 @@ Use the `azd init` command to create a local project from the sample repository.
 1. Enable email delivery by setting the recipient email address used by the timer agent. Later in this quickstart, you must sign in to a Microsoft 365 account to authorize the Microsoft 365 Outlook connection that sends the email.
 
     ```console
-    azd env set EMAIL_RECIPIENT <recipient@example.com>
+    azd env set TO_EMAIL <recipient@example.com>
     ```
 
     Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block external recipients, so sending the test message to yourself is the most reliable option.
@@ -71,7 +70,7 @@ Before you deploy, review the project files that define the serverless agent app
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, session pool, optional Connector Namespace resources, and identity configuration. |
 | `src/function_app.py` | Required bootstrap file for the Functions host. You usually don't need to edit this file. |
 
-The timer-triggered agent is defined in `daily_microsoft_blog_summary.agent.md`. The front matter declares the timer schedule, and the markdown instructions tell the agent to gather recent Microsoft blog posts, create a digest, and send email when `EMAIL_RECIPIENT` is configured.
+The timer-triggered agent is defined in `daily_microsoft_blog_summary.agent.md`. The front matter declares the timer schedule, and the markdown instructions tell the agent to gather recent Microsoft blog posts, create a digest, and send email when `TO_EMAIL` is configured.
 
 ## Deploy to Azure
 
@@ -91,9 +90,9 @@ After the command completes, the app is deployed to a new function app in Azure.
 
 ## Authorize the connection
 
-When `EMAIL_RECIPIENT` is set, the deployment creates a Connector Namespace with a Microsoft 365 Outlook connection and a managed MCP server. This setup lets the timer agent send email through connector tools without custom Outlook API code. Before the agent can send email, authorize the connection by signing in to a Microsoft 365 account that can send email.
+When `TO_EMAIL` is set, the deployment creates a Connector Namespace with a Microsoft 365 Outlook connection and a managed MCP server. This setup lets the timer agent send email through connector tools without custom Outlook API code. Before the agent can send email, authorize the connection by signing in to a Microsoft 365 account that can send email.
 
-If you didn't set `EMAIL_RECIPIENT`, skip this section.
+If you didn't set `TO_EMAIL`, skip this section.
 
 1. In the [Azure portal](https://portal.azure.com), search for `Connector Namespace`.
 
