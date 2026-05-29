@@ -4,7 +4,7 @@ description: Learn how to transition from retired Azure Reserved VM Instances (R
 author: onwokolo
 ms.author: onwokolo
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/01/2026
 ---
 

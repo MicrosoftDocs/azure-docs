@@ -26,6 +26,7 @@ This mapping is accomplished by presenting a specified NAS directory hierarchy a
 * It is recommended to implement separate Azure Key Vaults for certificates (read-only access) and S3 credentials (write access) to adhere to the principle of least privilege.
 * It is recommended to store Azure Key Vaults object references for certificates and credentials in separate buckets to maintain proper access control boundaries.
 * Buckets are not supported on Azure NetApp Files cache volumes.
+* You must ensure that the volume contains data before enabling the object REST API, as empty volumes aren’t supported.
 
 
 ## Supported actions
