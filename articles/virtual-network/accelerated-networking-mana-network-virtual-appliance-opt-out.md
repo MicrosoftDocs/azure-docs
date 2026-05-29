@@ -56,7 +56,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 
 4. Enable **Automatically enroll in minor version changes** to ensure minor revisions are applied automatically. Alternatively, assign the policy using version `1.*.*`.
 
-5. Activate the tag by performing a "stop deallocate and start" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
+5. Activate the tag by performing a "reapply" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
 
 ## Network performance for incompatible VMs
 If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, networking automatically falls back to the NetVSC network adapter. In this scenario:
