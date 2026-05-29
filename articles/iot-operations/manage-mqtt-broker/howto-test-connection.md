@@ -1,8 +1,8 @@
 ---
 title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to an MQTT broker in a nonproduction environment.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 02/11/2026
@@ -23,7 +23,7 @@ By default, an MQTT broker:
 > [!CAUTION]
 > For production scenarios, use TLS and service accounts authentication to secure your IoT solution. For more information, see:
 >
-> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-tls-auto.md).
+> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-brokerlistener.md).
 > - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
@@ -608,6 +608,6 @@ spec:
 
 ## Related content
 
-- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
+- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-brokerlistener.md)
 - [Configure authentication](howto-configure-authentication.md)
 - [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

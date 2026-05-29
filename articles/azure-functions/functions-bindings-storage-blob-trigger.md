@@ -34,6 +34,8 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 ::: zone-end   
 
+For a complete end-to-end example of using the Blob Storage trigger, see [Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -435,6 +437,9 @@ The following table explains the binding configuration properties that you set i
 
 See the [Example section](#example) for complete examples.
 
+> [!TIP]
+> For a complete working example that uses an Event Grid-based blob trigger with connection, source, and output binding configuration, see [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md).
+
 ::: zone pivot="programming-language-csharp"
 ## Metadata
 
@@ -665,5 +670,6 @@ The [host.json](functions-host-json.md#blobs) file contains settings that contro
 
 ## Next steps
 
+- [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md)
 - [Read blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
 - [Write blob storage data from a function](./functions-bindings-storage-blob-output.md)

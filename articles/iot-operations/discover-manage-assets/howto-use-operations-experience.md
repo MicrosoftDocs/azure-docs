@@ -31,7 +31,7 @@ To learn how to use the operations experience to manage data flows, see [Process
 
 ## Prerequisites
 
-To use the operations experience, make sure you have a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
