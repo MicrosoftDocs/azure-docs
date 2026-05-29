@@ -12,9 +12,9 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Add GitHub Copilot modernization Code insights to Web apps and Applications (preview)
+#  Add GitHub Copilot modernization code insights to web apps and applications (preview)
 
-This article describes how to add code scan insights using GitHub Copilot Modernization when migrating web apps to Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan. Code changes for an Application is the aggregate of code changes for its child web apps.
+This article describes how to add code scan insights using GitHub Copilot Modernization when migrating web apps to Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan. Code changes for an application are the aggregate of code changes for its child web apps.
 
 In this article, you learn how to: 
 
@@ -43,7 +43,7 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 
 **GitHub Copilot App Modernization extension**
 1. Install [GitHub Copilot app modernization extension](https://marketplace.visualstudio.com/items?itemName=vscjava.migrate-java-to-azure) in Visual Studio Code.
-2. Open the source code of your Web app from GitHub repository. You must have permissisons to the code repository.
+2. Open the source code of your Web app from GitHub repository. You must have permissions to the code repository.
 3. On the sidebar, select the GitHub Copilot app modernization pane, where you can select **Migrate to Azure** or **Run Assessment** in the **ASSESSMENT** section.
 4. Upon completion of assessment, you can download **report.json** file at the location of your choice.
 5. Create a ZIP file for all the reports you want to add.
