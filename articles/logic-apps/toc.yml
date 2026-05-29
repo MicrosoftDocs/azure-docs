@@ -15,7 +15,7 @@ items:
     expanded: true
     items:
     - name: Create automation projects
-      href: automation/quickstart-create-automation-projects.md
+      href: automation/quickstart-create-dynamic-automation-projects.md
     - name: Create dynamic workflows
       href: automation/quickstart-create-dynamic-workflows.md
   - name: Standard logic app workflows

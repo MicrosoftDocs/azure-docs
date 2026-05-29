@@ -434,5 +434,5 @@ If you no longer need the resources you created in this quickstart, delete the r
 ## Related content
 
 - [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflow-automation.md)
-- [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-capabilities-models.md)
+- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflows.md)
+- [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-automation-tools.md)

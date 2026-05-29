@@ -87,5 +87,5 @@ A *project* organizes applications and controls who has access. Create a project
 ## Related content
 
 - [About Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Create dynamic workflows for automation](quickstart-create-dynamic-workflow-automation.md)
-- [Compare automation tools](compare-capabilities-models.md)
+- [Create dynamic workflows for automation](quickstart-create-dynamic-workflows.md)
+- [Compare automation tools](compare-automation-tools.md)
