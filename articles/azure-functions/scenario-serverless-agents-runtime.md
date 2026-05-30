@@ -105,7 +105,7 @@ If you didn't set `TO_EMAIL`, skip this section.
 
 1. Select **Authenticate**, and then sign in with the Microsoft 365 account that can send email.
 
-After authorization succeeds, the function app's managed identity can call the managed MCP server, which uses the authorized connection to send email.
+After authentication succeeds, the function app's managed identity can call the managed MCP server, which uses the authorized connection to send email.
 
 ## Use the debug chat agent
 
