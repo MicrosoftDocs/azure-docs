@@ -1,6 +1,6 @@
 ---
 title: Register and Manage Agents in Azure API Center
-description: Learn how to register AI agents in Azure API Center to create a centralized agents registry for your organization.
+description: Learn how to register AI agents in Azure API Center to create a centralized agents registry for your organization.   
 
 ms.service: azure-api-center
 ms.topic: how-to
@@ -121,6 +121,10 @@ Agent capabilities describe what features your A2A agent supports.
     |State Transition History | Indicates if the agent provides a history of state transitions for a task              |
 
 1. Select **Save**.
+
+## Synchronize agents from a Git repository
+
+To automate agent registration and keep your inventory up to date, you can integrate a Git repository with your API center. For more information, see [Synchronize API assets from a Git repo](synchronize-assets-git.md).
 
 ## Discover agents in the API Center portal
 
