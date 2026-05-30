@@ -103,7 +103,7 @@ If you didn't set `TO_EMAIL`, skip this section.
 
 1. In the Connector Namespaces portal, find the Microsoft 365 Outlook connector, and then open the connection created by the deployment.
 
-1. Select **Authorize**, and then sign in with the Microsoft 365 account that can send email.
+1. Select **Authenticate**, and then sign in with the Microsoft 365 account that can send email.
 
 After authorization succeeds, the function app's managed identity can call the managed MCP server, which uses the authorized connection to send email.
 
