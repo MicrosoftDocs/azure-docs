@@ -29,7 +29,7 @@ Logic Apps Automation organizes your work at the following levels:
 | *Application* | A deployable package that holds workflows, connections, parameters, analytics, settings, and other items that your automation needs. |
 | *Workflow* | The actual automation workload or process, which includes the starting event (*trigger*) and the steps (*actions*) to perform. |
 
-This quickstart shows how to create a project, add team members to your project, and share your project with others. 
+This quickstart shows how to create a project and add team members to your project. 
 
 If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
 
@@ -92,11 +92,21 @@ A *project* organizes applications and controls who has access. Create a project
 
    The portal opens and shows your project's home page.
 
-By default, as the project creator, you're also the project owner and appear in the **Project Owner** project property. The project owner is a property, not a permission level. As the project owner, you automatically have **Contributor** role permissions at the project level.
-
 Before you can start building workflows, you need create an application as a deployable package that contains these workflows. For more information, see [Create your application](quickstart-create-dynamic-workflows.md#create-application).
 
 Before others can work in your project, you need to [add them as members](#add-project-members).
+
+### Project ownership
+
+By default, as the project creator, you're also the project owner and appear in the **Project Owner** project property.
+
+- The project owner is a property, not a permission level. You can't clear or remove this property value.
+
+- Each resource can have only a single owner.
+
+- By default, as the project owner, you have **Contributor** role permissions at the project level.
+
+- As the project owner, you get administrator-level permissions to delete the project and sub-resources, such as application or sandboxes, including those you don't own. Not even those with the **Contributor** role can perform these tasks.
 
 ## Add project members
 
@@ -108,9 +118,27 @@ Before others can create applications and workflows in your project, first add t
 
 1. In the **Users** section, select **Add user**.
 
-1. On the **Add role assignment** pane, in the **Select user** box, enter the email address for the person to add.
+1. On the **Add role assignment** pane, in the **Select user** box, start entering the email address for the person you want to add.
 
-   The **Select user** list shows possible matches as you type the
+   The **Select user** list shows only people in the same Microsoft Entra tenant as you.
+
+1. From the results, select the correctly matching person.
+
+1. After the **Role** section appears, select the role the person needs, based on the principle of least privilege, and then select **Add**.
+
+   | Role | Can | Can't |
+   |------|-----|-------|
+   | **Reader** (view only) | - View only the project settings, members list, sandbox configurations, and shared resources. <br>- View workflow run history. | - Create, edit, or delete any anything. <br>- View applications. <br>- Trigger or cancel workflow runs. <br>- Manage permissions. |
+   | **Author** | - Create applications, sandbox configurations, and shared resources. <br>- View the project settings, members list, and sandbox configurations. | - Edit the project settings and manage project members. <br>- View applications or their content without explicit app-level permissions. |
+   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit app-level permmissions. |
+
+   > [!NOTE]
+   >
+   > By default, applications are always private, which means that only their creators (owners) can view and access their applications. They're invisible to other project members until the creator-owner explicitly shares them.
+   >
+   > Project contributors or owners can view application metadata for governance, but not the content. Applications often contain automation that connects to personal accounts. So, privacy by default keeps this data obscured unless explicitly shared.
+   >
+   > Application owners or contributs can explicitly add members by granting application-lvel roles. To grant access to a specific application, open that application, go to **Settings**, **User permissions**, and add the member you want.
 
 ## Related content
 
