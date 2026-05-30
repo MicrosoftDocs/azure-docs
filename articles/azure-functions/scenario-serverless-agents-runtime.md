@@ -55,7 +55,8 @@ Use the `azd init` command to create a local project from the sample repository.
 
     Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block external recipients, so sending the test message to yourself is the most reliable option.
 
-    Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Microsoft 365 Outlook connection, or managed MCP server. The timer agent still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
+    > [!NOTE]
+    > Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Microsoft 365 Outlook connection, or managed MCP server. The timer agent still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
 
 ## Review the project
 
@@ -84,7 +85,7 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
 1. When prompted, select the Azure subscription and location to use for the resource group.
 
-1. The template uses its default Microsoft Foundry model deployment settings unless you customize the Bicep parameters.
+    The template uses its default Microsoft Foundry model deployment settings unless you customize the Bicep parameters.
 
 After the command completes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 
@@ -134,7 +135,7 @@ The agent runs automatically on its timer schedule. To test it immediately, manu
 
 1. In the [Azure portal](https://portal.azure.com), open the function app created by `azd`.
 
-1. In the left menu, expand **Functions**, and then select the timer-triggered agent function.
+1. In the **Overview** blade, select **Functions**, and then select the timer-triggered agent function named `daily_microsoft_blog_summary`.
 
 1. Select **Code + Test**.
 
