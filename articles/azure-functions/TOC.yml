@@ -63,7 +63,7 @@
     - name: Azure Developer CLI
       displayName: azd
       href: create-first-function-azure-developer-cli.md
-    - name: Command line (Core Tools)
+    - name: Command line tools
       displayName: quickstart, get started, go, rust
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
@@ -369,9 +369,12 @@
       - name: Visual Studio development
         displayName: VS
         href: functions-develop-vs.md
-      - name: Core Tools development
+      - name: Azure Functions Core Tools (v4)
         displayName: local, runtime
         href: functions-run-local.md
+      - name: Azure Functions CLI (v5)
+        displayName: local, runtime, Flex Consumption
+        href: functions-cli-develop-local.md
     - name: Create a function app
       items:
       - name: Infrastructure as code
@@ -672,7 +675,8 @@
       href: /azure/templates/microsoft.web/2022-03-01/sites/functions
     - name: Azure CLI
       href: /cli/azure/functionapp
-    - name: Azure Functions Core Tools
+    - name: Local runtime and tools (func.exe)
+      displayName: Azure Functions Core Tools, Azure Functions CLI
       href: functions-core-tools-reference.md
     - name: Azure PowerShell
       href: /powershell/module/az.functions/

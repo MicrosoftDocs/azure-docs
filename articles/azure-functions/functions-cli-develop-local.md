@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure Functions developer, I want to set up and use the Azure Functions CLI (v5) locally so that I can develop and test functions using the workload-based model.
 ---
 
-# Develop Azure Functions locally using the Azure Functions CLI (preview)
+# Develop Azure Functions locally by using the Azure Functions CLI (preview)
 
 The Azure Functions CLI is the next major version (v5) of the local development runtime and tooling for Azure Functions. This version of func.exe features a workload-based architecture, so you only download what you need for the stack you develop on.
 
@@ -21,7 +21,7 @@ For the command reference, see [Azure Functions CLI reference](functions-core-to
 
 ## Install the Azure Functions CLI
 
-The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. Installer packages are published for Windows, macOS, and Linux. After installation, the `func` binary is on your `PATH`.
+The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. Microsoft publishes installer packages for Windows, macOS, and Linux. After installation, the `func` binary is on your `PATH`.
 
 > [!NOTE]
 > While the Azure Functions CLI is in preview, install the latest preview build from the [Azure Functions Core Tools releases page](https://github.com/Azure/azure-functions-core-tools/releases). Final installation guidance is published with the general availability release.
@@ -32,7 +32,7 @@ Verify the install:
 func --version
 ```
 
-After the base CLI is installed, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. For example:
+After you install the base CLI, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. For example:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -80,16 +80,16 @@ func setup --features python
 
 ::: zone-end
 
-You can also install workloads individually with [`func workload install`](functions-core-tools-reference.md#func-workload-install). Either way, the first time you run `func init`, `func new`, or `func run` without the necessary workloads installed, the CLI prompts you to install them.
+You can also install workloads individually by using [`func workload install`](functions-core-tools-reference.md#func-workload-install). Either way, the first time you run `func init`, `func new`, or `func run` without the necessary workloads installed, the CLI prompts you to install them.
 
 ## Workloads
 
-The Azure Functions CLI is built around a **workload model**. The base `func` install is small and language-agnostic. Stack-specific tooling, the Functions host, language workers, extension bundles, and templates all come from **workloads** that you install on demand.
+The Azure Functions CLI uses a **workload model**. The base `func` install is small and language-agnostic. You install **workloads** on demand to get stack-specific tooling, the Functions host, language workers, extension bundles, and templates.
 
 Workloads fall into these categories:
 
-- **Host**: The Azure Functions host runtime used by `func run`.
-- **Bundles**: Pre-built extension bundle artifacts so triggers and bindings work out of the box (required for non-.NET stacks).
+- **Host**: The Azure Functions host runtime that `func run` uses.
+- **Bundles**: Prebuilt extension bundle artifacts so triggers and bindings work out of the box (required for non-.NET stacks).
 - **Stack**: Language-specific project tooling (for example, `python`, `node`, `dotnet`).
 - **Worker**: The language worker the host uses at run time (for example, `python-worker`, `node-worker`).
 - **Templates**: Function templates surfaced by `func new` (for example, `python-templates`, `node-templates`).
@@ -98,11 +98,11 @@ For the full list of available workloads and their descriptions, see [Available 
 
 ### First-run experience
 
-The first time you run `func init`, `func new`, or `func run`, the CLI checks whether the workloads required for your scenario are installed. If they aren't, the CLI prompts you to install them. Accepting the prompt installs the recommended set for the stack you chose. You can decline the prompt and install workloads manually with `func workload install`, or run [`func setup`](functions-core-tools-reference.md#func-setup) to provision the standard set non-interactively.
+The first time you run `func init`, `func new`, or `func run`, the CLI checks whether the workloads required for your scenario are installed. If they aren't, the CLI prompts you to install them. Accepting the prompt installs the recommended set for the stack you chose. You can decline the prompt and install workloads manually by using `func workload install`, or run [`func setup`](functions-core-tools-reference.md#func-setup) to provision the standard set non-interactively.
 
 ### Workload updates
 
-Not all Functions language stacks are currently available as workloads. Java and PowerShell stacks aren't currently supported in the Azure Functions CLI. Run `func workload search` periodically to check for newly available workloads. Continue using [Core Tools (v4)](functions-run-local.md) for these unsupported stacks or when you need specific GA features of Core Tools.
+Not all Functions language stacks are currently available as workloads. The Azure Functions CLI doesn't currently support Java and PowerShell stacks. Run `func workload search` periodically to check for newly available workloads. Continue using [Core Tools (v4)](functions-run-local.md) for these unsupported stacks or when you need specific GA features of Core Tools.
 
 ## Create a local project
 
@@ -154,7 +154,7 @@ func init MyProjFolder --stack python
 
 ::: zone-end
 
-The `--stack` option specifies which language stack to use. The scaffolding is contributed by the installed workload for that stack.
+The `--stack` option specifies which language stack to use. The installed workload for that stack provides the scaffolding.
 
 ## Create a function
 
@@ -165,7 +165,7 @@ func new --template "HTTP trigger" --name MyHttpTrigger
 ```
 
 > [!NOTE]
-> `func new` is currently a preview stub until a templates workload is installed for the project's stack. Template-specific options are hydrated dynamically from template metadata.
+> `func new` is currently a preview stub until a templates workload is installed for the project's stack. The command dynamically hydrates template-specific options from template metadata.
 
 ## Run functions locally
 
@@ -225,7 +225,7 @@ Use `func workload` to install, update, and remove workloads. For the full list 
 
 ## Profiles
 
-Profiles encode version constraints for the host, extension bundles, and workers. Apply a profile at runtime with `func run --profile <name>`. For the full list of subcommands and options, see [`func profile`](functions-core-tools-reference.md#func-profile) in the CLI reference.
+Profiles encode version constraints for the host, extension bundles, and workers. Apply a profile at runtime by using `func run --profile <name>`. For the full list of subcommands and options, see [`func profile`](functions-core-tools-reference.md#func-profile) in the CLI reference.
 
 ## Related content
 

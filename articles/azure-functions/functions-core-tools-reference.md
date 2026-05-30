@@ -1,5 +1,5 @@
 ---
-title: Azure Functions CLI reference
+title: Azure Functions local runtime and tools reference
 description: Reference documentation for the Azure Functions CLI and its predecessor, Azure Functions Core Tools.
 ms.topic: reference
 ms.date: 05/29/2026
@@ -10,14 +10,15 @@ ms.custom:
 zone_pivot_groups: func-cli-versions
 ---
 
-# Azure Functions CLI reference
+# Azure Functions local runtime and tools reference
 
-This article provides reference documentation for the Azure Functions CLI, which you can use to develop, manage, and run Azure Functions projects from your local computer. The binary name is `func` (or `func.exe` on Windows).
+This article provides reference documentation for the local runtime and tools that support Azure Functions, which you can use to develop, manage, and run Azure Functions projects from your local computer. The binary name is `func` (or `func.exe` on Windows).
 
 Two versions of the CLI are available. Use the version selector to choose which version to view.
 
-- **Core Tools (v4)**: The current generally available release, distributed as **Azure Functions Core Tools**. It supports the full set of commands for local development, publishing, container deployments, Durable Functions, Kubernetes, and extension management.
-- **Azure Functions CLI (v5)**: The next major version, currently in **preview**. Rebranded from Core Tools to **Azure Functions CLI**, it introduces a workload-based architecture and is a ground-up rebuild. The set of commands and options reflects what is currently implemented; some Core Tools v4 workflows aren't yet ported.
+[!INCLUDE [functions-cli-v5-preview-note](../../includes/functions-cli-v5-preview-note.md)]
+
+[!INCLUDE [functions-cli-version-comparison](../../includes/functions-cli-version-comparison.md)]
 
 ::: zone pivot="func-cli-v4"
 

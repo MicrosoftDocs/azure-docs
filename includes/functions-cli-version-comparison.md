@@ -6,4 +6,4 @@ There are two versions of `func.exe` used for local Azure Functions development:
 | **Support level** | General availability (GA) | Preview |
 | **Supported hosting plans** | [All hosting plans](../articles/azure-functions/functions-scale.md) | [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md) only |
 | **Install footprint** | Full binary that includes all commands and capabilities for all native languages. | Small base install, plus workloads per-language and other features you add as needed. |
-| **Use when...** | You need support for all hosting plans and development workflows. | When developing for the Flex Consumption plan (Linux) and you want a lightweight, workload-based experience. |
+| **Use when...** | You need support for all hosting plans and development workflows. | When developing for the Flex Consumption plan (Linux-only) and you want a lightweight, workload-based experience. |
