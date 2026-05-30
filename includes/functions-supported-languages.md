@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/21/2025
+ms.date: 05/20/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -101,9 +101,8 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 24](https://endoflife.date/nodejs) | Preview | April 30, 2028 |
+| [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
-| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 
@@ -112,10 +111,11 @@ TypeScript is supported through transpiling to JavaScript. For more information,
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-The following table shows the language version supported for PowerShell function apps:
+The following table shows the language versions supported for PowerShell function apps:
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | Preview | TBD |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
 > [!NOTE]

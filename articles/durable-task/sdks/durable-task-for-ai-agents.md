@@ -2,7 +2,7 @@
 title: "Durable Task for AI Agents - Azure"
 description: Learn how durable execution on Azure provides fault-tolerant, scalable infrastructure for production AI agents using Durable Functions, Durable Task SDKs, and the Durable Task Scheduler.
 author: cgillum
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/05/2026
 ms.author: cgillum
 ---

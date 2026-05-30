@@ -2,7 +2,7 @@
 title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 05/20/2026
 ms.devlang: csharp
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
 # Customer intent: As a developer, I want to automate the creation, deletion, and management of Azure Batch accounts using the Batch Management .NET library so that I can efficiently handle resource allocation, maintain security compliance, and optimize operational workflows for my applications.
@@ -25,36 +25,7 @@ One of the primary features of the Batch Management API is to create and delete 
 
 The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. 
 
-```csharp
- string subscriptionId = "Your SubscriptionID";
- string resourceGroupName = "Your ResourceGroup name";
-
- var credential = new DefaultAzureCredential();
- ArmClient _armClient = new ArmClient(credential);
-
- ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
- ResourceGroupResource resourceGroupResource = _armClient.GetResourceGroupResource(resourceGroupResourceId);
-
- var data = new BatchAccountCreateOrUpdateContent(AzureLocation.EastUS);
-
- // Create a new batch account
- resourceGroupResource.GetBatchAccounts().CreateOrUpdate(WaitUntil.Completed, "Your BatchAccount name", data);
- 
- // Get an existing batch account
- BatchAccountResource batchAccount = resourceGroupResource.GetBatchAccount("Your BatchAccount name");
-
- // Delete the batch account
- batchAccount.Delete(WaitUntil.Completed);
-```
-
-> [!NOTE]
-> Applications that use the Batch Management .NET library require service administrator or coadministrator access to the subscription that owns the Batch account to be managed. For more information, see the Microsoft Entra ID section and the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample.
-
-## Retrieve and regenerate account keys
-
-Obtain primary and secondary account keys from any Batch account within your subscription by using [GetKeys](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.getkeys). You can regenerate those keys by using [RegenerateKey](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.regeneratekey).
-
-```csharp
+```C# Snippet:mgmt_create_account
 string subscriptionId = "Your SubscriptionID";
 string resourceGroupName = "Your ResourceGroup name";
 
@@ -65,6 +36,33 @@ ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourc
 ResourceGroupResource resourceGroupResource = _armClient.GetResourceGroupResource(resourceGroupResourceId);
 
 var data = new BatchAccountCreateOrUpdateContent(AzureLocation.EastUS);
+
+// Create a new batch account
+resourceGroupResource.GetBatchAccounts().CreateOrUpdate(WaitUntil.Completed, "Your BatchAccount name", data);
+
+// Get an existing batch account
+BatchAccountResource batchAccount = resourceGroupResource.GetBatchAccount("Your BatchAccount name");
+
+// Delete the batch account
+batchAccount.Delete(WaitUntil.Completed);
+```
+
+> [!NOTE]
+> Applications that use the Batch Management .NET library require service administrator or coadministrator access to the subscription that owns the Batch account to be managed. For more information, see the Microsoft Entra ID section and the [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) code sample.
+
+## Retrieve and regenerate account keys
+
+Obtain primary and secondary account keys from any Batch account within your subscription by using [GetKeys](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.getkeys). You can regenerate those keys by using [RegenerateKey](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.regeneratekey).
+
+```C# Snippet:mgmt_account_keys
+string subscriptionId = "Your SubscriptionID";
+string resourceGroupName = "Your ResourceGroup name";
+
+var credential = new DefaultAzureCredential();
+ArmClient _armClient = new ArmClient(credential);
+
+ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
+ResourceGroupResource resourceGroupResource = _armClient.GetResourceGroupResource(resourceGroupResourceId);
 
 // Get an existing batch account
 BatchAccountResource batchAccount = resourceGroupResource.GetBatchAccount("Your BatchAccount name");
@@ -81,7 +79,7 @@ batchAccount.RegenerateKey(regenerateKeyContent);
 ```
 
 > [!TIP]
-> You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [GetKeys](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.getkeys). Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials](/dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials) class, which is used when initializing [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient).
+> You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [GetKeys](/dotnet/api/azure.resourcemanager.batch.batchaccountresource.getkeys). Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials](/dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials) class, which is used when initializing [BatchClient](/dotnet/api/azure.compute.batch.batchclient).
 
 ## Check Azure subscription and Batch account quotas
 
@@ -93,7 +91,7 @@ Before creating a Batch account in a region, you can check your Azure subscripti
 
 In the code snippet below, we first use **GetBatchAccounts** to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use **GetBatchQuotas** to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
 
-```csharp
+```C# Snippet:mgmt_account_quotas
 string subscriptionId = "Your SubscriptionID";
 ArmClient _armClient = new ArmClient(new DefaultAzureCredential());
 
@@ -123,7 +121,7 @@ In the snippet above, `creds` is an instance of **TokenCredentials**. To see an 
 
 Before increasing compute resources in your Batch solution, you can check to ensure the resources you want to allocate won't exceed the account's quotas. In the code snippet below, we print the quota information for the Batch account named `mybatchaccount`. In your own application, you could use such information to determine whether the account can handle the additional resources to be created.
 
-```csharp
+```C# Snippet:mgmt_compute_quotas
 string subscriptionId = "Your SubscriptionID";
 string resourceGroupName = "Your ResourceGroup name";
 

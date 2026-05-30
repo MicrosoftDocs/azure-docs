@@ -351,7 +351,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Dependency
 
-When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://central.sonatype.com/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>

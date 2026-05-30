@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 4/27/2026
+ms.date: 5/20/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -52,6 +52,31 @@ For associations created **before April 23, 2026**, inbound NSG rules can be con
 
 - **Deny all inbound** rules will block traffic on ports **80 and 443** unless explicit allow rules are defined, preventing access to the frontend.
 - **Deny all outbound** rules may block traffic egressing from the proxy to the AKS cluster unless required outbound exceptions are configured.
+
+#### User defined routes on the association subnet
+
+Fine-grain control over the Application Gateway for Containers' association subnet with route table rules is possible. This can be useful when using a virtual network appliance between Aplication Gateway for Containers and an AKS cluster.
+
+> [!WARNING]
+> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway for Containers. Ensure internet ingress is returned to the internet and not through a virtual appliance.
+
+Here are a few supported scenarios to ensure traffic received on a public (internet) facing frontend is returned back to the internet.
+
+**Scenario 1:** UDR to disable Border Gateway Protocol (BGP) route propagation to the Application Gateway subnet
+
+Sometimes the default gateway route (0.0.0.0/0) is advertised via the ExpressRoute or VPN gateways associated with the Application Gateway for Containers virtual network. This behavior breaks client return traffic to the internet. In such scenarios, you can use a UDR to disable BGP route propagation.
+
+To disable BGP route propagation:
+
+1. Create a route table resource in Azure.
+1. Disable the **Virtual network gateway route propagation** parameter.
+1. Associate the route table to the appropriate subnet.
+
+Enabling the UDR for this scenario shouldn't break any existing setups.
+
+**Scenario 2:** UDR to direct 0.0.0.0/0 to the internet
+
+You can create a UDR to send 0.0.0.0/0 traffic directly to the internet.
 
 ### Application Gateway for Containers ALB Controller
 

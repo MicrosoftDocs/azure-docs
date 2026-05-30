@@ -1,5 +1,5 @@
 ---
-title: Configure local storage data flow endpoint in Azure IoT Operations
+title: Configure a Local Storage Data Flow Endpoint in Azure IoT Operations
 description: Learn how to configure a local storage data flow endpoint in Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
@@ -14,30 +14,33 @@ ai-usage: ai-assisted
 
 # Configure data flow endpoints for local storage
 
-To send data to local storage in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
+To send data to local storage in Azure IoT Operations, you can configure a data flow endpoint. With this configuration, you can specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+- A [PersistentVolumeClaim (PVC) request](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 ## Create a local storage data flow endpoint
 
-Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
+Use the local storage option to send data to a locally available persistent volume. You can use it to upload data via Azure Container Storage enabled by Azure Arc edge volumes.
 
 # [Operations experience](#tab/portal)
 
 1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Local Storage** > **New**.
 
-    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using operations experience to create a Local Storage data flow endpoint.":::
+    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot that shows using the operations experience to create a local storage data flow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting               | Description                                                             |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the data flow endpoint.                                      |
-    | Persistent volume claim name | The name of the PersistentVolumeClaim (PVC) to use for local storage.                        |
+    | Persistent volume claim name | The name of the PVC to use for local storage.                        |
 
 1. Select **Apply** to provision the endpoint.
 
@@ -51,9 +54,9 @@ Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/
 az iot ops dataflow endpoint create local-storage --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --pvc-ref <PersistentVolumeClaimName>
 ```
 
-The `--pvc-ref` parameter is the name of the PersistentVolumeClaim (PVC) to use for local storage. The PVC must be in the same namespace as the data flow endpoint.
+The `--pvc-ref` parameter is the name of the PVC to use for local storage. The PVC must be in the same namespace as the data flow endpoint.
 
-Here's an example command to create or replace a local storage data flow endpoint named `local-storage-endpoint`:
+The following example command creates or replaces a local storage data flow endpoint named `local-storage-endpoint`:
 
 ```azurecli
 az iot ops dataflow endpoint create local-storage --resource-group myResourceGroup --instance myAioInstance --name local-storage-endpoint --pvc-ref mypvc
@@ -67,9 +70,9 @@ Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoin
 az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
 ```
 
-The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+The `--config-file` parameter is the path and file name of a JSON configuration file that contains the resource properties.
 
-In this example, assume a configuration file named `local-storage-endpoint.json` with the following content stored in the user's home directory:
+In this example, assume that a configuration file named `local-storage-endpoint.json` with the following content is stored in the user's home directory:
 
 ```json
 {
@@ -80,7 +83,7 @@ In this example, assume a configuration file named `local-storage-endpoint.json`
 }
 ```
 
-Here's an example command to create a new local storage data flow endpoint named `local-storage-endpoint`:
+The following example command creates a new local storage data flow endpoint named `local-storage-endpoint`:
 
 ```azurecli
 az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instance myAioInstanceName --name local-storage-endpoint --config-file ~/local-storage-endpoint.json
@@ -88,7 +91,7 @@ az iot ops dataflow endpoint apply --resource-group myResourceGroupName --instan
 
 # [Bicep](#tab/bicep)
 
-Create a Bicep `.bicep` file with the following content.
+Create a `.bicep` file with the following content:
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
@@ -118,7 +121,7 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 }
 ```
 
-Then, deploy via Azure CLI.
+Deploy the file via the Azure CLI:
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -128,7 +131,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-Create a Kubernetes manifest `.yaml` file with the following content.
+Create a Kubernetes manifest `.yaml` file with the following content:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -142,7 +145,7 @@ spec:
     persistentVolumeClaimRef: <PVC_NAME>
 ```
 
-Then apply the manifest file to the Kubernetes cluster.
+Apply the manifest file to the Kubernetes cluster:
 
 ```bash
 kubectl apply -f <FILE>.yaml
@@ -150,39 +153,38 @@ kubectl apply -f <FILE>.yaml
 
 ---
 
-The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
+The PVC must be in the same namespace as `DataflowEndpoint`.
 
 ## Supported serialization formats
 
 The only supported serialization format is Parquet.
 
-## Use Azure Container Storage enabled by Azure Arc (ACSA)
+## Use Azure Container Storage enabled by Azure Arc
 
 You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
 
 > [!IMPORTANT]
-> You must install [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/howto-install-edge-volumes) before using it with a local storage data flow endpoint.
+> You must install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with a local storage data flow endpoint.
 
 ### Local shared volume
 
-To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/tutorial-create-local-shared-volume).
+To write to a local shared volume, first create a PVC according to the instructions in [Local shared edge volumes](/azure/azure-arc/container-storage/tutorial-create-local-shared-volume).
 
-Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
+When you configure your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
 ### Cloud ingest
 
-To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for your desired cloud destination.
+To write your data to the cloud, follow the instructions in [Cloud ingest edge volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for the cloud destination that you want.
+
+To configure cloud ingest, your cluster must have secure settings enabled. The cloud ingest feature relies on [workload identity federation](../deploy-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
 
 > [!IMPORTANT]
-> To configure cloud ingest, your cluster must have secure settings enabled. The cloud ingest feature relies on [workload identity federation](../deploy-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
+> Don't forget to create the subvolume after you create the PVC. Otherwise, the data flow fails to start and the logs show a "read-only file system" error.
 
-> [!IMPORTANT]
-> Don't forget to create the subvolume after creating the PVC, or else the data flow fails to start and the logs show a "read-only file system" error.
+When you configure your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
-Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
+Finally, when you create the data flow, the [data destination](howto-configure-dataflow-destination.md#configure-the-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter that you created for your subvolume during configuration.
 
-Finally, when you create the data flow, the [data destination](howto-configure-dataflow-destination.md#configure-the-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
-
-## Next steps
-
-To learn more about data flows, see [Create a data flow](howto-create-dataflow.md).
+## Next step
+> [!div class="nextstepaction"]
+> [Create a data flow](howto-create-dataflow.md)

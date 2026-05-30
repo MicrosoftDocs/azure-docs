@@ -42,7 +42,7 @@ items:
       href: tutorial-reservoir-ddms-websocket.md
     - name: Use Rock and Fluid Samples DDMS APIs
       href: tutorial-rock-and-fluid-samples-ddms.md
-    - name: Use analytics consumption zone APIs
+    - name: Use Analytics Consumption Zone (ACZ) APIs
       href: tutorial-analytics-consumption-zone-apis.md
 - name: Concepts
   items:
@@ -95,7 +95,7 @@ items:
           href: how-to-enable-legal-tags-restricted-country-of-origin.md
         - name: How to manage upgrade settings
           href: how-to-manage-upgrade-settings.md
-        - name: How to enable analytics consumption zone (ACZ)
+        - name: How to enable the Analytics Consumption Zone (ACZ)
           href: how-to-enable-analytics-consumption-zone.md
     - name: Monitoring
       items:
@@ -131,9 +131,9 @@ items:
       href: how-to-generate-auth-token.md
     - name: Upload large files using file service
       href: how-to-upload-large-files-using-file-service.md
-    - name: Connect ACZ to Microsoft Fabric
+    - name: Connect Analytics Consumption Zone (ACZ) to Microsoft Fabric
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
-    - name: Connect ACZ to Azure Databricks
+    - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
 - name: References
   items:

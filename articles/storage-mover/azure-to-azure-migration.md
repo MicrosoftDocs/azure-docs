@@ -5,7 +5,7 @@ author: madhurinms
 ms.author: madhn
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 12/04/2025
+ms.date: 05/19/2026
 ---
 
 # Get started with blob-to-blob migration in Azure Storage Mover
@@ -28,7 +28,7 @@ The Azure Blob container-to-container transfer feature in Azure Storage Mover ha
 - A maximum of 10 concurrent jobs is supported per subscription. If you need to run more than 10, create a support request.
 - Azure Storage Mover doesn't support automatic rehydration of archived objects. You must restore data stored in Azure Blob Archive before migration. Initiate migration jobs only after the data is fully restored.
 - Blob container-to-container migration doesn't allow you to select the same Source and Target Endpoint in the same Migration Job Creation.
-- Blobs aren't truly moved but copied. The Blob container continues to exist in its current location along with the Target location set.
+- Blobs aren't truly moved but copied. The source Blob container continues to exist in its current location along with the Target location set.
 
 
 ## Configure source and target endpoints
@@ -44,7 +44,6 @@ Follow the steps in this section to configure an Azure Blob container source and
 1. In the **Create source endpoint** pane:
 
     - Select **Blob container** as the **Source type**.
-    - Optionally, provide a description for the endpoint in the **Description** field.
     - Select your subscription and storage account from the respective **Subscription** and **Storage account** drop-down lists.
     - Choose the **Blob container** you want to migrate from the **Blob container** drop-down list.
     - Optionally, provide a description for the endpoint in the **Description** field.
@@ -204,7 +203,7 @@ az storage-mover endpoint create-for-storage-container \
 
 ### [Azure portal](#tab/portal)
 
-When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Account Contributor** and **Storage Blob Data Owner** RBAC roles are automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+The **Storage Account Contributor** and **Storage Blob Data Owner** RBAC roles are automatically assigned during the job start process. No other steps are required.
 
 
 ### [Azure PowerShell](#tab/powershell)
@@ -499,7 +498,7 @@ az storage-mover project create \
 
     :::image type="content" source="./media/azure-to-azure/select-target.png" alt-text="Screenshot of the Create a Migration Job page with the Select an Existing Target Endpoint pane displayed." lightbox="./media/azure-to-azure/select-target.png":::
 
-1. In the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
+1. In the **Settings** tab, select **Merge or Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
 
     :::image type="content" source="./media/azure-to-azure/project-settings.png" alt-text="Screenshot of the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="./media/azure-to-azure/project-settings.png":::
 
@@ -694,7 +693,7 @@ Follow the steps in this section to complete manual validation.
 Troubleshooting your migration might involve a range of steps, from basic diagnostics to more advanced error handling. If you're encountering problems, start troubleshooting by taking the following steps.
 
 - Migration job failed? Check the logs for error messages.
-- Permission problems? Verify that Azure Arc and Access Management (IAM) roles have the correct access.
+- Permission problems? Verify that Access Management (IAM) roles have the correct access.
 
 ## Related content
 

@@ -61,6 +61,29 @@ __App Service Migration Assistant and App Service Migration Assistant PowerShell
 - [Start Your Cloud Journey with Azure App Service](https://aka.ms/cloudjourney/start/video)
 
 ### Blog
+=======
+__App Service Migration Assistant tool and App Service migration assistant for PowerShell scripts are governed by the terms and conditions in the EULA.pdf packaged with the respective tools.__
+
+|Migration tools| Description | Documentation |
+|-----------|-------------|---------------|
+|[App Service Migration Assistant](https://appmigration.microsoft.com/api/download/windowspreview/AppServiceMigrationAssistant.msi)|Migrate .NET web apps from Windows OS to App Service.|[App Service Migration Assistant documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
+|[App Service migration assistant for Java on Apache Tomcat (Windows—preview)](https://appmigration.microsoft.com/api/download/windowspreview/AppServiceMigrationAssistant.msi)|Download prerelease software for migrating Java web applications on Tomcat web server running on Windows servers.|[App Service Migration Assistant documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki)|
+|[App Service Migration Assistant PowerShell scripts](https://appmigration.microsoft.com/api/download/psscripts/AppServiceMigrationScripts.zip)|Download PowerShell scripts for discovering and assessing all Microsoft Internet Information Services (IIS) web apps on a single server in bulk and migrating .NET web apps from Windows OS to App Service.|[App Service Migration Assistant PowerShell documentation](https://github.com/Azure/App-Service-Migration-Assistant/wiki/PowerShell-Scripts)<br>[SHA256 Identifier](https://github.com/Azure/App-Service-Migration-Assistant/wiki/Release-Notes)|
+
+| More resources to migrate .NET apps to the cloud |
+|----------------|
+| **Video** |
+| [.NET on Azure for Beginners](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVSBX3Lde8owu6dSgZLIXfu) |
+| [Start Your Cloud Journey with Azure App Service](https://aka.ms/cloudjourney/start/video) |
+| **Blog** |
+| [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-reliable-web-app-pattern-for-net/3745270) |
+| [Start your cloud journey with Azure App Service - Part 1](https://aka.ms/cloudjourney/start/part1) |
+| [Start your cloud journey with Azure App Service - Part 2](https://aka.ms/cloudjourney/start/part2) |
+| [Learn how to modernize your .NET apps from the pros](https://devblogs.microsoft.com/dotnet/learn-how-to-modernize-your-dotnet-apps/) |
+| **Learning path** |
+| [Migrate ASP.NET Apps to Azure](/training/paths/migrate-dotnet-apps-azure/) |
+| [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/) |
+| [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/) |
 
 - [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270)
 - [Start your cloud journey with Azure App Service - Part 1](https://aka.ms/cloudjourney/start/part1)
