@@ -1,8 +1,10 @@
 ---
 title: Available Regions and SKUs for Nutanix Cloud Clusters on Azure
+
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure.
+
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: references_regions
@@ -11,7 +13,7 @@ ms.service: azure-baremetal-infrastructure
 # Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 
-# Nutanix Cloud Clusters (NC2) on Azure region and SKU availability
+# Nutanix Cloud Clusters (NC2) on Azure region and SKU availability (obsolete)
 Nutanix Cloud Clusters on Azure are offered in three different Ready Node or SKU types and many Azure regions. 
 
 ## Supported SKUs and instances

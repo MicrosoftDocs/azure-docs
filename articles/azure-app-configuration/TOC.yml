@@ -210,8 +210,6 @@
   items:
   - name: Overview
     href: concept-feature-management.md
-  - name: Experimentation
-    href: concept-experimentation.md
   - name: Enable conditional features with feature filters
     items:
     - name: Overview
@@ -326,9 +324,15 @@
   - name: Network security
     items:
     - name: Overview
+      href: concept-network-security.md
+    - name: Private endpoints
       href: concept-private-endpoint.md
-    - name: Set up Private Endpoints
+    - name: Set up private endpoints
       href: howto-set-up-private-access.md
+    - name: Network security perimeter
+      href: concept-network-security-perimeter.md
+    - name: Associate with a network security perimeter
+      href: howto-set-up-network-security-perimeter.md
     - name: Disable public network access
       href: howto-disable-public-access.md
     - name: Network access errors

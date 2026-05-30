@@ -7,12 +7,14 @@ ms.custom: build-2023
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 05/04/2026
+ms.date: 05/19/2026
 
 #customer intent: As a platform engineer, I want to understand the key concepts and roles in Azure Deployment Environments so that I can effectively deploy environments for my scenarios.
 ---
 
 # Key concepts for Azure Deployment Environments
+
+[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
 
 In this article, you learn about the key concepts and components of Azure Deployment Environments. This knowledge helps you more effectively deploy environments for your scenarios.
 

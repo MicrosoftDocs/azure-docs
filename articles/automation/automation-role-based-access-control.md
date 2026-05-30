@@ -77,7 +77,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|[Microsoft.Automation](../role-based-access-control/resource-provider-operations.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
+|[Microsoft.Automation](../role-based-access-control/permissions/management-and-governance.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -125,7 +125,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
-|[Microsoft.ResourceHealth](../role-based-access-control/resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
+|[Microsoft.ResourceHealth](../role-based-access-control/permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 

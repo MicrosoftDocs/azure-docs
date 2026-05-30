@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/26/2026
+ms.date: 05/19/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the data flow mapping language to transform data.
@@ -69,9 +69,9 @@ The following mapping is an example:
 ```bicep
 {
   inputs: [
-    'BirthDate'
+    'Birth Date'
   ]
-  output: 'Employee.DateOfBirth'
+  output: 'Employee.Date of Birth'
 }
 {
   inputs: [
@@ -95,8 +95,8 @@ The following mapping is an example:
 
 ```yaml
 - inputs:
-  - BirthDate
-  output: Employee.DateOfBirth
+  - Birth Date
+  output: Employee.Date of Birth
 
 - inputs:
   - Position # - - - $1
@@ -113,13 +113,13 @@ The following mapping is an example:
 
 The example maps:
 
-* **One-to-one mapping**: `BirthDate` is directly mapped to `Employee.DateOfBirth` without conversion.
+* **One-to-one mapping**: `Birth Date` is directly mapped to `Employee.Date of Birth` without conversion.
 * **Many-to-one mapping**: Combines `Position` and `Office` into a single `Employment.Position` field. The conversion formula (`$1 + ", " + $2`) merges these fields into a formatted string.
 * **Contextual data**: `BaseSalary` is added from a contextual dataset named `position`.
 
 ## Field references
 
-Field references show how to specify paths in the input and output by using dot notation like `Employee.DateOfBirth` or accessing data from a contextual dataset via `$context(position)`.
+Field references show how to specify paths in the input and output by using dot notation like `Employee.Date of Birth` or accessing data from a contextual dataset via `$context(position)`.
 
 ### Metadata properties
 

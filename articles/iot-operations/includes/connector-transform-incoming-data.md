@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 03/06/2026
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 To transform the incoming data by using a WASM module and graph, complete the following steps:
