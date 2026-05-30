@@ -97,7 +97,7 @@ If you didn't set `TO_EMAIL`, skip this section.
 
 1. In the [Azure portal](https://portal.azure.com), search for `Connector Namespace`.
 
-1. Open the Connector Namespace resource created by `azd`. The resource is in the resource group created by `azd`, whose name starts with `rg-` and includes the environment name you chose during `azd init`.
+1. Open the Connector Namespace resource created by `azd`. The resource is in the resource group created by `azd`, whose name starts with `rg-` and includes the environment name you chose during `azd init` (`serverless-agents` if you used the example command).
 
     Selecting the resource opens the Connector Namespaces portal, a separate experience for browsing and managing the connections, triggers, and MCP servers in the namespace.
 
