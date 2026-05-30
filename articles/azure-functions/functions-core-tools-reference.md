@@ -2,8 +2,9 @@
 title: Azure Functions CLI reference
 description: Reference documentation for the Azure Functions CLI and its predecessor, Azure Functions Core Tools.
 ms.topic: reference
-ms.date: 05/27/2026
+ms.date: 05/29/2026
 ms.custom:
+  - build-2026
   - ignite-2023
   - sfi-ropc-nochange
 zone_pivot_groups: func-cli-versions
@@ -18,9 +19,9 @@ Two versions of the CLI are available. Use the version selector to choose which 
 - **Core Tools (v4)**: The current generally available release, distributed as **Azure Functions Core Tools**. It supports the full set of commands for local development, publishing, container deployments, Durable Functions, Kubernetes, and extension management.
 - **Azure Functions CLI (v5)**: The next major version, currently in **preview**. Rebranded from Core Tools to **Azure Functions CLI**, it introduces a workload-based architecture and is a ground-up rebuild. The set of commands and options reflects what is currently implemented; some Core Tools v4 workflows aren't yet ported.
 
-To learn more about using the CLI, see [Work with Azure Functions Core Tools](functions-run-local.md).
-
 ::: zone pivot="func-cli-v4"
+
+To learn more about using Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 Core Tools commands are organized into the following contexts, each providing a unique set of actions.
 
@@ -38,9 +39,35 @@ Core Tools commands are organized into the following contexts, each providing a 
 
 Before using the commands in this article, [install the Core Tools](functions-run-local.md#install-the-azure-functions-core-tools). 
 
+::: zone-end
+
+::: zone pivot="func-cli-v5"
+
+[!INCLUDE [functions-cli-v5-preview-note](../../includes/functions-cli-v5-preview-note.md)]
+
+To learn more about using the CLI, including installation and workloads, see [Develop Azure Functions locally using the Azure Functions CLI](functions-cli-develop-local.md).
+
+The following built-in commands ship with the base CLI install:
+
+| Command | Description |
+| ----- | ----- |
+| [`func init`](#func-init) | Initialize a new Azure Functions project. |
+| [`func new`](#func-new) | Create a new function from a template. |
+| [`func run`](#func-run) | Launch the Azure Functions host runtime locally. `func start` is a backward-compatible alias. |
+| [`func quickstart`](#func-quickstart) | Browse and scaffold complete function apps from the quickstart template catalog. |
+| [`func profile`](#func-profile) | Inspect and manage Azure Functions CLI profiles. |
+| [`func setup`](#func-setup) | Prepare local Azure Functions CLI dependencies (host runtime, language workers, extension bundles). |
+| [`func workload`](#func-workload) | Manage installed CLI workloads. |
+
+Workloads may contribute additional top-level commands; those appear only after the contributing workload is installed.
+
+::: zone-end
+
 ## `func init`
 
 Creates a new Functions project in a specific language.
+
+::: zone pivot="func-cli-v4"
 
 ```command
 func init [<PROJECT_FOLDER>]
@@ -82,26 +109,87 @@ When you use the `--configuration-profile` option, a predefined set of project c
 | ----- | ----- | ----- |
 | `mcp-custom-handler` | Creates a project that uses [custom handlers](functions-custom-handlers.md) to host an [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that AI agents and other MCP clients can connect to. | • Configures the `"configurationProfile": "mcp-custom-handler"` element in the *host.json* file with specific custom handler settings.<br/>• Sets `MCP_EXTENSION_ENABLED` to `true` in *local.settings.json*. |
 
-## `func logs`
+::: zone-end
 
-Gets logs for functions running in a Kubernetes cluster.
+::: zone pivot="func-cli-v5"
 
 ```command
-func logs --platform kubernetes --name <APP_NAME>
+func init [<PATH>] [options]
 ```
 
-The `func logs` command supports these options:
+When you supply `<PATH>`, the project is created in that folder. Otherwise, the current folder is used.
+
+The `func init` command supports these built-in options:
 
 | Option | Description |
-| --- | --- |
-| **`--platform`** | Hosting platform for the function app. Valid options: `kubernetes`. |
-| **`--name`** | Function app name in Azure. |
+| ----- | ----- |
+| **`--stack`**, **`-s`** | The stack to use for the project (for example, `python`, `node`, `dotnet`, `go`). Run `func workload list` to see the stacks contributed by your installed workloads. |
+| **`--name`**, **`-n`** | The name of the function app project. |
+| **`--language`**, **`-l`** | The programming language (for example, `C#`, `F#`, `JavaScript`, `TypeScript`, `Python`). Used when a stack supports more than one language. Supported values are computed from installed stack workloads. |
+| **`--force`** | Reinitialize even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
 
-For more information, see [Azure Functions on Kubernetes with KEDA](functions-kubernetes-keda.md).
+Workloads contribute additional options that are grouped under the workload's name in `func init --help`. See [workload-specific options](#workload-specific-options) for the per-stack options.
+
+If no workload provides the requested stack, the CLI prints a hint pointing at `func workload install` and exits with a nonzero exit code.
+
+### Workload-specific options
+
+The `init` command is expanded when you install one or more of these workloads: 
+
+#### [`dotnet`](#tab/dotnet)
+
+| Option | Description |
+| ----- | ----- |
+| **`--target-framework`**, **`-tfm`** | The target .NET framework for the project (for example, `net10.0`). Default: `net10.0`. |
+
+The .NET initializer doesn't write an extension bundle block, so `--no-bundles` and `--bundles-channel` aren't applicable.
+
+#### [`node`](#tab/node-js)
+
+| Option | Description |
+| ----- | ----- |
+| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
+| **`--skip-npm-install`** | Skip running `npm install` after project creation. |
+
+#### [`python`](#tab/python)
+
+| Option | Description |
+| ----- | ----- |
+| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
+
+#### [`go`](#tab/go)
+
+| Option | Description |
+| ----- | ----- |
+| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
+| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
+| **`--skip-go-mod-tidy`** | Skip running `go mod tidy` after project creation. |
+
+---
+
+When more than one installed workload contributes the same option, the option appears once in `func init --help`. 
+
+### Shared options 
+
+The shared options today are `--no-bundles` and `--bundles-channel`. The default extension bundle ID written to *host.json* depends on the selected channel:
+
+| Channel | Bundle ID |
+| ----- | ----- |
+| `GA` (default) | `Microsoft.Azure.Functions.ExtensionBundle` |
+| `Preview` | `Microsoft.Azure.Functions.ExtensionBundle.Preview` |
+| `Experimental` | `Microsoft.Azure.Functions.ExtensionBundle.Experimental` |
+
+The default version range is `[4.*, 5.0.0)`.
+
+::: zone-end
 
 ## `func new`
 
 Creates a new function in the current project based on a template.
+
+::: zone pivot="func-cli-v4"
 
 ```command
 func new
@@ -122,6 +210,50 @@ The `func new` command supports these options:
 
 For more information, see [Create a function](functions-run-local.md#create-func).
 
+::: zone-end
+
+::: zone pivot="func-cli-v5"
+
+```command
+func new [<PATH>] [options]
+```
+
+> [!IMPORTANT]
+> `func new` is currently a preview stub. It prints a workload-install hint and exits with a nonzero exit code until a templates workload is installed and wired in. Template-specific options are hydrated dynamically from template metadata, so adding a new template option doesn't require a CLI release.
+
+The `func new` command supports these built-in options:
+
+| Option | Description |
+| ----- | ----- |
+| **`--name`**, **`-n`** | The function name. |
+| **`--template`**, **`-t`** | The function template name. Available templates come from the installed `<stack>-templates` workload for the project's stack. |
+| **`--force`** | Overwrite existing files. |
+
+Additional options are contributed dynamically by the selected template. Run `func new --template <name> --help` to see the options for a specific template.
+
+If no templates workload is installed for the current project, the CLI prints a hint pointing at `func workload install`.
+
+::: zone-end
+
+::: zone pivot="func-cli-v4"
+
+## `func logs`
+
+Gets logs for functions running in a Kubernetes cluster.
+
+```command
+func logs --platform kubernetes --name <APP_NAME>
+```
+
+The `func logs` command supports these options:
+
+| Option | Description |
+| --- | --- |
+| **`--platform`** | Hosting platform for the function app. Valid options: `kubernetes`. |
+| **`--name`** | Function app name in Azure. |
+
+For more information, see [Azure Functions on Kubernetes with KEDA](functions-kubernetes-keda.md).
+
 ## `func pack`
 
 Creates a deployment package that contains your project code in a runnable state. Use this method when you need to manually create a deployment package for your app on your local computer outside of the `func azure functionapp publish` command. By default, `func pack` builds your project when needed. 
@@ -141,11 +273,12 @@ The `func pack` command supports these options:
 | **`--skip-install`** | Skips running `npm install` when packing Node.js-based function app. Used to avoid overwriting custom npm modules. |
 | **`--build-native-deps`** | Installs Python dependencies locally by using an image that matches the environment used in Azure. When enabled, Core Tools starts a Docker container, builds the app inside that container, and creates a .zip file with all dependencies restored in `.python_packages`. Use this option when running on Windows to avoid potential library issues when you deploy to Linux in Azure. |
 
-## `func run`
+## `func run` (v1.x only)
 
-*Version 1.x only.*
+> [!NOTE]
+> This command applies only to version 1.x of Core Tools and is deprecated. For version 2.x and later, use `func start` and [call the function endpoint directly](functions-run-local.md#run-a-local-function).
 
-Enables you to invoke a function directly, which is similar to running a function using the **Test** tab in the Azure portal. This action is only supported in version 1.x. For later versions, use `func start` and [call the function endpoint directly](functions-run-local.md#run-a-local-function).
+Invokes a function directly, similar to running a function using the **Test** tab in the Azure portal.
 
 ```command
 func run
@@ -222,6 +355,318 @@ The `func host start` command supports these options:
 In version 1.x, also use the [`func run`](#func-run) command to run a specific function and pass test data to it. 
 
 ---
+
+::: zone-end
+
+::: zone pivot="func-cli-v5"
+
+## `func run`
+
+Launches the Azure Functions host runtime and loads the project in the current folder.
+
+```command
+func run [<PATH>] [options]
+```
+
+`func start` is preserved as a backward-compatible alias and accepts the same arguments and options.
+
+The `func run` command supports these options:
+
+| Option | Description |
+| ----- | ----- |
+| **`--port`**, **`-p`** | The local port to listen on. Default: `7071`. |
+| **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
+| **`--cors-credentials`** | Allow cross-origin authenticated requests that use cookies and the `Authentication` header. |
+| **`--functions`** | A space-separated list of functions to load. |
+| **`--no-build`** | Don't build the project before running. |
+| **`--enable-auth`** | Enable the full authentication-handling pipeline, including authorization requirements. |
+| **`--host-version`**, **`-v`** | The host runtime version to use (for example, `4.1049.0`). |
+| **`--profile`** | The Azure Functions profile to apply while resolving host, worker, and bundle versions. See [`func profile`](#func-profile). |
+| **`--offline`** | Use only locally installed workloads and skip network installs. |
+| **`--output`** | Output mode: `compact` (interactive TUI), `plain` (CI / non-TTY), or `json` (NDJSON for programmatic consumers and AI agents). Defaults to autodetect based on the terminal. |
+| **`--no-tui`** | Alias for `--output=plain`. Disables the interactive TUI. |
+| **`--log-file`** | Mirror all host events to the specified log file. |
+| **`--no-azurite`** | Disable managed Azurite. The host starts without probing or starting a local emulator. |
+
+With the project running, call the function endpoints directly to verify behavior.
+
+### Managed Azurite
+
+When your project uses local storage (for example, `AzureWebJobsStorage=UseDevelopmentStorage=true`), `func run` automatically probes for a running Azurite emulator and starts one if none is found. The emulator is stopped when `func run` exits. Pass `--no-azurite` to opt out and manage Azurite yourself.
+
+### Output modes
+
+`func run` autoselects an output mode based on the terminal:
+
+| Condition | Mode |
+| ----- | ----- |
+| Interactive terminal (TTY) | `compact` |
+| Non-interactive stdout, redirected output, or `CI` environment variable set | `plain` |
+| Explicit `--output=json` | `json` |
+
+`json` is never autoselected. If `compact` is requested but stdout isn't a TTY, the CLI downgrades to `plain` and writes a one-line notice to stderr. The `json` mode emits newline-delimited JSON (NDJSON), one object per line, with a `schema_version` of `1`.
+
+## `func quickstart`
+
+Browses and scaffolds complete function apps from the Azure Functions quickstart template catalog. Quickstart templates are full sample apps (for example, an HTTP API, a queue-triggered worker, or a Durable Functions orchestration). Stack workloads contribute the language-specific resolvers; the catalog itself is fetched at command-invocation time.
+
+```command
+func quickstart [<PATH>] [options]
+```
+
+When you supply `<PATH>`, the project is created in that folder. Otherwise, the current folder is used.
+
+The `func quickstart` command supports these options:
+
+| Option | Description |
+| ----- | ----- |
+| **`--stack`**, **`-s`** | The stack to use (for example, `python`, `node`, `dotnet`). |
+| **`--language`**, **`-l`** | The programming language. Supported values come from installed quickstart providers. |
+| **`--template`**, **`-t`** | Template ID from the catalog (for example, `http-trigger-python-azd`). Skips all interactive prompts. |
+| **`--resource`**, **`-r`** | Filter by trigger or binding resource (for example, `http`, `timer`, `blob`, `eventhub`, `servicebus`, `cosmos`, `sql`, `mcp`, `durable`). |
+| **`--iac`** | Filter by infrastructure-as-code type (for example, `bicep`, `terraform`, `none`). |
+| **`--search`** | Case-insensitive substring filter applied to template names and descriptions. |
+| **`--fetch`** | Catalog fetch strategy: `auto` (default), `git`, or `http`. `auto` probes for `git` and falls back to HTTP. |
+| **`--force`** | Scaffold even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
+
+Subcommands:
+
+| Subcommand | Description |
+| ----- | ----- |
+| `func quickstart list` | List available templates in the catalog. |
+| `func quickstart info` | Show details about a specific template. |
+
+## `func quickstart list`
+
+Lists available templates from the catalog, optionally filtered.
+
+```command
+func quickstart list [options]
+```
+
+| Option | Description |
+| ----- | ----- |
+| **`--stack`**, **`-s`** | The stack to use (for example, `python`, `node`, `dotnet`). |
+| **`--language`**, **`-l`** | The programming language. Supported values come from installed quickstart providers. |
+| **`--resource`**, **`-r`** | Filter by trigger or binding resource. |
+| **`--iac`** | Filter by infrastructure-as-code type. |
+| **`--search`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
+| **`--json`** | Emit machine-readable JSON instead of a table. |
+
+## `func quickstart info`
+
+Displays detailed information about a specific template.
+
+```command
+func quickstart info <ID> [options]
+```
+
+`<ID>` is the template ID from the catalog. Use `func quickstart list` to discover available IDs.
+
+| Option | Description |
+| ----- | ----- |
+| **`--json`** | Emit machine-readable JSON instead of formatted output. |
+
+## `func profile`
+
+Inspects and manages Azure Functions CLI profiles. Profiles encode version constraints (host version range, extension bundle version range, worker version ranges) and inheritance from other profiles. Profile sources are project-local (`.func/profiles/`), user-global (`~/.azure-functions/profiles/`), and built-in. The `func run --profile <name>` option selects which profile's constraints are applied when launching the host.
+
+```command
+func profile <subcommand>
+```
+
+Subcommands:
+
+| Subcommand | Description |
+| ----- | ----- |
+| `func profile list` | List profiles available from project, user, and built-in sources. |
+| `func profile show` | Show details for a profile. |
+| `func profile set` | Set the default profile for a project. |
+
+## `func profile list`
+
+Lists profiles available from project, user, and built-in sources. Renders a table of name, source, host version, extension bundle, and status.
+
+```command
+func profile list [<PATH>] [options]
+```
+
+| Option | Description |
+| ----- | ----- |
+| **`--source`** | Comma-separated list of sources to include: `project`, `user`, `built-in`. Defaults to all sources. |
+| **`--json`** | Emit machine-readable JSON instead of a table. |
+
+## `func profile show`
+
+Shows details for a single profile, either resolved (with inherited values applied) or raw (definition as written, without inheritance expansion).
+
+```command
+func profile show <NAME> [<PATH>] [options]
+```
+
+| Option | Description |
+| ----- | ----- |
+| **`--raw`** | Show the raw profile definition without inherited values. |
+
+## `func profile set`
+
+Sets the default profile for a Functions project by writing the profile name into the project's `.func/config.json`. If the profile isn't already in the project's profiles list, it's added.
+
+```command
+func profile set <NAME> [<PATH>]
+```
+
+## `func setup`
+
+Prepares the local machine for running Azure Functions projects. Installs or verifies the host runtime, language workers, extension bundles, and templates for the stacks you specify. Supports profile-based version constraints, prerelease selection, noninteractive CI mode, and check-only mode.
+
+```command
+func setup [<PATH>] [options]
+```
+
+`--features` selects what to install or verify. The features and the workloads each one resolves are:
+
+| Feature | Workloads installed |
+| ----- | ----- |
+| `node` | `host`, `bundles`, `node`, `node-worker`, `node-templates` |
+| `python` | `host`, `bundles`, `python`, `python-worker`, `python-templates` |
+| `go` | `host`, `bundles`, `go`, `go-worker` |
+| `dotnet` | `host`, `dotnet`, `dotnet-templates` |
+| `runtime` | `host`, `bundles` |
+| `host` | `host` only |
+
+`--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`). `dotnet-isolated` is accepted as an alias for `dotnet`.
+
+| Option | Description |
+| ----- | ----- |
+| **`--features`** | Components to install or verify. Repeatable or comma-separated. See the table above for the workloads each feature installs. |
+| **`--profile`** | Azure Functions profile to use for version constraints. Repeatable. Merged with `--profiles`. |
+| **`--profiles`** | Comma-separated list of Azure Functions profiles to use for version constraints. |
+| **`--install-policy`** | Install policy: `latest-compatible` (default) or `if-needed`. |
+| **`--source`** | NuGet package source to use for workload resolution and installation. |
+| **`--prerelease`** | Allow prerelease workload versions when resolving from the catalog. Default: enabled while workloads are in preview. |
+| **`--non-interactive`** | Don't prompt for input. |
+| **`--yes`**, **`-y`** | Answer yes to setup prompts. |
+| **`--check`** | Verify whether the selected dependencies are installed, without making changes. |
+| **`--output`** | Output mode: `plain` (default) or `json` (NDJSON). |
+
+## `func workload`
+
+Manages workloads installed for the Azure Functions CLI.
+
+```command
+func workload <subcommand>
+```
+
+Subcommands:
+
+| Subcommand | Description |
+| ----- | ----- |
+| `func workload list` | List installed workloads. |
+| `func workload search` | Search the workload catalog. |
+| `func workload install` | Install a workload. |
+| `func workload update` | Update an installed workload in place. |
+| `func workload uninstall` | Uninstall a workload. |
+| `func workload prune` | Remove inactive side-by-side workload installs. |
+
+## `func workload list`
+
+Lists installed workloads. By default, only the loaded (highest-installed-semver) version of each workload is shown. Pass `--all-versions` to see every side-by-side install.
+
+```command
+func workload list [options]
+```
+
+| Option | Description |
+| ----- | ----- |
+| **`--all-versions`**, **`-a`** | List every installed version of every workload. Default: loaded version only. |
+| **`--json`** | Emit machine-readable JSON instead of a table. |
+
+## `func workload search`
+
+Searches the configured workload catalog for available workload packages.
+
+```command
+func workload search [<QUERY>] [options]
+```
+
+When `<QUERY>` is omitted, all workloads in the catalog are listed.
+
+| Option | Description |
+| ----- | ----- |
+| **`--source`** | Catalog source URL to search. Defaults to the configured catalog. |
+| **`--prerelease`** | Include prerelease versions in the results. Default: enabled while workloads are in preview. |
+| **`--json`** | Emit machine-readable JSON instead of a table. |
+
+## `func workload install`
+
+Resolves a workload package ID (or alias) through the configured catalog and installs it.
+
+```command
+func workload install <ID> [options]
+```
+
+`<ID>` can be a workload package ID, an alias (for example, `python`), or a path to a local workload package file.
+
+| Option | Description |
+| ----- | ----- |
+| **`--version`**, **`-v`** | Specific version to install. Default: the latest stable version in the catalog. |
+| **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
+| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
+| **`--force`**, **`-f`** | Overwrite an existing install of the same ID and version. Also skips the "use update instead" prompt. |
+| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
+
+If a version of the workload is already installed, the CLI prompts you to use `func workload update` instead. Noninteractive contexts treat the prompt as a decline.
+
+## `func workload update`
+
+Performs an in-place atomic version swap for an installed workload. Updates aren't side-by-side; for side-by-side installs use `func workload install --force`.
+
+```command
+func workload update [<ID>] [options]
+```
+
+Pass an `<ID>` to update a single workload, or `--all` to update every installed workload. Exactly one of the two must be specified.
+
+| Option | Description |
+| ----- | ----- |
+| **`--version`**, **`-v`** | Installed version to replace. Default: the highest installed version. |
+| **`--all`** | Update every installed workload. Mutually exclusive with `<ID>`. |
+| **`--major`** | Allow crossing a major-version boundary. Default: same major only. |
+| **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
+| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
+| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
+
+## `func workload uninstall`
+
+Removes one or all installed versions of a workload.
+
+```command
+func workload uninstall <ID> [options]
+```
+
+| Option | Description |
+| ----- | ----- |
+| **`--version`**, **`-v`** | Specific version to uninstall. Default: the only installed version. |
+| **`--all-versions`**, **`-a`** | Uninstall every installed version of the workload. Mutually exclusive with `--version`. |
+| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
+
+## `func workload prune`
+
+Removes inactive side-by-side workload installs. For each in-scope package ID, the highest installed version is kept and older versions are uninstalled. This command is local-only and never touches the catalog.
+
+```command
+func workload prune [<ID>] [options]
+```
+
+When `<ID>` is omitted, every installed workload is pruned.
+
+| Option | Description |
+| ----- | ----- |
+| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
+
+::: zone-end
+::: zone pivot="func-cli-v4"
 
 ## `func azure functionapp`
 
@@ -343,7 +788,6 @@ Deploys a containerized function app to an Azure Container Apps environment. The
 
 ```command
 func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> --registry-server <REGISTRY_SERVER> --registry-username <USERNAME> --registry-password <PASSWORD>
-
 ```
 
 The following deployment options apply:
@@ -361,7 +805,6 @@ The following deployment options apply:
 | **`--resource-group`** | The resource group in which to create the functions-related resources.|
 | **`--storage-account`** | The connection string for the storage account to be used by the function app.|
 | **`--worker-runtime`** | Sets the runtime language of the function app. This parameter is only used with `--image-name` and `--image-build`; otherwise the language is determined during the local build. Supported values are: `dotnet`, `dotnetIsolated`, `node`, `python`, `powershell`, and `custom` (for custom handlers). |
-
 
 > [!IMPORTANT]
 > Storage connection strings and other service credentials are important secrets. Securely store any script files that use `func azurecontainerapps deploy` and don't store them in any publicly accessible source control. 
@@ -654,7 +1097,7 @@ Deploys a Functions project as a custom docker container to a Kubernetes cluster
 func kubernetes deploy 
 ```
 
-This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init`](#func-init) command. 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster. Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--docker` option with the [`func init`](#func-init) command. 
 
 The `func kubernetes deploy` command supports these options:
 
@@ -825,7 +1268,11 @@ The `func templates list` command supports this option:
 | ------------ | -------------------------------------- |
 | **`--language`**, **`-l`** | Language for which to filter returned templates. Returns all languages by default. |
 
+::: zone-end
+
 ## Global options
+
+::: zone pivot="func-cli-v4"
 
 These options are available for most Core Tools commands:
 
@@ -842,68 +1289,20 @@ These options are available for most Core Tools commands:
 
 ::: zone pivot="func-cli-v5"
 
-> [!IMPORTANT]
-> The v5 Azure Functions CLI is currently in **preview** and is a ground-up rebuild. The set of commands and options documented here reflects the current `vnext` source. Several v4 command groups (`func azure functionapp publish`, `func azurecontainerapps deploy`, `func durable`, `func extensions`, `func kubernetes`, `func settings`) aren't yet ported. Continue to use Core Tools v4 for those workflows.
+These options are available on most commands:
 
-## Install the Azure Functions CLI
-
-The v5 CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. Installer packages are published for Windows, macOS, and Linux. After installation, the `func` binary is on your `PATH`.
-
-> [!NOTE]
-> While the v5 CLI is in preview, install the latest preview build from the [Azure Functions Core Tools releases page](https://github.com/Azure/azure-functions-core-tools/releases). Final installation guidance is published with the v5 general availability release.
-
-Verify the install:
-
-```command
-func --version
-```
-
-After the base CLI is installed, install the workloads for your stack. The fastest way is [`func setup`](#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. For example:
-
-```command
-func setup --features python
-```
-
-You can also install workloads individually with [`func workload install`](#func-workload-install) (for example, `func workload install python`). Either way, the first time you run `func init`, `func new`, or `func run` without the necessary workloads installed, the CLI prompts you to install them.
-
-## Commands at a glance
-
-### Built-in commands
-
-These commands ship with the base CLI install. `func new` is currently a preview stub until a templates workload is installed for the project's stack; it's flagged in its reference section.
-
-| Command | Description |
+| Option | Description |
 | ----- | ----- |
-| [`func init`](#func-init) | Initialize a new Azure Functions project. |
-| [`func new`](#func-new) | Create a new function from a template. (Preview stub: requires a templates workload.) |
-| [`func run`](#func-run) | Launch the Azure Functions host runtime locally. `func start` is a backward-compatible alias. |
-| [`func quickstart`](#func-quickstart) | Browse and scaffold complete function apps from the Azure Functions quickstart template catalog. |
-| [`func profile`](#func-profile) | Inspect and manage Azure Functions CLI profiles. |
-| [`func setup`](#func-setup) | Prepare local Azure Functions CLI dependencies (host runtime, language workers, extension bundles). |
-| [`func workload`](#func-workload) | Manage installed CLI workloads. |
+| **`--help`**, **`-h`** | Display help for the command. |
+| **`--version`** | Display the Azure Functions CLI version. Use `--verbose` together with `--version` for detailed build information. |
+| **`--verbose`** | Enable verbose output. Propagates to all subcommands. When passed at the root with no subcommand, prints detailed build, runtime, OS, and architecture information. |
 
-Workloads MAY contribute additional top-level commands; those appear only after the contributing workload is installed.
+::: zone-end
 
-## Workloads
+::: zone pivot="func-cli-v5"
+## Workload roles
 
-The Azure Functions CLI is built around a **workload model**. The base `func` install is small and language-agnostic. Stack-specific tooling (Python, Node.js, .NET, Go), the Functions host, language workers, extension bundles, and templates all come from **workloads** that you install on demand, so you only download what you need for the stack you develop on.
-
-### First-run experience
-
-The first time you run `func init`, `func new`, or `func run`, the CLI checks whether the workloads required for your scenario are installed. If they aren't, the CLI prompts you to install them. Accepting the prompt installs the recommended set for the stack you chose. You can decline the prompt and install workloads manually with `func workload install`, or run [`func setup`](#func-setup) to provision the standard set non-interactively.
-
-### Default workload recommendations
-
-Match the workloads you install to the stack you're developing in. The recommended starter set for each stack is:
-
-| Stack | Recommended workloads |
-| ----- | ----- |
-| **Python** | `python`, `python-worker`, `python-templates`, `host`, `bundles` |
-| **Node.js / TypeScript** | `node`, `node-worker`, `node-templates`, `host`, `bundles` |
-| **.NET (C# / F#)** | `dotnet`, `dotnet-templates`, `host` |
-| **Go** | `go`, `go-worker`, `host`, `bundles` |
-
-What each role does:
+Each workload serves a specific role in the CLI:
 
 | Role | Purpose |
 | ----- | ----- |
@@ -916,13 +1315,11 @@ What each role does:
 > [!NOTE]
 > The `bundles` workload is recommended for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
 
-You don't have to install these one at a time. The first time you run `func init`, `func new`, or `func run`, the CLI prompts you to install the recommended set for your chosen stack. You can also run `func setup` to install the standard set up-front.
+### Available workloads
 
-### Currently available workloads
+Run `func workload search` to see the current catalog. The following workloads are currently available:
 
-Run `func workload search` to see the current catalog.
-
-| Alias | Display name | Description |
+| Name | Display name | Description |
 | ----- | ----- | ----- |
 | `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
 | `bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
@@ -937,438 +1334,7 @@ Run `func workload search` to see the current catalog.
 | `go` | Go | Azure Functions CLI tooling for Go projects. |
 | `go-worker` | Go worker | The Go language worker used by the Functions host. |
 
-> [!NOTE]
-> The `<stack>-templates` workloads ship one package per language stack. Node and Python templates carry a channel that mirrors the project's extension bundle (`stable`, `preview`, `experimental`); the CLI auto-selects the matching templates channel based on the project's `host.json`. .NET templates have no bundle dependency and ship as `stable` only.
-
-### Coming soon
-
-These workloads are planned and not yet published. Run `func workload search` periodically to check availability.
-
-| Alias | Display name | Description |
-| ----- | ----- | ----- |
-| `java` | Java | Azure Functions CLI tooling for Java projects. |
-| `java-worker` | Java worker | The Java language worker used by the Functions host. |
-| `powershell` | PowerShell | Azure Functions CLI tooling for PowerShell projects. |
-| `powershell-worker` | PowerShell worker | The PowerShell language worker used by the Functions host. |
-| `durable` | Durable Functions | Adds `func durable` commands for managing Durable Functions task hubs and orchestration instances. |
-
-Additional workloads (publishing, container deployments, Kubernetes, and more) ship over time.
-
-## `func init`
-
-Initializes a new Azure Functions project in the specified folder. The scaffolding itself is contributed by the workload for the chosen stack, so the available options depend on which workloads are installed.
-
-```command
-func init [<PATH>] [options]
-```
-
-When you supply `<PATH>`, the project is created in that folder. Otherwise, the current folder is used.
-
-The `func init` command supports these built-in options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--stack`**, **`-s`** | The stack to use for the project (for example, `python`, `node`, `dotnet`, `go`). Run `func workload list` to see the stacks contributed by your installed workloads. |
-| **`--name`**, **`-n`** | The name of the function app project. |
-| **`--language`**, **`-l`** | The programming language (for example, `C#`, `F#`, `JavaScript`, `TypeScript`, `Python`). Used when a stack supports more than one language. Supported values are computed from installed stack workloads. |
-| **`--force`** | Reinitialize even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
-
-Workloads contribute additional options that are grouped under the workload's name in `func init --help`. See [Workload contributions](#workload-contributions) for the per-stack options.
-
-If no workload provides the requested stack, the CLI prints a hint pointing at `func workload install` and exits with a nonzero exit code.
-
-## `func new`
-
-Creates a new function in the current project from a template.
-
-```command
-func new [<PATH>] [options]
-```
-
-> [!IMPORTANT]
-> `func new` is currently a preview stub. It prints a workload-install hint and exits with a nonzero exit code until a templates workload is installed and wired in. Template-specific options (for example, trigger type or connection name) are hydrated dynamically from template metadata, so adding a new template option doesn't require a CLI release.
-
-The `func new` command supports these built-in options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--name`**, **`-n`** | The function name. |
-| **`--template`**, **`-t`** | The function template name. Available templates come from the installed `<stack>-templates` workload for the project's stack. |
-| **`--force`** | Overwrite existing files. |
-
-Additional options are contributed dynamically by the selected template. Run `func new --template <name> --help` to see the options for a specific template.
-
-If no templates workload is installed for the current project, the CLI prints a hint pointing at `func workload install`.
-
-## `func run`
-
-Launches the Azure Functions host runtime and loads the project in the current folder.
-
-```command
-func run [<PATH>] [options]
-```
-
-`func start` is preserved as a backward-compatible alias and accepts the same arguments and options.
-
-The `func run` command supports these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--port`**, **`-p`** | The local port to listen on. Default: `7071`. |
-| **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--cors-credentials`** | Allow cross-origin authenticated requests that use cookies and the `Authentication` header. |
-| **`--functions`** | A space-separated list of functions to load. |
-| **`--no-build`** | Don't build the project before running. |
-| **`--enable-auth`** | Enable the full authentication-handling pipeline, including authorization requirements. |
-| **`--host-version`**, **`-v`** | The host runtime version to use (for example, `4.1049.0`). |
-| **`--profile`** | The Azure Functions profile to apply while resolving host, worker, and bundle versions. See [`func profile`](#func-profile). |
-| **`--offline`** | Use only locally installed workloads and skip network installs. |
-| **`--output`** | Output mode: `compact` (interactive TUI), `plain` (CI / non-TTY), or `json` (NDJSON for programmatic consumers and AI agents). Defaults to autodetect based on the terminal. |
-| **`--no-tui`** | Alias for `--output=plain`. Disables the interactive TUI. |
-| **`--log-file`** | Mirror all host events to the specified log file. |
-| **`--no-azurite`** | Disable managed Azurite. The host starts without probing or starting a local emulator. |
-
-With the project running, call the function endpoints directly to verify behavior.
-
-### Managed Azurite
-
-When your project uses local storage (for example, `AzureWebJobsStorage=UseDevelopmentStorage=true`), `func run` automatically probes for a running Azurite emulator and starts one if none is found. The emulator is stopped when `func run` exits. Pass `--no-azurite` to opt out and manage Azurite yourself.
-
-### Output modes
-
-`func run` autoselects an output mode based on the terminal:
-
-| Condition | Mode |
-| ----- | ----- |
-| Interactive terminal (TTY) | `compact` |
-| Non-interactive stdout, redirected output, or `CI` environment variable set | `plain` |
-| Explicit `--output=json` | `json` |
-
-`json` is never autoselected. If `compact` is requested but stdout isn't a TTY, the CLI downgrades to `plain` and writes a one-line notice to stderr. The `json` mode emits newline-delimited JSON (NDJSON), one object per line, with a `schema_version` of `1`.
-
-## `func quickstart`
-
-Browses and scaffolds complete function apps from the Azure Functions quickstart template catalog. Quickstart templates are full sample apps (for example, an HTTP API, a queue-triggered worker, or a Durable Functions orchestration). Stack workloads contribute the language-specific resolvers; the catalog itself is fetched at command-invocation time.
-
-```command
-func quickstart [<PATH>] [options]
-```
-
-When you supply `<PATH>`, the project is created in that folder. Otherwise, the current folder is used.
-
-The `func quickstart` command supports these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--stack`**, **`-s`** | The stack to use (for example, `python`, `node`, `dotnet`). |
-| **`--language`**, **`-l`** | The programming language. Supported values come from installed quickstart providers. |
-| **`--template`**, **`-t`** | Template ID from the catalog (for example, `http-trigger-python-azd`). Skips all interactive prompts. |
-| **`--resource`**, **`-r`** | Filter by trigger or binding resource (for example, `http`, `timer`, `blob`, `eventhub`, `servicebus`, `cosmos`, `sql`, `mcp`, `durable`). |
-| **`--iac`** | Filter by infrastructure-as-code type (for example, `bicep`, `terraform`, `none`). |
-| **`--search`** | Case-insensitive substring filter applied to template names and descriptions. |
-| **`--fetch`** | Catalog fetch strategy: `auto` (default), `git`, or `http`. `auto` probes for `git` and falls back to HTTP. |
-| **`--force`** | Scaffold even when the target folder isn't empty. Clears the folder (except `.git`) before scaffolding. |
-
-Subcommands:
-
-| Subcommand | Description |
-| ----- | ----- |
-| [`func quickstart list`](#func-quickstart-list) | List available templates in the catalog. |
-| [`func quickstart info`](#func-quickstart-info) | Show details about a specific template. |
-
-### `func quickstart list`
-
-Lists available templates from the catalog, optionally filtered.
-
-```command
-func quickstart list [options]
-```
-
-| Option | Description |
-| ----- | ----- |
-| **`--stack`**, **`-s`** | The stack to use (for example, `python`, `node`, `dotnet`). |
-| **`--language`**, **`-l`** | The programming language. Supported values come from installed quickstart providers. |
-| **`--resource`**, **`-r`** | Filter by trigger or binding resource. |
-| **`--iac`** | Filter by infrastructure-as-code type. |
-| **`--search`** | Case-insensitive substring match against IDs, template names, resource type, Infrastructure as Code type, and descriptions. |
-| **`--json`** | Emit machine-readable JSON instead of a table. |
-
-### `func quickstart info`
-
-Displays detailed information about a specific template.
-
-```command
-func quickstart info <ID> [options]
-```
-
-`<ID>` is the template ID from the catalog. Use `func quickstart list` to discover available IDs.
-
-| Option | Description |
-| ----- | ----- |
-| **`--json`** | Emit machine-readable JSON instead of formatted output. |
-
-## `func profile`
-
-Inspects and manages Azure Functions CLI profiles. Profiles encode version constraints (host version range, extension bundle version range, worker version ranges) and inheritance from other profiles. Profile sources are project-local (`.func/profiles/`), user-global (`~/.azure-functions/profiles/`), and built-in. The `func run --profile <name>` option selects which profile's constraints are applied when launching the host.
-
-```command
-func profile <subcommand>
-```
-
-Subcommands:
-
-| Subcommand | Description |
-| ----- | ----- |
-| [`func profile list`](#func-profile-list) | List profiles available from project, user, and built-in sources. |
-| [`func profile show`](#func-profile-show) | Show details for a profile. |
-| [`func profile set`](#func-profile-set) | Set the default profile for a project. |
-
-### `func profile list`
-
-Lists profiles available from project, user, and built-in sources. Renders a table of name, source, host version, extension bundle, and status.
-
-```command
-func profile list [<PATH>] [options]
-```
-
-| Option | Description |
-| ----- | ----- |
-| **`--source`** | Comma-separated list of sources to include: `project`, `user`, `built-in`. Defaults to all sources. |
-| **`--json`** | Emit machine-readable JSON instead of a table. |
-
-### `func profile show`
-
-Shows details for a single profile, either resolved (with inherited values applied) or raw (definition as written, without inheritance expansion).
-
-```command
-func profile show <NAME> [<PATH>] [options]
-```
-
-| Option | Description |
-| ----- | ----- |
-| **`--raw`** | Show the raw profile definition without inherited values. |
-
-### `func profile set`
-
-Sets the default profile for a Functions project by writing the profile name into the project's `.func/config.json`. If the profile isn't already in the project's profiles list, it's added.
-
-```command
-func profile set <NAME> [<PATH>]
-```
-
-## `func setup`
-
-Prepares the local machine for running Azure Functions projects. Installs or verifies the host runtime, language workers, extension bundles, and templates for the stacks you specify. Supports profile-based version constraints, prerelease selection, noninteractive CI mode, and check-only mode.
-
-```command
-func setup [<PATH>] [options]
-```
-
-`--features` selects what to install or verify. The features and the workloads each one resolves are:
-
-| Feature | Workloads installed |
-| ----- | ----- |
-| `node` | `host`, `bundles`, `node`, `node-worker`, `node-templates` |
-| `python` | `host`, `bundles`, `python`, `python-worker`, `python-templates` |
-| `go` | `host`, `bundles`, `go`, `go-worker` |
-| `dotnet` | `host`, `dotnet`, `dotnet-templates` |
-| `runtime` | `host`, `bundles` |
-| `host` | `host` only |
-
-`--features` is repeatable and accepts comma-separated values, so you can combine features in a single call (for example, `func setup --features node,python`). `dotnet-isolated` is accepted as an alias for `dotnet`.
-
-| Option | Description |
-| ----- | ----- |
-| **`--features`** | Components to install or verify. Repeatable or comma-separated. See the table above for the workloads each feature installs. |
-| **`--profile`** | Azure Functions profile to use for version constraints. Repeatable. Merged with `--profiles`. |
-| **`--profiles`** | Comma-separated list of Azure Functions profiles to use for version constraints. |
-| **`--install-policy`** | Install policy: `latest-compatible` (default) or `if-needed`. |
-| **`--source`** | NuGet package source to use for workload resolution and installation. |
-| **`--prerelease`** | Allow prerelease workload versions when resolving from the catalog. Default: enabled while workloads are in preview. |
-| **`--non-interactive`** | Don't prompt for input. |
-| **`--yes`**, **`-y`** | Answer yes to setup prompts. |
-| **`--check`** | Verify whether the selected dependencies are installed, without making changes. |
-| **`--output`** | Output mode: `plain` (default) or `json` (NDJSON). |
-
-## `func workload`
-
-Manages workloads installed for the Azure Functions CLI.
-
-```command
-func workload <subcommand>
-```
-
-Subcommands:
-
-| Subcommand | Description |
-| ----- | ----- |
-| [`func workload list`](#func-workload-list) | List installed workloads. |
-| [`func workload search`](#func-workload-search) | Search the workload catalog. |
-| [`func workload install`](#func-workload-install) | Install a workload. |
-| [`func workload update`](#func-workload-update) | Update an installed workload in place. |
-| [`func workload uninstall`](#func-workload-uninstall) | Uninstall a workload. |
-| [`func workload prune`](#func-workload-prune) | Remove inactive side-by-side workload installs. |
-
-### `func workload list`
-
-Lists installed workloads. By default, only the loaded (highest-installed-semver) version of each workload is shown. Pass `--all-versions` to see every side-by-side install.
-
-```command
-func workload list [options]
-```
-
-| Option | Description |
-| ----- | ----- |
-| **`--all-versions`**, **`-a`** | List every installed version of every workload. Default: loaded version only. |
-| **`--json`** | Emit machine-readable JSON instead of a table. |
-
-### `func workload search`
-
-Searches the configured workload catalog for available workload packages.
-
-```command
-func workload search [<QUERY>] [options]
-```
-
-When `<QUERY>` is omitted, all workloads in the catalog are listed.
-
-| Option | Description |
-| ----- | ----- |
-| **`--source`** | Catalog source URL to search. Defaults to the configured catalog. |
-| **`--prerelease`** | Include prerelease versions in the results. Default: enabled while workloads are in preview. |
-| **`--json`** | Emit machine-readable JSON instead of a table. |
-
-### `func workload install`
-
-Resolves a workload package ID (or alias) through the configured catalog and installs it.
-
-```command
-func workload install <ID> [options]
-```
-
-`<ID>` can be a workload package ID, an alias (for example, `python`), or a path to a local workload package file.
-
-| Option | Description |
-| ----- | ----- |
-| **`--version`**, **`-v`** | Specific version to install. Default: the latest stable version in the catalog. |
-| **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
-| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
-| **`--force`**, **`-f`** | Overwrite an existing install of the same ID and version. Also skips the "use update instead" prompt. |
-| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
-
-If a version of the workload is already installed, the CLI prompts you to use `func workload update` instead. Noninteractive contexts treat the prompt as a decline.
-
-### `func workload update`
-
-Performs an in-place atomic version swap for an installed workload. Updates aren't side-by-side; for side-by-side installs use `func workload install --force`.
-
-```command
-func workload update [<ID>] [options]
-```
-
-Pass an `<ID>` to update a single workload, or `--all` to update every installed workload. Exactly one of the two must be specified.
-
-| Option | Description |
-| ----- | ----- |
-| **`--version`**, **`-v`** | Installed version to replace. Default: the highest installed version. |
-| **`--all`** | Update every installed workload. Mutually exclusive with `<ID>`. |
-| **`--major`** | Allow crossing a major-version boundary. Default: same major only. |
-| **`--source`** | Catalog source URL or local directory to resolve from. Default: the configured catalog. |
-| **`--prerelease`** | Allow prerelease versions when resolving from the catalog. Default: enabled while workloads are in preview. |
-| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
-
-### `func workload uninstall`
-
-Removes one or all installed versions of a workload.
-
-```command
-func workload uninstall <ID> [options]
-```
-
-| Option | Description |
-| ----- | ----- |
-| **`--version`**, **`-v`** | Specific version to uninstall. Default: the only installed version. |
-| **`--all-versions`**, **`-a`** | Uninstall every installed version of the workload. Mutually exclusive with `--version`. |
-| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
-
-### `func workload prune`
-
-Removes inactive side-by-side workload installs. For each in-scope package ID, the highest installed version is kept and older versions are uninstalled. This command is local-only and never touches the catalog.
-
-```command
-func workload prune [<ID>] [options]
-```
-
-When `<ID>` is omitted, every installed workload is pruned.
-
-| Option | Description |
-| ----- | ----- |
-| **`--exact`**, **`-e`** | Disable alias matching. `<ID>` must be the literal package ID. |
-
-## Workload contributions
-
-The sections below document what each stack workload adds to `func init`. Templates workloads (`<stack>-templates`) are content-only and don't change the command surface; they're consumed by `func new`. Content workloads (`host`, `bundles`, `<stack>-worker`) similarly contribute no commands.
-
-### `dotnet` workload
-
-Adds the `dotnet` stack to `func init` and contributes these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--target-framework`**, **`-tfm`** | The target .NET framework for the project (for example, `net10.0`). Default: `net10.0`. |
-
-The .NET initializer doesn't write an extension bundle block, so `--no-bundles` and `--bundles-channel` aren't applicable.
-
-### `node` workload
-
-Adds the `node` stack to `func init` and contributes these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
-| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
-| **`--skip-npm-install`** | Skip running `npm install` after project creation. |
-
-### `python` workload
-
-Adds the `python` stack to `func init` and contributes these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
-| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
-
-### `go` workload
-
-Adds the `go` stack to `func init` and contributes these options:
-
-| Option | Description |
-| ----- | ----- |
-| **`--no-bundles`** | Skip writing the default `extensionBundle` block in *host.json*. |
-| **`--bundles-channel`**, **`-c`** | Extension bundle release channel: `GA` (default), `Preview`, or `Experimental`. |
-| **`--skip-go-mod-tidy`** | Skip running `go mod tidy` after project creation. |
-
-### Shared init options
-
-When more than one installed stack contributes the same option, the option appears once in `func init --help`. The shared options today are `--no-bundles` and `--bundles-channel`. The default extension bundle ID written to *host.json* depends on the selected channel:
-
-| Channel | Bundle ID |
-| ----- | ----- |
-| `GA` (default) | `Microsoft.Azure.Functions.ExtensionBundle` |
-| `Preview` | `Microsoft.Azure.Functions.ExtensionBundle.Preview` |
-| `Experimental` | `Microsoft.Azure.Functions.ExtensionBundle.Experimental` |
-
-The default version range is `[4.*, 5.0.0)`.
-
-## Global options
-
-These options are available on most commands:
-
-| Option | Description |
-| ----- | ----- |
-| **`--help`**, **`-h`** | Display help for the command. |
-| **`--version`** | Display the Azure Functions CLI version. Use `--verbose` together with `--version` for detailed build information. |
-| **`--verbose`** | Enable verbose output. Propagates to all subcommands. When passed at the root with no subcommand, prints detailed build, runtime, OS, and architecture information. |
+Not all Functions language stacks are currently available as workloads. Java and PowerShell stacks aren't currently supported in the Azure Functions CLI.
 
 ::: zone-end
 
