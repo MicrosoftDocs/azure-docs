@@ -102,6 +102,8 @@ A *project* organizes applications and controls who has access. Create a project
 
 1. Sign in to the Logic Apps Automation portal.
 
+<a id="create-application"></a>
+
 ## 2: Create your application
 
 An *application* holds your workflows, connections, parameters, and analytics. Consider it a folder that groups related automations together. Create an application for each set of related tasks, for example, `order-processing` or `daily-reports`.
