@@ -19,11 +19,11 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+After you create an automation project, you need a way to package related workflows, connections, parameter values, analytics, and settings so they deploy and scale together. Without this boundary, automations for different business processes can get disorganized, making them harder to  independently test, monitor, and update.
 
-This quickstart shows how to create an *application* in an automation project so you can create and organize dynamically-run [*workflows*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) in Logic Apps Automation. A package that holds workflows, connections, parameters, analytics, and settings.
+In Logic Apps Automation, an *application* provides this deployable and scalable package. You create one application per logical workload, for example, `order-processing` or `daily-reports`, so each group of related automations stays self-contained inside your project.
 
- The actual automation workload or process, which includes the starting event (*trigger*) plus a series of steps (*actions*). |
-You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
+This quickstart shows how to create an application inside an existing automation project.
 
 For more information, see:
 

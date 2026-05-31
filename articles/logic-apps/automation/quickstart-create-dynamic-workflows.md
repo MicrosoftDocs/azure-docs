@@ -33,6 +33,10 @@ This quickstart shows how to create a dynamically-run [*workflow*](dynamic-workf
 
 If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
 
+
+You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
+ and then build your first workflow. By the end, you have a working automation you can test and monitor from the Logic Apps Automation portal.
+
 ## Prerequisites
 
 - An Azure account associated with a Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).

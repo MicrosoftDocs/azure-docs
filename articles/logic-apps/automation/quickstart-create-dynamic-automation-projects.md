@@ -21,13 +21,13 @@ ms.custom:
 
 When your team builds AI-driven automations, you need a way to keep applications and their workflows, connections, and other items organized, secure, and separate so that unrelated work doesn't mix together. When you don't have clear boundaries, automation assets are harder to govern and scale as your team grows.
 
-In Logic Apps Automation, a *project* solves this problem by giving you an isolated container with its own compute, networking, security, and governance. Before you can start building your dynamic workloads in Logic Apps Automation, you need to create a *project* to store your applications and their contents. Create one project per team, business area, or scenario so teams can independently build and manage their automations.
+In Logic Apps Automation, an automation *project* solves this problem by providing an isolated container with its own compute, networking, security, and governance. Before you can start building your dynamic workloads in Logic Apps Automation, you need to create a *project* to store your applications and their contents. Create one project per team, business area, or scenario so teams can independently build and manage their automations.
 
 Logic Apps Automation organizes your work at the following levels:
 
 | Level | Contents |
 |-------|----------|
-| *Project* | The top-level container that groups *applications*. As the project creator and default owner, you control access and governance at this level. This quickstart focuses on creating and managing this project. |
+| *Project* | The top-level container that groups *applications*. As the project creator and default owner, you control access and governance at this level. This quickstart focuses on creating and managing a project. |
 | *Application* | A deployable package that stores workflows, connections, parameters, analytics, settings, and other items that your automation needs. |
 | *Workflow* | The automation workload itself, which includes the starting event (*trigger*) and the steps (*actions*) to run. |
 
