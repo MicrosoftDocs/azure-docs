@@ -85,6 +85,16 @@ __App Service Migration Assistant tool and App Service migration assistant for P
 | [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/) |
 | [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/) |
 
+- [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270)
+- [Start your cloud journey with Azure App Service - Part 1](https://aka.ms/cloudjourney/start/part1)
+- [Start your cloud journey with Azure App Service - Part 2](https://aka.ms/cloudjourney/start/part2)
+- [Learn how to modernize your .NET apps from the pros](https://devblogs.microsoft.com/dotnet/learn-how-to-modernize-your-dotnet-apps/)
+
+### Learning path
+
+- [Migrate ASP.NET Apps to Azure](/training/paths/migrate-dotnet-apps-azure/)
+- [Host a web application with Azure App Service](/training/modules/host-a-web-app-with-azure-app-service/)
+- [Publish a web app to Azure with Visual Studio](/training/modules/publish-azure-web-app-with-visual-studio/)
 
 - [Reliable web app pattern for .NET](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/announcing-the-reliable-web-app-pattern-for-net/ba-p/3745270)
 - [Start your cloud journey with Azure App Service - Part 1](https://aka.ms/cloudjourney/start/part1)
