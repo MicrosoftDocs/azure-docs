@@ -1,81 +1,300 @@
 ---
-title: Set up a profile editing flow
-titleSuffix: Azure AD B2C
-description: Learn how to set up a profile editing flow in Azure Active Directory B2C.
 
+title: Configure a Profile Editing Flow in Azure AD B2C
+description: Enable users to update and manage their profile information, such as display name, name, city, and other attributes, using Azure AD B2C profile editing user flows.
 author: kengaderdus
-manager: CelesteDG
-
 ms.service: azure-active-directory
-
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
 ms.subservice: b2c
-zone_pivot_groups: b2c-policy-type
-ms.custom: sfi-image-nochange
+------------------
 
+# Configure a Profile Editing Flow in Azure AD B2C
 
-#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a profile editing flow, so that users can manage their profile attributes such as display name, surname, given name, and city.
+> [!IMPORTANT]
+> Azure Active Directory B2C is no longer available for purchase by new customers. Existing customers can continue using the service according to Microsoft's support and lifecycle policies.
 
----
+A profile editing flow allows users to update personal information stored in Azure AD B2C, such as:
 
-# Set up a profile editing flow in Azure Active Directory B2C
+* Display name
+* First name (Given name)
+* Last name (Surname)
+* City
+* Custom profile attributes
 
-[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+This capability helps users keep their account information accurate without requiring administrator intervention.
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+## How the Profile Editing Flow Works
 
-## Profile editing flow
+When a user starts the profile editing journey:
 
-Profile editing policy lets users manage their profile attributes, like display name, surname, given name, city, and others. The profile editing flow involves following steps: 
+1. The user signs in using a local account or an external identity provider.
+2. Azure AD B2C validates the user's identity.
+3. Existing profile information is retrieved from the directory.
+4. The user updates editable attributes.
+5. Azure AD B2C saves the changes.
+6. Updated claims are returned to the application.
 
-1. Sign-up or sign-in, with local or social account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
-1. Azure AD B2C reads the user profile from the directory, and let the user edit the attributes.
+### Flow Overview
 
-![Profile editing flow](./media/add-profile-editing-policy/profile-editing-flow.png)
-
+```text
+User
+  │
+  ▼
+Sign In
+  │
+  ▼
+Authenticate User
+  │
+  ▼
+Read Existing Profile
+  │
+  ▼
+Edit Attributes
+  │
+  ▼
+Save Changes
+  │
+  ▼
+Return Updated Token
+```
 
 ## Prerequisites
 
-If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+Before configuring profile editing, ensure that:
 
-::: zone pivot="b2c-user-flow"
+* An Azure AD B2C tenant is available.
+* A web or mobile application is registered in Azure AD B2C.
+* At least one sign-in method is configured (local or social identity provider).
 
-## Create a profile editing user flow
+For application registration guidance, see the Azure AD B2C application registration documentation.
 
-To enable users to edit their profile in your application, use a profile editing user flow.
+---
 
-1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
-1. On the **Create a user flow** page, select the **Profile editing** user flow. 
-1. Under **Select a version**, select **Recommended**, and then select **Create**.
-1. Enter a **Name** for the user flow. For example, *profileediting1*.
-1. Under **Identity providers** select at least one identity provider:
+# Create a Profile Editing User Flow
 
-   * Under **Local accounts**, select one of the following: **Email signin**, **User ID signin**, **Phone signin**, **Phone/Email signin**, **User ID/Email signin**, or **None**. [Learn more](sign-in-options.md).
-   * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
-1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
-1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
-1. Under **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For the full list of values, select **Show more**, choose the values, and then select **OK**.
-1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. Sign in to the Azure portal.
+2. Open your Azure AD B2C tenant.
+3. Select **User flows**.
+4. Click **New user flow**.
 
-### Test the user flow
+## Select the Flow Type
 
-1. Select the user flow you created to open its overview page, then select **Run user flow**.
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, and then sign in with the account that you previously created.
-1. You now have the opportunity to change the display name and job title for the user. Click **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
+1. Choose **Profile editing**.
+2. Under **Version**, select **Recommended**.
+3. Click **Create**.
 
-::: zone-end
+## Configure Basic Settings
 
-::: zone pivot="b2c-custom-policy"
+Enter a unique name for the flow.
 
-## Create a profile editing policy
+Example:
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+```text
+profileediting1
+```
 
-::: zone-end
+Azure AD B2C automatically creates the policy name:
 
-## Next steps
+```text
+B2C_1_profileediting1
+```
 
-* Add a [sign-in with social identity provider](add-identity-provider.md).
+## Configure Identity Providers
+
+Select at least one identity provider.
+
+### Local Accounts
+
+Available options include:
+
+* Email sign-in
+* User ID sign-in
+* Phone sign-in
+* Phone or Email sign-in
+* User ID or Email sign-in
+
+### Social Identity Providers
+
+You can also allow authentication through providers such as:
+
+* Google
+* Facebook
+* Microsoft Account
+* LinkedIn
+* Enterprise identity providers
+
+## Configure Multi-Factor Authentication (Optional)
+
+If additional security is required:
+
+1. Enable Multi-Factor Authentication (MFA).
+2. Select the preferred verification method.
+3. Define when MFA should be enforced.
+
+Common options include:
+
+* Always require MFA
+* Require MFA only under specific conditions
+
+## Configure Conditional Access (Optional)
+
+If Conditional Access policies are configured:
+
+1. Enable **Enforce conditional access policies**.
+2. Azure AD B2C automatically evaluates applicable policies during the user journey.
+
+## Select Editable User Attributes
+
+Choose the profile fields users can modify.
+
+Common selections include:
+
+* Display Name
+* Given Name
+* Surname
+* City
+* Postal Code
+* Country/Region
+* Job Title
+
+To view additional attributes:
+
+1. Select **Show more**.
+2. Choose the required attributes.
+3. Click **OK**.
+
+## Create the User Flow
+
+After configuration is complete:
+
+1. Review the settings.
+2. Select **Create**.
+
+The profile editing flow is now available for use by your applications.
+
+---
+
+# Test the Profile Editing Flow
+
+After creating the flow, verify that it works correctly.
+
+## Run the Flow
+
+1. Open the newly created profile editing flow.
+2. Select **Run user flow**.
+3. Choose the application you registered earlier.
+
+Example:
+
+```text
+webapp1
+```
+
+4. Verify the Reply URL.
+
+Example:
+
+```text
+https://jwt.ms
+```
+
+5. Click **Run user flow**.
+
+## Sign In
+
+Authenticate using an existing Azure AD B2C account.
+
+After successful authentication:
+
+* Current profile values are displayed.
+* Editable fields can be modified.
+
+Example updates:
+
+* Display Name
+* Job Title
+* City
+
+Select **Continue** to save changes.
+
+## Verify Results
+
+After completion:
+
+1. Azure AD B2C updates the directory profile.
+2. An ID token is issued.
+3. The token is returned to the configured application.
+4. If using `https://jwt.ms`, the updated claims are displayed for inspection.
+
+---
+
+# Custom Policy Support
+
+Organizations requiring advanced customization can implement profile editing using Azure AD B2C custom policies.
+
+Custom policies provide:
+
+* Fully customized user journeys
+* Advanced claim transformations
+* Integration with external systems
+* Custom validation logic
+* Dynamic profile management
+
+Profile editing starter packs are available as part of the Azure AD B2C custom policy framework.
+
+For implementation guidance, see the Azure AD B2C custom policy documentation.
+
+---
+
+# Best Practices
+
+Consider the following recommendations when designing profile editing experiences:
+
+✅ Allow users to update only necessary attributes
+
+✅ Enable MFA for sensitive profile updates
+
+✅ Use Conditional Access for additional protection
+
+✅ Validate user input before saving
+
+✅ Keep the profile editing experience simple and focused
+
+✅ Test with both local and social identities
+
+---
+
+# Troubleshooting
+
+## Profile Editing Page Does Not Appear
+
+Verify that:
+
+* The user flow type is **Profile editing**
+* The application is correctly registered
+* The redirect URI is configured correctly
+
+## Updated Values Are Not Returned
+
+Check that:
+
+* The attribute is selected in the user flow
+* The claim is included in the application token configuration
+
+## Social Account Users Cannot Edit Profiles
+
+Confirm that:
+
+* The external identity provider is configured correctly
+* Required profile attributes exist in Azure AD B2C
+
+---
+
+# Next Steps
+
+* Configure social identity providers.
+* Enable Multi-Factor Authentication.
+* Configure Conditional Access policies.
+* Implement custom policies for advanced profile management.
+* Integrate the profile editing flow into your application sign-in experience.
