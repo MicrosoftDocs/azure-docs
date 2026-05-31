@@ -13,7 +13,7 @@ ms.custom:
 #Customer intent: As an automation developer, I want to learn the differences between the automation models in Azure Logic Apps and non-Microsoft tools. I want to choose the best option for my business requirements, scenarios, workloads, and processes.
 ---
 
-# Compare Logic Apps Automation, Standard, Consumption, and other tools (preview)
+# Compare Logic Apps Automation and other automation, Standard, Consumption, and other tools (preview)
 
 > [!NOTE]
 >

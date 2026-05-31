@@ -35,7 +35,7 @@ This quickstart shows how to create a project and add team members to your proje
 
 For more information, see:
 
-- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
 - [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology)
 
 ## Prerequisites
@@ -52,7 +52,7 @@ For more information, see:
 
 ## Create your automation project
 
-A *project* organizes applications and controls who has access. Create a project for each business area or team.
+To create a container for your applications and control who has access, follow these steps:
 
 1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Azure account.
 

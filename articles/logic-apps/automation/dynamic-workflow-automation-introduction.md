@@ -57,6 +57,8 @@ For more comparison information, use the following table to review your options:
 | Governance and operations | Enterprise controls, monitoring, and tracing | Enterprise controls, monitoring, and diagnostics | Varies by platform maturity |
 | Learning curve | Faster for intent-driven, agentic patterns | Faster for explicit process modeling | Depends on platform and team experience |
 
+For more information, see [Compare automation tools](compare-automation-tools.md).
+
 ## How Logic Apps Automation works
 
 Logic Apps Automation uses a *probabilistic* approach that supports agentic behavior. The runtime performs the following tasks:
