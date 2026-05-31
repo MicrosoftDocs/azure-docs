@@ -1,7 +1,7 @@
 ---
 title: Create Projects for Dynamic Automation
 titleSuffix: Logic Apps Automation
-description: Create projects in Logic Apps Automation so you can organize and build applications for dynamically-run, AI-driven workflows.
+description: Create projects in Logic Apps Automation to build and organize applications for dynamically-run, AI-driven workflows.
 services: azure-logic-apps
 ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
 - build-2026
-#Customer intent: As an automation developer, I need to create my first project in Logic Apps Automation so I can build, store, and organize applications for my dynamically-run, AI-powered workflows.
+#Customer intent: As an automation developer, I need to create my first project in Logic Apps Automation so I can build and organize applications for my dynamically-run, AI-powered workflows.
 ---
 
 # Quickstart: Create projects in Logic Apps Automation (preview)
@@ -19,25 +19,28 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Before you start building dynamic workloads in Logic Apps Automation, you need a *project* to store your applications, which contain the workflows, connections, and other items that your automations need. This project organizes applications into a single isolated container with its own compute, networking, security, and governance. You can create a project per team, business area, or scenario so your team can build and keep their automations separate from unrelated projects.
+When your team builds AI-driven automations, you need a way to keep applications and their workflows, connections, and other items organized, secure, and separate so that unrelated work doesn't mix together. When you don't have clear boundaries, automation assets are harder to govern and scale as your team grows.
+
+In Logic Apps Automation, a *project* solves this problem by giving you an isolated container with its own compute, networking, security, and governance. Before you can start building your dynamic workloads in Logic Apps Automation, you need to create a *project* to store your applications and their contents. Create one project per team, business area, or scenario so teams can independently build and manage their automations.
 
 Logic Apps Automation organizes your work at the following levels:
 
 | Level | Contents |
 |-------|----------|
-| *Project* | The top-level container that stores and groups *applications*. |
-| *Application* | A deployable package that holds workflows, connections, parameters, analytics, settings, and other items that your automation needs. |
-| *Workflow* | The actual automation workload or process, which includes the starting event (*trigger*) and the steps (*actions*) to perform. |
+| *Project* | The top-level container that groups *applications*. As the project creator and default owner, you control access and governance at this level. This quickstart focuses on creating and managing this project. |
+| *Application* | A deployable package that stores workflows, connections, parameters, analytics, settings, and other items that your automation needs. |
+| *Workflow* | The automation workload itself, which includes the starting event (*trigger*) and the steps (*actions*) to run. |
 
-This quickstart shows how to create a project and add team members to your project. 
+This quickstart shows how to create a project and add team members to your project so they can create applications and their workflows. 
 
-If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+For more information, see:
 
-For the full list of components and terminology, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology).
+- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+- [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology)
 
 ## Prerequisites
 
-- An Azure account and subscription that uses a work or school account. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription that uses a Microsoft work or school account. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
   > [!NOTE]
   >
@@ -47,7 +50,7 @@ For the full list of components and terminology, see [Key concepts and terminolo
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-## Create an automation project
+## Create your automation project
 
 A *project* organizes applications and controls who has access. Create a project for each business area or team.
 
@@ -92,13 +95,13 @@ A *project* organizes applications and controls who has access. Create a project
 
    The portal opens and shows your project's home page.
 
-Before you can start building workflows, you need create an application as a deployable package that contains these workflows. For more information, see [Create your application](quickstart-create-dynamic-workflows.md#create-application).
+Before you can start building workflows, you need to create an application as a deployable package that contains these workflows. For more information, see [Create your application](quickstart-create-dynamic-workflows.md#create-application).
 
 Before others can work in your project, you need to [add them as members](#add-project-members).
 
-### Project ownership
+#### Project ownership
 
-By default, as the project creator, you're also the project owner and appear in the **Project Owner** project property.
+By default, when you create a project, you're also the project owner and appear in the **Project Owner** project property.
 
 - The project owner is a property, not a permission level. You can't clear or remove this property value.
 
@@ -110,7 +113,7 @@ By default, as the project creator, you're also the project owner and appear in 
 
 ## Add project members
 
-Before others can create applications and workflows in your project, first add them as project members by following these steps:
+Before others can create applications and workflows in your project, add them as project members by following these steps:
 
 1. In the [Logic Apps Automation portal](https://auto.azure.com), find and open your project.
 
@@ -118,7 +121,7 @@ Before others can create applications and workflows in your project, first add t
 
 1. In the **Users** section, select **Add user**.
 
-1. On the **Add role assignment** pane, in the **Select user** box, start entering the email address for the person you want to add.
+1. On the **Add role assignment** pane, in the **Select user** box, enter the email address for the person you want to add.
 
    The **Select user** list shows only people in the same Microsoft Entra tenant as you.
 
@@ -128,9 +131,9 @@ Before others can create applications and workflows in your project, first add t
 
    | Role | Can | Can't |
    |------|-----|-------|
-   | **Reader** (view only) | - View only the project settings, members list, sandbox configurations, and shared resources. <br>- View workflow run history. | - Create, edit, or delete any anything. <br>- View applications. <br>- Trigger or cancel workflow runs. <br>- Manage permissions. |
+   | **Reader** (view only) | - View only the project settings, members list, sandbox configurations, and shared resources. <br>- View workflow run history. | - Create, edit, or delete anything. <br>- View applications. <br>- Trigger or cancel workflow runs. <br>- Manage permissions. |
    | **Author** | - Create applications, sandbox configurations, and shared resources. <br>- View the project settings, members list, and sandbox configurations. | - Edit the project settings and manage project members. <br>- View applications or their content without explicit app-level permissions. |
-   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit app-level permmissions. |
+   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit app-level permissions. |
 
    > [!NOTE]
    >
@@ -138,10 +141,11 @@ Before others can create applications and workflows in your project, first add t
    >
    > Project contributors or owners can view application metadata for governance, but not the content. Applications often contain automation that connects to personal accounts. So, privacy by default keeps this data obscured unless explicitly shared.
    >
-   > Application owners or contributs can explicitly add members by granting application-lvel roles. To grant access to a specific application, open that application, go to **Settings**, **User permissions**, and add the member you want.
+   > Application owners or contributors can explicitly add members by granting application-level roles. To grant access to a specific application, open that application, go to **Settings**, **User permissions**, and add the member you want.
 
 ## Related content
 
 - [About Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [Create automation applications](quickstart-create-automation-applications.md)
 - [Create dynamic workflows for automation](quickstart-create-dynamic-workflows.md)
 - [Compare automation tools](compare-automation-tools.md)
