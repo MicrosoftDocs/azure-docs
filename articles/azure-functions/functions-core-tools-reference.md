@@ -12,7 +12,7 @@ zone_pivot_groups: func-cli-versions
 
 # Azure Functions local runtime and tools reference
 
-This article provides reference documentation for the local runtime and tools that support Azure Functions, which you can use to develop, manage, and run Azure Functions projects from your local computer. The binary name is `func` (or `func.exe` on Windows).
+This article provides reference documentation for the local runtime and tools that support Azure Functions. Use these tools to develop, manage, and run Azure Functions projects from your local computer. The binary name is `func` (or `func.exe` on Windows).
 
 Two versions of the CLI are available. Use the version selector to choose which version to view.
 
@@ -174,7 +174,7 @@ When more than one installed workload contributes the same option, the option ap
 
 ### Shared options 
 
-Currently, she shared options are `--no-bundles` and `--bundles-channel`. The default extension bundle ID written to *host.json* depends on the selected channel:
+Currently, the shared options are `--no-bundles` and `--bundles-channel`. The default extension bundle ID that you write to *host.json* depends on the selected channel:
 
 | Channel | Bundle ID |
 | ----- | ----- |
@@ -785,7 +785,7 @@ For more information, see [download a storage connection string](functions-run-l
 
 ## `func azurecontainerapps deploy`
 
-Deploys a containerized function app to an Azure Container Apps environment. The default host storage aaccount, function app, and the environment must already exist. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).  
+Deploys a containerized function app to an Azure Container Apps environment. The default host storage account, function app, and the environment must already exist. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).  
 
 ```command
 func azurecontainerapps deploy --name <APP_NAME> --environment <ENVIRONMENT_NAME> --storage-account <STORAGE_CONNECTION> --resource-group <RESOURCE_GROUP> --image-name <IMAGE_NAME> --registry-server <REGISTRY_SERVER> --registry-username <USERNAME> --registry-password <PASSWORD>
@@ -1298,41 +1298,28 @@ Most commands support these options:
 | **`--version`** | Display the Azure Functions CLI version. Use `--verbose` together with `--version` for detailed build information. |
 | **`--verbose`** | Enable verbose output. Propagates to all subcommands. When passed at the root with no subcommand, prints detailed build, runtime, OS, and architecture information. |
 
-## Workload roles
-
-Each workload serves a specific role in the CLI:
-
-| Role | Purpose |
-| ----- | ----- |
-| **`host`** | The Azure Functions host runtime used by `func run`. |
-| **`bundles`** | Prebuilt Azure Functions extension bundle artifacts so triggers and bindings work out of the box. |
-| **Stack** (`python`, `node`, `dotnet`, `go`) | Project initialization and language-specific tooling for `func init`. Also contributes templates for `func quickstart`. |
-| **Worker** (`python-worker`, `node-worker`, `go-worker`) | The language worker that the Functions host uses to execute your functions at run time. |
-| **Templates** (`python-templates`, `node-templates`, `dotnet-templates`) | Function templates surfaced by `func new`. One package per stack; each ships independently and side-by-side. |
-
-> [!NOTE]
-> Use the `bundles` workload for any non-.NET stack. .NET projects reference extensions through their project file directly and don't need it. .NET also doesn't require a separate worker workload, because the worker is part of the compiled project itself.
-
-### Available workloads
+## Available workloads
 
 Run `func workload search` to see the current catalog. The following workloads are currently available:
 
-| Name | Display name | Description |
+| Name | Role | Description |
 | ----- | ----- | ----- |
-| `host` | Functions Host | The Azure Functions host runtime used by `func run`. |
-| `bundles` | Extension Bundles | Pre-built Azure Functions extension bundle artifacts. |
-| `dotnet` | .NET | Azure Functions CLI tooling for .NET (C#, F#) projects. |
-| `dotnet-templates` | .NET templates | Function-scaffold templates for .NET isolated worker projects. |
-| `python` | Python | Azure Functions CLI tooling for Python projects. |
-| `python-worker` | Python worker | The Python language worker used by the Functions host. |
-| `python-templates` | Python templates | Function-scaffold templates for Python (v1 and v2 programming models). |
-| `node` | Node.js | Azure Functions CLI tooling for Node.js projects (JavaScript, TypeScript). |
-| `node-worker` | Node.js worker | The Node.js language worker used by the Functions host. |
-| `node-templates` | Node.js templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
-| `go` | Go | Azure Functions CLI tooling for Go projects. |
-| `go-worker` | Go worker | The Go language worker used by the Functions host. |
+| `host` | Host | The Azure Functions host runtime used by `func run`. |
+| `bundles` | Bundles | Install [extension bundles](extension-bundles.md), which enable all binding extensions. Use this workload for any non-.NET stack. .NET projects don't use this workload. Instead, they reference extensions directly in their projects. |
+| `dotnet` | Stack | Azure Functions CLI tooling for .NET (C#, F#) projects. Also contributes templates for `func quickstart`. .NET doesn't require a separate worker workload, because the worker is part of the compiled project itself. |
+| `dotnet-templates` | Templates | Function-scaffold templates for .NET isolated worker projects. |
+| `python` | Stack | Azure Functions CLI tooling for Python projects. Also contributes templates for `func quickstart`. |
+| `python-worker` | Worker | The Python language worker used by the Functions host. |
+| `python-templates` | Templates | Function-scaffold templates for Python (v1 and v2 programming models). |
+| `node` | Stack | Azure Functions CLI tooling for Node.js projects (JavaScript, TypeScript). Also contributes templates for `func quickstart`. |
+| `node-worker` | Worker | The Node.js language worker used by the Functions host. |
+| `node-templates` | Templates | Function-scaffold templates for Node.js (JavaScript, TypeScript). |
+| `go` | Stack | Azure Functions CLI tooling for Go projects. Also contributes templates for `func quickstart`. |
+| `go-worker` | Worker | The Go language worker used by the Functions host. |
 
-Not all Functions language stacks are currently available as workloads. Java and PowerShell stacks aren't currently supported in the Azure Functions CLI.
+
+>[!NOTE]  
+>Not all Functions language stacks are currently available as workloads. Java and PowerShell stacks aren't currently supported in the Azure Functions CLI.
 
 ::: zone-end
 
