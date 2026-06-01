@@ -9,11 +9,7 @@ ms.author: padmalathas
 # Azure CycleCloud Workspace for Slurm
 
 
-<<<<<<< Updated upstream
-The current release is `2026.04.08`.
-=======
 The current release is `2026.06.02`.
->>>>>>> Stashed changes
 
 
 ## Release Notes
