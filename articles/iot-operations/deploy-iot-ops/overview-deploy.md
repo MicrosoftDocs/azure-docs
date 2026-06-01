@@ -5,11 +5,12 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
 ms.date: 11/10/2025
+ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
 
-# Deployment details
+# Deployment overview
 
 When you deploy Azure IoT Operations, you install a suite of services on an Azure Arc-enabled Kubernetes cluster. This article provides an overview of the different deployment options to consider for your scenario.
 
@@ -51,7 +52,7 @@ To deploy Azure IoT Operations with test settings, follow these articles:
 1. Then, follow the steps in [Deploy Azure IoT Operations to a test cluster](./howto-deploy-iot-test-operations.md).
 
 > [!TIP]
-> At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
+> At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
@@ -62,7 +63,8 @@ A deployment with secure settings has the following characteristics:
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
-1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
+1. Start with [Deployment planning](../deployment-plan/deployment-planning.md) to review architecture, sizing, and broker configuration decisions. Many MQTT broker settings can't be changed after deployment.
+1. Then, [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, follow the steps in [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
 
 [!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
@@ -73,7 +75,7 @@ The following table describes Azure IoT Operations deployment and management tas
 
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
-| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](../secure-iot-ops/built-in-rbac.md#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
+| Deploy Azure IoT Operations | [Azure IoT Operations Onboarding role](#azure-iot-operations-onboarding-role) | This role has all required permissions to read and write Azure IoT operations and Azure Device Registry resources. This role has `Microsoft.Authorization/roleAssignments/write` permissions.|
 | Register resource providers | [Contributor role](/azure/role-based-access-control/built-in-roles/privileged#contributor) at subscription level| Only required to do once per subscription. You need to register the following resource providers: `Microsoft.ExtendedLocation`, `Microsoft.SecretSyncController`, `Microsoft.Kubernetes`, `Microsoft.KubernetesConfiguration`, `Microsoft.IoTOperations`, and `Microsoft.DeviceRegistry`. |
 | Create secrets in Key Vault | [Key Vault Secrets Officer role](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-officer) at the resource level | Only required for secure settings deployment to synchronize secrets from Azure Key Vault. |
 | Create and manage storage accounts | [Storage Account Contributor role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor) | Required for Azure IoT Operations deployment. |
@@ -85,11 +87,50 @@ The following table describes Azure IoT Operations deployment and management tas
 > [!TIP]
 > You must enable resource sync on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery?](../discover-manage-assets/overview-akri.md)
 
-If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
+If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example:
+
+```azurecli
+az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup
+```
 
 If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
 
 :::image type="content" source="./media/overview-deploy/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+
+### Built-in RBAC roles
+
+Azure IoT Operations offers two built-in roles designed to simplify and secure access management for AIO resources. If your scenario requires more granular access, you can [create a custom RBAC role](../reference/custom-rbac.md).
+
+> [!IMPORTANT]
+> The built-in roles for AIO streamline access management for AIO resources, but don't automatically grant permissions for all required Azure dependencies. AIO relies on several Azure services, such as Azure Key Vault, Azure Storage, Azure Arc, and others. Always review and assign the necessary additional roles to ensure users have end-to-end access for successful AIO deployment and operation.
+
+#### Azure IoT Operations Administrator role
+
+The Azure IoT Operations Administrator role provides comprehensive permissions to manage and operate all Azure IoT Operations components. Assign this role to users who need full access to use AIO resources. To support deployment and ongoing management of AIO, users require additional permissions. If a user only needs to use AIO, you can assign the Administrator role alone.
+
+When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
+
+- Azure Edge Hardware Center Administrator role: This role grants access to manage and take action as an edge order administrator. It is used for ordering and managing Azure Stack Edge devices.
+- [Azure Arc Enabled Kubernetes Cluster User role:](/azure/role-based-access-control/built-in-roles/containers#azure-arc-enabled-kubernetes-cluster-user-role) This role is used to manage Azure Arc-enabled Kubernetes clusters by providing permission to write deployments, manage subscriptions, and handle connected clusters and extensions.
+- [Key Vault Administrator role:](/azure/role-based-access-control/built-in-roles/security#key-vault-administrator) This role allows the user to manage all aspects of Azure Key Vaults, including creating, maintaining, viewing, and deleting keys, certificates, and secrets.
+- [Kubernetes Extension Contributor role:](/azure/role-based-access-control/built-in-roles/containers#kubernetes-extension-contributor) This role allows users to manage Kubernetes extensions, including creating, updating, and deleting extensions.
+- [Managed Identity Contributor role:](/azure/role-based-access-control/built-in-roles/identity#managed-identity-contributor) This role allows the user to manage managed identities, including creating, updating, and deleting user-assigned managed identities.
+- [Monitoring Contributor role:](/azure/role-based-access-control/built-in-roles/monitor#monitoring-contributor) This role allows the user to read all monitoring data and update monitoring settings.
+- Resource Group Contributor role: This role grants permissions to manage resources within a resource group, including creating, updating, and deleting resources.
+- Secrets Store Extension Owner role: This role allows the user to manage the Secrets Store extension, which synchronizes secrets from Azure Key Vault to Kubernetes clusters.
+- [Storage Account Contributor role:](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor) This role allows the user to manage storage accounts, including creating, updating, and deleting storage accounts, as well as managing access keys and other settings.
+
+#### Azure IoT Operations Onboarding role
+
+AIO Onboarding is a specialized role that provides the necessary permissions to deploy Azure IoT Operations components.
+
+When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
+
+- [Azure Resource Bridge Deployment role:](/azure/role-based-access-control/built-in-roles/hybrid-multicloud#azure-resource-bridge-deployment-role) This role is used to manage the deployment of the Azure Resource Bridge. It includes permissions to read, write, and delete various resources related to the Resource Bridge, such as appliances, locations, and telemetry configurations.
+- [Kubernetes Cluster -- Azure Arc Onboarding role:](/azure/role-based-access-control/built-in-roles/containers#kubernetes-cluster---azure-arc-onboarding) This role is used for onboarding Kubernetes clusters to Azure Arc.
+- [Storage Account Contributor role:](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor) This role allows the user to manage storage accounts, including creating, updating, and deleting storage accounts, as well as managing access keys and other settings.
+- Resource Group Contributor role: This role grants permissions to manage resources within a resource group, including creating, updating, and deleting resources.
+- [Azure Arc Enabled Kubernetes Cluster User role:](/azure/role-based-access-control/built-in-roles/containers#azure-arc-enabled-kubernetes-cluster-user-role) This role is used to manage Azure Arc-enabled Kubernetes clusters by providing permission to write deployments, manage subscriptions, and handle connected clusters and extensions.
 
 ## Organize instances by using sites
 
@@ -151,4 +192,4 @@ The following diagram shows an example deployment that illustrates how to mainta
 
 ## Next steps
 
-[Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable a cluster for Azure IoT Operations.
+[Plan your deployment](../deployment-plan/deployment-planning.md) to review architecture, sizing, and broker configuration decisions before deploying.

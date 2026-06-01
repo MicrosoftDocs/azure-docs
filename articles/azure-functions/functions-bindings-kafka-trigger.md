@@ -14,6 +14,10 @@ Use the Apache Kafka trigger in Azure Functions to run your function code in res
 [!INCLUDE [functions-binding-kafka-plan-support-note](../../includes/functions-binding-kafka-plan-support-note.md)]
 
 ## Example
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 The usage of the trigger depends on the C# modality used in your function app, which can be one of the following modes:

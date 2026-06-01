@@ -256,6 +256,16 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 >[!IMPORTANT]  
 >SDK types aren't currently supported for PowerShell apps.
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go supports SDK client injection for triggers that provide Azure SDK clients. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+
+For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
+::: zone-end
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.
